@@ -1,0 +1,39 @@
+{
+  "name": "mybusiness",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider ng serve",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build",
+    "build:css": "tailwind build src/styles.css -o dist/styles.css",
+    "watch:css": "tailwind build src/styles.css -o dist/styles.css --watch",
+    "docs": "compodoc -p tsconfig.json -s"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^7.2.16",
+    "@angular/common": "^7.2.16",
+    "@angular/compiler": "^7.2.16",
+    "@angular/core": "^7.2.16",
+    "@angular/forms": "^7.2.16",
+    "@angular/platform-browser": "^7.2.16",
+    "@angular/platform-browser-dynamic": "^7.2.16",
+    "@angular/router": "^7.2.16",
+    "core-js": "^2.6.12",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.9",
+    "@angular/cli": "~7.3.9",
+    "@angular/compiler-cli": "^7.2.16",
+    "@babel/core": "^7.26.10",
+    "@babel/plugin-transform-private-methods": "^7.25.9",
+    "@compodoc/compodoc": "^1.1.26",
+    "@types/node": "~12.11.1",
+    "tailwindcss": "^1.9.6",
+    "typescript": "~3.1.6",
+    "webpack": "^4.39.2"
+  }
+}

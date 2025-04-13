@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/@compodoc/compodoc/src/config-schema.json",
+  "tsconfig": "./tsconfig.json",
+  "output": "./documentation",
+  "name": "MyBusiness Documentation",
+  "disableCoverage": true,
+  "disableInternal": false,
+  "disablePrivate": true,
+  "disableProtected": true,
+  "disableGraph": false,
+  "disableRoutesGraph": false,
+  "disableDependencies": false,
+  "disableConstructors": false,
+  "disableMainGraph": false,
+  "disableElementsGraph": false,
+  "assetsFolder": "./documentation/assets",
+  "includes": [
+    "src/**/*.ts",
+    "src/**/*.html",
+    "src/**/*.scss"
+  ],
+  "excludes": [
+    "src/test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.module.ts"
+  ],
+  "search": true,
+  "serve": true,
+  "port": 8080,
+  "theme": "material",
+  "customFavIcon": "./documentation/assets/favicon.ico",
+  "customLogo": "./documentation/assets/logo.png",
+  "customStyles": "./documentation/assets/custom.css",
+  "customScripts": "./documentation/assets/custom.js",
+  "silent": false,
+  "exportFormat": "html"
+} 
