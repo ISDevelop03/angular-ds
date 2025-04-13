@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core';
     <button
       [ngClass]="[
         baseClasses,
-        variant === 'primary' ? primaryClasses : secondaryClasses,
+        variantClasses[variant],
         sizeClasses[size]
       ]"
       type="button"
@@ -28,7 +28,7 @@ export class ButtonComponent {
    * The visual style variant of the button
    * @default 'primary'
    */
-  @Input() variant: 'primary' | 'secondary' = 'primary';
+  @Input() variant: 'primary' | 'secondary' | 'tertiary' = 'primary';
 
   /**
    * The size of the button which affects padding and font size
@@ -39,11 +39,12 @@ export class ButtonComponent {
   /** Base Tailwind classes applied to all button variants */
   protected baseClasses = 'inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
-  /** Classes applied to primary variant */
-  protected primaryClasses = 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500';
-  
-  /** Classes applied to secondary variant */
-  protected secondaryClasses = 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500';
+  /** Classes applied based on variant selection */
+  protected variantClasses: Record<string, string> = {
+    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
+    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
+    tertiary: 'bg-transparent text-blue-600 border-2 border-blue-600 hover:bg-blue-50 focus:ring-blue-500'
+  };
   
   /** Classes applied based on size selection */
   protected sizeClasses: Record<string, string> = {
