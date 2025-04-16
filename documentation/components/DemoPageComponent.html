@@ -278,6 +278,7 @@ export class DemoPageComponent {
     &lt;div class&#x3D;&quot;flex gap-4&quot;&gt;
       &lt;ds-button variant&#x3D;&quot;primary&quot; size&#x3D;&quot;medium&quot;&gt;Primary Button&lt;/ds-button&gt;
       &lt;ds-button variant&#x3D;&quot;secondary&quot; size&#x3D;&quot;medium&quot;&gt;Secondary Button&lt;/ds-button&gt;
+      &lt;ds-button variant&#x3D;&quot;tertiary&quot; size&#x3D;&quot;medium&quot;&gt;Tertiary Button&lt;/ds-button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
@@ -332,8 +333,8 @@ export class DemoPageComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="p-8 space-y-8">  <div class="space-y-4">    <h2 class="text-2xl font-bold">Button Variants</h2>    <div class="flex gap-4">      <ds-button variant="primary" size="medium">Primary Button</ds-button>      <ds-button variant="secondary" size="medium">Secondary Button</ds-button>    </div>  </div>  <div class="space-y-4">    <h2 class="text-2xl font-bold">Button Sizes</h2>    <div class="flex items-center gap-4">      <ds-button variant="primary" size="small">Small Button</ds-button>      <ds-button variant="secondary" size="medium">Medium Button</ds-button>      <ds-button variant="primary" size="large">Large Button</ds-button>    </div>  </div>  <div class="space-y-4">    <h2 class="text-2xl font-bold">Interactive Example</h2>    <div class="flex gap-4">      <ds-button variant="primary" size="medium" (click)="handleClick()">Click Me!</ds-button>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'DemoPageComponent', 'selector': 'app-demo-page'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'}];
+        var COMPONENT_TEMPLATE = '<div><div class="p-8 space-y-8">  <div class="space-y-4">    <h2 class="text-2xl font-bold">Button Variants</h2>    <div class="flex gap-4">      <ds-button variant="primary" size="medium">Primary Button</ds-button>      <ds-button variant="secondary" size="medium">Secondary Button</ds-button>      <ds-button variant="tertiary" size="medium">Tertiary Button</ds-button>    </div>  </div>  <div class="space-y-4">    <h2 class="text-2xl font-bold">Button Sizes</h2>    <div class="flex items-center gap-4">      <ds-button variant="primary" size="small">Small Button</ds-button>      <ds-button variant="secondary" size="medium">Medium Button</ds-button>      <ds-button variant="primary" size="large">Large Button</ds-button>    </div>  </div>  <div class="space-y-4">    <h2 class="text-2xl font-bold">Interactive Example</h2>    <div class="flex gap-4">      <ds-button variant="primary" size="medium" (click)="handleClick()">Click Me!</ds-button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'DemoPageComponent', 'selector': 'app-demo-page'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DemoPageComponent'};
 </script>

@@ -1,0 +1,55 @@
+<aside
+  class="max-w-[225px] w-full dark:bg-zinc-800 bg-zinc-100 fixed min-h-screen shrink-0"
+>
+  <div class="space-y-4 flex-col flex justify-center items-center p-4">
+    <div class="w-[150px] mx-auto asepct-[16/9]">
+      <img
+        src="/assets/logo-sgma.svg"
+        alt="{{ title }}"
+        class="w-full h-full dark:hidden block"
+      />
+      <img
+        src="/assets/logo-sgma-white.svg"
+        alt="{{ title }}"
+        class="w-full h-full dark:block hidden"
+      />
+    </div>
+
+    <div class="w-full text-center">
+      <h1 class="text-xl font-bold">
+        {{ title }}
+      </h1>
+      <span class="text-xs inline-block">Design System</span>
+    </div>
+  </div>
+  <ul class="py-6 w-full h-full">
+    <li *ngFor="let menu of menus" class="group text-sm w-full">
+      <a
+        routerLink="{{ menu.path }}"
+        class="w-full gap-2 items-center inline-flex transition-all duration-300 ease-in-out group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700 py-2 px-4"
+        [routerLinkActive]="['dark:bg-zinc-700', 'bg-zinc-200']"
+      >
+        <ds-icon
+          id="folder-open"
+          [class]="
+            'size-4 group-hover:text-zinc-900 dark:group-hover:text-zinc-300 transition-all duration-300 ease-in-out ' +
+            (currentPath === menu.path
+              ? 'dark:text-white text-zinc-900'
+              : 'dark:text-zinc-600 text-zinc-500')
+          "
+        ></ds-icon>
+        {{ menu.name }}
+      </a>
+    </li>
+  </ul>
+
+  <button
+    (click)="toggleTheme()"
+    class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded border border-zinc-300 dark:border-zinc-700 p-2"
+    [attr.aria-label]="
+      'Toggle theme to ' + (theme === 'dark' ? 'light' : 'dark')
+    "
+  >
+    <ds-icon [id]="theme === 'dark' ? 'sun' : 'moon'"></ds-icon>
+  </button>
+</aside>

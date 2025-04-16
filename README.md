@@ -3,6 +3,12 @@
 ## Run App
 
 ```bash
+npm run build:css
+```
+
+then
+
+```bash
 npm run start
 ```
 
@@ -11,4 +17,3 @@ npm run start
 ```bash
 npm run docs
 ```
-

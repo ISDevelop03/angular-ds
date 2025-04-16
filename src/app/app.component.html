@@ -1,3 +1,6 @@
-
-
-<router-outlet></router-outlet>
+<div class="min-h-screen flex items-start justify-start">
+  <app-sidebar [title]="title" [menus]="menus"></app-sidebar>
+  <main class="w-full ml-[225px]">
+    <router-outlet></router-outlet>
+  </main>
+</div>

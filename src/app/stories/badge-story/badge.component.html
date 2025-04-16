@@ -1,0 +1,17 @@
+<app-drawer
+  [title]="'Badge Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-badge
+    [label]="props.label"
+    [icon]="props.icon"
+    [href]="props.href"
+    [variant]="props.variant"
+    [size]="props.size"
+    [pill]="props.pill"
+    [className]="props.className"
+  ></ds-badge>
+</app-drawer>

@@ -18,13 +18,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "dist/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["dist/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -82,33 +77,34 @@
       }
     },
     "design-system": {
-      "projectType": "library",
       "root": "projects/design-system",
       "sourceRoot": "projects/design-system/src",
+      "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
+            "tsConfig": "projects/design-system/tsconfig.lib.json",
             "project": "projects/design-system/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/design-system/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/design-system/tsconfig.lib.json"
-            }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "main": "projects/design-system/src/test.ts",
             "tsConfig": "projects/design-system/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "karmaConfig": "projects/design-system/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/design-system/tsconfig.lib.json",
+              "projects/design-system/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

@@ -1,0 +1,24 @@
+<div class="p-4">
+  <ul
+    class="grid grid-cols-[repeat(auto-fill,_minmax(132px,_1fr))] gap-6 text-center text-xs leading-4"
+  >
+    <li
+      *ngFor="let icon of icons"
+      class="flex flex-col items-center justify-center gap-2"
+    >
+      <button
+        type="button"
+        (click)="copyToClipboard(icon)"
+        class="h-24 w-full flex items-center justify-center border dark:border-gray-800 rounded-lg hover:bg-gray-300 dark:hover:bg-zinc-800 transition"
+      >
+        <ds-icon
+          [id]="icon"
+          class="dark:text-gray-200 text-gray-800 w-8 h-8"
+        ></ds-icon>
+      </button>
+      <h3 class="truncate text-sm dark:text-gray-300 text-gray-700">
+        {{ icon }}
+      </h3>
+    </li>
+  </ul>
+</div>

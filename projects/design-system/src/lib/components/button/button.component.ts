@@ -1,55 +1,84 @@
-import { Component, Input } from '@angular/core';
-
-/**
- * A reusable button component that supports different variants and sizes.
- * 
- * @example
- * ```html
- * <ds-button variant="primary" size="medium">Click me</ds-button>
- * ```
- */
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { defaultTheme } from './theme';
 @Component({
   selector: 'ds-button',
-  template: `
-    <button
-      [ngClass]="[
-        baseClasses,
-        variantClasses[variant],
-        sizeClasses[size]
-      ]"
-      type="button"
-    >
-      <ng-content></ng-content>
-    </button>
-  `
+  templateUrl: './button.component.html',
 })
-export class ButtonComponent {
-  /**
-   * The visual style variant of the button
-   * @default 'primary'
-   */
-  @Input() variant: 'primary' | 'secondary' | 'tertiary' = 'primary';
+export class ButtonComponent implements OnInit {
+  // Inputs similar to the React props
+  @Input() icon: string;
+  @Input() iconRight: string;
+  @Input() iconLeft: string;
+  @Input() type = 'button';
+  @Input() className = '';
+  @Input() variant = 'primary';
+  @Input() size = 'normal';
+  @Input() disabled = false;
+  @Input() outline = false;
+  @Input() pill = false;
+  @Input() href: string;
+  @Input() target: string = null;
+  @Input() isLoading = false;
+  @Input() theme: any;
 
-  /**
-   * The size of the button which affects padding and font size
-   * @default 'medium'
-   */
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+  defaultTheme = defaultTheme;
+  // Output for click events
+  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
 
-  /** Base Tailwind classes applied to all button variants */
-  protected baseClasses = 'inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
-  
-  /** Classes applied based on variant selection */
-  protected variantClasses: Record<string, string> = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
-    tertiary: 'bg-transparent text-blue-600 border-2 border-blue-600 hover:bg-blue-50 focus:ring-blue-500'
-  };
-  
-  /** Classes applied based on size selection */
-  protected sizeClasses: Record<string, string> = {
-    small: 'px-3 py-1.5 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg'
-  };
-} 
+  // Use the provided theme or fall back to the default one
+  get appliedTheme() {
+    return this.theme || this.defaultTheme;
+  }
+
+  // Compute the CSS class string using logic similar to vclsx in React
+  get computedClass(): string {
+    const theme = this.appliedTheme;
+    const classes = [];
+
+    classes.push(theme.base);
+    if (this.icon) {
+      classes.push(theme.size[this.size].icon);
+    } else {
+      classes.push(theme.size[this.size].text);
+    }
+    if (this.outline) {
+      classes.push(theme.outlineVariants[this.variant]);
+    } else {
+      classes.push(theme.variants[this.variant]);
+    }
+    if (this.disabled) {
+      classes.push(theme.disabled.base);
+      if (this.outline) {
+        classes.push(theme.disabled.outlined[this.variant]);
+      } else {
+        classes.push(theme.disabled.basic[this.variant]);
+      }
+    }
+    if (this.pill) {
+      classes.push('!rounded-full');
+    }
+    if (this.isLoading) {
+      classes.push('px-6');
+    }
+    if (this.className) {
+      classes.push(this.className);
+    }
+
+    return classes.join(' ');
+  }
+
+  ngOnInit() {
+    // This replicates the React behavior where a link cannot be disabled.
+    if (this.href && this.disabled) {
+      throw new Error('A link cannot be disabled.');
+    }
+  }
+
+  handleClick(event: Event) {
+    if (this.disabled) {
+      event.preventDefault();
+      return;
+    }
+    this.onClick.emit(event);
+  }
+}

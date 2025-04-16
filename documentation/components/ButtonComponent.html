@@ -102,6 +102,10 @@
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
         <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
             <a href="#tree" class="nav-link"
                 role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
@@ -153,21 +157,11 @@
 
 
 
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;button
-  [ngClass]&#x3D;&quot;[
-    baseClasses,
-    variant &#x3D;&#x3D;&#x3D; &#x27;primary&#x27; ? primaryClasses : secondaryClasses,
-    sizeClasses[size]
-  ]&quot;
-  type&#x3D;&quot;button&quot;
-&gt;
-  &lt;ng-content&gt;&lt;/ng-content&gt;
-&lt;/button&gt;
-</code></pre></td>
-            </tr>
 
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>button.component.html</code></td>
+            </tr>
 
 
 
@@ -198,15 +192,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#primaryClasses" >primaryClasses</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#secondaryClasses" >secondaryClasses</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
                                 <a href="#sizeClasses" >sizeClasses</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#variantClasses" >variantClasses</a>
                             </li>
                         </ul>
                     </td>
@@ -262,7 +252,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -283,7 +273,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>&quot;primary&quot; | &quot;secondary&quot;</code>
+                        <i>Type : </i>    <code>&quot;primary&quot; | &quot;secondary&quot; | &quot;tertiary&quot;</code>
 
                     </td>
                 </tr>
@@ -294,7 +284,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:20</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -340,89 +330,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:29</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Base Tailwind classes applied to all button variants</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="primaryClasses"></a>
-                    <span class="name">
-                            <span class="modifier">Protected</span>
-                        <span ><b>primaryClasses</b></span>
-                        <a href="#primaryClasses"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500&#x27;</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:43</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Classes applied to primary variant</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="secondaryClasses"></a>
-                    <span class="name">
-                            <span class="modifier">Protected</span>
-                        <span ><b>secondaryClasses</b></span>
-                        <a href="#secondaryClasses"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500&#x27;</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:46</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Classes applied to secondary variant</p>
 </div>
                 </td>
             </tr>
@@ -452,19 +366,63 @@
                         <i>Default value : </i><code>{
     small: &#x27;px-3 py-1.5 text-sm&#x27;,
     medium: &#x27;px-4 py-2 text-base&#x27;,
-    large: &#x27;px-6 py-3 text-lg&#x27;
+    large: &#x27;px-6 py-3 text-lg&#x27;,
   }</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:42</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Classes applied based on size selection</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="variantClasses"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>variantClasses</b></span>
+                        <a href="#variantClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    primary: &#x27;bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500&#x27;,
+    secondary:
+      &#x27;bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500&#x27;,
+    tertiary:
+      &#x27;bg-transparent text-blue-600 border-2 border-blue-600 hover:bg-blue-50 focus:ring-blue-500&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/design-system/src/lib/components/button/button.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Classes applied based on variant selection</p>
 </div>
                 </td>
             </tr>
@@ -481,7 +439,7 @@
 
 /**
  * A reusable button component that supports different variants and sizes.
- * 
+ *
  * @example
  * &#x60;&#x60;&#x60;html
  * &lt;ds-button variant&#x3D;&quot;primary&quot; size&#x3D;&quot;medium&quot;&gt;Click me&lt;/ds-button&gt;
@@ -489,25 +447,14 @@
  */
 @Component({
   selector: &#x27;ds-button&#x27;,
-  template: &#x60;
-    &lt;button
-      [ngClass]&#x3D;&quot;[
-        baseClasses,
-        variant &#x3D;&#x3D;&#x3D; &#x27;primary&#x27; ? primaryClasses : secondaryClasses,
-        sizeClasses[size]
-      ]&quot;
-      type&#x3D;&quot;button&quot;
-    &gt;
-      &lt;ng-content&gt;&lt;/ng-content&gt;
-    &lt;/button&gt;
-  &#x60;
+  templateUrl: &#x27;button.component.html&#x27;,
 })
 export class ButtonComponent {
   /**
    * The visual style variant of the button
    * @default &#x27;primary&#x27;
    */
-  @Input() variant: &#x27;primary&#x27; | &#x27;secondary&#x27; &#x3D; &#x27;primary&#x27;;
+  @Input() variant: &#x27;primary&#x27; | &#x27;secondary&#x27; | &#x27;tertiary&#x27; &#x3D; &#x27;primary&#x27;;
 
   /**
    * The size of the button which affects padding and font size
@@ -516,23 +463,37 @@ export class ButtonComponent {
   @Input() size: &#x27;small&#x27; | &#x27;medium&#x27; | &#x27;large&#x27; &#x3D; &#x27;medium&#x27;;
 
   /** Base Tailwind classes applied to all button variants */
-  protected baseClasses &#x3D; &#x27;inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2&#x27;;
-  
-  /** Classes applied to primary variant */
-  protected primaryClasses &#x3D; &#x27;bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500&#x27;;
-  
-  /** Classes applied to secondary variant */
-  protected secondaryClasses &#x3D; &#x27;bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500&#x27;;
-  
+  protected baseClasses &#x3D;
+    &#x27;inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2&#x27;;
+
+  /** Classes applied based on variant selection */
+  protected variantClasses: Record&lt;string, string&gt; &#x3D; {
+    primary: &#x27;bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500&#x27;,
+    secondary:
+      &#x27;bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500&#x27;,
+    tertiary:
+      &#x27;bg-transparent text-blue-600 border-2 border-blue-600 hover:bg-blue-50 focus:ring-blue-500&#x27;,
+  };
+
   /** Classes applied based on size selection */
   protected sizeClasses: Record&lt;string, string&gt; &#x3D; {
     small: &#x27;px-3 py-1.5 text-sm&#x27;,
     medium: &#x27;px-4 py-2 text-base&#x27;,
-    large: &#x27;px-6 py-3 text-lg&#x27;
+    large: &#x27;px-6 py-3 text-lg&#x27;,
   };
-} </code></pre>
+}
+</code></pre>
     </div>
 
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;button
+  [ngClass]&#x3D;&quot;[baseClasses, variantClasses[variant], sizeClasses[size]]&quot;
+  type&#x3D;&quot;button&quot;
+&gt;
+  &lt;ng-content&gt;&lt;/ng-content&gt;
+&lt;/button&gt;
+</code></pre>
+    </div>
 
 
     <div class="tab-pane fade " id="tree">
@@ -560,8 +521,8 @@ export class ButtonComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><button  [ngClass]="[    baseClasses,    variant === \'primary\' ? primaryClasses : secondaryClasses,    sizeClasses[size]  ]"  type="button">  <ng-content></ng-content></button></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'DemoPageComponent', 'selector': 'app-demo-page'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'}];
+        var COMPONENT_TEMPLATE = '<div><button  [ngClass]="[baseClasses, variantClasses[variant], sizeClasses[size]]"  type="button">  <ng-content></ng-content></button></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'DemoPageComponent', 'selector': 'app-demo-page'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ButtonComponent'};
 </script>

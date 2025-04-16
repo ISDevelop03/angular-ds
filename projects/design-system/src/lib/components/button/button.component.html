@@ -1,0 +1,61 @@
+<!-- If href is provided, render an anchor element -->
+<ng-container *ngIf="href; else buttonTemplate">
+  <a
+    [href]="href"
+    [attr.target]="target"
+    [ngClass]="computedClass"
+    (click)="handleClick($event)"
+  >
+    <ng-container *ngIf="isLoading; else contentAnchor">
+      <ds-icon id="Loader" class="absolute z-30 size-5 animate-spin"></ds-icon>
+    </ng-container>
+    <ng-template #contentAnchor>
+      <span [ngClass]="appliedTheme.contentWrapper">
+        <ng-container *ngIf="icon; else projectedContentAnchor">
+          <ds-icon [id]="icon" class="size-5"></ds-icon>
+        </ng-container>
+        <ng-template #projectedContentAnchor>
+          <ng-container *ngIf="iconLeft">
+            <ds-icon [id]="iconLeft" class="size-5"></ds-icon>
+          </ng-container>
+          <!-- Content projection for button text -->
+          <ng-content></ng-content>
+          <ng-container *ngIf="iconRight">
+            <ds-icon [id]="iconRight" class="size-5"></ds-icon>
+          </ng-container>
+        </ng-template>
+      </span>
+    </ng-template>
+  </a>
+</ng-container>
+
+<!-- Button element if no href is provided -->
+<ng-template #buttonTemplate>
+  <button
+    [type]="type"
+    [disabled]="disabled"
+    [ngClass]="computedClass"
+    (click)="handleClick($event)"
+  >
+    <ng-container *ngIf="isLoading; else contentButton">
+      <ds-icon id="Loader" class="absolute z-30 size-5 animate-spin"></ds-icon>
+    </ng-container>
+    <ng-template #contentButton>
+      <span [ngClass]="appliedTheme.contentWrapper">
+        <ng-container *ngIf="icon; else projectedContentButton">
+          <ds-icon [id]="icon" class="size-5"></ds-icon>
+        </ng-container>
+        <ng-template #projectedContentButton>
+          <ng-container *ngIf="iconLeft">
+            <ds-icon [id]="iconLeft" class="size-5"></ds-icon>
+          </ng-container>
+          <!-- Content projection for button text -->
+          <ng-content></ng-content>
+          <ng-container *ngIf="iconRight">
+            <ds-icon [id]="iconRight" class="size-5"></ds-icon>
+          </ng-container>
+        </ng-template>
+      </span>
+    </ng-template>
+  </button>
+</ng-template>
