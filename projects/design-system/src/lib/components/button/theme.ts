@@ -22,34 +22,34 @@ export const defaultTheme = {
   },
   size: {
     small: {
-      text: 'py-2 px-4',
+      text: 'py-2 px-4 text-[12px] leading-[14px]',
       icon: 'p-2.5',
     },
     normal: {
-      text: 'py-[8px] px-4',
+      text: 'py-[12px] px-4 text-[12px] leading-[14px]',
       icon: 'p-2.5',
     },
     medium: {
-      text: 'py-[12px] px-[20px]',
+      text: 'py-[12px] px-[20px] text-[12px] leading-[14px]',
       icon: 'p-4',
     },
     large: {
-      text: 'py-[16px] px-[24px] !text-base',
+      text: 'py-[16px] px-[24px] text-[12px] leading-[14px]',
       icon: 'p-6',
     },
   },
   variants: {
     primary:
-      'text-[12px] leading-[14px] font-[700] border-2 border-red-500 bg-red-500 text-white hover:bg-red-600 hover:border-red-600',
+      ' font-[700] border-2 border-red-500 bg-red-500 text-white hover:bg-red-600 hover:border-red-600',
     secondary:
-      'text-[12px] leading-[24px] font-[700] border-2 border-black bg-black text-white hover:bg-black/80 hover:!border-black/10',
+      'font-[700] border-2 border-black bg-black text-white hover:bg-black/80 hover:!border-black/10',
     green:
-      'text-[12px] leading-[24px] font-[700] border-2 border-green-500 bg-green-500 text-white hover:bg-green-500/80 hover:!border-green-500/10',
+      'font-[700] border-2 border-green-500 bg-green-500 text-white hover:bg-green-500/80 hover:!border-green-500/10',
     yellow:
-      'text-[12px] leading-[24px] font-[700] border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-yellow-500/80 hover:!border-yellow-500/10',
+      'font-[700] border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-yellow-500/80 hover:!border-yellow-500/10',
     white:
-      'text-[12px] leading-[24px] font-[700] border-2 border-gray-100 bg-white text-gray-900 hover:bg-primary-400 hover:border-primary-400 hover:text-white',
-    dark: 'text-[12px] leading-[24px] font-[700] border-2 border-gray-300 bg-gray-300 text-white hover:bg-gray-400 hover:border- hover:text-white',
+      'font-[700] border-2 border-gray-100 bg-white text-gray-900 hover:bg-primary-400 hover:border-primary-400 hover:text-white',
+    dark: 'font-[700] border-2 border-gray-300 bg-gray-300 text-white hover:bg-gray-400 hover:border- hover:text-white',
   },
   outlineVariants: {
     primary:

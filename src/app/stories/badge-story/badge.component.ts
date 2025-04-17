@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { controls } from './controls';
+import { convertArrayToObject } from 'utils';
 
 @Component({
   selector: 'app-badge',
@@ -8,15 +9,7 @@ import { controls } from './controls';
 export class BadgeStoryComponent {
   isDrawerOpen = true;
 
-  props = {
-    label: 'New',
-    icon: 'check', // example icon id
-    href: '',
-    variant: 'default',
-    size: 'sm',
-    pill: false,
-    className: '',
-  };
+  props = convertArrayToObject(controls);
 
   controls = controls;
 

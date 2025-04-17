@@ -1,6 +1,7 @@
 // button.component.ts
 import { Component } from '@angular/core';
 import { controls } from './controls';
+import { convertArrayToObject } from 'utils';
 
 @Component({
   selector: 'app-button',
@@ -11,18 +12,7 @@ export class ButtonStoryComponent {
 
   controls = controls;
 
-  props: any = {
-    variant: 'primary',
-    size: 'normal',
-    disabled: false,
-    outline: false,
-    pill: false,
-    isLoading: false,
-    content: 'Click me',
-    icon: null,
-    iconLeft: 'arrow-left',
-    iconRight: 'arrow-right',
-  };
+  props = convertArrayToObject(controls);
 
   onButtonClick(event: Event): void {
     console.log('Button clicked!', event);

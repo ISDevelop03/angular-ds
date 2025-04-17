@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "@sg/design-system",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^7.2.16",
@@ -7,6 +7,9 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "sideEffects": false
 }

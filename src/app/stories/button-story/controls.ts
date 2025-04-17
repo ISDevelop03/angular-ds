@@ -53,12 +53,12 @@ export const controls = [
     name: 'iconLeft',
     label: 'Button Text',
     type: 'text',
-    value: 'arrow-left',
+    value: '',
   },
   {
     name: 'iconRight',
     label: 'Icon Right',
     type: 'text',
-    value: 'arrow-right',
+    value: '',
   },
 ];

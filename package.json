@@ -1,16 +1,25 @@
 {
   "name": "mybusiness",
   "version": "0.0.0",
+  "repository": {
+    "directory": "projects/design-system",
+    "type": "git",
+    "url": "git+https://bitbucket.org/adminvoid/starter-angular7.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build:app": "ng build --project=mybusiness",
-    "build:ds": "ng build --project=design-system",
+    "build:ds": "ng build --project=design-system && cp dist/styles.css dist/@sg/design-system && cp src/assets/icons.svg dist/@sg/design-system",
     "build:css": "tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css",
     "watch:css": "tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --watch",
     "docs": "compodoc -p tsconfig.json -s"
   },
+  "files": [
+    "dist",
+    "dist/styles.css"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^7.2.16",
