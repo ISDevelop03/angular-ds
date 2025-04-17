@@ -1,5 +1,5 @@
 export const defaultTheme = {
-  base: 'h-[40px] relative w-fit box-border flex items-center justify-center active:outline-none transition ease-in-out duration-300 gap-3 rounded-[2px] text-center',
+  base: 'relative w-fit box-border flex items-center justify-center active:outline-none transition ease-in-out duration-300 gap-3 text-center rounded',
   contentWrapper: 'flex items-center justify-center gap-3',
   disabled: {
     base: 'cursor-not-allowed',
@@ -22,7 +22,7 @@ export const defaultTheme = {
   },
   size: {
     small: {
-      text: 'py-[5px] px-4',
+      text: 'py-2 px-4',
       icon: 'p-2.5',
     },
     normal: {
@@ -40,7 +40,7 @@ export const defaultTheme = {
   },
   variants: {
     primary:
-      'text-[12px] leading-[24px] font-[700] border-2 border-primary bg-primary text-white hover:bg-primary/80 hover:border-primary/40',
+      'text-[12px] leading-[14px] font-[700] border-2 border-red-500 bg-red-500 text-white hover:bg-red-600 hover:border-red-600',
     secondary:
       'text-[12px] leading-[24px] font-[700] border-2 border-black bg-black text-white hover:bg-black/80 hover:!border-black/10',
     green:

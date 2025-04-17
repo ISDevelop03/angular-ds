@@ -22,7 +22,7 @@
     >
       <h3 class="text-xl font-semibold">{{ title }}</h3>
       <button
-        class="text-gray-300 hover:text-gray-700 focus:outline-none"
+        class="dark:text-gray-300 text-gray-600 hover:text-gray-700 focus:outline-none"
         (click)="toggle()"
       >
         Close
@@ -43,11 +43,13 @@
             *ngSwitchCase="'boolean'"
             type="checkbox"
             class="h-4 w-4"
+            [name]="control.name"
             [checked]="control.value"
             (change)="onControlChange(control.name, $event.target.checked)"
           />
         </ng-container>
         <label
+          [for]="control.name"
           class="text-sm font-medium dark:text-gray-400 text-gray-700 mb-1"
         >
           {{ control.label }}
@@ -56,6 +58,7 @@
           <input
             *ngSwitchCase="'text'"
             type="text"
+            [name]="control.name"
             class="border dark:border-gray-500 dark:bg-zinc-800 bg-white rounded px-3 py-2"
             [value]="control.value"
             (input)="onControlChange(control.name, $event.target.value)"
@@ -63,6 +66,7 @@
           <input
             *ngSwitchCase="'number'"
             type="number"
+            [name]="control.name"
             class="border dark:border-gray-500 dark:bg-zinc-800 bg-white rounded px-3 py-2"
             [value]="control.value"
             (input)="onControlChange(control.name, $event.target.value)"
@@ -72,6 +76,7 @@
             *ngSwitchCase="'select'"
             class="border dark:border-gray-500 dark:bg-zinc-800 bg-white rounded px-3 py-2"
             [value]="control.value"
+            [name]="control.name"
             (change)="onControlChange(control.name, $event.target.value)"
           >
             <option *ngFor="let option of control.options" [value]="option">
