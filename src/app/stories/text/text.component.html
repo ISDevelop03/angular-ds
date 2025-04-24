@@ -1,14 +1,38 @@
-<app-drawer
-  [title]="'Text Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
+<div class="p-4 grid gap-6">
+  <h3>Basic Usage</h3>
+  <ds-text content="Hello World" variant="text-base/Regular"></ds-text>
+
+  <h3>Different Typography Variants</h3>
+  <div class="space-y-2">
+    <ds-text
+      *ngFor="let v of variants"
+      [content]="'Variant: ' + v"
+      [variant]="v"
+    ></ds-text>
+  </div>
+
+  <h3>Custom HTML Tags</h3>
+  <ds-text content="Heading as H1" tag="h1" variant="text-xl/Bold"></ds-text>
   <ds-text
-    [variant]="props.variant"
-    [tag]="props.tag"
-    [className]="props.className"
-    [content]="props.content"
+    content="Subheading as H2"
+    tag="h2"
+    variant="text-lg/Semibold"
   ></ds-text>
-</app-drawer>
+  <ds-text
+    content="Paragraph with P"
+    tag="p"
+    variant="text-base/Regular"
+  ></ds-text>
+  <ds-text
+    content="Span with inline text"
+    tag="span"
+    variant="text-sm/Medium"
+  ></ds-text>
+
+  <h3>With Custom Class</h3>
+  <ds-text
+    content="Styled with underline and color"
+    variant="text-md/Regular"
+    className="underline text-primary"
+  ></ds-text>
+</div>

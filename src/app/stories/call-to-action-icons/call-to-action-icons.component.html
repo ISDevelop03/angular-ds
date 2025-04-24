@@ -1,12 +1,19 @@
-<app-drawer
-  [title]="'Call To Action Icons Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
+<div class="p-4 grid gap-6">
+  <h3>Basic Action Icons</h3>
   <ds-call-to-action-icons
-    [className]="props.className"
-    [actions]="props.actions"
+    [actions]="actionsBasic"
+    className="w-fit"
   ></ds-call-to-action-icons>
-</app-drawer>
+
+  <h3>With Custom Button Styling</h3>
+  <ds-call-to-action-icons
+    [actions]="actionsCustom"
+    className="w-fit"
+  ></ds-call-to-action-icons>
+
+  <h3>With Wrapper Custom Class</h3>
+  <ds-call-to-action-icons
+    [actions]="actionsBasic"
+    className="w-fit bg-gray-300 shadow p-2"
+  ></ds-call-to-action-icons>
+</div>

@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
-import { convertArrayToObject } from 'utils';
-import { controls } from './controls';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
 })
 export class TabsStoryComponent {
-  isDrawerOpen = true;
-  controls = controls;
-  props = convertArrayToObject(this.controls);
+  tabsDefault = [
+    { title: 'Tab 1', panel: 'This is the content for Tab 1' },
+    { title: 'Tab 2', panel: 'Content for the second tab appears here.' },
+    { title: 'Tab 3', panel: 'Another panel of content for tab three.' },
+  ];
 
-  onDrawerClosed() {
-    this.isDrawerOpen = false;
-  }
-
-  onControlChanged({ name, value }) {
-    this.props[name] = value;
-  }
+  tabsCustom = [
+    { title: 'Overview', panel: 'Welcome to the overview section.' },
+    { title: 'Settings', panel: 'Adjust your preferences here.' },
+    { title: 'Activity', panel: 'Latest activity will be shown here.' },
+  ];
 }

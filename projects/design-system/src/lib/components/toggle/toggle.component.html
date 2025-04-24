@@ -1,0 +1,21 @@
+<div
+  (click)="toggleChecked()"
+  class="relative inline-flex cursor-pointer items-center h-[30px] rounded-full w-[50px]"
+  [ngClass]="[
+    enabled
+      ? theme.toggle[variant].switch.enabled
+      : theme.toggle[variant].switch.disabled,
+    theme.toggle[variant].switch.className,
+    disabled ? 'cursor-not-allowed opacity-50' : '',
+    className
+  ]"
+>
+  <span
+    [ngClass]="[
+      enabled
+        ? theme.toggle[variant].switch.span.enabled
+        : theme.toggle[variant].switch.span.disabled,
+      theme.toggle[variant].switch.span.className
+    ]"
+  ></span>
+</div>

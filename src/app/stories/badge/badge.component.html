@@ -1,17 +1,51 @@
-<app-drawer
-  [title]="'Badge Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
-  <ds-badge
-    [label]="props.label"
-    [icon]="props.icon"
-    [href]="props.href"
-    [variant]="props.variant"
-    [size]="props.size"
-    [pill]="props.pill"
-    [className]="props.className"
-  ></ds-badge>
-</app-drawer>
+<div class="p-4 grid gap-6">
+  <h3>Variants</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      *ngFor="let variant of variants"
+      [label]="variant"
+      [variant]="variant"
+    ></ds-badge>
+  </div>
+
+  <h3>Sizes</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      *ngFor="let size of sizes"
+      label="Badge Size"
+      [size]="size"
+      variant="default"
+    ></ds-badge>
+  </div>
+
+  <h3>Pill Style</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge label="Rounded Pill" variant="success" [pill]="true"></ds-badge>
+  </div>
+
+  <h3>With Icons</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge label="With Icon" icon="check" variant="primary"></ds-badge>
+  </div>
+
+  <h3>As Link</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      label="Clickable Badge"
+      href="https://example.com"
+      variant="info"
+    ></ds-badge>
+  </div>
+
+  <h3>Combined Demo</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      label="All in One"
+      icon="check"
+      href="https://example.com"
+      [pill]="true"
+      size="lg"
+      variant="recommanded"
+    ></ds-badge>
+  </div>
+</div>

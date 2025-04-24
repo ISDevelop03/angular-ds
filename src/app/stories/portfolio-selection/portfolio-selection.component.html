@@ -1,0 +1,12 @@
+<div class="p-6 space-y-4">
+  <h2 class="text-lg font-bold mb-4">Portfolio Selection Component</h2>
+
+  <ds-portfolio-selection
+    [list]="list"
+    [selectedItem]="selectedItem"
+    [setSelectedItem]="updateSelection"
+    className="max-w-[237px]"
+  ></ds-portfolio-selection>
+
+  <p class="text-sm text-gray-700">Selected: {{ selectedItem?.name }}</p>
+</div>

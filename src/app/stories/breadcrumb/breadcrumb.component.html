@@ -1,15 +1,16 @@
-<app-drawer
-  [title]="'Breadcrumb Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
+<div class="p-4 grid gap-6">
+  <h3>Basic Breadcrumb</h3>
+  <ds-breadcrumb [pages]="pages"></ds-breadcrumb>
+
+  <h3>With Home Link</h3>
+  <ds-breadcrumb [pages]="pages" homeUrl="/"></ds-breadcrumb>
+
+  <h3>Limited View (showLimit: true)</h3>
+  <ds-breadcrumb [pages]="pages" [showLimit]="true" homeUrl="/"></ds-breadcrumb>
+
+  <h3>Custom Class + Active Page</h3>
   <ds-breadcrumb
-    [homeUrl]="props.homeUrl"
-    [variant]="props.variant"
-    [className]="props.className"
-    [pages]="props.pages"
-    [showLimit]="props.showLimit"
+    [pages]="pagesWithCurrent"
+    className="bg-gray-100 p-4 rounded"
   ></ds-breadcrumb>
-</app-drawer>
+</div>

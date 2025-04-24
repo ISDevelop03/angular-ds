@@ -1,51 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { AccordionItem } from 'projects/design-system/src/lib/components/accordion/accordion.component';
-import { controls as baseControls } from './controls';
-import { convertArrayToObject } from 'utils';
 
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.component.html',
 })
 export class AccordionStoryComponent {
-  isDrawerOpen = true;
-  controls = baseControls;
-  props = convertArrayToObject(baseControls);
+  @ViewChild('templateOne') templateOne!: TemplateRef<any>;
+  @ViewChild('templateTwo') templateTwo!: TemplateRef<any>;
 
-  // default items if JSON is invalid
-  readonly DEFAULT_ITEMS: AccordionItem[] = [
+  defaultItems: AccordionItem[] = [
     {
-      id: '1',
-      title: 'Section 1',
-      content: 'Content for section 1',
-      open: true,
+      id: 'default-1',
+      title: 'Default Accordion 1',
+      caption: 'This is the first default item',
+      content: '<p>Default content one</p>',
     },
-    { id: '2', title: 'Section 2', content: 'Content for section 2' },
-    { id: '3', title: 'Section 3', content: 'Content for section 3' },
+    {
+      id: 'default-2',
+      title: 'Default Accordion 2',
+      content: '<p>Default content two</p>',
+    },
   ];
 
-  /** parse the JSON from the controls into AccordionItem[] */
-  get parsedItems(): AccordionItem[] {
-    try {
-      return JSON.parse(this.props.items);
-    } catch {
-      return this.DEFAULT_ITEMS;
-    }
+  borderItems: AccordionItem[] = [
+    {
+      id: 'border-1',
+      title: 'Border Accordion 1',
+      caption: 'With border and multiple open',
+      content: '<p>More info here</p>',
+    },
+    {
+      id: 'border-2',
+      title: 'Border Accordion 2',
+      content: '<p>Additional info</p>',
+    },
+  ];
+
+  whiteItems: AccordionItem[] = [];
+
+  ngAfterViewInit() {
+    this.whiteItems = [
+      {
+        id: 'white-1',
+        title: 'White Accordion 1',
+        content: this.templateOne,
+      },
+      {
+        id: 'white-2',
+        title: 'White Accordion 2',
+        caption: 'With projected template',
+        content: this.templateTwo,
+      },
+    ];
   }
 
-  onItemToggled(item: AccordionItem) {
-    console.log('Toggled:', item);
-  }
-
-  onDrawerClosed() {
-    this.isDrawerOpen = false;
-  }
-
-  onControlChanged(event: { name: string; value: any }) {
-    // update props; keep items as raw JSON string
-    this.props = {
-      ...this.props,
-      [event.name]: event.value,
-    };
+  onAccordionOpen(item: AccordionItem) {
+    console.log('Accordion item opened:', item);
   }
 }

@@ -1,22 +1,35 @@
 import { Component } from '@angular/core';
-import { convertArrayToObject } from 'utils';
-import { controls } from './controls';
+import { ActionItem } from 'projects/design-system/src/lib/components/actions-layout/theme';
 
 @Component({
   selector: 'app-actions-layout',
   templateUrl: './actions-layout.component.html',
 })
 export class ActionsLayoutStoryComponent {
-  isDrawerOpen = true;
-  controls = controls;
-
-  props: any = convertArrayToObject(controls);
-
-  onDrawerClosed() {
-    this.isDrawerOpen = false;
-  }
-
-  onControlChanged({ name, value }: any) {
-    this.props[name] = value;
-  }
+  mockItems: ActionItem[] = [
+    {
+      iconId: 'eye-slash',
+      handler: () => {
+        console.log('Eye slash clicked');
+      },
+    },
+    {
+      iconId: 'notification',
+      handler: () => {
+        console.log('Notification clicked');
+      },
+    },
+    {
+      iconId: 'message',
+      handler: () => {
+        console.log('Message clicked');
+      },
+    },
+    {
+      iconId: 'element-plus',
+      handler: () => {
+        console.log('Element Plus clicked');
+      },
+    },
+  ];
 }

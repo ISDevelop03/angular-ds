@@ -1,0 +1,38 @@
+<section class="relative overflow-visible" [ngClass]="className">
+  <ds-portfolio-item
+    [id]="selectedPortfolio?.id"
+    [image]="selectedPortfolio?.image"
+    [name]="selectedPortfolio?.name"
+    [reference]="selectedPortfolio?.reference"
+    [sector]="selectedPortfolio?.sector"
+    [showList]="showList"
+    (onClick)="toggleList()"
+  ></ds-portfolio-item>
+
+  <div
+    *ngIf="showList"
+    tabIndex="0"
+    role="button"
+    class="fixed inset-0 bg-black/30 w-screen h-screen z-[110]"
+    (click)="closeList()"
+  ></div>
+
+  <div
+    *ngIf="showList"
+    class="absolute left-0 top-[70px] bg-level-4 rounded-md z-[111] p-3.5 w-max transition ease-in-out duration-300 transform scale-100 opacity-100"
+  >
+    <div class="grid gap-3.5 grid-cols-2">
+      <ds-portfolio-item
+        *ngFor="let item of list"
+        [id]="item.id"
+        [image]="item.image"
+        [name]="item.name"
+        [reference]="item.reference"
+        [sector]="item.sector"
+        [isActive]="item.id === selectedPortfolio?.id"
+        [noSelected]="true"
+        (onClick)="onSelect(item)"
+      ></ds-portfolio-item>
+    </div>
+  </div>
+</section>

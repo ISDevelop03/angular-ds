@@ -1,0 +1,49 @@
+<div
+  tabindex="0"
+  role="button"
+  (click)="handleClick()"
+  class="group relative flex items-center gap-2.5 rounded-[6px] border transition-all ease-in-out duration-300"
+  [ngClass]="[
+    noSelected
+      ? 'hover:shadow-portfolio hover:bg-white bg-level-3 hover:text-heading p-3 border-neutral-200'
+      : 'border-neutral-200 bg-neutral-100 px-[12px] py-[8px]',
+    isActive ? 'shadow-portfolio bg-white' : '',
+    className || ''
+  ]"
+>
+  <div
+    *ngIf="isActive"
+    class="absolute right-1 top-1 border border-primary flex justify-center items-center rounded-full overflow-hidden size-2.5 shrink-0 transition-opacity ease-in-out duration-300 group-hover:opacity-100"
+  >
+    <span class="inline-block bg-primary rounded-full size-1"></span>
+  </div>
+
+  <div *ngIf="image && name" class="shrink-0 rounded-[6px] overflow-hidden">
+    <img [src]="image" [alt]="name" class="size-[41px]" />
+  </div>
+
+  <div class="w-full text-custom-black space-y-2">
+    <h4 *ngIf="name" class="text-[14px] leading-[14px] font-bold">
+      {{ name }}
+    </h4>
+
+    <div
+      *ngIf="reference && !noSelected"
+      class="flex items-center w-full justify-between gap-2"
+    >
+      <p class="text-[10px] leading-[10px] font-[400]">{{ reference }}</p>
+      <ds-icon
+        id="arrow-down"
+        class="size-4 transition-transform ease-in-out duration-300"
+        [ngClass]="{ 'rotate-180': showList }"
+      ></ds-icon>
+    </div>
+
+    <p
+      *ngIf="reference && noSelected"
+      class="text-[12px] leading-[12px] font-[400]"
+    >
+      {{ reference }}
+    </p>
+  </div>
+</div>

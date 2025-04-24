@@ -4,9 +4,13 @@
   <div class="grid gap-2">
     <div><strong>Filled</strong></div>
     <div class="flex gap-2 flex-wrap">
-      <ds-button *ngFor="let variant of variants" [variant]="variant"
-        >{{ variant }} filled</ds-button
+      <ds-button
+        *ngFor="let variant of variants"
+        [variant]="variant"
+        (click)="onButtonClick($event)"
       >
+        {{ variant }} filled
+      </ds-button>
     </div>
   </div>
 
@@ -17,6 +21,7 @@
         *ngFor="let variant of variants"
         [variant]="variant"
         [outline]="true"
+        (click)="onButtonClick($event)"
         >{{ variant }} outline</ds-button
       >
     </div>
@@ -26,6 +31,7 @@
     <div><strong>Disabled</strong></div>
     <div class="flex gap-2 flex-wrap">
       <ds-button
+        (click)="onButtonClick($event)"
         *ngFor="let variant of variants"
         [variant]="variant"
         [disabled]="true"
@@ -38,6 +44,7 @@
     <div><strong>Outline + Disabled</strong></div>
     <div class="flex gap-2 flex-wrap">
       <ds-button
+        (click)="onButtonClick($event)"
         *ngFor="let variant of variants"
         [variant]="variant"
         [outline]="true"
@@ -51,7 +58,10 @@
   <div class="grid gap-2 mt-4">
     <div><strong>Sizes</strong></div>
     <div class="flex gap-2 flex-wrap">
-      <ds-button *ngFor="let size of sizes" [size]="size"
+      <ds-button
+        *ngFor="let size of sizes"
+        [size]="size"
+        (click)="onButtonClick($event)"
         >Size: {{ size }}</ds-button
       >
     </div>
@@ -60,16 +70,24 @@
   <div class="grid gap-2 mt-4">
     <div><strong>With Icons</strong></div>
     <div class="flex gap-2 flex-wrap">
-      <ds-button icon="ArrowRight">Only Icon</ds-button>
-      <ds-button iconLeft="ArrowLeft">Left Icon</ds-button>
-      <ds-button iconRight="ArrowRight">Right Icon</ds-button>
+      <ds-button icon="arrow-right" (click)="onButtonClick($event)"
+        >Only Icon</ds-button
+      >
+      <ds-button iconLeft="arrow-left" (click)="onButtonClick($event)"
+        >Left Icon</ds-button
+      >
+      <ds-button iconRight="arrow-right" (click)="onButtonClick($event)"
+        >Right Icon</ds-button
+      >
     </div>
   </div>
 
   <div class="grid gap-2 mt-4">
     <div><strong>Loading</strong></div>
     <div class="flex gap-2 flex-wrap">
-      <ds-button [isLoading]="true">Loading...</ds-button>
+      <ds-button [isLoading]="true" (click)="onButtonClick($event)"
+        >Loading...</ds-button
+      >
     </div>
   </div>
 </div>

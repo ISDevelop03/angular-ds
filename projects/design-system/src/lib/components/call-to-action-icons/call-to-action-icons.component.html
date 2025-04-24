@@ -1,4 +1,4 @@
-<div [ngClass]="[theme.wrapper, className]">
+<div [ngClass]="[theme.wrapper, className || '']">
   <ng-container *ngFor="let action of actions; let i = index">
     <div *ngIf="i > 0" class="shrink-0 h-3 w-px bg-neutral-200"></div>
     <button

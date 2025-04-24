@@ -1,16 +1,37 @@
-<app-drawer
-  [title]="'Accordion Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
+<div class="p-4 grid gap-6">
+  <h3 class="text-primary">Default Variant</h3>
   <ds-accordion
-    [items]="parsedItems"
-    [variant]="props.variant"
-    [allowMultiple]="props.allowMultiple"
-    [textClassName]="props.textClassName"
-    [className]="props.className"
-    (openHandler)="onItemToggled($event)"
+    [items]="defaultItems"
+    variant="default"
+    (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>
-</app-drawer>
+
+  <h3 class="text-primary">With Border Variant</h3>
+  <ds-accordion
+    [items]="borderItems"
+    variant="withBorder"
+    [allowMultiple]="true"
+    (openHandler)="onAccordionOpen($event)"
+  ></ds-accordion>
+
+  <h3>White Variant with Template Content</h3>
+  <ng-template #templateOne>
+    <p>
+      This is <strong>projected template content</strong> for the first panel.
+    </p>
+  </ng-template>
+
+  <ng-template #templateTwo>
+    <ul class="list-disc ml-4">
+      <li>Item One</li>
+      <li>Item Two</li>
+    </ul>
+  </ng-template>
+
+  <ds-accordion
+    [items]="whiteItems"
+    variant="white"
+    [allowMultiple]="false"
+    (openHandler)="onAccordionOpen($event)"
+  ></ds-accordion>
+</div>

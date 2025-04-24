@@ -1,0 +1,37 @@
+<div class="p-6 grid gap-6">
+  <h2 class="text-lg font-bold">Empty Card Demos</h2>
+
+  <h3>Default</h3>
+
+  <ds-empty-card
+    [title]="mockData.title"
+    [description]="mockData.description"
+    [buttonLabel]="mockData.buttonLabel"
+    [onClick]="mockData.onClick"
+    [image]="mockData.image"
+    [isLoading]="mockData.isLoading"
+  ></ds-empty-card>
+
+  <h3>With Loading State</h3>
+  <ds-empty-card
+    [title]="loading.title"
+    [description]="loading.description"
+    [buttonLabel]="loading.buttonLabel"
+    [onClick]="loading.onClick"
+    [image]="loading.image"
+    [isLoading]="loading.isLoading"
+  ></ds-empty-card>
+
+  <h3>With Error</h3>
+  <ds-empty-card
+    [title]="withTitleOnly.title"
+    [description]="withTitleOnly.description"
+    [image]="withTitleOnly.image"
+  ></ds-empty-card>
+
+  <h3>Without Button</h3>
+  <ds-empty-card
+    [description]="withoutButton.description"
+    [image]="withoutButton.image"
+  ></ds-empty-card>
+</div>

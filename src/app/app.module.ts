@@ -18,10 +18,13 @@ import {
   HeadingStoryComponent,
   BreadcrumbStoryComponent,
   CallToActionIconsStoryComponent,
+  EmptyCardStoryComponent,
+  PortfolioSelectionStoryComponent,
+  ToggleStoryComponent,
+  ShortcutCardStoryComponent,
 } from './stories';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { DrawerComponent } from './drawer/drawer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -37,10 +40,14 @@ export const pages = [
   { path: 'container', component: ContainerStoryComponent },
   { path: 'heading', component: HeadingStoryComponent },
   { path: 'text', component: TextStoryComponent },
-  { path: 'actions-layout', component: ActionsLayoutStoryComponent },
+  { path: 'empty-card', component: EmptyCardStoryComponent },
   { path: 'breadcrumb', component: BreadcrumbStoryComponent },
-  { path: 'call-to-action-icons', component: CallToActionIconsStoryComponent },
+  { path: 'toggle', component: ToggleStoryComponent },
 
+  { path: 'actions-layout', component: ActionsLayoutStoryComponent },
+  { path: 'call-to-action-icons', component: CallToActionIconsStoryComponent },
+  { path: 'portfolio-selection', component: PortfolioSelectionStoryComponent },
+  { path: 'shortcut-card', component: ShortcutCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -63,7 +70,6 @@ const router = RouterModule.forRoot(pages);
 
     // Blocks
     SidebarComponent,
-    DrawerComponent,
 
     // Stories
     ButtonStoryComponent,
@@ -75,9 +81,14 @@ const router = RouterModule.forRoot(pages);
     ContainerStoryComponent,
     HeadingStoryComponent,
     TextStoryComponent,
-    ActionsLayoutStoryComponent,
     BreadcrumbStoryComponent,
+    ToggleStoryComponent,
+    EmptyCardStoryComponent,
+
+    ActionsLayoutStoryComponent,
     CallToActionIconsStoryComponent,
+    PortfolioSelectionStoryComponent,
+    ShortcutCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

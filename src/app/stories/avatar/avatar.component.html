@@ -1,17 +1,46 @@
-<app-drawer
-  [title]="'Avatar Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
-  <ds-avatar
-    [variant]="props.variant"
-    [size]="props.size"
-    [alt]="props.alt"
-    [src]="props.src"
-    [className]="props.className"
-    [children]="props.children"
-  >
-  </ds-avatar>
-</app-drawer>
+<div class="p-4 grid gap-6">
+  <h3>Default (Image Avatar)</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-avatar
+      *ngFor="let size of sizes"
+      [size]="size"
+      [alt]="'Avatar image ' + size"
+    ></ds-avatar>
+  </div>
+
+  <h3>Placeholder (SVG Avatar)</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-avatar
+      *ngFor="let size of sizes"
+      variant="placeholder"
+      [size]="size"
+    ></ds-avatar>
+  </div>
+
+  <h3>Initials</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-avatar
+      *ngFor="let size of sizes"
+      variant="initials"
+      [size]="size"
+      [children]="'AB'"
+    ></ds-avatar>
+  </div>
+
+  <h3>Combined Example</h3>
+  <div class="flex gap-2 flex-wrap">
+    <ds-avatar
+      variant="initials"
+      size="large"
+      [children]="'XY'"
+      className="ring-2 ring-primary-500"
+    ></ds-avatar>
+    <ds-avatar variant="placeholder" size="xlarge"></ds-avatar>
+    <ds-avatar
+      variant="default"
+      size="xxlarge"
+      alt="Custom Image"
+      src="https://randomuser.me/api/portraits/men/32.jpg"
+    ></ds-avatar>
+  </div>
+</div>

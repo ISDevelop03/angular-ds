@@ -13,6 +13,11 @@ import {
   DsActionsLayoutComponent,
   DsBreadcrumbComponent,
   CallToActionIconsComponent,
+  EmptyCardComponent,
+  DsPortfolioItemComponent,
+  DsPortfolioSelectionComponent,
+  DsToggleComponent,
+  DsShortcutCardComponent,
 } from './components';
 
 import { DesignSystemComponent } from './design-system.component';
@@ -32,6 +37,11 @@ import { DesignSystemComponent } from './design-system.component';
     DsActionsLayoutComponent,
     DsBreadcrumbComponent,
     CallToActionIconsComponent,
+    EmptyCardComponent,
+    DsPortfolioItemComponent,
+    DsPortfolioSelectionComponent,
+    DsToggleComponent,
+    DsShortcutCardComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -48,6 +58,11 @@ import { DesignSystemComponent } from './design-system.component';
     DsActionsLayoutComponent,
     DsBreadcrumbComponent,
     CallToActionIconsComponent,
+    EmptyCardComponent,
+    DsPortfolioItemComponent,
+    DsPortfolioSelectionComponent,
+    DsToggleComponent,
+    DsShortcutCardComponent,
   ],
 })
 export class DesignSystemModule {}

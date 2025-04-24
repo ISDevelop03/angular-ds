@@ -1,26 +1,25 @@
 import { Component } from '@angular/core';
-import { controls } from './controls';
-import { convertArrayToObject } from 'utils';
 
 @Component({
   selector: 'app-badge',
   templateUrl: './badge.component.html',
 })
 export class BadgeStoryComponent {
-  isDrawerOpen = true;
+  variants = [
+    'default',
+    'active',
+    'base',
+    'primary',
+    'info',
+    'danger',
+    'warning',
+    'success',
+    'indigo',
+    'purple',
+    'pink',
+    'recommanded',
+    'outline',
+  ];
 
-  props = convertArrayToObject(controls);
-
-  controls = controls;
-
-  onDrawerClosed() {
-    this.isDrawerOpen = false;
-  }
-
-  onControlChanged(event: any) {
-    this.props = {
-      ...this.props,
-      [event.name]: event.value,
-    };
-  }
+  sizes = ['sm', 'md', 'lg', 'badge'];
 }

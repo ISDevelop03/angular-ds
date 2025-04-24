@@ -1,21 +1,26 @@
 import { Component } from '@angular/core';
-import { convertArrayToObject } from 'utils';
-import { controls } from './controls';
+import { Page } from 'projects/design-system/src/lib/components';
 
 @Component({
   selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',
 })
 export class BreadcrumbStoryComponent {
-  isDrawerOpen = true;
-  controls = controls;
-  props: any = convertArrayToObject(this.controls);
+  pages: Page[] = [
+    { id: '1', name: 'Section', href: '/section' },
+    { id: '2', name: 'Category', href: '/section/category' },
+    { id: '3', name: 'Item', href: '/section/category/item' },
+    { id: '4', name: 'Details', href: '/section/category/item/details' },
+  ];
 
-  onControlChanged({ name, value }: { name: string; value: any }) {
-    this.props[name] = value;
-  }
-
-  onDrawerClosed() {
-    this.isDrawerOpen = false;
-  }
+  pagesWithCurrent: Page[] = [
+    { id: '1', name: 'Section', href: '/section' },
+    { id: '2', name: 'Category', href: '/section/category' },
+    {
+      id: '3',
+      name: 'Current Item',
+      href: '/section/category/item',
+      current: true,
+    },
+  ];
 }

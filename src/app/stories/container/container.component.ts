@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
-import { convertArrayToObject } from 'utils';
-import { controls } from './controls';
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
 })
 export class ContainerStoryComponent {
-  controls = controls;
-  props: any = convertArrayToObject(this.controls);
-
-  isDrawerOpen = true;
-
-  onControlChanged({ name, value }: any): void {
-    this.props[name] = value;
-  }
-
-  onDrawerClosed(): void {
-    this.isDrawerOpen = false;
-  }
+  layouts = ['base', 'fluid', 'full', 'small'];
+  spacings = [
+    'base',
+    'paragraph',
+    'paragraph_background',
+    'block_paragraph',
+    'big_space',
+    'small_space',
+    'no_space',
+  ];
 }

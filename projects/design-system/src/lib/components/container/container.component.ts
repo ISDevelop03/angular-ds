@@ -3,7 +3,9 @@ import { variants } from './theme';
 
 @Component({
   selector: 'ds-container',
-  templateUrl: './container.component.html',
+  template: `<div [ngClass]="computedClass" [style]="style">
+    <ng-content></ng-content>
+  </div>`,
 })
 export class DsContainerComponent implements OnChanges {
   @Input() layout: keyof typeof variants.container = 'base';

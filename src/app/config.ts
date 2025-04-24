@@ -41,11 +41,7 @@ export const menus: Menu[] = [
     path: '/container',
     key: 'container',
   },
-  {
-    name: 'ActionsLayout',
-    path: '/actions-layout',
-    key: 'actionsLayout',
-  },
+
   {
     name: 'Heading',
     path: '/heading',
@@ -62,8 +58,34 @@ export const menus: Menu[] = [
     key: 'breadcrumb',
   },
   {
-    name: 'Call-to-action-icons',
+    name: 'Toggle',
+    path: '/toggle',
+    key: 'toggle',
+  },
+  {
+    name: 'Empty Card',
+    path: '/empty-card',
+    key: 'empty-card',
+  },
+
+  {
+    name: 'Actions Layout',
+    path: '/actions-layout',
+    key: 'actionsLayout',
+  },
+  {
+    name: 'Call To Action Icons',
     path: '/call-to-action-icons',
     key: 'call-to-action-icons',
+  },
+  {
+    name: 'Portfolio Selection',
+    path: '/portfolio-selection',
+    key: 'portfolio-selection',
+  },
+  {
+    name: 'Shortcut Card',
+    path: '/shortcut-card',
+    key: 'shortcut-card',
   },
 ];

@@ -1,12 +1,13 @@
-<app-drawer
-  [title]="'ActionsLayout Controls'"
-  [isOpen]="isDrawerOpen"
-  [controls]="controls"
-  (closed)="onDrawerClosed()"
-  (controlChange)="onControlChanged($event)"
->
+<div class="p-4 space-y-6">
+  <h3>Default Actions Layout</h3>
   <ds-actions-layout
-    [items]="props.items"
-    [className]="props.className"
+    [items]="mockItems"
+    className="max-w-fit"
   ></ds-actions-layout>
-</app-drawer>
+
+  <h3>With Custom Class</h3>
+  <ds-actions-layout
+    [items]="mockItems"
+    className="max-w-fit bg-white border border-primary"
+  ></ds-actions-layout>
+</div>

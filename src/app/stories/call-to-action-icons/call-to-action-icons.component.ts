@@ -1,21 +1,41 @@
 import { Component } from '@angular/core';
-import { controls } from './controls';
-import { convertArrayToObject } from 'utils';
+import { ICallToActionIcon } from 'projects/design-system/src/lib/components/call-to-action-icons/types';
 
 @Component({
   selector: 'app-call-to-action-icons',
   templateUrl: './call-to-action-icons.component.html',
 })
 export class CallToActionIconsStoryComponent {
-  isDrawerOpen = true;
-  controls = controls;
-  props: any = convertArrayToObject(this.controls);
+  actionsBasic: ICallToActionIcon[] = [
+    {
+      icon: 'eye',
+      onClick: () => console.log('Eye clicked'),
+    },
+    {
+      icon: 'pen',
+      onClick: () => console.log('Edit clicked'),
+    },
+    {
+      icon: 'trash',
+      onClick: () => console.log('Trash clicked'),
+    },
+  ];
 
-  onControlChanged({ name, value }: { name: string; value: any }) {
-    this.props[name] = value;
-  }
-
-  onDrawerClosed() {
-    this.isDrawerOpen = false;
-  }
+  actionsCustom: ICallToActionIcon[] = [
+    {
+      icon: 'eye',
+      buttonClassName: 'text-blue-600 hover:text-blue-800',
+      onClick: () => console.log('Eye clicked with style'),
+    },
+    {
+      icon: 'pen',
+      buttonClassName: 'text-green-600 hover:text-green-800',
+      onClick: () => console.log('Edit clicked with style'),
+    },
+    {
+      icon: 'trash',
+      buttonClassName: 'text-red-600 hover:text-red-800',
+      onClick: () => console.log('Trash clicked with style'),
+    },
+  ];
 }
