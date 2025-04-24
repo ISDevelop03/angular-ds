@@ -9,7 +9,7 @@ type Theme = 'light' | 'dark';
   templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent implements OnInit {
-  @Input() menus: any[] = [];
+  @Input() menus: { key: string; name: string; path: string }[] = [];
   @Input() title = '';
 
   theme: Theme = 'light';
@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.menus = this.menus.sort((a, b) => (a.name < b.name ? -1 : 1));
     this.initTheme();
     this.trackRouteChanges();
   }

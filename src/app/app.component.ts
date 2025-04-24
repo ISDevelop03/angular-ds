@@ -9,5 +9,5 @@ import { menus } from './config';
 })
 export class AppComponent {
   title = 'My Business';
-  menus = menus;
+  menus = menus.filter((menu) => !menu.hide);
 }

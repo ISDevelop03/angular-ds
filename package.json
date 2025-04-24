@@ -10,7 +10,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:app": "ng build --project=mybusiness",
+    "build:app": "ng build --project=mybusiness && cp dist/styles.css dist/mybusiness && cp src/assets/icons.svg dist/mybusiness",
     "build:ds": "ng build --project=design-system && cp dist/styles.css dist/@sg/design-system && cp src/assets/icons.svg dist/@sg/design-system",
     "build:css": "tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css",
     "watch:css": "tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --watch",

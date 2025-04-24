@@ -1,0 +1,16 @@
+<app-drawer
+  [title]="'Accordion Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-accordion
+    [items]="parsedItems"
+    [variant]="props.variant"
+    [allowMultiple]="props.allowMultiple"
+    [textClassName]="props.textClassName"
+    [className]="props.className"
+    (openHandler)="onItemToggled($event)"
+  ></ds-accordion>
+</app-drawer>

@@ -1,0 +1,12 @@
+<div [ngClass]="[theme.wrapper, className]">
+  <ng-container *ngFor="let action of actions; let i = index">
+    <div *ngIf="i > 0" class="shrink-0 h-3 w-px bg-neutral-200"></div>
+    <button
+      type="button"
+      (click)="handleClick(action)"
+      [ngClass]="['px-1.5', action.buttonClassName || '']"
+    >
+      <ds-icon [id]="action.icon" class="size-4"></ds-icon>
+    </button>
+  </ng-container>
+</div>

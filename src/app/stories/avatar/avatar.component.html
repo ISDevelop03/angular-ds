@@ -1,0 +1,17 @@
+<app-drawer
+  [title]="'Avatar Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-avatar
+    [variant]="props.variant"
+    [size]="props.size"
+    [alt]="props.alt"
+    [src]="props.src"
+    [className]="props.className"
+    [children]="props.children"
+  >
+  </ds-avatar>
+</app-drawer>

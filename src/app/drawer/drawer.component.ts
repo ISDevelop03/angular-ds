@@ -6,14 +6,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-
-interface ControlConfig {
-  name: string;
-  label: string;
-  type: 'text' | 'number' | 'boolean' | 'select';
-  value: any;
-  options?: any[]; // For select type
-}
+import { ControlConfig } from 'utils';
 
 @Component({
   selector: 'app-drawer',
@@ -44,5 +37,24 @@ export class DrawerComponent {
 
   onControlChange(name: string, value: any) {
     this.controlChange.emit({ name, value });
+  }
+
+  toJson(val: any): string {
+    try {
+      return JSON.stringify(val, null, 2);
+    } catch {
+      return String(val);
+    }
+  }
+
+  /** emit parsed JSON, or raw string if invalid */
+  onJsonChange(name: string, raw: string) {
+    let parsed: any = raw;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      // invalid JSON — you might want to show an error to user
+    }
+    this.controlChange.emit({ name, value: parsed });
   }
 }

@@ -1,0 +1,14 @@
+<app-drawer
+  [title]="'Text Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-text
+    [variant]="props.variant"
+    [tag]="props.tag"
+    [className]="props.className"
+    [content]="props.content"
+  ></ds-text>
+</app-drawer>

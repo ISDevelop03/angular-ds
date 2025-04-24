@@ -1,0 +1,75 @@
+<div class="p-4 grid gap-4">
+  <h3>Variants</h3>
+
+  <div class="grid gap-2">
+    <div><strong>Filled</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button *ngFor="let variant of variants" [variant]="variant"
+        >{{ variant }} filled</ds-button
+      >
+    </div>
+  </div>
+
+  <div class="grid gap-2 mt-4">
+    <div><strong>Outlined</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button
+        *ngFor="let variant of variants"
+        [variant]="variant"
+        [outline]="true"
+        >{{ variant }} outline</ds-button
+      >
+    </div>
+  </div>
+
+  <div class="grid gap-2 mt-4">
+    <div><strong>Disabled</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button
+        *ngFor="let variant of variants"
+        [variant]="variant"
+        [disabled]="true"
+        >{{ variant }} disabled</ds-button
+      >
+    </div>
+  </div>
+
+  <div class="grid gap-2 mt-4">
+    <div><strong>Outline + Disabled</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button
+        *ngFor="let variant of variants"
+        [variant]="variant"
+        [outline]="true"
+        [disabled]="true"
+      >
+        {{ variant }} outline disabled
+      </ds-button>
+    </div>
+  </div>
+
+  <div class="grid gap-2 mt-4">
+    <div><strong>Sizes</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button *ngFor="let size of sizes" [size]="size"
+        >Size: {{ size }}</ds-button
+      >
+    </div>
+  </div>
+
+  <div class="grid gap-2 mt-4">
+    <div><strong>With Icons</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button icon="ArrowRight">Only Icon</ds-button>
+      <ds-button iconLeft="ArrowLeft">Left Icon</ds-button>
+      <ds-button iconRight="ArrowRight">Right Icon</ds-button>
+    </div>
+  </div>
+
+  <div class="grid gap-2 mt-4">
+    <div><strong>Loading</strong></div>
+    <div class="flex gap-2 flex-wrap">
+      <ds-button [isLoading]="true">Loading...</ds-button>
+    </div>
+  </div>
+</div>

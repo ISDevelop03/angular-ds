@@ -20,6 +20,7 @@ export class ButtonComponent implements OnInit {
   @Input() target: string = null;
   @Input() isLoading = false;
   @Input() theme: any;
+  @Input() style: string = '';
 
   defaultTheme = defaultTheme;
   // Output for click events
@@ -58,7 +59,7 @@ export class ButtonComponent implements OnInit {
       classes.push('!rounded-full');
     }
     if (this.isLoading) {
-      classes.push('px-6');
+      classes.push('!p-5');
     }
     if (this.className) {
       classes.push(this.className);

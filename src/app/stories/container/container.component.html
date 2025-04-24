@@ -1,0 +1,17 @@
+<app-drawer
+  [title]="'Container Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-container
+    [layout]="props.layout"
+    [spacing]="props.spacing"
+    [bgPadding]="props.bgPadding"
+    [className]="props.className"
+    [style]="props.style"
+  >
+    <p class="bg-gray-200 dark:bg-gray-800 p-4">Container Content</p>
+  </ds-container>
+</app-drawer>

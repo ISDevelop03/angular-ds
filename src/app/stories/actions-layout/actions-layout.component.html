@@ -1,0 +1,12 @@
+<app-drawer
+  [title]="'ActionsLayout Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-actions-layout
+    [items]="props.items"
+    [className]="props.className"
+  ></ds-actions-layout>
+</app-drawer>

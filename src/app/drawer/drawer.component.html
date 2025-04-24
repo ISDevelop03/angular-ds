@@ -55,6 +55,14 @@
           {{ control.label }}
         </label>
         <ng-container [ngSwitch]="control.type">
+          <textarea
+            *ngSwitchCase="'json'"
+            [name]="control.name"
+            class="border dark:border-gray-500 dark:bg-zinc-800 bg-white rounded px-3 py-2 h-24"
+            [ngModel]="toJson(control.value)"
+            (ngModelChange)="onJsonChange(control.name, $event)"
+          >
+          </textarea>
           <input
             *ngSwitchCase="'text'"
             type="text"

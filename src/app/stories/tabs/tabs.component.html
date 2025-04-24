@@ -1,0 +1,13 @@
+<app-drawer
+  [title]="'Tabs Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-tabs
+    [items]="props.items"
+    [className]="props.className"
+    [variant]="props.variant"
+  ></ds-tabs>
+</app-drawer>

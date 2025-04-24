@@ -1,0 +1,72 @@
+<div [ngClass]="theme.wrapper" [class]="className">
+  <ol role="list" [ngClass]="theme.list">
+    <li *ngIf="homeUrl" [ngClass]="theme.listElement">
+      <a [href]="homeUrl" [ngClass]="theme.link">
+        <ds-text
+          tag="span"
+          variant="text-base/Light"
+          [ngClass]="theme.link"
+          content="Accueil"
+        >
+          Accueil
+        </ds-text>
+      </a>
+    </li>
+
+    <ng-container *ngFor="let page of list; let i = index">
+      <li [ngClass]="theme.listElement">
+        <ds-icon
+          *ngIf="i !== 0 || homeUrl"
+          id="arrow-right"
+          [ngClass]="theme.separator"
+        ></ds-icon>
+
+        <a
+          [href]="page.href || '#.'"
+          [attr.aria-current]="page.current ? 'page' : null"
+        >
+          <ds-text
+            tag="span"
+            variant="text-base/Light"
+            [ngClass]="page.current ? theme.linkActive : theme.link"
+            [content]="page.name"
+          >
+            {{ page.name }}
+          </ds-text>
+        </a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="list.length !== pages.length">
+      <li [ngClass]="theme.listElement">
+        <ds-icon id="arrow-right" [ngClass]="theme.separator"></ds-icon>
+        <ds-text
+          tag="span"
+          variant="text-base/Regular"
+          [ngClass]="theme.link"
+          content="..."
+        >
+          ...
+        </ds-text>
+      </li>
+
+      <li [ngClass]="theme.listElement">
+        <ds-icon id="arrow-right" [ngClass]="theme.separator"></ds-icon>
+        <a
+          [href]="lastPage.href || '#.'"
+          [ngClass]="lastPage.current ? theme.linkActive : theme.link"
+          [attr.aria-current]="lastPage.current ? 'page' : null"
+        >
+          <ds-text
+            tag="span"
+            variant="text-base/Regular"
+            [ngClass]="theme.link"
+            [content]="lastPage.name"
+          >
+            {{ lastPage.name }}
+          </ds-text>
+        </a>
+      </li>
+    </ng-container>
+  </ol>
+</div>

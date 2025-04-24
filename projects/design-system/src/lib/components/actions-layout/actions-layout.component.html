@@ -1,0 +1,25 @@
+<div
+  [ngClass]="
+    'px-3.5 py-4 rounded-lg bg-neutral-100 flex flex-row gap-3.5 text-neutral-900 ' +
+    className
+  "
+>
+  <button
+    *ngFor="let item of items; let i = index"
+    (click)="onClick(item, i)"
+    [ngClass]="
+      isSelected(i)
+        ? 'text-primary hover:text-primary-500 size-5'
+        : 'hover:text-primary-500 size-5'
+    "
+  >
+    <ds-icon
+      [id]="item.iconId"
+      [ngClass]="
+        isSelected(i)
+          ? 'text-primary hover:text-primary-500 size-5'
+          : 'hover:text-primary-500 size-5'
+      "
+    ></ds-icon>
+  </button>
+</div>

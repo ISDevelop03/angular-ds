@@ -1,0 +1,20 @@
+<app-drawer
+  [title]="'Heading Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-heading
+    [variant]="props.variant"
+    [textVariant]="props.textVariant"
+    [className]="props.className"
+    [as]="props.as"
+    [icon]="props.icon"
+    [title]="props.title"
+    [titleClassName]="props.titleClassName"
+    [separator]="props.separator"
+  >
+    {{ props.title }}
+  </ds-heading>
+</app-drawer>

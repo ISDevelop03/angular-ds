@@ -1,0 +1,15 @@
+<app-drawer
+  [title]="'Breadcrumb Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-breadcrumb
+    [homeUrl]="props.homeUrl"
+    [variant]="props.variant"
+    [className]="props.className"
+    [pages]="props.pages"
+    [showLimit]="props.showLimit"
+  ></ds-breadcrumb>
+</app-drawer>

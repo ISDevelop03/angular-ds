@@ -1,0 +1,46 @@
+<div [ngClass]="getContainerClasses()">
+  <div
+    *ngFor="let item of localItems"
+    [attr.data-open]="item.isOpen.toString()"
+    [ngClass]="getDisclosureClasses()"
+  >
+    <!-- header -->
+    <button
+      type="button"
+      (click)="handleChange(item)"
+      [ngClass]="getButtonClasses(item.isOpen)"
+    >
+      <div class="flex items-center justify-between">
+        <!-- title -->
+        <span [ngClass]="textClassName">{{ item.title }}</span>
+
+        <!-- icon -->
+        <ds-icon
+          [id]="getIconId(item.isOpen)"
+          [style]="
+            theme[variant].button.icon.width +
+            'px; height: ' +
+            theme[variant].button.icon.height +
+            'px'
+          "
+          [ngClass]="getIconClasses(item.isOpen)"
+        ></ds-icon>
+      </div>
+
+      <!-- optional caption -->
+      <span *ngIf="item.caption" class="text-gray-600">
+        {{ item.caption }}
+      </span>
+    </button>
+
+    <!-- panel -->
+    <div *ngIf="item.isOpen" [ngClass]="getPanelClasses()">
+      <ng-container *ngIf="isTemplate(item.content); else showHtml">
+        <ng-container *ngTemplateOutlet="item.content"></ng-container>
+      </ng-container>
+      <ng-template #showHtml>
+        <div [innerHTML]="item.content"></div>
+      </ng-template>
+    </div>
+  </div>
+</div>

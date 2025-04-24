@@ -1,0 +1,12 @@
+<app-drawer
+  [title]="'Call To Action Icons Controls'"
+  [isOpen]="isDrawerOpen"
+  [controls]="controls"
+  (closed)="onDrawerClosed()"
+  (controlChange)="onControlChanged($event)"
+>
+  <ds-call-to-action-icons
+    [className]="props.className"
+    [actions]="props.actions"
+  ></ds-call-to-action-icons>
+</app-drawer>

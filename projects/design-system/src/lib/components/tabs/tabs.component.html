@@ -1,0 +1,26 @@
+<div [ngClass]="[theme[variant].wrapper, className]">
+  <div [ngClass]="[theme[variant].list.container, className]">
+    <button
+      *ngFor="let tab of items; let i = index"
+      (click)="selectTab(i)"
+      [ngClass]="[
+        theme[variant].list.tab.base,
+        isSelected(i)
+          ? theme[variant].list.tab.selected
+          : theme[variant].list.tab.unselected
+      ]"
+    >
+      {{ tab.title }}
+    </button>
+  </div>
+
+  <div [ngClass]="[theme[variant].panels.container, className]">
+    <div
+      *ngFor="let tab of items; let i = index"
+      [hidden]="!isSelected(i)"
+      [ngClass]="theme[variant].panels.panel.base"
+    >
+      {{ tab.panel }}
+    </div>
+  </div>
+</div>
