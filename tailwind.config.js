@@ -377,6 +377,25 @@ module.exports = {
         portfolio: "3px 3px 17px 0px rgba(0, 0, 0, 0.14)",
         content: "6px 6px 34px 0px rgba(17, 38, 60, 0.10)",
       },
+      keyframes: {
+        fadeInScale: {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        slideInLeft: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideInRight: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        fadeInScale: "fadeInScale 300ms ease-out forwards",
+        slideInLeft: "slideInLeft 300ms ease-out forwards",
+        slideInRight: "slideInRight 300ms ease-out forwards",
+      },
     },
   },
   plugins: [],

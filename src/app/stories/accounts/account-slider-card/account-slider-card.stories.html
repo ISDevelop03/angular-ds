@@ -1,0 +1,18 @@
+<div class="p-4 grid gap-6">
+  <h3>Account Slider Card</h3>
+  <div class="max-w-[225px]">
+    <ds-account-slider-card
+      [account_number]="account.account_number"
+      [balance]="account.balance"
+      [currency]="account.currency"
+      [type]="account.type"
+      [id]="account.id"
+      [date]="account.date"
+      [isDiscrete]="account.isDiscrete"
+      [isSelected]="account.isSelected"
+      [actionsList]="actionsList"
+      (cardClick)="onCardClick($event)"
+    >
+    </ds-account-slider-card>
+  </div>
+</div>

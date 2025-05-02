@@ -1,0 +1,29 @@
+<div class="p-4 grid gap-4">
+  <h3>Default Checkbox</h3>
+  <ds-checkbox
+    [label]="'Accept terms and conditions'"
+    [checked]="isCheckedDefault"
+    (change)="onCheckboxChange()"
+    variant="default"
+  ></ds-checkbox>
+
+  <h3>Aligned Checkbox</h3>
+  <ds-checkbox
+    [label]="'Subscribe to newsletter'"
+    [checked]="isCheckedAligned"
+    (change)="onAlignedCheckboxChange()"
+    variant="aligned"
+  ></ds-checkbox>
+
+  <h3>Checkbox with Error</h3>
+  <ds-checkbox
+    [label]="'I agree'"
+    [checked]="isCheckedError"
+    [hasError]="hasError"
+    [errorMessage]="'This field is required'"
+    (change)="onErrorCheckboxChange()"
+    variant="default"
+  ></ds-checkbox>
+  {{hasError}}
+  <ds-button (click)="toggleError()" className="mt-4"> Toggle Error </ds-button>
+</div>

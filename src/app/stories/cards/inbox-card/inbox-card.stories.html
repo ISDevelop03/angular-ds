@@ -1,0 +1,24 @@
+<div class="p-4 grid gap-4">
+  <h3 class="text-3xl">Unread Inbox Example</h3>
+  <div class="max-w-[250px]">
+    <ds-inbox-card
+      title="Urgent Notice"
+      content="This inbox is unread."
+      date="5 mins ago"
+      [isRead]="false"
+      (onClick)="handleInboxClick()"
+    ></ds-inbox-card>
+  </div>
+
+  <h3 class="text-3xl">Read Inbox Example</h3>
+
+  <div class="max-w-[250px]">
+    <ds-inbox-card
+      title="Update Completed"
+      content="Your update was successful."
+      date="2 days ago"
+      [isRead]="true"
+      (onClick)="handleInboxClick()"
+    ></ds-inbox-card>
+  </div>
+</div>

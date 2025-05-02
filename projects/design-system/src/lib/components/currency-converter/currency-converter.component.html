@@ -1,0 +1,75 @@
+<div
+  class="relative space-y-2 p-3.5 text-custom-black border border-neutral-200 rounded-lg bg-level-3"
+>
+  <div class="flex justify-between items-start">
+    <div class="space-y-1" *ngIf="title || date || content">
+      <span *ngIf="title" class="text-sm font-bold leading-5 text-neutral-900">
+        {{ title }}
+      </span>
+      <span *ngIf="date" class="text-2xs font-normal text-neutral-500 block">
+        {{ date }}
+      </span>
+      <span *ngIf="content" class="text-2xs font-normal text-neutral-900 block">
+        {{ content }}
+      </span>
+    </div>
+
+    <div class="absolute top-3.5 right-3.5 flex gap-2">
+      <ds-call-to-action-icons [actions]="actions"></ds-call-to-action-icons>
+    </div>
+  </div>
+
+  <div class="relative flex flex-col gap-1.5 items-center">
+    <div class="flex items-center gap-1.5">
+      <div class="text-2xs"><span class="text-green-500">+</span>5%</div>
+
+      <div class="flex items-center bg-card-level-1 rounded py-1.5 px-3.5">
+        <input
+          type="number"
+          [value]="amount1"
+          (input)="handleAmount1Change($event.target.valueAsNumber)"
+          class="w-full text-xs font-bold leading-[18px] bg-transparent border-none outline-none"
+        />
+        <ds-currency-select
+          [value]="currency1"
+          [options]="currencies"
+          (onChange)="currency1 = $event"
+        ></ds-currency-select>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-1.5">
+      <div class="text-2xs"><span class="text-red-500">-</span>5%</div>
+
+      <div class="flex items-center bg-card-level-1 rounded py-1.5 px-3.5">
+        <input
+          type="number"
+          [value]="amount2"
+          (input)="handleAmount2Change($event.target.valueAsNumber)"
+          class="w-full text-xs font-bold leading-[18px] bg-transparent border-none outline-none"
+        />
+        <ds-currency-select
+          [value]="currency2"
+          [options]="currencies"
+          (onChange)="currency2 = $event"
+        ></ds-currency-select>
+      </div>
+    </div>
+
+    <button
+      (click)="handleInverseCurrencies()"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center size-6 rounded-full bg-level-3 cursor-pointer"
+    >
+      <span class="text-xs">⇅</span>
+    </button>
+  </div>
+
+  <span class="text-sm font-bold">
+    1 {{ currency1 }} = {{ getConversionRate() }} {{ currency2 }}
+  </span>
+
+  <div *ngIf="isShowGraph" class="text-xs">
+    <!-- Placeholder for LineChartCurrency -->
+    <p>Graph Placeholder</p>
+  </div>
+</div>

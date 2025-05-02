@@ -1,0 +1,23 @@
+<div
+  class="relative p-4 space-y-4 min-h-screen w-full flex justify-center items-center"
+>
+  <div class="absolute left-4 top-4">
+    <h2 class="text-lg font-bold mb-4">Profile Dropdown Component</h2>
+    <ds-button (click)="changePosition()">{{position}}</ds-button>
+  </div>
+  <div class=" ">
+    <ds-profile-dropdown [list]="list" [position]="position">
+      <img
+        src="https://placehold.co/40"
+        class="object-cover rounded-full size-10"
+      />
+      <li
+        suffix
+        class="font-[500] text-[8px] leading-[8px] space-y-2 bg-neutral-50 p-3"
+      >
+        <span class="inline-block text-neutral-700"> Derniere Connexion </span>
+        <p class="text-neutral-900">Le 03.10.2024, à 16h45</p>
+      </li>
+    </ds-profile-dropdown>
+  </div>
+</div>

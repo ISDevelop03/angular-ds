@@ -1,0 +1,22 @@
+<div [ngClass]="['w-full', className || '']">
+  <span class="flex justify-between">
+    <span *ngIf="label" class="text-gray-600 text-base font-medium">
+      {{ label }}
+    </span>
+    <span class="text-gray-600 text-sm font-semibold">
+      {{ percentage }}{{ suffix }}{{ total ? "/" + total : "" }}
+    </span>
+  </span>
+
+  <div
+    [ngClass]="[
+      appliedTheme.variants.base || '',
+      appliedTheme.variants[variant].bar || ''
+    ]"
+  >
+    <div
+      [ngClass]="appliedTheme.variants[variant].progress || ''"
+      [style.width.%]="calcPercentage"
+    ></div>
+  </div>
+</div>

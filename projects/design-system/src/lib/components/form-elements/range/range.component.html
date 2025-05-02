@@ -1,0 +1,13 @@
+<input
+  [name]="name"
+  type="range"
+  [min]="min"
+  [max]="max"
+  [value]="value"
+  [ngClass]="range.input[thumb]"
+  (input)="onRangeChange($event)"
+  [style.background]="trackStyle.background"
+  [style.height]="trackStyle.height"
+  [style.width]="trackStyle.width"
+  [style.borderRadius]="trackStyle.borderRadius"
+/>

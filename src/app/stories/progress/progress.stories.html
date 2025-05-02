@@ -1,0 +1,25 @@
+<div class="p-4 grid gap-4">
+  <h3>Progress Variants</h3>
+
+  <div class="grid gap-4">
+    <div *ngFor="let variant of variants">
+      <h4 class="text-lg font-bold capitalize">{{ variant }}</h4>
+      <div class="grid gap-2">
+        <ds-progress
+          *ngFor="let percent of percentages"
+          [variant]="variant"
+          [label]="variant + ' ' + percent + '%'"
+          [percentage]="percent"
+        ></ds-progress>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt-8">Progress with Total Example</h3>
+  <ds-progress
+    label="With total example"
+    [percentage]="30"
+    [total]="60"
+    suffix="%"
+  ></ds-progress>
+</div>

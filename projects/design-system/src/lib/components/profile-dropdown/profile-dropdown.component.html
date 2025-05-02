@@ -1,0 +1,66 @@
+<div [ngClass]="['relative overflow-visible z-[1100]', className || '']">
+  <div tabIndex="0" role="button" (click)="handleOpen()">
+    <ng-content></ng-content>
+  </div>
+
+  <div
+    *ngIf="isOpen"
+    (click)="handleClose()"
+    tabIndex="0"
+    role="button"
+    class="fixed inset-0 z-[999] isolate bg-black/30"
+  ></div>
+  <ul
+    *ngIf="isOpen"
+    [ngClass]="[
+      'absolute flex z-[1000] border border-neutral-200 flex-col text-custom-black overflow-hidden shadow-dropdown bg-level-4 rounded-lg w-max ',
+      positions[position] || '',
+      ulClassName || ''
+    ]"
+  >
+    <ng-content select="[prefix]"></ng-content>
+    <ng-container *ngFor="let item of list">
+      <div
+        *ngIf="!item?.href"
+        tabIndex="{0}"
+        role="button"
+        (click)="item?.onClick()"
+      >
+        <li
+          [ngClass]="[
+            'inline-flex justify-start items-center gap-3 px-4 py-2.5',
+            item.className || ''
+          ]"
+        >
+          <ds-icon
+            *ngIf="item?.icon"
+            [id]="item?.icon"
+            class="size-4"
+          ></ds-icon>
+          <span class="inline-block text-[12px] leading-[12px] font-[400]">
+            {{ item?.label }}
+          </span>
+        </li>
+      </div>
+
+      <a *ngIf="item?.href" [href]="item?.href">
+        <li
+          [ngClass]="[
+            '------- inline-flex justify-start items-center gap-3 px-4 py-2.5 ',
+            item.className || ''
+          ]"
+        >
+          <ds-icon
+            *ngIf="item?.icon"
+            [id]="item?.icon"
+            class="size-4"
+          ></ds-icon>
+          <span class="inline-block text-[12px] leading-[12px] font-[400]">
+            {{ item?.label }}
+          </span>
+        </li>
+      </a>
+    </ng-container>
+    <ng-content select="[suffix]"></ng-content>
+  </ul>
+</div>

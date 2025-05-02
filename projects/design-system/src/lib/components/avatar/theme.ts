@@ -1,6 +1,6 @@
 export const avatar = {
   default: {
-    base: 'inline-block rounded-full',
+    base: 'inline-block rounded-full object-cover',
   },
   placeholder: {
     base: 'inline-block rounded-full overflow-hidden bg-gray-100',

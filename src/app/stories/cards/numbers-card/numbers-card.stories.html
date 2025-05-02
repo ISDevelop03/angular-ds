@@ -1,0 +1,16 @@
+<div class="p-4 grid gap-4">
+  <h3>Numbers Card</h3>
+  <div
+    class="flex flex-row p-4 items-center gap-7 border border-neutral-200 rounded-lg bg-level-3 max-w-fit"
+  >
+    <!-- capture index as i and last flag -->
+    <ng-container *ngFor="let item of items; let idx = index; let last = last">
+      <ds-numbers-card [title]="item.title" [number]="item.number">
+      </ds-numbers-card>
+
+      <!-- use i and last, and note Angular uses `class=`, not `className` -->
+      <span *ngIf="idx % 2 === 0 && !last" class="w-px h-10 bg-neutral-200">
+      </span>
+    </ng-container>
+  </div>
+</div>

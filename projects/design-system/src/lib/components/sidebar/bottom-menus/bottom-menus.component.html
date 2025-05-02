@@ -1,0 +1,45 @@
+<ul
+  class="space-y-3.5 text-white flex justify-center items-center flex-col pb-6"
+>
+  <hr class="w-full border-customgray-400 mx-auto" />
+
+  <li><ds-icon id="calling" class="size-4"></ds-icon></li>
+  <li><ds-icon id="interogation" class="size-4"></ds-icon></li>
+
+  <li>
+    <img alt="france flag svg" src="/assets/france-flag.svg" class="size-4" />
+  </li>
+
+  <li>
+    <ds-theme-toggle></ds-theme-toggle>
+  </li>
+
+  <li>
+    <ds-icon id="settings" class="size-4"></ds-icon>
+  </li>
+
+  <hr class="w-full border-customgray-400 mx-auto" />
+
+  <li>
+    <ds-profile-dropdown
+      [list]="profileMenus"
+      position="bottomLeft"
+      class="z-[1100]"
+    >
+      <img
+        src="https://placehold.co/60"
+        class="size-6 rounded-full"
+        alt="current user logo"
+      />
+
+      <ng-template #suffix>
+        <li
+          class="font-medium text-[8px] leading-[8px] space-y-2 bg-neutral-50 p-3"
+        >
+          <span class="inline-block text-neutral-700">Derniere Connexion</span>
+          <p class="text-neutral-900">{{ lastLoginDate }}</p>
+        </li>
+      </ng-template>
+    </ds-profile-dropdown>
+  </li>
+</ul>

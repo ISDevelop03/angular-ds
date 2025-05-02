@@ -1,0 +1,66 @@
+<!-- ds-sidebar.component.html -->
+<aside
+  class="sticky left-0 top-0 text-white h-screen shrink-0 z-[9999]"
+  [ngClass]="className"
+>
+  <div class="px-4 py-6 flex justify-between items-center">
+    <img
+      *ngIf="!subSidebarIsOpen"
+      src="/assets/mini-logo.svg"
+      alt="mini logo svg"
+      class="w-5 h-2.5 object-cover"
+    />
+
+    <img
+      *ngIf="subSidebarIsOpen"
+      src="/assets/logo-mybusiness.svg"
+      alt="mybusiness logo svg"
+      class="w-[140px] h-[16px]"
+    />
+
+    <button *ngIf="subSidebarIsOpen" (click)="closeSubSidebar()">
+      <ds-icon id="sidebar-right" class="size-5"></ds-icon>
+    </button>
+  </div>
+
+  <div class="flex items-start justify-start w-max h-[calc(100%-64px)]">
+    <div class="shrink-0 flex flex-col h-full justify-between items-center">
+      <div>
+        <hr class="w-1/2 border-customgray-400 mx-auto" />
+        <ul class="flex flex-col py-3.5">
+          <ds-menu-item
+            *ngFor="let item of mainMenus; let i = index"
+            [disableMainMenus]="disableMainMenus"
+            [isFirst]="i === 0"
+            [subSidebarIsOpen]="subSidebarIsOpen"
+            [subMenuData]="subMenuData"
+            [title]="item.title"
+            [icon]="item.icon"
+            [color]="item.color"
+            [menus]="item.menus"
+            [href]="item.href"
+            (onClick)="openSubSidebar(item.menus)"
+          ></ds-menu-item>
+        </ul>
+      </div>
+
+      <ds-bottom-menus [profileMenus]="profileMenus"></ds-bottom-menus>
+    </div>
+
+    <div
+      class="shrink-0 space-y-5 bg-level-2 rounded-l-lg transition-all duration-300 ease-in-out overflow-y-auto"
+      [ngClass]="{
+        'w-auto py-5 px-3.5 opacity-100 h-[calc(100%-14px)]':
+          subSidebarIsOpen && subMenuData?.items?.length > 0,
+        'w-0 p-0 opacity-0 h-[calc(100%-64px-14px)]':
+          !subSidebarIsOpen || !subMenuData?.items?.length
+      }"
+    >
+      <h4 class="text-[17px] leading-[16px] font-bold">
+        {{ subMenuData?.title }}
+      </h4>
+      <hr class="w-[90%] border-customgray-400 mx-auto" />
+      <ds-menu-list [data]="subMenuData?.items"></ds-menu-list>
+    </div>
+  </div>
+</aside>

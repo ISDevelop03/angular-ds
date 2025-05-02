@@ -15,6 +15,8 @@ export class DsHeadingComponent implements OnChanges {
   @Input() titleClassName = '';
   @Input() separator = false;
 
+  theme = theme;
+
   computedContainerClass = '';
   computedTextClass = '';
   computedSeparatorClass = '';

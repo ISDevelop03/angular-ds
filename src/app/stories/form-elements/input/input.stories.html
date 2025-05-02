@@ -1,0 +1,35 @@
+<div class="p-4 grid gap-4">
+  <ds-input
+    [label]="'Text Input'"
+    [placeholder]="'Enter text...'"
+    [value]="textValue"
+    (valueChange)="handleInputChange($event)"
+    variant="default"
+  ></ds-input>
+
+  <ds-input
+    [label]="'Number Input'"
+    [type]="'number'"
+    [value]="numberValue"
+    (valueChange)="handleNumberChange($event)"
+    variant="default"
+  ></ds-input>
+
+  <ds-input
+    [label]="'Disabled Input'"
+    [value]="disabledValue"
+    [disabled]="true"
+    variant="default"
+    [placeholder]="'Enter text...'"
+  ></ds-input>
+
+  <ds-input
+    [label]="'Error Input'"
+    [value]="errorValue"
+    [hasError]="true"
+    [errorMessage]="'This field is required.'"
+    (valueChange)="handleErrorChange($event)"
+    variant="default"
+    [placeholder]="'Enter Input...'"
+  ></ds-input>
+</div>

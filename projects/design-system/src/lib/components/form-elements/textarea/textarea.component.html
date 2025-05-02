@@ -1,0 +1,24 @@
+<div class="relative w-full">
+  <ng-container *ngIf="label">
+    <label class="inline-block mb-1">{{ label }}</label>
+  </ng-container>
+
+  <textarea
+    [value]="value"
+    [name]="name"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [rows]="rows"
+    [attr.maxlength]="maxLength"
+    (input)="onTextareaChange($event)"
+    [ngClass]="classes"
+  ></textarea>
+
+  <ng-container *ngIf="hasError && errorMessage">
+    <span [ngClass]="textarea[variant].errorMessage">{{ errorMessage }}</span>
+  </ng-container>
+
+  <ng-container *ngIf="description">
+    <span [ngClass]="textarea[variant].description">{{ description }}</span>
+  </ng-container>
+</div>

@@ -1,0 +1,28 @@
+<div class="p-4 grid gap-6">
+  <h3>Default Textarea</h3>
+  <ds-textarea
+    label="Enter Description"
+    placeholder="Write something..."
+    [rows]="5"
+    [(value)]="textValue"
+  ></ds-textarea>
+
+  <h3>Textarea With Error</h3>
+  <ds-textarea
+    label="Error Example"
+    placeholder="Wrong input..."
+    [rows]="3"
+    [(value)]="textValue"
+    [hasError]="true"
+    errorMessage="This field is required."
+  ></ds-textarea>
+
+  <h3>Textarea With Description</h3>
+  <ds-textarea
+    label="About You"
+    placeholder="Tell us about yourself..."
+    description="Minimum 100 characters."
+    [rows]="4"
+    [(value)]="textValue"
+  ></ds-textarea>
+</div>

@@ -1,0 +1,27 @@
+<div class="p-4 grid gap-6">
+  <h3>Positive Balance</h3>
+  <ds-balance-formatter
+    [balance]="150.25"
+    currency="USD"
+  ></ds-balance-formatter>
+
+  <h3>Negative Balance</h3>
+  <ds-balance-formatter
+    [balance]="-75.50"
+    currency="EUR"
+  ></ds-balance-formatter>
+
+  <h3>Discrete Balance</h3>
+  <ds-balance-formatter
+    [balance]="250.75"
+    [isDiscrete]="true"
+    currency="GBP"
+  ></ds-balance-formatter>
+
+  <h3>Without Icon</h3>
+  <ds-balance-formatter
+    [balance]="-125.00"
+    [noIcon]="true"
+    currency="JPY"
+  ></ds-balance-formatter>
+</div>

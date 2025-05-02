@@ -1,0 +1,85 @@
+<div class="relative w-full" [ngClass]="className">
+  <ng-container *ngIf="label">
+    <label class="block mb-1">{{ label }}</label>
+  </ng-container>
+
+  <button
+    #triggerButton
+    type="button"
+    (click)="toggleDropdown()"
+    [disabled]="disabled || isLoading"
+    [ngClass]="[
+      theme[variant].element.button.select,
+      hasError ? theme[variant].element.button.error : '',
+      disabled ? theme[variant].element.button.disabled : ''
+    ]"
+  >
+    <span
+      [ngClass]="
+        selectedLabel !== placeholder
+          ? theme[variant].element.button.label
+          : theme[variant].element.button.placeholder
+      "
+    >
+      {{ selectedLabel }}
+    </span>
+
+    <ds-icon
+      *ngIf="!isLoading"
+      [id]="isOpen ? 'arrow-up' : 'arrow-down'"
+      [class]="theme[variant].element.icone.arrow"
+    ></ds-icon>
+
+    <ds-icon
+      *ngIf="isLoading"
+      id="Loader"
+      [class]="theme[variant].element.icone.arrow + ' animate-spin'"
+    ></ds-icon>
+  </button>
+
+  <div
+    *ngIf="isOpen"
+    #optionsContainer
+    [ngStyle]="mergedStyles"
+    [ngClass]="theme[variant].element.options.container"
+  >
+    <ng-container *ngIf="items.length > 0; else emptyState">
+      <div
+        *ngFor="let item of items"
+        (click)="selectOption(item)"
+        [ngClass]="theme[variant].element.options.element"
+        [class.cursor-not-allowed]="item.unavailable"
+      >
+        <div class="flex justify-between items-center">
+          <span
+            [ngClass]="[
+              theme[variant].element.options.fontcolor,
+              item.unavailable
+                ? theme[variant].element.options.unavailable
+                : theme[variant].element.options.available,
+              isSelected(item)
+                ? theme[variant].element.options.selectedfont
+                : ''
+            ]"
+          >
+            {{ item.label }}
+          </span>
+
+          <ds-icon
+            *ngIf="isSelected(item)"
+            id="check"
+            [class]="theme[variant].element.icone.checked"
+          ></ds-icon>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #emptyState>
+      <div class="p-2 px-4 text-gray-600">{{ emptyLabel }}</div>
+    </ng-template>
+  </div>
+
+  <ng-container *ngIf="hasError && errorMessage">
+    <span [ngClass]="theme[variant].element.error">{{ errorMessage }}</span>
+  </ng-container>
+</div>

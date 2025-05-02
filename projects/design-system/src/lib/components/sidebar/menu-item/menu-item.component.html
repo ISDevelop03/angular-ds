@@ -1,0 +1,53 @@
+<ng-container *ngIf="menus?.items?.length > 0; else linkTemplate">
+  <button
+    (click)="handleClick()"
+    [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
+  >
+    <li [ngClass]="wrapperClass">
+      <span
+        *ngIf="!subSidebarIsOpen && title"
+        class="absolute bg-white py-2.5 px-3 text-[14px] leading-[14px] font-bold rounded-lg left-[54px] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 -translate-x-full z-[9998]"
+      >
+        {{ title }}
+      </span>
+
+      <span
+        [ngClass]="[
+          'rounded-[3px] size-[22px] inline-flex justify-center items-center transition-opacity duration-300 ease-in-out',
+          color,
+          !subSidebarIsOpen && title ? 'group-hover:opacity-60' : '',
+          disableMainMenus ? 'cursor-not-allowed opacity-60' : ''
+        ]"
+      >
+        <ds-icon *ngIf="icon" [id]="icon" class="shrink-0 size-4"></ds-icon>
+      </span>
+    </li>
+  </button>
+</ng-container>
+
+<ng-template #linkTemplate>
+  <a
+    [href]="disableMainMenus ? '#' : href"
+    [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
+  >
+    <li [ngClass]="wrapperClass">
+      <span
+        *ngIf="!subSidebarIsOpen && title"
+        class="absolute bg-white py-2.5 px-3 text-[14px] leading-[14px] font-bold rounded-lg left-[54px] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 -translate-x-full z-[9998]"
+      >
+        {{ title }}
+      </span>
+
+      <span
+        [ngClass]="[
+          'rounded-[3px] size-[22px] inline-flex justify-center items-center transition-opacity duration-300 ease-in-out',
+          color,
+          !subSidebarIsOpen && title ? 'group-hover:opacity-60' : '',
+          disableMainMenus ? 'cursor-not-allowed opacity-60' : ''
+        ]"
+      >
+        <ds-icon *ngIf="icon" [id]="icon" class="shrink-0 size-4"></ds-icon>
+      </span>
+    </li>
+  </a>
+</ng-template>

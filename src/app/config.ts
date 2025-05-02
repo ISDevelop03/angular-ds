@@ -67,7 +67,52 @@ export const menus: Menu[] = [
     path: '/empty-card',
     key: 'empty-card',
   },
-
+  // {
+  //   name: 'Dropdown',
+  //   path: '/dropdown',
+  //   key: 'dropdown',
+  // },
+  {
+    name: 'Popup',
+    path: '/popup',
+    key: 'popup',
+  },
+  {
+    name: 'Sidebar',
+    path: '/sidebar',
+    key: 'sidebar',
+  },
+  // {
+  //   name: 'Checkbox',
+  //   path: '/checkbox',
+  //   key: 'checkbox',
+  // },
+  // {
+  //   name: 'Input',
+  //   path: '/input',
+  //   key: 'input',
+  // },
+  // {
+  //   name: 'Radio',
+  //   path: '/radio',
+  //   key: 'radio',
+  // },
+  // {
+  //   name: 'Range',
+  //   path: '/range',
+  //   key: 'range',
+  // },
+  // {
+  //   name: 'Textarea',
+  //   path: '/textarea',
+  //   key: 'textarea',
+  // },
+  // {
+  //   name: 'Select',
+  //   path: '/select',
+  //   key: 'select',
+  // },
+  // MyBusiness Related Components
   {
     name: 'Actions Layout',
     path: '/actions-layout',
@@ -88,4 +133,64 @@ export const menus: Menu[] = [
     path: '/shortcut-card',
     key: 'shortcut-card',
   },
+  {
+    name: 'Filial Card',
+    path: '/filial-card',
+    key: 'filial-card',
+  },
+  {
+    name: 'Inbox Card',
+    path: '/inbox-card',
+    key: 'inbox-card',
+  },
+  {
+    name: 'Notification Card',
+    path: '/notification-card',
+    key: 'notification-card',
+  },
+  {
+    name: 'Numbers Card',
+    path: '/numbers-card',
+    key: 'numbers-card',
+  },
+  // {
+  //   name: 'Progress',
+  //   path: '/progress',
+  //   key: 'progress',
+  // },
+  // {
+  //   name: 'Currency Select',
+  //   path: '/currency-select',
+  //   key: 'currency-select',
+  // },
+  // {
+  //   name: 'Currency Converter',
+  //   path: '/currency-converter',
+  //   key: 'currency-converter',
+  // },
+  {
+    name: 'Profile Dropdown',
+    path: '/profile-dropdown',
+    key: 'profile-dropdown',
+  },
+  {
+    name: 'Latest Operations Card',
+    path: '/latest-operations-card',
+    key: 'latest-operations-card',
+  },
+  // {
+  //   name: 'Account Grid Card',
+  //   path: '/account-grid-card',
+  //   key: 'account-grid-card',
+  // },
+  // {
+  //   name: 'Account Slider Card',
+  //   path: '/account-slider-card',
+  //   key: 'account-slider-card',
+  // },
+  // {
+  //   name: 'Account Selected Card',
+  //   path: '/account-selected-card',
+  //   key: 'account-selected-card',
+  // },
 ];

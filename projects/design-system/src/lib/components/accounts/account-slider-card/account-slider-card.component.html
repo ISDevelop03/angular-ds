@@ -1,0 +1,41 @@
+<article
+  tabindex="0"
+  role="button"
+  class="shrink-0 border border-neutral-200 text-custom-black rounded-lg snap-start relative bg-card-level-4 p-3.5"
+  [ngClass]="className"
+>
+  <!-- Dropdown -->
+  <ds-dropdown
+    [items]="actionsList"
+    class="absolute top-4 right-3.5"
+    anchor="bottom end"
+  >
+    <ds-icon id="more-1" class="size-4"></ds-icon>
+  </ds-dropdown>
+
+  <!-- Account Info -->
+  <div *ngIf="type || account_number">
+    <h3 *ngIf="type" class="text-[14px] leading-[20px] font-medium">
+      {{ type }}
+    </h3>
+
+    <p
+      *ngIf="account_number"
+      class="text-[12px] leading-[18px] transition-all duration-300 ease-in-out font-bold inline-flex gap-1"
+    >
+      <sup class="inline-flex mt-2.5 font-light">N°</sup>
+      {{ account_number }}
+    </p>
+  </div>
+
+  <!-- Balance -->
+  <ds-balance-formatter
+    *ngIf="balance || currency"
+    [isDiscrete]="isDiscrete"
+    [balance]="balance"
+    [currency]="currency"
+    class="items-center transition-all duration-300 ease-in-out text-[16px] leading-[16px] mt-6"
+    currencyClassName="text-[10px] leading-[10px]"
+  >
+  </ds-balance-formatter>
+</article>

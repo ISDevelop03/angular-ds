@@ -1,0 +1,35 @@
+<label class="cursor-pointer inline-block">
+  <div [ngClass]="wrapperClass">
+    <div [ngClass]="radioClass">
+      <input
+        type="radio"
+        class="absolute size-0 opacity-0"
+        [value]="value"
+        [checked]="modelValue === value"
+        (change)="onInputChange()"
+        [name]="name"
+        [disabled]="disabled"
+      />
+      <div
+        *ngIf="checked"
+        [ngClass]="
+          radio[variant]?.icon?.base +
+          ' ' +
+          (disabled
+            ? radio[variant]?.icon?.disabled
+            : radio[variant]?.icon?.enabled)
+        "
+      ></div>
+    </div>
+
+    <ng-container *ngIf="label">
+      <span [ngClass]="labelClass">
+        {{ label }}
+      </span>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="hasError && errorMessage">
+    <span class="text-error-500 text-[12px]">{{ errorMessage }}</span>
+  </ng-container>
+</label>

@@ -1,0 +1,74 @@
+<!-- ds-menu-list.component.html -->
+<ul class="menu-wrapper w-max min-w-[256px] mt-4">
+  <ng-container *ngFor="let item of data">
+    <li
+      class="relative after:absolute after:top-[30px] after:bottom-0 after:left-1.5 after:w-px after:h-[calc(100%-44px)] after:bg-customgray-500"
+    >
+      <ng-container *ngIf="hasChildren(item); else linkLevel1">
+        <div
+          tabindex="0"
+          role="button"
+          class="flex w-full justify-between items-center"
+          (click)="toggle(item)"
+        >
+          <div class="flex gap-2 items-center">
+            <ds-icon [id]="item.icon" class="size-4"></ds-icon>
+            <span class="text-sm">{{ item.title }}</span>
+          </div>
+          <ds-icon
+            id="arrow-down"
+            class="size-4 transition-transform duration-300"
+            [ngClass]="{ 'rotate-180': isOpen(item) }"
+          ></ds-icon>
+        </div>
+
+        <ul *ngIf="isOpen(item)" class="pl-4">
+          <ng-container *ngFor="let subItem of item.items">
+            <li
+              class="relative before:absolute before:-left-[22px] before:border-customgray-500 before:rounded-bl-md before:border-l before:border-b before:border-r-transparent before:border-t-transparent before:-top-4 before:content-[''] before:w-4 before:h-6 font-light"
+            >
+              <ng-container *ngIf="hasChildren(subItem); else linkLevel2">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="flex w-full justify-between items-center"
+                  (click)="toggle(subItem)"
+                >
+                  <div class="flex gap-2 items-center">
+                    <ds-icon [id]="subItem.icon" class="size-4"></ds-icon>
+                    <span class="text-sm">{{ subItem.title }}</span>
+                  </div>
+                  <ds-icon
+                    id="arrow-down"
+                    class="size-4 transition-transform duration-300"
+                    [ngClass]="{ 'rotate-180': isOpen(subItem) }"
+                  ></ds-icon>
+                </div>
+                <ul *ngIf="isOpen(subItem)" class="pl-4">
+                  <li *ngFor="let subSub of subItem.items">
+                    <a class="flex items-center gap-2" [href]="subSub.href">
+                      <ds-icon [id]="subSub.icon" class="size-4"></ds-icon>
+                      <span class="text-sm">{{ subSub.title }}</span>
+                    </a>
+                  </li>
+                </ul>
+              </ng-container>
+              <ng-template #linkLevel2>
+                <a class="flex items-center gap-2" [href]="subItem.href">
+                  <ds-icon [id]="subItem.icon" class="size-4"></ds-icon>
+                  <span class="text-sm">{{ subItem.title }}</span>
+                </a>
+              </ng-template>
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+      <ng-template #linkLevel1>
+        <a class="flex items-center gap-2" [href]="item.href">
+          <ds-icon [id]="item.icon" class="size-4"></ds-icon>
+          <span class="text-sm">{{ item.title }}</span>
+        </a>
+      </ng-template>
+    </li>
+  </ng-container>
+</ul>

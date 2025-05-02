@@ -9,14 +9,38 @@ export interface ControlConfig {
 }
 
 // UTILS
-export const convertArrayToObject = (controls = []) =>
-  controls.reduce((acc, control) => {
-    acc[control.name] = control.value;
-    return acc;
-  }, {});
+export const formatMoney = (
+  value: number,
+  withCurrency?: boolean,
+  noDecimals: boolean = false,
+  isDiscrete?: boolean
+) => {
+  if (isDiscrete) {
+    return '****';
+  }
 
-export const convertObjectToArray = (obj) =>
-  Object.entries(obj).map(([key, value]) => ({
-    name: key,
-    value,
-  }));
+  var config: Intl.NumberFormatOptions;
+
+  if (withCurrency) {
+    config = {
+      style: 'currency',
+      maximumFractionDigits: 4,
+      minimumFractionDigits: 2,
+      currency: 'MAD',
+    };
+  } else {
+    config = {
+      maximumFractionDigits: 4,
+      minimumFractionDigits: 2,
+    };
+  }
+
+  if (noDecimals) {
+    delete config.minimumFractionDigits;
+    delete config.maximumFractionDigits;
+  }
+
+  return new Intl.NumberFormat('fr', config).format(value);
+};
+
+export const checkItemsMenu = <T>(items?: T[]) => items && items.length > 0;

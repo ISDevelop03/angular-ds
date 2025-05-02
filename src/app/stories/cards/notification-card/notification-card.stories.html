@@ -1,0 +1,22 @@
+<div class="p-4 grid gap-4">
+  <h3 class="text-3xl">Unread Notification Example</h3>
+  <div class="max-w-[250px]">
+    <ds-notification-card
+      title="New Alert"
+      content="This notification is unread and important."
+      time="5 minutes ago"
+      [isRead]="false"
+      (onClick)="handleNotificationClick()"
+    ></ds-notification-card>
+  </div>
+  <h3 class="text-3xl">Read Notification Example</h3>
+  <div class="max-w-[250px]">
+    <ds-notification-card
+      content="Your system is up to date."
+      title="System Update"
+      time="2 days ago"
+      [isRead]="true"
+      (onClick)="handleNotificationClick()"
+    ></ds-notification-card>
+  </div>
+</div>

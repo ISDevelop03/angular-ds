@@ -1,0 +1,7 @@
+<ng-container *ngIf="hasValue; else emptyValue">
+  <ng-content></ng-content>
+</ng-container>
+
+<ng-template #emptyValue>
+  <span class="inline-block dark:text-white text-heading">-</span>
+</ng-template>

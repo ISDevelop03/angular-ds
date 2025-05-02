@@ -1,0 +1,28 @@
+<div [ngClass]="[dropdown.base, className]">
+  <button
+    (click)="toggleMenu()"
+    [ngClass]="[
+      dropdown.button.base,
+      isOpen ? dropdown.button.active : '',
+      dropdown.variants[variant] || ''
+    ]"
+  >
+    <ng-content></ng-content>
+  </button>
+
+  <div *ngIf="isOpen" [ngClass]="dropdown.container" (mouseleave)="closeMenu()">
+    <button
+      *ngFor="let item of items"
+      (click)="onItemClick(item.onClick)"
+      [ngClass]="dropdown.item.base"
+      type="button"
+    >
+      <ds-icon
+        *ngIf="item.icon"
+        [id]="item.icon"
+        [className]="dropdown.icon"
+      ></ds-icon>
+      <span class="text-[12px] leading-[16px]">{{ item.label }}</span>
+    </button>
+  </div>
+</div>

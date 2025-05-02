@@ -1,0 +1,12 @@
+<div class="p-4 grid gap-6">
+  <h3>Default Range Input</h3>
+
+  <ds-range
+    name="range"
+    [min]="0"
+    [max]="100"
+    [(value)]="rangeValue"
+  ></ds-range>
+
+  <p>Selected Value: {{ rangeValue }}</p>
+</div>

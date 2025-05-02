@@ -1,0 +1,20 @@
+<div class="p-4 grid gap-6">
+  <h3>Default Account Grid Card</h3>
+
+  <ds-account-grid-card
+    [isDiscrete]="isDiscrete"
+    [account_number]="accountNumber"
+    [currency]="currency"
+    [type]="type"
+    [solde_comptable]="soldeComptable"
+    [solde_temps_reel]="soldeTempsReel"
+    [date]="date"
+    [actionsList]="actionsList"
+    [editLink]="editLink"
+  >
+    <!-- Slot content inside accordion -->
+    <div class="p-2 bg-gray-100 rounded">
+      <p>Extra Account Details or Transactions...</p>
+    </div>
+  </ds-account-grid-card>
+</div>

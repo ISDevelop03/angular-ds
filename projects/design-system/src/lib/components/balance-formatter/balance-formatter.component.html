@@ -1,0 +1,17 @@
+<ng-container *ngIf="balance !== 0">
+  <span [ngClass]="wrapperClass">
+    <ng-container *ngIf="showIcon && !isDiscrete">
+      <ds-icon [id]="iconId" [class]="iconClass"></ds-icon>
+    </ng-container>
+
+    <span>{{ formattedBalance }}</span>
+
+    <ng-container *ngIf="currency">
+      <span
+        [ngClass]="theme[variant]?.currency + ' ' + (currencyClassName || '')"
+      >
+        {{ currency }}
+      </span>
+    </ng-container>
+  </span>
+</ng-container>

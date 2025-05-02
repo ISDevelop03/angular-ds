@@ -1,0 +1,26 @@
+<div *ngIf="isShown" class="fixed inset-0 z-50" [ngClass]="theme.base">
+  <!-- Backdrop -->
+  <div
+    class="popup-overlay"
+    [ngClass]="theme.overlay"
+    (click)="onBackdropClick($event)"
+  ></div>
+
+  <!-- Transition Panel -->
+  <div class="absolute" [ngClass]="theme.variants[variant].base">
+    <div
+      [ngClass]="[
+        theme.panel,
+        theme.variants[variant].panel,
+        className,
+        getAnimationClass()
+      ]"
+    >
+      <button (click)="onClose()" class="absolute top-1 right-1">
+        <ds-icon id="close" size="1.25rem"></ds-icon>
+      </button>
+      <h2 *ngIf="heading" class="flex justify-between">{{ heading }}</h2>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="p-4 grid gap-4">
+  <h3>Popup Variants</h3>
+
+  <div class="flex gap-2">
+    <ds-button (click)="openModal()" class="btn btn-primary"
+      >Open Modal</ds-button
+    >
+    <ds-button (click)="openSlideLeft()" class="btn btn-secondary">
+      Open Slide Left
+    </ds-button>
+    <ds-button (click)="openSlideRight()" class="btn btn-accent">
+      Open Slide Right
+    </ds-button>
+  </div>
+
+  <ds-popup
+    [isShown]="isModalOpen"
+    [heading]="'Modal Popup'"
+    variant="modal"
+    [close]="closeModal.bind(this)"
+  >
+    <div class="p-4">This is a centered modal popup.</div>
+  </ds-popup>
+
+  <ds-popup
+    [isShown]="isSlideLeftOpen"
+    [heading]="'Slide Left Popup'"
+    variant="slideLeft"
+    [close]="closeModal.bind(this)"
+  >
+    <div class="p-4">This is a slide left popup.</div>
+  </ds-popup>
+
+  <ds-popup
+    [isShown]="isSlideRightOpen"
+    [heading]="'Slide Right Popup'"
+    variant="slideRight"
+    [close]="closeModal.bind(this)"
+  >
+    <div class="p-4">This is a slide right popup.</div>
+  </ds-popup>
+</div>

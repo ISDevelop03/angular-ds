@@ -1,0 +1,32 @@
+<label class="cursor-pointer inline-block">
+  <div [ngClass]="wrapperClass">
+    <div [ngClass]="checkboxClass">
+      <input
+        type="checkbox"
+        class="absolute size-0 opacity-0"
+        [value]="value"
+        [name]="name"
+        [checked]="checked"
+        [disabled]="disabled"
+        (change)="change()"
+      />
+      <ds-icon
+        *ngIf="checked"
+        id="check"
+        [class]="
+          checkbox[variant]?.checkbox?.icon + ' absolute inset-0 m-auto size-3'
+        "
+      ></ds-icon>
+    </div>
+
+    <ng-container *ngIf="label">
+      <span [ngClass]="labelClass">
+        {{ label }}
+      </span>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="hasError && errorMessage">
+    <span [ngClass]="checkbox[variant].errorMessage">{{ errorMessage }}</span>
+  </ng-container>
+</label>

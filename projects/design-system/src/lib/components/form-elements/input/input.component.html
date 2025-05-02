@@ -1,0 +1,77 @@
+<div [ngClass]="['relative w-full', input[variant].container]">
+  <ng-container *ngIf="type !== 'hidden' && label">
+    <label [ngClass]="labelClassName">
+      {{ label }}
+      <span *ngIf="required" class="text-primary">*</span>
+    </label>
+  </ng-container>
+
+  <div
+    [ngClass]="[
+      input[variant].wrapper.base,
+      disabled
+        ? input[variant].wrapper.disabled
+        : input[variant].wrapper.enabled,
+      type === 'hidden' ? 'border-none' : '',
+      hasError ? input[variant].hasError : ''
+    ]"
+  >
+    <div *ngIf="prefix" [ngClass]="input[variant].prefix">
+      {{ prefix }}
+    </div>
+
+    <input
+      [type]="type"
+      [placeholder]="placeholder || ''"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="handleChange($event)"
+      [ngClass]="[
+        input[variant].input,
+        disabled ? 'cursor-not-allowed bg-gray-50' : '',
+        type === 'number' ? '[appearance:textfield]' : ''
+      ]"
+    />
+
+    <div *ngIf="type === 'number' && !disabled" class="flex flex-col gap-[1px]">
+      <button
+        type="button"
+        (click)="increment()"
+        class="group rounded-[1px] bg-gray-custom-100 flex items-center justify-center h-1/2 px-1 hover:bg-primary transition-colors"
+        tabindex="-1"
+      >
+        <ds-icon
+          id="arrow-up"
+          height="10"
+          width="10"
+          class="text-gray-700 group-hover:text-white transition-colors"
+        ></ds-icon>
+      </button>
+      <button
+        type="button"
+        (click)="decrement()"
+        class="group rounded-[1px] bg-[#4A4A50] flex items-center justify-center h-1/2 px-1 hover:bg-primary transition-colors"
+        tabindex="-1"
+      >
+        <ds-icon
+          id="arrow-down"
+          height="10"
+          width="10"
+          class="text-gray-700 group-hover:text-white transition-colors"
+        ></ds-icon>
+      </button>
+    </div>
+
+    <div *ngIf="suffix" [ngClass]="input[variant].sufix">
+      {{ suffix }}
+    </div>
+  </div>
+
+  <div *ngIf="description" [ngClass]="input[variant].description">
+    {{ description }}
+  </div>
+
+  <div *ngIf="hasError && errorMessage" [ngClass]="input[variant].errorMessage">
+    {{ errorMessage }}
+  </div>
+</div>
