@@ -67,11 +67,11 @@ export const menus: Menu[] = [
     path: '/empty-card',
     key: 'empty-card',
   },
-  // {
-  //   name: 'Dropdown',
-  //   path: '/dropdown',
-  //   key: 'dropdown',
-  // },
+  {
+    name: 'Dropdown',
+    path: '/dropdown',
+    key: 'dropdown',
+  },
   {
     name: 'Popup',
     path: '/popup',
@@ -82,36 +82,36 @@ export const menus: Menu[] = [
     path: '/sidebar',
     key: 'sidebar',
   },
-  // {
-  //   name: 'Checkbox',
-  //   path: '/checkbox',
-  //   key: 'checkbox',
-  // },
-  // {
-  //   name: 'Input',
-  //   path: '/input',
-  //   key: 'input',
-  // },
-  // {
-  //   name: 'Radio',
-  //   path: '/radio',
-  //   key: 'radio',
-  // },
-  // {
-  //   name: 'Range',
-  //   path: '/range',
-  //   key: 'range',
-  // },
-  // {
-  //   name: 'Textarea',
-  //   path: '/textarea',
-  //   key: 'textarea',
-  // },
-  // {
-  //   name: 'Select',
-  //   path: '/select',
-  //   key: 'select',
-  // },
+  {
+    name: 'Checkbox',
+    path: '/checkbox',
+    key: 'checkbox',
+  },
+  {
+    name: 'Input',
+    path: '/input',
+    key: 'input',
+  },
+  {
+    name: 'Radio',
+    path: '/radio',
+    key: 'radio',
+  },
+  {
+    name: 'Range',
+    path: '/range',
+    key: 'range',
+  },
+  {
+    name: 'Textarea',
+    path: '/textarea',
+    key: 'textarea',
+  },
+  {
+    name: 'Select',
+    path: '/select',
+    key: 'select',
+  },
   // MyBusiness Related Components
   {
     name: 'Actions Layout',
@@ -153,21 +153,21 @@ export const menus: Menu[] = [
     path: '/numbers-card',
     key: 'numbers-card',
   },
-  // {
-  //   name: 'Progress',
-  //   path: '/progress',
-  //   key: 'progress',
-  // },
-  // {
-  //   name: 'Currency Select',
-  //   path: '/currency-select',
-  //   key: 'currency-select',
-  // },
-  // {
-  //   name: 'Currency Converter',
-  //   path: '/currency-converter',
-  //   key: 'currency-converter',
-  // },
+  {
+    name: 'Progress',
+    path: '/progress',
+    key: 'progress',
+  },
+  {
+    name: 'Currency Select',
+    path: '/currency-select',
+    key: 'currency-select',
+  },
+  {
+    name: 'Currency Converter',
+    path: '/currency-converter',
+    key: 'currency-converter',
+  },
   {
     name: 'Profile Dropdown',
     path: '/profile-dropdown',
@@ -178,19 +178,19 @@ export const menus: Menu[] = [
     path: '/latest-operations-card',
     key: 'latest-operations-card',
   },
-  // {
-  //   name: 'Account Grid Card',
-  //   path: '/account-grid-card',
-  //   key: 'account-grid-card',
-  // },
-  // {
-  //   name: 'Account Slider Card',
-  //   path: '/account-slider-card',
-  //   key: 'account-slider-card',
-  // },
-  // {
-  //   name: 'Account Selected Card',
-  //   path: '/account-selected-card',
-  //   key: 'account-selected-card',
-  // },
+  {
+    name: 'Account Grid Card',
+    path: '/account-grid-card',
+    key: 'account-grid-card',
+  },
+  {
+    name: 'Account Slider Card',
+    path: '/account-slider-card',
+    key: 'account-slider-card',
+  },
+  {
+    name: 'Account Selected Card',
+    path: '/account-selected-card',
+    key: 'account-selected-card',
+  },
 ];
