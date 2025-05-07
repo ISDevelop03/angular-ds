@@ -19,7 +19,6 @@ import {
   BreadcrumbStoryComponent,
   CallToActionIconsStoryComponent,
   EmptyCardStoryComponent,
-  PortfolioSelectionStoryComponent,
   ToggleStoryComponent,
   ShortcutCardStoryComponent,
   FilialCardStoryComponent,
@@ -45,6 +44,11 @@ import {
   AccountSliderCardStoryComponent,
   AccountSelectedCardStoryComponent,
   SidebarStoryComponent,
+  PaginationStoryComponent,
+  HoldingCardStoryComponent,
+  PortfolioItemCardStory,
+  PortfolioSelectCardStory,
+  PortfolioVisionCardStory,
 } from './stories';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -77,6 +81,7 @@ export const pages = [
 
   { path: 'balance-formatter', component: BalanceFormatterStoryComponent },
   { path: 'display-value', component: DisplayValueStoryComponent },
+  { path: 'pagination', component: PaginationStoryComponent },
 
   { path: 'account-grid-card', component: AccountGridCardStoryComponent },
   { path: 'account-slider-card', component: AccountSliderCardStoryComponent },
@@ -88,9 +93,9 @@ export const pages = [
   { path: 'sidebar', component: SidebarStoryComponent },
   { path: 'actions-layout', component: ActionsLayoutStoryComponent },
   { path: 'call-to-action-icons', component: CallToActionIconsStoryComponent },
-  { path: 'portfolio-selection', component: PortfolioSelectionStoryComponent },
   { path: 'shortcut-card', component: ShortcutCardStoryComponent },
   { path: 'filial-card', component: FilialCardStoryComponent },
+  { path: 'holding-card', component: HoldingCardStoryComponent },
   { path: 'inbox-card', component: InboxCardStoryComponent },
   { path: 'notification-card', component: NotificationCardStoryComponent },
   { path: 'numbers-card', component: NumbersCardStoryComponent },
@@ -102,6 +107,9 @@ export const pages = [
     component: LatestOperationsCardStoryComponent,
   },
   { path: 'profile-dropdown', component: PortfolioDropdownStoryComponent },
+  { path: 'portfolio-item-card', component: PortfolioItemCardStory },
+  { path: 'portfolio-select-card', component: PortfolioSelectCardStory },
+  { path: 'portfolio-vision-card', component: PortfolioVisionCardStory },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -145,7 +153,7 @@ const router = RouterModule.forRoot(pages);
 
     ActionsLayoutStoryComponent,
     CallToActionIconsStoryComponent,
-    PortfolioSelectionStoryComponent,
+
     ShortcutCardStoryComponent,
     FilialCardStoryComponent,
     InboxCardStoryComponent,
@@ -166,6 +174,11 @@ const router = RouterModule.forRoot(pages);
     AccountSliderCardStoryComponent,
     AccountSelectedCardStoryComponent,
     SidebarStoryComponent,
+    PaginationStoryComponent,
+    HoldingCardStoryComponent,
+    PortfolioItemCardStory,
+    PortfolioSelectCardStory,
+    PortfolioVisionCardStory,
   ],
   providers: [],
   bootstrap: [AppComponent],

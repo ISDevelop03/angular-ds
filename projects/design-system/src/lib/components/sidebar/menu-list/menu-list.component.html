@@ -1,5 +1,5 @@
 <!-- ds-menu-list.component.html -->
-<ul class="menu-wrapper w-max min-w-[256px] mt-4">
+<ul class="menu-wrapper w-full max-w-[260px] mt-4">
   <ng-container *ngFor="let item of data">
     <li
       class="relative after:absolute after:top-[30px] after:bottom-0 after:left-1.5 after:w-px after:h-[calc(100%-44px)] after:bg-customgray-500"
@@ -17,7 +17,7 @@
           </div>
           <ds-icon
             id="arrow-down"
-            class="size-4 transition-transform duration-300"
+            class="size-3 transition-transform duration-300"
             [ngClass]="{ 'rotate-180': isOpen(item) }"
           ></ds-icon>
         </div>
@@ -25,13 +25,13 @@
         <ul *ngIf="isOpen(item)" class="pl-4">
           <ng-container *ngFor="let subItem of item.items">
             <li
-              class="relative before:absolute before:-left-[22px] before:border-customgray-500 before:rounded-bl-md before:border-l before:border-b before:border-r-transparent before:border-t-transparent before:-top-4 before:content-[''] before:w-4 before:h-6 font-light"
+              class="relative before:absolute before:-left-[22px] before:border-customgray-500 before:rounded-bl-md before:border-l before:border-b before:border-r-transparent before:border-t-transparent before:-top-4 before:content-[''] before:w-4 before:h-[26.5px] font-light"
             >
               <ng-container *ngIf="hasChildren(subItem); else linkLevel2">
                 <div
                   tabindex="0"
                   role="button"
-                  class="flex w-full justify-between items-center"
+                  class="flex w-full justify-between items-center pl-0.5"
                   (click)="toggle(subItem)"
                 >
                   <div class="flex gap-2 items-center">
@@ -40,23 +40,43 @@
                   </div>
                   <ds-icon
                     id="arrow-down"
-                    class="size-4 transition-transform duration-300"
+                    class="size-3 transition-transform duration-300"
                     [ngClass]="{ 'rotate-180': isOpen(subItem) }"
                   ></ds-icon>
                 </div>
                 <ul *ngIf="isOpen(subItem)" class="pl-4">
                   <li *ngFor="let subSub of subItem.items">
-                    <a class="flex items-center gap-2" [href]="subSub.href">
-                      <ds-icon [id]="subSub.icon" class="size-4"></ds-icon>
-                      <span class="text-sm">{{ subSub.title }}</span>
+                    <a
+                      class="flex items-center gap-2 relative before:absolute before:content-[''] before:-left-4 before:top-1/2 before:-translate-y-1/2 before:size-1.5 before:rounded-full hover:before:bg-white before:transition-colors before:duration-300 before:ease-in-out"
+                      [ngClass]="[
+                        currentURL === subSub.href
+                          ? 'before:bg-white'
+                          : 'before:bg-transparent'
+                      ]"
+                      [href]="subSub.href"
+                    >
+                      <span class="text-sm">{{ subSub.title }} </span>
                     </a>
                   </li>
                 </ul>
               </ng-container>
               <ng-template #linkLevel2>
-                <a class="flex items-center gap-2" [href]="subItem.href">
-                  <ds-icon [id]="subItem.icon" class="size-4"></ds-icon>
-                  <span class="text-sm">{{ subItem.title }}</span>
+                <a
+                  class="pl-0.5 flex items-center gap-2 after:rounded-md after:z-[1] before:z-[3] after:absolute after:p-2 after:-inset-1 after:w-full after:content-[''] relative before:absolute before:content-[''] before:-left-1 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-3/4 before:rounded-r-full hover:before:bg-primary-500 hover:after:bg-[#323334] before:transition-colors before:duration-300 before:ease-in-out after:transition-colors after:duration-300 after:ease-in-out"
+                  [href]="subItem.href"
+                  [ngClass]="[
+                    currentURL === subItem.href
+                      ? 'before:bg-primary-500 after:bg-[#323334]'
+                      : 'before:bg-transparent after:bg-transparent'
+                  ]"
+                >
+                  <ds-icon
+                    [id]="subItem.icon"
+                    class="size-4 relative z-[2]"
+                  ></ds-icon>
+                  <span class="text-sm relative z-[2]">{{
+                    subItem.title
+                  }}</span>
                 </a>
               </ng-template>
             </li>

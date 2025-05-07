@@ -39,7 +39,7 @@
             [color]="item.color"
             [menus]="item.menus"
             [href]="item.href"
-            (onClick)="openSubSidebar(item.menus)"
+            (onClick)="openSubSidebar(item.menus, i)"
           ></ds-menu-item>
         </ul>
       </div>
@@ -48,19 +48,45 @@
     </div>
 
     <div
-      class="shrink-0 space-y-5 bg-level-2 rounded-l-lg transition-all duration-300 ease-in-out overflow-y-auto"
+      class="space-y-5 bg-level-2 rounded-l-lg transition-all duration-300 ease-in-out overflow-y-auto"
       [ngClass]="{
-        'w-auto py-5 px-3.5 opacity-100 h-[calc(100%-14px)]':
+        'min-w-[260px] w-auto py-5 px-3.5 opacity-100 h-[calc(100%-14px)]':
           subSidebarIsOpen && subMenuData?.items?.length > 0,
         'w-0 p-0 opacity-0 h-[calc(100%-64px-14px)]':
           !subSidebarIsOpen || !subMenuData?.items?.length
       }"
     >
-      <h4 class="text-[17px] leading-[16px] font-bold">
-        {{ subMenuData?.title }}
-      </h4>
-      <hr class="w-[90%] border-customgray-400 mx-auto" />
-      <ds-menu-list [data]="subMenuData?.items"></ds-menu-list>
+      <div class="flex flex-col">
+        <div
+          *ngFor="let item of mainMenus; let idx = index"
+          class="pt-[9px] pb-4 w-full"
+        >
+          <a
+            *ngIf="!item.menus"
+            [href]="item.href"
+            class="flex justify-between items-center w-full"
+          >
+            <h4 class="text-[14px] leading-[16px] font-bold">
+              {{ item?.title }}
+            </h4>
+          </a>
+          <button
+            *ngIf="item.menus"
+            class="flex justify-between items-center w-full"
+            (click)="toggleMainMenu(idx)"
+          >
+            <h4 class="text-[14px] leading-[16px] font-bold">
+              {{ item?.title }}
+            </h4>
+
+            <ds-icon id="arrow-down" class="shrink-0 size-3"></ds-icon>
+          </button>
+          <ds-menu-list
+            *ngIf="item.menus && openMainMenuIndex === idx"
+            [data]="item.menus.items"
+          ></ds-menu-list>
+        </div>
+      </div>
     </div>
   </div>
 </aside>

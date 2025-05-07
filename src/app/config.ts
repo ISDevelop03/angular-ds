@@ -112,6 +112,14 @@ export const menus: Menu[] = [
     path: '/select',
     key: 'select',
   },
+  {
+    name: 'Pagination',
+    path: '/pagination',
+    key: 'pagination',
+  },
+
+  //-------
+  //-------
   // MyBusiness Related Components
   {
     name: 'Actions Layout',
@@ -124,11 +132,6 @@ export const menus: Menu[] = [
     key: 'call-to-action-icons',
   },
   {
-    name: 'Portfolio Selection',
-    path: '/portfolio-selection',
-    key: 'portfolio-selection',
-  },
-  {
     name: 'Shortcut Card',
     path: '/shortcut-card',
     key: 'shortcut-card',
@@ -137,6 +140,11 @@ export const menus: Menu[] = [
     name: 'Filial Card',
     path: '/filial-card',
     key: 'filial-card',
+  },
+  {
+    name: 'Holding Card',
+    path: '/holding-card',
+    key: 'holding-card',
   },
   {
     name: 'Inbox Card',
@@ -192,5 +200,20 @@ export const menus: Menu[] = [
     name: 'Account Selected Card',
     path: '/account-selected-card',
     key: 'account-selected-card',
+  },
+  {
+    name: 'Portfolio Item Card',
+    path: '/portfolio-item-card',
+    key: 'portfolio-item-card',
+  },
+  {
+    name: 'Portfolio Select Card',
+    path: '/portfolio-select-card',
+    key: 'portfolio-select-card',
+  },
+  {
+    name: 'Portfolio Vision Card',
+    path: '/portfolio-vision-card',
+    key: 'portfolio-vision-card',
   },
 ];

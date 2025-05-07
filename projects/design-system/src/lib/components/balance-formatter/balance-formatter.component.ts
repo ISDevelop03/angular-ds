@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { theme } from './theme';
-import { formatMoney } from 'utils'; // Assuming you have a utility function
-// otherwise, I can provide you a fallback formatMoney too
+import { formatMoney } from '../../../utils';
 
 @Component({
   selector: 'ds-balance-formatter',

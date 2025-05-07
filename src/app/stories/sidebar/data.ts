@@ -121,7 +121,7 @@ export const mainMenusMOCKDATA = [
               items: [
                 {
                   title: 'Consultation des comptes',
-                  href: '#',
+                  href: '/sidebar',
                 },
                 {
                   title: 'Historique des opérations',
@@ -140,7 +140,7 @@ export const mainMenusMOCKDATA = [
             {
               title: 'Moyens de paiement',
               icon: 'file',
-              href: '#',
+              href: '/sidebar',
               items: [],
             },
             {

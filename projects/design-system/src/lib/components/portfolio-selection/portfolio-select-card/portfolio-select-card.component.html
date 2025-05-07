@@ -1,0 +1,32 @@
+<div
+  class="border border-stroke-1 flex justify-start items-center gap-4 p-1 rounded cursor-pointer bg-card-level-2"
+  (click)="handleClick()"
+  [ngClass]="[className]"
+>
+  <img
+    *ngIf="image"
+    [src]="image"
+    [alt]="title"
+    class="w-[35px] aspect-square object-cover"
+  />
+  <div
+    class="w-full text-neutral-900 space-y-1"
+    [ngClass]="[!reference ? 'flex justify-between items-center' : '']"
+  >
+    <h3 *ngIf="title" class="text-[12px] leading-[14px] font-bold">
+      {{ title }}
+    </h3>
+    <ds-icon
+      *ngIf="!reference"
+      [id]="isOpen ? 'arrow-down' : 'arrow-up'"
+      size="12px"
+    ></ds-icon>
+
+    <div *ngIf="reference" class="w-full flex justify-between items-center">
+      <p class="text-[10px] leading-[12px]">
+        {{ reference }}
+      </p>
+      <ds-icon [id]="isOpen ? 'arrow-down' : 'arrow-up'" size="12px"></ds-icon>
+    </div>
+  </div>
+</div>

@@ -65,7 +65,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 ul.menu-wrapper,
 ul.menu-wrapper :where(ul, li) {
-  @apply space-y-6;
+  @apply space-y-4;
 }
 
 ul.menu-wrapper ul {

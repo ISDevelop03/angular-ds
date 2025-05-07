@@ -19,6 +19,7 @@ export * from './popup/popup.component';
 export * from './balance-formatter/balance-formatter.component';
 export * from './display-value/display-value.component';
 export * from './theme-toggle/theme-toggle.component';
+export * from './pagination/pagination.component';
 
 // sidebar
 export * from './sidebar/bottom-menus/bottom-menus.component';
@@ -42,10 +43,9 @@ export * from './accounts/account-selected-card/account-selected-card.component'
 // MyBusiness Related Components
 export * from './actions-layout/actions-layout.component';
 export * from './call-to-action-icons/call-to-action-icons.component';
-export * from './portfolio-selection/portfolio-selection-list/portfolio-selection-list.component';
-export * from './portfolio-selection/portfolio-item/portfolio-item.component';
 export * from './shortcut/shortcut.component';
 export * from './cards/filial-card/filial-card.component';
+export * from './cards/holding-card/holding-card.component';
 export * from './cards/inbox-card/inbox-card.component';
 export * from './cards/notification-card/notification-card.component';
 export * from './cards/numbers-card/numbers-card.component';
@@ -53,3 +53,6 @@ export * from './currency-select/currency-select.component';
 export * from './currency-converter/currency-converter.component';
 export * from './cards/latest-operations-card/latest-operations-card.component';
 export * from './profile-dropdown/profile-dropdown.component';
+export * from './portfolio-selection/portfolio-item-card/portfolio-item-card.component';
+export * from './portfolio-selection/portfolio-select-card/portfolio-select-card.component';
+export * from './portfolio-selection/portfolio-vision-card/portfolio-vision-card.component';

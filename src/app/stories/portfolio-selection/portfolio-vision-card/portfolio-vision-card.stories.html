@@ -1,0 +1,17 @@
+<section class="p-5 flex flex-col gap-10">
+  <h2 class="text-3xl font-bold">Portfolio Vision Card</h2>
+  <div class="max-w-[303px] flex flex-col gap-10">
+    <ds-portfolio-vision-card
+      [title]="title"
+      [image]="image"
+      [isSelected]="isSelected"
+      [handleClick]="handleClick"
+    ></ds-portfolio-vision-card>
+    <ds-portfolio-vision-card
+      [title]="title"
+      [image]="image"
+      [isSelected]="!isSelected"
+      [handleClick]="handleClick"
+    ></ds-portfolio-vision-card>
+  </div>
+</section>

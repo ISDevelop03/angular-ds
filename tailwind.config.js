@@ -30,12 +30,12 @@ module.exports = {
         "2xl": ["24px", "32px"],
       },
       fontFamily: {
-        sans: ["Manrope", ...defaultTheme.fontFamily.sans], //
-        roboto: ["Manrope", ...defaultTheme.fontFamily.sans], //
-        primary: ["Manrope", ...defaultTheme.fontFamily.sans], //
+        sans: ["Manrope", ...defaultTheme.fontFamily.sans],
+        roboto: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         neutral: {
+          25: "rgb(var(--color-neutral-25) / <alpha-value>)",
           50: "rgb(var(--color-neutral-50) / <alpha-value>)",
           100: "rgb(var(--color-neutral-100) / <alpha-value>)",
           200: "rgb(var(--color-neutral-200) / <alpha-value>)",
@@ -200,6 +200,12 @@ module.exports = {
         "level-3": "rgb(var(--level-3) / <alpha-value>)",
         "level-4": "rgb(var(--level-4) / <alpha-value>)",
         "level-5": "rgb(var(--level-5) / <alpha-value>)",
+        "stroke-1": "rgb(var(--stroke-1) / <alpha-value>)",
+        "stroke-2": "rgb(var(--stroke-2) / <alpha-value>)",
+        "stroke-3": "rgb(var(--stroke-3) / <alpha-value>)",
+        "stroke-4": "rgb(var(--stroke-4) / <alpha-value>)",
+        gradient: "rgb(var(--gradient) / <alpha-value>)",
+        "gradient-red": "rgb(var(--gradient-red) / <alpha-value>)",
         "card-level-1": "rgb(var(--card-level-1) / <alpha-value>)",
         "card-level-2": "rgb(var(--card-level-2) / <alpha-value>)",
         "card-level-4": "rgb(var(--card-level-4) / <alpha-value>)",
@@ -376,6 +382,7 @@ module.exports = {
         tooltip: "4.178px 4.178px 37.603px 0px rgba(0, 0, 0, 0.14)",
         portfolio: "3px 3px 17px 0px rgba(0, 0, 0, 0.14)",
         content: "6px 6px 34px 0px rgba(17, 38, 60, 0.10)",
+        holdingcard: "0px 11.206px 19.21px 0px var(--color-neutral-50)",
       },
       keyframes: {
         fadeInScale: {

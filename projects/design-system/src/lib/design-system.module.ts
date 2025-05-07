@@ -14,8 +14,6 @@ import {
   DsBreadcrumbComponent,
   CallToActionIconsComponent,
   EmptyCardComponent,
-  DsPortfolioItemComponent,
-  DsPortfolioSelectionComponent,
   DsToggleComponent,
   DsShortcutCardComponent,
   FilialCardComponent,
@@ -45,9 +43,15 @@ import {
   DsMenuItemComponent,
   DsMenuListComponent,
   DsSidebarComponent,
+  DsPaginationComponent,
+  DsHoldingCardComponent,
+  PortfolioItemCardComponent,
+  PortfolioSelectCardComponent,
+  PortfolioVisionCardComponent,
 } from './components';
 
 import { DesignSystemComponent } from './design-system.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -65,8 +69,6 @@ import { DesignSystemComponent } from './design-system.component';
     DsBreadcrumbComponent,
     CallToActionIconsComponent,
     EmptyCardComponent,
-    DsPortfolioItemComponent,
-    DsPortfolioSelectionComponent,
     DsToggleComponent,
     DsShortcutCardComponent,
     FilialCardComponent,
@@ -96,8 +98,13 @@ import { DesignSystemComponent } from './design-system.component';
     DsMenuItemComponent,
     DsMenuListComponent,
     DsSidebarComponent,
+    DsPaginationComponent,
+    DsHoldingCardComponent,
+    PortfolioItemCardComponent,
+    PortfolioSelectCardComponent,
+    PortfolioVisionCardComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [
     DesignSystemComponent,
     ButtonComponent,
@@ -113,8 +120,6 @@ import { DesignSystemComponent } from './design-system.component';
     DsBreadcrumbComponent,
     CallToActionIconsComponent,
     EmptyCardComponent,
-    DsPortfolioItemComponent,
-    DsPortfolioSelectionComponent,
     DsToggleComponent,
     DsShortcutCardComponent,
     FilialCardComponent,
@@ -144,6 +149,11 @@ import { DesignSystemComponent } from './design-system.component';
     DsMenuItemComponent,
     DsMenuListComponent,
     DsSidebarComponent,
+    DsPaginationComponent,
+    DsHoldingCardComponent,
+    PortfolioItemCardComponent,
+    PortfolioSelectCardComponent,
+    PortfolioVisionCardComponent,
   ],
 })
 export class DesignSystemModule {}

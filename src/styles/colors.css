@@ -2,31 +2,40 @@
   :root {
     /* LIGHT MODE COLORS */
     /* Main Colors */
-    --level-1: 23 23 23; /* #171717 */
+    --level-1: 13 15 18; /* #0D0F12 */
     --level-2: 37 38 39; /* #252627 */
     --level-3: 255 255 255; /* #FFFFFF */
     --level-4: 255 255 255; /* #FFFFFF */
     --level-5: 255 255 255; /* #FFFFFF */
-    --card-level-1: 245 245 245; /* #F5F5F5 */
+
+    /* Light Mode — Card Backgrounds */
+    --card-level-1: 243 244 246; /* #F3F4F6 */
     --card-level-2: 255 255 255; /* #FFFFFF */
-    --card-level-4: 250 250 250; /* #FAFAFA */
+    --card-level-4: 243 244 246; /* #F3F4F6 */
     --card-level-5: 255 255 255; /* #FFFFFF */
+    --stroke-1: 243 244 246; /* #F3F4F6 */
+    --stroke-2: 255 255 255; /* #FFFFFF */
+    --stroke-3: 255 255 255; /* #FFFFFF */
+    --stroke-4: 243 244 246; /* #F3F4F6 */
+    --gradient: 249 250 251; /* #F9FAFB */
+    --gradient-red: 254 242 242; /* #FEF2F2 */
     --color-icon: 251 44 54; /* #FB2C36 */
     --custom-black: 10 10 10; /* #0A0A0A */
     --custom-white: 255 255 255; /* #FFFFFF */
 
     /*  Neutral Colors */
-    --color-neutral-50: 250 250 250; /* #FAFAFA */
-    --color-neutral-100: 245 245 245; /* #F5F5F5 */
-    --color-neutral-200: 228 229 230; /* #E4E5E6 */
-    --color-neutral-300: 211 212 213; /* #D3D4D5 */
-    --color-neutral-400: 159 161 163; /* #9FA1A3 */
-    --color-neutral-500: 113 115 117; /* #717375 */
-    --color-neutral-600: 80 82 84; /* #505254 */
-    --color-neutral-700: 63 64 65; /* #3F4041 */
-    --color-neutral-800: 37 38 39; /* #252627 */
-    --color-neutral-900: 23 23 23; /* #171717 */
-    --color-neutral-950: 10 10 10; /* #0A0A0A */
+    --color-neutral-25: 249 250 251; /* #F9FAFB */
+    --color-neutral-50: 240 242 244; /* #F0F2F4 */
+    --color-neutral-100: 226 229 233; /* #E2E5E9 */
+    --color-neutral-200: 197 202 211; /* #C5CAD3 */
+    --color-neutral-300: 168 175 189; /* #A8AFBD */
+    --color-neutral-400: 138 148 168; /* #8A94A8 */
+    --color-neutral-500: 109 121 146; /* #6D7992 */
+    --color-neutral-600: 87 97 117; /* #576175 */
+    --color-neutral-700: 87 97 117; /* #576175 */
+    --color-neutral-800: 43 48 59; /* #2B303B */
+    --color-neutral-900: 22 24 29; /* #16181D */
+    --color-neutral-950: 13 15 18; /* #0D0F12 */
 
     /* Red Colors */
     --color-red-50: 254 242 242; /* #FEF2F2 */
@@ -129,15 +138,25 @@
     --level-3: 10 10 10; /* #0A0A0A */
     --level-4: 23 23 23; /* #171717 */
     --level-5: 37 38 39; /* #252627 */
+
+    /* Dark Mode — Card Backgrounds */
     --card-level-1: 25 25 26; /* #19191A */
     --card-level-2: 63 64 65; /* #3F4041 */
     --card-level-4: 31 31 31; /* #1F1F1F */
     --card-level-5: 31 31 31; /* #1F1F1F */
+    --stroke-1: 25 25 26; /* #19191A */
+    --stroke-2: 63 64 65; /* #3F4041 */
+    --stroke-3: 31 31 31; /* #1F1F1F */
+    --stroke-4: 31 31 31; /* #1F1F1F */
+    --gradient: 10 10 10; /* #0A0A0A */
+    --gradient-red: 10 10 10; /* #0A0A0A */
     --color-icon: 255 255 255; /* #FFFFFF */
     --custom-black: 255 255 255; /* #FFFFFF */
+    /* --custom-black: 255 255 255; #0A0A0A */
     --custom-white: 255 255 255; /* #FFFFFF */
 
     /*  Neutral Colors */
+    --color-neutral-25: 31 31 31; /* #1F1F1F */
     --color-neutral-50: 10 10 10; /* #0A0A0A */
     --color-neutral-100: 23 23 23; /* #171717 */
     --color-neutral-200: 37 38 39; /* #252627 */

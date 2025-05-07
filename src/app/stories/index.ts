@@ -15,6 +15,7 @@ export * from './dropdown/dropdown.stories';
 export * from './popup/popup.stories';
 export * from './balance-formatter/balance-formatter.stories';
 export * from './display-value/display-value.stories';
+export * from './pagination/pagination.stories';
 
 // Sidebar
 export * from './sidebar/sidebar.stories';
@@ -32,11 +33,11 @@ export * from './form-elements/range/range.stories';
 export * from './form-elements/textarea/textarea.stories';
 export * from './form-elements/select/select.stories';
 
-export * from './portfolio-selection/portfolio-selection.stories';
 export * from './actions-layout/actions-layout.stories';
 export * from './call-to-action-icons/call-to-action-icons.stories';
 export * from './shortcut/shortcut.stories';
 export * from './cards/filial-card/filial-card.stories';
+export * from './cards/holding-card/holding-card.stories';
 export * from './cards/inbox-card/inbox-card.stories';
 export * from './cards/notification-card/notification-card.stories';
 export * from './cards/numbers-card/numbers-card.stories';
@@ -44,3 +45,6 @@ export * from './currency-select/currency-select.stories';
 export * from './currency-converter/currency-converter.stories';
 export * from './cards/latest-operations-card/latest-operations-card.stories';
 export * from './profile-dropdown/profile-dropdown.stories';
+export * from './portfolio-selection/portfolio-item-card/portfolio-item-card.stories';
+export * from './portfolio-selection/portfolio-select-card/portfolio-select-card.stories';
+export * from './portfolio-selection/portfolio-vision-card/portfolio-vision-card.stories';

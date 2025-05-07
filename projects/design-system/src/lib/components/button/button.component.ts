@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { defaultTheme } from './theme';
 @Component({
   selector: 'ds-button',
@@ -21,10 +21,9 @@ export class ButtonComponent implements OnInit {
   @Input() isLoading = false;
   @Input() theme: any;
   @Input() style: string = '';
+  @Input() handleClick: (event: Event) => void;
 
   defaultTheme = defaultTheme;
-  // Output for click events
-  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
 
   // Use the provided theme or fall back to the default one
   get appliedTheme() {
@@ -73,13 +72,5 @@ export class ButtonComponent implements OnInit {
     if (this.href && this.disabled) {
       throw new Error('A link cannot be disabled.');
     }
-  }
-
-  handleClick(event: Event) {
-    if (this.disabled) {
-      event.preventDefault();
-      return;
-    }
-    this.onClick.emit(event);
   }
 }

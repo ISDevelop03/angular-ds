@@ -7,17 +7,15 @@ export const defaultTheme = {
       primary: 'opacity-70 hover:!border-primary hover:!bg-primary !text-white',
       secondary:
         'opacity-70 hover:!border-black hover:!bg-black hover:!text-white',
-      green:
-        'opacity-70 hover:!border-green-500 hover:!bg-green-500 hover:!text-white',
-      yellow:
-        'opacity-70 hover:!border-yellow-500 hover:!bg-yellow-500 hover:!text-white',
-      dark: '',
+      gray: 'opacity-70 hover:!border-card-level-1 hover:!bg-card-level-1 hover:!text-neutral-700',
+      neutral:
+        'opacity-70 hover:!border-neutral-200 hover:!bg-neutral-200 hover:!text-neutral-700',
     },
     outlined: {
       primary: 'opacity-70 hover:!bg-transparent hover:!text-primary',
       secondary: 'opacity-70 hover:!bg-transparent hover:!text-black',
-      green: 'opacity-70 hover:!bg-transparent hover:!text-green-500',
-      yellow: 'opacity-70 hover:!bg-transparent hover:!text-yellow-500',
+      gray: 'opacity-70 hover:!bg-transparent hover:!text-neutral-700',
+      neutral: 'opacity-70 hover:!bg-transparent hover:!text-neutral-700',
     },
   },
   size: {
@@ -43,22 +41,17 @@ export const defaultTheme = {
       ' font-[700] border-2 border-red-500 bg-red-500 text-white hover:bg-red-600 hover:border-red-600',
     secondary:
       'font-[700] border-2 border-black bg-black text-white hover:bg-black/80 hover:!border-black/10',
-    green:
-      'font-[700] border-2 border-green-500 bg-green-500 text-white hover:bg-green-500/80 hover:!border-green-500/10',
-    yellow:
-      'font-[700] border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-yellow-500/80 hover:!border-yellow-500/10',
-    white:
-      'font-[700] border-2 border-gray-100 bg-white text-gray-900 hover:bg-primary-400 hover:border-primary-400 hover:text-white',
-    dark: 'font-[700] border-2 border-gray-300 bg-gray-300 text-white hover:bg-gray-400 hover:border- hover:text-white',
+    gray: 'font-[700] border-2 border-card-level-1 bg-card-level-1 text-neutral-700 hover:bg-card-level-1/80 hover:!border-card-level-1/10',
+    neutral:
+      'font-[700] border-2 border-neutral-200 bg-neutral-200 text-neutral-700 hover:bg-neutral-200/80 hover:!border-neutral-200/10',
   },
   outlineVariants: {
     primary:
       'text-[12px] leading-[24px] font-[700] border-2 border-primary bg-transparent hover:text-white text-primary hover:bg-primary',
     secondary:
       'text-[12px] leading-[24px] font-[700] border-2 border-black bg-transparent hover:text-white text-black  hover:bg-black',
-    green:
-      'text-[12px] leading-[24px] font-[700] border-2 border-green-500 bg-transparent hover:text-white  text-green-500 hover:bg-green-500',
-    yellow:
-      'text-[12px] leading-[24px] font-[700] border-2 border-yellow-500 bg-transparent hover:text-white text-yellow-500 hover:bg-yellow-500',
+    neutral:
+      'text-[12px] leading-[24px] font-[700] border-2 border-neutral-200 bg-transparent text-neutral-700 hover:bg-neutral-200',
+    gray: 'text-[12px] leading-[24px] font-[700] border-2 border-card-level-1 bg-transparent text-neutral-700 hover:bg-card-level-1',
   },
 };

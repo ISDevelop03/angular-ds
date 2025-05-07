@@ -1,13 +1,16 @@
 // ds-menu-list.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IMenuListItem } from '../types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ds-menu-list',
   templateUrl: './menu-list.component.html',
 })
-export class DsMenuListComponent {
+export class DsMenuListComponent implements OnInit {
   @Input() data: IMenuListItem[] = [];
+  currentURL = '/';
+  constructor(private router: Router) {}
 
   private openMap = new WeakMap<IMenuListItem, boolean>();
 
@@ -22,5 +25,10 @@ export class DsMenuListComponent {
 
   hasChildren(item: IMenuListItem): boolean {
     return Array.isArray(item.items) && item.items.length > 0;
+  }
+
+  ngOnInit(): void {
+    this.currentURL = this.router.url;
+    console.log('datadatadata', this.data);
   }
 }

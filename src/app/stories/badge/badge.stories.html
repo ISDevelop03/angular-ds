@@ -7,12 +7,37 @@
       [variant]="variant"
     ></ds-badge>
   </div>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      pill="true"
+      *ngFor="let variant of variants"
+      [label]="variant"
+      [variant]="variant"
+    ></ds-badge>
+  </div>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      outline="true"
+      *ngFor="let variant of variants"
+      [label]="variant"
+      [variant]="variant"
+    ></ds-badge>
+  </div>
+  <div class="flex gap-2 flex-wrap">
+    <ds-badge
+      pill="true"
+      outline="true"
+      *ngFor="let variant of variants"
+      [label]="variant"
+      [variant]="variant"
+    ></ds-badge>
+  </div>
 
   <h3>Sizes</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge
       *ngFor="let size of sizes"
-      label="Badge Size"
+      [label]="size +':Badge Size'"
       [size]="size"
       variant="default"
     ></ds-badge>
@@ -20,21 +45,17 @@
 
   <h3>Pill Style</h3>
   <div class="flex gap-2 flex-wrap">
-    <ds-badge label="Rounded Pill" variant="success" [pill]="true"></ds-badge>
+    <ds-badge label="Rounded Pill" variant="green" [pill]="true"></ds-badge>
   </div>
 
   <h3>With Icons</h3>
   <div class="flex gap-2 flex-wrap">
-    <ds-badge label="With Icon" icon="check" variant="primary"></ds-badge>
+    <ds-badge label="With Icon" icon="check" variant="red"></ds-badge>
   </div>
 
   <h3>As Link</h3>
   <div class="flex gap-2 flex-wrap">
-    <ds-badge
-      label="Clickable Badge"
-      href="https://example.com"
-      variant="info"
-    ></ds-badge>
+    <ds-badge label="Clickable Badge" href="https://example.com"></ds-badge>
   </div>
 
   <h3>Combined Demo</h3>

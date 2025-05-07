@@ -11,7 +11,8 @@ export class BadgeComponent {
   @Input() href?: string;
   @Input() pill: boolean = false;
   @Input() variant: string = 'default';
-  @Input() size: string = 'sm';
+  @Input() size: string = 'md';
+  @Input() outline: boolean = false;
   @Input() className: string = '';
 
   //Theme
@@ -21,7 +22,9 @@ export class BadgeComponent {
   getBadgeClasses(): string {
     const base = this.badge.base;
     const size = this.badge.sizes[this.size] || '';
-    const variant = this.badge.variants[this.variant] || '';
+    const variant = this.outline
+      ? this.badge.outlineVariants[this.variant] || ''
+      : this.badge.variants[this.variant] || '';
     const pill = this.pill ? 'rounded-full' : '';
     return [base, size, variant, pill, this.className].join(' ').trim();
   }

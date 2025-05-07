@@ -9,7 +9,7 @@ export class FilialCardComponent {
   @Input() id: number;
   @Input() sector: string;
   @Input() name: string;
-  @Input() className?: string;
+  @Input() className?: string = '';
   @Input() useImageBorder: boolean = false;
   @Output() setSelected = new EventEmitter<any>();
 

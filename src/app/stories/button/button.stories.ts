@@ -5,11 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './button.stories.html',
 })
 export class ButtonStoryComponent {
-  variants = ['primary', 'secondary', 'green', 'yellow', 'white', 'dark'];
+  variants = ['primary', 'secondary', 'gray', 'neutral'];
   sizes = ['small', 'normal', 'medium', 'large'];
 
-  onButtonClick(event: Event): void {
+  handleClick(event: Event): void {
     console.log('Button clicked!', event);
-    alert('Button was clicked!');
   }
 }

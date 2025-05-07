@@ -3,25 +3,20 @@
   tabindex="0"
   role="button"
   [ngClass]="[
-    'group relative border flex text-custom-black bg-level-3 flex-col gap-y-6 border-neutral-200 rounded-lg p-6 transition-[shadow_background] duration-300 ease-in-out hover:border-transparent hover:shadow-filial-card dark:hover:bg-neutral-200 hover:bg-level-3',
-    className || ''
+    'group relative border flex items-center justify-start text-custom-black bg-level-3 gap-[14px] border-neutral-50 rounded-lg px-6 py-[14px] transition-[shadow_background] duration-300 ease-in-out hover:border-transparent hover:shadow-filial-card hover:bg-level-4',
+    className
   ]"
 >
-  <div
-    *ngIf="name || icon"
-    class="flex items-center gap-3.5 justify-center flex-col"
+  <img
+    *ngIf="icon"
+    [src]="icon"
+    [alt]="name"
+    class="object-contain rounded bg-level-3 size-[82px]"
+  />
+  <h3
+    *ngIf="name"
+    class="text-[18px] leading-[27px] font-bold text-center -tracking-[0.64px]"
   >
-    <div
-      *ngIf="icon"
-      [ngClass]="[
-        'bg-level-3 rounded-lg flex justify-center items-center size-[82px]',
-        useImageBorder ? 'border border-neutral-200 overflow-hidden' : ''
-      ]"
-    >
-      <img [src]="icon" [alt]="name" class="w-full h-full object-contain" />
-    </div>
-    <h3 *ngIf="name" class="font-bold text-center text-md -tracking-[0.64px]">
-      {{ name }}
-    </h3>
-  </div>
+    {{ name }}
+  </h3>
 </article>

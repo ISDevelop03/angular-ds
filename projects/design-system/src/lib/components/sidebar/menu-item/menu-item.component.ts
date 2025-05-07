@@ -26,11 +26,11 @@ export class DsMenuItemComponent {
 
   get wrapperClass(): string {
     let base =
-      'px-4 py-2.5 relative after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-0 after:h-0 after:border-t-[6px] after:border-t-transparent after:border-r-[6px] after:border-b-[6px] after:border-b-transparent ';
+      'px-4 py-2.5 relative after:absolute flex justify-center items-center after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-0 after:h-0 after:border-t-[6px] after:border-t-transparent after:border-r-[6px] after:border-b-[6px] after:border-b-transparent ';
 
     if (this.isActive) {
       base += this.subSidebarIsOpen
-        ? 'after:border-r-sidebar-bg-secondary dark:after:border-r-sidebar-bg-secondary-dark'
+        ? 'after:border-r-white dark:after:border-r-white'
         : 'after:border-r-white dark:after:border-r-white-bg-dark';
     } else {
       base += 'after:border-r-transparent';

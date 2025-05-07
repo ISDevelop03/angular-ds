@@ -1,0 +1,64 @@
+<nav [ngClass]="[theme[variant].wrapper, className]">
+  <span [ngClass]="[theme[variant].info]">
+    (1-{{ itemsPerPage }}/100) Par page:
+  </span>
+  <div [ngClass]="[theme[variant].container]">
+    <!-- Prev Button -->
+    <button
+      (click)="prev()"
+      [disabled]="currentPage <= 1"
+      [ngClass]="[
+        theme[variant].nextPrevButtons.base,
+        theme[variant].nextPrevButtons.prev.base
+      ]"
+    >
+      <ds-icon
+        [id]="theme[variant].nextPrevButtons.prev.id"
+        [size]="theme[variant].nextPrevButtons.prev.size"
+        [class]="theme[variant].nextPrevButtons.prev.base"
+      >
+      </ds-icon>
+      {{ prevLabel }}
+    </button>
+
+    <!-- Page Buttons + Ellipsis -->
+    <ul [ngClass]="[theme[variant].buttons.base]">
+      <li *ngFor="let pNum of pages">
+        <ng-container *ngIf="pNum !== '...'">
+          <button
+            (click)="selectPage(+pNum)"
+            [ngClass]="[
+              theme[variant].buttons.button.base,
+              pNum === currentPage
+                ? theme[variant].buttons.button.active
+                : theme[variant].buttons.button.inactive
+            ]"
+          >
+            {{ pNum }}
+          </button>
+        </ng-container>
+        <ng-container *ngIf="pNum === '...'">
+          <span [ngClass]="[theme[variant].buttons.ellipsis]">…</span>
+        </ng-container>
+      </li>
+    </ul>
+
+    <!-- Next Button -->
+    <button
+      (click)="next()"
+      [disabled]="currentPage >= pageCount"
+      [ngClass]="[
+        theme[variant].nextPrevButtons.base,
+        theme[variant].nextPrevButtons.next.base
+      ]"
+    >
+      {{ nextLabel }}
+      <ds-icon
+        [id]="theme[variant].nextPrevButtons.next.id"
+        [size]="theme[variant].nextPrevButtons.next.size"
+        [class]="theme[variant].nextPrevButtons.next.base"
+      >
+      </ds-icon>
+    </button>
+  </div>
+</nav>
