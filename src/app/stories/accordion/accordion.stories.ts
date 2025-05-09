@@ -13,26 +13,27 @@ export class AccordionStoryComponent {
     {
       id: 'default-1',
       title: 'Default Accordion 1',
-      caption: 'This is the first default item',
+      // caption: 'This is the first default item',
       content: '<p>Default content one</p>',
+      count: 6,
     },
     {
       id: 'default-2',
       title: 'Default Accordion 2',
       content: '<p>Default content two</p>',
+      count: 10,
     },
   ];
 
-  borderItems: AccordionItem[] = [
+  borderlessItems: AccordionItem[] = [
     {
-      id: 'border-1',
-      title: 'Border Accordion 1',
-      caption: 'With border and multiple open',
+      id: 'borderless-1',
+      title: 'Borderless Accordion 1',
       content: '<p>More info here</p>',
     },
     {
-      id: 'border-2',
-      title: 'Border Accordion 2',
+      id: 'borderless-2',
+      title: 'Borderless Accordion 2',
       content: '<p>Additional info</p>',
     },
   ];
@@ -40,19 +41,22 @@ export class AccordionStoryComponent {
   whiteItems: AccordionItem[] = [];
 
   ngAfterViewInit() {
-    this.whiteItems = [
-      {
-        id: 'white-1',
-        title: 'White Accordion 1',
-        content: this.templateOne,
-      },
-      {
-        id: 'white-2',
-        title: 'White Accordion 2',
-        caption: 'With projected template',
-        content: this.templateTwo,
-      },
-    ];
+    setTimeout(() => {
+      this.whiteItems = [
+        {
+          id: 'default-1',
+          title: 'Default Accordion 1 with content',
+          content: this.templateOne,
+          count: 10,
+        },
+        {
+          id: 'default-2',
+          title: 'Default Accordion 2 with content',
+          content: this.templateTwo,
+          count: 6,
+        },
+      ];
+    });
   }
 
   onAccordionOpen(item: AccordionItem) {

@@ -1,4 +1,4 @@
-<div class="p-4 grid gap-6">
+<div class="p-4 grid gap-4">
   <h3>Basic Breadcrumb</h3>
   <ds-breadcrumb [pages]="pages"></ds-breadcrumb>
 
@@ -7,10 +7,4 @@
 
   <h3>Limited View (showLimit: true)</h3>
   <ds-breadcrumb [pages]="pages" [showLimit]="true" homeUrl="/"></ds-breadcrumb>
-
-  <h3>Custom Class + Active Page</h3>
-  <ds-breadcrumb
-    [pages]="pagesWithCurrent"
-    className="bg-gray-100 p-4 rounded"
-  ></ds-breadcrumb>
 </div>

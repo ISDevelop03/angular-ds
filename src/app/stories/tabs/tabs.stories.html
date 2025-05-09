@@ -1,10 +1,121 @@
-<div class="p-4 grid gap-6">
+<div class="p-4 grid gap-6 grid-cols-1 place-content-start min-h-screen">
   <h3>Default Tabs</h3>
   <ds-tabs [items]="tabsDefault"></ds-tabs>
 
   <h3>Tabs with Custom Class</h3>
-  <ds-tabs
-    [items]="tabsCustom"
-    className="bg-neutral-100 p-2 rounded"
-  ></ds-tabs>
+  <ds-tabs [items]="tabsCustom"></ds-tabs>
+
+  <h3>No Background Tabs</h3>
+  <ds-tabs variant="noBackground" [items]="tabsNoBackground"></ds-tabs>
 </div>
+
+<ng-template #tabOne>
+  <p>
+    This is <strong>projected template content</strong> for the first panel.
+  </p>
+</ng-template>
+
+<ng-template #tabTwo>
+  <ul class="bg-red-50 p-4">
+    <li>Item One</li>
+    <li>Item Two</li>
+  </ul>
+</ng-template>
+
+<ng-template #tabThree>
+  <div class="bg-blue-50 p-4">
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit esse
+      laboriosam praesentium enim voluptates aspernatur, recusandae illum id
+      laborum reprehenderit commodi, at inventore dolores sint vitae assumenda,
+      natus sequi harum ea omnis velit nam dolorem dolorum in. Non, vero! Sed
+      reiciendis esse ipsam sequi. Nesciunt non suscipit atque enim distinctio
+      doloremque laudantium corporis vero ipsam libero, repudiandae doloribus
+      praesentium voluptates et veritatis repellat dolores officiis amet quas,
+      ut eveniet? Eius ullam amet harum sapiente, nesciunt perspiciatis
+      doloremque veritatis laborum, distinctio rem nisi accusantium consequatur
+      similique ab velit porro aspernatur tempore. Quidem natus reprehenderit
+      deleniti accusamus magnam magni dolores, maiores ratione perferendis sequi
+      voluptatum ducimus ut unde odio non in quod autem excepturi culpa id, qui
+      dignissimos quibusdam! Earum ad iusto hic sapiente, eligendi commodi omnis
+      nesciunt totam tempore, accusamus laborum ipsa facere ullam et temporibus
+      doloribus beatae molestias quae obcaecati quos sequi consequatur eveniet
+      voluptas libero. Et excepturi magnam at labore tempora odit perspiciatis
+      corporis rerum natus ea consequatur, dicta repellat, animi unde nisi
+      adipisci sed eius atque possimus illum assumenda. Veniam, eaque quas
+      accusantium alias reiciendis ipsa maiores nisi atque. Voluptatem labore ex
+      eius voluptatum a molestias atque harum quo, perferendis maxime beatae
+      illo voluptates delectus aliquam repellendus. Nobis voluptates aliquid
+      voluptatum numquam assumenda, dolorem ex cumque architecto in illo modi,
+      id quod asperiores molestias, porro possimus consequatur quaerat mollitia
+      delectus quidem exercitationem. Laudantium maxime unde perspiciatis
+      adipisci saepe molestiae possimus placeat dolore corporis similique
+      distinctio laboriosam aliquid tenetur vel quos consequatur itaque, iste
+      pariatur culpa ratione nisi sequi ipsa? Aperiam nam ipsa obcaecati modi,
+      nostrum tempore numquam sed, quisquam repudiandae eaque voluptate earum!
+      Aperiam inventore neque quam. Quia, hic dignissimos natus, iure
+      perferendis in facere repudiandae a commodi tenetur est, quidem itaque
+      nemo facilis dolorum magnam aliquid dolores et. Vero error culpa optio
+      corrupti hic excepturi voluptas quaerat.
+    </p>
+  </div>
+</ng-template>
+<ng-template #noBgTabOne>
+  <div class="bg-white p-3 space-y-4 rounded-lg">
+    <h2>Accéder à la liste des facturiers disponibles</h2>
+    <div class="flex flex-wrap gap-2">
+      <ds-badge
+        pill="true"
+        *ngFor="let variant of variants"
+        [label]="variant"
+        [variant]="variant"
+      ></ds-badge>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noBgTabTwo>
+  <ul class="bg-red-50 p-4">
+    <li>Item One</li>
+    <li>Item Two</li>
+  </ul>
+</ng-template>
+
+<ng-template #noBgTabThree>
+  <div class="bg-blue-50 p-4">
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit esse
+      laboriosam praesentium enim voluptates aspernatur, recusandae illum id
+      laborum reprehenderit commodi, at inventore dolores sint vitae assumenda,
+      natus sequi harum ea omnis velit nam dolorem dolorum in. Non, vero! Sed
+      reiciendis esse ipsam sequi. Nesciunt non suscipit atque enim distinctio
+      doloremque laudantium corporis vero ipsam libero, repudiandae doloribus
+      praesentium voluptates et veritatis repellat dolores officiis amet quas,
+      ut eveniet? Eius ullam amet harum sapiente, nesciunt perspiciatis
+      doloremque veritatis laborum, distinctio rem nisi accusantium consequatur
+      similique ab velit porro aspernatur tempore. Quidem natus reprehenderit
+      deleniti accusamus magnam magni dolores, maiores ratione perferendis sequi
+      voluptatum ducimus ut unde odio non in quod autem excepturi culpa id, qui
+      dignissimos quibusdam! Earum ad iusto hic sapiente, eligendi commodi omnis
+      nesciunt totam tempore, accusamus laborum ipsa facere ullam et temporibus
+      doloribus beatae molestias quae obcaecati quos sequi consequatur eveniet
+      voluptas libero. Et excepturi magnam at labore tempora odit perspiciatis
+      corporis rerum natus ea consequatur, dicta repellat, animi unde nisi
+      adipisci sed eius atque possimus illum assumenda. Veniam, eaque quas
+      accusantium alias reiciendis ipsa maiores nisi atque. Voluptatem labore ex
+      eius voluptatum a molestias atque harum quo, perferendis maxime beatae
+      illo voluptates delectus aliquam repellendus. Nobis voluptates aliquid
+      voluptatum numquam assumenda, dolorem ex cumque architecto in illo modi,
+      id quod asperiores molestias, porro possimus consequatur quaerat mollitia
+      delectus quidem exercitationem. Laudantium maxime unde perspiciatis
+      adipisci saepe molestiae possimus placeat dolore corporis similique
+      distinctio laboriosam aliquid tenetur vel quos consequatur itaque, iste
+      pariatur culpa ratione nisi sequi ipsa? Aperiam nam ipsa obcaecati modi,
+      nostrum tempore numquam sed, quisquam repudiandae eaque voluptate earum!
+      Aperiam inventore neque quam. Quia, hic dignissimos natus, iure
+      perferendis in facere repudiandae a commodi tenetur est, quidem itaque
+      nemo facilis dolorum magnam aliquid dolores et. Vero error culpa optio
+      corrupti hic excepturi voluptas quaerat.
+    </p>
+  </div>
+</ng-template>

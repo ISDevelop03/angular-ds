@@ -27,6 +27,7 @@ export * from './lib/components/cards/holding-card/holding-card.component';
 export * from './lib/components/cards/inbox-card/inbox-card.component';
 export * from './lib/components/cards/notification-card/notification-card.component';
 export * from './lib/components/cards/numbers-card/numbers-card.component';
+export * from './lib/components/cards/ticker-card/ticker-card.component';
 export * from './lib/components/currency-select/currency-select.component';
 export * from './lib/components/currency-converter/currency-converter.component';
 export * from './lib/components/cards/latest-operations-card/latest-operations-card.component';

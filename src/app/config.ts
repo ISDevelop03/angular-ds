@@ -216,4 +216,9 @@ export const menus: Menu[] = [
     path: '/portfolio-vision-card',
     key: 'portfolio-vision-card',
   },
+  {
+    name: 'Ticker Card',
+    path: '/ticker-card',
+    key: 'ticker-card',
+  },
 ];

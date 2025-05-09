@@ -1,4 +1,6 @@
-<div class="p-4 grid gap-6">
+<div
+  class="p-4 grid gap-6 w-full grid-cols-1 place-content-start min-h-screen bg-neutral-50"
+>
   <h3 class="text-primary">Default Variant</h3>
   <ds-accordion
     [items]="defaultItems"
@@ -8,8 +10,8 @@
 
   <h3 class="text-primary">With Border Variant</h3>
   <ds-accordion
-    [items]="borderItems"
-    variant="withBorder"
+    [items]="borderlessItems"
+    variant="borderless"
     [allowMultiple]="true"
     (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>
@@ -30,7 +32,12 @@
 
   <ds-accordion
     [items]="whiteItems"
-    variant="white"
+    [allowMultiple]="false"
+    (openHandler)="onAccordionOpen($event)"
+  ></ds-accordion>
+  <ds-accordion
+    [items]="whiteItems"
+    variant="borderless"
     [allowMultiple]="false"
     (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>

@@ -5,7 +5,7 @@ import {
   EventEmitter,
   OnInit,
   TemplateRef,
-  ContentChild,
+  SimpleChanges,
 } from '@angular/core';
 import { theme } from './theme';
 
@@ -15,10 +15,11 @@ export interface AccordionItem {
   caption?: string;
   /** Either a string (HTML) or an Angular `<ng-template>` */
   content: string | TemplateRef<any>;
+  count?: number;
   open?: boolean;
 }
 
-type Variant = 'default' | 'withBorder' | 'white';
+type Variant = 'default' | 'borderless';
 
 @Component({
   selector: 'ds-accordion',
@@ -38,10 +39,19 @@ export class AccordionComponent implements OnInit {
   theme = theme;
 
   ngOnInit() {
-    // initialize localItems with open state
+    this.buildLocalItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.items) {
+      this.buildLocalItems();
+    }
+  }
+
+  private buildLocalItems() {
     this.localItems = this.items.map((it, idx) => ({
       ...it,
-      isOpen: it.open ? idx === 0 && !this.allowMultiple : false,
+      isOpen: it.open ? (this.allowMultiple ? true : idx === 0) : false,
     }));
   }
 
@@ -57,12 +67,16 @@ export class AccordionComponent implements OnInit {
   }
 
   getContainerClasses() {
-    console.log('this.variantthis.variant', this.variant);
     return [this.theme[this.variant].container, this.className];
   }
 
-  getDisclosureClasses() {
-    return this.theme[this.variant].disclosure;
+  getDisclosureClasses(isOpen: boolean) {
+    return [
+      this.theme[this.variant].disclosure,
+      isOpen
+        ? `${this.variant === 'default' ? 'bg-level-3 rounded-b-lg' : ''}`
+        : '',
+    ];
   }
 
   getButtonClasses(isOpen: boolean) {

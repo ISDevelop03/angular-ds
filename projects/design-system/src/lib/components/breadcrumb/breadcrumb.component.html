@@ -1,70 +1,48 @@
 <div [ngClass]="theme.wrapper" [class]="className">
+  <a [href]="prevUrl" [class]="prevClassName">
+    <ds-icon id="arrow-left" size="12px"> </ds-icon>
+  </a>
+  <a [href]="nextUrl" [class]="nextClassName">
+    <ds-icon id="arrow-right" size="12px"> </ds-icon>
+  </a>
+
   <ol role="list" [ngClass]="theme.list">
     <li *ngIf="homeUrl" [ngClass]="theme.listElement">
       <a [href]="homeUrl" [ngClass]="theme.link">
-        <ds-text
-          tag="span"
-          variant="text-base/Light"
-          [ngClass]="theme.link"
-          content="Accueil"
-        >
-          Accueil
-        </ds-text>
+        <span [ngClass]="theme.link"> Accueil </span>
       </a>
     </li>
 
     <ng-container *ngFor="let page of list; let i = index">
       <li [ngClass]="theme.listElement">
-        <ds-icon
-          *ngIf="i !== 0 || homeUrl"
-          id="arrow-right"
-          [ngClass]="theme.separator"
-        ></ds-icon>
+        <span *ngIf="i !== 0 || homeUrl" [ngClass]="theme.separator">/</span>
 
         <a
           [href]="page.href || '#.'"
           [attr.aria-current]="page.current ? 'page' : null"
+          [ngClass]="page.current ? theme.linkActive : theme.link"
         >
-          <ds-text
-            tag="span"
-            variant="text-base/Light"
-            [ngClass]="page.current ? theme.linkActive : theme.link"
-            [content]="page.name"
-          >
-            {{ page.name }}
-          </ds-text>
+          {{ page.name }}
         </a>
       </li>
     </ng-container>
 
     <ng-container *ngIf="list.length !== pages.length">
       <li [ngClass]="theme.listElement">
-        <ds-icon id="arrow-right" [ngClass]="theme.separator"></ds-icon>
-        <ds-text
-          tag="span"
-          variant="text-base/Regular"
-          [ngClass]="theme.link"
-          content="..."
-        >
-          ...
-        </ds-text>
+        <span [ngClass]="theme.separator">/</span>
+        <span [ngClass]="theme.link"> ... </span>
       </li>
 
       <li [ngClass]="theme.listElement">
-        <ds-icon id="arrow-right" [ngClass]="theme.separator"></ds-icon>
+        <span [ngClass]="theme.separator">/</span>
         <a
           [href]="lastPage.href || '#.'"
           [ngClass]="lastPage.current ? theme.linkActive : theme.link"
           [attr.aria-current]="lastPage.current ? 'page' : null"
         >
-          <ds-text
-            tag="span"
-            variant="text-base/Regular"
-            [ngClass]="theme.link"
-            [content]="lastPage.name"
-          >
+          <span [ngClass]="theme.link">
             {{ lastPage.name }}
-          </ds-text>
+          </span>
         </a>
       </li>
     </ng-container>

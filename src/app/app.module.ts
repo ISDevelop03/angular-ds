@@ -49,6 +49,7 @@ import {
   PortfolioItemCardStory,
   PortfolioSelectCardStory,
   PortfolioVisionCardStory,
+  TickerCardStoryComponent,
 } from './stories';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -99,6 +100,7 @@ export const pages = [
   { path: 'inbox-card', component: InboxCardStoryComponent },
   { path: 'notification-card', component: NotificationCardStoryComponent },
   { path: 'numbers-card', component: NumbersCardStoryComponent },
+  { path: 'ticker-card', component: TickerCardStoryComponent },
   { path: 'progress', component: ProgressStoryComponent },
   { path: 'currency-select', component: CurrencySelectStoryComponent },
   { path: 'currency-converter', component: CurrencyConverterStoryComponent },
@@ -179,6 +181,7 @@ const router = RouterModule.forRoot(pages);
     PortfolioItemCardStory,
     PortfolioSelectCardStory,
     PortfolioVisionCardStory,
+    TickerCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

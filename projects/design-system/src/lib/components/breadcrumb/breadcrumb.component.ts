@@ -13,7 +13,11 @@ export interface Page {
   templateUrl: './breadcrumb.component.html',
 })
 export class DsBreadcrumbComponent {
-  @Input() homeUrl?: string;
+  @Input() nextUrl?: string = '';
+  @Input() nextClassName?: string = '';
+  @Input() prevUrl?: string = '';
+  @Input() prevClassName?: string = '';
+  @Input() homeUrl?: string = '';
   @Input() className: string = '';
   @Input() variant: keyof typeof breadcrumb = 'default';
   @Input() pages: Page[] = [];

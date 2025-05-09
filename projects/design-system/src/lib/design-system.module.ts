@@ -48,6 +48,7 @@ import {
   PortfolioItemCardComponent,
   PortfolioSelectCardComponent,
   PortfolioVisionCardComponent,
+  TickerCardComponent,
 } from './components';
 
 import { DesignSystemComponent } from './design-system.component';
@@ -103,6 +104,7 @@ import { FormsModule } from '@angular/forms';
     PortfolioItemCardComponent,
     PortfolioSelectCardComponent,
     PortfolioVisionCardComponent,
+    TickerCardComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -154,6 +156,7 @@ import { FormsModule } from '@angular/forms';
     PortfolioItemCardComponent,
     PortfolioSelectCardComponent,
     PortfolioVisionCardComponent,
+    TickerCardComponent,
   ],
 })
 export class DesignSystemModule {}

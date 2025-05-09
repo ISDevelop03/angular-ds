@@ -1,0 +1,17 @@
+<div class="p-4 grid gap-4 max-w-fit">
+  <h3 class="text-xl">Ticker Card</h3>
+  <ds-ticker-card
+    [title]="item.title"
+    [image]="item.image"
+    [price]="item.price"
+    [className]="item.className"
+  ></ds-ticker-card>
+
+  <h3 class="text-xl">Ticker Card No Image</h3>
+
+  <ds-ticker-card
+    [title]="item.title"
+    [price]="item.price"
+    [className]="item.className"
+  ></ds-ticker-card>
+</div>

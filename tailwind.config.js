@@ -383,6 +383,7 @@ module.exports = {
         portfolio: "3px 3px 17px 0px rgba(0, 0, 0, 0.14)",
         content: "6px 6px 34px 0px rgba(17, 38, 60, 0.10)",
         holdingcard: "0px 11.206px 19.21px 0px var(--color-neutral-50)",
+        accordion: "0px -10px 22px 0px var(--color-red-100)",
       },
       keyframes: {
         fadeInScale: {

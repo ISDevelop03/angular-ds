@@ -49,6 +49,7 @@ export * from './cards/holding-card/holding-card.component';
 export * from './cards/inbox-card/inbox-card.component';
 export * from './cards/notification-card/notification-card.component';
 export * from './cards/numbers-card/numbers-card.component';
+export * from './cards/ticker-card/ticker-card.component';
 export * from './currency-select/currency-select.component';
 export * from './currency-converter/currency-converter.component';
 export * from './cards/latest-operations-card/latest-operations-card.component';

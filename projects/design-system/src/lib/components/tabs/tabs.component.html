@@ -20,7 +20,12 @@
       [hidden]="!isSelected(i)"
       [ngClass]="theme[variant].panels.panel.base || ''"
     >
-      {{ tab.panel }}
+      <ng-container *ngIf="isTemplate(tab.panel); else showHtml">
+        <ng-container *ngTemplateOutlet="tab.panel"></ng-container>
+      </ng-container>
+      <ng-template #showHtml>
+        <div [innerHTML]="tab.panel"></div>
+      </ng-template>
     </div>
   </div>
 </div>

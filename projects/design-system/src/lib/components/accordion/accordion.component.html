@@ -2,7 +2,7 @@
   <div
     *ngFor="let item of localItems"
     [attr.data-open]="item.isOpen.toString()"
-    [ngClass]="getDisclosureClasses()"
+    [ngClass]="getDisclosureClasses(item.isOpen)"
   >
     <!-- header -->
     <button
@@ -10,20 +10,31 @@
       (click)="handleChange(item)"
       [ngClass]="getButtonClasses(item.isOpen)"
     >
-      <div class="flex items-center justify-between">
+      <div [class]="theme[variant].button.titleWrapper">
+        <div *ngIf="item.count" class="flex items-center gap-2">
+          <!-- count -->
+          <span
+            class="rounded-full text-white text-[14px] leading-[16px] bg-red-500 inline-flex justify-center items-center size-[18px]"
+          >
+            {{ item.count }}
+          </span>
+          <!-- title -->
+          <span
+            [ngClass]="[textClassName, theme[this.variant].button.title || '']"
+            >{{ item.title }}</span
+          >
+        </div>
         <!-- title -->
-        <span [ngClass]="textClassName">{{ item.title }}</span>
-
+        <span
+          *ngIf="!item.count"
+          [ngClass]="[textClassName, theme[this.variant].button.title || '']"
+          >{{ item.title }}</span
+        >
         <!-- icon -->
         <ds-icon
           [id]="getIconId(item.isOpen)"
-          [style]="
-            theme[variant].button.icon.width +
-            'px; height: ' +
-            theme[variant].button.icon.height +
-            'px'
-          "
-          [ngClass]="getIconClasses(item.isOpen)"
+          [size]="theme[variant].button.icon.size"
+          [class]="getIconClasses(item.isOpen)"
         ></ds-icon>
       </div>
 
@@ -32,6 +43,11 @@
         {{ item.caption }}
       </span>
     </button>
+
+    <hr
+      *ngIf="item.isOpen && variant === 'default'"
+      class="w-[95%] mx-auto bg-neutral-50"
+    />
 
     <!-- panel -->
     <div *ngIf="item.isOpen" [ngClass]="getPanelClasses()">

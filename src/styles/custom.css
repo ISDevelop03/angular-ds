@@ -1,5 +1,6 @@
 body {
   @apply antialiased font-sans;
+  background: linear-gradient(217deg, #fef2f2 2.44%, #f9fafb 43.42%);
 }
 
 .dark {

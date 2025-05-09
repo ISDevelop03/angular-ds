@@ -41,6 +41,7 @@ export * from './cards/holding-card/holding-card.stories';
 export * from './cards/inbox-card/inbox-card.stories';
 export * from './cards/notification-card/notification-card.stories';
 export * from './cards/numbers-card/numbers-card.stories';
+export * from './cards/ticker-card/ticker-card.stories';
 export * from './currency-select/currency-select.stories';
 export * from './currency-converter/currency-converter.stories';
 export * from './cards/latest-operations-card/latest-operations-card.stories';

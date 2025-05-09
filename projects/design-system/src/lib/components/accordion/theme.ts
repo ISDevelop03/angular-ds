@@ -1,60 +1,45 @@
+import { title } from 'process';
+
 export const theme = {
   default: {
-    container: 'mx-auto w-full space-y-[30px]',
+    container: 'mx-auto w-full space-y-[10px]',
     disclosure: '',
     button: {
-      base: 'w-full space-y-2 border border-solid border-gray-400 rounded p-5 bg-gray-300 text-black text-left focus:outline-none',
-      active: '!bg-primary text-white border-primary rounded-b-none',
-      icon: {
-        base: 'transition ease-in duration-300 w-6 h-6',
-        classActive: 'text-white',
-        classInactive: 'text-primary',
-        inactiveId: 'add',
-        activeId: 'minus',
-        width: '16',
-        height: '16',
-      },
-    },
-    panel: {
-      base: 'p-5 bg-gray-300 text-black overflow-hidden rounded-b border border-solid border-gray-400 border-t-0',
-    },
-  },
-  withBorder: {
-    container: 'mx-auto w-full space-y-3 rounded-2xl',
-    disclosure: 'space-y-1 border border-gray-200 rounded-lg',
-    button: {
-      base: 'w-full space-y-2 p-4 text-left text-sm font-medium focus:outline-none',
-      active: 'bg-primary text-white',
+      base: 'w-full space-y-2 bg-level-3 rounded-b-lg py-4 px-6 bg-gray-300 text-left focus:outline-none outline-none border-none shadow-accordion shadow-neutral-100 overflow-hidden',
+      title: 'text-[18px] leading-[27px] font-bold text-neutral-900',
+      active: '!rounded-none !shadow-none',
+      titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',
+
       icon: {
         base: 'transition ease-in duration-300',
-        inactiveId: 'add',
-        activeId: 'minus',
-        classActive: 'text-white',
-        classInactive: 'text-primary',
-        width: '16',
-        height: '16',
-      },
-    },
-    panel: { base: 'px-4 pb-2' },
-  },
-  white: {
-    container: 'mx-auto w-full space-y-[30px]',
-    disclosure: '',
-    button: {
-      base: 'w-full space-y-2 border border-solid border-gray-400 p-5 bg-white text-black text-left focus:outline-none',
-      active: 'bg-primary text-white border-primary rounded-b-none',
-      icon: {
-        base: 'transition ease-in duration-300 w-6 h-6',
-        classActive: 'text-white',
-        classInactive: 'text-primary',
-        inactiveId: 'add',
-        activeId: 'minus',
-        width: '16',
-        height: '16',
+        classActive: '',
+        classInactive: '',
+        inactiveId: 'arrow-down',
+        activeId: 'arrow-up',
+        size: '16px',
       },
     },
     panel: {
-      base: 'p-5 bg-white text-gray-700 overflow-hidden rounded-b border border-solid border-gray-400 border-t-0',
+      base: 'p-5 overflow-hidden rounded-b-lg',
     },
+  },
+  borderless: {
+    container: 'mx-auto w-full space-y-[17px] rounded-2xl',
+    disclosure: 'space-y-1 rounded-lg',
+    button: {
+      base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 pb-3 text-left text-sm font-medium focus:outline-none',
+      active: '',
+      title: 'text-[12px] leading-[14px] font-bold',
+      titleWrapper: 'flex items-center justify-between',
+      icon: {
+        base: 'transition ease-in duration-300',
+        classActive: '',
+        classInactive: '',
+        inactiveId: 'arrow-down',
+        activeId: 'arrow-up',
+        size: '16px',
+      },
+    },
+    panel: { base: 'bg-neutral-25 p-4 rounded' },
   },
 };

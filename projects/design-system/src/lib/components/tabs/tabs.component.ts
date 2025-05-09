@@ -1,12 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { theme } from './theme';
+
+export interface ITab {
+  title: string;
+  panel: string | TemplateRef<any>;
+}
 
 @Component({
   selector: 'ds-tabs',
   templateUrl: './tabs.component.html',
 })
 export class DsTabsComponent {
-  @Input() items: { title: string; panel: any }[] = [];
+  @Input() items: ITab[] = [];
   @Input() className: string;
   @Input() variant: keyof typeof theme = 'default';
 
@@ -19,5 +24,9 @@ export class DsTabsComponent {
 
   isSelected(index: number): boolean {
     return this.selectedIndex === index;
+  }
+
+  isTemplate(ref: any): ref is TemplateRef<any> {
+    return ref instanceof TemplateRef;
   }
 }

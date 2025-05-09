@@ -7,8 +7,8 @@ import { Page } from 'projects/design-system/src/lib/components';
 })
 export class BreadcrumbStoryComponent {
   pages: Page[] = [
-    { id: '1', name: 'Section', href: '/section' },
-    { id: '2', name: 'Category', href: '/section/category' },
+    { id: '1', name: 'Section', href: '/breadcrumb' },
+    { id: '2', name: 'Category', href: '/section/category', current: true },
     { id: '3', name: 'Item', href: '/section/category/item' },
     { id: '4', name: 'Details', href: '/section/category/item/details' },
   ];
