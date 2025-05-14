@@ -1,8 +1,8 @@
 <div [ngClass]="[theme[variant].wrapper, className]">
   <ng-container *ngFor="let action of actions; let i = index">
     <div
-      *ngIf="theme[variant].separator && i > 0"
-      [ngClass]="[theme[variant].separator]"
+      *ngIf="theme[variant] && theme[variant].separator && i > 0"
+      [ngClass]="[theme[variant].separator || '']"
     ></div>
     <button
       type="button"

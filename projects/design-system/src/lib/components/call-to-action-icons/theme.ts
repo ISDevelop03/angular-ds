@@ -9,6 +9,7 @@ export const callToActionIconsTheme = {
   },
   separated: {
     wrapper: 'flex items-center justify-start gap-1 text-neutral-900',
+    separator: '',
     button:
       'border border-stroke-1 bg-level-5 rounded p-2 hover:opacity-50 transition-opacity duration-300',
     icon: 'flex items-center justify-center text-neutral-900',
@@ -16,6 +17,7 @@ export const callToActionIconsTheme = {
   },
   borderless: {
     wrapper: 'flex items-center justify-start gap-3.5 text-neutral-900',
+    separator: '',
     button: 'hover:opacity-50 transition-opacity duration-300',
     icon: 'flex items-center justify-center text-neutral-900',
     iconSize: '16',

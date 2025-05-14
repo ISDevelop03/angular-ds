@@ -41,6 +41,8 @@ export * from './lib/components/pagination/pagination.component';
 // Accounts
 export * from './lib/components/accounts/account-grid-card/account-grid-card.component';
 export * from './lib/components/accounts/account-slider-card/account-slider-card.component';
+export * from './lib/components/accounts/account-holding-card/account-holding-card.component';
+export * from './lib/components/accounts/account-holding-selected-card/account-holding-selected-card.component';
 
 // Form Elements
 export * from './lib/components/form-elements/checkbox/checkbox.component';
