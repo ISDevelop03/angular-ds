@@ -1,6 +1,8 @@
 export type ActionItem = {
   iconId: string;
   handler: () => void;
+  className?: string;
+  badge?: boolean;
 };
 
 export const MOCKDATA: ActionItem[] = [

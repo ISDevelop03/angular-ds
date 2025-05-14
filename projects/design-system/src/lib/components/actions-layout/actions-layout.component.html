@@ -1,25 +1,20 @@
 <div
-  [ngClass]="
-    'px-3.5 py-4 rounded-lg bg-neutral-100 flex flex-row gap-3.5 text-neutral-900 ' +
-    className
-  "
+  class="px-4 py-[11px] rounded bg-card-level-2 border border-stroke-1 flex flex-row gap-3.5 text-neutral-900"
+  [ngClass]="className"
 >
   <button
     *ngFor="let item of items; let i = index"
     (click)="onClick(item, i)"
-    [ngClass]="
-      isSelected(i)
-        ? 'text-primary hover:text-primary-500 size-5'
-        : 'hover:text-primary-500 size-5'
-    "
+    class="relative hover:text-primary-500"
+    [ngClass]="[
+      isSelected(i) ? 'text-primary' : '',
+      item.badge && ['bell-02'].includes(item.iconId)
+        ? 'after:absolute after:size-2 after:rounded-full after:top-0 after:border after:border-card-level-1 after:right-[3px] after:bg-red-500'
+        : '',
+      selectedClass,
+      item.className || ''
+    ]"
   >
-    <ds-icon
-      [id]="item.iconId"
-      [ngClass]="
-        isSelected(i)
-          ? 'text-primary hover:text-primary-500 size-5'
-          : 'hover:text-primary-500 size-5'
-      "
-    ></ds-icon>
+    <ds-icon [id]="item.iconId" size="24"></ds-icon>
   </button>
 </div>

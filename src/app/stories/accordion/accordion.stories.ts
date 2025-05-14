@@ -47,7 +47,7 @@ export class AccordionStoryComponent {
           id: 'default-1',
           title: 'Default Accordion 1 with content',
           content: this.templateOne,
-          count: 10,
+          count: '+9',
         },
         {
           id: 'default-2',

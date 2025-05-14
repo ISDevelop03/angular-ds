@@ -14,7 +14,7 @@
         <div *ngIf="item.count" class="flex items-center gap-2">
           <!-- count -->
           <span
-            class="rounded-full text-white text-[14px] leading-[16px] bg-red-500 inline-flex justify-center items-center size-[18px]"
+            class="rounded-full font-bold text-white text-[12px] leading-[16px] bg-red-500 inline-flex justify-center items-center size-[20px]"
           >
             {{ item.count }}
           </span>
@@ -46,7 +46,7 @@
 
     <hr
       *ngIf="item.isOpen && variant === 'default'"
-      class="w-[95%] mx-auto bg-neutral-50"
+      class="w-[95%] mx-auto border-stroke-1"
     />
 
     <!-- panel -->

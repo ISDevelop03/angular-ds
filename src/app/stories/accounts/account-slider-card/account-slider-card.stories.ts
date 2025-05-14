@@ -7,10 +7,10 @@ import { DropdownItem } from 'projects/design-system/src/lib/components/dropdown
 })
 export class AccountSliderCardStoryComponent {
   account = {
-    account_number: 'ACC-987654321',
+    account_number: '011780000012345678901234',
     balance: 45678.9,
     currency: 'EUR',
-    type: 'Savings',
+    type: 'Compte annexe',
     date: '2025-05-01',
     id: 'account-1',
     isSelected: false,
@@ -22,7 +22,7 @@ export class AccountSliderCardStoryComponent {
     { label: 'Delete', icon: 'trash', onClick: () => alert('Delete clicked') },
   ];
 
-  onCardClick(accountData: any) {
-    alert('Clicked on account:\n' + JSON.stringify(accountData, null, 2));
+  onCardClick() {
+    alert('Clicked on account');
   }
 }

@@ -15,7 +15,7 @@ export interface AccordionItem {
   caption?: string;
   /** Either a string (HTML) or an Angular `<ng-template>` */
   content: string | TemplateRef<any>;
-  count?: number;
+  count?: string | number;
   open?: boolean;
 }
 
@@ -74,7 +74,7 @@ export class AccordionComponent implements OnInit {
     return [
       this.theme[this.variant].disclosure,
       isOpen
-        ? `${this.variant === 'default' ? 'bg-level-3 rounded-b-lg' : ''}`
+        ? `${this.variant === 'default' ? 'bg-level-4 rounded-b-lg' : ''}`
         : '',
     ];
   }

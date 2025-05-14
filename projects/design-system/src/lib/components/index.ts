@@ -7,7 +7,6 @@ export * from './icon/icon.component';
 export * from './accordion/accordion.component';
 export * from './avatar/avatar.component';
 export * from './tabs/tabs.component';
-export * from './container/container.component';
 export * from './heading/heading.component';
 export * from './text/text.component';
 export * from './cards/empty-card/empty-card.component';
@@ -39,6 +38,8 @@ export * from './form-elements/select/select.component';
 export * from './accounts/account-grid-card/account-grid-card.component';
 export * from './accounts/account-slider-card/account-slider-card.component';
 export * from './accounts/account-selected-card/account-selected-card.component';
+export * from './accounts/account-holding-card/account-holding-card.component';
+export * from './accounts/account-holding-selected-card/account-holding-selected-card.component';
 
 // MyBusiness Related Components
 export * from './actions-layout/actions-layout.component';

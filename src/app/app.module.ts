@@ -12,7 +12,6 @@ import {
   AccordionStoryComponent,
   AvatarStoryComponent,
   TabsStoryComponent,
-  ContainerStoryComponent,
   TextStoryComponent,
   ActionsLayoutStoryComponent,
   HeadingStoryComponent,
@@ -50,6 +49,8 @@ import {
   PortfolioSelectCardStory,
   PortfolioVisionCardStory,
   TickerCardStoryComponent,
+  AccountHoldingCardStoryComponent,
+  AccountHoldingSelectedCardStoryComponent,
 } from './stories';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -65,7 +66,6 @@ export const pages = [
   { path: 'accordion', component: AccordionStoryComponent },
   { path: 'avatar', component: AvatarStoryComponent },
   { path: 'tabs', component: TabsStoryComponent },
-  { path: 'container', component: ContainerStoryComponent },
   { path: 'heading', component: HeadingStoryComponent },
   { path: 'text', component: TextStoryComponent },
   { path: 'empty-card', component: EmptyCardStoryComponent },
@@ -86,6 +86,11 @@ export const pages = [
 
   { path: 'account-grid-card', component: AccountGridCardStoryComponent },
   { path: 'account-slider-card', component: AccountSliderCardStoryComponent },
+  { path: 'account-holding-card', component: AccountHoldingCardStoryComponent },
+  {
+    path: 'account-holding-selected-card',
+    component: AccountHoldingSelectedCardStoryComponent,
+  },
   {
     path: 'account-selected-card',
     component: AccountSelectedCardStoryComponent,
@@ -142,7 +147,6 @@ const router = RouterModule.forRoot(pages);
     AccordionStoryComponent,
     AvatarStoryComponent,
     TabsStoryComponent,
-    ContainerStoryComponent,
     HeadingStoryComponent,
     TextStoryComponent,
     BreadcrumbStoryComponent,
@@ -182,6 +186,8 @@ const router = RouterModule.forRoot(pages);
     PortfolioSelectCardStory,
     PortfolioVisionCardStory,
     TickerCardStoryComponent,
+    AccountHoldingCardStoryComponent,
+    AccountHoldingSelectedCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

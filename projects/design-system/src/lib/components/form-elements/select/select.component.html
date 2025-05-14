@@ -1,6 +1,6 @@
 <div class="relative w-full" [ngClass]="className">
   <ng-container *ngIf="label">
-    <label class="block mb-1">{{ label }}</label>
+    <label [class]="theme[variant].element.label">{{ label }}</label>
   </ng-container>
 
   <button
@@ -14,15 +14,22 @@
       disabled ? theme[variant].element.button.disabled : ''
     ]"
   >
-    <span
-      [ngClass]="
-        selectedLabel !== placeholder
-          ? theme[variant].element.button.label
-          : theme[variant].element.button.placeholder
-      "
-    >
-      {{ selectedLabel }}
-    </span>
+    <div class="flex items-center justify-between gap-2">
+      <ds-icon
+        *ngIf="buttonIcon"
+        [id]="buttonIcon"
+        class="text-red-500"
+      ></ds-icon>
+      <span
+        [ngClass]="
+          selectedLabel !== placeholder
+            ? theme[variant].element.button.label
+            : theme[variant].element.button.placeholder
+        "
+      >
+        {{ selectedLabel }}
+      </span>
+    </div>
 
     <ds-icon
       *ngIf="!isLoading"
@@ -47,23 +54,39 @@
       <div
         *ngFor="let item of items"
         (click)="selectOption(item)"
-        [ngClass]="theme[variant].element.options.element"
+        [ngClass]="[
+          theme[variant].element.options.element,
+          item.unavailable
+            ? theme[variant].element.options.unavailable
+            : theme[variant].element.options.available
+        ]"
         [class.cursor-not-allowed]="item.unavailable"
       >
         <div class="flex justify-between items-center">
-          <span
-            [ngClass]="[
-              theme[variant].element.options.fontcolor,
-              item.unavailable
-                ? theme[variant].element.options.unavailable
-                : theme[variant].element.options.available,
-              isSelected(item)
-                ? theme[variant].element.options.selectedfont
-                : ''
-            ]"
-          >
-            {{ item.label }}
-          </span>
+          <div class="flex justify-between items-center gap-2">
+            <ds-icon
+              *ngIf="item.icon"
+              [id]="item.icon"
+              [class]="item.iconClass"
+            ></ds-icon>
+            <img
+              *ngIf="item.image"
+              [src]="item.image"
+              [alt]="item.label"
+              class="rounded-full size-5"
+              [ngClass]="[item.imageClass]"
+            />
+            <span
+              [ngClass]="[
+                theme[variant].element.options.fontcolor,
+                isSelected(item)
+                  ? theme[variant].element.options.selectedfont
+                  : ''
+              ]"
+            >
+              {{ item.label }}
+            </span>
+          </div>
 
           <ds-icon
             *ngIf="isSelected(item)"

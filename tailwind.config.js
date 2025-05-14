@@ -366,6 +366,10 @@ module.exports = {
         "procedure-mobile":
           "linear-gradient(90deg, #FFF 0%, #FFE6C0 100%, #FFE6C0 100%)",
         reclamation: "linear-gradient(180deg, #2B5BB5 0%, #3F73D3 100%)",
+        "selected-green":
+          "linear-gradient( 120deg, rgb(var(--color-neutral-25)) 75%, rgb(var(--color-green-500)) 100%)",
+        "selected-red":
+          "linear-gradient( 120deg, rgb(var(--color-neutral-25)) 75%, rgb(var(--color-red-500)) 100%)",
       },
       boxShadow: {
         DEFAULT:
@@ -384,6 +388,8 @@ module.exports = {
         content: "6px 6px 34px 0px rgba(17, 38, 60, 0.10)",
         holdingcard: "0px 11.206px 19.21px 0px var(--color-neutral-50)",
         accordion: "0px -10px 22px 0px var(--color-red-100)",
+        dropdown2:
+          "0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)",
       },
       keyframes: {
         fadeInScale: {

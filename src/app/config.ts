@@ -36,11 +36,6 @@ export const menus: Menu[] = [
     path: '/tabs',
     key: 'tabs',
   },
-  {
-    name: 'Container',
-    path: '/container',
-    key: 'container',
-  },
 
   {
     name: 'Heading',
@@ -201,6 +196,18 @@ export const menus: Menu[] = [
     path: '/account-selected-card',
     key: 'account-selected-card',
   },
+  {
+    name: 'Account Holding Selected Card',
+    path: '/account-holding-selected-card',
+    key: 'account-holding-selected-card',
+  },
+
+  {
+    name: 'Account Holding Card',
+    path: '/account-holding-card',
+    key: 'account-holding-card',
+  },
+
   {
     name: 'Portfolio Item Card',
     path: '/portfolio-item-card',

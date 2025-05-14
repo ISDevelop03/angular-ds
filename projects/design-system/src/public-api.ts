@@ -12,7 +12,6 @@ export * from './lib/components/icon/icon.component';
 export * from './lib/components/accordion/accordion.component';
 export * from './lib/components/avatar/avatar.component';
 export * from './lib/components/tabs/tabs.component';
-export * from './lib/components/container/container.component';
 export * from './lib/components/heading/heading.component';
 export * from './lib/components/text/text.component';
 export * from './lib/components/cards/empty-card/empty-card.component';

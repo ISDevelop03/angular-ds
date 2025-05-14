@@ -11,14 +11,13 @@
         [disabled]="disabled"
       />
       <div
-        *ngIf="checked"
-        [ngClass]="
-          radio[variant]?.icon?.base +
-          ' ' +
-          (disabled
+        [ngClass]="[
+          checked ? 'opacity-100' : 'opacity-0',
+          radio[variant]?.icon?.base,
+          disabled
             ? radio[variant]?.icon?.disabled
-            : radio[variant]?.icon?.enabled)
-        "
+            : radio[variant]?.icon?.enabled
+        ]"
       ></div>
     </div>
 

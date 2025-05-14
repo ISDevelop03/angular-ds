@@ -1,11 +1,9 @@
-import { title } from 'process';
-
 export const theme = {
   default: {
     container: 'mx-auto w-full space-y-[10px]',
     disclosure: '',
     button: {
-      base: 'w-full space-y-2 bg-level-3 rounded-b-lg py-4 px-6 bg-gray-300 text-left focus:outline-none outline-none border-none shadow-accordion shadow-neutral-100 overflow-hidden',
+      base: 'w-full space-y-2 bg-level-4 rounded-b-lg py-4 px-6 text-left focus:outline-none outline-none border-none shadow-accordion shadow-neutral-100 overflow-hidden',
       title: 'text-[18px] leading-[27px] font-bold text-neutral-900',
       active: '!rounded-none !shadow-none',
       titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',

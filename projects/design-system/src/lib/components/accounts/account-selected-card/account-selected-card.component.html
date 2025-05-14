@@ -1,69 +1,71 @@
 <article
-  tabindex="0"
-  role="button"
-  class="shrink-0 border border-neutral-200 text-custom-black rounded-lg snap-start relative bg-card-level-1"
-  [ngClass]="className"
+  class="shrink-0 text-neutral-900 rounded-lg relative p-px shadow-content shadow-neutral-50"
+  [ngClass]="[
+    solde_comptable > 0 ? 'bg-selected-green' : 'bg-selected-red',
+    className
+  ]"
 >
-  <!-- Top Block -->
-  <div class="relative rounded-t-lg bg-card-level-5 p-4">
-    <ds-dropdown
-      class="absolute top-4 right-3.5"
-      [items]="actionsList"
-      anchor="bottom end"
-    >
-      <ds-icon id="more-1" class="size-4"></ds-icon>
-    </ds-dropdown>
-
-    <!-- Account Info -->
-    <div class="flex flex-col gap-2" *ngIf="type || account_number">
-      <h3 *ngIf="type" class="font-medium inline-flex gap-2 items-center">
-        <ds-icon id="bank2" class="size-4"></ds-icon>
-        <span [ngClass]="transitionClass">
-          {{ type }}
-        </span>
-      </h3>
-
-      <p
-        *ngIf="account_number"
-        class="text-[12px] leading-[18px] transition-all duration-300 ease-in-out font-bold inline-flex gap-1"
-        [ngClass]="transitionClass"
+  <div
+    class="bg-neutral-25 rounded-[7px] relative after:rounded-[7px] after:absolute after:inset-0 after:bg-red-10 after:-z-[1] z-[2]"
+  >
+    <!-- Top Block -->
+    <div class="relative rounded-t-lg p-4">
+      <ds-dropdown
+        class="absolute top-4 right-3.5"
+        [items]="actionsList"
+        anchor="bottom end"
       >
-        <sup class="inline-flex mt-2.5 font-light">N°</sup>
-        {{ account_number }}
-      </p>
+        <ds-icon id="more-1" size="18"></ds-icon>
+      </ds-dropdown>
+
+      <!-- Account Info -->
+      <div class="flex flex-col gap-2" *ngIf="type || account_number">
+        <h3 *ngIf="type" class="inline-flex gap-2 items-center">
+          <ds-icon id="bank2" size="14" class="text-red-500"></ds-icon>
+          <span class="text-[14px] leading-[18px] font-medium">
+            {{ type }}
+          </span>
+        </h3>
+
+        <p
+          *ngIf="account_number"
+          class="text-[12px] leading-[14px] font-bold inline-flex gap-px"
+        >
+          <sup class="inline-flex mt-2.5 font-light">N°</sup>
+          {{ account_number }}
+        </p>
+      </div>
+
+      <div class="flex items-center justify-between w-full mt-1">
+        <span class="text-[10px] leading-[12px] text-neutral-700">
+          Solde en temps réel
+        </span>
+
+        <ds-balance-formatter
+          *ngIf="solde_temps_reel || currency"
+          [isDiscrete]="isDiscrete"
+          [balance]="solde_temps_reel || 0"
+          [currency]="currency"
+          [currencyClassName]="'text-[12px] leading-[14px]'"
+        >
+        </ds-balance-formatter>
+      </div>
     </div>
 
-    <div class="flex items-center justify-between w-full mt-1">
-      <span class="text-[10px] leading-normal text-neutral-700">
+    <hr class="w-[80%] mx-auto h-px bg-stroke-3 border-stroke-3" />
+    <!-- Bottom Block -->
+    <div class="px-4 py-3 flex flex-col justify-center items-end gap-2">
+      <span class="self-start text-[10px] leading-[12px] text-neutral-700">
         Solde comptable
       </span>
-
       <ds-balance-formatter
         *ngIf="solde_comptable"
         [isDiscrete]="isDiscrete"
         [balance]="solde_comptable"
         [currency]="currency"
-        [class]="transitionClass"
+        [currencyClassName]="'text-[12px] leading-[14px]'"
       >
       </ds-balance-formatter>
     </div>
-  </div>
-
-  <!-- Bottom Block -->
-  <div class="px-4 py-3 flex flex-col justify-center items-end gap-2">
-    <span class="self-start text-[12px] leading-normal text-neutral-700">
-      Solde en temps réel
-    </span>
-
-    <ds-balance-formatter
-      *ngIf="solde_temps_reel || currency"
-      [isDiscrete]="isDiscrete"
-      [balance]="solde_temps_reel || 0"
-      [currency]="currency"
-      class="items-center transition-all duration-300 ease-in-out text-[24px] leading-[24px]"
-      [currencyClassName]="'text-[14px] leading-[14px]'"
-      [ngClass]="transitionClass"
-    >
-    </ds-balance-formatter>
   </div>
 </article>

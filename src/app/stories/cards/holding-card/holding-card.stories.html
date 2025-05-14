@@ -1,23 +1,9 @@
 <section class="p-5 flex flex-col gap-5">
-  <h1 class="text-2xl font-bold">Holding Card</h1>
-  <p class="dark:text-gray-400 text-gray-700">
-    This is a simple holding card component.
-  </p>
-  <div class="flex flex-wrap gap-5">
-    <ds-holding-card
-      [title]="title"
-      [href]="href"
-      [className]="className"
-    ></ds-holding-card>
-    <ds-holding-card
-      [title]="title"
-      [href]="href"
-      className="bg-violet-100"
-    ></ds-holding-card>
-    <ds-holding-card
-      [title]="title"
-      [href]="href"
-      className="bg-violet-200"
-    ></ds-holding-card>
-  </div>
+  <h1 class="text-xl font-bold">Holding Card</h1>
+
+  <ds-holding-card
+    [title]="title"
+    [href]="href"
+    [className]="className"
+  ></ds-holding-card>
 </section>

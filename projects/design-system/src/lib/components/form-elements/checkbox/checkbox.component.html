@@ -1,22 +1,28 @@
 <label class="cursor-pointer inline-block">
   <div [ngClass]="wrapperClass">
-    <div [ngClass]="checkboxClass">
+    <div [ngClass]="checkboxClass + 'relative overflow-hidden'">
       <input
         type="checkbox"
-        class="absolute size-0 opacity-0"
+        class="absolute size-0 opacity-0 flex justify-center items-center"
         [value]="value"
         [name]="name"
         [checked]="checked"
         [disabled]="disabled"
         (change)="change()"
       />
+      <!-- checkbox[variant]?.checkbox?.icon + -->
+      <!-- *ngIf="checked" -->
       <ds-icon
-        *ngIf="checked"
+        [ngClass]="checked ? 'opacity-100' : 'opacity-0'"
         id="check"
         [class]="
-          checkbox[variant]?.checkbox?.icon + ' absolute inset-0 m-auto size-3'
+          checkbox[variant]?.checkbox?.icon +
+          'transition-opacity duration-200 ease-in-out absolute size-3'
         "
       ></ds-icon>
+      <!-- <span
+        class="bg-red-600 rounded-full size-2 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2"
+      ></span> -->
     </div>
 
     <ng-container *ngIf="label">

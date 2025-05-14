@@ -13,6 +13,10 @@ export interface SelectItem {
   value: string;
   label: string;
   unavailable?: boolean;
+  icon?: string;
+  image?: string;
+  iconClass?: string;
+  imageClass?: string;
 }
 
 @Component({
@@ -31,6 +35,7 @@ export class DsSelectComponent {
   @Input() multiple: boolean = false;
   @Input() isLoading: boolean = false;
   @Input() className?: string;
+  @Input() buttonIcon?: string;
   @Input() value: string | string[] | null = null;
   @Input() customOptionsStyles?: { [key: string]: any };
 

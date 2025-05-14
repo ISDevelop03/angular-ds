@@ -1,14 +1,17 @@
 body {
   @apply antialiased font-sans;
-  background: linear-gradient(217deg, #fef2f2 2.44%, #f9fafb 43.42%);
 }
 
 .dark {
-  @apply text-white bg-black;
+  @apply text-white;
+  background: linear-gradient(217deg, #1f1f1f 2.44%, #0a0a0a 43.42%) no-repeat
+    fixed;
 }
 
 .light {
-  @apply text-black bg-white;
+  @apply text-black;
+  background: linear-gradient(217deg, #fef2f2 2.44%, #f9fafb 43.42%) no-repeat
+    fixed;
 }
 
 input[type="range"].defaultInputRangeThumb::-webkit-slider-thumb {

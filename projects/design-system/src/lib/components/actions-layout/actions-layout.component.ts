@@ -8,6 +8,7 @@ import { ActionItem } from './theme';
 export class DsActionsLayoutComponent {
   @Input() items: ActionItem[] = [];
   @Input() className: string = '';
+  @Input() selectedClass: string = '';
   selectedElement: number | null = null;
 
   onClick(item: ActionItem, index: number) {

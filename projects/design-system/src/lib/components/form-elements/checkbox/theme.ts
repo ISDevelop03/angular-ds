@@ -17,7 +17,7 @@ export const checkbox = {
       },
       error: 'border-error-500',
       label: {
-        base: 'dark:text-neutral-200 text-heading',
+        base: 'dark:text-neutral-200 text-neutral-900',
         checked: 'dark:text-primary/90 text-primary',
         disabled: 'dark:text-neutral-500 text-neutral-400',
       },

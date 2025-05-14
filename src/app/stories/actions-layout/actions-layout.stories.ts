@@ -14,19 +14,26 @@ export class ActionsLayoutStoryComponent {
       },
     },
     {
-      iconId: 'notification',
+      iconId: 'bell-02',
       handler: () => {
         console.log('Notification clicked');
       },
+      badge: true,
     },
     {
-      iconId: 'message',
+      iconId: 'message-chat-01',
       handler: () => {
         console.log('Message clicked');
       },
     },
     {
-      iconId: 'element-plus',
+      iconId: 'call-center',
+      handler: () => {
+        console.log('Call center clicked');
+      },
+    },
+    {
+      iconId: 'category',
       handler: () => {
         console.log('Element Plus clicked');
       },

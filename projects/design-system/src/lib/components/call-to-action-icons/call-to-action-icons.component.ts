@@ -7,7 +7,8 @@ import { callToActionIconsTheme } from './theme';
   templateUrl: './call-to-action-icons.component.html',
 })
 export class CallToActionIconsComponent {
-  @Input() className?: string;
+  @Input() variant: keyof typeof callToActionIconsTheme = 'default';
+  @Input() className?: string = '';
   @Input() actions: ICallToActionIcon[] = [];
 
   theme = callToActionIconsTheme;

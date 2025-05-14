@@ -1,20 +1,21 @@
 <article
+  (click)="onClick()"
   tabindex="0"
   role="button"
-  class="shrink-0 border border-neutral-200 text-custom-black rounded-lg snap-start relative bg-card-level-4 p-3.5"
+  class="shrink-0 border border-stroke-1 text-neutral-900 rounded-lg snap-start relative bg-card-level-1 px-3.5 py-3.5 pb-2"
   [ngClass]="className"
 >
   <!-- Dropdown -->
   <ds-dropdown
     [items]="actionsList"
-    class="absolute top-4 right-3.5"
+    class="absolute top-2 right-3.5"
     anchor="bottom end"
   >
     <ds-icon id="more-1" class="size-4"></ds-icon>
   </ds-dropdown>
 
   <!-- Account Info -->
-  <div *ngIf="type || account_number">
+  <div *ngIf="type || account_number" class="space-y-2 mb-10">
     <h3 *ngIf="type" class="text-[14px] leading-[20px] font-medium">
       {{ type }}
     </h3>
@@ -34,8 +35,8 @@
     [isDiscrete]="isDiscrete"
     [balance]="balance"
     [currency]="currency"
-    class="items-center transition-all duration-300 ease-in-out text-[16px] leading-[16px] mt-6"
-    currencyClassName="text-[10px] leading-[10px]"
+    className="ml-auto"
+    currencyClassName="text-[12px] leading-[14px]"
   >
   </ds-balance-formatter>
 </article>

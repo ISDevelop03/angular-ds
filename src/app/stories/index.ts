@@ -4,7 +4,6 @@ export * from './icon/icon.stories';
 export * from './accordion/accordion.stories';
 export * from './avatar/avatar.stories';
 export * from './tabs/tabs.stories';
-export * from './container/container.stories';
 export * from './heading/heading.stories';
 export * from './cards/empty-card/empty-card.stories';
 export * from './breadcrumb/breadcrumb.stories';
@@ -24,6 +23,8 @@ export * from './sidebar/sidebar.stories';
 export * from './accounts/account-grid-card/account-grid-card.stories';
 export * from './accounts/account-slider-card/account-slider-card.stories';
 export * from './accounts/account-selected-card/account-selected-card.stories';
+export * from './accounts/account-holding-card/account-holding-card.stories';
+export * from './accounts/account-holding-selected-card/account-holding-selected-card.stories';
 
 // Form Elements
 export * from './form-elements/checkbox/checkbox.stories';

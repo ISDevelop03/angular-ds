@@ -1,0 +1,24 @@
+<article
+  [ngClass]="[
+    'group relative flex border border-stroke-1 bg-card-level-1 items-center justify-start text-neutral-900 gap-[14px] rounded-lg p-[14px]',
+    className
+  ]"
+>
+  <ds-dropdown
+    class="absolute top-2 right-3"
+    [items]="actionsList"
+    anchor="bottom end"
+  >
+    <ds-icon id="more-1" size="18"></ds-icon>
+  </ds-dropdown>
+
+  <img
+    *ngIf="image"
+    [src]="image"
+    [alt]="name"
+    class="object-contain rounded bg-level-3 size-[62px]"
+  />
+  <h3 *ngIf="title" class="text-[18px] leading-[27px] font-bold">
+    {{ title }}
+  </h3>
+</article>

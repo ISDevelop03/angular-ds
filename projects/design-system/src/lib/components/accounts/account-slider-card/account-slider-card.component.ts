@@ -15,19 +15,7 @@ export class DsAccountSliderCardComponent {
   @Input() date?: string;
   @Input() isSelected: boolean = false;
   @Input() actionsList: DropdownItem[] = [];
-  @Input() className?: string;
+  @Input() className?: string = '';
 
-  @Output() cardClick = new EventEmitter<any>();
-
-  handleCardClick() {
-    this.cardClick.emit({
-      id: this.id,
-      account_number: this.account_number,
-      balance: this.balance,
-      currency: this.currency,
-      type: this.type,
-      isSelected: this.isSelected,
-      date: this.date,
-    });
-  }
+  @Input() onClick: () => void;
 }

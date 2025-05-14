@@ -18,7 +18,7 @@ export class DsInputComponent {
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
   @Input() labelVariant: string = 'text-sm/Medium'; // Just kept for future use
-  @Input() labelClassName: string = 'text-black dark:text-white';
+  @Input() labelClassName: string = '';
   @Input() value: any;
 
   input = input;

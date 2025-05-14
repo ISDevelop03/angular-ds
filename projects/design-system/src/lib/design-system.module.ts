@@ -7,7 +7,6 @@ import {
   AccordionComponent,
   AvatarComponent,
   DsTabsComponent,
-  DsContainerComponent,
   DsHeadingComponent,
   DsTextComponent,
   DsActionsLayoutComponent,
@@ -48,6 +47,8 @@ import {
   PortfolioItemCardComponent,
   PortfolioSelectCardComponent,
   PortfolioVisionCardComponent,
+  AccountHoldingCardComponent,
+  AccountHoldingSelectedCardComponent,
   TickerCardComponent,
 } from './components';
 
@@ -63,7 +64,6 @@ import { FormsModule } from '@angular/forms';
     AccordionComponent,
     AvatarComponent,
     DsTabsComponent,
-    DsContainerComponent,
     DsHeadingComponent,
     DsTextComponent,
     DsActionsLayoutComponent,
@@ -105,6 +105,8 @@ import { FormsModule } from '@angular/forms';
     PortfolioSelectCardComponent,
     PortfolioVisionCardComponent,
     TickerCardComponent,
+    AccountHoldingCardComponent,
+    AccountHoldingSelectedCardComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -115,7 +117,6 @@ import { FormsModule } from '@angular/forms';
     AccordionComponent,
     AvatarComponent,
     DsTabsComponent,
-    DsContainerComponent,
     DsHeadingComponent,
     DsTextComponent,
     DsActionsLayoutComponent,
@@ -157,6 +158,8 @@ import { FormsModule } from '@angular/forms';
     PortfolioSelectCardComponent,
     PortfolioVisionCardComponent,
     TickerCardComponent,
+    AccountHoldingCardComponent,
+    AccountHoldingSelectedCardComponent,
   ],
 })
 export class DesignSystemModule {}
