@@ -1,0 +1,67 @@
+<div
+  (click)="onClick({ icon: icon, label: label })"
+  [ngClass]="[
+    className,
+    isDraggable
+      ? 'group hover:pl-10 transition-all ease-in-out duration-300 hover:pr-3.5'
+      : ''
+  ]"
+  class="px-3.5 relative bg-level-3 flex flex-row rounded items-center justify-start py-3 gap-2"
+>
+  <div
+    *ngIf="isDraggable"
+    class="absolute top-1/2 -translate-y-1/2 left-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 cursor-pointer"
+  >
+    <ds-icon id="dragdrop" size="32" class="text-neutral-300"></ds-icon>
+  </div>
+  <img
+    *ngIf="image"
+    [src]="image"
+    [alt]="label"
+    class="size-10 shrink-0 object-cover"
+    [ngClass]="!removeImageRounded ? 'rounded-full' : 'rounded-sm'"
+  />
+  <div
+    *ngIf="icon"
+    class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-level-2 rounded-full"
+  >
+    <ds-icon [id]="icon" size="20" class="text-red-500"></ds-icon>
+  </div>
+  <div
+    class="w-full flex justify-between"
+    [ngClass]="
+      iconPosition === 'top'
+        ? 'items-start'
+        : iconPosition === 'center'
+        ? 'items-center'
+        : 'items-end'
+    "
+  >
+    <div class="w-full flex items-start justify-center flex-col gap-1">
+      <h4
+        class="text-[12px] leading-[14px]"
+        [ngClass]="
+          removeImageRounded
+            ? 'font-bold text-neutral-900'
+            : 'font-normal text-neutral-500'
+        "
+      >
+        {{ label }}
+      </h4>
+      <ng-content></ng-content>
+    </div>
+
+    <button
+      (click)="
+        startClick && startClick({ icon: icon, label: label });
+        $event.stopPropagation()
+      "
+      click-stop-propagation
+      *ngIf="iconRight"
+      class="flex items-center justify-center text-red-500"
+      [ngClass]="iconPositionClassName"
+    >
+      <ds-icon [id]="iconRight" size="16"></ds-icon>
+    </button>
+  </div>
+</div>

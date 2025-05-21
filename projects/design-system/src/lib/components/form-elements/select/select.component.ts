@@ -15,6 +15,7 @@ export interface SelectItem {
   unavailable?: boolean;
   icon?: string;
   image?: string;
+  isAccount?: boolean;
   iconClass?: string;
   imageClass?: string;
 }
@@ -41,8 +42,12 @@ export class DsSelectComponent {
 
   @Output() valueChange = new EventEmitter<string | string[]>();
 
+  private static zIndexCounter = 10000;
+
   isOpen: boolean = false;
   containerPosition: { [key: string]: any } = {};
+
+  containerStyles = {};
 
   @ViewChild('triggerButton') triggerButton?: ElementRef;
   @ViewChild('optionsContainer')
@@ -54,12 +59,19 @@ export class DsSelectComponent {
     return Object.assign(
       {},
       this.containerPosition,
+      this.containerStyles,
       this.customOptionsStyles || {}
     );
   }
 
   toggleDropdown() {
     if (!this.disabled && !this.isLoading) {
+      const myZ = ++DsSelectComponent.zIndexCounter;
+
+      this.containerStyles = {
+        zIndex: `${myZ}`,
+      };
+
       this.isOpen = !this.isOpen;
       setTimeout(() => this.calculatePosition(), 0);
     }
@@ -113,29 +125,34 @@ export class DsSelectComponent {
     return this.value === item.value;
   }
 
-  get selectedLabel() {
+  // tighten returned type to always be a SelectItem
+  get selected(): SelectItem {
     if (this.multiple && Array.isArray(this.value)) {
-      return (
-        this.items
-          .filter((i) => this.value && this.value.includes(i.value))
-          .map((i) => i.label)
-          .join(', ') || this.placeholder
-      );
+      const labels = this.items
+        .filter((i) => this.value!.includes(i.value))
+        .map((i) => i.label)
+        .join(', ');
+      return {
+        value: '', // satisfy the required field
+        label: labels || this.placeholder,
+      };
     }
-    const selected = this.items.find((i) => i.value === this.value);
-    return (selected && selected.label) || this.placeholder;
+
+    const found = this.items.find((i) => i.value === this.value);
+    return found || { value: '', label: this.placeholder };
   }
 
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
-    if (
-      !(
-        this.triggerButton &&
-        this.triggerButton.nativeElement.contains(event.target)
-      ) &&
+    const target = event.target as Node;
+    const clickedTrigger =
+      this.triggerButton && this.triggerButton.nativeElement.contains(target);
+    const clickedOptions =
       this.optionsContainer &&
-      this.optionsContainer.nativeElement.contains(event.target)
-    ) {
+      this.optionsContainer.nativeElement.contains(target);
+
+    // if you clicked *neither* on the button nor inside the dropdown, close it
+    if (!clickedTrigger && !clickedOptions) {
       this.isOpen = false;
     }
   }

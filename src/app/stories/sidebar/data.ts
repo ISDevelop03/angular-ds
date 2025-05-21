@@ -1,4 +1,6 @@
-export const mainMenusMOCKDATA = [
+import { IMainMenu } from 'projects/design-system/src/lib/components/sidebar/types';
+
+export const mainMenusMOCKDATA: IMainMenu[] = [
   {
     title: 'Overview',
     icon: 'home',
@@ -18,6 +20,7 @@ export const mainMenusMOCKDATA = [
           icon: 'folder-search-02',
           href: '#',
           items: [],
+          isNew: true,
         },
         {
           title: 'Transactions',
@@ -36,6 +39,7 @@ export const mainMenusMOCKDATA = [
                 {
                   title: 'Historique des opérations',
                   href: '#',
+                  isNew: true,
                 },
                 {
                   title: 'Documents à télécharger',
@@ -52,6 +56,7 @@ export const mainMenusMOCKDATA = [
               icon: 'file',
               href: '#',
               items: [],
+              isNew: true,
             },
             {
               title: 'Positions & Trésorerie',

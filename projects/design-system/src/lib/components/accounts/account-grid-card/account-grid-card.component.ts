@@ -7,15 +7,12 @@ import { DropdownItem } from '../../dropdown/types';
 })
 export class DsAccountGridCardComponent {
   @Input() isDiscrete: boolean = false;
-  @Input() account_number!: string;
-  @Input() currency!: string;
-  @Input() type!: string;
-  @Input() solde_comptable?: number;
-  @Input() solde_temps_reel?: number;
-  @Input() date!: string;
-  @Input() actionsList: DropdownItem[] = [];
-  @Input() editLink?: string;
-  @Input() className?: string;
+  @Input() title: string;
+  @Input() currency: string;
+  @Input() price: number;
+  @Input() dateOperation!: string;
+  @Input() dateValue!: string;
+  @Input() className?: string = '';
 
   showAccordion: boolean = false;
 

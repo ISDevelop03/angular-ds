@@ -6,7 +6,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { DropdownItem } from '../../dropdown/types';
+import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
 @Component({
   selector: 'ds-account-selected-card',
@@ -20,7 +20,7 @@ export class DsAccountSelectedCardComponent {
   @Input() type!: string;
   @Input() id?: string;
   @Input() date?: string;
-  @Input() actionsList: DropdownItem[] = [];
+  @Input() actionsList: ICallToActionIcon[] = [];
   @Input() solde_comptable?: number;
   @Input() solde_temps_reel?: number;
   @Input() className?: string = '';

@@ -1,7 +1,7 @@
 export const callToActionIconsTheme = {
   default: {
     wrapper:
-      'flex border border-stroke-1 bg-level-5 rounded py-3 items-center justify-start gap-px text-neutral-900',
+      'flex border border-stroke-1 bg-level-5 rounded py-2 items-center justify-start gap-px text-neutral-900',
     separator: 'shrink-0 h-3 w-px bg-neutral-500',
     button: 'px-2 hover:opacity-50 transition-opacity duration-300',
     icon: 'flex items-center justify-center text-neutral-900',

@@ -93,3 +93,9 @@ ul.menu-wrapper ul {
 .sb-show-main {
   @apply bg-white;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

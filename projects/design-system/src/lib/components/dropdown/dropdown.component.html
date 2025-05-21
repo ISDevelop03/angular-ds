@@ -1,5 +1,6 @@
 <div [ngClass]="[dropdown.base, className]">
   <button
+    #trigger
     (click)="toggleMenu()"
     [ngClass]="[
       dropdown.button.base,
@@ -10,7 +11,12 @@
     <ng-content></ng-content>
   </button>
 
-  <div *ngIf="isOpen" [ngClass]="dropdown.container" (mouseleave)="closeMenu()">
+  <div
+    *ngIf="isOpen"
+    #menu
+    [ngClass]="dropdown.container"
+    [ngStyle]="menuStyles"
+  >
     <button
       *ngFor="let item of items"
       (click)="onItemClick(item.onClick)"

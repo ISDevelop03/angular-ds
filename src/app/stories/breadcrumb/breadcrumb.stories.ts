@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Page } from 'projects/design-system/src/lib/components';
+import { Page } from 'projects/design-system/src/lib/components/breadcrumb//breadcrumb.component';
 
 @Component({
   selector: 'app-breadcrumb',

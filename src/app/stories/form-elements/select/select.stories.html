@@ -10,6 +10,12 @@
 
   <h3>Multi Select</h3>
   <ds-select
+    [items]="options1"
+    [(value)]="selectedValue"
+    label="Select Account"
+  ></ds-select>
+  <h3>Multi Select</h3>
+  <ds-select
     [items]="options"
     [(value)]="selectedValue"
     [multiple]="true"
@@ -31,5 +37,15 @@
     [hasError]="true"
     errorMessage="You must select an option"
     label="Select Error"
+  ></ds-select>
+
+  <h3>Currency Variant</h3>
+  <ds-select
+    [items]="options"
+    [(value)]="selectedValue"
+    label="Choose Option"
+    placeholder="Pick one..."
+    buttonIcon="message"
+    variant="currency"
   ></ds-select>
 </div>

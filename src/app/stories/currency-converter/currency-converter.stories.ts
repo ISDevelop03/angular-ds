@@ -9,22 +9,16 @@ export class CurrencyConverterStoryComponent {
     {
       value: 'EUR',
       label: 'Euro',
-      symbol: '€',
-      color: '#000',
       image: 'https://placehold.co/18/red/white',
     },
     {
       value: 'MAD',
       label: 'Dirham',
-      symbol: 'MAD',
-      color: '#000',
       image: 'https://placehold.co/18/green/white',
     },
     {
       value: 'USD',
       label: 'Dollar',
-      symbol: '$',
-      color: '#000',
       image: 'https://placehold.co/18/orange/white',
     },
   ];

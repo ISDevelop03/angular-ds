@@ -11,5 +11,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    ".": {
+      "import": "./fesm2015/design-system.js",
+      "require": "./bundles/design-system.umd.js",
+      "types": "./design-system.d.ts"
+    },
+    "./styles.css": {
+      "require": "./styles.css",
+      "import": "./styles.css"
+    }
+  },
   "sideEffects": false
 }

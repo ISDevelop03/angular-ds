@@ -31,6 +31,7 @@ export interface IMenuListItem {
   title: string;
   icon?: string;
   href: string;
+  isNew?: boolean;
   items?: Array<IMenuListItem>;
 }
 export interface IMenuList {

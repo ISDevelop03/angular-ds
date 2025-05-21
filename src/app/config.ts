@@ -127,9 +127,9 @@ export const menus: Menu[] = [
     key: 'call-to-action-icons',
   },
   {
-    name: 'Shortcut Card',
-    path: '/shortcut-card',
-    key: 'shortcut-card',
+    name: 'Shortcuts',
+    path: '/shortcuts',
+    key: 'shortcuts',
   },
   {
     name: 'Filial Card',
@@ -162,11 +162,6 @@ export const menus: Menu[] = [
     key: 'progress',
   },
   {
-    name: 'Currency Select',
-    path: '/currency-select',
-    key: 'currency-select',
-  },
-  {
     name: 'Currency Converter',
     path: '/currency-converter',
     key: 'currency-converter',
@@ -177,14 +172,19 @@ export const menus: Menu[] = [
     key: 'profile-dropdown',
   },
   {
-    name: 'Latest Operations Card',
-    path: '/latest-operations-card',
-    key: 'latest-operations-card',
-  },
-  {
     name: 'Account Grid Card',
     path: '/account-grid-card',
     key: 'account-grid-card',
+  },
+  {
+    name: 'Account Grid Holding Card',
+    path: '/account-grid-holding-card',
+    key: 'account-grid-holding-card',
+  },
+  {
+    name: 'Account Filial Holding Card',
+    path: '/account-filial-holding-card',
+    key: 'account-filial-holding-card',
   },
   {
     name: 'Account Slider Card',
@@ -208,6 +208,13 @@ export const menus: Menu[] = [
     key: 'account-holding-card',
   },
 
+  //Sheet Cards
+  {
+    name: 'Sheet Card',
+    path: '/sheet-card',
+    key: 'sheet-card',
+  },
+
   {
     name: 'Portfolio Item Card',
     path: '/portfolio-item-card',
@@ -228,4 +235,18 @@ export const menus: Menu[] = [
     path: '/ticker-card',
     key: 'ticker-card',
   },
+  {
+    key: 'sheet-latest-ops',
+    name: 'SheetLatestOps',
+    path: '/sheet-latest-ops',
+  },
+  { key: 'invoice-card', name: 'InvoiceCard', path: '/invoice-card' },
+  { key: 'payment-card', name: 'PaymentCard', path: '/payment-card' },
+  // { key: 'table', name: 'Table', path: '/table' },
+  // { key: 'steps', name: 'Steps', path: '/steps' },
+  // {
+  //   key: 'payment-details-card',
+  //   name: 'PaymentDetailsCard',
+  //   path: '/payment-details-card',
+  // },
 ];

@@ -1,0 +1,26 @@
+<div
+  [ngClass]="className"
+  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row gap-3 p-3"
+>
+  <img
+    [src]="image"
+    [alt]="title"
+    class="shrink-0 w-[102px] rounded aspect-video max-h-[60px] object-cover"
+  />
+  <div class="w-full flex justify-between flex-col gap-2">
+    <h3 class="text-[14px] leading-[18px] font-bold">
+      {{ title }}
+    </h3>
+    <a *ngIf="actions.length <= 0" [href]="href" (click)="onClick($event)">
+      <ds-icon
+        id="arrow-right"
+        class="self-end justify-self-end text-red-500"
+      ></ds-icon>
+    </a>
+    <div *ngIf="!href && actions.length > 0" class="self-end justify-self-end">
+      <ds-dropdown *ngIf="actions" [items]="actions">
+        <ds-icon id="arrow-down" class="text-red-500"></ds-icon>
+      </ds-dropdown>
+    </div>
+  </div>
+</div>

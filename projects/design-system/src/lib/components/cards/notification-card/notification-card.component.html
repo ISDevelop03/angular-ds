@@ -2,20 +2,25 @@
   (click)="handleClick()"
   [ngClass]="[
     'relative flex items-start justify-start gap-2 border-l-2 p-3.5 cursor-pointer',
-    !isRead ? 'bg-neutral-100 border-l-red-500' : 'border-l-transparent'
+    !isRead
+      ? 'bg-neutral-25 border-l-red-500'
+      : 'bg-transparent border-l-transparent'
   ]"
 >
   <a *ngIf="link" [href]="link" class="absolute top-0 left-0 w-full h-full">
     <span class="sr-only">{{ title }}</span>
   </a>
   <div *ngIf="title || content" class="space-y-1">
-    <span *ngIf="title" class="text-neutral-900 text-xs font-bold">
+    <span
+      *ngIf="title"
+      class="text-neutral-900 text-[12px] leading-[14px] font-bold"
+    >
       {{ title }}
     </span>
 
     <p
       *ngIf="content"
-      class="text-neutral-700 text-3xs font-medium line-clamp-2"
+      class="text-neutral-700 text-[10px] leading-[12px] font-medium line-clamp-2"
     >
       {{ content }}
     </p>
@@ -23,7 +28,7 @@
 
   <span
     *ngIf="time"
-    class="text-neutral-700 text-3xs font-normal absolute top-3.5 right-3.5"
+    class="text-neutral-900 text-[10px] leading-[12px] font-normal absolute top-5 right-3.5"
   >
     {{ time }}
   </span>

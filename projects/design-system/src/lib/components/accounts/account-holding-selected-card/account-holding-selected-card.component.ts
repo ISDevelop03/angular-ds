@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DropdownItem } from '../../dropdown/types';
+import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
 @Component({
   selector: 'ds-account-holding-selected-card',
@@ -9,5 +9,5 @@ export class AccountHoldingSelectedCardComponent {
   @Input() image: string;
   @Input() title: string;
   @Input() className?: string = '';
-  @Input() actionsList: DropdownItem[] = [];
+  @Input() actionsList: ICallToActionIcon[] = [];
 }

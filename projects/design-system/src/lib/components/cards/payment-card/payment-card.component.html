@@ -1,0 +1,33 @@
+<div
+  [ngClass]="className"
+  class="border border-neutral-50 bg-level-4 justify-between rounded-lg py-2 px-3 flex items-center gap-3"
+>
+  <ds-checkbox [checked]="isSelected" (change)="onSelect()"></ds-checkbox>
+  <img
+    [src]="image"
+    [alt]="title"
+    class="shrink-0 w-[50px] h-[26px] rounded-[2px] object-cover"
+  />
+
+  <h3
+    *ngIf="title"
+    class="text-[14px] leading-[18px] font-semibold text-neutral-900"
+  >
+    {{ title }}
+  </h3>
+
+  <div class="flex flex-col gap-1 bg-neutral-25 py-1 px-2">
+    <span class="inline-flex text-[10px] leading-[12px]">Montant</span>
+    <span class="inline-flex text-[12px] leading-[14px] font-bold">
+      {{ formattedPrice }} {{ currency }}
+    </span>
+  </div>
+
+  <button
+    class="inline-flex text-[12px] text-neutral-700 font-bold leading-[14px] items-center gap-2"
+    (click)="onDelete()"
+  >
+    Supprimer
+    <ds-icon id="trash" class="text-red-500"></ds-icon>
+  </button>
+</div>

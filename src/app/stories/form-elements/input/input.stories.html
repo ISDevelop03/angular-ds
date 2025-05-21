@@ -6,7 +6,31 @@
     [value]="textValue"
     (valueChange)="handleInputChange($event)"
     variant="default"
+    [onClick]="onClick"
   ></ds-input>
+
+  <ds-input [(value)]="amount" prefix="$" suffix="USD"></ds-input>
+  <ds-input [(value)]="amount">
+    <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
+
+    <button suffix (click)="onClear()" class="text-neutral-500">
+      <ds-icon prefix id="close" size="24"></ds-icon>
+    </button>
+  </ds-input>
+  <h2>Search Input</h2>
+  <ds-input
+    variant="search"
+    [(value)]="amount"
+    prefix="$"
+    suffix="USD"
+  ></ds-input>
+  <ds-input [(value)]="amount">
+    <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
+
+    <button suffix (click)="onClear()" class="text-neutral-500">
+      <ds-icon prefix id="close" size="24"></ds-icon>
+    </button>
+  </ds-input>
 
   <ds-input
     [label]="'Number Input'"

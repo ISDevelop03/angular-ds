@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { DropdownItem } from '../../dropdown/types';
+import { Component, Input } from '@angular/core';
+import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
 @Component({
   selector: 'ds-account-slider-card',
@@ -14,7 +14,7 @@ export class DsAccountSliderCardComponent {
   @Input() id?: string;
   @Input() date?: string;
   @Input() isSelected: boolean = false;
-  @Input() actionsList: DropdownItem[] = [];
+  @Input() actionsList: ICallToActionIcon[] = [];
   @Input() className?: string = '';
 
   @Input() onClick: () => void;

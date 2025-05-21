@@ -14,20 +14,27 @@
       disabled ? theme[variant].element.button.disabled : ''
     ]"
   >
-    <div class="flex items-center justify-between gap-2">
+    <div [ngClass]="[theme[variant].element.button.selected]">
       <ds-icon
-        *ngIf="buttonIcon"
-        [id]="buttonIcon"
+        *ngIf="buttonIcon && !selected.image"
+        [id]="selected.icon || buttonIcon"
         class="text-red-500"
       ></ds-icon>
+
+      <img
+        *ngIf="selected.image"
+        [src]="selected.image"
+        [alt]="selected.label"
+        class="rounded-full size-5"
+      />
       <span
         [ngClass]="
-          selectedLabel !== placeholder
+          selected.label !== placeholder
             ? theme[variant].element.button.label
             : theme[variant].element.button.placeholder
         "
       >
-        {{ selectedLabel }}
+        {{ selected.label }}
       </span>
     </div>
 
@@ -54,16 +61,26 @@
       <div
         *ngFor="let item of items"
         (click)="selectOption(item)"
+        class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r"
         [ngClass]="[
           theme[variant].element.options.element,
           item.unavailable
             ? theme[variant].element.options.unavailable
-            : theme[variant].element.options.available
+            : theme[variant].element.options.available,
+          isSelected(item) ? 'bg-red-50/50 ' : 'bg-transparent',
+          item.isAccount
+            ? isSelected(item)
+              ? 'after:bg-red-500'
+              : 'after:bg-transparent'
+            : ''
         ]"
         [class.cursor-not-allowed]="item.unavailable"
       >
         <div class="flex justify-between items-center">
-          <div class="flex justify-between items-center gap-2">
+          <div
+            *ngIf="!item.isAccount; else account"
+            class="flex justify-between items-center gap-2"
+          >
             <ds-icon
               *ngIf="item.icon"
               [id]="item.icon"
@@ -74,7 +91,7 @@
               [src]="item.image"
               [alt]="item.label"
               class="rounded-full size-5"
-              [ngClass]="[item.imageClass]"
+              [ngClass]="[item.imageClass || '']"
             />
             <span
               [ngClass]="[
@@ -87,12 +104,38 @@
               {{ item.label }}
             </span>
           </div>
+          <ng-template #account>
+            <div class="flex justify-start items-center gap-3">
+              <div
+                *ngIf="item.icon"
+                class="size-10 flex justify-center items-center rounded-full"
+              >
+                <ds-icon [id]="item.icon" class="text-red-500"></ds-icon>
+              </div>
 
-          <ds-icon
+              <img
+                *ngIf="item.image"
+                [src]="item.image"
+                alt="[item.label]"
+                class="rounded-full size-10"
+              />
+              <div class="flex flex-col gap-1">
+                <span
+                  class="inline-flex text-neutral-500 font-light text-[14px] leading-[18px]"
+                  >N de compte</span
+                >
+                <span
+                  class="inline-flex font-bold text-[14px] leading-[18px]"
+                  >{{ item.value }}</span
+                >
+              </div>
+            </div>
+          </ng-template>
+          <!-- <ds-icon
             *ngIf="isSelected(item)"
             id="check"
             [class]="theme[variant].element.icone.checked"
-          ></ds-icon>
+          ></ds-icon> -->
         </div>
       </div>
     </ng-container>

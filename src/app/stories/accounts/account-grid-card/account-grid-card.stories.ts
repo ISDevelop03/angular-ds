@@ -7,17 +7,11 @@ import { DropdownItem } from 'projects/design-system/src/lib/components/dropdown
 })
 export class AccountGridCardStoryComponent {
   isDiscrete: boolean = false;
-  soldeComptable: number = 12345.67;
-  soldeTempsReel: number = 12000;
+  price: number = 398759348.67;
+  smallPrice: number = -234234893.67;
   accountNumber: string = 'ACC-1234567890';
-  currency: string = 'USD';
-  type: string = 'Checking';
-  date: string = '2025-04-28';
-
-  actionsList: DropdownItem[] = [
-    { label: 'Edit', icon: 'edit', onClick: () => alert('Edit clicked') },
-    { label: 'Delete', icon: 'trash', onClick: () => alert('Delete clicked') },
-  ];
-
-  editLink: string = 'https://example.com/edit-account';
+  currency: string = 'MAD';
+  title: string = 'SWIFT MT103 SHANGHAI TRADING CO';
+  dateOperation: string = '2025-04-28';
+  dateValue: string = '2025-04-28';
 }

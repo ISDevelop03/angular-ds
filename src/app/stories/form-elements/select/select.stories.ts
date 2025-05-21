@@ -26,6 +26,32 @@ export class SelectStoryComponent {
       image: 'https://placehold.co/20',
       imageClass: 'rounded-full',
     },
+    {
+      label: 'Option 5',
+      value: 'option5',
+      image: 'https://placehold.co/20',
+      imageClass: 'rounded-full',
+    },
+  ];
+  options1: SelectItem[] = [
+    {
+      label: 'Option 1',
+      value: 'option1',
+      isAccount: true,
+      image: 'https://placehold.co/400',
+    },
+    {
+      label: 'Option 2',
+      value: 'option2',
+      isAccount: true,
+      image: 'https://placehold.co/400',
+    },
+    {
+      label: 'Option 3',
+      value: 'option3',
+      isAccount: true,
+      image: 'https://placehold.co/400',
+    },
   ];
 
   handleValueChange(value: string | string[]) {

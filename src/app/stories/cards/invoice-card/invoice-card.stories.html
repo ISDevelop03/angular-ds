@@ -1,0 +1,24 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">Invoice Card</h2>
+  <div class="flex flex-col gap-4">
+    <ds-invoice-card
+      [href]="href"
+      [title]="title"
+      [image]="image"
+      className="max-w-[300px]"
+    ></ds-invoice-card>
+    <ds-invoice-card
+      [actions]="actions"
+      [title]="title"
+      [image]="image"
+      className="max-w-[300px]"
+      [onClick]="onClick"
+    ></ds-invoice-card>
+    <ds-invoice-card
+      [title]="title"
+      [image]="image"
+      className="max-w-[300px]"
+      [onClick]="onClick"
+    ></ds-invoice-card>
+  </div>
+</section>

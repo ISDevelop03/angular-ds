@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -8,12 +15,17 @@ type Theme = 'light' | 'dark';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, AfterViewInit {
   @Input() menus: { key: string; name: string; path: string }[] = [];
   @Input() title = '';
 
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef<HTMLElement>;
+
   theme: Theme = 'light';
   currentPath = '';
+
+  showTopMask = false;
+  showBottomMask = false;
 
   constructor(private router: Router) {}
 
@@ -23,9 +35,14 @@ export class SidebarComponent implements OnInit {
     this.trackRouteChanges();
   }
 
+  ngAfterViewInit(): void {
+    // defer to the next tick so Angular finishes its first check
+    setTimeout(() => this.updateMasks(), 0);
+  }
+
   private initTheme(): void {
-    const storedTheme = localStorage.getItem('storybook-theme') as Theme;
-    this.theme = storedTheme || 'light';
+    const stored = localStorage.getItem('storybook-theme') as Theme;
+    this.theme = stored || 'light';
     this.applyThemeClass();
   }
 
@@ -38,9 +55,9 @@ export class SidebarComponent implements OnInit {
   private trackRouteChanges(): void {
     this.currentPath = this.router.url;
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.currentPath = event.url;
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((e: NavigationEnd) => {
+        this.currentPath = e.url;
       });
   }
 
@@ -48,6 +65,19 @@ export class SidebarComponent implements OnInit {
     this.theme = this.theme === 'dark' ? 'light' : 'dark';
     this.applyThemeClass();
     localStorage.setItem('storybook-theme', this.theme);
-    console.log('Theme toggled:', this.theme);
+  }
+
+  onScroll(): void {
+    this.updateMasks();
+  }
+
+  private updateMasks(): void {
+    const el = this.scrollContainer.nativeElement;
+    const { scrollTop, scrollHeight, clientHeight } = el;
+
+    // show top mask only if you've scrolled down
+    this.showTopMask = scrollTop > 0;
+    // show bottom mask only if there’s more content below the fold
+    this.showBottomMask = scrollTop + clientHeight < scrollHeight;
   }
 }

@@ -1,0 +1,106 @@
+<div class="p-4 flex flex-col gap-4">
+  <h2 class="text-4xl font-bold">Tables</h2>
+  <h3 class="text-2xl font-bold">Default Table</h3>
+  <ds-table
+    [data]="users"
+    [columns]="[
+    { header: 'Name', accessor: 'name'  },
+    { header: 'Age', accessor: 'age'  },
+    { header: 'Joined', accessor: 'joinedOn' },
+    {
+      header: 'Actions',
+      accessor: 'id',
+      cellTemplate: actionTpl
+    }
+  ]"
+    variant="default"
+    (sortChange)="onServerSort($event)"
+  ></ds-table>
+  <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
+  <ds-table
+    [data]="users"
+    [columns]="[
+    { header: 'Name', accessor: 'name'  },
+    { header: 'Age', accessor: 'age'  },
+    { header: 'Joined', accessor: 'joinedOn' },
+    {
+      header: 'Actions',
+      accessor: 'id',
+      cellTemplate: actionTpl
+    }
+  ]"
+    variant="default"
+    selectionEnabled="true"
+    (sortChange)="onServerSort($event)"
+    (selectionChange)="onBulkSelection($event)"
+  ></ds-table>
+  <!-- <h3 class="text-2xl font-bold">Striped Table</h3>
+  <ds-table
+    [data]="users"
+    [columns]="[
+    { header: 'Name', accessor: 'name'  },
+    { header: 'Age', accessor: 'age'  },
+    { header: 'Joined', accessor: 'joinedOn' },
+    {
+      header: 'Actions',
+      accessor: 'id',
+      cellTemplate: actionTpl
+    }
+  ]"
+    variant="striped"
+    (sortChange)="onServerSort($event)"
+  ></ds-table>
+  <h3 class="text-2xl font-bold">Bordered Table</h3>
+  <ds-table
+    [data]="users"
+    [columns]="[
+    { header: 'Name', accessor: 'name'  },
+    { header: 'Age', accessor: 'age'  },
+    { header: 'Joined', accessor: 'joinedOn' },
+    {
+      header: 'Actions',
+      accessor: 'id',
+      cellTemplate: actionTpl
+    }
+  ]"
+    variant="bordered"
+    (sortChange)="onServerSort($event)"
+  ></ds-table> -->
+
+  <h2 class="text-2xl font-bold">Sortable Table</h2>
+
+  <ds-table
+    [data]="users"
+    [columns]="[
+      { header: 'Name',   accessor: 'name',   sortable: true },
+      { header: 'Age',    accessor: 'age',    sortable: true },
+      { header: 'Status', accessor: 'status', sortable: true, cellTemplate: statusTpl },
+      { header: 'Actions',accessor: 'id',     cellTemplate: actionTpl }
+    ]"
+    (sortChange)="onServerSort($event)"
+  ></ds-table>
+
+  <!-- Status badge template -->
+  <ng-template #statusTpl let-status let-row="row">
+    <span
+      class="inline-block px-2 py-0.5 text-xs font-semibold rounded-full"
+      [ngClass]="{
+        'bg-green-100 text-green-800': status === 'Active',
+        'bg-yellow-100 text-yellow-800': status === 'Pending',
+        'bg-red-100 text-red-800': status === 'Inactive'
+      }"
+    >
+      {{ status }}
+    </span>
+  </ng-template>
+
+  <!-- Actions button template -->
+  <ng-template #actionTpl let-id>
+    <button
+      class="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
+      (click)="editUser(id)"
+    >
+      Edit
+    </button>
+  </ng-template>
+</div>
