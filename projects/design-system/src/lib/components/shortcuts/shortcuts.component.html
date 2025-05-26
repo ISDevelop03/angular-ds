@@ -17,22 +17,18 @@
         <ds-icon [id]="item.icon" [size]="16"></ds-icon>
       </div>
 
-      <div class="text-neutral-900">
-        <span class="leading-4 max-w-20 mx-auto text-2xs font-medium block">
-          <a
-            *ngIf="!item.isShortcut && item.link; else noLink"
-            class="text-[10px] leading-[12px] font-bold after:absolute after:inset-0"
-            [href]="item.link"
-          >
-            {{ item.title }}
-          </a>
-          <ng-template #noLink>
-            <span class="text-[10px] leading-[12px] font-bold">
-              {{ item.title }}
-            </span>
-          </ng-template>
+      <a
+        *ngIf="!item.isShortcut && item.link; else noLink"
+        class="text-neutral-900 text-left inline-flex text-[12px] leading-[16px] font-bold after:absolute after:inset-0"
+        [href]="item.link"
+      >
+        {{ item.title }}
+      </a>
+      <ng-template #noLink>
+        <span class="inline-flex text-[12px] leading-[16px] font-bold">
+          {{ item.title }}
         </span>
-      </div>
+      </ng-template>
     </div>
   </div>
   <ul

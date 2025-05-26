@@ -6,7 +6,11 @@
     "declarationMap": false,
     "declaration": false,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "paths": {
+      "@/utils": ["./src/utils.ts"]
+    },
+    "importHelpers": false
   },
   "include": ["src/**/*.ts"],
   "exclude": ["**/*.spec.ts"]

@@ -1,3 +1,42 @@
-<div [ngClass]="className">
-  <p>payment-details-card works!</p>
+<div
+  id="ds-payment-details-card"
+  [ngClass]="className"
+  class="border border-neutral-50 bg-level-2 rounded flex flex-col"
+>
+  <div class="grid grid-cols-5 bg-neutral-50">
+    <div class="col-span-3 flex items-center justify-strat gap-3 py-2 px-4">
+      <ds-checkbox
+        *ngIf="useCheckbox"
+        [checked]="isSelected"
+        (change)="onSelect()"
+      ></ds-checkbox>
+      <h3 *ngIf="title" class="text-[12px] leading-[14px]">
+        {{ title }}
+      </h3>
+    </div>
+    <div class="flex items-center justify-between py-2 px-4">
+      <span class="inline-flex text-[12px] leading-[14px]">Date</span>
+    </div>
+    <div class="flex items-center justify-between py-2 px-4">
+      <span class="inline-flex text-[12px] leading-[14px]">Montant TTC</span>
+    </div>
+  </div>
+  <div class="grid grid-cols-5">
+    <div
+      class="col-span-3 text-[12px] leading-[18px] py-2.5 px-5 justify-start text-neutral-500 items-center"
+    >
+      <ng-content></ng-content>
+    </div>
+    <span
+      class="inline-flex text-[12px] leading-[14px] font-bold py-2.5 px-5 justify-start items-center"
+    >
+      {{ date | date : "dd.MM.yyyy" }}
+    </span>
+
+    <span
+      class="inline-flex text-[12px] leading-[14px] font-bold py-2.5 px-5 justify-start items-center"
+    >
+      {{ price | number : "1.2-2" : "fr-FR" }} {{ currency }}
+    </span>
+  </div>
 </div>

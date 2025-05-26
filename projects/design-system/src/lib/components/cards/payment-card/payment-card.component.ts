@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { formatMoney } from 'projects/design-system/src/utils';
+import { formatMoney } from '../../../../utils';
 
 @Component({
   selector: 'ds-payment-card',

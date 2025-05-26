@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UploadFileComponent } from './components/form-elements/upload-file/upload-file.component';
+import { AccountsSelectComponent } from './components/accounts/accounts-select/accounts-select.component';
 import { PaymentDetailsCardComponent } from './components/cards/payment-details-card/payment-details-card.component';
 
 // Contrib Components
@@ -82,6 +84,11 @@ import { StepComponent } from './components/steps/step.component';
 
 import { FormsModule } from '@angular/forms';
 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr-FR');
+
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -141,8 +148,11 @@ import { FormsModule } from '@angular/forms';
     StepsComponent,
     StepComponent,
     PaymentDetailsCardComponent,
+    AccountsSelectComponent,
+    UploadFileComponent,
   ],
   imports: [CommonModule, FormsModule],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [
     ButtonComponent,
     BadgeComponent,
@@ -201,6 +211,8 @@ import { FormsModule } from '@angular/forms';
     StepsComponent,
     StepComponent,
     PaymentDetailsCardComponent,
+    AccountsSelectComponent,
+    UploadFileComponent,
   ],
 })
 export class DesignSystemModule {}

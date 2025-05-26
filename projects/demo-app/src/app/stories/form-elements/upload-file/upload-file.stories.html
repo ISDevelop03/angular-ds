@@ -1,0 +1,28 @@
+<section class="flex flex-col gap-4 p-4 bg-white">
+  <h2 class="text-2xl font-bold">Upload File</h2>
+  <div class="flex flex-col gap-4">
+    <ds-upload-file
+      [maxFileSizeMB]="10"
+      [allowedExtensions]="['csv','txt','json','pdf']"
+      [downloadTemplateLink]="templateLink"
+      (fileSelected)="onFileSelected($event)"
+    ></ds-upload-file>
+    <ds-upload-file
+      [maxFileSizeMB]="10"
+      [allowedExtensions]="['csv','txt','json','pdf']"
+      [downloadTemplateLink]="templateLink"
+      (fileSelected)="onFileSelected($event)"
+    >
+      <div class="flex text-left mt-8 flex-col gap-1">
+        <p>Le montant est limité à 20K ...</p>
+        <p>
+          Le Lorem Ipsum est simplement du faux texte employé dans la
+          composition et la mise en page avant impression. Le Lorem Ipsum est le
+          faux texte standard de l'imprimerie depuis les années 1500, quand un
+          imprimeur anonyme assembla ensemble des morceaux de texte pour
+          réaliser un livre spécimen de polices de texte.
+        </p>
+      </div></ds-upload-file
+    >
+  </div>
+</section>

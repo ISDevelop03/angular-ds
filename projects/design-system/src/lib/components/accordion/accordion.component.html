@@ -1,4 +1,4 @@
-<div [ngClass]="getContainerClasses()">
+<div id="ds-accordion" [ngClass]="getContainerClasses()">
   <div
     *ngFor="let item of localItems"
     [attr.data-open]="item.isOpen.toString()"

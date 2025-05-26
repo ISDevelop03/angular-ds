@@ -1,0 +1,63 @@
+<div
+  [ngClass]="[currentTheme.wrapper, className]"
+  (drop)="onDrop($event)"
+  (dragover)="onDragOver($event)"
+>
+  <div [ngClass]="currentTheme.icon">
+    <ds-icon id="upload-cloud" size="20px" class="text-red-500"></ds-icon>
+  </div>
+
+  <div [ngClass]="[currentTheme.text]">
+    <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
+    <p>
+      Fichier
+      <span class="font-semibold">
+        {{ allowedExtensions.join(", ") }}
+      </span>
+      - Taille autorisée : {{ maxFileSizeMB }} Mo
+    </p>
+    <p>
+      Un modèle de fichier est à votre disposition pour téléchargement
+      <a
+        [href]="downloadTemplateLink"
+        target="_blank"
+        class="relative underline text-red-500 font-bold"
+      >
+        <input
+          type="file"
+          [accept]="'.' + allowedExtensions.join(',.')"
+          class="absolute inset-0 opacity-0 cursor-pointer"
+          (change)="onFileChange($event)"
+        />
+        ici</a
+      >
+    </p>
+    <ng-content></ng-content>
+  </div>
+</div>
+
+<!-- Preview section -->
+<div
+  *ngIf="selectedFile"
+  class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start mt-4"
+>
+  <div
+    class="flex items-center justify-center rounded-md w-8 h-8 bg-green-50 text-green-500"
+  >
+    <ds-icon id="file-edit-02" size="16px"></ds-icon>
+  </div>
+
+  <div class="flex flex-col gap-1 text-neutral-700">
+    <p class="text-[14px] leading-[20px] font-bold">
+      {{ selectedFile.name }}
+    </p>
+    <p class="text-[12px] leading-[18px] font-normal">
+      {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+    </p>
+  </div>
+  <span
+    class="absolute right-3 top-3 rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5"
+  >
+    <ds-icon id="check" size="16px" class="shrink-0"></ds-icon>
+  </span>
+</div>
