@@ -8,6 +8,12 @@ export interface Page {
   current?: boolean;
 }
 
+/**
+ * BreadcrumbComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-breadcrumb.component.html</example-url>
+ */
 @Component({
   selector: 'ds-breadcrumb',
   templateUrl: './breadcrumb.component.html',

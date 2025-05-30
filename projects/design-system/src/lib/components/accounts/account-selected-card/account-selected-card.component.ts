@@ -8,6 +8,12 @@ import {
 } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
+/**
+ * Account-selected-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-account-selected-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-account-selected-card',
   templateUrl: './account-selected-card.component.html',

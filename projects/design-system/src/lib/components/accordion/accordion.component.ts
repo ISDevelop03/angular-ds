@@ -21,6 +21,12 @@ export interface AccordionItem {
 
 type Variant = 'default' | 'borderless';
 
+/**
+ * AccordionComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-accordion.component.html</example-url>
+ */
 @Component({
   selector: 'ds-accordion',
   templateUrl: './accordion.component.html',

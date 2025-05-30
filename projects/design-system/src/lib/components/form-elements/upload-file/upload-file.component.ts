@@ -2,6 +2,12 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { uploadFileThemes, UploadFileTheme } from './theme';
 
+/**
+ * Upload-fileComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-upload-file.component.html</example-url>
+ */
 @Component({
   selector: 'ds-upload-file',
   templateUrl: './upload-file.component.html',

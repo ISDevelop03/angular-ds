@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+/**
+ * @ignore
+ */
 @Component({
   selector: 'ds-menu-item',
   templateUrl: './menu-item.component.html',

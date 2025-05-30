@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "mybusiness-design-system",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^7.2.16",
@@ -10,9 +10,9 @@
   },
   "exports": {
     ".": {
-      "import": "./fesm2015/design-system.js",
-      "require": "./bundles/design-system.umd.js",
-      "types": "./design-system.d.ts"
+      "import": "./fesm2015/mybusiness-design-system.js",
+      "require": "./bundles/mybusiness-design-system.umd.js",
+      "types": "./mybusiness-design-system.d.ts"
     },
     "./styles.css": {
       "require": "./styles.css",

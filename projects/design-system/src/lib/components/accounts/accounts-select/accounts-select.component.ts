@@ -26,6 +26,12 @@ export interface OmittedSelectItem {
   unavailable?: boolean;
 }
 
+/**
+ * Accounts-selectComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-accounts-select.component.html</example-url>
+ */
 @Component({
   selector: 'ds-accounts-select',
   templateUrl: './accounts-select.component.html',

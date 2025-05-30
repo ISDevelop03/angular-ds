@@ -1,0 +1,30 @@
+<div
+  id="ds-todo-tab"
+  class="text-neutral-900 flex flex-col gap-2 py-3 border-b transition-all duration-500 ease-in-out"
+  [ngClass]="[className, isOpen ? ' border-red-500' : 'border-transparent']"
+  (click)="onClick && onClick()"
+  tabindex="0"
+  role="button"
+>
+  <span
+    class="inline-flex gap-2 text-neutral-600 items-center font-bold justify-start text-[32px] leading-[32px]"
+  >
+    {{ count }}
+    <ds-icon
+      [id]="icon"
+      *ngIf="icon"
+      size="20px"
+      class="text-red-500"
+    ></ds-icon>
+  </span>
+  <div class="flex items-center gap-2 justify-between w-full">
+    <h3 class="text-[12px] leading-[16px] font-medium">{{ title }}</h3>
+    <ds-icon
+      id="arrow-down"
+      [class]="[
+        'transition-all duration-500 ease-in-out',
+        isOpen ? 'rotate-180 text-red-500' : ''
+      ]"
+    ></ds-icon>
+  </div>
+</div>

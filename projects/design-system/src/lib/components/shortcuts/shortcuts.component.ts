@@ -15,6 +15,12 @@ interface Shortcut {
   onClick?: string;
 }
 
+/**
+ * ShortcutsComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-shortcuts.component.html</example-url>
+ */
 @Component({
   selector: 'ds-shortcuts',
   templateUrl: './shortcuts.component.html',

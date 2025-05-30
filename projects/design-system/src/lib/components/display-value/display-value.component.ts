@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * @ignore
+ */
 @Component({
   selector: 'ds-display-value',
   templateUrl: './display-value.component.html',

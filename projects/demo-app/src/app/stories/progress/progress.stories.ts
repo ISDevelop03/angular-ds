@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
 })
 export class ProgressStoryComponent {
   percentages = [25, 50, 75, 100];
-  variants = ['neutral', 'success', 'warning', 'error'];
+  variants = ['neutral', 'blue', 'success', 'warning', 'error'];
+  types = ['inline', 'block'];
 }

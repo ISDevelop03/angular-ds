@@ -13,7 +13,8 @@
     --card-level-2: 255 255 255; /* #FFFFFF */
     --card-level-4: 243 244 246; /* #F3F4F6 */
     --card-level-5: 255 255 255; /* #FFFFFF */
-    --stroke-1: 243 244 246; /* #F3F4F6 */
+    --card-level-6: 240 242 244; /* ##F0F2F4 */
+    --stroke-1: 240 242 244; /* #F0F2F4 */
     --stroke-2: 255 255 255; /* #FFFFFF */
     --stroke-3: 240 242 244; /* #FFFFFF */
     --stroke-4: 243 244 246; /* #F3F4F6 */
@@ -144,6 +145,7 @@
     --card-level-2: 37 38 39; /* #252627 */
     --card-level-4: 31 31 31; /* #1F1F1F */
     --card-level-5: 20 20 21; /* #141415 */
+    --card-level-6: 45 45 45; /* #2D2D2D */
     --stroke-1: 46 46 46; /* #2E2E2E */
     --stroke-2: 63 64 65; /* #3F4041 */
     --stroke-3: 63 64 65; /* #3F4041 */

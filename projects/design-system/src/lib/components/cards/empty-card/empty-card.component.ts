@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Theme } from './theme';
 
+/**
+ * Empty-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-empty-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-empty-card',
   templateUrl: './empty-card.component.html',

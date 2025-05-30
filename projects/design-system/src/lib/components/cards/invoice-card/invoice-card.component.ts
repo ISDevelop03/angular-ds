@@ -7,6 +7,12 @@ export interface InvoiceActions {
   action: () => void;
 }
 
+/**
+ * Invoice-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-invoice-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-invoice-card',
   templateUrl: './invoice-card.component.html',

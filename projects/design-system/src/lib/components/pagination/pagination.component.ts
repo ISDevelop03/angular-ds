@@ -11,6 +11,12 @@ import { PaginationVariants } from './types';
 
 type PageItem = number | '...';
 
+/**
+ * PaginationComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-pagination.component.html</example-url>
+ */
 @Component({
   selector: 'ds-pagination',
   templateUrl: './pagination.component.html',

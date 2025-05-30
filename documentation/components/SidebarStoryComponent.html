@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mybusiness documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">mybusiness documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SidebarStoryComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sidebar-story</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sidebar.stories.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#bodyClassObserver" >bodyClassObserver</a>
+                            </li>
+                            <li>
+                                <a href="#hideWrapperBackground" >hideWrapperBackground</a>
+                            </li>
+                            <li>
+                                <a href="#mainMenus" >mainMenus</a>
+                            </li>
+                            <li>
+                                <a href="#profileMenus" >profileMenus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(document: Document)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>document</td>
+                                                  
+                                                        <td>
+                                                                    <code>Document</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bodyClassObserver"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>bodyClassObserver</b></span>
+                        <a href="#bodyClassObserver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MutationObserver</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideWrapperBackground"></a>
+                    <span class="name">
+                        <span ><b>hideWrapperBackground</b></span>
+                        <a href="#hideWrapperBackground"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mainMenus"></a>
+                    <span class="name">
+                        <span ><b>mainMenus</b></span>
+                        <a href="#mainMenus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IMainMenu[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mainMenusMOCKDATA</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileMenus"></a>
+                    <span class="name">
+                        <span ><b>profileMenus</b></span>
+                        <a href="#profileMenus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LIST_MOCKDATA</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/demo-app/src/app/stories/sidebar/sidebar.stories.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IMainMenu } from &#x27;projects/design-system/src/lib/components/sidebar/types&#x27;;
+import { mainMenusMOCKDATA, LIST_MOCKDATA } from &#x27;./data&#x27;;
+import { OnInit, Component, OnDestroy, Inject } from &#x27;@angular/core&#x27;;
+import { DOCUMENT } from &#x27;@angular/common&#x27;;
+
+@Component({
+  selector: &#x27;app-sidebar-story&#x27;,
+  templateUrl: &#x27;./sidebar.stories.html&#x27;,
+})
+export class SidebarStoryComponent implements OnInit, OnDestroy {
+  profileMenus &#x3D; LIST_MOCKDATA;
+  mainMenus: IMainMenu[] &#x3D; mainMenusMOCKDATA;
+  hideWrapperBackground &#x3D; false;
+
+  private bodyClassObserver: MutationObserver;
+
+  constructor(@Inject(DOCUMENT) private document: Document) {}
+
+  ngOnInit() {
+    // Create an observer instance, passing a callback
+    this.bodyClassObserver &#x3D; new MutationObserver((mutations) &#x3D;&gt; {
+      for (let m of mutations) {
+        const className &#x3D; (m.target as HTMLElement).className;
+        this.hideWrapperBackground &#x3D; className.includes(&#x27;main-menu-open&#x27;);
+      }
+    });
+
+    // Start observing document.body for attribute changes, filtered to &quot;class&quot;
+    this.bodyClassObserver.observe(this.document.body, {
+      attributes: true,
+      attributeFilter: [&#x27;class&#x27;],
+    });
+  }
+
+  ngOnDestroy() {
+    // clean up when the component is torn down
+    this.bodyClassObserver.disconnect();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;flex items-start justify-start bg-level-1&quot;&gt;
+  &lt;ds-sidebar
+    [mainMenus]&#x3D;&quot;mainMenus&quot;
+    [profileMenus]&#x3D;&quot;profileMenus&quot;
+    className&#x3D;&quot;bg-level-1&quot;
+  &gt;&lt;/ds-sidebar&gt;
+  &lt;div
+    class&#x3D;&quot;bg-level-2 rounded-r-2xl my-[14px] mr-3&quot;
+    [ngClass]&#x3D;&quot;{
+    &#x27;rounded-tl-2xl&#x27;: hideWrapperBackground,
+    &#x27;rounded-l-2xl&#x27;: !hideWrapperBackground
+  }&quot;
+  &gt;
+    &lt;div
+      class&#x3D;&quot;h-[calc(100vh-24px)] z-[3] relative overflow-y-auto bg-white dark:bg-black text-black dark:text-white rounded-2xl p-4&quot;
+    &gt;
+      &lt;h1 class&#x3D;&quot;text-2xl font-bold mb-4&quot;&gt;Sidebar Demo&lt;/h1&gt;
+      &lt;p class&#x3D;&quot;dark:text-gray-400 text-gray-700&quot;&gt;
+        This is a live preview of the ds-sidebar component with nested menus.
+      &lt;/p&gt;
+      &lt;p&gt;
+        The sidebar is designed to be responsive and user-friendly, providing
+        easy navigation through the application. You can expand and collapse the
+        sidebar to suit your needs.
+      &lt;/p&gt;
+      &lt;p&gt;
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
+        explicabo cumque est voluptatum necessitatibus sint dignissimos iusto
+        temporibus, vero accusantium non provident optio aspernatur. Impedit at
+        voluptatem totam ipsum. Blanditiis, officia alias. Nulla, eius. Eaque
+        necessitatibus blanditiis iusto cumque deleniti explicabo doloremque,
+        illo numquam. Dolores aspernatur reprehenderit nulla optio illo,
+        possimus rerum aliquid laboriosam, corporis consequatur accusantium
+        neque maiores aliquam sint perspiciatis repellendus fugiat beatae
+        blanditiis! Iste repellendus omnis fuga magni dolorum quo itaque totam
+        doloribus, culpa minima numquam maiores fugiat velit. Magnam modi
+        perferendis consequatur! Vitae ipsam dolore veritatis, hic ut dolor
+        perferendis itaque quasi cupiditate quae quam autem, reiciendis
+        asperiores iure expedita sed qui non consectetur in odit, alias fugiat!
+        Vero, iure velit assumenda eligendi soluta quod autem illum tempore
+        optio alias dolore dolor id eveniet. Amet asperiores deleniti optio nam
+        necessitatibus ducimus. Expedita quo necessitatibus ut debitis magnam
+        laboriosam quos mollitia recusandae amet commodi inventore magni enim
+        neque nam voluptatem a nihil atque deleniti, dolorum, voluptatibus
+        culpa, molestias obcaecati accusantium. Perspiciatis, placeat? Esse
+        fugiat nisi voluptates suscipit dicta provident, reprehenderit earum
+        excepturi rem quibusdam eos a et reiciendis eius odio nostrum dolor quo
+        quod placeat debitis recusandae, corrupti veniam alias? Voluptas
+        blanditiis ipsum unde beatae dolores, minus, quia repudiandae iusto et
+        distinctio provident autem enim sunt! Sunt suscipit inventore ipsa
+        corporis harum, laborum pariatur est amet velit sapiente quae commodi
+        fugiat deleniti, aperiam nemo, dicta qui. Nobis ipsam enim, minus
+        nostrum explicabo officiis quis, corrupti dolore in saepe quibusdam
+        sequi possimus velit culpa qui a nihil aliquid. Fugiat consectetur vero
+        praesentium, fugit sit porro, vitae maiores reiciendis beatae quaerat
+        quos asperiores omnis et quasi? Distinctio alias quo molestiae, fugiat
+        accusamus animi tenetur voluptates amet iure nostrum omnis? Veniam non
+        perferendis minus quaerat provident aut dolor voluptate temporibus
+        voluptatem nihil repudiandae ipsam neque asperiores molestiae delectus
+        qui doloremque, ullam quo. Modi dicta ratione delectus adipisci
+        temporibus! Natus itaque quia, aut laborum explicabo nisi voluptates!
+        Consequuntur blanditiis itaque ea sapiente deleniti iusto provident eius
+        velit quo, ipsa, modi qui soluta est quos. Iusto sequi, praesentium iste
+        quasi error possimus natus! Modi voluptas deleniti reprehenderit
+        sapiente consequatur sint! Fugit reprehenderit repellendus qui
+        perspiciatis, sit consectetur totam dolores, obcaecati nesciunt iure,
+        explicabo illum cum rerum eum rem pariatur recusandae. Recusandae
+        explicabo tempore impedit pariatur quis expedita nostrum quos unde,
+        sapiente quibusdam excepturi corrupti quasi maxime labore accusamus
+        alias aperiam fugiat ipsum nihil. Qui, quo perferendis! Consectetur,
+        nobis! Cupiditate cumque illo harum debitis facilis, obcaecati
+        reiciendis atque, enim iure earum fugiat error. Illo perferendis in
+        natus totam deleniti eius placeat eos consectetur dolorem tempora, quasi
+        quo explicabo rem sunt? Harum repudiandae aliquam libero adipisci,
+        expedita aliquid sequi sit laboriosam enim quia laborum, eum non est
+        similique neque quasi facilis et? Blanditiis cumque vero neque itaque,
+        expedita minus accusamus quis, officia inventore repellat possimus vitae
+        molestias ipsum laboriosam, sapiente debitis voluptatem nulla labore
+        omnis et? Quaerat maiores doloribus, quo eos provident nihil nobis
+        fugiat commodi. Voluptate pariatur quibusdam, minus corrupti tempora
+        porro incidunt vitae soluta voluptas omnis itaque obcaecati, debitis
+        atque blanditiis eveniet iure odit ratione libero delectus! Veniam
+        nostrum labore, culpa quam nemo incidunt numquam molestiae! Magni, sit!
+        Inventore laborum minus nisi, at dignissimos ea? Excepturi veritatis aut
+        molestiae adipisci, tempora placeat harum quisquam repellat quae illum
+        delectus voluptatem? Doloremque, quas molestias deleniti quibusdam
+        cupiditate totam asperiores numquam expedita perspiciatis nostrum nihil
+        obcaecati dignissimos consectetur laboriosam non iure blanditiis
+        praesentium perferendis labore illum facere porro, dolorem quasi.
+        Ducimus, dicta quo. Delectus excepturi accusamus reprehenderit neque,
+        cumque architecto saepe, autem ullam iure perspiciatis, voluptas ipsam
+        quo quos corporis labore. Odit fuga voluptas suscipit ad autem vero eius
+        aspernatur? Voluptates, atque fugit quae illo dignissimos omnis suscipit
+        tenetur expedita porro iusto doloremque iste corporis eos eligendi. Amet
+        libero cupiditate modi officiis excepturi voluptatem, possimus itaque
+        ullam cumque illo autem veniam, reiciendis, voluptas quas voluptates.
+        Culpa ullam repellat voluptas pariatur architecto amet eum, ipsam
+        recusandae sit perspiciatis, asperiores magnam commodi incidunt iusto,
+        minima nulla nisi est exercitationem neque corrupti nostrum eveniet
+        vitae hic? Possimus labore accusantium iure debitis quam temporibus
+        deleniti exercitationem maxime aperiam enim molestias sed unde fugit
+        libero commodi distinctio, dolore ex minus laudantium nihil, natus
+        perferendis assumenda aut amet! Consequuntur eos explicabo tenetur
+        repellat incidunt at delectus quasi omnis nobis quae quia praesentium
+        excepturi illum vel, eius vitae accusantium in officia, impedit itaque
+        odit iure placeat blanditiis laboriosam! Ratione illum porro corporis,
+        quibusdam repellat earum error, unde suscipit similique veritatis
+        nostrum, excepturi rerum corrupti tenetur adipisci doloribus
+        voluptatibus quidem perspiciatis. Officia repudiandae magnam rerum
+        quibusdam modi nostrum blanditiis quaerat id repellat dolorem, excepturi
+        numquam odio? Ex qui sint minus magnam omnis rem culpa sapiente vel
+        molestias adipisci eveniet, facere officia, architecto praesentium
+        maiores porro deleniti laborum iste ducimus ullam. Nulla repellendus
+        itaque dolorum voluptatum rerum corporis nemo facere laborum consequatur
+        iste obcaecati in doloribus alias at voluptates, facilis, accusantium
+        reprehenderit numquam, eligendi odio vero quidem. Voluptatibus veritatis
+        deserunt voluptatum facilis, earum asperiores reprehenderit sed ea?
+        Dolore quam cum enim quisquam ea facilis consectetur, perspiciatis
+        labore voluptatem adipisci nisi quasi quo atque nam inventore, rerum
+        illo qui, repudiandae accusantium consequatur vero! Rerum adipisci totam
+        est vero optio quae reiciendis excepturi dignissimos nostrum eligendi,
+        amet ratione asperiores perspiciatis aperiam? Cum fugiat nihil alias
+        quia temporibus modi itaque at! Numquam, impedit explicabo ea sequi
+        provident in quasi. Et nobis molestiae error aliquam delectus libero
+        assumenda pariatur provident alias? Repellendus veniam libero itaque
+        ipsa officiis saepe repellat accusamus est ipsam doloribus, excepturi
+        ducimus recusandae, obcaecati non, quam exercitationem. Tempore cum
+        molestias cumque aspernatur, iure ipsam voluptatem hic ratione, quis ex
+        est quibusdam aut nulla eos nihil excepturi ducimus quas inventore.
+        Veniam reiciendis itaque nisi ea reprehenderit maxime cupiditate, animi
+        dolorem alias iure? Mollitia porro tenetur reprehenderit provident ullam
+        error ea quibusdam, aspernatur enim nisi at voluptate odio doloremque
+        repellat veritatis temporibus debitis sunt numquam culpa quia minus
+        optio? Facilis dicta ex enim ipsa aspernatur iusto quisquam vitae
+        exercitationem ratione, delectus voluptatem rem eveniet laborum autem
+        non cumque voluptates eaque quibusdam? Unde in illum, debitis aspernatur
+        molestiae perspiciatis sapiente similique labore vero reprehenderit
+        veniam, distinctio, totam eius!
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="flex items-start justify-start bg-level-1">  <ds-sidebar    [mainMenus]="mainMenus"    [profileMenus]="profileMenus"    className="bg-level-1"  ></ds-sidebar>  <div    class="bg-level-2 rounded-r-2xl my-[14px] mr-3"    [ngClass]="{    \'rounded-tl-2xl\': hideWrapperBackground,    \'rounded-l-2xl\': !hideWrapperBackground  }"  >    <div      class="h-[calc(100vh-24px)] z-[3] relative overflow-y-auto bg-white dark:bg-black text-black dark:text-white rounded-2xl p-4"    >      <h1 class="text-2xl font-bold mb-4">Sidebar Demo</h1>      <p class="dark:text-gray-400 text-gray-700">        This is a live preview of the ds-sidebar component with nested menus.      </p>      <p>        The sidebar is designed to be responsive and user-friendly, providing        easy navigation through the application. You can expand and collapse the        sidebar to suit your needs.      </p>      <p>        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum        explicabo cumque est voluptatum necessitatibus sint dignissimos iusto        temporibus, vero accusantium non provident optio aspernatur. Impedit at        voluptatem totam ipsum. Blanditiis, officia alias. Nulla, eius. Eaque        necessitatibus blanditiis iusto cumque deleniti explicabo doloremque,        illo numquam. Dolores aspernatur reprehenderit nulla optio illo,        possimus rerum aliquid laboriosam, corporis consequatur accusantium        neque maiores aliquam sint perspiciatis repellendus fugiat beatae        blanditiis! Iste repellendus omnis fuga magni dolorum quo itaque totam        doloribus, culpa minima numquam maiores fugiat velit. Magnam modi        perferendis consequatur! Vitae ipsam dolore veritatis, hic ut dolor        perferendis itaque quasi cupiditate quae quam autem, reiciendis        asperiores iure expedita sed qui non consectetur in odit, alias fugiat!        Vero, iure velit assumenda eligendi soluta quod autem illum tempore        optio alias dolore dolor id eveniet. Amet asperiores deleniti optio nam        necessitatibus ducimus. Expedita quo necessitatibus ut debitis magnam        laboriosam quos mollitia recusandae amet commodi inventore magni enim        neque nam voluptatem a nihil atque deleniti, dolorum, voluptatibus        culpa, molestias obcaecati accusantium. Perspiciatis, placeat? Esse        fugiat nisi voluptates suscipit dicta provident, reprehenderit earum        excepturi rem quibusdam eos a et reiciendis eius odio nostrum dolor quo        quod placeat debitis recusandae, corrupti veniam alias? Voluptas        blanditiis ipsum unde beatae dolores, minus, quia repudiandae iusto et        distinctio provident autem enim sunt! Sunt suscipit inventore ipsa        corporis harum, laborum pariatur est amet velit sapiente quae commodi        fugiat deleniti, aperiam nemo, dicta qui. Nobis ipsam enim, minus        nostrum explicabo officiis quis, corrupti dolore in saepe quibusdam        sequi possimus velit culpa qui a nihil aliquid. Fugiat consectetur vero        praesentium, fugit sit porro, vitae maiores reiciendis beatae quaerat        quos asperiores omnis et quasi? Distinctio alias quo molestiae, fugiat        accusamus animi tenetur voluptates amet iure nostrum omnis? Veniam non        perferendis minus quaerat provident aut dolor voluptate temporibus        voluptatem nihil repudiandae ipsam neque asperiores molestiae delectus        qui doloremque, ullam quo. Modi dicta ratione delectus adipisci        temporibus! Natus itaque quia, aut laborum explicabo nisi voluptates!        Consequuntur blanditiis itaque ea sapiente deleniti iusto provident eius        velit quo, ipsa, modi qui soluta est quos. Iusto sequi, praesentium iste        quasi error possimus natus! Modi voluptas deleniti reprehenderit        sapiente consequatur sint! Fugit reprehenderit repellendus qui        perspiciatis, sit consectetur totam dolores, obcaecati nesciunt iure,        explicabo illum cum rerum eum rem pariatur recusandae. Recusandae        explicabo tempore impedit pariatur quis expedita nostrum quos unde,        sapiente quibusdam excepturi corrupti quasi maxime labore accusamus        alias aperiam fugiat ipsum nihil. Qui, quo perferendis! Consectetur,        nobis! Cupiditate cumque illo harum debitis facilis, obcaecati        reiciendis atque, enim iure earum fugiat error. Illo perferendis in        natus totam deleniti eius placeat eos consectetur dolorem tempora, quasi        quo explicabo rem sunt? Harum repudiandae aliquam libero adipisci,        expedita aliquid sequi sit laboriosam enim quia laborum, eum non est        similique neque quasi facilis et? Blanditiis cumque vero neque itaque,        expedita minus accusamus quis, officia inventore repellat possimus vitae        molestias ipsum laboriosam, sapiente debitis voluptatem nulla labore        omnis et? Quaerat maiores doloribus, quo eos provident nihil nobis        fugiat commodi. Voluptate pariatur quibusdam, minus corrupti tempora        porro incidunt vitae soluta voluptas omnis itaque obcaecati, debitis        atque blanditiis eveniet iure odit ratione libero delectus! Veniam        nostrum labore, culpa quam nemo incidunt numquam molestiae! Magni, sit!        Inventore laborum minus nisi, at dignissimos ea? Excepturi veritatis aut        molestiae adipisci, tempora placeat harum quisquam repellat quae illum        delectus voluptatem? Doloremque, quas molestias deleniti quibusdam        cupiditate totam asperiores numquam expedita perspiciatis nostrum nihil        obcaecati dignissimos consectetur laboriosam non iure blanditiis        praesentium perferendis labore illum facere porro, dolorem quasi.        Ducimus, dicta quo. Delectus excepturi accusamus reprehenderit neque,        cumque architecto saepe, autem ullam iure perspiciatis, voluptas ipsam        quo quos corporis labore. Odit fuga voluptas suscipit ad autem vero eius        aspernatur? Voluptates, atque fugit quae illo dignissimos omnis suscipit        tenetur expedita porro iusto doloremque iste corporis eos eligendi. Amet        libero cupiditate modi officiis excepturi voluptatem, possimus itaque        ullam cumque illo autem veniam, reiciendis, voluptas quas voluptates.        Culpa ullam repellat voluptas pariatur architecto amet eum, ipsam        recusandae sit perspiciatis, asperiores magnam commodi incidunt iusto,        minima nulla nisi est exercitationem neque corrupti nostrum eveniet        vitae hic? Possimus labore accusantium iure debitis quam temporibus        deleniti exercitationem maxime aperiam enim molestias sed unde fugit        libero commodi distinctio, dolore ex minus laudantium nihil, natus        perferendis assumenda aut amet! Consequuntur eos explicabo tenetur        repellat incidunt at delectus quasi omnis nobis quae quia praesentium        excepturi illum vel, eius vitae accusantium in officia, impedit itaque        odit iure placeat blanditiis laboriosam! Ratione illum porro corporis,        quibusdam repellat earum error, unde suscipit similique veritatis        nostrum, excepturi rerum corrupti tenetur adipisci doloribus        voluptatibus quidem perspiciatis. Officia repudiandae magnam rerum        quibusdam modi nostrum blanditiis quaerat id repellat dolorem, excepturi        numquam odio? Ex qui sint minus magnam omnis rem culpa sapiente vel        molestias adipisci eveniet, facere officia, architecto praesentium        maiores porro deleniti laborum iste ducimus ullam. Nulla repellendus        itaque dolorum voluptatum rerum corporis nemo facere laborum consequatur        iste obcaecati in doloribus alias at voluptates, facilis, accusantium        reprehenderit numquam, eligendi odio vero quidem. Voluptatibus veritatis        deserunt voluptatum facilis, earum asperiores reprehenderit sed ea?        Dolore quam cum enim quisquam ea facilis consectetur, perspiciatis        labore voluptatem adipisci nisi quasi quo atque nam inventore, rerum        illo qui, repudiandae accusantium consequatur vero! Rerum adipisci totam        est vero optio quae reiciendis excepturi dignissimos nostrum eligendi,        amet ratione asperiores perspiciatis aperiam? Cum fugiat nihil alias        quia temporibus modi itaque at! Numquam, impedit explicabo ea sequi        provident in quasi. Et nobis molestiae error aliquam delectus libero        assumenda pariatur provident alias? Repellendus veniam libero itaque        ipsa officiis saepe repellat accusamus est ipsam doloribus, excepturi        ducimus recusandae, obcaecati non, quam exercitationem. Tempore cum        molestias cumque aspernatur, iure ipsam voluptatem hic ratione, quis ex        est quibusdam aut nulla eos nihil excepturi ducimus quas inventore.        Veniam reiciendis itaque nisi ea reprehenderit maxime cupiditate, animi        dolorem alias iure? Mollitia porro tenetur reprehenderit provident ullam        error ea quibusdam, aspernatur enim nisi at voluptate odio doloremque        repellat veritatis temporibus debitis sunt numquam culpa quia minus        optio? Facilis dicta ex enim ipsa aspernatur iusto quisquam vitae        exercitationem ratione, delectus voluptatem rem eveniet laborum autem        non cumque voluptates eaque quibusdam? Unde in illum, debitis aspernatur        molestiae perspiciatis sapiente similique labore vero reprehenderit        veniam, distinctio, totam eius!      </p>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccordionStoryComponent', 'selector': 'app-accordion'},{'name': 'AccountFilialHoldingCardStoryComponent', 'selector': 'app-account-filial-holding-card'},{'name': 'AccountGridCardStoryComponent', 'selector': 'app-account-grid-card'},{'name': 'AccountGridHoldingCardStoryComponent', 'selector': 'app-account-grid-holding-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingCardStoryComponent', 'selector': 'app-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountHoldingSelectedCardStoryComponent', 'selector': 'app-account-holding-selected-card'},{'name': 'AccountSelectedCardStoryComponent', 'selector': 'app-account-slider-selected-card-story'},{'name': 'AccountSliderCardStoryComponent', 'selector': 'app-account-slider-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AccountsSelectStoryComponent', 'selector': 'app-accounts-select'},{'name': 'ActionsLayoutStoryComponent', 'selector': 'app-actions-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'AvatarStoryComponent', 'selector': 'app-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeStoryComponent', 'selector': 'app-badge'},{'name': 'BalanceFormatterStoryComponent', 'selector': 'app-balance-formatter'},{'name': 'BreadcrumbStoryComponent', 'selector': 'app-breadcrumb'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'ButtonStoryComponent', 'selector': 'app-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CallToActionIconsStoryComponent', 'selector': 'app-call-to-action-icons'},{'name': 'CheckboxStoryComponent', 'selector': 'app-checkbox'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'CurrencyConverterStoryComponent', 'selector': 'app-currency-converter'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayValueStoryComponent', 'selector': 'app-display-value'},{'name': 'DropdownStoryComponent', 'selector': 'app-dropdown'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBottomMenusComponent', 'selector': 'ds-bottom-menus'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDisplayValueComponent', 'selector': 'ds-display-value'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHeadingComponent', 'selector': 'ds-heading'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsMenuItemComponent', 'selector': 'ds-menu-item'},{'name': 'DsMenuListComponent', 'selector': 'ds-menu-list'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'EmptyCardStoryComponent', 'selector': 'app-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FilialCardStoryComponent', 'selector': 'app-filial-card'},{'name': 'HeadingStoryComponent', 'selector': 'app-heading'},{'name': 'HoldingCardStoryComponent', 'selector': 'app-holding-card'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'IconStoryComponent', 'selector': 'app-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InboxCardStoryComponent', 'selector': 'app-inbox-card'},{'name': 'InputStoryComponent', 'selector': 'app-input'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'InvoiceCardStoryComponent', 'selector': 'app-invoice-card'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'NotificationCardStoryComponent', 'selector': 'app-notification-card'},{'name': 'NumbersCardComponent', 'selector': 'ds-numbers-card'},{'name': 'NumbersCardStoryComponent', 'selector': 'app-numbers-card'},{'name': 'PaginationStoryComponent', 'selector': 'app-pagination-story'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentCardStoryComponent', 'selector': 'app-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PaymentDetailsCardStoryComponent', 'selector': 'app-payment-details-card'},{'name': 'PopupStoryComponent', 'selector': 'app-popup'},{'name': 'PortfolioDropdownStoryComponent', 'selector': 'app-profile-dropdown'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioItemCardStory', 'selector': 'app-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioSelectCardStory', 'selector': 'app-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'PortfolioVisionCardStory', 'selector': 'app-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'ProgressStoryComponent', 'selector': 'app-progress'},{'name': 'RadioStoryComponent', 'selector': 'app-radio'},{'name': 'RangeStoryComponent', 'selector': 'app-range'},{'name': 'SelectStoryComponent', 'selector': 'app-select'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetCardStoryComponent', 'selector': 'app-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SheetLatestOpsStoryComponent', 'selector': 'app-sheet-latest-ops'},{'name': 'ShortcutsCardStoryComponent', 'selector': 'app-shortcuts'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SidebarStoryComponent', 'selector': 'app-sidebar-story'},{'name': 'StepComponent', 'selector': 'ds-step'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'StepsStoryComponent', 'selector': 'app-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TableStoryComponent', 'selector': 'app-table'},{'name': 'TabsStoryComponent', 'selector': 'app-tabs'},{'name': 'TestingComponent', 'selector': 'ds-testing'},{'name': 'TestingStoryComponent', 'selector': 'app-testing'},{'name': 'TextareaStoryComponent', 'selector': 'app-textarea'},{'name': 'TextStoryComponent', 'selector': 'app-text'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TickerCardStoryComponent', 'selector': 'app-ticker-card'},{'name': 'ToggleStoryComponent', 'selector': 'app-toggle'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'},{'name': 'UploadFileStoryComponent', 'selector': 'app-upload-file'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SidebarStoryComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidebarStoryComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

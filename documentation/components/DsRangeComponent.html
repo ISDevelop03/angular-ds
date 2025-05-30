@@ -1,0 +1,1909 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mybusiness documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">mybusiness documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DsRangeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/design-system/src/lib/components/form-elements/range/range.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ds-range</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./range.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#dragging" >dragging</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onPointerMove" >onPointerMove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onPointerUp" >onPointerUp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onSinglePointerMove" >onSinglePointerMove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onSinglePointerUp" >onSinglePointerUp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#singleDragging" >singleDragging</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#singleTrackEl" >singleTrackEl</a>
+                            </li>
+                            <li>
+                                <a href="#theme" >theme</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#trackEl" >trackEl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clamp" >clamp</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#onMaxChange" >onMaxChange</a>
+                            </li>
+                            <li>
+                                <a href="#onMinChange" >onMinChange</a>
+                            </li>
+                            <li>
+                                <a href="#onRangePointerDown" >onRangePointerDown</a>
+                            </li>
+                            <li>
+                                <a href="#onSingleChange" >onSingleChange</a>
+                            </li>
+                            <li>
+                                <a href="#onSinglePointerDown" >onSinglePointerDown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setSingleValueFromX" >setSingleValueFromX</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setThumbValue" >setThumbValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#max" >max</a>
+                            </li>
+                            <li>
+                                <a href="#min" >min</a>
+                            </li>
+                            <li>
+                                <a href="#rangeType" >rangeType</a>
+                            </li>
+                            <li>
+                                <a href="#step" >step</a>
+                            </li>
+                            <li>
+                                <a href="#unit" >unit</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                            <li>
+                                <a href="#values" >values</a>
+                            </li>
+                            <li>
+                                <a href="#variant" >variant</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#valueChange" >valueChange</a>
+                            </li>
+                            <li>
+                                <a href="#valuesChange" >valuesChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#percentRange" >percentRange</a>
+                                </li>
+                                <li>
+                                    <a href="#percent" >percent</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="max"></a>
+                        <b>max</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>100</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="min"></a>
+                        <b>min</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rangeType"></a>
+                        <b>rangeType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#range" target="_self" >&quot;single&quot; | &quot;range&quot;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;single&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="step"></a>
+                        <b>step</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="unit"></a>
+                        <b>unit</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.min</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="values"></a>
+                        <b>values</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[number, number]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[this.min, this.max]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variant"></a>
+                        <b>variant</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#RangeVariant" target="_self" >RangeVariant</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;default&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="valueChange"></a>
+                        <b>valueChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="valuesChange"></a>
+                        <b>valuesChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clamp"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clamp</b></span>
+                        <a href="#clamp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clamp(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="174"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMaxChange"></a>
+                    <span class="name">
+                        <span ><b>onMaxChange</b></span>
+                        <a href="#onMaxChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onMaxChange(e: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMinChange"></a>
+                    <span class="name">
+                        <span ><b>onMinChange</b></span>
+                        <a href="#onMinChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onMinChange(e: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRangePointerDown"></a>
+                    <span class="name">
+                        <span ><b>onRangePointerDown</b></span>
+                        <a href="#onRangePointerDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRangePointerDown(e: PointerEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>PointerEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSingleChange"></a>
+                    <span class="name">
+                        <span ><b>onSingleChange</b></span>
+                        <a href="#onSingleChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSingleChange(e: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSinglePointerDown"></a>
+                    <span class="name">
+                        <span ><b>onSinglePointerDown</b></span>
+                        <a href="#onSinglePointerDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSinglePointerDown(e: PointerEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>PointerEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSingleValueFromX"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setSingleValueFromX</b></span>
+                        <a href="#setSingleValueFromX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setSingleValueFromX(x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>x</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>width</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setThumbValue"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setThumbValue</b></span>
+                        <a href="#setThumbValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setThumbValue(raw: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>raw</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragging"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>dragging</b></span>
+                        <a href="#dragging"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;min&quot; | &quot;max&quot; | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPointerMove"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onPointerMove</b></span>
+                        <a href="#onPointerMove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPointerUp"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onPointerUp</b></span>
+                        <a href="#onPointerUp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSinglePointerMove"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onSinglePointerMove</b></span>
+                        <a href="#onSinglePointerMove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSinglePointerUp"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onSinglePointerUp</b></span>
+                        <a href="#onSinglePointerUp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="singleDragging"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>singleDragging</b></span>
+                        <a href="#singleDragging"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="singleTrackEl"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>singleTrackEl</b></span>
+                        <a href="#singleTrackEl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLDivElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;singleTrack&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="theme"></a>
+                    <span class="name">
+                        <span ><b>theme</b></span>
+                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>RangeSelectorTheme</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackEl"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>trackEl</b></span>
+                        <a href="#trackEl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLDivElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;track&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="percentRange"></a>
+                        <span class="name"><b>percentRange</b><a href="#percentRange"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>percentRange()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:42</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="percent"></a>
+                        <span class="name"><b>percent</b><a href="#percent"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>percent()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">projects/design-system/src/lib/components/form-elements/range/range.component.ts:112</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>percent position for single thumb</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ElementRef,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { RangeSelectorTheme, RangeVariant } from &#x27;./theme&#x27;;
+
+@Component({
+  selector: &#x27;ds-range&#x27;,
+  templateUrl: &#x27;./range.component.html&#x27;,
+})
+export class DsRangeComponent {
+  @Input() rangeType: &#x27;single&#x27; | &#x27;range&#x27; &#x3D; &#x27;single&#x27;;
+  @Input() min &#x3D; 0;
+  @Input() unit: string &#x3D; &#x27;&#x27;;
+  @Input() max &#x3D; 100;
+  @Input() step &#x3D; 1;
+
+  // single‐thumb
+  @Input() value &#x3D; this.min;
+  @Output() valueChange &#x3D; new EventEmitter&lt;number&gt;();
+
+  // two‐thumb
+  @Input() values: [number, number] &#x3D; [this.min, this.max];
+  @Output() valuesChange &#x3D; new EventEmitter&lt;[number, number]&gt;();
+
+  @Input() variant: RangeVariant &#x3D; &#x27;default&#x27;;
+  theme &#x3D; RangeSelectorTheme;
+
+  // for custom dragging
+  @ViewChild(&#x27;track&#x27;) trackEl!: ElementRef&lt;HTMLDivElement&gt;;
+  private dragging: &#x27;min&#x27; | &#x27;max&#x27; | null &#x3D; null;
+
+  // track elements
+  @ViewChild(&#x27;singleTrack&#x27;) singleTrackEl!: ElementRef&lt;HTMLDivElement&gt;;
+  private singleDragging &#x3D; false;
+
+  // Helpers to compute percentages
+  get percentRange() {
+    const [lo, hi] &#x3D; this.values;
+    const total &#x3D; this.max - this.min;
+    return {
+      min: ((lo - this.min) / total) * 100,
+      max: ((hi - this.min) / total) * 100,
+    };
+  }
+
+  // Called on mousedown (pointerdown) on the track
+  onRangePointerDown(e: PointerEvent) {
+    e.preventDefault();
+    if (!this.trackEl) return;
+
+    const { left, width } &#x3D; this.trackEl.nativeElement.getBoundingClientRect();
+    const clickX &#x3D; Math.min(Math.max(e.clientX - left, 0), width);
+    const ratio &#x3D; clickX / width;
+    const clickedValue &#x3D; this.min + ratio * (this.max - this.min);
+
+    // pick the nearest thumb
+    const distLo &#x3D; Math.abs(clickedValue - this.values[0]);
+    const distHi &#x3D; Math.abs(clickedValue - this.values[1]);
+    this.dragging &#x3D; distLo &lt;&#x3D; distHi ? &#x27;min&#x27; : &#x27;max&#x27;;
+
+    // immediately set the value at the click spot
+    this.setThumbValue(clickedValue);
+
+    // listen for moves and end
+    window.addEventListener(&#x27;pointermove&#x27;, this.onPointerMove);
+    window.addEventListener(&#x27;pointerup&#x27;, this.onPointerUp);
+    window.addEventListener(&#x27;pointercancel&#x27;, this.onPointerUp);
+  }
+
+  private onPointerMove &#x3D; (e: PointerEvent) &#x3D;&gt; {
+    if (!this.dragging || !this.trackEl) return;
+    const { left, width } &#x3D; this.trackEl.nativeElement.getBoundingClientRect();
+    const x &#x3D; Math.min(Math.max(e.clientX - left, 0), width);
+    const ratio &#x3D; x / width;
+    const raw &#x3D; this.min + ratio * (this.max - this.min);
+    this.setThumbValue(raw);
+  };
+
+  private onPointerUp &#x3D; () &#x3D;&gt; {
+    this.dragging &#x3D; null;
+    window.removeEventListener(&#x27;pointermove&#x27;, this.onPointerMove);
+    window.removeEventListener(&#x27;pointerup&#x27;, this.onPointerUp);
+    window.removeEventListener(&#x27;pointercancel&#x27;, this.onPointerUp);
+  };
+
+  private setThumbValue(raw: number) {
+    // snap to step
+    const stepped &#x3D;
+      Math.round((raw - this.min) / this.step) * this.step + this.min;
+
+    let [lo, hi] &#x3D; this.values;
+    if (this.dragging &#x3D;&#x3D;&#x3D; &#x27;min&#x27;) {
+      lo &#x3D; Math.min(Math.max(stepped, this.min), hi);
+    } else {
+      hi &#x3D; Math.max(Math.min(stepped, this.max), lo);
+    }
+    this.values &#x3D; [lo, hi];
+    this.valuesChange.emit(this.values);
+  }
+
+  // clean up if component is destroyed mid-drag
+  ngOnDestroy() {
+    this.onPointerUp();
+  }
+
+  /** percent position for single thumb */
+  get percent(): number {
+    return ((this.value - this.min) / (this.max - this.min)) * 100;
+  }
+
+  onSingleChange(e: Event) {
+    const v &#x3D; +(e.target as HTMLInputElement).value;
+    this.value &#x3D; v;
+    this.valueChange.emit(v);
+  }
+
+  onMinChange(e: Event) {
+    let v &#x3D; +(e.target as HTMLInputElement).value;
+    if (v &gt; this.values[1]) v &#x3D; this.values[1];
+    this.values &#x3D; [v, this.values[1]];
+    this.valuesChange.emit(this.values);
+  }
+
+  onMaxChange(e: Event) {
+    let v &#x3D; +(e.target as HTMLInputElement).value;
+    if (v &lt; this.values[0]) v &#x3D; this.values[0];
+    this.values &#x3D; [this.values[0], v];
+    this.valuesChange.emit(this.values);
+  }
+
+  // ───── SINGLE POINTER LOGIC ─────
+
+  onSinglePointerDown(e: PointerEvent) {
+    e.preventDefault();
+    const { left, width } &#x3D;
+      this.singleTrackEl.nativeElement.getBoundingClientRect();
+    const x &#x3D; Math.min(Math.max(e.clientX - left, 0), width);
+    this.setSingleValueFromX(x, width);
+    this.singleDragging &#x3D; true;
+    window.addEventListener(&#x27;pointermove&#x27;, this.onSinglePointerMove);
+    window.addEventListener(&#x27;pointerup&#x27;, this.onSinglePointerUp);
+  }
+
+  private onSinglePointerMove &#x3D; (e: PointerEvent) &#x3D;&gt; {
+    if (!this.singleDragging) return;
+    const { left, width } &#x3D;
+      this.singleTrackEl.nativeElement.getBoundingClientRect();
+    const x &#x3D; Math.min(Math.max(e.clientX - left, 0), width);
+    this.setSingleValueFromX(x, width);
+  };
+
+  private onSinglePointerUp &#x3D; () &#x3D;&gt; {
+    this.singleDragging &#x3D; false;
+    window.removeEventListener(&#x27;pointermove&#x27;, this.onSinglePointerMove);
+    window.removeEventListener(&#x27;pointerup&#x27;, this.onSinglePointerUp);
+  };
+
+  private setSingleValueFromX(x: number, width: number) {
+    const ratio &#x3D; x / width;
+    const raw &#x3D; this.min + ratio * (this.max - this.min);
+    const stepped &#x3D;
+      Math.round((raw - this.min) / this.step) * this.step + this.min;
+    const v &#x3D; this.clamp(stepped);
+    this.value &#x3D; v;
+    this.valueChange.emit(v);
+  }
+
+  // clamp helper
+  private clamp(v: number) {
+    return Math.min(Math.max(v, this.min), this.max);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;theme[variant].container&quot;&gt;
+  &lt;!-- single-thumb slider --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;rangeType &#x3D;&#x3D;&#x3D; &#x27;single&#x27;&quot;&gt;
+    &lt;div
+      #singleTrack
+      class&#x3D;&quot;relative w-full h-6 select-none&quot;
+      (pointerdown)&#x3D;&quot;onSinglePointerDown($event)&quot;
+    &gt;
+      &lt;!-- full track --&gt;
+      &lt;div [ngClass]&#x3D;&quot;theme[variant].track&quot; class&#x3D;&quot;absolute inset-0&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- filled portion --&gt;
+      &lt;div
+        [ngClass]&#x3D;&quot;theme[variant].range&quot;
+        class&#x3D;&quot;absolute&quot;
+        [ngStyle]&#x3D;&quot;{ &#x27;width.%&#x27;: percent }&quot;
+      &gt;&lt;/div&gt;
+
+      &lt;!-- custom thumb --&gt;
+      &lt;div
+        [ngClass]&#x3D;&quot;[theme[variant].thumb, value &lt;&#x3D; 0 ? &#x27;ml-0&#x27; : &#x27;-ml-6&#x27;]&quot;
+        class&#x3D;&quot;group absolute -mt-2&quot;
+        [ngStyle]&#x3D;&quot;{ &#x27;left.%&#x27;: percent }&quot;
+      &gt;
+        &lt;span
+          class&#x3D;&quot;group-hover:opacity-100 opacity-0 font-medium transition-all duration-300 group-hover:translate-y-0 translate-y-1.5 ease-in-out pointer-events-none inline-flex justify-center items-center text-[12px] leading-[18px] absolute bottom-8 -left-[10px] w-[42px] h-[34px] bg-white rounded-lg shadow-lg text-neutral-800 after:absolute after:content-[&#x27;&#x27;] after:w-0 after:h-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-white after:top-full after:left-1/2 after:-translate-x-1/2 text-center&quot;
+        &gt;
+          {{ value }} {{ unit }}
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- … your two-thumb markup stays as we last wrote it … --&gt;
+
+  &lt;!-- two-thumb (min/max) slider --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;rangeType &#x3D;&#x3D;&#x3D; &#x27;range&#x27;&quot;&gt;
+    &lt;div
+      #track
+      class&#x3D;&quot;relative w-full h-6 select-none&quot;
+      (pointerdown)&#x3D;&quot;onRangePointerDown($event)&quot;
+    &gt;
+      &lt;!-- full track --&gt;
+      &lt;div [ngClass]&#x3D;&quot;theme[variant].track&quot; class&#x3D;&quot;absolute inset-0&quot;&gt;&lt;/div&gt;
+      &lt;!-- filled range between thumbs --&gt;
+      &lt;div
+        [ngClass]&#x3D;&quot;theme[variant].range&quot;
+        class&#x3D;&quot;absolute&quot;
+        [ngStyle]&#x3D;&quot;{
+          left: percentRange.min + &#x27;%&#x27;,
+          width: percentRange.max - percentRange.min + &#x27;%&#x27;
+        }&quot;
+      &gt;&lt;/div&gt;
+
+      &lt;!-- thumbs --&gt;
+      &lt;div
+        [ngClass]&#x3D;&quot;[theme[variant].thumb]&quot;
+        class&#x3D;&quot;absolute -mt-2 -mr-6 group&quot;
+        [ngStyle]&#x3D;&quot;{ &#x27;left.%&#x27;: percentRange.min }&quot;
+      &gt;
+        &lt;span
+          class&#x3D;&quot;group-hover:opacity-100 opacity-0 transition-all duration-300 group-hover:translate-y-0 translate-y-1.5 ease-in-out pointer-events-none inline-flex justify-center items-center text-[12px] leading-[18px] absolute bottom-8 -left-[10px] w-[42px] h-[34px] bg-white rounded-lg shadow-lg font-medium text-neutral-800 after:absolute after:content-[&#x27;&#x27;] after:w-0 after:h-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-white after:top-full after:left-1/2 after:-translate-x-1/2 text-center&quot;
+        &gt;
+          {{ values[0] }} {{ unit }}
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div
+        [ngClass]&#x3D;&quot;[theme[variant].thumb]&quot;
+        class&#x3D;&quot;group absolute -mt-2 -ml-6&quot;
+        [ngStyle]&#x3D;&quot;{ &#x27;left.%&#x27;: percentRange.max }&quot;
+      &gt;
+        &lt;span
+          class&#x3D;&quot;group-hover:opacity-100 opacity-0 font-medium transition-all duration-300 group-hover:translate-y-0 translate-y-1.5 ease-in-out pointer-events-none inline-flex justify-center items-center text-[12px] leading-[18px] absolute bottom-8 -left-[10px] w-[42px] h-[34px] bg-white rounded-lg shadow-lg text-neutral-800 after:absolute after:content-[&#x27;&#x27;] after:w-0 after:h-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-white after:top-full after:left-1/2 after:-translate-x-1/2 text-center&quot;
+        &gt;
+          {{ values[1] }} {{ unit }}
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div [ngClass]="theme[variant].container">  <!-- single-thumb slider -->  <ng-container *ngIf="rangeType === \'single\'">    <div      #singleTrack      class="relative w-full h-6 select-none"      (pointerdown)="onSinglePointerDown($event)"    >      <!-- full track -->      <div [ngClass]="theme[variant].track" class="absolute inset-0"></div>      <!-- filled portion -->      <div        [ngClass]="theme[variant].range"        class="absolute"        [ngStyle]="{ \'width.%\': percent }"      ></div>      <!-- custom thumb -->      <div        [ngClass]="[theme[variant].thumb, value <= 0 ? \'ml-0\' : \'-ml-6\']"        class="group absolute -mt-2"        [ngStyle]="{ \'left.%\': percent }"      >        <span          class="group-hover:opacity-100 opacity-0 font-medium transition-all duration-300 group-hover:translate-y-0 translate-y-1.5 ease-in-out pointer-events-none inline-flex justify-center items-center text-[12px] leading-[18px] absolute bottom-8 -left-[10px] w-[42px] h-[34px] bg-white rounded-lg shadow-lg text-neutral-800 after:absolute after:content-[\'\'] after:w-0 after:h-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-white after:top-full after:left-1/2 after:-translate-x-1/2 text-center"        >          {{ value }} {{ unit }}        </span>      </div>    </div>  </ng-container>  <!-- … your two-thumb markup stays as we last wrote it … -->  <!-- two-thumb (min/max) slider -->  <ng-container *ngIf="rangeType === \'range\'">    <div      #track      class="relative w-full h-6 select-none"      (pointerdown)="onRangePointerDown($event)"    >      <!-- full track -->      <div [ngClass]="theme[variant].track" class="absolute inset-0"></div>      <!-- filled range between thumbs -->      <div        [ngClass]="theme[variant].range"        class="absolute"        [ngStyle]="{          left: percentRange.min + \'%\',          width: percentRange.max - percentRange.min + \'%\'        }"      ></div>      <!-- thumbs -->      <div        [ngClass]="[theme[variant].thumb]"        class="absolute -mt-2 -mr-6 group"        [ngStyle]="{ \'left.%\': percentRange.min }"      >        <span          class="group-hover:opacity-100 opacity-0 transition-all duration-300 group-hover:translate-y-0 translate-y-1.5 ease-in-out pointer-events-none inline-flex justify-center items-center text-[12px] leading-[18px] absolute bottom-8 -left-[10px] w-[42px] h-[34px] bg-white rounded-lg shadow-lg font-medium text-neutral-800 after:absolute after:content-[\'\'] after:w-0 after:h-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-white after:top-full after:left-1/2 after:-translate-x-1/2 text-center"        >          {{ values[0] }} {{ unit }}        </span>      </div>      <div        [ngClass]="[theme[variant].thumb]"        class="group absolute -mt-2 -ml-6"        [ngStyle]="{ \'left.%\': percentRange.max }"      >        <span          class="group-hover:opacity-100 opacity-0 font-medium transition-all duration-300 group-hover:translate-y-0 translate-y-1.5 ease-in-out pointer-events-none inline-flex justify-center items-center text-[12px] leading-[18px] absolute bottom-8 -left-[10px] w-[42px] h-[34px] bg-white rounded-lg shadow-lg text-neutral-800 after:absolute after:content-[\'\'] after:w-0 after:h-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-white after:top-full after:left-1/2 after:-translate-x-1/2 text-center"        >          {{ values[1] }} {{ unit }}        </span>      </div>    </div>  </ng-container></div></div>'
+    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'NumbersCardComponent', 'selector': 'ds-numbers-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DsRangeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DsRangeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

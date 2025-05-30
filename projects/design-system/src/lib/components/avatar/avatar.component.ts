@@ -6,6 +6,12 @@ import {
 } from '@angular/core';
 import { avatar } from './theme';
 
+/**
+ * AvatarComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-avatar.component.html</example-url>
+ */
 @Component({
   selector: 'ds-avatar',
   templateUrl: './avatar.component.html',

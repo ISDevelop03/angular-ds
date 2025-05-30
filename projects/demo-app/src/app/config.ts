@@ -38,11 +38,6 @@ export const menus: Menu[] = [
   },
 
   {
-    name: 'Heading',
-    path: '/heading',
-    key: 'heading',
-  },
-  {
     name: 'Text',
     path: '/text',
     key: 'text',
@@ -236,6 +231,11 @@ export const menus: Menu[] = [
     key: 'ticker-card',
   },
   {
+    name: 'Balance Formatter',
+    path: '/balance-formatter',
+    key: 'balance-formatter',
+  },
+  {
     key: 'sheet-latest-ops',
     name: 'SheetLatestOps',
     path: '/sheet-latest-ops',
@@ -247,9 +247,11 @@ export const menus: Menu[] = [
     name: 'PaymentDetailsCard',
     path: '/payment-details-card',
   },
-  // { key: 'table', name: 'Table', path: '/table' },
-  // { key: 'steps', name: 'Steps', path: '/steps' },
+  { key: 'table', name: 'Table', path: '/table' },
+  { key: 'steps', name: 'Steps', path: '/steps' },
   { key: 'accounts-select', name: 'AccountsSelect', path: '/accounts-select' },
   { key: 'upload-file', name: 'UploadFile', path: '/upload-file' },
-  { key: 'test', name: 'Test', path: '/test' },
+  { key: 'date-picker', name: 'DatePicker', path: '/date-picker' },
+  { key: 'todo-tab', name: 'TodoTab', path: '/todo-tab' },
+  { key: 'todo-card', name: 'TodoCard', path: '/todo-card' },
 ];

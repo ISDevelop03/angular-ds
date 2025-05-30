@@ -1,6 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { checkbox } from './theme';
 
+/**
+ * CheckboxComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-checkbox.component.html</example-url>
+ */
 @Component({
   selector: 'ds-checkbox',
   templateUrl: './checkbox.component.html',

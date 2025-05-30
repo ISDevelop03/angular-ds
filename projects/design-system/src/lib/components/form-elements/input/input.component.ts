@@ -9,6 +9,12 @@ import {
 } from '@angular/core';
 import { input } from './theme';
 
+/**
+ * InputComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-input.component.html</example-url>
+ */
 @Component({
   selector: 'ds-input',
   templateUrl: './input.component.html',

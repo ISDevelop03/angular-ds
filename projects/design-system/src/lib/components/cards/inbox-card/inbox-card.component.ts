@@ -1,5 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+/**
+ * Inbox-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-inbox-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-inbox-card',
   templateUrl: './inbox-card.component.html',

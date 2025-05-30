@@ -1,0 +1,1462 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mybusiness documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">mybusiness documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AccordionComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+        <li class="nav-item">
+            <a href="#example" class="nav-link"
+                role="tab" id="example-tab" data-bs-toggle="tab" data-link="example">Examples</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/design-system/src/lib/components/accordion/accordion.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>AccordionComponent</p>
+<p>Live demo:
+<example-url>/demo/ds-accordion.component.html</example-url></p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ds-accordion</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./accordion.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#localItems" >localItems</a>
+                            </li>
+                            <li>
+                                <a href="#theme" >theme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildLocalItems" >buildLocalItems</a>
+                            </li>
+                            <li>
+                                <a href="#getButtonClasses" >getButtonClasses</a>
+                            </li>
+                            <li>
+                                <a href="#getContainerClasses" >getContainerClasses</a>
+                            </li>
+                            <li>
+                                <a href="#getDisclosureClasses" >getDisclosureClasses</a>
+                            </li>
+                            <li>
+                                <a href="#getIconClasses" >getIconClasses</a>
+                            </li>
+                            <li>
+                                <a href="#getIconId" >getIconId</a>
+                            </li>
+                            <li>
+                                <a href="#getPanelClasses" >getPanelClasses</a>
+                            </li>
+                            <li>
+                                <a href="#handleChange" >handleChange</a>
+                            </li>
+                            <li>
+                                <a href="#isTemplate" >isTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allowMultiple" >allowMultiple</a>
+                            </li>
+                            <li>
+                                <a href="#className" >className</a>
+                            </li>
+                            <li>
+                                <a href="#items" >items</a>
+                            </li>
+                            <li>
+                                <a href="#textClassName" >textClassName</a>
+                            </li>
+                            <li>
+                                <a href="#variant" >variant</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#openHandler" >openHandler</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowMultiple"></a>
+                        <b>allowMultiple</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="className"></a>
+                        <b>className</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="items"></a>
+                        <b>items</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AccordionItem[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="textClassName"></a>
+                        <b>textClassName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:38</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variant"></a>
+                        <b>variant</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Variant" target="_self" >Variant</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;default&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openHandler"></a>
+                        <b>openHandler</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildLocalItems"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildLocalItems</b></span>
+                        <a href="#buildLocalItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildLocalItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getButtonClasses"></a>
+                    <span class="name">
+                        <span ><b>getButtonClasses</b></span>
+                        <a href="#getButtonClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getButtonClasses(isOpen: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isOpen</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getContainerClasses"></a>
+                    <span class="name">
+                        <span ><b>getContainerClasses</b></span>
+                        <a href="#getContainerClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getContainerClasses()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDisclosureClasses"></a>
+                    <span class="name">
+                        <span ><b>getDisclosureClasses</b></span>
+                        <a href="#getDisclosureClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDisclosureClasses(isOpen: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isOpen</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIconClasses"></a>
+                    <span class="name">
+                        <span ><b>getIconClasses</b></span>
+                        <a href="#getIconClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getIconClasses(isOpen: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isOpen</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIconId"></a>
+                    <span class="name">
+                        <span ><b>getIconId</b></span>
+                        <a href="#getIconId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getIconId(isOpen: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isOpen</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPanelClasses"></a>
+                    <span class="name">
+                        <span ><b>getPanelClasses</b></span>
+                        <a href="#getPanelClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPanelClasses()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChange"></a>
+                    <span class="name">
+                        <span ><b>handleChange</b></span>
+                        <a href="#handleChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleChange(item)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTemplate"></a>
+                    <span class="name">
+                        <span ><b>isTemplate</b></span>
+                        <a href="#isTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isTemplate(ref: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localItems"></a>
+                    <span class="name">
+                        <span ><b>localItems</b></span>
+                        <a href="#localItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="theme"></a>
+                    <span class="name">
+                        <span ><b>theme</b></span>
+                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>theme</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/design-system/src/lib/components/accordion/accordion.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>copy of your theme object from React, trimmed to only the bits we use</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  TemplateRef,
+  SimpleChanges,
+} from &#x27;@angular/core&#x27;;
+import { theme } from &#x27;./theme&#x27;;
+
+export interface AccordionItem {
+  id: string;
+  title: string;
+  caption?: string;
+  /** Either a string (HTML) or an Angular &#x60;&lt;ng-template&gt;&#x60; */
+  content: string | TemplateRef&lt;any&gt;;
+  count?: string | number;
+  open?: boolean;
+}
+
+type Variant &#x3D; &#x27;default&#x27; | &#x27;borderless&#x27;;
+
+/**
+ * AccordionComponent
+ *
+ * Live demo:
+ * &lt;example-url&gt;/demo/ds-accordion.component.html&lt;/example-url&gt;
+ */
+@Component({
+  selector: &#x27;ds-accordion&#x27;,
+  templateUrl: &#x27;./accordion.component.html&#x27;,
+})
+export class AccordionComponent implements OnInit {
+  @Input() variant: Variant &#x3D; &#x27;default&#x27;;
+  @Input() items: AccordionItem[] &#x3D; [];
+  @Input() allowMultiple &#x3D; false;
+  @Input() textClassName &#x3D; &#x27;&#x27;;
+  @Input() className &#x3D; &#x27;&#x27;;
+  @Output() openHandler &#x3D; new EventEmitter&lt;AccordionItem&gt;();
+
+  localItems: Array&lt;AccordionItem &amp; { isOpen: boolean }&gt; &#x3D; [];
+
+  /** copy of your theme object from React, trimmed to only the bits we use */
+  theme &#x3D; theme;
+
+  ngOnInit() {
+    this.buildLocalItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.items) {
+      this.buildLocalItems();
+    }
+  }
+
+  private buildLocalItems() {
+    this.localItems &#x3D; this.items.map((it, idx) &#x3D;&gt; ({
+      ...it,
+      isOpen: it.open ? (this.allowMultiple ? true : idx &#x3D;&#x3D;&#x3D; 0) : false,
+    }));
+  }
+
+  handleChange(item: AccordionItem &amp; { isOpen: boolean }) {
+    if (this.allowMultiple) {
+      item.isOpen &#x3D; !item.isOpen;
+    } else {
+      this.localItems.forEach((it) &#x3D;&gt;
+        it.id &#x3D;&#x3D;&#x3D; item.id ? (it.isOpen &#x3D; !it.isOpen) : (it.isOpen &#x3D; false)
+      );
+    }
+    this.openHandler.emit(item);
+  }
+
+  getContainerClasses() {
+    return [this.theme[this.variant].container, this.className];
+  }
+
+  getDisclosureClasses(isOpen: boolean) {
+    return [
+      this.theme[this.variant].disclosure,
+      isOpen
+        ? &#x60;${this.variant &#x3D;&#x3D;&#x3D; &#x27;default&#x27; ? &#x27;bg-level-4 rounded-b-lg&#x27; : &#x27;&#x27;}&#x60;
+        : &#x27;&#x27;,
+    ];
+  }
+
+  getButtonClasses(isOpen: boolean) {
+    const btn &#x3D; this.theme[this.variant].button;
+    return [btn.base, isOpen ? btn.active : &#x27;&#x27;];
+  }
+
+  getIconId(isOpen: boolean) {
+    const icon &#x3D; this.theme[this.variant].button.icon;
+    return isOpen ? icon.activeId : icon.inactiveId;
+  }
+
+  getIconClasses(isOpen: boolean) {
+    const icon &#x3D; this.theme[this.variant].button.icon;
+    return [icon.base, isOpen ? icon.classActive : icon.classInactive];
+  }
+
+  getPanelClasses() {
+    return this.theme[this.variant].panel.base;
+  }
+
+  isTemplate(ref: any): ref is TemplateRef&lt;any&gt; {
+    return ref instanceof TemplateRef;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;ds-accordion&quot; [ngClass]&#x3D;&quot;getContainerClasses()&quot;&gt;
+  &lt;div
+    *ngFor&#x3D;&quot;let item of localItems&quot;
+    [attr.data-open]&#x3D;&quot;item.isOpen.toString()&quot;
+    [ngClass]&#x3D;&quot;getDisclosureClasses(item.isOpen)&quot;
+  &gt;
+    &lt;!-- header --&gt;
+    &lt;button
+      type&#x3D;&quot;button&quot;
+      (click)&#x3D;&quot;handleChange(item)&quot;
+      [ngClass]&#x3D;&quot;getButtonClasses(item.isOpen)&quot;
+    &gt;
+      &lt;div [class]&#x3D;&quot;theme[variant].button.titleWrapper&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;item.count&quot; class&#x3D;&quot;flex items-center gap-2&quot;&gt;
+          &lt;!-- count --&gt;
+          &lt;span
+            class&#x3D;&quot;rounded-full font-bold text-white text-[12px] leading-[16px] bg-red-500 inline-flex justify-center items-center size-[20px]&quot;
+          &gt;
+            {{ item.count }}
+          &lt;/span&gt;
+          &lt;!-- title --&gt;
+          &lt;span
+            [ngClass]&#x3D;&quot;[textClassName, theme[this.variant].button.title || &#x27;&#x27;]&quot;
+            &gt;{{ item.title }}&lt;/span
+          &gt;
+        &lt;/div&gt;
+        &lt;!-- title --&gt;
+        &lt;span
+          *ngIf&#x3D;&quot;!item.count&quot;
+          [ngClass]&#x3D;&quot;[textClassName, theme[this.variant].button.title || &#x27;&#x27;]&quot;
+          &gt;{{ item.title }}&lt;/span
+        &gt;
+        &lt;!-- icon --&gt;
+        &lt;ds-icon
+          [id]&#x3D;&quot;getIconId(item.isOpen)&quot;
+          [size]&#x3D;&quot;theme[variant].button.icon.size&quot;
+          [class]&#x3D;&quot;getIconClasses(item.isOpen)&quot;
+        &gt;&lt;/ds-icon&gt;
+      &lt;/div&gt;
+
+      &lt;!-- optional caption --&gt;
+      &lt;span *ngIf&#x3D;&quot;item.caption&quot; class&#x3D;&quot;text-gray-600&quot;&gt;
+        {{ item.caption }}
+      &lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;hr
+      *ngIf&#x3D;&quot;item.isOpen &amp;&amp; variant &#x3D;&#x3D;&#x3D; &#x27;default&#x27;&quot;
+      class&#x3D;&quot;w-[95%] mx-auto border-stroke-1&quot;
+    /&gt;
+
+    &lt;!-- panel --&gt;
+    &lt;div *ngIf&#x3D;&quot;item.isOpen&quot; [ngClass]&#x3D;&quot;getPanelClasses()&quot;&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;isTemplate(item.content); else showHtml&quot;&gt;
+        &lt;ng-container *ngTemplateOutlet&#x3D;&quot;item.content&quot;&gt;&lt;/ng-container&gt;
+      &lt;/ng-container&gt;
+      &lt;ng-template #showHtml&gt;
+        &lt;div [innerHTML]&#x3D;&quot;item.content&quot;&gt;&lt;/div&gt;
+      &lt;/ng-template&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade " id="example">
+            <iframe class="exampleContainer" src="/demo/ds-accordion.component.html">
+                <p>no-iframes</p>
+            </iframe>
+    </div>
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="ds-accordion" [ngClass]="getContainerClasses()">  <div    *ngFor="let item of localItems"    [attr.data-open]="item.isOpen.toString()"    [ngClass]="getDisclosureClasses(item.isOpen)"  >    <!-- header -->    <button      type="button"      (click)="handleChange(item)"      [ngClass]="getButtonClasses(item.isOpen)"    >      <div [class]="theme[variant].button.titleWrapper">        <div *ngIf="item.count" class="flex items-center gap-2">          <!-- count -->          <span            class="rounded-full font-bold text-white text-[12px] leading-[16px] bg-red-500 inline-flex justify-center items-center size-[20px]"          >            {{ item.count }}          </span>          <!-- title -->          <span            [ngClass]="[textClassName, theme[this.variant].button.title || \'\']"            >{{ item.title }}</span          >        </div>        <!-- title -->        <span          *ngIf="!item.count"          [ngClass]="[textClassName, theme[this.variant].button.title || \'\']"          >{{ item.title }}</span        >        <!-- icon -->        <ds-icon          [id]="getIconId(item.isOpen)"          [size]="theme[variant].button.icon.size"          [class]="getIconClasses(item.isOpen)"        ></ds-icon>      </div>      <!-- optional caption -->      <span *ngIf="item.caption" class="text-gray-600">        {{ item.caption }}      </span>    </button>    <hr      *ngIf="item.isOpen && variant === \'default\'"      class="w-[95%] mx-auto border-stroke-1"    />    <!-- panel -->    <div *ngIf="item.isOpen" [ngClass]="getPanelClasses()">      <ng-container *ngIf="isTemplate(item.content); else showHtml">        <ng-container *ngTemplateOutlet="item.content"></ng-container>      </ng-container>      <ng-template #showHtml>        <div [innerHTML]="item.content"></div>      </ng-template>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'NumbersCardComponent', 'selector': 'ds-numbers-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AccordionComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AccordionComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

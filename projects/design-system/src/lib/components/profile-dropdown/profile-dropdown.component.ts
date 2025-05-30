@@ -2,6 +2,12 @@ import { Component, Input } from '@angular/core';
 import { positions } from './theme';
 import { ISelectItem } from './types';
 
+/**
+ * Profile-dropdownComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-profile-dropdown.component.html</example-url>
+ */
 @Component({
   selector: 'ds-profile-dropdown',
   templateUrl: './profile-dropdown.component.html',

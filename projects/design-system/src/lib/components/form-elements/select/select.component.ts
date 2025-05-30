@@ -20,6 +20,12 @@ export interface SelectItem {
   imageClass?: string;
 }
 
+/**
+ * SelectComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-select.component.html</example-url>
+ */
 @Component({
   selector: 'ds-select',
   templateUrl: './select.component.html',

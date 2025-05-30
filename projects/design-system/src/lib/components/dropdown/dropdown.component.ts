@@ -11,6 +11,12 @@ import {
 import { dropdown } from './theme';
 import { DropdownItem } from './types';
 
+/**
+ * DropdownComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-dropdown.component.html</example-url>
+ */
 @Component({
   selector: 'ds-dropdown',
   templateUrl: './dropdown.component.html',

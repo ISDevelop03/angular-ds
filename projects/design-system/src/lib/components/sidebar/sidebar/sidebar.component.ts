@@ -3,6 +3,12 @@ import { Component, Input } from '@angular/core';
 import { IMenus, IMainMenu } from '../types';
 import { ISelectItem } from '../../profile-dropdown/types';
 
+/**
+ * SidebarComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-sidebar.component.html</example-url>
+ */
 @Component({
   selector: 'ds-sidebar',
   templateUrl: './sidebar.component.html',

@@ -1,5 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+/**
+ * Filial-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-filial-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-filial-card',
   templateUrl: './filial-card.component.html',

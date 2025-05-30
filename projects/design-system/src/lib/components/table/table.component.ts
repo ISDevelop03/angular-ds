@@ -15,7 +15,12 @@ export interface ColumnDef {
   sortable?: boolean;
   cellTemplate?: TemplateRef<any>;
 }
-
+/**
+ * TableComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-table.component.html</example-url>
+ */
 @Component({
   selector: 'ds-table',
   templateUrl: './table.component.html',

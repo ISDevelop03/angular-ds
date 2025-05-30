@@ -1,9 +1,21 @@
-<div [ngClass]="['w-full', className || '']">
-  <span class="flex justify-between">
-    <span *ngIf="label" class="text-gray-600 text-base font-medium">
+<div
+  [ngClass]="[
+    'w-full',
+    type === 'inline' ? 'flex justify-start items-center gap-4' : '',
+    className
+  ]"
+>
+  <span
+    *ngIf="type === 'block'"
+    [ngClass]="[
+      'inline-flex mb-1 w-full items-center',
+      label ? 'justify-between' : 'justify-end'
+    ]"
+  >
+    <span *ngIf="label" class="text-neutral-900 text-base font-medium">
       {{ label }}
     </span>
-    <span class="text-gray-600 text-sm font-semibold">
+    <span class="text-neutral-900 text-[14px] leading-[20px] font-bold">
       {{ percentage }}{{ suffix }}{{ total ? "/" + total : "" }}
     </span>
   </span>
@@ -15,8 +27,16 @@
     ]"
   >
     <div
+      class="transition-[color, width] duration-300 ease-in-out"
       [ngClass]="appliedTheme.variants[variant].progress || ''"
       [style.width.%]="calcPercentage"
     ></div>
   </div>
+
+  <span
+    *ngIf="type === 'inline'"
+    class="text-neutral-900 text-[14px] leading-[20px] font-bold"
+  >
+    {{ percentage }}{{ suffix }}{{ total ? "/" + total : "" }}
+  </span>
 </div>

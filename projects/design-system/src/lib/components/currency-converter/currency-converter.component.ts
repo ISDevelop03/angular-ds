@@ -12,6 +12,12 @@ interface CurrencieProps {
   image: string;
 }
 
+/**
+ * Currency-converterComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-currency-converter.component.html</example-url>
+ */
 @Component({
   selector: 'ds-currency-converter',
   templateUrl: './currency-converter.component.html',

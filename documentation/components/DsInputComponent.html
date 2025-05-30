@@ -1,0 +1,1025 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mybusiness documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">mybusiness documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DsInputComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+        <li class="nav-item">
+            <a href="#example" class="nav-link"
+                role="tab" id="example-tab" data-bs-toggle="tab" data-link="example">Examples</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/design-system/src/lib/components/form-elements/input/input.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>InputComponent</p>
+<p>Live demo:
+<example-url>/demo/ds-input.component.html</example-url></p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ds-input</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./input.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hasProjectedPrefix" >hasProjectedPrefix</a>
+                            </li>
+                            <li>
+                                <a href="#hasProjectedSuffix" >hasProjectedSuffix</a>
+                            </li>
+                            <li>
+                                <a href="#input" >input</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handleChange" >handleChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#description" >description</a>
+                            </li>
+                            <li>
+                                <a href="#disabled" >disabled</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#hasError" >hasError</a>
+                            </li>
+                            <li>
+                                <a href="#label" >label</a>
+                            </li>
+                            <li>
+                                <a href="#onClick" >onClick</a>
+                            </li>
+                            <li>
+                                <a href="#placeholder" >placeholder</a>
+                            </li>
+                            <li>
+                                <a href="#prefix" >prefix</a>
+                            </li>
+                            <li>
+                                <a href="#required" >required</a>
+                            </li>
+                            <li>
+                                <a href="#suffix" >suffix</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                            <li>
+                                <a href="#variant" >variant</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#valueChange" >valueChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="description"></a>
+                        <b>description</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="disabled"></a>
+                        <b>disabled</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:32</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <b>errorMessage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasError"></a>
+                        <b>hasError</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <b>label</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onClick"></a>
+                        <b>onClick</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {}</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="placeholder"></a>
+                        <b>placeholder</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prefix"></a>
+                        <b>prefix</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="required"></a>
+                        <b>required</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="suffix"></a>
+                        <b>suffix</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variant"></a>
+                        <b>variant</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;default&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="valueChange"></a>
+                        <b>valueChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChange"></a>
+                    <span class="name">
+                        <span ><b>handleChange</b></span>
+                        <a href="#handleChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasProjectedPrefix"></a>
+                    <span class="name">
+                        <span ><b>hasProjectedPrefix</b></span>
+                        <a href="#hasProjectedPrefix"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasProjectedSuffix"></a>
+                    <span class="name">
+                        <span ><b>hasProjectedSuffix</b></span>
+                        <a href="#hasProjectedSuffix"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="input"></a>
+                    <span class="name">
+                        <span ><b>input</b></span>
+                        <a href="#input"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ContentChild,
+  TemplateRef,
+  AfterContentInit,
+} from &#x27;@angular/core&#x27;;
+import { input } from &#x27;./theme&#x27;;
+
+/**
+ * InputComponent
+ *
+ * Live demo:
+ * &lt;example-url&gt;/demo/ds-input.component.html&lt;/example-url&gt;
+ */
+@Component({
+  selector: &#x27;ds-input&#x27;,
+  templateUrl: &#x27;./input.component.html&#x27;,
+})
+export class DsInputComponent {
+  @Input() label?: string;
+  @Input() variant: keyof typeof input &#x3D; &#x27;default&#x27;;
+  @Input() placeholder?: string;
+  @Input() prefix?: string;
+  @Input() suffix?: string;
+  @Input() type: string &#x3D; &#x27;text&#x27;;
+  @Input() hasError: boolean &#x3D; false;
+  @Input() errorMessage?: string;
+  @Input() description?: string;
+  @Input() disabled: boolean &#x3D; false;
+  @Input() required: boolean &#x3D; false;
+  @Input() value: any;
+  @Input() onClick: (event: PointerEvent) &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
+  @Output() valueChange &#x3D; new EventEmitter&lt;any&gt;();
+
+  input &#x3D; input;
+
+  hasProjectedPrefix &#x3D; false;
+  hasProjectedSuffix &#x3D; false;
+
+  handleChange(event: any) {
+    this.valueChange.emit(event.target.value);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;[&#x27;relative w-full&#x27;, input[variant].container]&quot;&gt;
+  &lt;!-- label + hidden logic omitted for brevity… --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;type !&#x3D;&#x3D; &#x27;hidden&#x27; &amp;&amp; label&quot;&gt;
+    &lt;label
+      [ngClass]&#x3D;&quot;[
+        input[variant].label || &#x27;&#x27;,
+        hasError &amp;&amp; errorMessage ? &#x27;!text-error-500&#x27; : &#x27;&#x27;
+      ]&quot;
+    &gt;
+      {{ label }}
+      &lt;span *ngIf&#x3D;&quot;required&quot; class&#x3D;&quot;text-primary&quot;&gt;*&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/ng-container&gt;
+
+  &lt;div
+    [ngClass]&#x3D;&quot;[
+      input[variant].wrapper.base,
+      disabled
+        ? input[variant].wrapper.disabled
+        : input[variant].wrapper.enabled,
+      type &#x3D;&#x3D;&#x3D; &#x27;hidden&#x27; ? &#x27;border-none&#x27; : &#x27;&#x27;,
+      hasError ? input[variant].hasError : &#x27;&#x27;
+    ]&quot;
+  &gt;
+    &lt;!-- 1a) projected template prefix --&gt;
+    &lt;ng-content select&#x3D;&quot;[prefix]&quot;&gt;&lt;/ng-content&gt;
+
+    &lt;!-- 1b) fallback string prefix --&gt;
+    &lt;div
+      *ngIf&#x3D;&quot;prefix &amp;&amp; !hasProjectedPrefix&quot;
+      [ngClass]&#x3D;&quot;input[variant].prefix&quot;
+    &gt;
+      {{ prefix }}
+    &lt;/div&gt;
+
+    &lt;input
+      [type]&#x3D;&quot;type&quot;
+      [placeholder]&#x3D;&quot;placeholder || &#x27;&#x27;&quot;
+      [disabled]&#x3D;&quot;disabled&quot;
+      [value]&#x3D;&quot;value&quot;
+      (input)&#x3D;&quot;handleChange($event)&quot;
+      (click)&#x3D;&quot;onClick($event)&quot;
+      [ngClass]&#x3D;&quot;[
+        input[variant].input,
+        disabled ? &#x27;cursor-not-allowed bg-gray-50&#x27; : &#x27;&#x27;,
+        type &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? &#x27;[appearance:textfield]&#x27; : &#x27;&#x27;
+      ]&quot;
+    /&gt;
+
+    &lt;!-- 1c) fallback string suffix --&gt;
+    &lt;div *ngIf&#x3D;&quot;suffix &amp;&amp; !hasProjectedSuffix&quot; [ngClass]&#x3D;&quot;input[variant].sufix&quot;&gt;
+      {{ suffix }}
+    &lt;/div&gt;
+
+    &lt;!-- 1d) projected template suffix --&gt;
+    &lt;ng-content select&#x3D;&quot;[suffix]&quot;&gt;&lt;/ng-content&gt;
+  &lt;/div&gt;
+
+  &lt;!-- description + errorMessage omitted for brevity… --&gt;
+  &lt;div *ngIf&#x3D;&quot;description&quot; [ngClass]&#x3D;&quot;input[variant].description&quot;&gt;
+    {{ description }}
+  &lt;/div&gt;
+
+  &lt;div *ngIf&#x3D;&quot;hasError &amp;&amp; errorMessage&quot; [ngClass]&#x3D;&quot;input[variant].errorMessage&quot;&gt;
+    {{ errorMessage }}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade " id="example">
+            <iframe class="exampleContainer" src="/demo/ds-input.component.html">
+                <p>no-iframes</p>
+            </iframe>
+    </div>
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div [ngClass]="[\'relative w-full\', input[variant].container]">  <!-- label + hidden logic omitted for brevity… -->  <ng-container *ngIf="type !== \'hidden\' && label">    <label      [ngClass]="[        input[variant].label || \'\',        hasError && errorMessage ? \'!text-error-500\' : \'\'      ]"    >      {{ label }}      <span *ngIf="required" class="text-primary">*</span>    </label>  </ng-container>  <div    [ngClass]="[      input[variant].wrapper.base,      disabled        ? input[variant].wrapper.disabled        : input[variant].wrapper.enabled,      type === \'hidden\' ? \'border-none\' : \'\',      hasError ? input[variant].hasError : \'\'    ]"  >    <!-- 1a) projected template prefix -->    <ng-content select="[prefix]"></ng-content>    <!-- 1b) fallback string prefix -->    <div      *ngIf="prefix && !hasProjectedPrefix"      [ngClass]="input[variant].prefix"    >      {{ prefix }}    </div>    <input      [type]="type"      [placeholder]="placeholder || \'\'"      [disabled]="disabled"      [value]="value"      (input)="handleChange($event)"      (click)="onClick($event)"      [ngClass]="[        input[variant].input,        disabled ? \'cursor-not-allowed bg-gray-50\' : \'\',        type === \'number\' ? \'[appearance:textfield]\' : \'\'      ]"    />    <!-- 1c) fallback string suffix -->    <div *ngIf="suffix && !hasProjectedSuffix" [ngClass]="input[variant].sufix">      {{ suffix }}    </div>    <!-- 1d) projected template suffix -->    <ng-content select="[suffix]"></ng-content>  </div>  <!-- description + errorMessage omitted for brevity… -->  <div *ngIf="description" [ngClass]="input[variant].description">    {{ description }}  </div>  <div *ngIf="hasError && errorMessage" [ngClass]="input[variant].errorMessage">    {{ errorMessage }}  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'NumbersCardComponent', 'selector': 'ds-numbers-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DsInputComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DsInputComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

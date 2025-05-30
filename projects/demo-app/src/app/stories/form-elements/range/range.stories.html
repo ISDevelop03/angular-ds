@@ -1,12 +1,21 @@
-<div class="p-4 grid gap-6">
-  <h3>Default Range Input</h3>
+<div class="p-4 flex flex-col gap-6 bg-level-2 min-h-screen">
+  <h2 class="text-3xl font-bold">Default Range Input</h2>
+  <h3 class="text-base font-medium">Min/Max Range Input</h3>
 
   <ds-range
-    name="range"
+    [rangeType]="'range'"
     [min]="0"
-    [max]="100"
-    [(value)]="rangeValue"
+    [max]="200"
+    [step]="5"
+    [(values)]="myRange"
   ></ds-range>
 
-  <p>Selected Value: {{ rangeValue }}</p>
+  <h3 class="text-base font-medium">Single Range Input</h3>
+  <ds-range
+    [rangeType]="'single'"
+    [min]="0"
+    [max]="50"
+    [step]="1"
+    [(value)]="myValue"
+  ></ds-range>
 </div>

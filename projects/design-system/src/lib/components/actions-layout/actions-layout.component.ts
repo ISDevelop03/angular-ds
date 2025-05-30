@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ActionItem } from './theme';
 
+/**
+ * Actions-layoutComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-actions-layout.component.html</example-url>
+ */
 @Component({
   selector: 'ds-actions-layout',
   templateUrl: './actions-layout.component.html',

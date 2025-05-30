@@ -1,5 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { defaultTheme } from './theme';
+
+/**
+ * ButtonComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-button.component.html</example-url>
+ */
 @Component({
   selector: 'ds-button',
   templateUrl: './button.component.html',

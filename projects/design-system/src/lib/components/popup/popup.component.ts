@@ -8,6 +8,12 @@ import {
 } from '@angular/core';
 import { theme } from './theme';
 
+/**
+ * PopupComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-popup.component.html</example-url>
+ */
 @Component({
   selector: 'ds-popup',
   templateUrl: './popup.component.html',

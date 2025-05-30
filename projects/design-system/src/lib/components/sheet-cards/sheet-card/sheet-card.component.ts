@@ -1,5 +1,11 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * Sheet-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-sheet-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-sheet-card',
   templateUrl: './sheet-card.component.html',

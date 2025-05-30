@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
+/**
+ * Account-filial-holding-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-account-filial-holding-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-account-filial-holding-card',
   templateUrl: './account-filial-holding-card.component.html',

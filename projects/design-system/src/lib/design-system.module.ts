@@ -1,5 +1,9 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TodoCardComponent } from './components/todo-list/todo-card/todo-card.component';
+import { TodoTabComponent } from './components/todo-list/todo-tab/todo-tab.component';
+import { DatePickerComponent } from './components/form-elements/date-picker/date-picker.component';
+
 import { UploadFileComponent } from './components/form-elements/upload-file/upload-file.component';
 import { AccountsSelectComponent } from './components/accounts/accounts-select/accounts-select.component';
 import { PaymentDetailsCardComponent } from './components/cards/payment-details-card/payment-details-card.component';
@@ -11,7 +15,6 @@ import { IconComponent } from './components/icon/icon.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { DsTabsComponent } from './components/tabs/tabs.component';
-import { DsHeadingComponent } from './components/heading/heading.component';
 import { DsTextComponent } from './components/text/text.component';
 import { EmptyCardComponent } from './components/cards/empty-card/empty-card.component';
 import { DsBreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
@@ -97,7 +100,6 @@ registerLocaleData(localeFr, 'fr-FR');
     AccordionComponent,
     AvatarComponent,
     DsTabsComponent,
-    DsHeadingComponent,
     DsTextComponent,
     DsActionsLayoutComponent,
     DsBreadcrumbComponent,
@@ -150,6 +152,9 @@ registerLocaleData(localeFr, 'fr-FR');
     PaymentDetailsCardComponent,
     AccountsSelectComponent,
     UploadFileComponent,
+    DatePickerComponent,
+    TodoTabComponent,
+    TodoCardComponent,
   ],
   imports: [CommonModule, FormsModule],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
@@ -160,7 +165,6 @@ registerLocaleData(localeFr, 'fr-FR');
     AccordionComponent,
     AvatarComponent,
     DsTabsComponent,
-    DsHeadingComponent,
     DsTextComponent,
     DsActionsLayoutComponent,
     DsBreadcrumbComponent,
@@ -213,6 +217,9 @@ registerLocaleData(localeFr, 'fr-FR');
     PaymentDetailsCardComponent,
     AccountsSelectComponent,
     UploadFileComponent,
+    DatePickerComponent,
+    TodoTabComponent,
+    TodoCardComponent,
   ],
 })
 export class DesignSystemModule {}

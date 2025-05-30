@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ISelectItem } from '../../profile-dropdown/types';
 
+/**
+ * @ignore
+ */
 @Component({
   selector: 'ds-bottom-menus',
   templateUrl: './bottom-menus.component.html',

@@ -1,0 +1,81 @@
+<div [ngClass]="theme[variant].container">
+  <!-- HEADER -->
+  <div [ngClass]="theme[variant].header">
+    <button (click)="onPrevClick()" [ngClass]="[theme[variant].navButton]">
+      &lt;
+    </button>
+    <div (click)="toggleView()" [ngClass]="[theme[variant].title]">
+      {{
+        view === "years"
+          ? yearPageStart + " – " + (yearPageStart + yearPageSize - 1)
+          : months[currentMonth] + " " + currentYear
+      }}
+    </div>
+    <button (click)="onNextClick()" [ngClass]="[theme[variant].navButton]">
+      &gt;
+    </button>
+  </div>
+
+  <!-- DAYS VIEW -->
+  <ng-container *ngIf="view === 'days'">
+    <div class="grid grid-cols-7 text-center mb-1">
+      <div
+        *ngFor="let wd of ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']"
+        [ngClass]="theme[variant].weekDay"
+      >
+        {{ wd }}
+      </div>
+    </div>
+    <div *ngFor="let week of weeks" class="grid grid-cols-7">
+      <div
+        *ngFor="let day of week"
+        (click)="selectDate(day)"
+        [ngClass]="
+          day.getMonth() !== currentMonth
+            ? theme[variant].dayDisabled
+            : isSelected(day)
+            ? theme[variant].dayActive
+            : inRange(day)
+            ? theme[variant].dayInRange
+            : theme[variant].day
+        "
+      >
+        {{ day.getDate() }}
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- MONTHS VIEW -->
+  <ng-container *ngIf="view === 'months'">
+    <div [ngClass]="[theme[variant].monthGrid]">
+      <div
+        *ngFor="let m of months; let i = index"
+        (click)="chooseMonth(i)"
+        [ngClass]="
+          i === currentMonth
+            ? theme[variant].monthActive
+            : theme[variant].monthItem
+        "
+      >
+        {{ m }}
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- YEARS VIEW -->
+  <ng-container *ngIf="view === 'years'">
+    <div [ngClass]="[theme[variant].yearGrid]">
+      <div
+        *ngFor="let y of years"
+        (click)="chooseYear(y)"
+        [ngClass]="
+          y === currentYear
+            ? theme[variant].yearActive
+            : theme[variant].yearItem
+        "
+      >
+        {{ y }}
+      </div>
+    </div>
+  </ng-container>
+</div>

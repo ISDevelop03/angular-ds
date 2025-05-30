@@ -8,6 +8,12 @@ import {
 } from '@angular/core';
 import { ToggleTheme, Theme } from './theme';
 
+/**
+ * ToggleComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-toggle.component.html</example-url>
+ */
 @Component({
   selector: 'ds-toggle',
   templateUrl: './toggle.component.html',

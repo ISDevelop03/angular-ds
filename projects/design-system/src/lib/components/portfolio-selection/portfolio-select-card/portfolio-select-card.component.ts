@@ -1,5 +1,11 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * Portfolio-select-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-portfolio-select-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-portfolio-select-card',
   templateUrl: './portfolio-select-card.component.html',

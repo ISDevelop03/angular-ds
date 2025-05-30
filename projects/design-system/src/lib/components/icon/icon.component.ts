@@ -1,5 +1,11 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * IconComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-icon.component.html</example-url>
+ */
 @Component({
   selector: 'ds-icon',
   template: `

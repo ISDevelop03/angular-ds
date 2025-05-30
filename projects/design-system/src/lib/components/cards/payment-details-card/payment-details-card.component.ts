@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { formatMoney } from '../../../../utils';
 
+/**
+ * Payment-details-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-payment-details-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-payment-details-card',
   templateUrl: './payment-details-card.component.html',

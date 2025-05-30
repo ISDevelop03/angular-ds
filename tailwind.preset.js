@@ -205,6 +205,7 @@ module.exports = {
         "card-level-2": "rgb(var(--card-level-2) / <alpha-value>)",
         "card-level-4": "rgb(var(--card-level-4) / <alpha-value>)",
         "card-level-5": "rgb(var(--card-level-5) / <alpha-value>)",
+        "card-level-6": "rgb(var(--card-level-6) / <alpha-value>)",
         icon: "rgb(var(--color-icon) / <alpha-value>)",
         "custom-black": "rgb(var(--custom-black) / <alpha-value>)",
         "custom-white": "rgb(var(--custom-white) / <alpha-value>)",

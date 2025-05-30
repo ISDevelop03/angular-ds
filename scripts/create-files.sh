@@ -66,6 +66,7 @@ STORIES_INDEX="projects/demo-app/src/app/stories/index.ts"
 MODULE_FILE="projects/design-system/src/lib/design-system.module.ts"
 APP_MODULE="projects/demo-app/src/app/app.module.ts"
 CONFIG_FILE="projects/demo-app/src/app/config.ts"
+COMPODOC_DIR="documentation/demo"
 
 # Removal flow
 if [[ "$REMOVE" == true ]]; then
@@ -89,7 +90,12 @@ echo "✅ Creating files for '$COMP_NAME'..."
 # 1) Component TS
 cat > "$COMP_DIR/$KEBAB.component.ts" <<EOF
 import { Component, Input } from '@angular/core';
-
+/**
+ * ${CLASS_NAME}Component
+ *
+ * Live demo:
+ * <example-url>/demo/ds-$KEBAB.component.html</example-url>
+ */
 @Component({
   selector: 'ds-$KEBAB',
   templateUrl: './$KEBAB.component.html',
@@ -97,6 +103,29 @@ import { Component, Input } from '@angular/core';
 export class ${CLASS_NAME}Component {
   @Input() className?: string = '';
 }
+EOF
+# Component HTML (for compodoc)
+cat > "$COMPODOC_DIR/ds-$KEBAB.component.html" <<EOF
+<iframe
+  data-src-dev="http://localhost:4200/$KEBAB"
+  data-src-prod="https://example.com/$KEBAB"
+  frameborder="0"
+  style="width: 100%; height: 100%"
+></iframe>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const isLocal =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1";
+
+    document.querySelectorAll("iframe[data-src-dev]").forEach((iframe) => {
+      const devUrl = iframe.getAttribute("data-src-dev");
+      const prodUrl = iframe.getAttribute("data-src-prod");
+      iframe.src = isLocal ? devUrl : prodUrl;
+    });
+  });
+</script>
 EOF
 
 # 2) Component HTML

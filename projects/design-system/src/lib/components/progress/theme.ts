@@ -3,20 +3,24 @@ export const theme = {
   variants: {
     base: 'relative overflow-hidden',
     neutral: {
-      bar: 'bg-gray-50 h-1 w-full rounded-full',
+      bar: 'bg-stroke-1 h-2 w-full rounded-full',
       progress: 'absolute left-0 top-0 bottom-0 bg-gray-500 rounded-full',
     },
+    blue: {
+      bar: 'bg-stroke-1 h-2 w-full rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-blue-500 rounded-full',
+    },
     success: {
-      bar: 'bg-success-50 h-1 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-success-500 rounded-full',
+      bar: 'bg-stroke-1 h-2 w-full rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-green-500 rounded-full',
     },
     warning: {
-      bar: 'bg-warning-50 h-1 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-warning-500 rounded-full',
+      bar: 'bg-stroke-1 h-2 w-full rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-yellow-500 rounded-full',
     },
     error: {
-      bar: 'bg-error-50 h-1 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-error-500 rounded-full',
+      bar: 'bg-stroke-1 h-2 w-full rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-red-500 rounded-full',
     },
   },
 };

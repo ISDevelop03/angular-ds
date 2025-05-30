@@ -1,6 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
+/**
+ * Account-grid-holding-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-account-grid-holding-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-account-grid-holding-card',
   templateUrl: './account-grid-holding-card.component.html',

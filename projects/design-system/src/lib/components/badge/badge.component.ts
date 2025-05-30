@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { badge, textVariants } from './theme';
 
+/**
+ * BadgeComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-badge.component.html</example-url>
+ */
 @Component({
   selector: 'ds-badge',
   templateUrl: './badge.component.html',

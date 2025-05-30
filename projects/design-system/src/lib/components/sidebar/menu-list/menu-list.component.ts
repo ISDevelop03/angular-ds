@@ -3,6 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IMenuListItem } from '../types';
 import { Router } from '@angular/router';
 
+/**
+ * @ignore
+ */
 @Component({
   selector: 'ds-menu-list',
   templateUrl: './menu-list.component.html',

@@ -14,7 +14,6 @@ import {
   TabsStoryComponent,
   TextStoryComponent,
   ActionsLayoutStoryComponent,
-  HeadingStoryComponent,
   BreadcrumbStoryComponent,
   CallToActionIconsStoryComponent,
   EmptyCardStoryComponent,
@@ -60,6 +59,9 @@ import {
   PaymentDetailsCardStoryComponent,
   AccountsSelectStoryComponent,
   UploadFileStoryComponent,
+  DatePickerStoryComponent,
+  TodoTabStoryComponent,
+  TodoCardStoryComponent,
 } from './stories';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -75,7 +77,6 @@ export const pages = [
   { path: 'accordion', component: AccordionStoryComponent },
   { path: 'avatar', component: AvatarStoryComponent },
   { path: 'tabs', component: TabsStoryComponent },
-  { path: 'heading', component: HeadingStoryComponent },
   { path: 'text', component: TextStoryComponent },
   { path: 'empty-card', component: EmptyCardStoryComponent },
   { path: 'breadcrumb', component: BreadcrumbStoryComponent },
@@ -143,6 +144,9 @@ export const pages = [
   { path: 'payment-details-card', component: PaymentDetailsCardStoryComponent },
   { path: 'accounts-select', component: AccountsSelectStoryComponent },
   { path: 'upload-file', component: UploadFileStoryComponent },
+  { path: 'date-picker', component: DatePickerStoryComponent },
+  { path: 'todo-tab', component: TodoTabStoryComponent },
+  { path: 'todo-card', component: TodoCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -173,7 +177,6 @@ const router = RouterModule.forRoot(pages);
     AccordionStoryComponent,
     AvatarStoryComponent,
     TabsStoryComponent,
-    HeadingStoryComponent,
     TextStoryComponent,
     BreadcrumbStoryComponent,
     ToggleStoryComponent,
@@ -223,6 +226,9 @@ const router = RouterModule.forRoot(pages);
     PaymentDetailsCardStoryComponent,
     AccountsSelectStoryComponent,
     UploadFileStoryComponent,
+    DatePickerStoryComponent,
+    TodoTabStoryComponent,
+    TodoCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -10,11 +10,11 @@
     "ng": "ng",
     "start": "ng serve --project=demo-app",
     "build:app": "ng build --project=demo-app",
-    "build:ds": "ng build --project=design-system && cp styles/styles.css dist/design-system && cp projects/demo-app/src/assets/icons.svg dist/design-system",
+    "build:ds": "ng build --project=design-system && cp styles/styles.css dist/mybusiness-design-system && cp projects/demo-app/src/assets/icons.svg dist/mybusiness-design-system",
     "build:css": "tailwindcss -i ./projects/demo-app/src/styles/styles.css -o ./styles/styles.css",
     "watch:css": "tailwindcss -i ./projects/demo-app/src/styles/styles.css -o ./styles/styles.css --watch",
-    "docs": "compodoc -p tsconfig.json -s",
-    "icons:build": "npx --yes @vactorynext/svg-spreact-cli ./icons --optimize true --tidy true > ./projects/demo-app/src/assets/icons.svg"
+    "docs": "compodoc -p projects/design-system/tsconfig.lib.json -s --watch  --theme laravel",
+    "icons:build": "npx --yes @vactorynext/svg-spreact-cli ./icons --optimize true --tidy true > ./projects/design-system/src/assets/icons.svg"
   },
   "files": [
     "dist"

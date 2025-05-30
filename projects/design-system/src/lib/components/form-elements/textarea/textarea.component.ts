@@ -8,6 +8,12 @@ import {
 } from '@angular/core';
 import { textarea } from './theme';
 
+/**
+ * TextareaComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-textarea.component.html</example-url>
+ */
 @Component({
   selector: 'ds-textarea',
   templateUrl: './textarea.component.html',

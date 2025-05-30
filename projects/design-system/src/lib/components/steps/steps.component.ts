@@ -10,7 +10,12 @@ import {
 } from '@angular/core';
 import { StepComponent } from './step.component';
 import { STEPS_THEME, StepsTheme } from './theme';
-
+/**
+ * StepsComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-steps.component.html</example-url>
+ */
 @Component({
   selector: 'ds-steps',
   templateUrl: './steps.component.html',

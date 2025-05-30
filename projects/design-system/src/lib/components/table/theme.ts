@@ -27,7 +27,7 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellSortable: ' select-none',
     body: '',
     row: () => 'bg-white rounded',
-    cell: 'px-4 text-sm font-bold py-2',
+    cell: 'px-4 text-sm font-medium py-2',
   },
   striped: {
     table: 'w-full text-left',

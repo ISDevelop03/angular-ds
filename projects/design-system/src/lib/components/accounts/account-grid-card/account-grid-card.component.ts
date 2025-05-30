@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { DropdownItem } from '../../dropdown/types';
 
+/**
+ * Account-grid-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-account-grid-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-account-grid-card',
   templateUrl: './account-grid-card.component.html',

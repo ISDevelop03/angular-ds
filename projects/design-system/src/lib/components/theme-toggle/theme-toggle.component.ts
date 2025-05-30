@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 type Theme = 'light' | 'dark';
 
+/**
+ * Theme-toggleComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-theme-toggle.component.html</example-url>
+ */
 @Component({
   selector: 'ds-theme-toggle',
   template: `

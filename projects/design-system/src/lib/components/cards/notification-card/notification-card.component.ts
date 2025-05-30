@@ -1,5 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+/**
+ * Notification-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-notification-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-notification-card',
   templateUrl: './notification-card.component.html',

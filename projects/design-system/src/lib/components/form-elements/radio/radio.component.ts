@@ -1,6 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { radio } from './theme';
 
+/**
+ * RadioComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-radio.component.html</example-url>
+ */
 @Component({
   selector: 'ds-radio',
   templateUrl: './radio.component.html',

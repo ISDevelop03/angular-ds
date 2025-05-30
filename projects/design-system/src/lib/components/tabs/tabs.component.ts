@@ -6,6 +6,12 @@ export interface ITab {
   panel: string | TemplateRef<any>;
 }
 
+/**
+ * TabsComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-tabs.component.html</example-url>
+ */
 @Component({
   selector: 'ds-tabs',
   templateUrl: './tabs.component.html',

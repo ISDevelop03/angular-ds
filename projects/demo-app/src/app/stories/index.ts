@@ -4,7 +4,6 @@ export * from './icon/icon.stories';
 export * from './accordion/accordion.stories';
 export * from './avatar/avatar.stories';
 export * from './tabs/tabs.stories';
-export * from './heading/heading.stories';
 export * from './cards/empty-card/empty-card.stories';
 export * from './breadcrumb/breadcrumb.stories';
 export * from './text/text.stories';
@@ -77,3 +76,12 @@ export * from './accounts/accounts-select/accounts-select.stories';
 
 // Auto-export for upload-file stories
 export * from './form-elements/upload-file/upload-file.stories';
+
+// Auto-export for date-picker stories
+export * from './form-elements/date-picker/date-picker.stories';
+
+// Auto-export for todo-tab stories
+export * from './todo-list/todo-tab/todo-tab.stories';
+
+// Auto-export for todo-card stories
+export * from './todo-list/todo-card/todo-card.stories';

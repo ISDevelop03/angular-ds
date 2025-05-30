@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
+/**
+ * Account-slider-cardComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-account-slider-card.component.html</example-url>
+ */
 @Component({
   selector: 'ds-account-slider-card',
   templateUrl: './account-slider-card.component.html',

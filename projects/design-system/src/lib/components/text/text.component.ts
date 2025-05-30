@@ -9,6 +9,12 @@ import {
 } from '@angular/core';
 import { typography } from './theme';
 
+/**
+ * TextComponent
+ *
+ * Live demo:
+ * <example-url>/demo/ds-text.component.html</example-url>
+ */
 @Component({
   selector: 'ds-text',
   template: '',
