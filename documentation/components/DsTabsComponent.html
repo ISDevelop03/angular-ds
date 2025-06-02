@@ -268,6 +268,11 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/design-system/src/lib/components/tabs/tabs.component.ts:21</a></div>
@@ -619,7 +624,7 @@ export interface ITab {
 })
 export class DsTabsComponent {
   @Input() items: ITab[] &#x3D; [];
-  @Input() className: string;
+  @Input() className: string &#x3D; &#x27;&#x27;;
   @Input() variant: keyof typeof theme &#x3D; &#x27;default&#x27;;
 
   selectedIndex &#x3D; 0;
@@ -641,8 +646,8 @@ export class DsTabsComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;[theme[variant].wrapper || &#x27;&#x27;, className || &#x27;&#x27;]&quot;&gt;
-  &lt;div [ngClass]&#x3D;&quot;[theme[variant].list.container || &#x27;&#x27;, className || &#x27;&#x27;]&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;[theme[variant].wrapper, className]&quot;&gt;
+  &lt;div [ngClass]&#x3D;&quot;[theme[variant].list.container]&quot;&gt;
     &lt;button
       *ngFor&#x3D;&quot;let tab of items; let i &#x3D; index&quot;
       (click)&#x3D;&quot;selectTab(i)&quot;
@@ -657,7 +662,7 @@ export class DsTabsComponent {
     &lt;/button&gt;
   &lt;/div&gt;
 
-  &lt;div [ngClass]&#x3D;&quot;[theme[variant].panels.container || &#x27;&#x27;, className || &#x27;&#x27;]&quot;&gt;
+  &lt;div [ngClass]&#x3D;&quot;[theme[variant].panels.container]&quot;&gt;
     &lt;div
       *ngFor&#x3D;&quot;let tab of items; let i &#x3D; index&quot;
       [hidden]&#x3D;&quot;!isSelected(i)&quot;
@@ -706,7 +711,7 @@ export class DsTabsComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div [ngClass]="[theme[variant].wrapper || \'\', className || \'\']">  <div [ngClass]="[theme[variant].list.container || \'\', className || \'\']">    <button      *ngFor="let tab of items; let i = index"      (click)="selectTab(i)"      [ngClass]="[        theme[variant].list.tab.base || \'\',        isSelected(i)          ? theme[variant].list.tab.selected || \'\'          : theme[variant].list.tab.unselected || \'\'      ]"    >      {{ tab.title }}    </button>  </div>  <div [ngClass]="[theme[variant].panels.container || \'\', className || \'\']">    <div      *ngFor="let tab of items; let i = index"      [hidden]="!isSelected(i)"      [ngClass]="theme[variant].panels.panel.base || \'\'"    >      <ng-container *ngIf="isTemplate(tab.panel); else showHtml">        <ng-container *ngTemplateOutlet="tab.panel"></ng-container>      </ng-container>      <ng-template #showHtml>        <div [innerHTML]="tab.panel"></div>      </ng-template>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div [ngClass]="[theme[variant].wrapper, className]">  <div [ngClass]="[theme[variant].list.container]">    <button      *ngFor="let tab of items; let i = index"      (click)="selectTab(i)"      [ngClass]="[        theme[variant].list.tab.base || \'\',        isSelected(i)          ? theme[variant].list.tab.selected || \'\'          : theme[variant].list.tab.unselected || \'\'      ]"    >      {{ tab.title }}    </button>  </div>  <div [ngClass]="[theme[variant].panels.container]">    <div      *ngFor="let tab of items; let i = index"      [hidden]="!isSelected(i)"      [ngClass]="theme[variant].panels.panel.base || \'\'"    >      <ng-container *ngIf="isTemplate(tab.panel); else showHtml">        <ng-container *ngTemplateOutlet="tab.panel"></ng-container>      </ng-container>      <ng-template #showHtml>        <div [innerHTML]="tab.panel"></div>      </ng-template>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'NumbersCardComponent', 'selector': 'ds-numbers-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DsTabsComponent'};

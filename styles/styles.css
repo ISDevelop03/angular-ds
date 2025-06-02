@@ -2631,6 +2631,11 @@ video {
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
 }
 
+.border-card-level-2 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--card-level-2) / var(--tw-border-opacity, 1));
+}
+
 .border-l-red-500 {
   --tw-border-opacity: 1;
   border-left-color: rgb(var(--color-red-500) / var(--tw-border-opacity, 1));
@@ -2845,6 +2850,11 @@ video {
   background-color: rgb(var(--color-red-100) / 0.5);
 }
 
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-red-400) / var(--tw-bg-opacity, 1));
+}
+
 .bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-red-50) / var(--tw-bg-opacity, 1));
@@ -2915,11 +2925,6 @@ video {
 .bg-zinc-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
-}
-
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-red-400) / var(--tw-bg-opacity, 1));
 }
 
 .bg-gradient-to-b {
@@ -4357,6 +4362,16 @@ input[type="number"]::-webkit-outer-spin-button {
 .after\:w-px::after {
   content: var(--tw-content);
   width: 1px;
+}
+
+.after\:w-4\/5::after {
+  content: var(--tw-content);
+  width: 80%;
+}
+
+.after\:w-\[70\%\]::after {
+  content: var(--tw-content);
+  width: 70%;
 }
 
 .after\:-translate-x-1\/2::after {

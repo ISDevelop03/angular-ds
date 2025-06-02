@@ -18,7 +18,7 @@ export interface ITab {
 })
 export class DsTabsComponent {
   @Input() items: ITab[] = [];
-  @Input() className: string;
+  @Input() className: string = '';
   @Input() variant: keyof typeof theme = 'default';
 
   selectedIndex = 0;

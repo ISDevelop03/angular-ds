@@ -255,7 +255,7 @@ export interface ITab {
 })
 export class DsTabsComponent {
   @Input() items: ITab[] &#x3D; [];
-  @Input() className: string;
+  @Input() className: string &#x3D; &#x27;&#x27;;
   @Input() variant: keyof typeof theme &#x3D; &#x27;default&#x27;;
 
   selectedIndex &#x3D; 0;

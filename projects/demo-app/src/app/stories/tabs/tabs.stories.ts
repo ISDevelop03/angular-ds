@@ -11,6 +11,9 @@ export class TabsStoryComponent {
   @ViewChild('noBgTabOne') noBgTabOne!: TemplateRef<any>;
   @ViewChild('noBgTabTwo') noBgTabTwo!: TemplateRef<any>;
   @ViewChild('noBgTabThree') noBgTabThree!: TemplateRef<any>;
+  @ViewChild('withBorderTabOne') withBorderTabOne!: TemplateRef<any>;
+  @ViewChild('withBorderTabTwo') withBorderTabTwo!: TemplateRef<any>;
+  @ViewChild('withBorderTabThree') withBorderTabThree!: TemplateRef<any>;
 
   tabsDefault = [
     { title: 'Liste des comptes', panel: 'This is the content for Tab 1' },
@@ -28,6 +31,7 @@ export class TabsStoryComponent {
 
   tabsCustom = [];
   tabsNoBackground = [];
+  tabsWithBorder = [];
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -40,6 +44,11 @@ export class TabsStoryComponent {
         { title: 'Nouveau paiement', panel: this.noBgTabOne },
         { title: 'Favoris', panel: this.noBgTabTwo },
         { title: 'Paiement en masse', panel: this.noBgTabThree },
+      ];
+      this.tabsWithBorder = [
+        { title: 'Nouveau paiement', panel: this.withBorderTabOne },
+        { title: 'Favoris', panel: this.withBorderTabTwo },
+        { title: 'Paiement en masse', panel: this.withBorderTabThree },
       ];
     });
   }

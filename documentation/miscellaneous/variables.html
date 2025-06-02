@@ -179,10 +179,10 @@
                             <a href="#textVariants" title="projects/design-system/src/lib/components/badge/theme.ts" ><b>textVariants</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
-                            <a href="#theme" title="projects/design-system/src/lib/components/balance-formatter/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
+                            <a href="#theme" title="projects/design-system/src/lib/components/accordion/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
-                            <a href="#theme" title="projects/design-system/src/lib/components/accordion/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
+                            <a href="#theme" title="projects/design-system/src/lib/components/balance-formatter/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
                             <a href="#theme" title="projects/design-system/src/lib/components/popup/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
@@ -1318,42 +1318,6 @@
         </tbody>
     </table>
 </section>
-    <h3>projects/design-system/src/lib/components/balance-formatter/theme.ts</h3>
-    <section data-compodoc="block-properties">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="theme"></a>
-                    <span class="name">
-                        <span ><b>theme</b></span>
-                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>{
-  default: {
-    wrapper:
-      &#x27;text-[12px] leading-[16px] inline-block text-neutral-900 font-bold flex flex-row items-center justify-center w-fit gap-1&#x27;,
-    currency:
-      &#x27;inline-block align-text-top font-bold text-neutral-900 dark:text-white font-[400] &#x27;,
-  },
-}</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
     <h3>projects/design-system/src/lib/components/accordion/theme.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1435,6 +1399,42 @@
       },
     },
     panel: { base: &#x27;bg-neutral-25 p-4 rounded&#x27; },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/design-system/src/lib/components/balance-formatter/theme.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="theme"></a>
+                    <span class="name">
+                        <span ><b>theme</b></span>
+                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  default: {
+    wrapper:
+      &#x27;text-[12px] leading-[16px] inline-block text-neutral-900 font-bold flex flex-row items-center justify-center w-fit gap-1&#x27;,
+    currency:
+      &#x27;inline-block align-text-top font-bold text-neutral-900 dark:text-white font-[400] &#x27;,
   },
 }</code>
                     </td>
@@ -1601,6 +1601,25 @@
       container: &#x27;&#x27;,
       panel: {
         base: &#x27;rounded-md -mx-3 focus:outline-none&#x27;,
+      },
+    },
+  },
+  withBorder: {
+    wrapper: &#x27;w-full px-3&#x27;,
+    list: {
+      container:
+        &#x27;flex border border-card-level-2 space-x-2 rounded bg-stroke-1 p-1 w-fit&#x27;,
+      tab: {
+        base: &#x27;w-fit relative text-[12px] leading-[16px] rounded py-3 px-3 font-bold focus:outline-none outline-none text-nowrap focus:border-none focus:ring-none transition-all duration-300 ease-in-out after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[70%] after:rounded-t-full after:h-[3px] after:bg-red-500 after:transition-all after:duration-300 after:ease-in-out after:opacity-0 after:content-[&quot;&quot;]&#x27;,
+        selected: &#x27;bg-level-4 text-neutral-900 after:opacity-100&#x27;,
+        unselected:
+          &#x27;bg-transparent text-neutral-500 hover:bg-level-4 hover:text-neutral-900 hover:after:opacity-100&#x27;,
+      },
+    },
+    panels: {
+      container: &#x27;&#x27;,
+      panel: {
+        base: &#x27;rounded-md text-heading dark:text-white py-3 focus:outline-none&#x27;,
       },
     },
   },

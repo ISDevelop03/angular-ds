@@ -24,13 +24,13 @@
 <title>cluster_DesignSystemModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 10180,-268 10180,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_DesignSystemModule_declarations</title>
-<polygon fill="none" stroke="black" points="142,-78 142,-130 10095,-130 10095,-78 142,-78"/>
-</g>
 <g id="clust60" class="cluster">
 <title>cluster_DesignSystemModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 10172,-260 10172,-208 16,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_DesignSystemModule_declarations</title>
+<polygon fill="none" stroke="black" points="142,-78 142,-130 10095,-130 10095,-78 142,-78"/>
 </g>
 <!-- AccordionComponent -->
 <g id="node1" class="node">
