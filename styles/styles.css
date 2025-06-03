@@ -2123,6 +2123,10 @@ video {
   cursor: pointer;
 }
 
+.\!cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+
 .touch-none {
   touch-action: none;
 }

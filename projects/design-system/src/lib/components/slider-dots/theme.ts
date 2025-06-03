@@ -19,7 +19,7 @@ export const SliderDotsTheme = {
       wrapper: 'cursor-pointer flex items-center justify-center',
       activeText: 'text-neutral-500', // arrow color when “enabled”
       disabledText: 'text-gray-400', // arrow color when “disabled”
-      disabledOpacity: 'opacity-40 cursor-not-allowed',
+      disabledOpacity: 'opacity-40 !cursor-not-allowed',
     },
   },
 

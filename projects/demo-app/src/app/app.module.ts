@@ -64,8 +64,8 @@ import {
   TodoCardStoryComponent,
   SliderDotsStoryComponent,
 } from './stories';
-import { DesignSystemModule } from 'mybusiness-design-system';
-// import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
+// import { DesignSystemModule } from 'mybusiness-design-system';
+import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';

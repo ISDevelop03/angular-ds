@@ -9,11 +9,7 @@
       We pass [name] to <ds-icon> (change if your icon API is different).
       We bind [ngClass] so that the icon’s color/size come from the theme.
     -->
-    <ds-icon
-      [id]="'arrow-left'"
-      size="12px"
-      [ngClass]="prevIconClass"
-    ></ds-icon>
+    <ds-icon [id]="'arrow-left'" size="12px" [class]="prevIconClass"></ds-icon>
   </div>
 
   <!-- ─── DOTS ROW ─────────────────────────────────────────────────────────────── -->
@@ -32,10 +28,6 @@
 
   <!-- ─── NEXT ARROW (conditionally shown) ───────────────────────────────────── -->
   <div *ngIf="showArrows" (click)="onNext()" [ngClass]="nextArrowWrapperClass">
-    <ds-icon
-      [id]="'arrow-right'"
-      size="12px"
-      [ngClass]="nextIconClass"
-    ></ds-icon>
+    <ds-icon [id]="'arrow-right'" size="12px" [class]="nextIconClass"></ds-icon>
   </div>
 </div>
