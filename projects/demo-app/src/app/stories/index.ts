@@ -85,3 +85,6 @@ export * from './todo-list/todo-tab/todo-tab.stories';
 
 // Auto-export for todo-card stories
 export * from './todo-list/todo-card/todo-card.stories';
+
+// Auto-export for slider-dots stories
+export * from './slider-dots/slider-dots.stories';

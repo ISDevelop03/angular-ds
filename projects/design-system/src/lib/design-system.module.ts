@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SliderDotsComponent } from './components/slider-dots/slider-dots.component';
 import { TodoCardComponent } from './components/todo-list/todo-card/todo-card.component';
 import { TodoTabComponent } from './components/todo-list/todo-tab/todo-tab.component';
 import { DatePickerComponent } from './components/form-elements/date-picker/date-picker.component';
@@ -155,6 +156,7 @@ registerLocaleData(localeFr, 'fr-FR');
     DatePickerComponent,
     TodoTabComponent,
     TodoCardComponent,
+    SliderDotsComponent,
   ],
   imports: [CommonModule, FormsModule],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
@@ -220,6 +222,7 @@ registerLocaleData(localeFr, 'fr-FR');
     DatePickerComponent,
     TodoTabComponent,
     TodoCardComponent,
+    SliderDotsComponent,
   ],
 })
 export class DesignSystemModule {}

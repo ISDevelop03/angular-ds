@@ -62,8 +62,10 @@ import {
   DatePickerStoryComponent,
   TodoTabStoryComponent,
   TodoCardStoryComponent,
+  SliderDotsStoryComponent,
 } from './stories';
-import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
+import { DesignSystemModule } from 'mybusiness-design-system';
+// import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
@@ -147,6 +149,7 @@ export const pages = [
   { path: 'date-picker', component: DatePickerStoryComponent },
   { path: 'todo-tab', component: TodoTabStoryComponent },
   { path: 'todo-card', component: TodoCardStoryComponent },
+  { path: 'slider-dots', component: SliderDotsStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -229,6 +232,7 @@ const router = RouterModule.forRoot(pages);
     DatePickerStoryComponent,
     TodoTabStoryComponent,
     TodoCardStoryComponent,
+    SliderDotsStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

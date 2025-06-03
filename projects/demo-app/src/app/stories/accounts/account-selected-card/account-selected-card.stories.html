@@ -1,8 +1,8 @@
-<div class="min-h-screen bg-level-4">
+<div class="min-h-screen dark:bg-black/20 bg-white">
   <div class="p-4 grid gap-6">
     <h3>Account Slider Selected Card</h3>
 
-    <div class="max-w-[300px]">
+    <div class="max-w-[300px] flex flex-col gap-10">
       <ds-account-selected-card
         [account_number]="account.account_number"
         [balance]="account.balance"
@@ -13,6 +13,19 @@
         [isDiscrete]="account.isDiscrete"
         [solde_comptable]="account.solde_comptable"
         [solde_temps_reel]="account.solde_temps_reel"
+        [actionsList]="actionsList"
+      >
+      </ds-account-selected-card>
+      <ds-account-selected-card
+        [account_number]="account2.account_number"
+        [balance]="account2.balance"
+        [currency]="account2.currency"
+        [type]="account2.type"
+        [id]="account2.id"
+        [date]="account2.date"
+        [isDiscrete]="account2.isDiscrete"
+        [solde_comptable]="account2.solde_comptable"
+        [solde_temps_reel]="account2.solde_temps_reel"
         [actionsList]="actionsList"
       >
       </ds-account-selected-card>

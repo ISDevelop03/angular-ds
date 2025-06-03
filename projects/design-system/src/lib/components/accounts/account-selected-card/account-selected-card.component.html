@@ -6,8 +6,20 @@
   ]"
 >
   <div
-    class="bg-neutral-25 rounded-[7px] relative after:rounded-[7px] after:absolute after:inset-0 after:bg-red-10 after:-z-[1] z-[2]"
+    class="rounded-[7px] relative after:rounded-[7px] after:absolute after:inset-0 after:bg-red-10 after:-z-[1] z-[2]"
+    [ngStyle]="{
+      'background-image':
+        solde_comptable > 0
+          ? 'linear-gradient(325deg, hsl(var(--card-selected-green)) 0%, rgb(var(--color-neutral-25)) 30%)'
+          : 'linear-gradient(325deg, hsl(var(--card-selected-red)) 0%, rgb(var(--color-neutral-25)) 30%)'
+    }"
   >
+    <!-- [ngStyle]="{
+      'background-image':
+        solde_comptable > 0
+          ? 'linear-gradient(325deg, hsl(152deg 82% 95%) 0%, rgb(var(--color-neutral-25)) 30%)'
+          : 'linear-gradient(325deg, hsl(357deg 82% 95%) 0%, rgb(var(--color-neutral-25)) 30%)'
+    }" -->
     <!-- Top Block -->
     <div class="relative rounded-t-lg p-4">
       <ds-dropdown

@@ -1,0 +1,41 @@
+<!--
+  Outer container: use theme.container to lay out arrows + dots.
+  e.g. 'flex items-center justify-center' or any other classes you put in theme.
+-->
+<div [ngClass]="[theme.container, className]">
+  <!-- ─── PREV ARROW (conditionally shown) ───────────────────────────────────── -->
+  <div *ngIf="showArrows" (click)="onPrev()" [ngClass]="prevArrowWrapperClass">
+    <!-- 
+      We pass [name] to <ds-icon> (change if your icon API is different).
+      We bind [ngClass] so that the icon’s color/size come from the theme.
+    -->
+    <ds-icon
+      [id]="'arrow-left'"
+      size="12px"
+      [ngClass]="prevIconClass"
+    ></ds-icon>
+  </div>
+
+  <!-- ─── DOTS ROW ─────────────────────────────────────────────────────────────── -->
+  <div [ngClass]="theme.dotsWrapper">
+    <ng-container *ngFor="let _ of indices; let idx = index">
+      <div
+        (click)="onSelect(idx)"
+        [ngClass]="[
+          theme.dot.base,
+          theme.dot.size,
+          idx === active ? theme.dot.activeBg : theme.dot.inactiveBg
+        ]"
+      ></div>
+    </ng-container>
+  </div>
+
+  <!-- ─── NEXT ARROW (conditionally shown) ───────────────────────────────────── -->
+  <div *ngIf="showArrows" (click)="onNext()" [ngClass]="nextArrowWrapperClass">
+    <ds-icon
+      [id]="'arrow-right'"
+      size="12px"
+      [ngClass]="nextIconClass"
+    ></ds-icon>
+  </div>
+</div>

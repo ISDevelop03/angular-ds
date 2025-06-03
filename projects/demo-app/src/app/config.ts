@@ -254,4 +254,5 @@ export const menus: Menu[] = [
   { key: 'date-picker', name: 'DatePicker', path: '/date-picker' },
   { key: 'todo-tab', name: 'TodoTab', path: '/todo-tab' },
   { key: 'todo-card', name: 'TodoCard', path: '/todo-card' },
+  { key: 'slider-dots', name: 'SliderDots', path: '/slider-dots' },
 ];

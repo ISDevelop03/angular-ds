@@ -1,0 +1,29 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">SliderDots</h2>
+  <div class="flex flex-col items-center space-y-6">
+    <!-- ─── Slide Display ───────────────────────────────────────────────────── -->
+    <div class="relative w-80 h-48 rounded-lg overflow-hidden shadow-lg">
+      <img
+        [src]="slides[activeIndex]?.imageUrl"
+        [alt]="slides[activeIndex]?.title"
+        class="w-full h-full object-cover"
+      />
+      <h3
+        class="absolute text-sm font-bold bottom-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded"
+      >
+        {{ slides[activeIndex]?.title }}
+      </h3>
+    </div>
+
+    <!-- ─── Slider Dots with “default” theme ──────────────────────────────────── -->
+    <ds-slider-dots
+      [count]="slides.length"
+      [active]="activeIndex"
+      [showArrows]="true"
+      (prev)="onPrev()"
+      (next)="onNext()"
+      (select)="onSelectDot($event)"
+      [className]="'justify-center'"
+    ></ds-slider-dots>
+  </div>
+</section>

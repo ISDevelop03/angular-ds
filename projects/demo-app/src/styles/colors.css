@@ -24,6 +24,9 @@
     --custom-black: 10 10 10; /* #0A0A0A */
     --custom-white: 255 255 255; /* #FFFFFF */
 
+    --card-selected-red: 357deg 82% 95%;
+    --card-selected-green: 152deg 82% 95%;
+
     /*  Neutral Colors */
     --color-neutral-25: 249 250 251; /* #F9FAFB */
     --color-neutral-50: 240 242 244; /* #F0F2F4 */
@@ -156,6 +159,9 @@
     --custom-black: 255 255 255; /* #FFFFFF */
     /* --custom-black: 255 255 255; #0A0A0A */
     --custom-white: 255 255 255; /* #FFFFFF */
+
+    --card-selected-red: 358deg 27% 22%;
+    --card-selected-green: 155deg 30% 19%;
 
     /*  Neutral Colors */
     --color-neutral-25: 31 31 31; /* #1F1F1F */

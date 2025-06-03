@@ -200,6 +200,9 @@ module.exports = {
         "stroke-3": "rgb(var(--stroke-3) / <alpha-value>)",
         "stroke-4": "rgb(var(--stroke-4) / <alpha-value>)",
         gradient: "rgb(var(--gradient) / <alpha-value>)",
+        "card-selected-red": "hsl(var(--card-selected-red) / <alpha-value>)",
+        "card-selected-green":
+          "hsl(var(--card-selected-green) / <alpha-value>)",
         "gradient-red": "rgb(var(--gradient-red) / <alpha-value>)",
         "card-level-1": "rgb(var(--card-level-1) / <alpha-value>)",
         "card-level-2": "rgb(var(--card-level-2) / <alpha-value>)",

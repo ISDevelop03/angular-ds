@@ -17,6 +17,17 @@ export class AccountSelectedCardStoryComponent {
     date: '2025-05-02',
     isDiscrete: false,
   };
+  account2 = {
+    account_number: 'ACC-24681357',
+    balance: 15000,
+    solde_comptable: -923479234,
+    solde_temps_reel: 20982348,
+    currency: 'USD',
+    type: 'Savings',
+    id: 'account-123',
+    date: '2025-05-02',
+    isDiscrete: false,
+  };
 
   actionsList: DropdownItem[] = [
     { label: 'Edit', icon: 'pen', onClick: () => alert('Edit clicked') },
