@@ -1,0 +1,44 @@
+<div
+  id="ds-portfolio"
+  class="relative z-[10001] isolate w-full flex flex-col gap-3 shrink-0"
+  [ngClass]="className"
+>
+  <ds-portfolio-select-card
+    [title]="selectedPortfolio.title"
+    [reference]="selectedPortfolio.reference"
+    [image]="selectedPortfolio.image"
+    [isOpen]="displayPortfolio"
+    [className]="'min-w-[200px]'"
+    (click)="togglePortfolio()"
+  ></ds-portfolio-select-card>
+  <div
+    *ngIf="displayPortfolio"
+    (click)="togglePortfolio()"
+    class="fixed z-[9999] bg-black/20 inset-0 w-full h-full"
+  ></div>
+
+  <div
+    @dropdownAnim
+    *ngIf="displayPortfolio"
+    class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[405px] shadow-dropdown"
+  >
+    <div class="max-w-[305px]">
+      <ds-portfolio-vision-card
+        [title]="holding.title"
+        [image]="holding.image"
+        (click)="onSelect(holding); $event.stopPropagation()"
+        [isSelected]="holding.id == selectedPortfolio.id"
+      ></ds-portfolio-vision-card>
+    </div>
+
+    <div class="grid grid-cols-2 gap-[14px]">
+      <ds-portfolio-item-card
+        *ngFor="let portfolio of portfolios"
+        [title]="portfolio.title"
+        [image]="portfolio.image"
+        [isSelected]="portfolio.id == selectedPortfolio.id"
+        (click)="onSelect(portfolio); $event.stopPropagation()"
+      ></ds-portfolio-item-card>
+    </div>
+  </div>
+</div>

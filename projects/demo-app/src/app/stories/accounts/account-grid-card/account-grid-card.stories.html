@@ -1,27 +1,18 @@
 <div class="p-4 grid gap-4">
   <h3>Default Account Grid Card</h3>
 
-  <ds-account-grid-card
-    [isDiscrete]="isDiscrete"
-    [price]="price"
-    [currency]="currency"
-    [title]="title"
-    [dateOperation]="dateOperation"
-    [dateValue]="dateValue"
-  >
-    <!-- Slot content inside accordion -->
-    <div class="p-2 bg-gray-100 rounded">
-      <p>Extra Account Details or Transactions...</p>
-    </div>
-  </ds-account-grid-card>
+  <ds-button (click)="isDiscrete = !isDiscrete">
+    {{ isDiscrete ? 'Disable' : 'Enable' }} Discrete Mode
+  </ds-button>
 
   <ds-account-grid-card
+    *ngFor="let account of accounts"
     [isDiscrete]="isDiscrete"
-    [price]="smallPrice"
-    [currency]="currency"
-    [title]="title"
-    [dateOperation]="dateOperation"
-    [dateValue]="dateValue"
+    [price]="account.price"
+    [currency]="account.currency"
+    [title]="account.title"
+    [dateOperation]="account.dateOperation"
+    [dateValue]="account.dateValue"
   >
     <!-- Slot content inside accordion -->
     <div class="p-2 bg-gray-100 rounded">

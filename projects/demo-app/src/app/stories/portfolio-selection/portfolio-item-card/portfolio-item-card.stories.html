@@ -6,13 +6,13 @@
       [title]="title"
       [image]="image"
       [isSelected]="isSelected"
-      [handleClick]="handleClick"
+      (click)="handleClick"
     ></ds-portfolio-item-card>
     <ds-portfolio-item-card
       [title]="title"
       [image]="image"
       [isSelected]="!isSelected"
-      [handleClick]="handleClick"
+      (click)="handleClick"
     ></ds-portfolio-item-card>
   </div>
 </section>

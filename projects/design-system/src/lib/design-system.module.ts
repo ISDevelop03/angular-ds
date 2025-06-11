@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PortfolioComponent } from './components/portfolio-selection/portfolio/portfolio.component';
+import { AccountCardComponent } from './components/accounts/account-card/account-card.component';
 import { SliderDotsComponent } from './components/slider-dots/slider-dots.component';
 import { TodoCardComponent } from './components/todo-list/todo-card/todo-card.component';
 import { TodoTabComponent } from './components/todo-list/todo-tab/todo-tab.component';
@@ -62,7 +64,6 @@ import { FilialCardComponent } from './components/cards/filial-card/filial-card.
 import { DsHoldingCardComponent } from './components/cards/holding-card/holding-card.component';
 import { InboxCardComponent } from './components/cards/inbox-card/inbox-card.component';
 import { NotificationCardComponent } from './components/cards/notification-card/notification-card.component';
-import { NumbersCardComponent } from './components/cards/numbers-card/numbers-card.component';
 import { TickerCardComponent } from './components/cards/ticker-card/ticker-card.component';
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 import { ProfileDropdownComponent } from './components/profile-dropdown/profile-dropdown.component';
@@ -90,6 +91,8 @@ import { FormsModule } from '@angular/forms';
 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PortalModule } from '@angular/cdk/portal';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -111,7 +114,6 @@ registerLocaleData(localeFr, 'fr-FR');
     FilialCardComponent,
     InboxCardComponent,
     NotificationCardComponent,
-    NumbersCardComponent,
     ProgressComponent,
     CurrencyConverterComponent,
     ProfileDropdownComponent,
@@ -157,8 +159,10 @@ registerLocaleData(localeFr, 'fr-FR');
     TodoTabComponent,
     TodoCardComponent,
     SliderDotsComponent,
+    AccountCardComponent,
+    PortfolioComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CarouselModule, PortalModule],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [
     ButtonComponent,
@@ -177,7 +181,6 @@ registerLocaleData(localeFr, 'fr-FR');
     FilialCardComponent,
     InboxCardComponent,
     NotificationCardComponent,
-    NumbersCardComponent,
     ProgressComponent,
     CurrencyConverterComponent,
     ProfileDropdownComponent,
@@ -223,6 +226,9 @@ registerLocaleData(localeFr, 'fr-FR');
     TodoTabComponent,
     TodoCardComponent,
     SliderDotsComponent,
+    AccountCardComponent,
+    PortfolioComponent,
+    CarouselModule,
   ],
 })
 export class DesignSystemModule {}

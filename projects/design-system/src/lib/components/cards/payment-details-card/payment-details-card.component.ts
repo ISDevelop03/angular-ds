@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { formatMoney } from '../../../../utils';
+import { formatMoney } from '../../../utils';
 
 /**
  * Payment-details-cardComponent

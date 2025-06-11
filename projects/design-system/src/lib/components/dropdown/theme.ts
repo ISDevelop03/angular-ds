@@ -1,5 +1,5 @@
 export const dropdown = {
-  base: 'relative inline-block',
+  base: 'relative isolate inline-block',
   button: {
     base: 'flex w-full items-center gap-2 justify-between focus:outline-none focus:border-none data-[hover]:text-custom-black',
     active: 'text-primary',

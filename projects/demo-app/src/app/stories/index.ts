@@ -45,7 +45,6 @@ export * from './cards/filial-card/filial-card.stories';
 export * from './cards/holding-card/holding-card.stories';
 export * from './cards/inbox-card/inbox-card.stories';
 export * from './cards/notification-card/notification-card.stories';
-export * from './cards/numbers-card/numbers-card.stories';
 export * from './cards/ticker-card/ticker-card.stories';
 export * from './currency-converter/currency-converter.stories';
 export * from './profile-dropdown/profile-dropdown.stories';
@@ -88,3 +87,9 @@ export * from './todo-list/todo-card/todo-card.stories';
 
 // Auto-export for slider-dots stories
 export * from './slider-dots/slider-dots.stories';
+
+// Auto-export for account-card stories
+export * from './accounts/account-card/account-card.stories';
+
+// Auto-export for portfolio stories
+export * from './portfolio-selection/portfolio/portfolio.stories';

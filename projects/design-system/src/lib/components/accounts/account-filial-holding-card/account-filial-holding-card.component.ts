@@ -12,6 +12,7 @@ import { ICallToActionIcon } from '../../call-to-action-icons/types';
   templateUrl: './account-filial-holding-card.component.html',
 })
 export class DsAccountFilialHoldingCardComponent {
+  @Input() id: any;
   @Input() title: string;
   @Input() image: string;
   @Input() className?: string = '';
@@ -26,9 +27,22 @@ export class DsAccountFilialHoldingCardComponent {
 
   ngOnInit() {
     this.actionsList =
-      this.actionsList.concat({
-        icon: 'arrow-down',
-        onClick: () => this.toggleAccordion(),
-      }) || [];
+      this.actionsList
+        .map((action) => ({
+          ...action,
+          onClick: () =>
+            action.onClick &&
+            action.onClick({
+              id: this.id,
+              title: this.title,
+              image: this.image,
+              actionsList: this.actionsList,
+              className: this.className,
+            }),
+        }))
+        .concat({
+          icon: 'arrow-down',
+          onClick: () => this.toggleAccordion(),
+        }) || [];
   }
 }

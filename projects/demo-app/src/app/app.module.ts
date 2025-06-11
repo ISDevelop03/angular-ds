@@ -22,7 +22,6 @@ import {
   FilialCardStoryComponent,
   InboxCardStoryComponent,
   NotificationCardStoryComponent,
-  NumbersCardStoryComponent,
   ProgressStoryComponent,
   CurrencyConverterStoryComponent,
   PortfolioDropdownStoryComponent,
@@ -63,6 +62,8 @@ import {
   TodoTabStoryComponent,
   TodoCardStoryComponent,
   SliderDotsStoryComponent,
+  AccountCardStoryComponent,
+  PortfolioStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -130,7 +131,6 @@ export const pages = [
   { path: 'holding-card', component: HoldingCardStoryComponent },
   { path: 'inbox-card', component: InboxCardStoryComponent },
   { path: 'notification-card', component: NotificationCardStoryComponent },
-  { path: 'numbers-card', component: NumbersCardStoryComponent },
   { path: 'ticker-card', component: TickerCardStoryComponent },
   { path: 'progress', component: ProgressStoryComponent },
   { path: 'currency-converter', component: CurrencyConverterStoryComponent },
@@ -150,6 +150,8 @@ export const pages = [
   { path: 'todo-tab', component: TodoTabStoryComponent },
   { path: 'todo-card', component: TodoCardStoryComponent },
   { path: 'slider-dots', component: SliderDotsStoryComponent },
+  { path: 'account-card', component: AccountCardStoryComponent },
+  { path: 'portfolio', component: PortfolioStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -196,7 +198,6 @@ const router = RouterModule.forRoot(pages);
     FilialCardStoryComponent,
     InboxCardStoryComponent,
     NotificationCardStoryComponent,
-    NumbersCardStoryComponent,
     ProgressStoryComponent,
     CurrencyConverterStoryComponent,
     PortfolioDropdownStoryComponent,
@@ -233,6 +234,8 @@ const router = RouterModule.forRoot(pages);
     TodoTabStoryComponent,
     TodoCardStoryComponent,
     SliderDotsStoryComponent,
+    AccountCardStoryComponent,
+    PortfolioStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

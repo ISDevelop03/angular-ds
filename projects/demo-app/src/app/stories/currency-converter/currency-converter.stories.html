@@ -1,14 +1,13 @@
 <div class="p-4 flex flex-col gap-4">
   <h3 class="text-2xl font-bold">Currency Converter Demo</h3>
-  <div class="max-w-[300px]">
+  <div class="max-w-[250px]">
     <ds-currency-converter
       [currencies]="currencies"
-      [conversionRates]="conversionRates"
-      [chartData]="chartData"
-      [showGraph]="true"
-      title="Convert your money"
-      date="Updated Today"
-      content="Use the converter to get real rates."
+      [value]="value"
+      [currency]="currency"
+      (valueChange)="value = $event"
+      (currencyChange)="currency = $event"
     ></ds-currency-converter>
+    {{value}} {{currency}}
   </div>
 </div>

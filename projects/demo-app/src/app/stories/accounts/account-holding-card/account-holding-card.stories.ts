@@ -13,8 +13,4 @@ export class AccountHoldingCardStoryComponent {
     { label: 'Edit', icon: 'pen', onClick: () => alert('Edit clicked') },
     { label: 'Remove', icon: 'trash', onClick: () => alert('Remove clicked') },
   ];
-
-  onClick = () => {
-    alert('Card clicked');
-  };
 }

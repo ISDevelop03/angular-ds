@@ -38,6 +38,7 @@ export class DsSelectComponent {
   @Input() variant: keyof typeof theme = 'default';
   @Input() disabled: boolean = false;
   @Input() hasError: boolean = false;
+  @Input() pill: boolean = false;
   @Input() emptyLabel: string = 'No options';
   @Input() multiple: boolean = false;
   @Input() isLoading: boolean = false;
@@ -99,7 +100,7 @@ export class DsSelectComponent {
       this.containerPosition = {
         top: spaceBelow > spaceAbove ? '100%' : 'auto',
         bottom: spaceBelow > spaceAbove ? 'auto' : '100%',
-        left: '0px',
+        right: '0px',
         visibility: 'visible',
         position: 'absolute',
       };

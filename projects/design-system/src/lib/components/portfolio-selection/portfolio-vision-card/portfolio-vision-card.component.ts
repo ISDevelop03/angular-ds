@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Portfolio-vision-cardComponent
@@ -16,5 +16,9 @@ export class PortfolioVisionCardComponent {
   @Input() isSelected: boolean = false;
   @Input() className: string = '';
 
-  @Input() handleClick: () => void;
+  @Output() click = new EventEmitter<void>();
+
+  handleClick() {
+    this.click.emit();
+  }
 }

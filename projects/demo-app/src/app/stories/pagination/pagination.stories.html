@@ -4,6 +4,16 @@
   <ds-pagination
     [totalItems]="200"
     [currentPage]="currentPage"
+    variant="default"
+    [boundaryStartCount]="2"
+    [boundaryEndCount]="2"
+    [(itemsPerPage)]="itemsPerPage"
+    (pageChange)="onPageChange($event)"
+    (perPageChange)="onPerPageChange($event)"
+  ></ds-pagination>
+  <ds-pagination
+    [totalItems]="200"
+    [currentPage]="currentPage"
     [showPerPage]="showPerPage"
     variant="default"
     [boundaryStartCount]="2"

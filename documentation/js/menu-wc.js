@@ -64,15 +64,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/DesignSystemModule.html" data-type="entity-link" >DesignSystemModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-DesignSystemModule-72b41327f7f9c70494d8fa1b1ec4fdddb1952e8d0cb5527aeee869bd0329e8d959e90933bba2561e732b7c496bb840f3d292d10fbb9924542c1ff927067cf653"' : 'data-bs-target="#xs-components-links-module-DesignSystemModule-72b41327f7f9c70494d8fa1b1ec4fdddb1952e8d0cb5527aeee869bd0329e8d959e90933bba2561e732b7c496bb840f3d292d10fbb9924542c1ff927067cf653"' }>
+                                            'data-bs-target="#components-links-module-DesignSystemModule-e51007b6069e55e66198ac5f083c5c8b39dd0cd6a5b32a6551503465533b46b2bd3bdbb6703db6766dcb06f263805caeb27fa25f3b81408f25979c3fb115d228"' : 'data-bs-target="#xs-components-links-module-DesignSystemModule-e51007b6069e55e66198ac5f083c5c8b39dd0cd6a5b32a6551503465533b46b2bd3bdbb6703db6766dcb06f263805caeb27fa25f3b81408f25979c3fb115d228"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DesignSystemModule-72b41327f7f9c70494d8fa1b1ec4fdddb1952e8d0cb5527aeee869bd0329e8d959e90933bba2561e732b7c496bb840f3d292d10fbb9924542c1ff927067cf653"' :
-                                            'id="xs-components-links-module-DesignSystemModule-72b41327f7f9c70494d8fa1b1ec4fdddb1952e8d0cb5527aeee869bd0329e8d959e90933bba2561e732b7c496bb840f3d292d10fbb9924542c1ff927067cf653"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DesignSystemModule-e51007b6069e55e66198ac5f083c5c8b39dd0cd6a5b32a6551503465533b46b2bd3bdbb6703db6766dcb06f263805caeb27fa25f3b81408f25979c3fb115d228"' :
+                                            'id="xs-components-links-module-DesignSystemModule-e51007b6069e55e66198ac5f083c5c8b39dd0cd6a5b32a6551503465533b46b2bd3bdbb6703db6766dcb06f263805caeb27fa25f3b81408f25979c3fb115d228"' }>
                                             <li class="link">
                                                 <a href="components/AccordionComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccordionComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/AccountCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountCardComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/AccountHoldingCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountHoldingCardComponent</a>
@@ -192,13 +195,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                 <a href="components/NotificationCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NotificationCardComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/NumbersCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NumbersCardComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/PaymentCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PaymentCardComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/PaymentDetailsCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PaymentDetailsCardComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/PortfolioComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PortfolioComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/PortfolioItemCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PortfolioItemCardComponent</a>
@@ -220,6 +223,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             </li>
                                             <li class="link">
                                                 <a href="components/SheetLatestOpsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SheetLatestOpsComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/SliderDotsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SliderDotsComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/StepsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >StepsComponent</a>
@@ -360,6 +366,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/PerPage.html" data-type="entity-link" >PerPage</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/Portfolio.html" data-type="entity-link" >Portfolio</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/PrevNextProps.html" data-type="entity-link" >PrevNextProps</a>
                             </li>
                             <li class="link">
@@ -398,6 +407,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <a data-type="chapter-link" href="routes.html"><span class="icon ion-ios-git-branch"></span>Routes</a>
+                        </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
                     </li>

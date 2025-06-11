@@ -5,13 +5,13 @@
       [title]="title"
       [image]="image"
       [isSelected]="isSelected"
-      [handleClick]="handleClick"
+      (click)="handleClick"
     ></ds-portfolio-vision-card>
     <ds-portfolio-vision-card
       [title]="title"
       [image]="image"
       [isSelected]="!isSelected"
-      [handleClick]="handleClick"
+      (click)="handleClick"
     ></ds-portfolio-vision-card>
   </div>
 </section>

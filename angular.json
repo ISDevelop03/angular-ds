@@ -56,7 +56,7 @@
               "projects/demo-app/src/assets",
               {
                 "glob": "icons.svg",
-                "input": "dist/design-system",
+                "input": "dist/mybusiness-design-system",
                 "output": "/assets"
               }
             ],

@@ -23,12 +23,10 @@ export class CurrencyConverterStoryComponent {
     },
   ];
 
-  conversionRates = {
-    'EUR-MAD': 11,
-    'MAD-EUR': 0.09,
-    'EUR-USD': 1.1,
-    'USD-EUR': 0.91,
-  };
+  value: number = 1;
+  currency: string = this.currencies[0].value;
 
-  chartData = [{ value: 100 }, { value: 200 }];
+  onInput(event) {
+    this.value = event.target.valueAsNumber;
+  }
 }

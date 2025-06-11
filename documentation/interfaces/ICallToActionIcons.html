@@ -241,15 +241,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ICallToActionIcons {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DropdownItem } from &#x27;../dropdown/types&#x27;;
+
+export interface ICallToActionIcons {
   className?: string;
   actions: ICallToActionIcon[];
 }
 
 export interface ICallToActionIcon {
   icon: string;
-  onClick?: () &#x3D;&gt; void;
+  onClick?: (item?: any) &#x3D;&gt; void;
   buttonClassName?: string;
+  dropdownItems?: DropdownItem[];
 }
 </code></pre>
     </div>

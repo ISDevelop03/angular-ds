@@ -14,6 +14,50 @@
     <div
       class="h-[calc(100vh-24px)] z-[3] relative overflow-y-auto bg-white dark:bg-black text-black dark:text-white rounded-2xl p-4"
     >
+      <div class="flex items-center justify-between mb-4 w-full">
+        <ds-portfolio
+          [portfolios]="portfolios"
+          [selected]="this.portfolios[0]"
+          [holding]="holding"
+        ></ds-portfolio>
+        <button
+          class="text-sm text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
+          (click)="hideWrapperBackground = !hideWrapperBackground"
+        >
+          Toggle Background
+        </button>
+      </div>
+
+      <div class="flex items-items gap-4 w-full justify-start">
+        <!-- <h2 class="text-lg font-semibold mb-4">Accounts</h2> -->
+        <div
+          class="w-full overflow-hidden"
+          [ngClass]="[hideWrapperBackground ? 'max-w-[calc(100vw-225px-54px-32px)]':'max-w-[calc(100vw-225px-54px-32px)]']"
+        >
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let account of accounts; let idx = index">
+              <ng-template carouselSlide [id]="idx">
+                <ds-account-slider-card
+                  [account_number]="account.account_number"
+                  [balance]="account.balance"
+                  [currency]="account.currency"
+                  [type]="account.type"
+                  [id]="account.id"
+                  [date]="account.date"
+                  [actionsList]="actionsList"
+                  [onClick]="cardOnClick.bind(this, account.id)"
+                ></ds-account-slider-card>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="mb-4">
+        <p class="text-gray-600 dark:text-gray-400">
+          This sidebar contains a list of main menus and profile menus, which
+          can be expanded or collapsed.
+        </p>
+      </div>
       <h1 class="text-2xl font-bold mb-4">Sidebar Demo</h1>
       <p class="dark:text-gray-400 text-gray-700">
         This is a live preview of the ds-sidebar component with nested menus.

@@ -10,6 +10,7 @@
     <ds-upload-file
       [maxFileSizeMB]="10"
       [allowedExtensions]="['csv','txt','json','pdf']"
+      [simulateSlowUpload]="true"
       [downloadTemplateLink]="templateLink"
       (fileSelected)="onFileSelected($event)"
     >
@@ -22,7 +23,7 @@
           imprimeur anonyme assembla ensemble des morceaux de texte pour
           réaliser un livre spécimen de polices de texte.
         </p>
-      </div></ds-upload-file
-    >
+      </div>
+    </ds-upload-file>
   </div>
 </section>

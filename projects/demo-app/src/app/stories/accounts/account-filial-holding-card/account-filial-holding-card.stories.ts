@@ -1,24 +1,42 @@
 import { Component } from '@angular/core';
-import { DropdownItem } from 'projects/design-system/src/lib/components/dropdown/types';
+import { ICallToActionIcon } from 'projects/design-system/src/lib/components/call-to-action-icons/types';
 
 @Component({
   selector: 'app-account-filial-holding-card',
   templateUrl: './account-filial-holding-card.stories.html',
 })
 export class AccountFilialHoldingCardStoryComponent {
-  image: string = 'https://placehold.co/60';
-  title: string = 'JESA Group';
-
-  actionsList: DropdownItem[] = [
+  accounts = [
     {
-      label: 'Info',
-      icon: 'info-circle',
-      onClick: () => alert('Info clicked'),
+      image: 'https://placehold.co/60?text=JESA+Group',
+      title: 'JESA Group',
     },
     {
-      label: 'More',
+      image: 'https://placehold.co/60?text=Test+Company',
+      title: 'Test Company',
+    },
+    {
+      image: 'https://placehold.co/60?text=Another+Company',
+      title: 'Another Company',
+    },
+    {
+      image: 'https://placehold.co/60?text=Example+Corp',
+      title: 'Example Corp',
+    },
+    {
+      image: 'https://placehold.co/60?text=Sample+Holdings',
+      title: 'Sample Holdings',
+    },
+  ];
+
+  actionsList: ICallToActionIcon[] = [
+    {
+      icon: 'info-circle',
+      onClick: (item) => alert('Info clicked ' + JSON.stringify(item)),
+    },
+    {
       icon: 'more-1',
-      onClick: () => alert('More clicked'),
+      onClick: (item) => alert('More clicked' + JSON.stringify(item)),
     },
   ];
 }

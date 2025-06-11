@@ -4,3 +4,5 @@
 
 @import "./colors.css";
 @import "./custom.css";
+@import "./owl-carousel/styles.min.css";
+@import "./owl-carousel/theme.min.css";

@@ -1,7 +1,7 @@
 <ng-container *ngIf="balance !== 0">
   <span [ngClass]="wrapperClass">
     <ng-container *ngIf="showIcon && !isDiscrete">
-      <ds-icon [id]="iconId" [class]="iconClass"></ds-icon>
+      <ds-icon [id]="iconId" size="16px" [class]="iconClass"></ds-icon>
     </ng-container>
 
     <span *ngIf="isDiscrete; else formattedBalance">

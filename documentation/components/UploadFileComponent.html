@@ -202,7 +202,13 @@
                                 <a href="#currentTheme" >currentTheme</a>
                             </li>
                             <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
                                 <a href="#previewRows" >previewRows</a>
+                            </li>
+                            <li>
+                                <a href="#progress" >progress</a>
                             </li>
                             <li>
                                 <a href="#selectedFile" >selectedFile</a>
@@ -225,6 +231,10 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#handleFile" >handleFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockUploadThenPreview" >mockUploadThenPreview</a>
                             </li>
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
@@ -265,6 +275,9 @@
                             </li>
                             <li>
                                 <a href="#maxFileSizeMB" >maxFileSizeMB</a>
+                            </li>
+                            <li>
+                                <a href="#simulateSlowUpload" >simulateSlowUpload</a>
                             </li>
                             <li>
                                 <a href="#variant" >variant</a>
@@ -400,6 +413,38 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="simulateSlowUpload"></a>
+                        <b>simulateSlowUpload</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:23</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>If true, we’ll fake the upload progress (instead of immediately reading).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="variant"></a>
                         <b>variant</b>
                     </td>
@@ -441,7 +486,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:25</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -476,8 +521,77 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="51"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:51</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                        <code>File</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockUploadThenPreview"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockUploadThenPreview</b></span>
+                        <a href="#mockUploadThenPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockUploadThenPreview(file: File)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:98</a></div>
                         </td>
                     </tr>
 
@@ -543,8 +657,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -580,8 +694,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -647,8 +761,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -714,8 +828,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -783,8 +897,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="67"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:67</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:122</a></div>
                         </td>
                     </tr>
 
@@ -855,10 +969,47 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:28</a></div>
                         </td>
                     </tr>
 
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>new: loading + (optional) progress</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -886,7 +1037,38 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="progress"></a>
+                    <span class="name">
+                        <span ><b>progress</b></span>
+                        <a href="#progress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>30</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -917,7 +1099,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -948,7 +1130,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/design-system/src/lib/components/form-elements/upload-file/upload-file.component.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -981,6 +1163,9 @@ export class UploadFileComponent implements OnInit {
   @Input() downloadTemplateLink: string;
   @Input() className &#x3D; &#x27;&#x27;;
 
+  /** If true, we’ll fake the upload progress (instead of immediately reading). */
+  @Input() simulateSlowUpload: boolean &#x3D; false;
+
   @Output() fileSelected &#x3D; new EventEmitter&lt;File&gt;();
 
   theme &#x3D; uploadFileThemes;
@@ -989,6 +1174,10 @@ export class UploadFileComponent implements OnInit {
   /** for preview */
   selectedFile: File | null &#x3D; null;
   previewRows: string[][] &#x3D; [];
+
+  /** new: loading + (optional) progress */
+  loading: boolean &#x3D; false;
+  progress: number &#x3D; 30; // from 0 to 100
 
   ngOnInit() {
     this.currentTheme &#x3D; this.theme[this.variant] || this.theme.light;
@@ -1011,38 +1200,105 @@ export class UploadFileComponent implements OnInit {
   }
 
   private handleFile(file: File) {
+    // Validate extension
     const ext &#x3D; (file.name.split(&#x27;.&#x27;).pop() || &#x27;&#x27;).toLowerCase();
     if (!this.allowedExtensions.includes(ext)) {
       alert(&#x60;Invalid file type. Allowed: ${this.allowedExtensions.join(&#x27;, &#x27;)}&#x60;);
       return;
     }
+
+    // Validate size
     if (file.size &gt; this.maxFileSizeMB * 1024 * 1024) {
       alert(&#x60;Max file size is ${this.maxFileSizeMB} MB&#x60;);
       return;
     }
 
     this.selectedFile &#x3D; file;
-    this.parsePreview(file);
-    this.fileSelected.emit(file);
+    this.loading &#x3D; true;
+    this.progress &#x3D; 0;
+
+    if (this.simulateSlowUpload) {
+      this.mockUploadThenPreview(file);
+    } else {
+      // real‐world: immediately show preview/progress
+      this.parsePreview(file);
+      this.fileSelected.emit(file);
+    }
+
+    // If you were uploading to a server, you could also hook into
+    // an XHR upload progress event here, e.g.:
+    // const xhr &#x3D; new XMLHttpRequest();
+    // xhr.upload.onprogress &#x3D; (e) &#x3D;&gt; {
+    //   if (e.lengthComputable) {
+    //     this.progress &#x3D; Math.round((e.loaded / e.total) * 100);
+    //   }
+    // };
+    // xhr.onloadend &#x3D; () &#x3D;&gt; {
+    //   this.loading &#x3D; false;
+    // };
+    // ... etc.
+  }
+
+  private mockUploadThenPreview(file: File) {
+    // How often (ms) to tick, and how many ticks total → ~3 seconds
+    const totalDurationMs &#x3D; 3000;
+    const tickIntervalMs &#x3D; 100; // every 100ms
+    const totalTicks &#x3D; totalDurationMs / tickIntervalMs; // e.g. 30 ticks
+    let ticks &#x3D; 0;
+
+    const intervalId &#x3D; window.setInterval(() &#x3D;&gt; {
+      ticks++;
+      this.progress &#x3D; Math.round((ticks / totalTicks) * 100);
+
+      if (ticks &gt;&#x3D; totalTicks) {
+        clearInterval(intervalId);
+
+        // Ensure progress is exactly 100
+        this.progress &#x3D; 100;
+
+        // Now that “upload” is “done,” parse the preview and emit
+        this.parsePreview(file);
+        this.fileSelected.emit(file);
+      }
+    }, tickIntervalMs);
   }
 
   private parsePreview(file: File) {
     // only CSV preview
     if (file.type !&#x3D;&#x3D; &#x27;text/csv&#x27; &amp;&amp; !file.name.toLowerCase().endsWith(&#x27;.csv&#x27;)) {
+      // no preview; immediately clear loading
       this.previewRows &#x3D; [];
+      this.loading &#x3D; false;
       return;
     }
 
     const reader &#x3D; new FileReader();
+
+    reader.onprogress &#x3D; (event: ProgressEvent) &#x3D;&gt; {
+      if (event.lengthComputable) {
+        this.progress &#x3D; Math.round((event.loaded / event.total) * 100);
+      }
+    };
+
     reader.onload &#x3D; () &#x3D;&gt; {
       const text &#x3D; reader.result as string;
       const lines &#x3D; text
         .split(/\r\n|\n/)
         .filter((l) &#x3D;&gt; l.trim().length)
-        .slice(0, 6); // header + 5 rows
-
+        .slice(0, 6); // header + first 5 rows
       this.previewRows &#x3D; lines.map((line) &#x3D;&gt; line.split(/[,;]+/));
+
+      // Parsing is done, turn off loading
+      this.loading &#x3D; false;
+      this.progress &#x3D; 100;
     };
+
+    reader.onerror &#x3D; () &#x3D;&gt; {
+      alert(&#x27;Error reading file for preview.&#x27;);
+      this.loading &#x3D; false;
+      this.progress &#x3D; 0;
+    };
+
     reader.readAsText(file);
   }
 }
@@ -1088,31 +1344,65 @@ export class UploadFileComponent implements OnInit {
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;!-- Preview section --&gt;
-&lt;div
-  *ngIf&#x3D;&quot;selectedFile&quot;
-  class&#x3D;&quot;relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start mt-4&quot;
-&gt;
+&lt;ng-container *ngIf&#x3D;&quot;loading; else selected&quot; class&#x3D;&quot;mt-2&quot;&gt;
   &lt;div
-    class&#x3D;&quot;flex items-center justify-center rounded-md w-8 h-8 bg-green-50 text-green-500&quot;
+    *ngIf&#x3D;&quot;selectedFile&quot;
+    class&#x3D;&quot;relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4 mt-4&quot;
   &gt;
-    &lt;ds-icon id&#x3D;&quot;file-edit-02&quot; size&#x3D;&quot;16px&quot;&gt;&lt;/ds-icon&gt;
-  &lt;/div&gt;
+    &lt;div
+      class&#x3D;&quot;absolute inset-0 h-full bg-red-50 w-1/4 transition-all duration-300 ease-in-out&quot;
+      [style.width]&#x3D;&quot;progress + &#x27;%&#x27;&quot;
+    &gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;relative w-full z-[1] flex gap-4 items-center justify-start&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;flex items-center justify-center rounded-md w-8 h-8 bg-level-3 text-red-500&quot;
+      &gt;
+        &lt;ds-icon id&#x3D;&quot;file-edit-02&quot; size&#x3D;&quot;16px&quot;&gt;&lt;/ds-icon&gt;
+      &lt;/div&gt;
 
-  &lt;div class&#x3D;&quot;flex flex-col gap-1 text-neutral-700&quot;&gt;
-    &lt;p class&#x3D;&quot;text-[14px] leading-[20px] font-bold&quot;&gt;
-      {{ selectedFile.name }}
-    &lt;/p&gt;
-    &lt;p class&#x3D;&quot;text-[12px] leading-[18px] font-normal&quot;&gt;
-      {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
-    &lt;/p&gt;
+      &lt;div class&#x3D;&quot;flex flex-col gap-1 text-neutral-700&quot;&gt;
+        &lt;p class&#x3D;&quot;text-[14px] leading-[20px] font-bold&quot;&gt;
+          {{ selectedFile.name }}
+        &lt;/p&gt;
+        &lt;p class&#x3D;&quot;text-[12px] leading-[18px] font-normal&quot;&gt;
+          {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;span
+        class&#x3D;&quot;absolute right-3 top-1/2 -translate-y-1/2 font-medium text-sm&quot;
+      &gt;
+        {{ progress }} %
+      &lt;/span&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;span
-    class&#x3D;&quot;absolute right-3 top-3 rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5&quot;
+&lt;/ng-container&gt;
+&lt;!-- Preview section --&gt;
+&lt;ng-template #selected&gt;
+  &lt;div
+    *ngIf&#x3D;&quot;selectedFile&quot;
+    class&#x3D;&quot;relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start mt-4&quot;
   &gt;
-    &lt;ds-icon id&#x3D;&quot;check&quot; size&#x3D;&quot;16px&quot; class&#x3D;&quot;shrink-0&quot;&gt;&lt;/ds-icon&gt;
-  &lt;/span&gt;
-&lt;/div&gt;
+    &lt;div
+      class&#x3D;&quot;flex items-center justify-center rounded-md w-8 h-8 bg-green-50 text-green-500&quot;
+    &gt;
+      &lt;ds-icon id&#x3D;&quot;file-edit-02&quot; size&#x3D;&quot;16px&quot;&gt;&lt;/ds-icon&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-col gap-1 text-neutral-700&quot;&gt;
+      &lt;p class&#x3D;&quot;text-[14px] leading-[20px] font-bold&quot;&gt;
+        {{ selectedFile.name }}
+      &lt;/p&gt;
+      &lt;p class&#x3D;&quot;text-[12px] leading-[18px] font-normal&quot;&gt;
+        {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span
+      class&#x3D;&quot;absolute right-3 top-3 rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5&quot;
+    &gt;
+      &lt;ds-icon id&#x3D;&quot;check&quot; size&#x3D;&quot;16px&quot; class&#x3D;&quot;shrink-0&quot;&gt;&lt;/ds-icon&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
 </code></pre>
     </div>
 
@@ -1147,8 +1437,8 @@ export class UploadFileComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div  [ngClass]="[currentTheme.wrapper, className]"  (drop)="onDrop($event)"  (dragover)="onDragOver($event)">  <div [ngClass]="currentTheme.icon">    <ds-icon id="upload-cloud" size="20px" class="text-red-500"></ds-icon>  </div>  <div [ngClass]="[currentTheme.text]">    <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>    <p>      Fichier      <span class="font-semibold">        {{ allowedExtensions.join(", ") }}      </span>      - Taille autorisée : {{ maxFileSizeMB }} Mo    </p>    <p>      Un modèle de fichier est à votre disposition pour téléchargement      <a        [href]="downloadTemplateLink"        target="_blank"        class="relative underline text-red-500 font-bold"      >        <input          type="file"          [accept]="\'.\' + allowedExtensions.join(\',.\')"          class="absolute inset-0 opacity-0 cursor-pointer"          (change)="onFileChange($event)"        />        ici</a      >    </p>    <ng-content></ng-content>  </div></div><!-- Preview section --><div  *ngIf="selectedFile"  class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start mt-4">  <div    class="flex items-center justify-center rounded-md w-8 h-8 bg-green-50 text-green-500"  >    <ds-icon id="file-edit-02" size="16px"></ds-icon>  </div>  <div class="flex flex-col gap-1 text-neutral-700">    <p class="text-[14px] leading-[20px] font-bold">      {{ selectedFile.name }}    </p>    <p class="text-[12px] leading-[18px] font-normal">      {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé    </p>  </div>  <span    class="absolute right-3 top-3 rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5"  >    <ds-icon id="check" size="16px" class="shrink-0"></ds-icon>  </span></div></div>'
-    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'NumbersCardComponent', 'selector': 'ds-numbers-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><div  [ngClass]="[currentTheme.wrapper, className]"  (drop)="onDrop($event)"  (dragover)="onDragOver($event)">  <div [ngClass]="currentTheme.icon">    <ds-icon id="upload-cloud" size="20px" class="text-red-500"></ds-icon>  </div>  <div [ngClass]="[currentTheme.text]">    <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>    <p>      Fichier      <span class="font-semibold">        {{ allowedExtensions.join(", ") }}      </span>      - Taille autorisée : {{ maxFileSizeMB }} Mo    </p>    <p>      Un modèle de fichier est à votre disposition pour téléchargement      <a        [href]="downloadTemplateLink"        target="_blank"        class="relative underline text-red-500 font-bold"      >        <input          type="file"          [accept]="\'.\' + allowedExtensions.join(\',.\')"          class="absolute inset-0 opacity-0 cursor-pointer"          (change)="onFileChange($event)"        />        ici</a      >    </p>    <ng-content></ng-content>  </div></div><ng-container *ngIf="loading; else selected" class="mt-2">  <div    *ngIf="selectedFile"    class="relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4 mt-4"  >    <div      class="absolute inset-0 h-full bg-red-50 w-1/4 transition-all duration-300 ease-in-out"      [style.width]="progress + \'%\'"    ></div>    <div class="relative w-full z-[1] flex gap-4 items-center justify-start">      <div        class="flex items-center justify-center rounded-md w-8 h-8 bg-level-3 text-red-500"      >        <ds-icon id="file-edit-02" size="16px"></ds-icon>      </div>      <div class="flex flex-col gap-1 text-neutral-700">        <p class="text-[14px] leading-[20px] font-bold">          {{ selectedFile.name }}        </p>        <p class="text-[12px] leading-[18px] font-normal">          {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo        </p>      </div>      <span        class="absolute right-3 top-1/2 -translate-y-1/2 font-medium text-sm"      >        {{ progress }} %      </span>    </div>  </div></ng-container><!-- Preview section --><ng-template #selected>  <div    *ngIf="selectedFile"    class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start mt-4"  >    <div      class="flex items-center justify-center rounded-md w-8 h-8 bg-green-50 text-green-500"    >      <ds-icon id="file-edit-02" size="16px"></ds-icon>    </div>    <div class="flex flex-col gap-1 text-neutral-700">      <p class="text-[14px] leading-[20px] font-bold">        {{ selectedFile.name }}      </p>      <p class="text-[12px] leading-[18px] font-normal">        {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé      </p>    </div>    <span      class="absolute right-3 top-3 rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5"    >      <ds-icon id="check" size="16px" class="shrink-0"></ds-icon>    </span>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UploadFileComponent'};
 </script>

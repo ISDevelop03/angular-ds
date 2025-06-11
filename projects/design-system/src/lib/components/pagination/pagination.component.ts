@@ -22,6 +22,7 @@ type PageItem = number | '...';
   templateUrl: './pagination.component.html',
 })
 export class DsPaginationComponent implements OnChanges {
+  @Input() firstItem = 1;
   @Input() totalItems = 0;
   @Input() itemsPerPage: number;
   @Input() currentPage = 1;

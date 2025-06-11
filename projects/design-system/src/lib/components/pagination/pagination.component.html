@@ -1,7 +1,23 @@
 <nav [ngClass]="[theme[variant].wrapper, className]">
-  <span [ngClass]="[theme[variant].info]">
-    (1-{{ itemsPerPage }}/100) Par page:
-  </span>
+  <div class="flex items-center justify-center gap-3">
+    <span [ngClass]="[theme[variant].info]">
+      ({{ firstItem }}-{{ itemsPerPage }}/{{ totalItems }}) Par page:
+    </span>
+
+    <ul *ngIf="showPerPage" class="flex items-center justify-center gap-2">
+      <li
+        class="text-sm"
+        [ngClass]="[
+          itemsPerPage === item ? 'text-red-500 font-bold' : 'text-neutral-700'
+        ]"
+        *ngFor="let item of perPageOptions"
+      >
+        <button (click)="changePerPage(item)">
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
   <div [ngClass]="[theme[variant].container]">
     <!-- Prev Button -->
     <button

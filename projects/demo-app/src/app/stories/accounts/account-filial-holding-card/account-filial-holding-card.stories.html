@@ -2,8 +2,9 @@
   <h3>Default Account Filial Holding Card</h3>
 
   <ds-account-filial-holding-card
-    [image]="image"
-    [title]="title"
+    *ngFor="let account of accounts"
+    [image]="account.image"
+    [title]="account.title"
     [actionsList]="actionsList"
   >
     <!-- Slot content inside accordion -->

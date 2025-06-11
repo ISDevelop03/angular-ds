@@ -92,11 +92,11 @@ export const menus: Menu[] = [
     path: '/range',
     key: 'range',
   },
-  {
-    name: 'Textarea',
-    path: '/textarea',
-    key: 'textarea',
-  },
+  // {
+  //   name: 'Textarea',
+  //   path: '/textarea',
+  //   key: 'textarea',
+  // },
   {
     name: 'Select',
     path: '/select',
@@ -145,11 +145,6 @@ export const menus: Menu[] = [
     name: 'Notification Card',
     path: '/notification-card',
     key: 'notification-card',
-  },
-  {
-    name: 'Numbers Card',
-    path: '/numbers-card',
-    key: 'numbers-card',
   },
   {
     name: 'Progress',
@@ -255,4 +250,6 @@ export const menus: Menu[] = [
   { key: 'todo-tab', name: 'TodoTab', path: '/todo-tab' },
   { key: 'todo-card', name: 'TodoCard', path: '/todo-card' },
   { key: 'slider-dots', name: 'SliderDots', path: '/slider-dots' },
+  { key: 'account-card', name: 'AccountCard', path: '/account-card' },
+  { key: 'portfolio', name: 'Portfolio', path: '/portfolio' },
 ];

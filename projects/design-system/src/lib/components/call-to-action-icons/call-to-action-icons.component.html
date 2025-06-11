@@ -4,7 +4,20 @@
       *ngIf="theme[variant] && theme[variant].separator && i > 0"
       [ngClass]="[theme[variant].separator || '']"
     ></div>
+    <ds-dropdown
+      *ngIf="action.dropdownItems && action.dropdownItems.length > 0"
+      [items]="action.dropdownItems"
+      [className]="'mt-1.5'"
+    >
+      <ds-icon
+        [id]="action.icon"
+        [size]="theme[variant].iconSize"
+        [ngClass]="theme[variant].icon"
+      ></ds-icon>
+    </ds-dropdown>
+
     <button
+      *ngIf="!action.dropdownItems"
       type="button"
       (click)="handleClick(action)"
       [ngClass]="[theme[variant].button, action.buttonClassName || '']"

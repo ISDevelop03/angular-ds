@@ -1,3 +1,5 @@
+import { DropdownItem } from '../dropdown/types';
+
 export interface ICallToActionIcons {
   className?: string;
   actions: ICallToActionIcon[];
@@ -5,6 +7,7 @@ export interface ICallToActionIcons {
 
 export interface ICallToActionIcon {
   icon: string;
-  onClick?: () => void;
+  onClick?: (item?: any) => void;
   buttonClassName?: string;
+  dropdownItems?: DropdownItem[];
 }

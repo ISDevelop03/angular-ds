@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { ICallToActionIcon } from 'projects/design-system/src/lib/components/call-to-action-icons/types';
 
 @Component({
   selector: 'app-invoice-card',
   templateUrl: './invoice-card.stories.html',
 })
 export class InvoiceCardStoryComponent {
-  @Input() actions?: {
+  items?: {
     label: string;
     value: string;
     icon?: string;
@@ -30,10 +31,25 @@ export class InvoiceCardStoryComponent {
       onClick: () => console.log('Share clicked'),
     },
   ];
-  @Input() href?: string = '/invoice-card';
-  @Input() title: string = 'Ministère de l’Equipement et du Transport';
-  @Input() image: string = 'https://placehold.co/100';
-  @Input() className?: string = '';
+  href?: string = '/invoice-card';
+  title: string = 'Ministère de l’Equipement et du Transport';
+  image: string = 'https://placehold.co/100';
+  className?: string = '';
+
+  actions: ICallToActionIcon[] = [
+    {
+      icon: 'eye',
+      onClick: () => console.log('Eye clicked'),
+    },
+    {
+      icon: 'pen',
+      onClick: () => console.log('Edit clicked'),
+    },
+    {
+      icon: 'trash',
+      onClick: () => console.log('Trash clicked'),
+    },
+  ];
 
   onClick(event: Event) {
     event.preventDefault();

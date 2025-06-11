@@ -4,6 +4,3 @@
 
 export * from './lib/design-system.module';
 export * from './lib/design-system.service';
-
-// Utils
-export * from './utils';

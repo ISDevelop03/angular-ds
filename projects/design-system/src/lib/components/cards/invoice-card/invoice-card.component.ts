@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
 export interface InvoiceActions {
   label: string;
@@ -18,7 +19,8 @@ export interface InvoiceActions {
   templateUrl: './invoice-card.component.html',
 })
 export class InvoiceCardComponent {
-  @Input() actions?: InvoiceActions[] = [];
+  @Input() items?: InvoiceActions[] = [];
+  @Input() actions?: ICallToActionIcon[] = [];
   @Input() href?: string = '';
   @Input() title: string = '';
   @Input() image: string = '';

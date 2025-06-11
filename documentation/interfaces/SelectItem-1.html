@@ -545,11 +545,12 @@ export class DsSelectComponent {
   @Input() variant: keyof typeof theme &#x3D; &#x27;default&#x27;;
   @Input() disabled: boolean &#x3D; false;
   @Input() hasError: boolean &#x3D; false;
+  @Input() pill: boolean &#x3D; false;
   @Input() emptyLabel: string &#x3D; &#x27;No options&#x27;;
   @Input() multiple: boolean &#x3D; false;
   @Input() isLoading: boolean &#x3D; false;
-  @Input() className?: string;
   @Input() buttonIcon?: string;
+  @Input() className?: string;
   @Input() value: string | string[] | null &#x3D; null;
   @Input() customOptionsStyles?: { [key: string]: any };
 

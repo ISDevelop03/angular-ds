@@ -128,7 +128,7 @@
                             <a href="#checkbox" title="projects/design-system/src/lib/components/form-elements/checkbox/theme.ts" ><b>checkbox</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
-                            <a href="#checkItemsMenu" title="projects/design-system/src/utils.ts" ><b>checkItemsMenu</b>&nbsp;&nbsp;&nbsp;(projects/.../utils.ts)</a>
+                            <a href="#checkItemsMenu" title="projects/design-system/src/lib/utils.ts" ><b>checkItemsMenu</b>&nbsp;&nbsp;&nbsp;(projects/.../utils.ts)</a>
                         </li>
                         <li>
                             <a href="#DatePickerTheme" title="projects/design-system/src/lib/components/form-elements/date-picker/theme.ts" ><b>DatePickerTheme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
@@ -140,7 +140,7 @@
                             <a href="#dropdown" title="projects/design-system/src/lib/components/dropdown/theme.ts" ><b>dropdown</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
-                            <a href="#formatMoney" title="projects/design-system/src/utils.ts" ><b>formatMoney</b>&nbsp;&nbsp;&nbsp;(projects/.../utils.ts)</a>
+                            <a href="#formatMoney" title="projects/design-system/src/lib/utils.ts" ><b>formatMoney</b>&nbsp;&nbsp;&nbsp;(projects/.../utils.ts)</a>
                         </li>
                         <li>
                             <a href="#input" title="projects/design-system/src/lib/components/form-elements/input/theme.ts" ><b>input</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
@@ -167,6 +167,9 @@
                             <a href="#RangeSelectorTheme" title="projects/design-system/src/lib/components/form-elements/range/theme.ts" ><b>RangeSelectorTheme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
+                            <a href="#SliderDotsTheme" title="projects/design-system/src/lib/components/slider-dots/theme.ts" ><b>SliderDotsTheme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
+                        </li>
+                        <li>
                             <a href="#STEPS_THEME" title="projects/design-system/src/lib/components/steps/theme.ts" ><b>STEPS_THEME</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
@@ -179,10 +182,10 @@
                             <a href="#textVariants" title="projects/design-system/src/lib/components/badge/theme.ts" ><b>textVariants</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
-                            <a href="#theme" title="projects/design-system/src/lib/components/accordion/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
+                            <a href="#theme" title="projects/design-system/src/lib/components/balance-formatter/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
-                            <a href="#theme" title="projects/design-system/src/lib/components/balance-formatter/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
+                            <a href="#theme" title="projects/design-system/src/lib/components/accordion/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
                         </li>
                         <li>
                             <a href="#theme" title="projects/design-system/src/lib/components/popup/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(projects/.../theme.ts)</a>
@@ -539,7 +542,7 @@
         </tbody>
     </table>
 </section>
-    <h3>projects/design-system/src/utils.ts</h3>
+    <h3>projects/design-system/src/lib/utils.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -772,7 +775,7 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-  base: &#x27;relative inline-block&#x27;,
+  base: &#x27;relative isolate inline-block&#x27;,
   button: {
     base: &#x27;flex w-full items-center gap-2 justify-between focus:outline-none focus:border-none data-[hover]:text-custom-black&#x27;,
     active: &#x27;text-primary&#x27;,
@@ -1165,6 +1168,60 @@
         </tbody>
     </table>
 </section>
+    <h3>projects/design-system/src/lib/components/slider-dots/theme.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SliderDotsTheme"></a>
+                    <span class="name">
+                        <span ><b>SliderDotsTheme</b></span>
+                        <a href="#SliderDotsTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  /**
+   * ──────────────────────────────────────────────────────────────────────────────
+   * DEFAULT VARIANT
+   * ──────────────────────────────────────────────────────────────────────────────
+   */
+  default: {
+    container: &#x27;flex items-center gap-3&#x27;,
+    dotsWrapper: &#x27;flex items-center justify-center gap-3&#x27;,
+    dot: {
+      base: &#x27;rounded-[2px] transition-colors cursor-pointer&#x27;,
+      size: &#x27;size-2&#x27;, // Tailwind width/height for each dot
+      activeBg: &#x27;bg-red-500&#x27;, // bg when dot is active
+      inactiveBg: &#x27;bg-neutral-200&#x27;, // bg when dot is inactive
+    },
+    arrow: {
+      wrapper: &#x27;cursor-pointer flex items-center justify-center&#x27;,
+      activeText: &#x27;text-neutral-500&#x27;, // arrow color when “enabled”
+      disabledText: &#x27;text-gray-400&#x27;, // arrow color when “disabled”
+      disabledOpacity: &#x27;opacity-40 !cursor-not-allowed&#x27;,
+    },
+  },
+
+  // You can add more variants here:
+  // e.g. &quot;dark&quot;, &quot;success&quot;, &quot;warning&quot;, “borderless”, etc.
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>projects/design-system/src/lib/components/steps/theme.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1318,6 +1375,42 @@
         </tbody>
     </table>
 </section>
+    <h3>projects/design-system/src/lib/components/balance-formatter/theme.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="theme"></a>
+                    <span class="name">
+                        <span ><b>theme</b></span>
+                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  default: {
+    wrapper:
+      &#x27;text-[12px] leading-[16px] inline-block text-neutral-900 font-bold flex flex-row items-center justify-center w-fit gap-1&#x27;,
+    currency:
+      &#x27;inline-block align-text-top font-bold text-neutral-900 dark:text-white font-[400] &#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>projects/design-system/src/lib/components/accordion/theme.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1399,42 +1492,6 @@
       },
     },
     panel: { base: &#x27;bg-neutral-25 p-4 rounded&#x27; },
-  },
-}</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>projects/design-system/src/lib/components/balance-formatter/theme.ts</h3>
-    <section data-compodoc="block-properties">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="theme"></a>
-                    <span class="name">
-                        <span ><b>theme</b></span>
-                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>{
-  default: {
-    wrapper:
-      &#x27;text-[12px] leading-[16px] inline-block text-neutral-900 font-bold flex flex-row items-center justify-center w-fit gap-1&#x27;,
-    currency:
-      &#x27;inline-block align-text-top font-bold text-neutral-900 dark:text-white font-[400] &#x27;,
   },
 }</code>
                     </td>
@@ -1781,7 +1838,7 @@
         selectedfont:
           &#x27;flex text-heading dark:text-white items-center justify-between w-full &#x27;,
         container:
-          &#x27;absolute top-0 border border-neutral-100 bottom-0 p-1 mb-1 mt-1 max-h-60 overflow-y-auto w-full rounded-lg bg-level-3 py-1 text-[12px] leading-[14px] focus:outline-none border shadow-dropdown2&#x27;,
+          &#x27;absolute top-0 border border-neutral-100 bottom-0 p-1 mb-1 mt-1 min-w-32 max-h-60 overflow-y-auto w-full rounded-lg bg-level-3 py-1 text-[12px] leading-[14px] focus:outline-none border shadow-dropdown2&#x27;,
         element:
           &#x27;w-full hover:bg-neutral-50 rounded cursor-default text-neutral-900 font-bold select-none py-3 px-4&#x27;,
         fontcolor: &#x27;white&#x27;,
@@ -1796,7 +1853,7 @@
       label: &#x27;inline-block text-neutral-900 font-bold text-sm mb-2&#x27;,
       button: {
         select:
-          &#x27;cursor-default text-[10px] flex items-center justify-end gap-2 w-full px-0 py-1.5 rounded bg-transparent placeholder:text-[14px] focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700&#x27;,
+          &#x27;cursor-default  text-[10px] flex items-center justify-end gap-2 w-full px-0 py-1.5 rounded bg-transparent placeholder:text-[14px] focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700&#x27;,
         selected: &#x27;flex items-center flex-row-reverse justify-between gap-2&#x27;,
         error:
           &#x27;ring-1 ring-error-400 border-1 border-error-400 outline-1 border-1 border-error-400&#x27;,
@@ -1817,7 +1874,7 @@
         selectedfont:
           &#x27;flex text-heading dark:text-white items-center justify-between w-full &#x27;,
         container:
-          &#x27;absolute top-0 border border-neutral-100 bottom-0 p-1 mb-1 mt-1 max-h-60 overflow-y-auto w-full rounded-lg bg-level-3 py-1 text-[12px] leading-[14px] focus:outline-none border shadow-dropdown2&#x27;,
+          &#x27;absolute top-0 border right-0 border-neutral-100 bottom-0 p-1 mb-1 mt-1 min-w-24 max-h-60 overflow-y-auto w-full rounded-lg bg-level-3 py-1 text-[12px] leading-[14px] focus:outline-none border shadow-dropdown2&#x27;,
         element:
           &#x27;w-full hover:bg-neutral-50 rounded cursor-default text-neutral-900 font-bold select-none py-1.5 px-2&#x27;,
         fontcolor: &#x27;white&#x27;,
@@ -1925,14 +1982,14 @@
   default: {
     switch: {
       className:
-        &#x27;relative inline-flex items-center transition-all duration-300 ease-in h-[30px] rounded-full w-[50px]&#x27;,
-      enabled: &#x27;bg-primary&#x27;,
-      disabled: &#x27;dark:bg-neutral-700 bg-neutral-200&#x27;,
+        &#x27;relative inline-flex items-center transition-all duration-300 ease-in h-[20px] rounded-full w-[36px]&#x27;,
+      enabled: &#x27;bg-green-500&#x27;,
+      disabled: &#x27;bg-stroke-1&#x27;,
       span: {
-        enabled: &#x27;translate-x-[21px] rtl:-translate-x-[21px]&#x27;,
-        disabled: &#x27;translate-x-px rtl:-translate-x-px&#x27;,
+        enabled: &#x27;translate-x-[17px] rtl:-translate-x-[17px]&#x27;,
+        disabled: &#x27;translate-x-[2px] rtl:-translate-x-[2px]&#x27;,
         className:
-          &#x27;inline-block transition-all duration-150 ease-in w-[28px] h-[28px] transform bg-white rounded-full&#x27;,
+          &#x27;inline-block transition-all duration-150 ease-in w-[17px] h-[17px] transform bg-level-4 rounded-full&#x27;,
       },
     },
   },

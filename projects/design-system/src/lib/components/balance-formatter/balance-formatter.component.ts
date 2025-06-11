@@ -41,7 +41,7 @@ export class DsBalanceFormatterComponent implements OnInit {
   }
 
   get iconClass() {
-    return this.balance > 0 ? 'text-green-500 size-5' : 'text-red-500 size-5';
+    return this.balance > 0 ? 'text-green-500' : 'text-red-500';
   }
 
   get showIcon() {

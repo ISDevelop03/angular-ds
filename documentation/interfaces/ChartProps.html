@@ -196,13 +196,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
 
 interface ChartProps {
   value: number;
 }
 
-interface CurrencieProps {
+interface CurrencyProps {
   value: string;
   label: string;
   symbol: string;
@@ -221,82 +221,25 @@ interface CurrencieProps {
   templateUrl: &#x27;./currency-converter.component.html&#x27;,
 })
 export class CurrencyConverterComponent {
-  @Input() chartData: ChartProps[] &#x3D; [];
-  @Input() showGraph: boolean &#x3D; false;
-  @Input() title?: string;
-  @Input() date?: string;
-  @Input() content?: string;
-  @Input() currencies: CurrencieProps[] &#x3D; [];
-  @Input() conversionRates: { [key: string]: number } &#x3D; {};
+  @Input() value: number;
+  @Input() currency: string;
+  @Input() currencies: CurrencyProps[] &#x3D; [];
 
-  isShowGraph: boolean &#x3D; false;
-  amount1: number &#x3D; 1;
-  amount2: number &#x3D; 10;
-  currency1: string &#x3D; &#x27;EUR&#x27;;
-  currency2: string &#x3D; &#x27;MAD&#x27;;
+  /** emits when the number input changes */
+  @Output() valueChange &#x3D; new EventEmitter&lt;number&gt;();
+  /** emits when the currency select changes */
+  @Output() currencyChange &#x3D; new EventEmitter&lt;string&gt;();
 
-  ngOnInit() {
-    this.isShowGraph &#x3D; this.showGraph;
+  onInput(e: Event) {
+    const num &#x3D; +(e.target as HTMLInputElement).value;
+    this.value &#x3D; num;
+    this.valueChange.emit(num);
   }
 
-  handleConversion(
-    amount: number,
-    fromCurrency: string,
-    toCurrency: string
-  ): number {
-    if (fromCurrency &#x3D;&#x3D;&#x3D; toCurrency) return amount;
-
-    const rate &#x3D; this.conversionRates[&#x60;${fromCurrency}-${toCurrency}&#x60;];
-    if (!rate) {
-      const toEurRate &#x3D; this.conversionRates[&#x60;${fromCurrency}-EUR&#x60;];
-      const fromEurRate &#x3D; this.conversionRates[&#x60;EUR-${toCurrency}&#x60;];
-      if (toEurRate &amp;&amp; fromEurRate) {
-        return Number((amount * toEurRate * fromEurRate).toFixed(2));
-      }
-      return amount;
-    }
-    return Number((amount * rate).toFixed(2));
+  onCurrencyChange(newCur: string) {
+    this.currency &#x3D; newCur;
+    this.currencyChange.emit(newCur);
   }
-
-  handleAmount1Change(value: number) {
-    this.amount1 &#x3D; value;
-    this.amount2 &#x3D; this.handleConversion(value, this.currency1, this.currency2);
-  }
-
-  handleAmount2Change(value: number) {
-    this.amount2 &#x3D; value;
-    this.amount1 &#x3D; this.handleConversion(value, this.currency2, this.currency1);
-  }
-
-  handleToggleShowGraph() {
-    this.isShowGraph &#x3D; !this.isShowGraph;
-  }
-
-  handleInverseCurrencies() {
-    const tempCurrency &#x3D; this.currency1;
-    const tempAmount &#x3D; this.amount1;
-
-    this.currency1 &#x3D; this.currency2;
-    this.currency2 &#x3D; tempCurrency;
-
-    this.amount1 &#x3D; this.amount2;
-    this.amount2 &#x3D; tempAmount;
-  }
-
-  getConversionRate(): number {
-    return this.handleConversion(1, this.currency1, this.currency2);
-  }
-
-  actions &#x3D; [
-    {
-      icon: &#x27;link&#x27;,
-    },
-    {
-      icon: &#x27;graph-pie&#x27;,
-      onClick: () &#x3D;&gt; this.handleToggleShowGraph(),
-      buttonClassName: this.isShowGraph &amp;&amp; &#x27;text-primary&#x27;,
-    },
-  ];
 }
 </code></pre>
     </div>

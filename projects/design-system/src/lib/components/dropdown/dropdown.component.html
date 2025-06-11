@@ -11,24 +11,27 @@
     <ng-content></ng-content>
   </button>
 
-  <div
-    *ngIf="isOpen"
-    #menu
-    [ngClass]="dropdown.container"
-    [ngStyle]="menuStyles"
-  >
-    <button
-      *ngFor="let item of items"
-      (click)="onItemClick(item.onClick)"
-      [ngClass]="dropdown.item.base"
-      type="button"
+  <!-- drop this inline *ngIf block… -->
+  <ng-template #menuTpl>
+    <div
+      #menu
+      @dropdownAnim
+      [ngClass]="dropdown.container"
+      [ngStyle]="menuStyles"
     >
-      <ds-icon
-        *ngIf="item.icon"
-        [id]="item.icon"
-        [className]="dropdown.icon"
-      ></ds-icon>
-      <span class="text-[12px] leading-[16px]">{{ item.label }}</span>
-    </button>
-  </div>
+      <button
+        *ngFor="let item of items"
+        (click)="onItemClick(item.onClick)"
+        [ngClass]="dropdown.item.base"
+        type="button"
+      >
+        <ds-icon
+          *ngIf="item.icon"
+          [id]="item.icon"
+          [className]="dropdown.icon"
+        ></ds-icon>
+        <span class="text-[12px] leading-[16px]">{{ item.label }}</span>
+      </button>
+    </div>
+  </ng-template>
 </div>

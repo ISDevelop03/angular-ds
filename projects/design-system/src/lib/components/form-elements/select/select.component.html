@@ -11,7 +11,8 @@
     [ngClass]="[
       theme[variant].element.button.select,
       hasError ? theme[variant].element.button.error : '',
-      disabled ? theme[variant].element.button.disabled : ''
+      disabled ? theme[variant].element.button.disabled : '',
+      pill ? 'rounded-full' : ''
     ]"
   >
     <div [ngClass]="[theme[variant].element.button.selected]">

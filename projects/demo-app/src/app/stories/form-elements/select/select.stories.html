@@ -7,6 +7,14 @@
     placeholder="Pick one..."
     buttonIcon="message"
   ></ds-select>
+  <ds-select
+    [items]="options"
+    [(value)]="selectedValue"
+    label="Choose Option"
+    placeholder="Pick one..."
+    buttonIcon="message"
+    pill="true"
+  ></ds-select>
 
   <h3>Multi Select</h3>
   <ds-select
@@ -39,6 +47,15 @@
     label="Select Error"
   ></ds-select>
 
+  <h3>Currency Variant</h3>
+  <ds-select
+    [items]="options"
+    [(value)]="selectedValue"
+    label="Choose Option"
+    placeholder="Pick one..."
+    buttonIcon="message"
+    variant="currency"
+  ></ds-select>
   <h3>Currency Variant</h3>
   <ds-select
     [items]="options"

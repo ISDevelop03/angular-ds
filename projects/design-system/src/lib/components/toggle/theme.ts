@@ -2,14 +2,14 @@ export const ToggleTheme = {
   default: {
     switch: {
       className:
-        'relative inline-flex items-center transition-all duration-300 ease-in h-[30px] rounded-full w-[50px]',
-      enabled: 'bg-primary',
-      disabled: 'dark:bg-neutral-700 bg-neutral-200',
+        'relative inline-flex items-center transition-all duration-300 ease-in h-[20px] rounded-full w-[36px]',
+      enabled: 'bg-green-500',
+      disabled: 'bg-stroke-1',
       span: {
-        enabled: 'translate-x-[21px] rtl:-translate-x-[21px]',
-        disabled: 'translate-x-px rtl:-translate-x-px',
+        enabled: 'translate-x-[17px] rtl:-translate-x-[17px]',
+        disabled: 'translate-x-[2px] rtl:-translate-x-[2px]',
         className:
-          'inline-block transition-all duration-150 ease-in w-[28px] h-[28px] transform bg-white rounded-full',
+          'inline-block transition-all duration-150 ease-in w-[17px] h-[17px] transform bg-level-4 rounded-full',
       },
     },
   },

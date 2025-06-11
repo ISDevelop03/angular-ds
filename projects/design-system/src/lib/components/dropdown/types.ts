@@ -1,6 +1,6 @@
 export interface DropdownItem {
   label: string;
   icon?: string;
-  onClick?: () => void;
+  onClick?: (item: any) => void;
   items?: DropdownItem[];
 }

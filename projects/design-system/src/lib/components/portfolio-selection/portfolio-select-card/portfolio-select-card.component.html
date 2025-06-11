@@ -1,6 +1,6 @@
 <div
   class="border border-stroke-1 flex justify-start items-center gap-4 p-1 rounded cursor-pointer bg-card-level-2"
-  (click)="handleClick()"
+  (click)="handleClick(); $event.stopPropagation()"
   [ngClass]="[className]"
 >
   <img
@@ -18,7 +18,11 @@
     </h3>
     <ds-icon
       *ngIf="!reference"
-      [id]="isOpen ? 'arrow-down' : 'arrow-up'"
+      id="arrow-up"
+      [class]="[
+        'transition-all duration-300 ease-in-out ',
+        isOpen ? 'rotate-180' : ''
+      ]"
       size="12px"
     ></ds-icon>
 
@@ -26,7 +30,15 @@
       <p class="text-[10px] leading-[12px]">
         {{ reference }}
       </p>
-      <ds-icon [id]="isOpen ? 'arrow-down' : 'arrow-up'" size="12px"></ds-icon>
+      <!-- <ds-icon [id]="isOpen ? 'arrow-down' : 'arrow-up'" size="12px"></ds-icon> -->
+      <ds-icon
+        id="arrow-up"
+        [class]="[
+          'transition-all duration-300 ease-in-out ',
+          isOpen ? 'rotate-180' : ''
+        ]"
+        size="12px"
+      ></ds-icon>
     </div>
   </div>
 </div>

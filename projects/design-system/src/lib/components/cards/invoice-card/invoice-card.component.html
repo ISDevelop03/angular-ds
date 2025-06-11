@@ -11,14 +11,30 @@
     <h3 class="text-[14px] leading-[18px] font-bold">
       {{ title }}
     </h3>
-    <a *ngIf="actions.length <= 0" [href]="href" (click)="onClick($event)">
+    <a
+      *ngIf="items.length <= 0 || actions.length <= 0"
+      [href]="href"
+      class="flex gap-2 items-center w-fit ml-auto"
+      (click)="onClick($event)"
+    >
+      <ds-call-to-action-icons
+        *ngIf="actions && actions.length > 0"
+        [actions]="actions"
+        className="w-fit"
+        variant="borderless"
+      ></ds-call-to-action-icons>
+      <span
+        *ngIf="actions && actions.length > 0"
+        class="inline-block h-1/2 w-px bg-neutral-200"
+      ></span>
       <ds-icon
+        *ngIf="!items || items.length <= 0"
         id="arrow-right"
         class="self-end justify-self-end text-red-500"
       ></ds-icon>
     </a>
-    <div *ngIf="!href && actions.length > 0" class="self-end justify-self-end">
-      <ds-dropdown *ngIf="actions" [items]="actions">
+    <div *ngIf="!href && items.length > 0" class="self-end justify-self-end">
+      <ds-dropdown *ngIf="items" [items]="items">
         <ds-icon id="arrow-down" class="text-red-500"></ds-icon>
       </ds-dropdown>
     </div>
