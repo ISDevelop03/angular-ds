@@ -1,0 +1,22 @@
+<input
+  #inner
+  type="number"
+  [id]="'ds-' + id ? id : 'code-input'"
+  [name]="name"
+  [placeholder]="placeholder || ''"
+  [disabled]="disabled"
+  [value]="value"
+  (click)="onClick.emit($event)"
+  (input)="onInput.emit($event)"
+  (change)="onChange.emit($event)"
+  (focus)="onFocus.emit($event)"
+  (blur)="onBlur.emit($event)"
+  (keydown)="onKeydown.emit($event)"
+  (keyup)="onKeyup.emit($event)"
+  (keydown.enter)="onEnter.emit($event)"
+  (keydown.escape)="onEscape.emit($event)"
+  (paste)="onPaste.emit($event)"
+  (select)="onSelect.emit($event)"
+  class="rounded shrink-0 bg-red-100 placeholder:text-sm placeholder:text-red-500 placeholder:font-medium py-1.5 px-3 text-[18px]/[27px] font-bold appearance-none text-red-500 outline-none border-none focus:ring-0 w-full max-w-[90px]"
+  [ngClass]="[disabled ? 'cursor-not-allowed opacity-70' : '', className]"
+/>

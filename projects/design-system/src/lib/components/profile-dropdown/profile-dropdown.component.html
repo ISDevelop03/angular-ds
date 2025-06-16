@@ -1,4 +1,7 @@
-<div [ngClass]="['relative overflow-visible z-[1100]', className || '']">
+<div
+  id="ds-profile-dropdown"
+  [ngClass]="['relative overflow-visible z-[1100]', className || '']"
+>
   <div tabIndex="0" role="button" (click)="handleOpen()">
     <ng-content></ng-content>
   </div>
@@ -25,6 +28,7 @@
         tabIndex="{0}"
         role="button"
         (click)="item?.onClick()"
+        class="hover:bg-neutral-50 transition-all duration-300 ease-in-out"
       >
         <li
           [ngClass]="[
@@ -43,10 +47,14 @@
         </li>
       </div>
 
-      <a *ngIf="item?.href" [href]="item?.href">
+      <a
+        *ngIf="item?.href"
+        [href]="item?.href"
+        class="hover:bg-neutral-50 transition-all duration-300 ease-in-out"
+      >
         <li
           [ngClass]="[
-            'inline-flex justify-start items-center gap-3 px-4 py-2.5 ',
+            'inline-flex justify-start items-center gap-3 px-4 py-2.5',
             item.className || ''
           ]"
         >

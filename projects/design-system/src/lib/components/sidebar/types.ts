@@ -55,3 +55,9 @@ export interface IMenuItem {
   href: string;
   onClick: () => void;
 }
+
+export interface ILanguage {
+  src: string;
+  alt: string;
+  className?: string;
+}

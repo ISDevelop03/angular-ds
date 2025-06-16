@@ -1,4 +1,7 @@
-<div [ngClass]="[theme[variant].wrapper, className]">
+<div
+  id="ds-call-to-action-icons"
+  [ngClass]="[theme[variant].wrapper, className]"
+>
   <ng-container *ngFor="let action of actions; let i = index">
     <div
       *ngIf="theme[variant] && theme[variant].separator && i > 0"

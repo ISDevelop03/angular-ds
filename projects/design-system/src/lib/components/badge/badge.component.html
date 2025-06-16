@@ -1,9 +1,9 @@
-<a *ngIf="href" [href]="href" [ngClass]="getBadgeClasses()">
+<a id="ds-badge" *ngIf="href" [href]="href" [ngClass]="getBadgeClasses()">
   <ds-icon *ngIf="icon" [id]="icon" [ngClass]="badge.icon"></ds-icon>
   <span [ngClass]="getTextClasses()">{{ label }}</span>
 </a>
 
-<span *ngIf="!href" [ngClass]="getBadgeClasses()">
+<span id="ds-badge" *ngIf="!href" [ngClass]="getBadgeClasses()">
   <ds-icon *ngIf="icon" [id]="icon" [ngClass]="badge.icon"></ds-icon>
   <span [ngClass]="getTextClasses()">{{ label }}</span>
 </span>

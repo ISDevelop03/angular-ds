@@ -11,16 +11,16 @@ export class InputStoryComponent {
   disabledValue: string = 'Disabled';
   errorValue: string = '';
 
-  handleInputChange(value: any) {
-    this.textValue = value;
+  handleInputChange(event: any) {
+    this.textValue = event.target.value;
   }
 
-  handleNumberChange(value: any) {
-    this.numberValue = value;
+  handleNumberChange(event: any) {
+    this.numberValue = event.target.value;
   }
 
-  handleErrorChange(value: any) {
-    this.errorValue = value;
+  handleErrorChange(event: any) {
+    this.errorValue = event.target.value;
   }
 
   onClear() {
@@ -30,7 +30,7 @@ export class InputStoryComponent {
     this.errorValue = '';
   }
 
-  onClick(event: PointerEvent) {
-    console.log('Input clicked', event);
+  onClick(event: any) {
+    console.log('Input clicked', event.target.value);
   }
 }

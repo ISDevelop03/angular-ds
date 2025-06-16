@@ -14,7 +14,23 @@
     }
   ]"
     variant="default"
-    (sortChange)="onServerSort($event)"
+  ></ds-table>
+  <ds-table
+    [data]="products"
+    [columns]="[
+    { header: 'Id', accessor: 'id'  },
+    { header: 'Name', accessor: 'name'  },
+    { header: 'Description', accessor: 'description', expandable:true, styles:{width:400} },
+    { header: 'Category', accessor: 'category'  },
+    { header: 'Price', accessor: 'price' },
+    { header: 'Stock', accessor: 'stock' },
+    {
+      header: 'Actions',
+      accessor: 'id',
+      cellTemplate: actionTpl
+    }
+  ]"
+    variant="default"
   ></ds-table>
   <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
   <ds-table
@@ -31,41 +47,8 @@
   ]"
     variant="default"
     selectionEnabled="true"
-    (sortChange)="onServerSort($event)"
     (selectionChange)="onBulkSelection($event)"
   ></ds-table>
-  <!-- <h3 class="text-2xl font-bold">Striped Table</h3>
-  <ds-table
-    [data]="users"
-    [columns]="[
-    { header: 'Name', accessor: 'name'  },
-    { header: 'Age', accessor: 'age'  },
-    { header: 'Joined', accessor: 'joinedOn' },
-    {
-      header: 'Actions',
-      accessor: 'id',
-      cellTemplate: actionTpl
-    }
-  ]"
-    variant="striped"
-    (sortChange)="onServerSort($event)"
-  ></ds-table>
-  <h3 class="text-2xl font-bold">Bordered Table</h3>
-  <ds-table
-    [data]="users"
-    [columns]="[
-    { header: 'Name', accessor: 'name'  },
-    { header: 'Age', accessor: 'age'  },
-    { header: 'Joined', accessor: 'joinedOn' },
-    {
-      header: 'Actions',
-      accessor: 'id',
-      cellTemplate: actionTpl
-    }
-  ]"
-    variant="bordered"
-    (sortChange)="onServerSort($event)"
-  ></ds-table> -->
 
   <h2 class="text-2xl font-bold">Sortable Table</h2>
 
@@ -73,6 +56,7 @@
     [data]="users"
     [columns]="[
       { header: 'Name',   accessor: 'name',   sortable: true },
+      { header: 'Bio',    accessor: 'bio',    sortable: true,expandable:true, styles:{width:400} },
       { header: 'Age',    accessor: 'age',    sortable: true },
       { header: 'Status', accessor: 'status', sortable: true, cellTemplate: statusTpl },
       { header: 'Actions',accessor: 'id',     cellTemplate: actionTpl }

@@ -16,9 +16,9 @@ export class PortfolioVisionCardComponent {
   @Input() isSelected: boolean = false;
   @Input() className: string = '';
 
-  @Output() click = new EventEmitter<void>();
+  @Output() clicked = new EventEmitter<void>();
 
   handleClick() {
-    this.click.emit();
+    this.clicked.emit();
   }
 }

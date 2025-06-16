@@ -65,6 +65,7 @@ export class DsTextComponent implements OnChanges, AfterViewInit {
     const allClasses = `${variantClass} ${this.className}`.trim();
 
     this.renderer.setAttribute(this.tagElement, 'class', allClasses || '');
+    this.renderer.setAttribute(this.tagElement, 'id', 'ds-text');
     this.renderer.setProperty(this.tagElement, 'innerHTML', this.content || '');
   }
 }

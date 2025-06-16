@@ -14,7 +14,7 @@
     "build:css": "tailwindcss -i ./projects/design-system/src/styles/styles.css -o ./styles/styles.css",
     "watch:css": "tailwindcss -i ./projects/design-system/src/styles/styles.css -o ./styles/styles.css --watch",
     "docs": "compodoc -p projects/design-system/tsconfig.lib.json -s --watch  --theme laravel",
-    "icons:build": "npx --yes @vactorynext/svg-spreact-cli ./icons --optimize true --tidy true > ./projects/design-system/src/assets/icons.svg",
+    "icons:build": "npx --yes @vactorynext/svg-spreact-cli ./icons --optimize true --tidy true > ./projects/demo-app/src/assets/icons.svg",
     "pack:ds": "npm run build:ds && cd dist/mybusiness-design-system && npm pack && mv mybusiness-design-system-*.tgz ../../ && cd ../../"
   },
   "files": [
@@ -34,7 +34,7 @@
     "angular-svg-icon": "^7.2.1",
     "clipboard": "^2.0.11",
     "core-js": "^2.6.12",
-    "mybusiness-design-system": "file:mybusiness-design-system-0.0.2.tgz",
+    "mybusiness-design-system": "file:mybusiness-design-system-0.0.3.tgz",
     "ngx-owl-carousel-o": "^1.2.1",
     "rxjs": "~6.5.4",
     "svgson": "^5.3.1",

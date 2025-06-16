@@ -5,7 +5,6 @@ import { Component, Input } from '@angular/core';
   templateUrl: './portfolio.stories.html',
 })
 export class PortfolioStoryComponent {
-  @Input() label: string = 'portfolio';
   portfolios = [
     {
       id: 'id1',
@@ -62,11 +61,17 @@ export class PortfolioStoryComponent {
       image: 'https://placehold.co/35x35?text=Logo',
     },
   ];
+
   holding = {
     id: 'id1hodling',
     title: 'Holding Name',
     image: 'https://placehold.co/35x35?text=Logo',
   };
 
-  @Input() className?: string = '';
+  selected = this.portfolios[0];
+
+  onSelect(portfolio: any) {
+    this.selected = portfolio;
+    console.log('Selected portfolio:', portfolio);
+  }
 }

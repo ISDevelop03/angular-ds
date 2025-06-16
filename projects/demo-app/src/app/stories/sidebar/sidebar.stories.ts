@@ -160,7 +160,22 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
     nav: true,
     navText: [`<`, '>'],
     dotsEach: true,
-    items: 3.5,
+    items: 4,
+    // responsive: {
+    //   0: {
+    //     items: 1,
+    //   },
+    //   600: {
+    //     items: 2,
+    //   },
+    //   1024: {
+    //     items: 3.5,
+    //   },
+    // },
+  };
+
+  callingOnClick = (event: any) => {
+    console.log('Calling onClick with item: ', event);
   };
 
   private bodyClassObserver: MutationObserver;

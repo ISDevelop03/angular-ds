@@ -32,7 +32,7 @@ export class AccountFilialHoldingCardStoryComponent {
   actionsList: ICallToActionIcon[] = [
     {
       icon: 'info-circle',
-      onClick: (item) => alert('Info clicked ' + JSON.stringify(item)),
+      onClick: (item) => alert('Info clicked ' + JSON.stringify(item.title)),
     },
     {
       icon: 'more-1',

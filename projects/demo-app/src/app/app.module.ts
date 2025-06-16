@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -64,6 +64,8 @@ import {
   SliderDotsStoryComponent,
   AccountCardStoryComponent,
   PortfolioStoryComponent,
+  PinInputStoryComponent,
+  CodeInputStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -72,7 +74,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-export const pages = [
+export const pages: Routes = [
   { path: '', component: HomeComponent },
   { path: 'badge', component: BadgeStoryComponent },
   { path: 'button', component: ButtonStoryComponent },
@@ -152,6 +154,8 @@ export const pages = [
   { path: 'slider-dots', component: SliderDotsStoryComponent },
   { path: 'account-card', component: AccountCardStoryComponent },
   { path: 'portfolio', component: PortfolioStoryComponent },
+  { path: 'pin-input', component: PinInputStoryComponent },
+  { path: 'code-input', component: CodeInputStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -236,6 +240,8 @@ const router = RouterModule.forRoot(pages);
     SliderDotsStoryComponent,
     AccountCardStoryComponent,
     PortfolioStoryComponent,
+    PinInputStoryComponent,
+    CodeInputStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

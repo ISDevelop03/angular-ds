@@ -25,7 +25,9 @@ module.exports = {
         "2xl": ["24px", "32px"],
       },
       fontFamily: {
-        sans: ["Manrope", ...defaultTheme.fontFamily.sans],
+        sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+        manrope: ["Manrope", ...defaultTheme.fontFamily.sans],
+        mont: ["Montserrat", ...defaultTheme.fontFamily.sans],
         roboto: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
       colors: {

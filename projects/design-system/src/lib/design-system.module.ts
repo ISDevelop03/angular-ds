@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CodeInputComponent } from './components/form-elements/code-input/code-input.component';
+import { PinInputComponent } from './components/form-elements/pin-input/pin-input.component';
 import { PortfolioComponent } from './components/portfolio-selection/portfolio/portfolio.component';
 import { AccountCardComponent } from './components/accounts/account-card/account-card.component';
 import { SliderDotsComponent } from './components/slider-dots/slider-dots.component';
@@ -161,6 +163,8 @@ registerLocaleData(localeFr, 'fr-FR');
     SliderDotsComponent,
     AccountCardComponent,
     PortfolioComponent,
+    PinInputComponent,
+    CodeInputComponent,
   ],
   imports: [CommonModule, FormsModule, CarouselModule, PortalModule],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
@@ -229,6 +233,8 @@ registerLocaleData(localeFr, 'fr-FR');
     AccountCardComponent,
     PortfolioComponent,
     CarouselModule,
+    PinInputComponent,
+    CodeInputComponent,
   ],
 })
 export class DesignSystemModule {}

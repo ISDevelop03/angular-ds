@@ -1,4 +1,9 @@
-<div *ngIf="isShown" class="fixed inset-0 z-50" [ngClass]="theme.base">
+<div
+  id="ds-popup"
+  *ngIf="isShown"
+  class="fixed inset-0 z-50"
+  [ngClass]="theme.base"
+>
   <!-- Backdrop -->
   <div
     class="popup-overlay"

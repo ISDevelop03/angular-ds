@@ -93,3 +93,9 @@ export * from './accounts/account-card/account-card.stories';
 
 // Auto-export for portfolio stories
 export * from './portfolio-selection/portfolio/portfolio.stories';
+
+// Auto-export for pin-input stories
+export * from './form-elements/pin-input/pin-input.stories';
+
+// Auto-export for code-input stories
+export * from './form-elements/code-input/code-input.stories';

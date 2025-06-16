@@ -9,7 +9,7 @@
     [image]="selectedPortfolio.image"
     [isOpen]="displayPortfolio"
     [className]="'min-w-[200px]'"
-    (click)="togglePortfolio()"
+    (clicked)="togglePortfolio()"
   ></ds-portfolio-select-card>
   <div
     *ngIf="displayPortfolio"
@@ -26,7 +26,7 @@
       <ds-portfolio-vision-card
         [title]="holding.title"
         [image]="holding.image"
-        (click)="onSelect(holding); $event.stopPropagation()"
+        (clicked)="onSelect(holding)"
         [isSelected]="holding.id == selectedPortfolio.id"
       ></ds-portfolio-vision-card>
     </div>
@@ -37,7 +37,7 @@
         [title]="portfolio.title"
         [image]="portfolio.image"
         [isSelected]="portfolio.id == selectedPortfolio.id"
-        (click)="onSelect(portfolio); $event.stopPropagation()"
+        (clicked)="onSelect(portfolio)"
       ></ds-portfolio-item-card>
     </div>
   </div>

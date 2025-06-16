@@ -1,7 +1,6 @@
 <!-- If href is provided, render an anchor element -->
 <ng-container *ngIf="href; else buttonTemplate">
-  <a [href]="href" [style]="style">
-    <span>––STATIC––</span>
+  <a id="ds-button" [href]="href" [style]="style">
     <ng-content></ng-content>
   </a>
 </ng-container>
@@ -9,6 +8,7 @@
 <!-- Button element if no href is provided -->
 <ng-template #buttonTemplate>
   <button
+    id="ds-button"
     [type]="type"
     [disabled]="disabled"
     [ngClass]="computedClass"

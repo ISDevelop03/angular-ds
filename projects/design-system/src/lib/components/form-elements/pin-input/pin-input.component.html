@@ -1,0 +1,27 @@
+// Template (pin-input.component.html)
+<div id="ds-pin-input" class="flex flex-col gap-2" [ngClass]="className">
+  <label *ngIf="label" class="block text-sm font-light text-[#30435C]">
+    {{ label }}
+  </label>
+
+  <div class="grid w-fit grid-cols-6 gap-2">
+    <input
+      #pinInput
+      *ngFor="let digit of pin; let i = index"
+      type="text"
+      inputmode="numeric"
+      maxlength="1"
+      [value]="digit"
+      (input)="handleInput($event, i)"
+      (keydown)="handleKeyDown($event, i)"
+      (paste)="handlePaste($event, i)"
+      (focus)="handleFocus($event, i)"
+      class="mx-auto h-[45px] w-[45px] rounded-xl border border-gray-400 p-2 text-center text-lg outline-none focus:border-primary focus:outline-none md:text-2xl lg:h-[50px] lg:w-[50px] xlg:h-[60px] xlg:w-[60px]"
+      id="pin-input-{{ i }}"
+    />
+  </div>
+
+  <p *ngIf="error" class="block text-sm text-red-500">
+    {{ error }}
+  </p>
+</div>

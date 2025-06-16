@@ -1,9 +1,11 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   Renderer2,
   SimpleChanges,
 } from '@angular/core';
@@ -45,6 +47,8 @@ export class PortfolioComponent implements OnInit, OnChanges {
   @Input() show: boolean = false;
   @Input() className = '';
 
+  @Output() clicked = new EventEmitter<Portfolio>();
+
   displayPortfolio = false;
   selectedPortfolio!: Portfolio;
   holdingPortfolio!: Portfolio;
@@ -70,12 +74,7 @@ export class PortfolioComponent implements OnInit, OnChanges {
   private resetState() {
     // pick the right “selected” and “holding”
     this.selectedPortfolio = this.selected || this.portfolios[0]!;
-    this.holdingPortfolio = this.holding || {
-      id: '__holding__',
-      title: 'Holding Name',
-      image: 'https://placehold.co/35x35?text=Logo',
-    };
-
+    this.holdingPortfolio = this.holding;
     // set open/closed to whatever `show` was bound as
     this.displayPortfolio = this.show;
 
@@ -89,7 +88,8 @@ export class PortfolioComponent implements OnInit, OnChanges {
 
   onSelect(portfolio: Portfolio) {
     this.selectedPortfolio = portfolio;
-    this.displayPortfolio = false; // close the portfolio selection
+    this.clicked.emit(portfolio);
+    this.displayPortfolio = false;
     this.setBodyScroll(false);
   }
 

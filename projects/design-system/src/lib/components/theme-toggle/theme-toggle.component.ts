@@ -12,6 +12,7 @@ type Theme = 'light' | 'dark';
   selector: 'ds-theme-toggle',
   template: `
     <button
+      id="ds-theme-toggle"
       class="flex items-center justify-center"
       (click)="toggleTheme()"
       [attr.aria-label]="

@@ -1,4 +1,4 @@
-<table [ngClass]="theme[variant].table">
+<table id="ds-table" [ngClass]="theme[variant].table">
   <thead [ngClass]="theme[variant].header">
     <tr class="rounded overflow-hidden">
       <!-- 1) HEADER ds-checkbox -->
@@ -17,45 +17,46 @@
         *ngFor="let col of columns; let idx = index"
         [ngClass]="[
           theme[variant].headerCell,
-          !col.sortable ? 'pb-2.5 pt-0' : '',
+          !col.sortable ? 'pb-2.5 pt-1.5' : 'py-2.5',
           idx === 0 ? 'rounded-l-md' : '',
           columns.length - 1 === idx ? 'rounded-r-md' : '',
           col.sortable ? theme[variant].headerCellSortable : ''
         ]"
+        [ngStyle]="
+          col.styles && col.styles.width
+            ? { width: col.styles.width + 'px' }
+            : {}
+        "
       >
-        <span *ngIf="!col.sortable" [ngClass]="[theme[variant].headerTh]">
-          <span [ngClass]="[theme[variant].headerIcons]">
-            <!-- default “no sort” icon -->
-            <ds-icon
-              *ngIf="col.sortable && sortColumn !== col.accessor"
-              id="filter-up-down"
-              size="12"
-            ></ds-icon>
-
-            <!-- asc / desc icons -->
-            <ng-container *ngIf="sortColumn === col.accessor">
-              <ds-icon
-                *ngIf="sortDirection === 'asc'"
-                id="filter-up"
-                size="12"
-              ></ds-icon>
-              <ds-icon
-                *ngIf="sortDirection === 'desc'"
-                id="filter-down"
-                size="12"
-              ></ds-icon>
-            </ng-container>
-          </span>
+        <span
+          *ngIf="!col.sortable"
+          [ngClass]="[
+            theme[variant].headerTh,
+            col.expandable ? 'flex justify-between items-center w-full' : ''
+          ]"
+        >
           <span [ngClass]="[theme[variant].headerText]">
             {{ col.header }}
           </span>
+          <button
+            (click)="toggleTruncateData(col)"
+            [ngClass]="[col.truncate ? 'text-green-500' : 'text-red-500']"
+            *ngIf="col.expandable"
+          >
+            <ds-icon [id]="col.truncate ? 'plus' : 'minus'" size="16"></ds-icon>
+          </button>
         </span>
         <button
           *ngIf="col.sortable"
-          [ngClass]="[theme[variant].headerCellButton]"
-          (click)="col.sortable && onSort(col)"
+          [ngClass]="[
+            theme[variant].headerCellButton,
+            col.expandable ? 'flex justify-between items-center w-full' : ''
+          ]"
         >
-          <span [ngClass]="[theme[variant].headerTh]">
+          <span
+            (click)="col.sortable && onSort(col)"
+            [ngClass]="[theme[variant].headerTh]"
+          >
             <span [ngClass]="[theme[variant].headerIcons]">
               <!-- default “no sort” icon -->
               <ds-icon
@@ -82,6 +83,13 @@
               {{ col.header }}
             </span>
           </span>
+          <button
+            (click)="toggleTruncateData(col)"
+            [ngClass]="[col.truncate ? 'text-green-500' : 'text-red-500']"
+            *ngIf="col.expandable"
+          >
+            <ds-icon [id]="col.truncate ? 'plus' : 'minus'" size="16"></ds-icon>
+          </button>
         </button>
       </th>
     </tr>
@@ -99,7 +107,20 @@
         ></ds-checkbox>
       </td>
 
-      <td *ngFor="let col of columns" [ngClass]="theme[variant].cell">
+      <td
+        *ngFor="let col of columns"
+        [ngClass]="[
+          theme[variant].cell,
+          col.expandable && col.truncate
+            ? 'inline-block truncate line-clamp-1'
+            : ''
+        ]"
+        [ngStyle]="
+          col.styles && col.styles.width
+            ? { width: col.styles.width + 'px' }
+            : {}
+        "
+      >
         <ng-container
           *ngIf="col.cellTemplate; else defaultCell"
           [ngTemplateOutlet]="col.cellTemplate"

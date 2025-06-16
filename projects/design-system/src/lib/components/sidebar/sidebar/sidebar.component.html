@@ -1,5 +1,6 @@
 <!-- ds-sidebar.component.html -->
 <aside
+  id="ds-sidebar"
   class="sticky left-0 top-0 text-white h-screen shrink-0 z-[9999]"
   [ngClass]="className"
 >
@@ -44,7 +45,14 @@
         </ul>
       </div>
 
-      <ds-bottom-menus [profileMenus]="profileMenus"></ds-bottom-menus>
+      <ds-bottom-menus
+        [language]="language"
+        (callingOnClick)="callingOnClick.emit($event)"
+        (reclamationOnClick)="reclamationOnClick.emit($event)"
+        (languageOnClick)="languageOnClick.emit($event)"
+        (settingsOnClick)="settingsOnClick.emit($event)"
+        [profileMenus]="profileMenus"
+      ></ds-bottom-menus>
     </div>
 
     <div

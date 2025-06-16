@@ -1,5 +1,5 @@
 <ng-container [ngSwitch]="variant">
-  <div *ngSwitchCase="'placeholder'" [ngClass]="classes">
+  <div id="ds-avatar" *ngSwitchCase="'placeholder'" [ngClass]="classes">
     <svg
       [ngClass]="avatar.placeholder.svg"
       fill="currentColor"
@@ -17,6 +17,7 @@
   </span>
 
   <img
+    id="ds-avatar"
     *ngSwitchDefault
     [ngClass]="classes"
     [src]="src"

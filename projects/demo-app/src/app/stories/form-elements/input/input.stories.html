@@ -1,13 +1,31 @@
 <div class="p-4 grid gap-4">
   <h2>Default Input</h2>
   <ds-input
+    id="default-input"
+    name="default-input"
     [label]="'Text Input'"
+    required="true"
     [placeholder]="'Enter text...'"
     [value]="textValue"
-    (valueChange)="handleInputChange($event)"
     variant="default"
-    [onClick]="onClick"
+    (onInput)="handleInputChange($event)"
+    (onClick)="onClick($event)"
+    maxlength="20"
+    minlength="5"
+    pattern="[0-9]*"
   ></ds-input>
+  <ds-input
+    display="inline"
+    [label]="'Text Input'"
+    required="true"
+    [placeholder]="'Enter text...'"
+    [value]="textValue"
+    variant="default"
+    (onInput)="handleInputChange($event)"
+    (onClick)="onClick($event)"
+  ></ds-input>
+
+  {{textValue}}
 
   <ds-input [(value)]="amount" prefix="$" suffix="USD"></ds-input>
   <ds-input [(value)]="amount">
@@ -49,10 +67,12 @@
   ></ds-input>
 
   <ds-input
+    display="inline"
     [label]="'Error Input'"
     [value]="errorValue"
     [hasError]="true"
     [errorMessage]="'This field is required.'"
+    [description]="'This field is required.'"
     (valueChange)="handleErrorChange($event)"
     variant="default"
     [placeholder]="'Enter Input...'"

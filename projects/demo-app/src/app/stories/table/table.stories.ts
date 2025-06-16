@@ -14,6 +14,7 @@ export class TableStoryComponent {
       name: 'John Doe',
       age: 35,
       status: 'Active',
+      bio: 'A Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
 
       joinedOn: '2023-01-01',
     },
@@ -22,7 +23,7 @@ export class TableStoryComponent {
       name: 'Jane Doe',
       age: 25,
       status: 'Pending',
-
+      bio: 'C Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
       joinedOn: '2023-02-01',
     },
     {
@@ -30,6 +31,7 @@ export class TableStoryComponent {
       name: 'Steve Doe',
       age: 30,
       status: 'Inactive',
+      bio: 'D Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
       joinedOn: '2023-03-01',
     },
     {
@@ -37,7 +39,50 @@ export class TableStoryComponent {
       name: 'Will Smith',
       status: 'Pending',
       age: 40,
+      bio: 'B Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
       joinedOn: '2023-04-01',
+    },
+  ];
+
+  products = [
+    {
+      id: 'product-1',
+      name: 'Product 1',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
+
+      price: 100,
+      category: 'Category A',
+      stock: 50,
+    },
+    {
+      id: 'product-2',
+      name: 'Product 2',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
+      price: 200,
+      category: 'Category B',
+      stock: 30,
+    },
+    {
+      id: 'product-3',
+      name: 'Product 3',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
+
+      price: 150,
+      category: 'Category A',
+      stock: 20,
+    },
+    {
+      id: 'product-4',
+      name: 'Product 4',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
+
+      price: 300,
+      category: 'Category C',
+      stock: 10,
     },
   ];
 

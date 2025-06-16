@@ -42,6 +42,12 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
     this.updateMasks();
   }
 
+  onSearch(search: string) {
+    this._searchTerm = search;
+    this.applySearchFilter();
+    this.updateMasks();
+  }
+
   filteredMenus: Menu[] = [];
 
   showTopMask = false;

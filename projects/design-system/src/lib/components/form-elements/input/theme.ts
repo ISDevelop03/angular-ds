@@ -16,7 +16,7 @@ export const input = {
     errorMessage: 'text-error-500 text-[12px] mt-1',
     hasError:
       '!border-red-500 hover:border-red-600 focus-within:!border-red-400',
-    description: 'text-gray-500 mt-1',
+    description: 'text-xs text-gray-500 mt-1',
   },
   search: {
     container: 'relative w-full',
@@ -35,6 +35,6 @@ export const input = {
     errorMessage: 'text-error-500 text-[12px] mt-1',
     hasError:
       '!border-red-500 hover:border-red-600 focus-within:!border-red-400',
-    description: 'text-gray-500 mt-1',
+    description: 'text-xs text-gray-500 mt-1',
   },
 };

@@ -8,32 +8,37 @@ import { ActionItem } from 'projects/design-system/src/lib/components/actions-la
 export class ActionsLayoutStoryComponent {
   mockItems: ActionItem[] = [
     {
-      iconId: 'eye-slash',
+      iconId: 'eye-open',
+      iconIdFilled: 'eye-closed-filled',
       handler: () => {
         console.log('Eye slash clicked');
       },
     },
     {
-      iconId: 'bell-02',
+      iconId: 'bell-2',
+      iconIdFilled: 'bell-2-filled',
       handler: () => {
         console.log('Notification clicked');
       },
       badge: true,
     },
     {
-      iconId: 'message-chat-01',
+      iconId: 'messagerie-2',
+      iconIdFilled: 'messagerie-2-filled',
       handler: () => {
         console.log('Message clicked');
       },
     },
     {
-      iconId: 'call-center',
+      iconId: 'headset-2',
+      iconIdFilled: 'headset-2-filled',
       handler: () => {
         console.log('Call center clicked');
       },
     },
     {
-      iconId: 'category',
+      iconId: 'category-2',
+      iconIdFilled: 'category-2-filled',
       handler: () => {
         console.log('Element Plus clicked');
       },

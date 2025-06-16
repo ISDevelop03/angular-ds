@@ -252,4 +252,6 @@ export const menus: Menu[] = [
   { key: 'slider-dots', name: 'SliderDots', path: '/slider-dots' },
   { key: 'account-card', name: 'AccountCard', path: '/account-card' },
   { key: 'portfolio', name: 'Portfolio', path: '/portfolio' },
+  // { key: 'pin-input', name: 'PinInput', path: '/pin-input' },
+  { key: 'code-input', name: 'CodeInput', path: '/code-input' },
 ];

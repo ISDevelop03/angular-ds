@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
   selector: 'ds-icon',
   template: `
     <svg
+      id="ds-icon"
       [attr.width]="size"
       [attr.height]="size"
       [ngClass]="class"

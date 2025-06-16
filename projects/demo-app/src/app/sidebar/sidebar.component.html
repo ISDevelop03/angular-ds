@@ -29,10 +29,13 @@
     </div>
     <div>
       <ds-input
+        id="searchInput"
+        name="searchInput"
         #searchInputHost
         class="w-full"
         placeholder="Search components..."
-        [(value)]="searchTerm"
+        [value]="searchTerm"
+        (input)="onSearch($event.target.value)"
       >
         <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
       </ds-input>

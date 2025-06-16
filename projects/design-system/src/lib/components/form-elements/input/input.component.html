@@ -1,67 +1,99 @@
-<div [ngClass]="['relative w-full', input[variant].container]">
+<div
+  id="ds-input"
+  [ngClass]="[
+    'relative w-full',
+    input[variant].container,
+    display === 'inline' ? 'flex flex-row items-center gap-2' : '',
+    className
+  ]"
+>
   <!-- label + hidden logic omitted for brevity… -->
   <ng-container *ngIf="type !== 'hidden' && label">
     <label
       [ngClass]="[
+        'shrink-0',
         input[variant].label || '',
-        hasError && errorMessage ? '!text-error-500' : ''
+        hasError && errorMessage ? '!text-error-500' : '',
+        display === 'inline' ? '!mb-0' : '',
+        display === 'inline' && (description || (hasError && errorMessage))
+          ? 'self-start mt-2.5'
+          : ''
       ]"
     >
       {{ label }}
-      <span *ngIf="required" class="text-primary">*</span>
+      <span *ngIf="required" class="text-red-500">*</span>
     </label>
   </ng-container>
-
-  <div
-    [ngClass]="[
-      input[variant].wrapper.base,
-      disabled
-        ? input[variant].wrapper.disabled
-        : input[variant].wrapper.enabled,
-      type === 'hidden' ? 'border-none' : '',
-      hasError ? input[variant].hasError : ''
-    ]"
-  >
-    <!-- 1a) projected template prefix -->
-    <ng-content select="[prefix]"></ng-content>
-
-    <!-- 1b) fallback string prefix -->
+  <div class="w-full">
     <div
-      *ngIf="prefix && !hasProjectedPrefix"
-      [ngClass]="input[variant].prefix"
-    >
-      {{ prefix }}
-    </div>
-
-    <input
-      [type]="type"
-      [placeholder]="placeholder || ''"
-      [disabled]="disabled"
-      [value]="value"
-      (input)="handleChange($event)"
-      (click)="onClick($event)"
       [ngClass]="[
-        input[variant].input,
-        disabled ? 'cursor-not-allowed bg-gray-50' : '',
-        type === 'number' ? '[appearance:textfield]' : ''
+        input[variant].wrapper.base,
+        disabled
+          ? input[variant].wrapper.disabled
+          : input[variant].wrapper.enabled,
+        type === 'hidden' ? 'border-none' : '',
+        hasError ? input[variant].hasError : ''
       ]"
-    />
+    >
+      <!-- 1a) projected template prefix -->
+      <ng-content select="[prefix]"></ng-content>
 
-    <!-- 1c) fallback string suffix -->
-    <div *ngIf="suffix && !hasProjectedSuffix" [ngClass]="input[variant].sufix">
-      {{ suffix }}
+      <!-- 1b) fallback string prefix -->
+      <div
+        *ngIf="prefix && !hasProjectedPrefix"
+        [ngClass]="input[variant].prefix"
+      >
+        {{ prefix }}
+      </div>
+
+      <input
+        #inner
+        [type]="type"
+        [id]="id"
+        [name]="name"
+        [placeholder]="placeholder || ''"
+        [disabled]="disabled"
+        [value]="value"
+        (click)="onClick.emit($event)"
+        (input)="onInput.emit($event)"
+        (change)="onChange.emit($event)"
+        (focus)="onFocus.emit($event)"
+        (blur)="onBlur.emit($event)"
+        (keydown)="onKeydown.emit($event)"
+        (keyup)="onKeyup.emit($event)"
+        (keydown.enter)="onEnter.emit($event)"
+        (keydown.escape)="onEscape.emit($event)"
+        (paste)="onPaste.emit($event)"
+        (select)="onSelect.emit($event)"
+        [ngClass]="[
+          input[variant].input,
+          disabled ? 'cursor-not-allowed bg-gray-50' : '',
+          type === 'number' ? '[appearance:textfield]' : '',
+          inputClassName
+        ]"
+      />
+
+      <!-- 1c) fallback string suffix -->
+      <div
+        *ngIf="suffix && !hasProjectedSuffix"
+        [ngClass]="input[variant].sufix"
+      >
+        {{ suffix }}
+      </div>
+
+      <!-- 1d) projected template suffix -->
+      <ng-content select="[suffix]"></ng-content>
+    </div>
+    <!-- description + errorMessage omitted for brevity… -->
+    <div *ngIf="description" [ngClass]="input[variant].description">
+      {{ description }}
     </div>
 
-    <!-- 1d) projected template suffix -->
-    <ng-content select="[suffix]"></ng-content>
-  </div>
-
-  <!-- description + errorMessage omitted for brevity… -->
-  <div *ngIf="description" [ngClass]="input[variant].description">
-    {{ description }}
-  </div>
-
-  <div *ngIf="hasError && errorMessage" [ngClass]="input[variant].errorMessage">
-    {{ errorMessage }}
+    <div
+      *ngIf="hasError && errorMessage"
+      [ngClass]="input[variant].errorMessage"
+    >
+      {{ errorMessage }}
+    </div>
   </div>
 </div>

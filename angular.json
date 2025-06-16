@@ -53,12 +53,7 @@
             "tsConfig": "projects/demo-app/tsconfig.app.json",
             "assets": [
               "projects/demo-app/src/favicon.ico",
-              "projects/demo-app/src/assets",
-              {
-                "glob": "icons.svg",
-                "input": "dist/mybusiness-design-system",
-                "output": "/assets"
-              }
+              "projects/demo-app/src/assets"
             ],
             "styles": ["styles/styles.css"],
             "scripts": []

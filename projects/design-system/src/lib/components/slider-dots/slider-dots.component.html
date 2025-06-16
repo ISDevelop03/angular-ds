@@ -2,7 +2,7 @@
   Outer container: use theme.container to lay out arrows + dots.
   e.g. 'flex items-center justify-center' or any other classes you put in theme.
 -->
-<div [ngClass]="[theme.container, className]">
+<div id="ds-slider-dots" [ngClass]="[theme.container, className]">
   <!-- ─── PREV ARROW (conditionally shown) ───────────────────────────────────── -->
   <div *ngIf="showArrows" (click)="onPrev()" [ngClass]="prevArrowWrapperClass">
     <!-- 

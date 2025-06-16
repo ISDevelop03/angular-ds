@@ -7,7 +7,7 @@ import { OnInit, Component, OnDestroy, Inject } from '@angular/core';
 export class PaginationStoryComponent {
   themes = [{ name: 'default', value: 'default' }];
 
-  totalItems = 200;
+  totalItems = 100;
   itemsPerPage = 25;
   currentPage = 1;
   showPerPage = true;

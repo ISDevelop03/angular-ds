@@ -1,20 +1,29 @@
 <ul
-  class="space-y-3.5 text-white flex justify-center items-center flex-col pb-6"
+  class="space-y-3.5 [&_li]:cursor-pointer text-white flex justify-center items-center flex-col pb-6"
 >
   <hr class="w-full border-customgray-400 mx-auto" />
 
-  <li><ds-icon id="calling" class="size-4"></ds-icon></li>
-  <li><ds-icon id="interogation" class="size-4"></ds-icon></li>
+  <li (click)="callingOnClick.emit($event)">
+    <ds-icon id="calling" class="size-4"></ds-icon>
+  </li>
+  <li (click)="reclamationOnClick.emit($event)">
+    <ds-icon id="reclamation" class="size-4"></ds-icon>
+  </li>
 
-  <li>
-    <img alt="france flag svg" src="/assets/france-flag.svg" class="size-4" />
+  <li (click)="languageOnClick.emit($event)">
+    <img
+      [alt]="language.alt || ''"
+      [src]="language.src"
+      class="size-4"
+      [ngClass]="language.className"
+    />
   </li>
 
   <li>
     <ds-theme-toggle></ds-theme-toggle>
   </li>
 
-  <li>
+  <li (click)="settingsOnClick.emit($event)">
     <ds-icon id="settings" class="size-4"></ds-icon>
   </li>
 

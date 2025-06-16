@@ -1,6 +1,6 @@
 // ds-sidebar.component.ts
-import { Component, Input } from '@angular/core';
-import { IMenus, IMainMenu } from '../types';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IMenus, IMainMenu, ILanguage } from '../types';
 import { ISelectItem } from '../../profile-dropdown/types';
 
 /**
@@ -18,6 +18,15 @@ export class DsSidebarComponent {
   @Input() profileMenus: ISelectItem[] = [];
   @Input() mainMenus: IMainMenu[] = [];
   @Input() disableMainMenus: boolean = false;
+  @Input() language: ILanguage = {
+    src: '/assets/france-flag.svg',
+    alt: 'Français',
+  };
+
+  @Output() callingOnClick = new EventEmitter();
+  @Output() reclamationOnClick = new EventEmitter();
+  @Output() languageOnClick = new EventEmitter();
+  @Output() settingsOnClick = new EventEmitter();
 
   openMainMenuIndex: number = -1;
 
