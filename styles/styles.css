@@ -1738,14 +1738,6 @@ video {
   height: 100vh;
 }
 
-.h-\[45px\] {
-  height: 45px;
-}
-
-.\!h-\[45px\] {
-  height: 45px !important;
-}
-
 .max-h-60 {
   max-height: 15rem;
 }
@@ -1906,14 +1898,6 @@ video {
   width: 1px;
 }
 
-.w-\[45px\] {
-  width: 45px;
-}
-
-.\!w-\[45px\] {
-  width: 45px !important;
-}
-
 .min-w-24 {
   min-width: 6rem;
 }
@@ -1944,6 +1928,10 @@ video {
 
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px;
 }
 
 .max-w-\[208px\] {
@@ -2013,10 +2001,6 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.max-w-\[200px\] {
-  max-width: 200px;
 }
 
 .flex-1 {
@@ -3405,8 +3389,18 @@ video {
   font-size: 12px;
 }
 
+.text-\[12px\]\/\[14px\] {
+  font-size: 12px;
+  line-height: 14px;
+}
+
 .text-\[14px\] {
   font-size: 14px;
+}
+
+.text-\[14px\]\/\[18px\] {
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .text-\[16px\] {
@@ -3428,6 +3422,11 @@ video {
 
 .text-\[32px\] {
   font-size: 32px;
+}
+
+.text-\[36px\]\/\[47px\] {
+  font-size: 36px;
+  line-height: 47px;
 }
 
 .text-\[8px\] {
@@ -3461,25 +3460,6 @@ video {
 
 .text-xs {
   font-size: 12px;
-  line-height: 18px;
-}
-
-.text-\[120px\] {
-  font-size: 120px;
-}
-
-.text-\[36px\]\/\[47px\] {
-  font-size: 36px;
-  line-height: 47px;
-}
-
-.text-\[12px\]\/\[14px\] {
-  font-size: 12px;
-  line-height: 14px;
-}
-
-.text-\[14px\]\/\[18px\] {
-  font-size: 14px;
   line-height: 18px;
 }
 
@@ -3747,6 +3727,11 @@ video {
   color: rgb(15 16 20 / var(--tw-text-opacity, 1));
 }
 
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-red-400) / var(--tw-text-opacity, 1));
+}
+
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(var(--color-red-500) / var(--tw-text-opacity, 1));
@@ -3785,11 +3770,6 @@ video {
 .text-zinc-900 {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
-}
-
-.text-red-400 {
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-red-400) / var(--tw-text-opacity, 1));
 }
 
 .underline {
@@ -5711,12 +5691,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media (min-width: 992px) {
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
