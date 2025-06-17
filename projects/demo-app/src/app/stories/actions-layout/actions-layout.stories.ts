@@ -16,7 +16,7 @@ export class ActionsLayoutStoryComponent {
     },
     {
       iconId: 'bell-2',
-      iconIdFilled: 'bell-2-filled',
+      iconIdFilled: 'bell-filled',
       handler: () => {
         console.log('Notification clicked');
       },

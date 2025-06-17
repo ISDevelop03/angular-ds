@@ -66,6 +66,7 @@ import {
   PortfolioStoryComponent,
   PinInputStoryComponent,
   CodeInputStoryComponent,
+  AccordionCardStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -156,6 +157,7 @@ export const pages: Routes = [
   { path: 'portfolio', component: PortfolioStoryComponent },
   { path: 'pin-input', component: PinInputStoryComponent },
   { path: 'code-input', component: CodeInputStoryComponent },
+  { path: 'accordion-card', component: AccordionCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -242,6 +244,7 @@ const router = RouterModule.forRoot(pages);
     PortfolioStoryComponent,
     PinInputStoryComponent,
     CodeInputStoryComponent,
+    AccordionCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

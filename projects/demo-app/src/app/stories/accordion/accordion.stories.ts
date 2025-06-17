@@ -8,13 +8,41 @@ import { AccordionItem } from 'projects/design-system/src/lib/components/accordi
 export class AccordionStoryComponent {
   @ViewChild('templateOne') templateOne!: TemplateRef<any>;
   @ViewChild('templateTwo') templateTwo!: TemplateRef<any>;
+  @ViewChild('templateThree') templateThree!: TemplateRef<any>;
+
+  items = [
+    {
+      label: 'Item 1',
+      value: 'Content for item 1',
+    },
+    {
+      label: 'Item 2',
+      value: `<div>
+      <h2>This is a title</h2>
+      <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum ab ipsum
+    repudiandae, dolore numquam sapiente commodi ullam hic officia, ex libero
+    neque reprehenderit temporibus asperiores. Error ?
+    <strong>voluptatem id officiis</strong>
+     </p>
+    </div>`,
+    },
+    {
+      value:
+        '<h2 class="text-red-400">This is a title</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
+    },
+    {
+      label: 'Item 4',
+      value: 'Content for item 4',
+    },
+  ];
 
   defaultItems: AccordionItem[] = [
     {
       id: 'default-1',
       title: 'Default Accordion 1',
       // caption: 'This is the first default item',
-      content: '<p>Default content one</p>',
+      content: '<p>Default content <strong>one</strong></p>',
       count: 6,
     },
     {
@@ -25,19 +53,7 @@ export class AccordionStoryComponent {
     },
   ];
 
-  borderlessItems: AccordionItem[] = [
-    {
-      id: 'borderless-1',
-      title: 'Borderless Accordion 1',
-      content: '<p>More info here</p>',
-    },
-    {
-      id: 'borderless-2',
-      title: 'Borderless Accordion 2',
-      content: '<p>Additional info</p>',
-    },
-  ];
-
+  borderlessItems: AccordionItem[] = [];
   whiteItems: AccordionItem[] = [];
 
   ngAfterViewInit() {
@@ -54,6 +70,24 @@ export class AccordionStoryComponent {
           title: 'Default Accordion 2 with content',
           content: this.templateTwo,
           count: 6,
+        },
+      ];
+
+      this.borderlessItems = [
+        {
+          id: 'borderless-1',
+          title: 'Borderless Accordion 1',
+          content: '<p>More info here</p>',
+        },
+        {
+          id: 'borderless-2',
+          title: 'Borderless Accordion 2',
+          content: '<p>Additional info</p>',
+        },
+        {
+          id: 'borderless-3',
+          title: 'Borderless Accordion 3 with template',
+          content: this.templateThree,
         },
       ];
     });

@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AccordionCardComponent } from './components/cards/accordion-card/accordion-card.component';
 import { CodeInputComponent } from './components/form-elements/code-input/code-input.component';
 import { PinInputComponent } from './components/form-elements/pin-input/pin-input.component';
 import { PortfolioComponent } from './components/portfolio-selection/portfolio/portfolio.component';
@@ -95,6 +96,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PortalModule } from '@angular/cdk/portal';
+import { CodeInputModule } from 'angular-code-input';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -165,8 +167,15 @@ registerLocaleData(localeFr, 'fr-FR');
     PortfolioComponent,
     PinInputComponent,
     CodeInputComponent,
+    AccordionCardComponent,
   ],
-  imports: [CommonModule, FormsModule, CarouselModule, PortalModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    PortalModule,
+    CarouselModule,
+    CodeInputModule,
+  ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [
     ButtonComponent,
@@ -235,6 +244,8 @@ registerLocaleData(localeFr, 'fr-FR');
     CarouselModule,
     PinInputComponent,
     CodeInputComponent,
+    CodeInputModule,
+    AccordionCardComponent,
   ],
 })
 export class DesignSystemModule {}

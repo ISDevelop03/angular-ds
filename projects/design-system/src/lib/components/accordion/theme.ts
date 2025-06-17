@@ -38,25 +38,6 @@ export const theme = {
         size: '16px',
       },
     },
-    panel: { base: 'bg-neutral-25 p-4 rounded' },
-  },
-  red: {
-    container: 'bg-red-400 mx-auto w-full space-y-[17px] rounded-2xl',
-    disclosure: 'space-y-1 rounded-lg',
-    button: {
-      base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 pb-3 text-left text-sm font-medium focus:outline-none',
-      active: '',
-      title: 'text-[14px] leading-[18px] font-bold',
-      titleWrapper: 'flex items-center justify-between',
-      icon: {
-        base: 'transition ease-in duration-300',
-        classActive: '',
-        classInactive: '',
-        inactiveId: 'arrow-down',
-        activeId: 'arrow-up',
-        size: '16px',
-      },
-    },
-    panel: { base: 'bg-neutral-25 p-4 rounded' },
+    panel: { base: '' },
   },
 };
