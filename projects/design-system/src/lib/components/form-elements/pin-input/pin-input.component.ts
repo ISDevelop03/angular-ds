@@ -16,6 +16,7 @@ export class PinInputComponent {
   @Input() code: number | string = '';
   @Input() disabled: boolean = false;
   @Input() autocapitalize: string = '';
+  @Input() className: string = '';
 
   @Output() onCodeChanged = new EventEmitter();
   @Output() onCodeCompleted = new EventEmitter();
