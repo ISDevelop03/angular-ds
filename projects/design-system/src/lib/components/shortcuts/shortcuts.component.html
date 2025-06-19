@@ -1,45 +1,58 @@
 <div id="ds-shortcuts" class="relative flex flex-col gap-2">
   <div class="grid gap-2 grid-cols-2" [ngClass]="className">
     <div
-      (click)="onClick(item, $event)"
-      class="group w-full relative group justify-start border border-stroke-1 p-3 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl"
+      *ngFor="let item of items; let idx = index"
+      (click)="onItemClick(item, idx, $event)"
+      class="group w-full relative group justify-start border border-stroke-1 py-3 px-2 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl"
       [ngClass]="[
         item.isShortcut ? 'cursor-pointer bg-card-level-2' : 'bg-card-level-5'
       ]"
-      *ngFor="let item of items"
     >
       <div
-        class="size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500"
+        class="shrink-0 size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500"
         [ngClass]="[
           item.isShortcut ? 'group-hover:bg-violet-100' : 'bg-violet-100'
         ]"
       >
         <ds-icon [id]="item.icon" [size]="16"></ds-icon>
       </div>
-
       <a
-        *ngIf="!item.isShortcut && item.link; else noLink"
-        class="text-neutral-900 text-left inline-flex text-[12px] leading-[16px] font-bold after:absolute after:inset-0"
-        [href]="item.link"
+        *ngIf="!item.isShortcut && item.href; else noLink"
+        class="text-neutral-900 text-left inline-flex text-[10px]/[14px] font-bold after:absolute after:inset-0"
+        [href]="item.href"
       >
         {{ item.title }}
       </a>
       <ng-template #noLink>
-        <span class="inline-flex text-[12px] leading-[16px] font-bold">
+        <span class="text-left inline-flex text-[10px]/[14px] font-bold">
           {{ item.title }}
         </span>
       </ng-template>
+
+      <!-- delete icon -->
+      <button
+        *ngIf="!item.isShortcut"
+        (click)="remove(item, idx, $event)"
+        class="absolute -top-2 right-2 text-white size-[16px] rounded-full flex justify-center items-center bg-red-500 opacity-0 duration-300 transition-all translate-y-1 group-hover:translate-y-0 ease-in-out group-hover:opacity-100"
+        aria-label="Remove shortcut"
+      >
+        <ds-icon id="minus" size="12"></ds-icon>
+      </button>
     </div>
   </div>
   <ul
     *ngIf="isOpen && shortcuts"
     class="w-full bg-card-level-5 rounded shadow-dropdown"
   >
+    <!-- (click)="
+        !shortcut.isSelected &&
+          shortcut.onClick({ shortcut: shortcut, index: index }, $event)
+      " -->
     <li
       tabindex="0"
       role="button"
-      *ngFor="let shortcut of shortcuts"
-      (click)="!shortcut.isSelected && shortcut.onClick(shortcut, $event)"
+      *ngFor="let shortcut of shortcuts; let index = index"
+      (click)="selectShortcut(shortcut, index, $event)"
       class="flex justify-between items-center gap-2 p-4"
       [ngClass]="
         shortcut.isSelected

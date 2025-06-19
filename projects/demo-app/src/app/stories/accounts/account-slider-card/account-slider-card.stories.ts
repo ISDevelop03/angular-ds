@@ -18,8 +18,16 @@ export class AccountSliderCardStoryComponent {
   };
 
   actionsList: DropdownItem[] = [
-    { label: 'Details', icon: 'eye', onClick: () => alert('Details clicked') },
-    { label: 'Delete', icon: 'trash', onClick: () => alert('Delete clicked') },
+    {
+      label: 'Details',
+      icon: 'eye',
+      onClick: (item) => alert('Details clicked' + JSON.stringify(item)),
+    },
+    {
+      label: 'Delete',
+      icon: 'trash',
+      onClick: (item) => alert('Delete clicked' + JSON.stringify(item)),
+    },
   ];
 
   onCardClick() {

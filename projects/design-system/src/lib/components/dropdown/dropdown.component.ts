@@ -152,9 +152,9 @@ export class DsDropdownComponent implements OnInit, OnDestroy {
     this.menuStyles = {};
   }
 
-  onItemClick(cb?: () => void) {
+  onItemClick(event: any, cb?: (event: any) => void) {
     if (cb) {
-      cb();
+      cb(event);
     }
     this.closeMenu();
   }

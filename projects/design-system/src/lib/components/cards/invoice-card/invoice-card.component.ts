@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
 export interface InvoiceActions {
   label: string;
   icon: string;
   href: string;
-  action: () => void;
+  onClick: (data: any) => void;
 }
 
 /**
@@ -21,9 +21,60 @@ export interface InvoiceActions {
 export class InvoiceCardComponent {
   @Input() items?: InvoiceActions[] = [];
   @Input() actions?: ICallToActionIcon[] = [];
+  @Input() id?: any = '';
   @Input() href?: string = '';
   @Input() title: string = '';
   @Input() image: string = '';
-  @Input() onClick: (event: Event) => void;
   @Input() className?: string = '';
+
+  @Output() onClick = new EventEmitter<any>();
+
+  onClickHandler(event: Event) {
+    this.onClick.emit({
+      event,
+      data: {
+        id: this.id,
+        href: this.href,
+        image: this.image,
+        title: this.title,
+        className: this.className,
+        actionsList: this.actions,
+      },
+    });
+  }
+
+  ngOnInit() {
+    this.actions = this.actions.map((action) => ({
+      ...action,
+      onClick: (event: Event) =>
+        action.onClick &&
+        action.onClick({
+          event,
+          data: {
+            id: this.id,
+            href: this.href,
+            image: this.image,
+            title: this.title,
+            className: this.className,
+            actionsList: this.actions,
+          },
+        }),
+    }));
+    this.items = this.items.map((item) => ({
+      ...item,
+      onClick: (event: Event) =>
+        item.onClick &&
+        item.onClick({
+          event,
+          data: {
+            id: this.id,
+            href: this.href,
+            image: this.image,
+            title: this.title,
+            className: this.className,
+            actionsList: this.actions,
+          },
+        }),
+    }));
+  }
 }

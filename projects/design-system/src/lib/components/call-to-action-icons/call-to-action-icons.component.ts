@@ -19,9 +19,9 @@ export class CallToActionIconsComponent {
 
   theme = callToActionIconsTheme;
 
-  handleClick(action: ICallToActionIcon) {
+  handleClick(event: Event, action: ICallToActionIcon) {
     if (typeof action.onClick === 'function') {
-      action.onClick();
+      action.onClick(event);
     }
   }
 }

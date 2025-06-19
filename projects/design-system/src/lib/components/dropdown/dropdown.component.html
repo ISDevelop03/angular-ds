@@ -21,7 +21,7 @@
     >
       <button
         *ngFor="let item of items"
-        (click)="onItemClick(item.onClick)"
+        (click)="onItemClick($event, item.onClick)"
         [ngClass]="dropdown.item.base"
         type="button"
       >

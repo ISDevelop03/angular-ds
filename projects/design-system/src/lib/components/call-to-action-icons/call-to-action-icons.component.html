@@ -22,7 +22,7 @@
     <button
       *ngIf="!action.dropdownItems"
       type="button"
-      (click)="handleClick(action)"
+      (click)="handleClick($event, action)"
       [ngClass]="[theme[variant].button, action.buttonClassName || '']"
     >
       <ds-icon

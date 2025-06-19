@@ -97,6 +97,7 @@ import localeFr from '@angular/common/locales/fr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PortalModule } from '@angular/cdk/portal';
 import { CodeInputModule } from 'angular-code-input';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -175,6 +176,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PortalModule,
     CarouselModule,
     CodeInputModule,
+    NgxDaterangepickerMd.forRoot(),
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [

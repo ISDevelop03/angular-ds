@@ -11,24 +11,24 @@ export class InvoiceCardStoryComponent {
     value: string;
     icon?: string;
     href?: string;
-    onClick?: () => void;
+    onClick?: (data: any) => void;
   }[] = [
     {
       label: 'View',
       value: 'View',
       href: '/view',
-      onClick: () => console.log('View clicked'),
+      onClick: (data) => console.log('View clicked', data),
     },
     {
       label: 'Download',
       value: 'Download',
       href: '/download',
-      onClick: () => console.log('Download clicked'),
+      onClick: (data) => console.log('Download clicked', data),
     },
     {
       label: 'Share',
       value: 'Share',
-      onClick: () => console.log('Share clicked'),
+      onClick: (data) => console.log('Share clicked', data),
     },
   ];
   href?: string = '/invoice-card';
@@ -39,20 +39,20 @@ export class InvoiceCardStoryComponent {
   actions: ICallToActionIcon[] = [
     {
       icon: 'eye',
-      onClick: () => console.log('Eye clicked'),
+      onClick: (data) => console.log('Eye clicked', data),
     },
     {
       icon: 'pen',
-      onClick: () => console.log('Edit clicked'),
+      onClick: (data) => console.log('Edit clicked', data),
     },
     {
       icon: 'trash',
-      onClick: () => console.log('Trash clicked'),
+      onClick: (data) => console.log('Trash clicked', data),
     },
   ];
 
-  onClick(event: Event) {
-    event.preventDefault();
-    console.log('Card clicked');
+  onClick(data: { event: Event; data: any }) {
+    data.event.preventDefault();
+    console.log('Card clicked', data.event, data.data);
   }
 }

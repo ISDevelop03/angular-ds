@@ -2,25 +2,7 @@
   <h2 class="text-2xl font-bold">DatePicker</h2>
   <div class="flex flex-col gap-4">
     <h2 class="mb-2 font-semibold">Single Date</h2>
-    <ds-date-picker
-      mode="single"
-      [(selected)]="singleDate"
-      variant="default"
-    ></ds-date-picker>
-    <p class="mt-2">You picked: {{ singleDate | date:'mediumDate' }}</p>
-
-    <hr class="my-4" />
-
-    <h2 class="mb-2 font-semibold">Date Range</h2>
-    <ds-date-picker
-      mode="range"
-      [(rangeStart)]="rangeStart"
-      [(rangeEnd)]="rangeEnd"
-      variant="default"
-    ></ds-date-picker>
-    <p class="mt-2">
-      From: {{ rangeStart | date:'mediumDate' }} – To: {{ rangeEnd |
-      date:'mediumDate' }}
-    </p>
+    <ds-date-picker (choosedDate)="choosedDateHandler($event)"></ds-date-picker>
+    {{selected | json}}
   </div>
 </section>

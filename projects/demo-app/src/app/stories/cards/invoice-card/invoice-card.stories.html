@@ -12,19 +12,20 @@
       [title]="title"
       [image]="image"
       className="max-w-[300px]"
-      [onClick]="onClick"
+      (onClick)="onClick($event)"
     ></ds-invoice-card>
     <ds-invoice-card
       [title]="title"
       [image]="image"
       className="max-w-[300px]"
-      [onClick]="onClick"
+      (onClick)="onClick($event)"
     ></ds-invoice-card>
     <ds-invoice-card
       [actions]="actions"
       [title]="title"
       [image]="image"
       className="max-w-[300px]"
+      (onClick)="onClick($event)"
     ></ds-invoice-card>
   </div>
 </section>

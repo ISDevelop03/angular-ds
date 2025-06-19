@@ -5,7 +5,9 @@ import { Component, Input } from '@angular/core';
   templateUrl: './date-picker.stories.html',
 })
 export class DatePickerStoryComponent {
-  singleDate: Date = new Date();
-  rangeStart: Date | null = null;
-  rangeEnd: Date | null = null;
+  selected = {};
+
+  choosedDateHandler(event: any) {
+    this.selected = event;
+  }
 }

@@ -10,7 +10,15 @@ export class AccountHoldingCardStoryComponent {
   className = '';
   image = 'https://placehold.co/82';
   actionsList: DropdownItem[] = [
-    { label: 'Edit', icon: 'pen', onClick: () => alert('Edit clicked') },
-    { label: 'Remove', icon: 'trash', onClick: () => alert('Remove clicked') },
+    {
+      label: 'Edit',
+      icon: 'pen',
+      onClick: (item) => alert('Edit clicked' + JSON.stringify(item)),
+    },
+    {
+      label: 'Remove',
+      icon: 'trash',
+      onClick: (item) => alert('Remove clicked' + JSON.stringify(item)),
+    },
   ];
 }
