@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DisplayPriceCardComponent } from './components/cards/display-price-card/display-price-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { AccordionCardComponent } from './components/cards/accordion-card/accordion-card.component';
 import { CodeInputComponent } from './components/form-elements/code-input/code-input.component';
 import { PinInputComponent } from './components/form-elements/pin-input/pin-input.component';
@@ -169,6 +171,8 @@ registerLocaleData(localeFr, 'fr-FR');
     PinInputComponent,
     CodeInputComponent,
     AccordionCardComponent,
+    FooterComponent,
+    DisplayPriceCardComponent,
   ],
   imports: [
     CommonModule,
@@ -248,6 +252,8 @@ registerLocaleData(localeFr, 'fr-FR');
     CodeInputComponent,
     CodeInputModule,
     AccordionCardComponent,
+    FooterComponent,
+    DisplayPriceCardComponent,
   ],
 })
 export class DesignSystemModule {}

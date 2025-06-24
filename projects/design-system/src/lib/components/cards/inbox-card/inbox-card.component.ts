@@ -17,9 +17,10 @@ export class InboxCardComponent {
   @Input() date?: string;
   @Input() isRead: boolean = false;
   @Input() link?: string;
-  @Output() onClick = new EventEmitter<void>();
 
-  handleClick() {
-    this.onClick.emit();
+  @Output() onClick = new EventEmitter<Event>();
+
+  handleClick(event: Event) {
+    this.onClick.emit(event);
   }
 }

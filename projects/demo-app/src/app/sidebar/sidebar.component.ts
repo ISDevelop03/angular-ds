@@ -28,6 +28,8 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef<HTMLElement>;
 
+  os = '';
+
   theme: Theme = 'light';
 
   currentPath = '';
@@ -56,6 +58,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.os = window.navigator.userAgent.includes('Mac') ? 'mac' : 'windows';
     this.menus = this.menus.sort((a, b) => (a.name < b.name ? -1 : 1));
     this.filteredMenus = this.menus.concat(); // Initialize filteredMenus with a copy of menus
     this.initTheme();

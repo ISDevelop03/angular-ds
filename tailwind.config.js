@@ -8,5 +8,5 @@ module.exports = {
     "./projects/**/*.{html,ts}",
     "./documentation/**/*.{html,ts}",
   ], // ⬅️ scan these files for class names
-  plugins: [], // optional root-only plugins / overrides
+  plugins: [require("@tailwindcss/container-queries")],
 };

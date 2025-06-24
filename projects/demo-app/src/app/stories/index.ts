@@ -102,3 +102,9 @@ export * from './form-elements/code-input/code-input.stories';
 
 // Auto-export for accordion-card stories
 export * from './cards/accordion-card/accordion-card.stories';
+
+// Auto-export for footer stories
+export * from './footer/footer.stories';
+
+// Auto-export for display-price-card stories
+export * from './cards/display-price-card/display-price-card.stories';

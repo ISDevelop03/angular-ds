@@ -1,6 +1,6 @@
 <div
   id="ds-notification-card"
-  (click)="handleClick()"
+  (click)="handleClick($event)"
   [ngClass]="[
     'relative flex items-start justify-start gap-2 border-l-2 p-3.5 cursor-pointer',
     !isRead

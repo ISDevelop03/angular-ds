@@ -21,13 +21,32 @@
     <p>
       This is <strong>projected template content</strong> for the first panel.
     </p>
+
+    <ds-text content="Heading as H1" tag="h1" variant="text-xl/Bold"></ds-text>
   </ng-template>
 
   <ng-template #templateTwo>
-    <ul class="list-disc ml-4">
-      <li>Item One</li>
-      <li>Item Two</li>
-    </ul>
+    <div class="grid gap-4">
+      <ul class="list-disc ml-4">
+        <li>Item One</li>
+        <li>Item Two</li>
+      </ul>
+      <div class="max-w-[300px]">
+        <ds-account-selected-card
+          [account_number]="account.account_number"
+          [balance]="account.balance"
+          [currency]="account.currency"
+          [type]="account.type"
+          [id]="account.id"
+          [date]="account.date"
+          [isDiscrete]="account.isDiscrete"
+          [solde_comptable]="account.solde_comptable"
+          [solde_temps_reel]="account.solde_temps_reel"
+          [actionsList]="actionsList"
+        >
+        </ds-account-selected-card>
+      </div>
+    </div>
   </ng-template>
 
   <ng-template #templateThree>

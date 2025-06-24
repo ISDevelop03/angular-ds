@@ -1,0 +1,48 @@
+<footer
+  id="ds-footer"
+  class="@container border-neutral-100 border-t p-[14px]"
+  [ngClass]="className"
+>
+  <div
+    class="flex items-center justify-between gap-4 w-full @3xl:flex-row flex-col"
+  >
+    <ul
+      class="flex items-center @3xl:justify-start justify-center gap-2 flex-wrap"
+    >
+      <ng-container *ngFor="let leftMenu of leftMenus; let last = last">
+        <li
+          class="flex items-center justify-center text-neutral-800 text-[12px]/[14px] font-[400]"
+        >
+          <a [href]="leftMenu.href" class="inline-flex">
+            {{ leftMenu.title }}
+          </a>
+        </li>
+
+        <span
+          class="inline-block w-px h-[12px] bg-neutral-800"
+          *ngIf="!last"
+          aria-hidden="true"
+        ></span>
+      </ng-container>
+    </ul>
+    <ul
+      class="flex items-center gap-2 flex-wrap @3xl:justify-start justify-center"
+    >
+      <ng-container *ngFor="let rightMenu of rightMenus; let last = last">
+        <li
+          class="flex items-center justify-center text-neutral-800 text-[12px]/[14px] font-[400]"
+        >
+          <a [href]="rightMenu.href" class="inline-flex">
+            {{ rightMenu.title }}
+          </a>
+        </li>
+
+        <span
+          class="inline-block w-px h-[12px] bg-neutral-800"
+          *ngIf="!last"
+          aria-hidden="true"
+        ></span>
+      </ng-container>
+    </ul>
+  </div>
+</footer>

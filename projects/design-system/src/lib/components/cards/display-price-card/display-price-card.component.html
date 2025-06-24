@@ -1,0 +1,59 @@
+<div
+  id="ds-display-price-card"
+  [ngClass]="className"
+  class="py-3 px-4 bg-red-50 border border-red-200 rounded-[4px] flex flex-col gap-5"
+>
+  <div *ngIf="items.length > 0" class="flex flex-col gap-2">
+    <div
+      *ngFor="let item of items"
+      class="w-full flex justify-between items-center gap-4 text-[12px]/[14px] text-neutral-500 [&_p]:font-bold"
+    >
+      <span class="inline-flex">
+        {{ item.label }}
+      </span>
+      <span
+        *ngIf="item.showLine"
+        class="w-[85%] inline-flex mx-auto border-t border-dashed border-neutral-500"
+      ></span>
+      <p>{{ item.value }}</p>
+    </div>
+  </div>
+
+  <div
+    class="flex w-full justify-between items-center"
+    [ngClass]="[
+      items.length > 0 ? 'border-t border-dashed border-neutral-500 pt-4' : ''
+    ]"
+  >
+    <span class="inline-flex text-[16px]/[18px] font-bold text-neutral-900">
+      {{ text }}
+    </span>
+    <p
+      class="flex items-center gap-1.5 text-[22px]/[32px] font-bold text-neutral-900"
+    >
+      <span> {{ price }} </span>
+
+      <ds-icon [id]="icon" size="24px" class="text-red-500"></ds-icon>
+    </p>
+  </div>
+
+  <div
+    *ngIf="buttons.length > 0"
+    class="flex justify-end items-center gap-2 mt-2"
+  >
+    <ds-button
+      *ngFor="let button of buttons"
+      [className]="button.className"
+      [variant]="button.variant ? button.variant : 'primary'"
+      [size]="button.size ? button.size : 'normal'"
+      [type]="button.type ? button.type : 'button'"
+      [isLoading]="button.isLoading"
+      [icon]="button.icon"
+      [iconRight]="button.iconRight"
+      [iconLeft]="button.iconLeft"
+      [handleClick]="button.onClick"
+    >
+      {{ button.text }}
+    </ds-button>
+  </div>
+</div>

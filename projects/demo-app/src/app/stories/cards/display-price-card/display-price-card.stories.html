@@ -1,0 +1,23 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">DisplayPriceCard</h2>
+  <div class="flex flex-col gap-4">
+    <ds-display-price-card
+      [items]="items"
+      className="max-w-[600px]"
+      [text]="'Montant total de la sélection :'"
+      [price]="'730 MAD'"
+    ></ds-display-price-card>
+    <ds-display-price-card
+      className="max-w-[600px]"
+      [text]="'Montant total de la sélection :'"
+      [price]="'730 MAD'"
+    ></ds-display-price-card>
+    <ds-display-price-card
+      [items]="items"
+      [buttons]="buttons"
+      [text]="'Montant total de la sélection :'"
+      [price]="'730 MAD'"
+      className="max-w-[600px]"
+    ></ds-display-price-card>
+  </div>
+</section>

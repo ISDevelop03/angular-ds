@@ -5,6 +5,8 @@
       *ngFor="let variant of variants"
       [label]="variant"
       [variant]="variant"
+      withDot="true"
+      (onClick)="onBadgeClick($event)"
     ></ds-badge>
   </div>
   <div class="flex gap-2 flex-wrap">
@@ -50,23 +52,17 @@
 
   <h3>With Icons</h3>
   <div class="flex gap-2 flex-wrap">
-    <ds-badge label="With Icon" icon="check" variant="red"></ds-badge>
+    <ds-badge label="With Icon" icon="check" variant="violet"></ds-badge>
+    <ds-badge
+      label="With Icon"
+      [iconRight]="true"
+      icon="check"
+      variant="red"
+    ></ds-badge>
   </div>
 
   <h3>As Link</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge label="Clickable Badge" href="https://example.com"></ds-badge>
-  </div>
-
-  <h3>Combined Demo</h3>
-  <div class="flex gap-2 flex-wrap">
-    <ds-badge
-      label="All in One"
-      icon="check"
-      href="https://example.com"
-      [pill]="true"
-      size="lg"
-      variant="recommanded"
-    ></ds-badge>
   </div>
 </div>

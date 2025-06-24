@@ -15,25 +15,26 @@
     (click)="handleClick($event)"
     [style]="style"
   >
-    <ng-container *ngIf="isLoading; else contentButton">
-      <ds-icon id="Loader" class="absolute z-30 size-5 animate-spin"></ds-icon>
-    </ng-container>
-    <ng-template #contentButton>
-      <span [ngClass]="appliedTheme.contentWrapper">
-        <ng-container *ngIf="icon; else projectedContentButton">
-          <ds-icon [id]="icon" class="size-5"></ds-icon>
+    <ds-icon
+      *ngIf="isLoading"
+      id="Loader"
+      size="14px"
+      class="animate-spin"
+    ></ds-icon>
+    <span [ngClass]="appliedTheme.contentWrapper">
+      <ng-container *ngIf="icon; else projectedContentButton">
+        <ds-icon [id]="icon" size="14px"></ds-icon>
+      </ng-container>
+      <ng-template #projectedContentButton>
+        <ng-container *ngIf="iconLeft">
+          <ds-icon [id]="iconLeft" size="14px"></ds-icon>
         </ng-container>
-        <ng-template #projectedContentButton>
-          <ng-container *ngIf="iconLeft">
-            <ds-icon [id]="iconLeft" class="size-5"></ds-icon>
-          </ng-container>
-          <!-- Content projection for button text -->
-          <ng-content></ng-content>
-          <ng-container *ngIf="iconRight">
-            <ds-icon [id]="iconRight" class="size-5"></ds-icon>
-          </ng-container>
-        </ng-template>
-      </span>
-    </ng-template>
+        <!-- Content projection for button text -->
+        <ng-content></ng-content>
+        <ng-container *ngIf="iconRight">
+          <ds-icon [id]="iconRight" size="14px"></ds-icon>
+        </ng-container>
+      </ng-template>
+    </span>
   </button>
 </ng-template>

@@ -7,7 +7,7 @@ export const checkbox = {
       enabled: {
         checked: 'border border-primary-500 bg-red-50 text-red-500',
         unchecked:
-          'bg-white border border-red-500 hover:bg-red-50 hover:border-red-500 focus-within:border-red-500',
+          'bg-card-level-1 border border-red-500 hover:bg-red-50 hover:border-red-500 focus-within:border-red-500',
       },
       disabled: {
         checked:
@@ -32,7 +32,7 @@ export const checkbox = {
       enabled: {
         checked: 'bg-primary-500 text-white',
         unchecked:
-          'bg-white border border-gray-400 hover:bg-gray-100 hover:border-primary-500 focus-within:border-primary-500',
+          'bg-card-level-1 border border-gray-400 hover:bg-gray-100 hover:border-primary-500 focus-within:border-primary-500',
       },
       disabled: {
         checked:

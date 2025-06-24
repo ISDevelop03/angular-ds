@@ -9,8 +9,9 @@ export class PaymentDetailsCardStoryComponent {
 
   isSelected: boolean = false;
 
-  onSelect() {
+  onSelect(event: any) {
     this.isSelected = !this.isSelected;
+    console.log('eventevent', event);
     console.log('Selected', this.isSelected);
   }
 }

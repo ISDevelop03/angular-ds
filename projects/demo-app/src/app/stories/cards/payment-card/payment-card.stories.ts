@@ -11,11 +11,11 @@ export class PaymentCardStoryComponent {
   currency: string = 'MAD';
   isSelected: boolean = false;
 
-  onSelect() {
+  onSelect(event) {
     this.isSelected = !this.isSelected;
-    console.log('Selected', this.isSelected);
+    console.log('Selected', this.isSelected, event);
   }
-  onDelete() {
-    console.log('Deleted');
+  onDelete(event) {
+    console.log('Deleted', event);
   }
 }

@@ -9,6 +9,7 @@ module.exports = {
       },
       spacing: {
         18: "72px",
+        sidebar: "calc(100vh - 28px - 16px - 48px - 32px - 43px)",
       },
       transitionTimingFunction: {
         "in-expo": "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
@@ -413,5 +414,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/container-queries")],
 };

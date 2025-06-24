@@ -2,14 +2,16 @@
   <h3>Single Select</h3>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     label="Choose Option"
     placeholder="Pick one..."
     buttonIcon="message"
   ></ds-select>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     label="Choose Option"
     placeholder="Pick one..."
     buttonIcon="message"
@@ -19,13 +21,15 @@
   <h3>Multi Select</h3>
   <ds-select
     [items]="options1"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     label="Select Account"
   ></ds-select>
   <h3>Multi Select</h3>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     [multiple]="true"
     label="Select Multiple"
   ></ds-select>
@@ -33,7 +37,8 @@
   <h3>Loading State</h3>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     [isLoading]="true"
     label="Loading Select"
   ></ds-select>
@@ -41,7 +46,8 @@
   <h3>Select With Error</h3>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     [hasError]="true"
     errorMessage="You must select an option"
     label="Select Error"
@@ -50,7 +56,8 @@
   <h3>Currency Variant</h3>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     label="Choose Option"
     placeholder="Pick one..."
     buttonIcon="message"
@@ -59,7 +66,8 @@
   <h3>Currency Variant</h3>
   <ds-select
     [items]="options"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
     label="Choose Option"
     placeholder="Pick one..."
     buttonIcon="message"

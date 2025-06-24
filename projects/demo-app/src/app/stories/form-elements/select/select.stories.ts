@@ -57,4 +57,8 @@ export class SelectStoryComponent {
   handleValueChange(value: string | string[]) {
     this.selectedValue = value;
   }
+  valueChange(data: any) {
+    console.log('data.valuedata.value', data);
+    this.selectedValue = data.value;
+  }
 }

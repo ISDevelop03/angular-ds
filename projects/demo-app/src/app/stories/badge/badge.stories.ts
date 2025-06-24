@@ -5,7 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './badge.stories.html',
 })
 export class BadgeStoryComponent {
-  variants = ['default', 'amber', 'blue', 'green', 'red', 'neutral', 'stroke1'];
+  variants = ['default', 'amber', 'violet', 'blue', 'green', 'red', 'stroke1'];
 
   sizes = ['sm', 'md', 'lg'];
+
+  onBadgeClick(event: MouseEvent): void {
+    console.log('Badge clicked:', event);
+  }
 }

@@ -8,7 +8,7 @@
       <ds-checkbox
         *ngIf="useCheckbox"
         [checked]="isSelected"
-        (change)="onSelect()"
+        (change)="onSelectChange($event)"
       ></ds-checkbox>
       <h3 *ngIf="title" class="text-[12px] leading-[14px]">
         {{ title }}

@@ -47,7 +47,7 @@ export class DsSelectComponent {
   @Input() value: string | string[] | null = null;
   @Input() customOptionsStyles?: { [key: string]: any };
 
-  @Output() valueChange = new EventEmitter<string | string[]>();
+  @Output() valueChange = new EventEmitter<any>();
 
   private static zIndexCounter = 10000;
 
@@ -107,7 +107,7 @@ export class DsSelectComponent {
     }
   }
 
-  selectOption(item: SelectItem) {
+  selectOption(event, item: SelectItem) {
     if (item.unavailable) return;
 
     if (this.multiple) {
@@ -122,7 +122,7 @@ export class DsSelectComponent {
       this.isOpen = false;
     }
 
-    this.valueChange.emit(this.value);
+    this.valueChange.emit({ value: this.value, event });
   }
 
   isSelected(item: SelectItem): boolean {

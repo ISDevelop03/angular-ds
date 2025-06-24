@@ -7,7 +7,7 @@
       price="1239"
       currency="USD"
       [isSelected]="isSelected"
-      [onSelect]="onSelect"
+      (onSelect)="onSelect($event)"
       className="max-w-[600px]"
     >
       <p>
@@ -21,7 +21,7 @@
       useCheckbox="true"
       currency="USD"
       [isSelected]="isSelected"
-      [onSelect]="onSelect"
+      (onSelect)="onSelect($event)"
       className="max-w-[600px]"
     >
       <div class="space-y-2">

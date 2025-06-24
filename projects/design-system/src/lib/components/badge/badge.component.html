@@ -3,7 +3,29 @@
   <span [ngClass]="getTextClasses()">{{ label }}</span>
 </a>
 
-<span id="ds-badge" *ngIf="!href" [ngClass]="getBadgeClasses()">
-  <ds-icon *ngIf="icon" [id]="icon" [ngClass]="badge.icon"></ds-icon>
+<span
+  id="ds-badge"
+  *ngIf="!href"
+  [ngClass]="getBadgeClasses()"
+  (click)="handleClick($event)"
+>
+  <ds-icon
+    *ngIf="!iconRight && icon"
+    [id]="icon"
+    [ngClass]="badge.icon"
+  ></ds-icon>
+  <span
+    class="size-1.5 rounded-full inline-flex"
+    [ngClass]="[
+      'bg-' + (variant === 'default' ? 'neutral' : variant) + '-500',
+      variant === 'stroke1' ? 'bg-neutral-700' : ''
+    ]"
+    *ngIf="withDot"
+  ></span>
   <span [ngClass]="getTextClasses()">{{ label }}</span>
+  <ds-icon
+    *ngIf="iconRight && icon"
+    [id]="icon"
+    [ngClass]="badge.icon"
+  ></ds-icon>
 </span>

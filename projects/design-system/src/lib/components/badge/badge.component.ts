@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { badge, textVariants } from './theme';
 
 /**
@@ -19,7 +19,11 @@ export class BadgeComponent {
   @Input() variant: string = 'default';
   @Input() size: string = 'md';
   @Input() outline: boolean = false;
+  @Input() withDot: boolean = false;
+  @Input() iconRight: boolean = false;
   @Input() className: string = '';
+
+  @Output() onClick = new EventEmitter<Event>();
 
   //Theme
   badge = badge;
@@ -37,5 +41,9 @@ export class BadgeComponent {
 
   getTextClasses(): string {
     return this.textVariants[this.size] || '';
+  }
+
+  handleClick(event: Event): void {
+    this.onClick.emit(event);
   }
 }

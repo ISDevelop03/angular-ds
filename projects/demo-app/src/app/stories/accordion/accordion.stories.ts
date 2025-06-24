@@ -10,6 +10,31 @@ export class AccordionStoryComponent {
   @ViewChild('templateTwo') templateTwo!: TemplateRef<any>;
   @ViewChild('templateThree') templateThree!: TemplateRef<any>;
 
+  account = {
+    account_number: 'ACC-24681357',
+    balance: 15000,
+    solde_comptable: 9823479234,
+    solde_temps_reel: 20982348,
+    currency: 'USD',
+    type: 'Savings',
+    id: 'account-123',
+    date: '2025-05-02',
+    isDiscrete: false,
+  };
+
+  actionsList = [
+    {
+      label: 'Edit',
+      icon: 'pen',
+      onClick: (item: any) => alert('Edit clicked ' + JSON.stringify(item)),
+    },
+    {
+      label: 'Remove',
+      icon: 'trash',
+      onClick: (item: any) => alert('Remove clicked' + JSON.stringify(item)),
+    },
+  ];
+
   items = [
     {
       label: 'Item 1',

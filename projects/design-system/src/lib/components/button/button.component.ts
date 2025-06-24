@@ -64,9 +64,7 @@ export class ButtonComponent implements OnInit {
     if (this.pill) {
       classes.push('!rounded-full');
     }
-    if (this.isLoading) {
-      classes.push('!p-5');
-    }
+
     if (this.className) {
       classes.push(this.className);
     }

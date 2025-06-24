@@ -15,7 +15,6 @@ export class IconStoryComponent implements OnInit {
       .then((json) => {
         this.icons = json.children.map((child: INode) => {
           if (child.attributes.id) {
-            console.log('child.attributes.id', child.attributes.id);
             return child.attributes.id;
           }
         });
