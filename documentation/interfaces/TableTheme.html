@@ -613,7 +613,7 @@ export const TableThemes: Record&lt;TableVariant, TableTheme&gt; &#x3D; {
     headerCellButton: &#x27;w-fit&#x27;,
     headerCellSortable: &#x27; select-none&#x27;,
     body: &#x27;&#x27;,
-    row: () &#x3D;&gt; &#x27;bg-white rounded&#x27;,
+    row: () &#x3D;&gt; &#x27;dark:bg-black bg-white rounded&#x27;,
     cell: &#x27;px-4 text-sm font-medium py-2&#x27;,
   },
   striped: {
@@ -627,7 +627,7 @@ export const TableThemes: Record&lt;TableVariant, TableTheme&gt; &#x3D; {
     headerCellButton: &#x27;w-fit&#x27;,
     headerCellSortable: &#x27; select-none&#x27;,
     body: &#x27;&#x27;,
-    row: (i) &#x3D;&gt; (i % 2 &#x3D;&#x3D;&#x3D; 0 ? &#x27;bg-white&#x27; : &#x27;bg-gray-50&#x27;),
+    row: (i) &#x3D;&gt; (i % 2 &#x3D;&#x3D;&#x3D; 0 ? &#x27;dark:bg-black bg-white&#x27; : &#x27;bg-gray-50&#x27;),
     cell: &#x27;px-4 text-sm py-2&#x27;,
   },
   bordered: {

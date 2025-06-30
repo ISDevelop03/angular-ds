@@ -247,6 +247,9 @@
                                 <a href="#currency" >currency</a>
                             </li>
                             <li>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
                                 <a href="#editLink" >editLink</a>
                             </li>
                             <li>
@@ -367,7 +370,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:26</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -389,6 +392,27 @@
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:25</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -553,8 +577,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -590,8 +614,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -637,7 +661,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/design-system/src/lib/components/accounts/account-grid-holding-card/account-grid-holding-card.component.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -674,31 +698,22 @@ export class DsAccountGridHoldingCardComponent implements OnInit {
   @Input() editLink?: string;
   @Input() className?: string &#x3D; &#x27;&#x27;;
   @Input() isDiscrete: boolean &#x3D; false;
+  @Input() data?: any;
   @Input() copyToClipboard?: (accountNumber: number) &#x3D;&gt; void;
 
   ngOnInit() {
-    const currentItem &#x3D; {
-      id: this.id,
-      title: this.title,
-      accountNumber: this.accountNumber,
-      soldeComptable: this.soldeComptable,
-      isDiscrete: this.isDiscrete,
-      editLink: this.editLink,
-      soldeReel: this.soldeReel,
-      currency: this.currency,
-      actionsList: this.actionsList,
-      className: this.className,
-    };
-
     this.actionsList &#x3D;
       this.actionsList
         .map((action) &#x3D;&gt; ({
           ...action,
-          onClick: () &#x3D;&gt; action.onClick &amp;&amp; action.onClick(currentItem),
+          onClick: (event: any) &#x3D;&gt;
+            action.onClick &amp;&amp; action.onClick({ data: this.data, event: event }),
           dropdownItems: action.dropdownItems
             ? action.dropdownItems.map((item) &#x3D;&gt; ({
                 ...item,
-                onClick: () &#x3D;&gt; item.onClick &amp;&amp; item.onClick(currentItem),
+                onClick: (event: any) &#x3D;&gt;
+                  item.onClick &amp;&amp;
+                  item.onClick({ data: this.data, event: event }),
               }))
             : null,
         }))
@@ -720,6 +735,7 @@ export class DsAccountGridHoldingCardComponent implements OnInit {
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;article
+  id&#x3D;&quot;ds-account-grid-holding-card&quot;
   class&#x3D;&quot;border border-stroke-1 bg-level-5 rounded w-full flex flex-col gap-4&quot;
   [ngClass]&#x3D;&quot;className&quot;
 &gt;
@@ -841,8 +857,8 @@ export class DsAccountGridHoldingCardComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><article  class="border border-stroke-1 bg-level-5 rounded w-full flex flex-col gap-4"  [ngClass]="className">  <!-- Header -->  <div    class="flex gap-5 items-center justify-between transition-all duration-300 ease-in"    [ngClass]="showAccordion ? \'px-3.5 pt-3\' : \'px-3.5 py-3\'"  >    <div class="flex flex-col gap-y-2">      <h3        *ngIf="title"        class="text-neutral-700 inline-flex gap-2 items-center text-[12px] leading-[14px]"      >        {{ title }}        <span *ngIf="editLink" class="text-neutral-900 text-[10px]">          <a            [href]="editLink"            class="hover:opacity-80 transition-all duration-300 ease-in"          >            <ds-icon id="edit-contained-1" class="size-3"></ds-icon>          </a>        </span>      </h3>      <p        *ngIf="accountNumber"        class="text-neutral-900 font-bold inline-flex gap-2 items-center text-[14px] leading-[16px]"      >        {{ accountNumber }}        <button (click)="copyToClipboard(accountNumber)">          <ds-icon id="copy" size="12" class="text-neutral-900"></ds-icon>        </button>      </p>    </div>    <div class="flex gap-5 items-center">      <!-- Solde Comptable -->      <div class="flex flex-col gap-y-1 font-normal">        <span class="text-neutral-500 text-[10px] leading-[12px]">          Solde comptable        </span>        <ds-display-value [value]="soldeComptable">          <ds-balance-formatter            *ngIf="soldeComptable"            [isDiscrete]="isDiscrete"            [balance]="soldeComptable"            [currency]="currency"            class="text-[16px] leading-[16px] font-bold"            currencyClassName="text-[12px] leading-[12px]"          ></ds-balance-formatter>        </ds-display-value>      </div>      <!-- Solde Reel -->      <div class="flex flex-col gap-y-1 font-normal">        <span class="text-neutral-500 text-[10px] leading-[12px]">          Solde réel        </span>        <ds-display-value [value]="soldeReel">          <ds-balance-formatter            *ngIf="soldeReel"            [isDiscrete]="isDiscrete"            [balance]="soldeReel"            [currency]="currency"            class="text-[16px] leading-[16px] font-bold"            currencyClassName="text-[12px] leading-[12px]"          ></ds-balance-formatter>        </ds-display-value>      </div>      <!-- Toolbox -->      <ds-call-to-action-icons        [actions]="actionsList"        className="w-fit"        variant="borderless"      ></ds-call-to-action-icons>    </div>  </div>  <!-- Accordion Content -->  <div    *ngIf="showAccordion"    class="bg-neutral-25 p-4 border-t border-t-neutral-100 w-full rounded-b-sm"  >    <ng-content></ng-content>  </div></article></div>'
-    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><article  id="ds-account-grid-holding-card"  class="border border-stroke-1 bg-level-5 rounded w-full flex flex-col gap-4"  [ngClass]="className">  <!-- Header -->  <div    class="flex gap-5 items-center justify-between transition-all duration-300 ease-in"    [ngClass]="showAccordion ? \'px-3.5 pt-3\' : \'px-3.5 py-3\'"  >    <div class="flex flex-col gap-y-2">      <h3        *ngIf="title"        class="text-neutral-700 inline-flex gap-2 items-center text-[12px] leading-[14px]"      >        {{ title }}        <span *ngIf="editLink" class="text-neutral-900 text-[10px]">          <a            [href]="editLink"            class="hover:opacity-80 transition-all duration-300 ease-in"          >            <ds-icon id="edit-contained-1" class="size-3"></ds-icon>          </a>        </span>      </h3>      <p        *ngIf="accountNumber"        class="text-neutral-900 font-bold inline-flex gap-2 items-center text-[14px] leading-[16px]"      >        {{ accountNumber }}        <button (click)="copyToClipboard(accountNumber)">          <ds-icon id="copy" size="12" class="text-neutral-900"></ds-icon>        </button>      </p>    </div>    <div class="flex gap-5 items-center">      <!-- Solde Comptable -->      <div class="flex flex-col gap-y-1 font-normal">        <span class="text-neutral-500 text-[10px] leading-[12px]">          Solde comptable        </span>        <ds-display-value [value]="soldeComptable">          <ds-balance-formatter            *ngIf="soldeComptable"            [isDiscrete]="isDiscrete"            [balance]="soldeComptable"            [currency]="currency"            class="text-[16px] leading-[16px] font-bold"            currencyClassName="text-[12px] leading-[12px]"          ></ds-balance-formatter>        </ds-display-value>      </div>      <!-- Solde Reel -->      <div class="flex flex-col gap-y-1 font-normal">        <span class="text-neutral-500 text-[10px] leading-[12px]">          Solde réel        </span>        <ds-display-value [value]="soldeReel">          <ds-balance-formatter            *ngIf="soldeReel"            [isDiscrete]="isDiscrete"            [balance]="soldeReel"            [currency]="currency"            class="text-[16px] leading-[16px] font-bold"            currencyClassName="text-[12px] leading-[12px]"          ></ds-balance-formatter>        </ds-display-value>      </div>      <!-- Toolbox -->      <ds-call-to-action-icons        [actions]="actionsList"        className="w-fit"        variant="borderless"      ></ds-call-to-action-icons>    </div>  </div>  <!-- Accordion Content -->  <div    *ngIf="showAccordion"    class="bg-neutral-25 p-4 border-t border-t-neutral-100 w-full rounded-b-sm"  >    <ng-content></ng-content>  </div></article></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DsAccountGridHoldingCardComponent'};
 </script>

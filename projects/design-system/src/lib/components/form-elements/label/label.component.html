@@ -1,0 +1,12 @@
+<label
+  id="ds-label"
+  [for]="for"
+  [ngClass]="[
+    theme[variant].base,
+    disabled ? 'cursor-not-allowed opacity-60' : '',
+    className
+  ]"
+>
+  <ng-content></ng-content>
+  <span *ngIf="required" class="ml-1 text-red-500">*</span>
+</label>

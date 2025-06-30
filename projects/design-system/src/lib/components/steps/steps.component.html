@@ -66,18 +66,49 @@
 
   <div class="{{ theme.navigationWrapper }}">
     <!-- Navigation buttons -->
-    <ds-button
-      variant="gray"
-      [handleClick]="handlePrevCancel"
-      [disabled]="!steps.toArray()[currentStepIndex].shouldGoPrev"
-    >
-      {{ currentStepIndex === 0 ? "Cancel" : "Prev" }}
-    </ds-button>
-    <ds-button
-      [handleClick]="goNext"
-      [disabled]="!steps.toArray()[currentStepIndex].shouldGoNext"
-    >
-      Next
-    </ds-button>
+    <div class="flex justify-end gap-2">
+      <ds-button
+        *ngFor="let button of leftButtons"
+        [variant]="button.variant"
+        [icon]="button.icon"
+        [iconRight]="button.iconRight"
+        [iconLeft]="button.iconLeft"
+        [pill]="button.pill"
+        [outline]="button.outline"
+        [type]="button.type || 'button'"
+        [className]="button.className"
+        [size]="button.size || 'normal'"
+        (onClick)="goPrev($event, button)"
+        [disabled]="
+          button.disabled === undefined
+            ? !steps.toArray()[currentStepIndex].shouldGoPrev
+            : button.disabled
+        "
+      >
+        {{ button.content }}
+      </ds-button>
+    </div>
+    <div class="flex justify-end gap-2">
+      <ds-button
+        *ngFor="let button of rightButtons"
+        [variant]="button.variant"
+        [icon]="button.icon"
+        [iconRight]="button.iconRight"
+        [iconLeft]="button.iconLeft"
+        [pill]="button.pill"
+        [outline]="button.outline"
+        [type]="button.type || 'button'"
+        [className]="button.className"
+        [size]="button.size || 'normal'"
+        (onClick)="goNext($event, button)"
+        [disabled]="
+          button.disabled === undefined
+            ? !steps.toArray()[currentStepIndex].shouldGoNext
+            : button.disabled
+        "
+      >
+        {{ button.content }}
+      </ds-button>
+    </div>
   </div>
 </section>

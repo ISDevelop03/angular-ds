@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { defaultTheme } from './theme';
 
 /**
@@ -28,7 +28,8 @@ export class ButtonComponent implements OnInit {
   @Input() isLoading = false;
   @Input() theme: any;
   @Input() style: string = '';
-  @Input() handleClick: (event: Event) => void;
+
+  @Output() onClick = new EventEmitter<any>();
 
   defaultTheme = defaultTheme;
 

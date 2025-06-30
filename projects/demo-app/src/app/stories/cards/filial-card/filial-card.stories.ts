@@ -11,4 +11,8 @@ export class FilialCardStoryComponent {
     id: 1,
     sector: 'Sector A',
   };
+
+  onFilialCardSelected(event: any) {
+    console.log('Filial card selected:', event);
+  }
 }

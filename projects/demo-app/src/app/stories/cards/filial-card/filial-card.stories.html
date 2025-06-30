@@ -6,5 +6,7 @@
     [name]="item.name"
     [sector]="item.sector"
     [id]="item.id"
+    [data]="item"
+    (setSelected)="onFilialCardSelected($event)"
   ></ds-filial-card>
 </div>

@@ -123,12 +123,6 @@
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                <code>OnInit</code>
-    </p>
 
 
 <section data-compodoc="block-metadata">
@@ -186,31 +180,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#currentMonth" >currentMonth</a>
-                            </li>
-                            <li>
-                                <a href="#currentYear" >currentYear</a>
-                            </li>
-                            <li>
-                                <a href="#months" >months</a>
-                            </li>
-                            <li>
-                                <a href="#theme" >theme</a>
-                            </li>
-                            <li>
-                                <a href="#view" >view</a>
-                            </li>
-                            <li>
-                                <a href="#weeks" >weeks</a>
-                            </li>
-                            <li>
-                                <a href="#yearPageSize" >yearPageSize</a>
-                            </li>
-                            <li>
-                                <a href="#yearPageStart" >yearPageStart</a>
-                            </li>
-                            <li>
-                                <a href="#years" >years</a>
+                                <a href="#selected" >selected</a>
                             </li>
                         </ul>
                     </td>
@@ -225,49 +195,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#buildCalendar" >buildCalendar</a>
+                                <a href="#choosedDateHandler" >choosedDateHandler</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#buildYears" >buildYears</a>
-                            </li>
-                            <li>
-                                <a href="#chooseMonth" >chooseMonth</a>
-                            </li>
-                            <li>
-                                <a href="#chooseYear" >chooseYear</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#clampMonthYear" >clampMonthYear</a>
-                            </li>
-                            <li>
-                                <a href="#inRange" >inRange</a>
-                            </li>
-                            <li>
-                                <a href="#isSelected" >isSelected</a>
-                            </li>
-                            <li>
-                                <a href="#nextMonth" >nextMonth</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                            <li>
-                                <a href="#onNextClick" >onNextClick</a>
-                            </li>
-                            <li>
-                                <a href="#onPrevClick" >onPrevClick</a>
-                            </li>
-                            <li>
-                                <a href="#prevMonth" >prevMonth</a>
-                            </li>
-                            <li>
-                                <a href="#selectDate" >selectDate</a>
-                            </li>
-                            <li>
-                                <a href="#toggleView" >toggleView</a>
+                                <a href="#isCustomDateHandler" >isCustomDateHandler</a>
                             </li>
                         </ul>
                     </td>
@@ -282,19 +213,40 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#mode" >mode</a>
+                                <a href="#alwaysShowCalendars" >alwaysShowCalendars</a>
                             </li>
                             <li>
-                                <a href="#rangeEnd" >rangeEnd</a>
+                                <a href="#autoApply" >autoApply</a>
                             </li>
                             <li>
-                                <a href="#rangeStart" >rangeStart</a>
+                                <a href="#customRangeDirection" >customRangeDirection</a>
                             </li>
                             <li>
-                                <a href="#selected" >selected</a>
+                                <a href="#dateLimit" >dateLimit</a>
                             </li>
                             <li>
-                                <a href="#variant" >variant</a>
+                                <a href="#keepCalendarOpeningWithRange" >keepCalendarOpeningWithRange</a>
+                            </li>
+                            <li>
+                                <a href="#linkedCalendars" >linkedCalendars</a>
+                            </li>
+                            <li>
+                                <a href="#lockStartDate" >lockStartDate</a>
+                            </li>
+                            <li>
+                                <a href="#maxDate" >maxDate</a>
+                            </li>
+                            <li>
+                                <a href="#minDate" >minDate</a>
+                            </li>
+                            <li>
+                                <a href="#showDropdowns" >showDropdowns</a>
+                            </li>
+                            <li>
+                                <a href="#showRangeLabelOnInput" >showRangeLabelOnInput</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
                             </li>
                         </ul>
                     </td>
@@ -309,13 +261,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#rangeEndChange" >rangeEndChange</a>
+                                <a href="#choosedDate" >choosedDate</a>
                             </li>
                             <li>
-                                <a href="#rangeStartChange" >rangeStartChange</a>
+                                <a href="#datesUpdated" >datesUpdated</a>
                             </li>
                             <li>
-                                <a href="#selectedChange" >selectedChange</a>
+                                <a href="#isCustomDate" >isCustomDate</a>
+                            </li>
+                            <li>
+                                <a href="#rangeClicked" >rangeClicked</a>
                             </li>
                         </ul>
                     </td>
@@ -334,56 +289,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="mode"></a>
-                        <b>mode</b>
+                        <a name="alwaysShowCalendars"></a>
+                        <b>alwaysShowCalendars</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#range" target="_self" >&quot;single&quot; | &quot;range&quot;</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;single&#x27;</code>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:10</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>&#39;single&#39; or &#39;range&#39;</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="rangeEnd"></a>
-                        <b>rangeEnd</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>Date | null</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>null</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:12</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -392,112 +315,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="rangeStart"></a>
-                        <b>rangeStart</b>
+                        <a name="autoApply"></a>
+                        <b>autoApply</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>Date | null</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>null</code>
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:18</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>range binding</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="selected"></a>
-                        <b>selected</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>Date | null</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>null</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:14</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>single-date binding</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="variant"></a>
-                        <b>variant</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#DatePickerVariant" target="_self" >DatePickerVariant</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;default&#x27;</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:11</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-    <section data-compodoc="block-outputs">
-    <h3 id="outputs">Outputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="rangeEndChange"></a>
-                        <b>rangeEndChange</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>EventEmitter</code>
-
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:9</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -506,13 +341,39 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="rangeStartChange"></a>
-                        <b>rangeStartChange</b>
+                        <a name="customRangeDirection"></a>
+                        <b>customRangeDirection</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>EventEmitter</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dateLimit"></a>
+                        <b>dateLimit</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </td>
                 </tr>
@@ -527,8 +388,209 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectedChange"></a>
-                        <b>selectedChange</b>
+                        <a name="keepCalendarOpeningWithRange"></a>
+                        <b>keepCalendarOpeningWithRange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="linkedCalendars"></a>
+                        <b>linkedCalendars</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:10</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lockStartDate"></a>
+                        <b>lockStartDate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxDate"></a>
+                        <b>maxDate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minDate"></a>
+                        <b>minDate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showDropdowns"></a>
+                        <b>showDropdowns</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:11</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showRangeLabelOnInput"></a>
+                        <b>showRangeLabelOnInput</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#range" target="_self" >&quot;single&quot; | &quot;range&quot;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;range&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:8</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="choosedDate"></a>
+                        <b>choosedDate</b>
                     </td>
                 </tr>
                 <tr>
@@ -539,7 +601,70 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="datesUpdated"></a>
+                        <b>datesUpdated</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCustomDate"></a>
+                        <b>isCustomDate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rangeClicked"></a>
+                        <b>rangeClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:24</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -556,102 +681,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="buildCalendar"></a>
+                    <a name="choosedDateHandler"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>buildCalendar</b></span>
-                        <a href="#buildCalendar"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>choosedDateHandler</b></span>
+                        <a href="#choosedDateHandler"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>buildCalendar()</code>
+<code>choosedDateHandler(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:76</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="buildYears"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>buildYears</b></span>
-                        <a href="#buildYears"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>buildYears()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="150"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:150</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="chooseMonth"></a>
-                    <span class="name">
-                        <span ><b>chooseMonth</b></span>
-                        <a href="#chooseMonth"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>chooseMonth(idx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -672,9 +719,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>idx</td>
+                                                <td>event</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                             </td>
 
                                             <td>
@@ -701,24 +748,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="chooseYear"></a>
+                    <a name="isCustomDateHandler"></a>
                     <span class="name">
-                        <span ><b>chooseYear</b></span>
-                        <a href="#chooseYear"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>isCustomDateHandler</b></span>
+                        <a href="#isCustomDateHandler"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>chooseYear(y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>isCustomDateHandler(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="71"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:71</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -739,9 +786,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>y</td>
+                                                <td>value</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                             </td>
 
                                             <td>
@@ -760,468 +807,6 @@
                             <div class="io-description">
                                 
                             </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="clampMonthYear"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>clampMonthYear</b></span>
-                        <a href="#clampMonthYear"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>clampMonthYear()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="117"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:117</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="inRange"></a>
-                    <span class="name">
-                        <span ><b>inRange</b></span>
-                        <a href="#inRange"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>inRange(day: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="96"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:96</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>day</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isSelected"></a>
-                    <span class="name">
-                        <span ><b>isSelected</b></span>
-                        <a href="#isSelected"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>isSelected(day: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:92</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>day</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="nextMonth"></a>
-                    <span class="name">
-                        <span ><b>nextMonth</b></span>
-                        <a href="#nextMonth"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>nextMonth()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:53</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="105"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:105</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="onNextClick"></a>
-                    <span class="name">
-                        <span ><b>onNextClick</b></span>
-                        <a href="#onNextClick"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>onNextClick()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="139"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:139</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="onPrevClick"></a>
-                    <span class="name">
-                        <span ><b>onPrevClick</b></span>
-                        <a href="#onPrevClick"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>onPrevClick()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="129"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:129</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="prevMonth"></a>
-                    <span class="name">
-                        <span ><b>prevMonth</b></span>
-                        <a href="#prevMonth"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>prevMonth()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:48</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="selectDate"></a>
-                    <span class="name">
-                        <span ><b>selectDate</b></span>
-                        <a href="#selectDate"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>selectDate(day: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="157"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:157</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>day</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="toggleView"></a>
-                    <span class="name">
-                        <span ><b>toggleView</b></span>
-                        <a href="#toggleView"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>toggleView()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:59</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1236,273 +821,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="currentMonth"></a>
+                    <a name="selected"></a>
                     <span class="name">
-                        <span ><b>currentMonth</b></span>
-                        <a href="#currentMonth"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>selected</b></span>
+                        <a href="#selected"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:28</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="currentYear"></a>
-                    <span class="name">
-                        <span ><b>currentYear</b></span>
-                        <a href="#currentYear"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:29</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="months"></a>
-                    <span class="name">
-                        <span ><b>months</b></span>
-                        <a href="#months"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>[]</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>[
-    &#x27;Jan&#x27;,
-    &#x27;Feb&#x27;,
-    &#x27;Mar&#x27;,
-    &#x27;Apr&#x27;,
-    &#x27;May&#x27;,
-    &#x27;Jun&#x27;,
-    &#x27;Jul&#x27;,
-    &#x27;Aug&#x27;,
-    &#x27;Sep&#x27;,
-    &#x27;Oct&#x27;,
-    &#x27;Nov&#x27;,
-    &#x27;Dec&#x27;,
-  ]</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:32</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="theme"></a>
-                    <span class="name">
-                        <span ><b>theme</b></span>
-                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>DatePickerTheme</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:23</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="view"></a>
-                    <span class="name">
-                        <span ><b>view</b></span>
-                        <a href="#view"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>&quot;days&quot; | &quot;months&quot; | &quot;years&quot;</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;days&#x27;</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:26</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>view = &#39;days&#39; | &#39;months&#39; | &#39;years&#39;</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="weeks"></a>
-                    <span class="name">
-                        <span ><b>weeks</b></span>
-                        <a href="#weeks"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>Date[][]</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>[]</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:31</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="yearPageSize"></a>
-                    <span class="name">
-                        <span ><b>yearPageSize</b></span>
-                        <a href="#yearPageSize"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>100</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:102</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="yearPageStart"></a>
-                    <span class="name">
-                        <span ><b>yearPageStart</b></span>
-                        <a href="#yearPageStart"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:103</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="years"></a>
-                    <span class="name">
-                        <span ><b>years</b></span>
-                        <a href="#years"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>number[]</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>[]</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/design-system/src/lib/components/form-elements/date-picker/date-picker.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -1516,268 +850,181 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Output, EventEmitter, OnInit } from &#x27;@angular/core&#x27;;
-import { DatePickerTheme, DatePickerVariant } from &#x27;./theme&#x27;;
 
 @Component({
   selector: &#x27;ds-date-picker&#x27;,
   templateUrl: &#x27;./date-picker.component.html&#x27;,
 })
-export class DatePickerComponent implements OnInit {
-  /** &#x27;single&#x27; or &#x27;range&#x27; */
-  @Input() mode: &#x27;single&#x27; | &#x27;range&#x27; &#x3D; &#x27;single&#x27;;
-  @Input() variant: DatePickerVariant &#x3D; &#x27;default&#x27;;
+export class DatePickerComponent {
+  @Input() type: &#x27;single&#x27; | &#x27;range&#x27; &#x3D; &#x27;range&#x27;;
+  @Input() autoApply: boolean &#x3D; true;
+  @Input() linkedCalendars: boolean &#x3D; true;
+  @Input() showDropdowns: boolean &#x3D; true;
+  @Input() alwaysShowCalendars: boolean &#x3D; false;
+  @Input() keepCalendarOpeningWithRange: boolean &#x3D; false;
+  @Input() showRangeLabelOnInput: boolean &#x3D; false;
+  @Input() customRangeDirection: boolean &#x3D; false;
+  @Input() lockStartDate: boolean &#x3D; false;
+  @Input() minDate: any;
+  @Input() maxDate: any;
+  @Input() dateLimit: any;
+  selected: any;
 
-  /** single-date binding */
-  @Input() selected: Date | null &#x3D; null;
-  @Output() selectedChange &#x3D; new EventEmitter&lt;Date&gt;();
+  @Output() choosedDate &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() isCustomDate &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() rangeClicked &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() datesUpdated &#x3D; new EventEmitter&lt;any&gt;();
 
-  /** range binding */
-  @Input() rangeStart: Date | null &#x3D; null;
-  @Output() rangeStartChange &#x3D; new EventEmitter&lt;Date&gt;();
-  @Input() rangeEnd: Date | null &#x3D; null;
-  @Output() rangeEndChange &#x3D; new EventEmitter&lt;Date&gt;();
-
-  theme &#x3D; DatePickerTheme;
-
-  /** view &#x3D; &#x27;days&#x27; | &#x27;months&#x27; | &#x27;years&#x27; */
-  view: &#x27;days&#x27; | &#x27;months&#x27; | &#x27;years&#x27; &#x3D; &#x27;days&#x27;;
-
-  currentMonth!: number;
-  currentYear!: number;
-
-  weeks: Date[][] &#x3D; [];
-  months &#x3D; [
-    &#x27;Jan&#x27;,
-    &#x27;Feb&#x27;,
-    &#x27;Mar&#x27;,
-    &#x27;Apr&#x27;,
-    &#x27;May&#x27;,
-    &#x27;Jun&#x27;,
-    &#x27;Jul&#x27;,
-    &#x27;Aug&#x27;,
-    &#x27;Sep&#x27;,
-    &#x27;Oct&#x27;,
-    &#x27;Nov&#x27;,
-    &#x27;Dec&#x27;,
-  ];
-  years: number[] &#x3D; [];
-
-  prevMonth() {
-    this.currentMonth--;
-    this.clampMonthYear();
-    this.buildCalendar();
-  }
-  nextMonth() {
-    this.currentMonth++;
-    this.clampMonthYear();
-    this.buildCalendar();
+  choosedDateHandler(event: any) {
+    this.choosedDate.emit(event);
   }
 
-  toggleView() {
-    if (this.view &#x3D;&#x3D;&#x3D; &#x27;days&#x27;) this.view &#x3D; &#x27;months&#x27;;
-    else if (this.view &#x3D;&#x3D;&#x3D; &#x27;months&#x27;) this.view &#x3D; &#x27;years&#x27;;
-    else this.view &#x3D; &#x27;days&#x27;;
-  }
-
-  chooseMonth(idx: number) {
-    this.currentMonth &#x3D; idx;
-    this.view &#x3D; &#x27;days&#x27;;
-    this.buildCalendar();
-  }
-
-  chooseYear(y: number) {
-    this.currentYear &#x3D; y;
-    this.view &#x3D; &#x27;months&#x27;;
-  }
-
-  private buildCalendar() {
-    this.weeks &#x3D; [];
-    // start on Monday &#x3D;&gt; shift Sunday(0)→6
-    const first &#x3D; new Date(this.currentYear, this.currentMonth, 1);
-    const shift &#x3D; (first.getDay() + 6) % 7;
-    const start &#x3D; new Date(this.currentYear, this.currentMonth, 1 - shift);
-    for (let w &#x3D; 0; w &lt; 6; w++) {
-      const week: Date[] &#x3D; [];
-      for (let d &#x3D; 0; d &lt; 7; d++) {
-        week.push(new Date(start));
-        start.setDate(start.getDate() + 1);
-      }
-      this.weeks.push(week);
-    }
-  }
-
-  isSelected(day: Date) {
-    return this.selected &amp;&amp; day.toDateString() &#x3D;&#x3D;&#x3D; this.selected.toDateString();
-  }
-
-  inRange(day: Date) {
-    if (!this.rangeStart || !this.rangeEnd) return false;
-    return day &gt;&#x3D; this.rangeStart &amp;&amp; day &lt;&#x3D; this.rangeEnd;
-  }
-
-  // **years pagination**
-  yearPageSize &#x3D; 100;
-  yearPageStart!: number;
-
-  ngOnInit() {
-    const today &#x3D; new Date();
-    this.currentMonth &#x3D; today.getMonth();
-    this.currentYear &#x3D; today.getFullYear();
-
-    // initialize the year‐block so that currentYear lives inside it
-    const blockIdx &#x3D; Math.floor(this.currentYear / this.yearPageSize);
-    this.yearPageStart &#x3D; blockIdx * this.yearPageSize;
-    this.buildYears();
-    this.buildCalendar();
-  }
-
-  private clampMonthYear() {
-    if (this.currentMonth &lt; 0) {
-      this.currentMonth &#x3D; 11;
-      this.currentYear--;
-    }
-    if (this.currentMonth &gt; 11) {
-      this.currentMonth &#x3D; 0;
-      this.currentYear++;
-    }
-  }
-
-  // Called by &lt; and &gt; in header
-  onPrevClick() {
-    if (this.view &#x3D;&#x3D;&#x3D; &#x27;years&#x27;) {
-      this.yearPageStart -&#x3D; this.yearPageSize;
-      this.buildYears();
-    } else {
-      this.currentMonth--;
-      this.clampMonthYear();
-      this.buildCalendar();
-    }
-  }
-  onNextClick() {
-    if (this.view &#x3D;&#x3D;&#x3D; &#x27;years&#x27;) {
-      this.yearPageStart +&#x3D; this.yearPageSize;
-      this.buildYears();
-    } else {
-      this.currentMonth++;
-      this.clampMonthYear();
-      this.buildCalendar();
-    }
-  }
-
-  private buildYears() {
-    this.years &#x3D; [];
-    for (let i &#x3D; 0; i &lt; this.yearPageSize; i++) {
-      this.years.push(this.yearPageStart + i);
-    }
-  }
-
-  selectDate(day: Date) {
-    if (this.view !&#x3D;&#x3D; &#x27;days&#x27; || day.getMonth() !&#x3D;&#x3D; this.currentMonth) return;
-    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;single&#x27;) {
-      this.selected &#x3D; day;
-      this.selectedChange.emit(day);
-    } else {
-      if (!this.rangeStart || (this.rangeStart &amp;&amp; this.rangeEnd)) {
-        this.rangeStart &#x3D; day;
-        this.rangeEnd &#x3D; null;
-      } else {
-        if (day &lt; this.rangeStart!) {
-          this.rangeEnd &#x3D; this.rangeStart;
-          this.rangeStart &#x3D; day;
-        } else {
-          this.rangeEnd &#x3D; day;
-        }
-      }
-      this.rangeStartChange.emit(this.rangeStart!);
-      if (this.rangeEnd) this.rangeEndChange.emit(this.rangeEnd);
-    }
+  isCustomDateHandler(value: any) {
+    this.isCustomDate.emit(value);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;theme[variant].container&quot;&gt;
-  &lt;!-- HEADER --&gt;
-  &lt;div [ngClass]&#x3D;&quot;theme[variant].header&quot;&gt;
-    &lt;button (click)&#x3D;&quot;onPrevClick()&quot; [ngClass]&#x3D;&quot;[theme[variant].navButton]&quot;&gt;
-      &amp;lt;
-    &lt;/button&gt;
-    &lt;div (click)&#x3D;&quot;toggleView()&quot; [ngClass]&#x3D;&quot;[theme[variant].title]&quot;&gt;
-      {{
-        view &#x3D;&#x3D;&#x3D; &quot;years&quot;
-          ? yearPageStart + &quot; – &quot; + (yearPageStart + yearPageSize - 1)
-          : months[currentMonth] + &quot; &quot; + currentYear
-      }}
-    &lt;/div&gt;
-    &lt;button (click)&#x3D;&quot;onNextClick()&quot; [ngClass]&#x3D;&quot;[theme[variant].navButton]&quot;&gt;
-      &amp;gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *ngIf&#x3D;&quot;type &#x3D;&#x3D;&#x3D; &#x27;range&#x27;&quot;&gt;
+  &lt;ngx-daterangepicker-material
+    (choosedDate)&#x3D;&quot;choosedDateHandler($event)&quot;
+    (isCustomDate)&#x3D;&quot;isCustomDateHandler($event)&quot;
+    [autoApply]&#x3D;&quot;autoApply&quot;
+    [linkedCalendars]&#x3D;&quot;linkedCalendars&quot;
+    [showDropdowns]&#x3D;&quot;showDropdowns&quot;
+    [minDate]&#x3D;&quot;minDate&quot;
+    [maxDate]&#x3D;&quot;maxDate&quot;
+    [dateLimit]&#x3D;&quot;dateLimit&quot;
+    [alwaysShowCalendars]&#x3D;&quot;alwaysShowCalendars&quot;
+    [keepCalendarOpeningWithRange]&#x3D;&quot;keepCalendarOpeningWithRange&quot;
+    [showRangeLabelOnInput]&#x3D;&quot;showRangeLabelOnInput&quot;
+    [customRangeDirection]&#x3D;&quot;customRangeDirection&quot;
+    [lockStartDate]&#x3D;&quot;lockStartDate&quot;
+  &gt;
+  &lt;/ngx-daterangepicker-material&gt;
+&lt;/ng-container&gt;
+&lt;ng-container *ngIf&#x3D;&quot;type &#x3D;&#x3D;&#x3D; &#x27;single&#x27;&quot;&gt;
+  &lt;input
+    type&#x3D;&quot;text&quot;
+    ngxDaterangepickerMd
+    [(ngModel)]&#x3D;&quot;selected&quot;
+    class&#x3D;&quot;border border-red-500 rounded-md p-2 w-full&quot;
+    (choosedDate)&#x3D;&quot;choosedDateHandler($event)&quot;
+    (isCustomDate)&#x3D;&quot;isCustomDateHandler($event)&quot;
+    [autoApply]&#x3D;&quot;autoApply&quot;
+    [linkedCalendars]&#x3D;&quot;linkedCalendars&quot;
+    [showDropdowns]&#x3D;&quot;showDropdowns&quot;
+    [minDate]&#x3D;&quot;minDate&quot;
+    [maxDate]&#x3D;&quot;maxDate&quot;
+    [dateLimit]&#x3D;&quot;dateLimit&quot;
+    [alwaysShowCalendars]&#x3D;&quot;alwaysShowCalendars&quot;
+    [keepCalendarOpeningWithRange]&#x3D;&quot;keepCalendarOpeningWithRange&quot;
+    [showRangeLabelOnInput]&#x3D;&quot;showRangeLabelOnInput&quot;
+    [customRangeDirection]&#x3D;&quot;customRangeDirection&quot;
+    [lockStartDate]&#x3D;&quot;lockStartDate&quot;
+  /&gt;
+&lt;/ng-container&gt;
 
-  &lt;!-- DAYS VIEW --&gt;
-  &lt;ng-container *ngIf&#x3D;&quot;view &#x3D;&#x3D;&#x3D; &#x27;days&#x27;&quot;&gt;
-    &lt;div class&#x3D;&quot;grid grid-cols-7 text-center mb-1&quot;&gt;
-      &lt;div
-        *ngFor&#x3D;&quot;let wd of [&#x27;Mo&#x27;, &#x27;Tu&#x27;, &#x27;We&#x27;, &#x27;Th&#x27;, &#x27;Fr&#x27;, &#x27;Sa&#x27;, &#x27;Su&#x27;]&quot;
-        [ngClass]&#x3D;&quot;theme[variant].weekDay&quot;
-      &gt;
-        {{ wd }}
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div *ngFor&#x3D;&quot;let week of weeks&quot; class&#x3D;&quot;grid grid-cols-7&quot;&gt;
-      &lt;div
-        *ngFor&#x3D;&quot;let day of week&quot;
-        (click)&#x3D;&quot;selectDate(day)&quot;
-        [ngClass]&#x3D;&quot;
-          day.getMonth() !&#x3D;&#x3D; currentMonth
-            ? theme[variant].dayDisabled
-            : isSelected(day)
-            ? theme[variant].dayActive
-            : inRange(day)
-            ? theme[variant].dayInRange
-            : theme[variant].day
-        &quot;
-      &gt;
-        {{ day.getDate() }}
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/ng-container&gt;
+&lt;style&gt;
+  ::ng-deep ngx-daterangepicker-material {
+    .md-drppicker {
+      border-radius: 8px;
+      background: rgb(var(--color-neutral-25) / 1);
+      /* background: linear-gradient(
+        217deg,
+        rgb(var(--gradient-red) / 1) 2.44%,
+        rgb(var(--gradient) / 1) 43.42%
+      ); */
 
-  &lt;!-- MONTHS VIEW --&gt;
-  &lt;ng-container *ngIf&#x3D;&quot;view &#x3D;&#x3D;&#x3D; &#x27;months&#x27;&quot;&gt;
-    &lt;div [ngClass]&#x3D;&quot;[theme[variant].monthGrid]&quot;&gt;
-      &lt;div
-        *ngFor&#x3D;&quot;let m of months; let i &#x3D; index&quot;
-        (click)&#x3D;&quot;chooseMonth(i)&quot;
-        [ngClass]&#x3D;&quot;
-          i &#x3D;&#x3D;&#x3D; currentMonth
-            ? theme[variant].monthActive
-            : theme[variant].monthItem
-        &quot;
-      &gt;
-        {{ m }}
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/ng-container&gt;
+      /* Main table reset */
+      &amp; .calendar-table {
+        background-color: transparent;
+        border: none;
+      }
 
-  &lt;!-- YEARS VIEW --&gt;
-  &lt;ng-container *ngIf&#x3D;&quot;view &#x3D;&#x3D;&#x3D; &#x27;years&#x27;&quot;&gt;
-    &lt;div [ngClass]&#x3D;&quot;[theme[variant].yearGrid]&quot;&gt;
-      &lt;div
-        *ngFor&#x3D;&quot;let y of years&quot;
-        (click)&#x3D;&quot;chooseYear(y)&quot;
-        [ngClass]&#x3D;&quot;
-          y &#x3D;&#x3D;&#x3D; currentYear
-            ? theme[variant].yearActive
-            : theme[variant].yearItem
-        &quot;
-      &gt;
-        {{ y }}
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/ng-container&gt;
-&lt;/div&gt;
+      /* Cell base styles (including available:hover) */
+      &amp; td,
+      &amp; td.available:hover {
+        margin: 0 !important;
+        padding: 10px !important;
+        border: none;
+        border-radius: 4px !important;
+        opacity: 100% !important;
+      }
+
+      /* Hover backgrounds for cells and headers */
+      &amp; td.available:hover,
+      &amp; th.available:hover,
+      &amp; td:hover {
+        background-color: rgb(var(--color-neutral-100) / 1);
+      }
+
+      /* Additional hover on any cell */
+      &amp; td:hover {
+        border-color: transparent;
+        color: rgb(var(--color-neutral-900) / 1);
+      }
+
+      /* In-range (but not active) cells */
+      &amp; td.in-range:not(.active) {
+        background-color: rgb(var(--card-level-2) / 1);
+        border-radius: 0 !important;
+        color: rgb(var(--color-neutral-900) / 1);
+      }
+
+      /* Active cell states */
+      &amp; td.active,
+      &amp; td.active:hover {
+        background-color: rgb(var(--color-red-500));
+        border-color: transparent;
+        color: #fff;
+      }
+
+      /* Calendar column widths */
+      &amp; .calendar td,
+      &amp; .calendar th {
+        width: 41px !important;
+      }
+
+      &amp; td.off.available,
+      &amp; td.off.available:hover {
+        opacity: 0 !important;
+        visibility: hidden;
+        cursor: default;
+        background-color: transparent !important;
+        border-color: transparent !important;
+        color: transparent !important;
+      }
+
+      /* “Off” days */
+      &amp; td.off,
+      &amp; td.off.in-range,
+      &amp; td.off.start-date {
+        background-color: transparent;
+        border-color: transparent;
+        color: #fff;
+      }
+
+      /* Start/end date rounding */
+      &amp; td.active.start-date {
+        border-radius: 4px 0 0 4px !important;
+      }
+      &amp; td.active.end-date {
+        border-radius: 0 4px 4px 0 !important;
+      }
+      &amp; td.active.end-date.start-date {
+        border-radius: 4px !important;
+      }
+
+      /* Dropdowns width */
+      &amp; .dropdowns {
+        width: 60px !important;
+      }
+    }
+  }
+&lt;/style&gt;
 </code></pre>
     </div>
 
@@ -1807,8 +1054,8 @@ export class DatePickerComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div [ngClass]="theme[variant].container">  <!-- HEADER -->  <div [ngClass]="theme[variant].header">    <button (click)="onPrevClick()" [ngClass]="[theme[variant].navButton]">      &lt;    </button>    <div (click)="toggleView()" [ngClass]="[theme[variant].title]">      {{        view === "years"          ? yearPageStart + " – " + (yearPageStart + yearPageSize - 1)          : months[currentMonth] + " " + currentYear      }}    </div>    <button (click)="onNextClick()" [ngClass]="[theme[variant].navButton]">      &gt;    </button>  </div>  <!-- DAYS VIEW -->  <ng-container *ngIf="view === \'days\'">    <div class="grid grid-cols-7 text-center mb-1">      <div        *ngFor="let wd of [\'Mo\', \'Tu\', \'We\', \'Th\', \'Fr\', \'Sa\', \'Su\']"        [ngClass]="theme[variant].weekDay"      >        {{ wd }}      </div>    </div>    <div *ngFor="let week of weeks" class="grid grid-cols-7">      <div        *ngFor="let day of week"        (click)="selectDate(day)"        [ngClass]="          day.getMonth() !== currentMonth            ? theme[variant].dayDisabled            : isSelected(day)            ? theme[variant].dayActive            : inRange(day)            ? theme[variant].dayInRange            : theme[variant].day        "      >        {{ day.getDate() }}      </div>    </div>  </ng-container>  <!-- MONTHS VIEW -->  <ng-container *ngIf="view === \'months\'">    <div [ngClass]="[theme[variant].monthGrid]">      <div        *ngFor="let m of months; let i = index"        (click)="chooseMonth(i)"        [ngClass]="          i === currentMonth            ? theme[variant].monthActive            : theme[variant].monthItem        "      >        {{ m }}      </div>    </div>  </ng-container>  <!-- YEARS VIEW -->  <ng-container *ngIf="view === \'years\'">    <div [ngClass]="[theme[variant].yearGrid]">      <div        *ngFor="let y of years"        (click)="chooseYear(y)"        [ngClass]="          y === currentYear            ? theme[variant].yearActive            : theme[variant].yearItem        "      >        {{ y }}      </div>    </div>  </ng-container></div></div>'
-    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="type === \'range\'">  <ngx-daterangepicker-material    (choosedDate)="choosedDateHandler($event)"    (isCustomDate)="isCustomDateHandler($event)"    [autoApply]="autoApply"    [linkedCalendars]="linkedCalendars"    [showDropdowns]="showDropdowns"    [minDate]="minDate"    [maxDate]="maxDate"    [dateLimit]="dateLimit"    [alwaysShowCalendars]="alwaysShowCalendars"    [keepCalendarOpeningWithRange]="keepCalendarOpeningWithRange"    [showRangeLabelOnInput]="showRangeLabelOnInput"    [customRangeDirection]="customRangeDirection"    [lockStartDate]="lockStartDate"  >  </ngx-daterangepicker-material></ng-container><ng-container *ngIf="type === \'single\'">  <input    type="text"    ngxDaterangepickerMd    [(ngModel)]="selected"    class="border border-red-500 rounded-md p-2 w-full"    (choosedDate)="choosedDateHandler($event)"    (isCustomDate)="isCustomDateHandler($event)"    [autoApply]="autoApply"    [linkedCalendars]="linkedCalendars"    [showDropdowns]="showDropdowns"    [minDate]="minDate"    [maxDate]="maxDate"    [dateLimit]="dateLimit"    [alwaysShowCalendars]="alwaysShowCalendars"    [keepCalendarOpeningWithRange]="keepCalendarOpeningWithRange"    [showRangeLabelOnInput]="showRangeLabelOnInput"    [customRangeDirection]="customRangeDirection"    [lockStartDate]="lockStartDate"  /></ng-container><style>  ::ng-deep ngx-daterangepicker-material {    .md-drppicker {      border-radius: 8px;      background: rgb(var(--color-neutral-25) / 1);      /* background: linear-gradient(        217deg,        rgb(var(--gradient-red) / 1) 2.44%,        rgb(var(--gradient) / 1) 43.42%      ); */      /* Main table reset */      & .calendar-table {        background-color: transparent;        border: none;      }      /* Cell base styles (including available:hover) */      & td,      & td.available:hover {        margin: 0 !important;        padding: 10px !important;        border: none;        border-radius: 4px !important;        opacity: 100% !important;      }      /* Hover backgrounds for cells and headers */      & td.available:hover,      & th.available:hover,      & td:hover {        background-color: rgb(var(--color-neutral-100) / 1);      }      /* Additional hover on any cell */      & td:hover {        border-color: transparent;        color: rgb(var(--color-neutral-900) / 1);      }      /* In-range (but not active) cells */      & td.in-range:not(.active) {        background-color: rgb(var(--card-level-2) / 1);        border-radius: 0 !important;        color: rgb(var(--color-neutral-900) / 1);      }      /* Active cell states */      & td.active,      & td.active:hover {        background-color: rgb(var(--color-red-500));        border-color: transparent;        color: #fff;      }      /* Calendar column widths */      & .calendar td,      & .calendar th {        width: 41px !important;      }      & td.off.available,      & td.off.available:hover {        opacity: 0 !important;        visibility: hidden;        cursor: default;        background-color: transparent !important;        border-color: transparent !important;        color: transparent !important;      }      /* “Off” days */      & td.off,      & td.off.in-range,      & td.off.start-date {        background-color: transparent;        border-color: transparent;        color: #fff;      }      /* Start/end date rounding */      & td.active.start-date {        border-radius: 4px 0 0 4px !important;      }      & td.active.end-date {        border-radius: 0 4px 4px 0 !important;      }      & td.active.end-date.start-date {        border-radius: 4px !important;      }      /* Dropdowns width */      & .dropdowns {        width: 60px !important;      }    }  }</style></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DatePickerComponent'};
 </script>

@@ -7,6 +7,7 @@
   "whitelistedNonPeerDependencies": [
     "ngx-owl-carousel-o",
     "angular-code-input",
-    "ngx-daterangepicker-material"
+    "ngx-daterangepicker-material",
+    "moment"
   ]
 }

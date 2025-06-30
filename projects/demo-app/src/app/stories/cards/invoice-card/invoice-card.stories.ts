@@ -51,8 +51,18 @@ export class InvoiceCardStoryComponent {
     },
   ];
 
-  onClick(data: { event: Event; data: any }) {
-    data.event.preventDefault();
-    console.log('Card clicked', data.event, data.data);
+  onClick(payload: { event: Event; data: any }) {
+    payload.event.preventDefault();
+    console.log('Card clicked', payload);
   }
+
+  data = {
+    items: this.items,
+    actions: this.actions,
+    id: 'invoice-card-1',
+    href: this.href,
+    title: this.title,
+    image: this.image,
+    className: this.className,
+  };
 }

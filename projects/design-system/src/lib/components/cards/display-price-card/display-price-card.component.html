@@ -51,7 +51,7 @@
       [icon]="button.icon"
       [iconRight]="button.iconRight"
       [iconLeft]="button.iconLeft"
-      [handleClick]="button.onClick"
+      (onClick)="button.onClick({ event: $event, data: data })"
     >
       {{ button.text }}
     </ds-button>

@@ -1,4 +1,8 @@
-<div id="ds-ticker-card" class="flex items-center justify-center gap-2">
+<div
+  id="ds-ticker-card"
+  class="flex items-center justify-center gap-2"
+  [ngClass]="[className]"
+>
   <img
     *ngIf="image"
     [src]="image"

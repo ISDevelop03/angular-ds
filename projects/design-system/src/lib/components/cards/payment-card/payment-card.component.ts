@@ -19,35 +19,21 @@ export class PaymentCardComponent {
   @Input() isSelected?: boolean = false;
   @Input() className?: string = '';
 
-  @Output() onDelete = new EventEmitter();
+  @Input() data?: any;
 
-  @Output() onSelect = new EventEmitter();
+  @Output() onDelete = new EventEmitter<any>();
+
+  @Output() onSelect = new EventEmitter<any>();
 
   get formattedPrice() {
     return formatMoney(this.price, false, false, false);
   }
 
   onSelectChange(event: any) {
-    const item = {
-      title: this.title,
-      image: this.image,
-      currency: this.currency,
-      price: this.price,
-      isSelected: this.isSelected,
-      className: this.className,
-    };
-    this.onSelect.emit({ event: event, item: item });
+    this.onSelect.emit({ event: event, data: this.data });
   }
 
   handleDelete(event: Event) {
-    const item = {
-      title: this.title,
-      image: this.image,
-      currency: this.currency,
-      price: this.price,
-      isSelected: this.isSelected,
-      className: this.className,
-    };
-    this.onDelete.emit({ event: event, item: item });
+    this.onDelete.emit({ event: event, data: this.data });
   }
 }

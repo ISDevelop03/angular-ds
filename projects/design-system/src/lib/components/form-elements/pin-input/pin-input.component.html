@@ -1,6 +1,6 @@
 <div
   id="ds-pin-input"
-  class="w-full text-[36px]/[47px] text-neutral-700 max-w-[200px]"
+  class="w-full text-[36px]/[47px] !text-neutral-700 max-w-[200px]"
   [ngClass]="className"
 >
   <code-input
@@ -37,5 +37,6 @@
 
   ::ng-deep code-input input {
     padding: 5px;
+    color: rgb(var(--color-neutral-700) / 1) !important;
   }
 </style>

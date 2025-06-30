@@ -60,17 +60,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  @apply bg-gray-500 w-[8px] h-[8px] bg-transparent;
+  @apply bg-gray-500 w-[4px] h-[4px] bg-transparent;
 }
 
 /* Track */
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-gray-900 w-[8px];
+  @apply bg-gray-900 w-[4px];
 }
 
 /* Handle */
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-primary cursor-pointer w-[6px] rounded-none;
+  @apply bg-primary cursor-pointer w-[4px] rounded-none;
 }
 
 /* Handle on hover */
@@ -109,6 +109,45 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.custom-scrollbar-hidden::-webkit-scrollbar {
+  @apply bg-[#F9FAFB] dark:bg-gray-custom-500 w-[0px] h-[8px] bg-transparent;
+}
+
+.custom-scrollbar {
+  -webkit-overflow-scrolling: auto;
+  overscroll-behavior: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  @apply bg-[#F9FAFB] dark:bg-gray-custom-900;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  @apply bg-gray-custom-500 w-[4px] h-[4px] bg-transparent;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-[#F9FAFB] dark:bg-gray-custom-900 w-[4px];
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary cursor-pointer w-[6px] rounded-none;
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/80;
+}
+
+@layer utilities {
+  /* pause animation on hover */
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
 }
 
 /* [id^="ds-"] {

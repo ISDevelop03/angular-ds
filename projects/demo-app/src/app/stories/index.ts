@@ -108,3 +108,6 @@ export * from './footer/footer.stories';
 
 // Auto-export for display-price-card stories
 export * from './cards/display-price-card/display-price-card.stories';
+
+// Auto-export for label stories
+export * from './form-elements/label/label.stories';

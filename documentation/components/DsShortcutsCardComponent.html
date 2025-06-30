@@ -196,6 +196,10 @@
                                 <a href="#isOpen" >isOpen</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openIdx" >openIdx</a>
+                            </li>
+                            <li>
                                 <a href="#theme" >theme</a>
                             </li>
                         </ul>
@@ -216,6 +220,18 @@
                             <li>
                                     <span class="modifier"></span>
                                 <a href="#onDocumentClick" >onDocumentClick</a>
+                            </li>
+                            <li>
+                                <a href="#onItemClick" >onItemClick</a>
+                            </li>
+                            <li>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                <a href="#removeShortcut" >removeShortcut</a>
+                            </li>
+                            <li>
+                                <a href="#selectShortcut" >selectShortcut</a>
                             </li>
                         </ul>
                     </td>
@@ -242,6 +258,23 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#click" >click</a>
+                            </li>
+                            <li>
+                                <a href="#removed" >removed</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
                 <tr>
@@ -274,7 +307,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -335,7 +368,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:38</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -350,13 +383,13 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Item.html" target="_self" >Item[]</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/ShortcutItem.html" target="_self" >ShortcutItem[]</a></code>
 
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:36</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -371,19 +404,63 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Shortcut.html" target="_self" >Shortcut[]</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/DropdownShortcut.html" target="_self" >DropdownShortcut[]</a></code>
 
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:37</a></div>
                             </td>
                         </tr>
             </tbody>
         </table>
 </section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="click"></a>
+                        <b>click</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removed"></a>
+                        <b>removed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
     <section data-compodoc="block-methods">
     <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
@@ -411,8 +488,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:104</a></div>
                         </td>
                     </tr>
 
@@ -438,15 +515,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onClick(item: <a href="../interfaces/Item.html" target="_self">Item</a>, event: MouseEvent)</code>
+<code>onClick(data: literal type, event: MouseEvent)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -467,9 +544,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>item</td>
+                                                <td>data</td>
                                             <td>
-                                                            <code><a href="../interfaces/Item.html" target="_self" >Item</a></code>
+                                                        <code>literal type</code>
                                             </td>
 
                                             <td>
@@ -533,8 +610,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:104</a></div>
                         </td>
                     </tr>
 
@@ -554,6 +631,358 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onItemClick"></a>
+                    <span class="name">
+                        <span ><b>onItemClick</b></span>
+                        <a href="#onItemClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onItemClick(item: <a href="../interfaces/ShortcutItem.html" target="_self">ShortcutItem</a>, idx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, event: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ShortcutItem.html" target="_self" >ShortcutItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>idx</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(item: <a href="../interfaces/ShortcutItem.html" target="_self">ShortcutItem</a>, idx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, event: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ShortcutItem.html" target="_self" >ShortcutItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>idx</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeShortcut"></a>
+                    <span class="name">
+                        <span ><b>removeShortcut</b></span>
+                        <a href="#removeShortcut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeShortcut(data: literal type, event: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectShortcut"></a>
+                    <span class="name">
+                        <span ><b>selectShortcut</b></span>
+                        <a href="#selectShortcut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectShortcut(shortcut: <a href="../interfaces/DropdownShortcut.html" target="_self">DropdownShortcut</a>, idx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, event: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>shortcut</td>
+                                            <td>
+                                                            <code><a href="../interfaces/DropdownShortcut.html" target="_self" >DropdownShortcut</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>idx</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
                                         <tr>
                                                 <td>event</td>
                                             <td>
@@ -604,7 +1033,39 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openIdx"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>openIdx</b></span>
+                        <a href="#openIdx"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -629,7 +1090,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/design-system/src/lib/components/shortcuts/shortcuts.component.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -642,21 +1103,28 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, HostListener, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from &#x27;@angular/core&#x27;;
 import { Theme } from &#x27;./theme&#x27;;
 
-interface Item {
-  icon: string; // Converted IconIds to string
+export interface ShortcutItem {
+  icon: string;
   title: string;
-  link: string;
+  href?: string;
   isShortcut?: boolean;
 }
 
-interface Shortcut {
-  title: string; // Converted IconIds to string
+export interface DropdownShortcut {
+  title: string;
   href?: string;
   isSelected?: boolean;
-  onClick?: string;
+  onClick: (data: any) &#x3D;&gt; void;
 }
 
 /**
@@ -670,21 +1138,70 @@ interface Shortcut {
   templateUrl: &#x27;./shortcuts.component.html&#x27;,
 })
 export class DsShortcutsCardComponent {
-  @Input() items: Item[]; // Converted IconIds to string
-  @Input() shortcuts: Shortcut[]; // Converted IconIds to string
+  @Input() items: ShortcutItem[]; // Converted IconIds to string
+  @Input() shortcuts: DropdownShortcut[];
   @Input() className?: string &#x3D; &#x27;&#x27;;
+  @Output() click &#x3D; new EventEmitter&lt;any&gt;();
+
+  @Output() removed &#x3D; new EventEmitter&lt;{
+    item: DropdownShortcut;
+    idx: number;
+  }&gt;();
+
+  private openIdx: number | null &#x3D; null;
 
   isOpen &#x3D; false;
+  theme &#x3D; Theme;
 
   constructor(private host: ElementRef) {}
 
   // Toggle open/close and prevent this click from bubbling up
-  onClick(item: Item, event: MouseEvent) {
+  onClick(data: { item: ShortcutItem; idx: number }, event: MouseEvent) {
+    event.stopPropagation();
+    if (data.item.isShortcut) {
+      this.isOpen &#x3D; !this.isOpen;
+      this.click.emit({ ...data.item, idx: data.idx });
+    }
+  }
+
+  removeShortcut(
+    data: { item: DropdownShortcut; idx: number },
+    event: MouseEvent
+  ) {
+    event.stopPropagation();
+    this.items.splice(data.idx, 1);
+    this.removed.emit(data);
+  }
+
+  onItemClick(item: ShortcutItem, idx: number, event: MouseEvent) {
     event.stopPropagation();
     if (item.isShortcut) {
       this.isOpen &#x3D; !this.isOpen;
-      console.log(&#x27;item&#x27;, item);
+      this.openIdx &#x3D; idx;
+    } else {
+      this.click.emit({ action: &#x27;navigate&#x27;, item, idx });
     }
+  }
+
+  remove(item: ShortcutItem, idx: number, event: MouseEvent) {
+    event.stopPropagation();
+    this.click.emit({ action: &#x27;remove&#x27;, item, idx });
+  }
+
+  selectShortcut(shortcut: DropdownShortcut, idx: number, event: MouseEvent) {
+    event.stopPropagation();
+    if (this.openIdx &#x3D;&#x3D;&#x3D; null) {
+      return;
+    }
+    this.click.emit({
+      action: &#x27;add&#x27;,
+      shortcut,
+      placeholderIdx: this.openIdx,
+      idx,
+    });
+    shortcut.onClick ? shortcut.onClick({ shortcut, idx }) : null;
+    this.isOpen &#x3D; false;
+    this.openIdx &#x3D; null;
   }
 
   // Listen for clicks anywhere in the document
@@ -693,57 +1210,69 @@ export class DsShortcutsCardComponent {
     // If the click target is outside this component, close the list
     if (this.isOpen &amp;&amp; !this.host.nativeElement.contains(event.target)) {
       this.isOpen &#x3D; false;
+      this.openIdx &#x3D; null;
     }
   }
-
-  theme &#x3D; Theme;
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;relative flex flex-col gap-2&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;ds-shortcuts&quot; class&#x3D;&quot;relative flex flex-col gap-2&quot;&gt;
   &lt;div class&#x3D;&quot;grid gap-2 grid-cols-2&quot; [ngClass]&#x3D;&quot;className&quot;&gt;
     &lt;div
-      (click)&#x3D;&quot;onClick(item, $event)&quot;
-      class&#x3D;&quot;group w-full relative group justify-start border border-stroke-1 p-3 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl&quot;
+      *ngFor&#x3D;&quot;let item of items; let idx &#x3D; index&quot;
+      (click)&#x3D;&quot;onItemClick(item, idx, $event)&quot;
+      class&#x3D;&quot;group w-full relative group justify-start border border-stroke-1 py-3 px-2 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl&quot;
       [ngClass]&#x3D;&quot;[
         item.isShortcut ? &#x27;cursor-pointer bg-card-level-2&#x27; : &#x27;bg-card-level-5&#x27;
       ]&quot;
-      *ngFor&#x3D;&quot;let item of items&quot;
     &gt;
       &lt;div
-        class&#x3D;&quot;size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500&quot;
+        class&#x3D;&quot;shrink-0 size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500&quot;
         [ngClass]&#x3D;&quot;[
           item.isShortcut ? &#x27;group-hover:bg-violet-100&#x27; : &#x27;bg-violet-100&#x27;
         ]&quot;
       &gt;
         &lt;ds-icon [id]&#x3D;&quot;item.icon&quot; [size]&#x3D;&quot;16&quot;&gt;&lt;/ds-icon&gt;
       &lt;/div&gt;
-
       &lt;a
-        *ngIf&#x3D;&quot;!item.isShortcut &amp;&amp; item.link; else noLink&quot;
-        class&#x3D;&quot;text-neutral-900 text-left inline-flex text-[12px] leading-[16px] font-bold after:absolute after:inset-0&quot;
-        [href]&#x3D;&quot;item.link&quot;
+        *ngIf&#x3D;&quot;!item.isShortcut &amp;&amp; item.href; else noLink&quot;
+        class&#x3D;&quot;text-neutral-900 text-left inline-flex text-[10px]/[14px] font-bold after:absolute after:inset-0&quot;
+        [href]&#x3D;&quot;item.href&quot;
       &gt;
         {{ item.title }}
       &lt;/a&gt;
       &lt;ng-template #noLink&gt;
-        &lt;span class&#x3D;&quot;inline-flex text-[12px] leading-[16px] font-bold&quot;&gt;
+        &lt;span class&#x3D;&quot;text-left inline-flex text-[10px]/[14px] font-bold&quot;&gt;
           {{ item.title }}
         &lt;/span&gt;
       &lt;/ng-template&gt;
+
+      &lt;!-- delete icon --&gt;
+      &lt;button
+        *ngIf&#x3D;&quot;!item.isShortcut&quot;
+        (click)&#x3D;&quot;remove(item, idx, $event)&quot;
+        class&#x3D;&quot;absolute -top-2 right-2 text-white size-[16px] rounded-full flex justify-center items-center bg-red-500 opacity-0 duration-300 transition-all translate-y-1 group-hover:translate-y-0 ease-in-out group-hover:opacity-100&quot;
+        aria-label&#x3D;&quot;Remove shortcut&quot;
+      &gt;
+        &lt;ds-icon id&#x3D;&quot;minus&quot; size&#x3D;&quot;12&quot;&gt;&lt;/ds-icon&gt;
+      &lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;ul
     *ngIf&#x3D;&quot;isOpen &amp;&amp; shortcuts&quot;
     class&#x3D;&quot;w-full bg-card-level-5 rounded shadow-dropdown&quot;
   &gt;
+    &lt;!-- (click)&#x3D;&quot;
+        !shortcut.isSelected &amp;&amp;
+          shortcut.onClick({ shortcut: shortcut, index: index }, $event)
+      &quot; --&gt;
     &lt;li
       tabindex&#x3D;&quot;0&quot;
       role&#x3D;&quot;button&quot;
-      *ngFor&#x3D;&quot;let shortcut of shortcuts&quot;
-      (click)&#x3D;&quot;!shortcut.isSelected &amp;&amp; shortcut.onClick(shortcut, $event)&quot;
+      *ngFor&#x3D;&quot;let shortcut of shortcuts; let index &#x3D; index&quot;
+      (click)&#x3D;&quot;selectShortcut(shortcut, index, $event)&quot;
       class&#x3D;&quot;flex justify-between items-center gap-2 p-4&quot;
       [ngClass]&#x3D;&quot;
         shortcut.isSelected
@@ -796,8 +1325,8 @@ export class DsShortcutsCardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="relative flex flex-col gap-2">  <div class="grid gap-2 grid-cols-2" [ngClass]="className">    <div      (click)="onClick(item, $event)"      class="group w-full relative group justify-start border border-stroke-1 p-3 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl"      [ngClass]="[        item.isShortcut ? \'cursor-pointer bg-card-level-2\' : \'bg-card-level-5\'      ]"      *ngFor="let item of items"    >      <div        class="size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500"        [ngClass]="[          item.isShortcut ? \'group-hover:bg-violet-100\' : \'bg-violet-100\'        ]"      >        <ds-icon [id]="item.icon" [size]="16"></ds-icon>      </div>      <a        *ngIf="!item.isShortcut && item.link; else noLink"        class="text-neutral-900 text-left inline-flex text-[12px] leading-[16px] font-bold after:absolute after:inset-0"        [href]="item.link"      >        {{ item.title }}      </a>      <ng-template #noLink>        <span class="inline-flex text-[12px] leading-[16px] font-bold">          {{ item.title }}        </span>      </ng-template>    </div>  </div>  <ul    *ngIf="isOpen && shortcuts"    class="w-full bg-card-level-5 rounded shadow-dropdown"  >    <li      tabindex="0"      role="button"      *ngFor="let shortcut of shortcuts"      (click)="!shortcut.isSelected && shortcut.onClick(shortcut, $event)"      class="flex justify-between items-center gap-2 p-4"      [ngClass]="        shortcut.isSelected          ? \'cursor-not-allowed opacity-50\'          : \'hover:bg-gray-50 dark:hover:bg-gray-700\'      "    >      <span class="text-neutral-900 text-[12px] leading-[14px] font-bold">        {{ shortcut.title }}      </span>      <ds-icon        [id]="shortcut.isSelected ? \'minus\' : \'plus\'"        [size]="16"        [className]="shortcut.isSelected ? \'text-red-500\' : \'\'"      ></ds-icon>    </li>  </ul></div></div>'
-    var COMPONENTS = [{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><div id="ds-shortcuts" class="relative flex flex-col gap-2">  <div class="grid gap-2 grid-cols-2" [ngClass]="className">    <div      *ngFor="let item of items; let idx = index"      (click)="onItemClick(item, idx, $event)"      class="group w-full relative group justify-start border border-stroke-1 py-3 px-2 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl"      [ngClass]="[        item.isShortcut ? \'cursor-pointer bg-card-level-2\' : \'bg-card-level-5\'      ]"    >      <div        class="shrink-0 size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500"        [ngClass]="[          item.isShortcut ? \'group-hover:bg-violet-100\' : \'bg-violet-100\'        ]"      >        <ds-icon [id]="item.icon" [size]="16"></ds-icon>      </div>      <a        *ngIf="!item.isShortcut && item.href; else noLink"        class="text-neutral-900 text-left inline-flex text-[10px]/[14px] font-bold after:absolute after:inset-0"        [href]="item.href"      >        {{ item.title }}      </a>      <ng-template #noLink>        <span class="text-left inline-flex text-[10px]/[14px] font-bold">          {{ item.title }}        </span>      </ng-template>      <!-- delete icon -->      <button        *ngIf="!item.isShortcut"        (click)="remove(item, idx, $event)"        class="absolute -top-2 right-2 text-white size-[16px] rounded-full flex justify-center items-center bg-red-500 opacity-0 duration-300 transition-all translate-y-1 group-hover:translate-y-0 ease-in-out group-hover:opacity-100"        aria-label="Remove shortcut"      >        <ds-icon id="minus" size="12"></ds-icon>      </button>    </div>  </div>  <ul    *ngIf="isOpen && shortcuts"    class="w-full bg-card-level-5 rounded shadow-dropdown"  >    <!-- (click)="        !shortcut.isSelected &&          shortcut.onClick({ shortcut: shortcut, index: index }, $event)      " -->    <li      tabindex="0"      role="button"      *ngFor="let shortcut of shortcuts; let index = index"      (click)="selectShortcut(shortcut, index, $event)"      class="flex justify-between items-center gap-2 p-4"      [ngClass]="        shortcut.isSelected          ? \'cursor-not-allowed opacity-50\'          : \'hover:bg-gray-50 dark:hover:bg-gray-700\'      "    >      <span class="text-neutral-900 text-[12px] leading-[14px] font-bold">        {{ shortcut.title }}      </span>      <ds-icon        [id]="shortcut.isSelected ? \'minus\' : \'plus\'"        [size]="16"        [className]="shortcut.isSelected ? \'text-red-500\' : \'\'"      ></ds-icon>    </li>  </ul></div></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DsShortcutsCardComponent'};
 </script>

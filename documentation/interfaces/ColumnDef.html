@@ -155,6 +155,13 @@
                                         </a>
                                 </li>
                                 <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#expandable" 
+>
+                                            expandable
+                                        </a>
+                                </li>
+                                <li>
                                         <a href="#header" 
 >
                                             header
@@ -165,6 +172,20 @@
                                         <a href="#sortable" 
 >
                                             sortable
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#styles" 
+>
+                                            styles
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#truncate" 
+>
+                                            truncate
                                         </a>
                                 </li>
                             </ul>
@@ -253,6 +274,44 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="expandable"></a>
+                                        <span class="name "><b>expandable</b>
+                                            <a href="#expandable">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>expandable:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="header"></a>
                                         <span class="name "><b>header</b>
                                             <a href="#header">
@@ -320,6 +379,82 @@
 
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="styles"></a>
+                                        <span class="name "><b>styles</b>
+                                            <a href="#styles">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>styles:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="truncate"></a>
+                                        <span class="name "><b>truncate</b>
+                                            <a href="#truncate">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>truncate:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
             </section>
     </div>
 
@@ -338,6 +473,9 @@ import { TableVariant, TableThemes } from &#x27;./theme&#x27;;
 
 export interface ColumnDef {
   header: string;
+  expandable?: boolean;
+  truncate?: boolean;
+  styles?: { [key: string]: string };
   accessor: string;
   sortable?: boolean;
   cellTemplate?: TemplateRef&lt;any&gt;;
@@ -380,6 +518,13 @@ export class TableComponent implements OnChanges {
 
   theme &#x3D; TableThemes;
 
+  ngOnInit() {
+    this.columns &#x3D; this.columns.map((col) &#x3D;&gt; ({
+      ...col,
+      truncate: col.expandable ? true : false, // default to true if expandable
+    }));
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data &amp;&amp; changes.data.currentValue) {
       this.originalData &#x3D; this.data.concat();
@@ -391,10 +536,115 @@ export class TableComponent implements OnChanges {
     }
   }
 
-  onSort(col: ColumnDef) {
-    // ... existing sort logic (unchanged)
+  toggleTruncateData(col: ColumnDef) {
+    if (!col.expandable) {
+      // if the column is not expandable, do nothing
+      return;
+    }
+    // toggle the expandable state of a row
+    col.truncate &#x3D; !col.truncate;
   }
 
+  // onSort(col: ColumnDef) {
+  //   // 1) Update sortColumn &amp; sortDirection
+  //   if (this.sortColumn &#x3D;&#x3D;&#x3D; col.accessor) {
+  //     this.sortDirection &#x3D; this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? &#x27;desc&#x27; : &#x27;asc&#x27;;
+  //   } else {
+  //     this.sortColumn &#x3D; col.accessor;
+  //     this.sortDirection &#x3D; &#x27;asc&#x27;;
+  //   }
+
+  //   // Payload for the event/emitter
+  //   const payload &#x3D; {
+  //     accessor: this.sortColumn!,
+  //     direction: this.sortDirection,
+  //   };
+
+  //   if (this.remoteSort) {
+  //     // 2a) Server-side sorting: tell the parent to re-fetch
+  //     this.sortChange.emit(payload);
+  //   } else {
+  //     // 2b) Client-side sorting: sort displayData in place
+  //     this.displayData.sort((a, b) &#x3D;&gt; {
+  //       const aVal &#x3D; a[this.sortColumn!];
+  //       const bVal &#x3D; b[this.sortColumn!];
+
+  //       // handle null/undefined
+  //       if (aVal &#x3D;&#x3D; null) return 1;
+  //       if (bVal &#x3D;&#x3D; null) return -1;
+
+  //       // if both are numbers
+  //       if (typeof aVal &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; typeof bVal &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+  //         return this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? aVal - bVal : bVal - aVal;
+  //       }
+
+  //       // fallback: string compare
+  //       const aStr &#x3D; String(aVal).toLowerCase();
+  //       const bStr &#x3D; String(bVal).toLowerCase();
+  //       if (aStr &gt; bStr) return this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? 1 : -1;
+  //       if (aStr &lt; bStr) return this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? -1 : 1;
+  //       return 0;
+  //     });
+
+  //     // emit if you still want to notify parent
+  //     this.sortChange.emit(payload);
+  //   }
+  // }
+  onSort(col: ColumnDef) {
+    // cycle through: none → asc → desc → none
+    if (this.sortColumn &#x3D;&#x3D;&#x3D; col.accessor) {
+      if (this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27;) {
+        this.sortDirection &#x3D; &#x27;desc&#x27;;
+      } else {
+        // was &#x27;desc&#x27; (or undefined), so clear sorting entirely
+        this.sortColumn &#x3D; null;
+        this.sortDirection &#x3D; undefined;
+      }
+    } else {
+      // brand new column: start with asc
+      this.sortColumn &#x3D; col.accessor;
+      this.sortDirection &#x3D; &#x27;asc&#x27;;
+    }
+
+    const payload &#x3D; {
+      accessor: this.sortColumn,
+      direction: this.sortDirection,
+    };
+
+    if (this.remoteSort) {
+      // let parent re-fetch or handle server-side
+      this.sortChange.emit(payload);
+      return;
+    }
+
+    // client-side: if no sortColumn, restore original order
+    if (!this.sortColumn) {
+      this.displayData &#x3D; this.originalData.concat();
+      this.sortChange.emit(payload);
+      return;
+    }
+
+    // otherwise do your in-place sort just as before
+    this.displayData.sort((a, b) &#x3D;&gt; {
+      const aVal &#x3D; a[this.sortColumn!];
+      const bVal &#x3D; b[this.sortColumn!];
+
+      if (aVal &#x3D;&#x3D; null) return 1;
+      if (bVal &#x3D;&#x3D; null) return -1;
+
+      if (typeof aVal &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; typeof bVal &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+        return this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? aVal - bVal : bVal - aVal;
+      }
+
+      const aStr &#x3D; String(aVal).toLowerCase();
+      const bStr &#x3D; String(bVal).toLowerCase();
+      if (aStr &gt; bStr) return this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? 1 : -1;
+      if (aStr &lt; bStr) return this.sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? -1 : 1;
+      return 0;
+    });
+
+    this.sortChange.emit(payload);
+  }
   /** NEW: whether every row is selected */
   get isAllSelected(): boolean {
     return (

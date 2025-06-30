@@ -7,7 +7,7 @@
     [title]="mockData.title"
     [description]="mockData.description"
     [buttonLabel]="mockData.buttonLabel"
-    [onClick]="mockData.onClick"
+    (onClick)="mockData.onClick($event)"
     [image]="mockData.image"
     [isLoading]="mockData.isLoading"
   ></ds-empty-card>
@@ -17,7 +17,7 @@
     [title]="loading.title"
     [description]="loading.description"
     [buttonLabel]="loading.buttonLabel"
-    [onClick]="loading.onClick"
+    (onClick)="loading.onClick($event)"
     [image]="loading.image"
     [isLoading]="loading.isLoading"
   ></ds-empty-card>

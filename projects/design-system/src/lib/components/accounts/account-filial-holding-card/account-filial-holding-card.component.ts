@@ -17,6 +17,8 @@ export class DsAccountFilialHoldingCardComponent {
   @Input() image: string;
   @Input() className?: string = '';
 
+  @Input() data?: any;
+
   @Input() actionsList?: ICallToActionIcon[] = [];
 
   showAccordion: boolean = false;
@@ -30,14 +32,11 @@ export class DsAccountFilialHoldingCardComponent {
       this.actionsList
         .map((action) => ({
           ...action,
-          onClick: () =>
+          onClick: (event: any) =>
             action.onClick &&
             action.onClick({
-              id: this.id,
-              title: this.title,
-              image: this.image,
-              actionsList: this.actionsList,
-              className: this.className,
+              event: event,
+              data: this.data,
             }),
         }))
         .concat({

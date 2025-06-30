@@ -6,7 +6,8 @@
       content="This inbox is unread."
       date="5 mins ago"
       [isRead]="false"
-      (onClick)="handleInboxClick()"
+      [data]="data"
+      (onClick)="handleInboxClick($event)"
     ></ds-inbox-card>
   </div>
 
@@ -18,7 +19,8 @@
       content="Your update was successful."
       date="2 days ago"
       [isRead]="true"
-      (onClick)="handleInboxClick()"
+      [data]="data"
+      (onClick)="handleInboxClick($event)"
     ></ds-inbox-card>
   </div>
 </div>

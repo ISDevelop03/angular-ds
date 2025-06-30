@@ -23,23 +23,16 @@ export class AccountCardComponent implements OnInit {
   @Input() solde_temps_reel?: number;
   @Input() className?: string = '';
 
+  @Input() data?: any;
+
   ngOnInit() {
     this.actionsList = this.actionsList.map((action) => ({
       ...action,
-      onClick: () =>
+      onClick: (event: any) =>
         action.onClick &&
         action.onClick({
-          id: this.id,
-          account_number: this.account_number,
-          balance: this.balance,
-          currency: this.currency,
-          type: this.type,
-          date: this.date,
-          className: this.className,
-          actionsList: this.actionsList,
-          solde_comptable: this.solde_comptable,
-          solde_temps_reel: this.solde_temps_reel,
-          isDiscrete: this.isDiscrete,
+          event: event,
+          data: this.data,
         }),
     }));
   }

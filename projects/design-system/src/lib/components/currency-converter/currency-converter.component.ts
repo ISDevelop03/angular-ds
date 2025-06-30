@@ -38,8 +38,8 @@ export class CurrencyConverterComponent {
     this.valueChange.emit(num);
   }
 
-  onCurrencyChange(newCur: string) {
-    this.currency = newCur;
+  onCurrencyChange(newCur: any) {
+    this.currency = newCur.value;
     this.currencyChange.emit(newCur);
   }
 }

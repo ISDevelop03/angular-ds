@@ -46,7 +46,7 @@
                   [id]="account.id"
                   [date]="account.date"
                   [actionsList]="actionsList"
-                  [onClick]="cardOnClick.bind(this, account.id)"
+                  (onClick)="cardOnClick.bind(this, account.id)"
                 ></ds-account-slider-card>
               </ng-template>
             </ng-container>

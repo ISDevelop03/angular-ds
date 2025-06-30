@@ -19,13 +19,9 @@ export class FilialCardComponent {
   @Input() useImageBorder: boolean = false;
   @Output() setSelected = new EventEmitter<any>();
 
-  onClick() {
-    const item = {
-      icon: this.icon,
-      sector: this.sector,
-      name: this.name,
-      id: this.id,
-    };
-    this.setSelected.emit(item);
+  @Input() data?: any;
+
+  onClick(event: Event) {
+    this.setSelected.emit({ event: event, data: this.data });
   }
 }

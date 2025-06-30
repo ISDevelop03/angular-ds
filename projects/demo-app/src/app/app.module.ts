@@ -69,6 +69,7 @@ import {
   AccordionCardStoryComponent,
   FooterStoryComponent,
   DisplayPriceCardStoryComponent,
+  LabelStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -162,6 +163,7 @@ export const pages: Routes = [
   { path: 'accordion-card', component: AccordionCardStoryComponent },
   { path: 'footer', component: FooterStoryComponent },
   { path: 'display-price-card', component: DisplayPriceCardStoryComponent },
+  { path: 'label', component: LabelStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -251,6 +253,7 @@ const router = RouterModule.forRoot(pages);
     AccordionCardStoryComponent,
     FooterStoryComponent,
     DisplayPriceCardStoryComponent,
+    LabelStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

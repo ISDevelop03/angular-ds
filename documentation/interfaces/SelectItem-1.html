@@ -549,12 +549,12 @@ export class DsSelectComponent {
   @Input() emptyLabel: string &#x3D; &#x27;No options&#x27;;
   @Input() multiple: boolean &#x3D; false;
   @Input() isLoading: boolean &#x3D; false;
-  @Input() buttonIcon?: string;
   @Input() className?: string;
+  @Input() buttonIcon?: string;
   @Input() value: string | string[] | null &#x3D; null;
   @Input() customOptionsStyles?: { [key: string]: any };
 
-  @Output() valueChange &#x3D; new EventEmitter&lt;string | string[]&gt;();
+  @Output() valueChange &#x3D; new EventEmitter&lt;any&gt;();
 
   private static zIndexCounter &#x3D; 10000;
 
@@ -607,14 +607,14 @@ export class DsSelectComponent {
       this.containerPosition &#x3D; {
         top: spaceBelow &gt; spaceAbove ? &#x27;100%&#x27; : &#x27;auto&#x27;,
         bottom: spaceBelow &gt; spaceAbove ? &#x27;auto&#x27; : &#x27;100%&#x27;,
-        left: &#x27;0px&#x27;,
+        right: &#x27;0px&#x27;,
         visibility: &#x27;visible&#x27;,
         position: &#x27;absolute&#x27;,
       };
     }
   }
 
-  selectOption(item: SelectItem) {
+  selectOption(event, item: SelectItem) {
     if (item.unavailable) return;
 
     if (this.multiple) {
@@ -629,7 +629,7 @@ export class DsSelectComponent {
       this.isOpen &#x3D; false;
     }
 
-    this.valueChange.emit(this.value);
+    this.valueChange.emit({ value: this.value, event });
   }
 
   isSelected(item: SelectItem): boolean {

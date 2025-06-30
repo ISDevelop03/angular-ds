@@ -11,7 +11,7 @@ export class EmptyCardStoryComponent {
     description: 'Aucun résultat trouvé.',
     title: 'Aucun résultat',
     buttonLabel: 'Réessayer',
-    onClick: () => alert('Retry clicked!'),
+    onClick: (data) => alert('Retry clicked!' + JSON.stringify(data)),
   };
 
   loading = {

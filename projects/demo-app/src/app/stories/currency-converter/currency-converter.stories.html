@@ -6,7 +6,7 @@
       [value]="value"
       [currency]="currency"
       (valueChange)="value = $event"
-      (currencyChange)="currency = $event"
+      (currencyChange)="currency = $event.value"
     ></ds-currency-converter>
     {{value}} {{currency}}
   </div>

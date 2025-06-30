@@ -7,7 +7,7 @@
       <ds-button
         *ngFor="let variant of variants"
         [variant]="variant"
-        [handleClick]="handleClick"
+        (onClick)="handleClick($event)"
       >
         {{ variant }} filled
       </ds-button>
@@ -21,7 +21,7 @@
         *ngFor="let variant of variants"
         [variant]="variant"
         [outline]="true"
-        [handleClick]="handleClick"
+        (onClick)="handleClick($event)"
         >{{ variant }} outline</ds-button
       >
     </div>
@@ -31,7 +31,7 @@
     <div><strong>Disabled</strong></div>
     <div class="flex gap-2 flex-wrap">
       <ds-button
-        [handleClick]="handleClick"
+        (onClick)="handleClick($event)"
         *ngFor="let variant of variants"
         [variant]="variant"
         [disabled]="true"
@@ -44,7 +44,7 @@
     <div><strong>Outline + Disabled</strong></div>
     <div class="flex gap-2 flex-wrap">
       <ds-button
-        [handleClick]="handleClick"
+        (onClick)="handleClick($event)"
         *ngFor="let variant of variants"
         [variant]="variant"
         [outline]="true"
@@ -61,7 +61,7 @@
       <ds-button
         *ngFor="let size of sizes"
         [size]="size"
-        [handleClick]="handleClick"
+        (onClick)="handleClick($event)"
         >Size: {{ size }}</ds-button
       >
     </div>
@@ -70,13 +70,13 @@
   <div class="grid gap-2 mt-4">
     <div><strong>With Icons</strong></div>
     <div class="flex gap-2 flex-wrap">
-      <ds-button icon="arrow-right" [handleClick]="handleClick"
+      <ds-button icon="arrow-right" (onClick)="handleClick($event)"
         >Only Icon</ds-button
       >
-      <ds-button iconLeft="arrow-left" [handleClick]="handleClick"
+      <ds-button iconLeft="arrow-left" (onClick)="handleClick($event)"
         >Left Icon</ds-button
       >
-      <ds-button iconRight="arrow-right" [handleClick]="handleClick"
+      <ds-button iconRight="arrow-right" (onClick)="handleClick($event)"
         >Right Icon</ds-button
       >
     </div>
@@ -85,7 +85,7 @@
   <div class="grid gap-2 mt-4">
     <div><strong>Loading</strong></div>
     <div class="flex gap-2 flex-wrap">
-      <ds-button [isLoading]="true" [handleClick]="handleClick"
+      <ds-button [isLoading]="true" (onClick)="handleClick($event)"
         >Loading...</ds-button
       >
     </div>

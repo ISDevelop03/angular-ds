@@ -10,6 +10,22 @@ import {
 } from '@angular/core';
 import { StepComponent } from './step.component';
 import { STEPS_THEME, StepsTheme } from './theme';
+
+interface StepButton {
+  variant: string;
+  content: string;
+  disableHandleStep?: boolean;
+  onClick: (data: any) => void;
+  icon?: string;
+  iconRight?: string;
+  iconLeft?: string;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
+  size?: string;
+  disabled?: boolean;
+  outline?: boolean;
+  pill?: boolean;
+}
 /**
  * StepsComponent
  *
@@ -21,6 +37,9 @@ import { STEPS_THEME, StepsTheme } from './theme';
   templateUrl: './steps.component.html',
 })
 export class StepsComponent implements AfterContentInit {
+  /** Index of the currently visible step */
+  @Input() currentStepIndex = 0;
+
   /** Collect all projected <ds-step> children */
   @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
 
@@ -28,19 +47,32 @@ export class StepsComponent implements AfterContentInit {
   @Input() variant: string = 'default';
   @Input() title: string = '';
 
-  /** Optional data you can bind from an API */
-  @Input() apiData: any;
+  @Input() leftButtons: StepButton[] = [
+    {
+      variant: 'gray',
+      content: 'Prev',
+      onClick: (btn) => {
+        console.log('this is prev hahah', btn);
+      },
+    },
+  ];
 
-  @Input() cancel: () => void;
+  @Input() rightButtons: StepButton[] = [
+    {
+      variant: 'primary',
+      content: 'Next',
+      pill: true,
+      onClick: (btn) => {
+        console.log('this is next hahah', btn);
+      },
+    },
+  ];
 
   /** Emitted when advancing to a new step */
   @Output() nextStep = new EventEmitter<number>();
 
   /** Emitted when going back to a previous step */
   @Output() prevStep = new EventEmitter<number>();
-
-  /** Index of the currently visible step */
-  currentStepIndex = 0;
 
   /** Resolved theme for the selected variant */
   theme: StepsTheme = STEPS_THEME[this.variant] || STEPS_THEME.default;
@@ -51,28 +83,32 @@ export class StepsComponent implements AfterContentInit {
   }
 
   /** Move to next step if allowed */
-  goNext = () => {
+  goNext = (event?: Event, button?: StepButton) => {
+    if (button.disableHandleStep) {
+      button.onClick({ button, event, currentIndex: this.currentStepIndex });
+      return;
+    }
+
     const step = this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoNext && this.currentStepIndex < this.steps.length - 1) {
       this.currentStepIndex++;
       this.nextStep.emit(this.currentStepIndex);
+      button.onClick({ button, event, currentIndex: this.currentStepIndex });
     }
   };
 
   /** Move to previous step if allowed */
-  goPrev = () => {
+  goPrev = (event?: Event, button?: StepButton) => {
+    if (button.disableHandleStep) {
+      button.onClick({ button, event, currentIndex: this.currentStepIndex });
+      return;
+    }
+
     const step = this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoPrev && this.currentStepIndex > 0) {
       this.currentStepIndex--;
       this.prevStep.emit(this.currentStepIndex);
     }
-  };
-
-  handlePrevCancel = () => {
-    if (this.currentStepIndex === 0) {
-      this.cancel && this.cancel();
-    } else {
-      this.goPrev();
-    }
+    button.onClick({ button, event, currentIndex: this.currentStepIndex });
   };
 }

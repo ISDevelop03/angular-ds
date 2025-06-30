@@ -1,17 +1,25 @@
 <section class="flex flex-col gap-4 p-4">
   <h2 class="text-2xl font-bold">Steps</h2>
+  <span> {{currentStepIndex}} </span>
   <div class="flex flex-col gap-4">
     <!-- src/app/app.component.html -->
-    <ds-steps title="Paiement de factures" [cancel]="cancel">
+    <ds-steps
+      (nextStep)="nextStepHandler($event)"
+      (prevStep)="prevStepHandler($event)"
+      [leftButtons]="leftButtons"
+      [rightButtons]="rightButtons"
+      [currentStepIndex]="currentStepIndex"
+      title="Paiement de factures"
+    >
       <ds-step title="Step 1" [shouldGoNext]="step1Done">
         <ng-template>
-          <div class="p-6 bg-level-4 border rounded">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Do this first thing.</p>
             <button
               class="px-3 py-1 bg-blue-500 text-white rounded"
               (click)="step1Done = !step1Done"
             >
-              Mark Step 1 Done
+              {{step1Done ? 'Step 1 Done' : 'Mark Step 1 Done'}}
             </button>
           </div>
         </ng-template>
@@ -19,39 +27,39 @@
 
       <ds-step title="Step 2" [shouldGoPrev]="true" [shouldGoNext]="step2Done">
         <ng-template>
-          <div class="p-6 bg-level-4 border rounded">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Then configure this.</p>
             <button
               class="px-3 py-1 bg-blue-500 text-white rounded"
               (click)="step2Done = !step2Done"
             >
-              Mark Step 2 Done
+              {{step2Done ? 'Step 2 Done' : 'Mark Step 2 Done'}}
             </button>
           </div>
         </ng-template>
       </ds-step>
       <ds-step title="Step 3" [shouldGoPrev]="true" [shouldGoNext]="step3Done">
         <ng-template>
-          <div class="p-6 bg-level-4 border rounded">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Then configure this.</p>
             <button
               class="px-3 py-1 bg-blue-500 text-white rounded"
               (click)="step3Done = !step3Done"
             >
-              Mark Step 3 Done
+              {{step3Done ? 'Step 3 Done' : 'Mark Step 3 Done'}}
             </button>
           </div>
         </ng-template>
       </ds-step>
       <ds-step title="Step 4" [shouldGoPrev]="true" [shouldGoNext]="step4Done">
         <ng-template>
-          <div class="p-6 bg-level-4 border rounded">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Then configure this.</p>
             <button
               class="px-4 py-1 bg-blue-500 text-white rounded"
               (click)="step4Done = !step4Done"
             >
-              Mark Step 4 Done
+              {{step4Done ? 'Step 4 Done' : 'Mark Step 4 Done'}}
             </button>
           </div>
         </ng-template>
@@ -59,7 +67,7 @@
 
       <ds-step title="Finish" [shouldGoPrev]="true">
         <ng-template>
-          <div class="p-6 bg-level-4 border rounded">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Finish line.</p>
             <p class="text-green-600 font-semibold">All done! 🎉</p>
           </div>

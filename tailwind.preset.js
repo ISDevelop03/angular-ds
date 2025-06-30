@@ -406,11 +406,16 @@ module.exports = {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(0)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         fadeInScale: "fadeInScale 300ms ease-out forwards",
         slideInLeft: "slideInLeft 300ms ease-out forwards",
         slideInRight: "slideInRight 300ms ease-out forwards",
+        marquee: "marquee linear infinite",
       },
     },
   },

@@ -27,19 +27,14 @@ export class InvoiceCardComponent {
   @Input() image: string = '';
   @Input() className?: string = '';
 
+  @Input() data?: any;
+
   @Output() onClick = new EventEmitter<any>();
 
   onClickHandler(event: Event) {
     this.onClick.emit({
       event,
-      data: {
-        id: this.id,
-        href: this.href,
-        image: this.image,
-        title: this.title,
-        className: this.className,
-        actionsList: this.actions,
-      },
+      data: this.data,
     });
   }
 
@@ -50,14 +45,7 @@ export class InvoiceCardComponent {
         action.onClick &&
         action.onClick({
           event,
-          data: {
-            id: this.id,
-            href: this.href,
-            image: this.image,
-            title: this.title,
-            className: this.className,
-            actionsList: this.actions,
-          },
+          data: this.data,
         }),
     }));
     this.items = this.items.map((item) => ({
@@ -66,14 +54,7 @@ export class InvoiceCardComponent {
         item.onClick &&
         item.onClick({
           event,
-          data: {
-            id: this.id,
-            href: this.href,
-            image: this.image,
-            title: this.title,
-            className: this.className,
-            actionsList: this.actions,
-          },
+          data: this.data,
         }),
     }));
   }

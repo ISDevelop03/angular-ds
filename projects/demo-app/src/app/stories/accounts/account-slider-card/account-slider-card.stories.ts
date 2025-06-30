@@ -30,7 +30,7 @@ export class AccountSliderCardStoryComponent {
     },
   ];
 
-  onCardClick() {
-    alert('Clicked on account');
+  onCardClick(event: any) {
+    console.log('Clicked on account', event);
   }
 }

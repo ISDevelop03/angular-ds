@@ -1,6 +1,6 @@
 <div
   id="ds-sheet-card"
-  (click)="onClick({ icon: icon, label: label })"
+  (click)="onClick({ event: $event, data: data })"
   [ngClass]="[
     className,
     isDraggable
@@ -58,7 +58,7 @@
 
     <button
       (click)="
-        startClick && startClick({ icon: icon, label: label });
+        startClick && startClick({ event: $event, data: data });
         $event.stopPropagation()
       "
       click-stop-propagation

@@ -35,4 +35,6 @@ export class DisplayPriceCardComponent {
   @Input() items: DisplayPriceCardItem[] = [];
   @Input() buttons: ButtonItem[] = [];
   @Input() className?: string = '';
+
+  @Input() data?: any;
 }

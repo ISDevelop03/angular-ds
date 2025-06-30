@@ -68,7 +68,15 @@ export class AccountCardStoryComponent {
   ];
 
   actionsList: DropdownItem[] = [
-    { label: 'Edit', icon: 'pen', onClick: () => alert('Edit clicked') },
-    { label: 'Remove', icon: 'trash', onClick: () => alert('Remove clicked') },
+    {
+      label: 'Edit',
+      icon: 'pen',
+      onClick: (payload) => alert('Edit clicked' + JSON.stringify(payload)),
+    },
+    {
+      label: 'Remove',
+      icon: 'trash',
+      onClick: (payload) => alert('Remove clicked' + JSON.stringify(payload)),
+    },
   ];
 }

@@ -1,7 +1,7 @@
 <div class="p-4 grid gap-4">
   <h3>Default Account Grid Holding Card</h3>
 
-  <ds-button (click)="isDiscrete = !isDiscrete">
+  <ds-button (onClick)="isDiscrete = !isDiscrete">
     {{ isDiscrete ? 'Disable' : 'Enable' }} Discrete Mode
   </ds-button>
 
@@ -15,6 +15,7 @@
     [title]="account.title"
     [editLink]="account.editLink"
     [isDiscrete]="isDiscrete"
+    [data]="account"
     [actionsList]="actionsList"
     [copyToClipboard]="copyToClipboard"
   >

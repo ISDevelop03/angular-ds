@@ -16,6 +16,8 @@ export class SheetCardComponent {
   @Input() label?: string;
   @Input() isDraggable?: string;
 
+  @Input() data?: any;
+
   @Input() iconRight?: string;
   @Input() iconPosition?: 'bottom' | 'center' | 'top' = 'bottom';
 

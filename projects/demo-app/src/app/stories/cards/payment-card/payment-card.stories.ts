@@ -5,11 +5,13 @@ import { Component, Input } from '@angular/core';
   templateUrl: './payment-card.stories.html',
 })
 export class PaymentCardStoryComponent {
-  title: string = 'Inwi : Paiement de factures';
-  image: string = 'https://placehold.co/100';
-  price: number = 123454;
-  currency: string = 'MAD';
   isSelected: boolean = false;
+  data = {
+    title: 'Inwi : Paiement de factures',
+    image: 'https://placehold.co/100',
+    price: 123454,
+    currency: 'MAD',
+  };
 
   onSelect(event) {
     this.isSelected = !this.isSelected;

@@ -4,7 +4,7 @@
 >
   <div
     *ngIf="isLoading"
-    class="absolute inset-0 z-50 flex items-center justify-center bg-white/60"
+    class="absolute inset-0 z-50 flex items-center justify-center dark:bg-black/60 bg-white/60"
   >
     <ds-icon id="Loader" class="size-7 animate-spin"></ds-icon>
   </div>
@@ -29,7 +29,7 @@
     <ds-button
       *ngIf="buttonLabel"
       variant="secondary"
-      (click)="handleClick($event)"
+      (onClick)="handleClick($event)"
     >
       {{ buttonLabel }}
     </ds-button>

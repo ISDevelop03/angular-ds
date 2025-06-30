@@ -26,7 +26,7 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellButton: 'w-fit',
     headerCellSortable: ' select-none',
     body: '',
-    row: () => 'bg-white rounded',
+    row: () => 'dark:bg-black bg-white rounded',
     cell: 'px-4 text-sm font-medium py-2',
   },
   striped: {
@@ -40,7 +40,7 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellButton: 'w-fit',
     headerCellSortable: ' select-none',
     body: '',
-    row: (i) => (i % 2 === 0 ? 'bg-white' : 'bg-gray-50'),
+    row: (i) => (i % 2 === 0 ? 'dark:bg-black bg-white' : 'bg-gray-50'),
     cell: 'px-4 text-sm py-2',
   },
   bordered: {

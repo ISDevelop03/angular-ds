@@ -21,22 +21,15 @@ export class PaymentDetailsCardComponent {
   @Input() useCheckbox?: boolean = false;
   @Input() className?: string = '';
 
-  @Output() onSelect = new EventEmitter();
+  @Input() data?: any;
+
+  @Output() onSelect = new EventEmitter<any>();
 
   get formattedPrice() {
     return formatMoney(this.price, false, false, false);
   }
 
   onSelectChange(event: any) {
-    const item = {
-      title: this.title,
-      titleHeader: this.titleHeader,
-      date: this.date,
-      price: this.price,
-      currency: this.currency,
-      useCheckbox: this.useCheckbox,
-      className: this.className,
-    };
-    this.onSelect.emit({ event: event, item: item });
+    this.onSelect.emit({ event: event, data: this.data });
   }
 }

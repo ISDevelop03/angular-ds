@@ -6,23 +6,25 @@ import { DropdownItem } from 'projects/design-system/src/lib/components/dropdown
   templateUrl: './account-holding-selected-card.stories.html',
 })
 export class AccountHoldingSelectedCardStoryComponent {
-  title = 'Prayon';
-  className = '';
-  image = 'https://placehold.co/62';
-  actionsList: DropdownItem[] = [
-    {
-      label: 'Edit',
-      icon: 'pen',
-      onClick: (item) => alert('Edit clicked' + JSON.stringify(item)),
-    },
-    {
-      label: 'Remove',
-      icon: 'trash',
-      onClick: (item) => alert('Remove clicked' + JSON.stringify(item)),
-    },
-  ];
-
-  onClick = () => {
-    alert('Card clicked');
+  data = {
+    title: 'Prayon',
+    className: '',
+    image: 'https://placehold.co/62',
+    actionsList: [
+      {
+        label: 'Edit',
+        icon: 'pen',
+        onClick: (item) => alert('Edit clicked' + JSON.stringify(item)),
+      },
+      {
+        label: 'Remove',
+        icon: 'trash',
+        onClick: (item) => alert('Remove clicked' + JSON.stringify(item)),
+      },
+    ],
   };
+
+  onClick(payload) {
+    console.log('Card clicked', payload);
+  }
 }

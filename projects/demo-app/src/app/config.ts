@@ -256,5 +256,10 @@ export const menus: Menu[] = [
   { key: 'code-input', name: 'CodeInput', path: '/code-input' },
   { key: 'accordion-card', name: 'AccordionCard', path: '/accordion-card' },
   { key: 'footer', name: 'Footer', path: '/footer' },
-  { key: 'display-price-card', name: 'DisplayPriceCard', path: '/display-price-card' },
+  {
+    key: 'display-price-card',
+    name: 'DisplayPriceCard',
+    path: '/display-price-card',
+  },
+  { key: 'label', name: 'Label', path: '/label' },
 ];

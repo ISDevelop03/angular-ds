@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 
 /**
@@ -16,21 +16,27 @@ export class AccountHoldingSelectedCardComponent implements OnInit {
   @Input() image: string;
   @Input() title: string;
   @Input() className?: string = '';
+  @Input() data?: any;
   @Input() actionsList: ICallToActionIcon[] = [];
-  @Input() onClick: () => void;
+
+  @Output() onClick = new EventEmitter<any>();
 
   ngOnInit() {
     this.actionsList = this.actionsList.map((action) => ({
       ...action,
-      onClick: () =>
+      onClick: (event: any) =>
         action.onClick &&
         action.onClick({
-          id: this.id,
-          title: this.title,
-          image: this.image,
-          actionsList: this.actionsList,
-          className: this.className,
+          event: event,
+          data: this.data,
         }),
     }));
+  }
+
+  handleClick(event: any) {
+    this.onClick.emit({
+      data: this.data,
+      event: event,
+    });
   }
 }

@@ -17,9 +17,12 @@ export class NotificationCardComponent {
   @Input() isRead: boolean = false;
   @Input() link?: string;
   @Input() time?: string;
-  @Output() onClick = new EventEmitter<Event>();
+
+  @Input() data?: any;
+
+  @Output() onClick = new EventEmitter<any>();
 
   handleClick(event: Event) {
-    this.onClick.emit(event);
+    this.onClick.emit({ data: this.data, event: event });
   }
 }

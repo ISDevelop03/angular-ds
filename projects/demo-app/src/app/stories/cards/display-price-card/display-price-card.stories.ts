@@ -50,4 +50,13 @@ export class DisplayPriceCardStoryComponent {
     },
   ];
   @Input() className?: string = '';
+
+  data = {
+    buttons: this.buttons,
+    items: this.items,
+    title: 'Display Price Card',
+    price: '$90.00',
+    icon: 'receipt-lines',
+    text: 'This is a display price card that shows the price, discount, and total amount.',
+  };
 }

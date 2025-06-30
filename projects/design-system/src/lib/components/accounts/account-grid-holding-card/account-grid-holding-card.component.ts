@@ -22,31 +22,22 @@ export class DsAccountGridHoldingCardComponent implements OnInit {
   @Input() editLink?: string;
   @Input() className?: string = '';
   @Input() isDiscrete: boolean = false;
+  @Input() data?: any;
   @Input() copyToClipboard?: (accountNumber: number) => void;
 
   ngOnInit() {
-    const currentItem = {
-      id: this.id,
-      title: this.title,
-      accountNumber: this.accountNumber,
-      soldeComptable: this.soldeComptable,
-      isDiscrete: this.isDiscrete,
-      editLink: this.editLink,
-      soldeReel: this.soldeReel,
-      currency: this.currency,
-      actionsList: this.actionsList,
-      className: this.className,
-    };
-
     this.actionsList =
       this.actionsList
         .map((action) => ({
           ...action,
-          onClick: () => action.onClick && action.onClick(currentItem),
+          onClick: (event: any) =>
+            action.onClick && action.onClick({ data: this.data, event: event }),
           dropdownItems: action.dropdownItems
             ? action.dropdownItems.map((item) => ({
                 ...item,
-                onClick: () => item.onClick && item.onClick(currentItem),
+                onClick: (event: any) =>
+                  item.onClick &&
+                  item.onClick({ data: this.data, event: event }),
               }))
             : null,
         }))

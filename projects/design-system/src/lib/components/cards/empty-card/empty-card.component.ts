@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Theme } from './theme';
 
 /**
@@ -15,16 +15,17 @@ export class EmptyCardComponent {
   @Input() title?: string;
   @Input() description!: string;
   @Input() buttonLabel?: string;
-  @Input() onClick?: () => void;
   @Input() image!: string;
   @Input() isLoading: boolean = false;
+
+  @Input() data?: any;
+
+  @Output() onClick = new EventEmitter<any>();
 
   theme = Theme;
 
   handleClick(event: Event) {
-    if (this.onClick) {
-      event.preventDefault();
-      this.onClick();
-    }
+    event.preventDefault();
+    this.onClick.emit({ event: event, data: this.data });
   }
 }

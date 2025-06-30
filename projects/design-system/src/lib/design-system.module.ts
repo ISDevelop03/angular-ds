@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LabelComponent } from './components/form-elements/label/label.component';
 import { DisplayPriceCardComponent } from './components/cards/display-price-card/display-price-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AccordionCardComponent } from './components/cards/accordion-card/accordion-card.component';
@@ -100,6 +101,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PortalModule } from '@angular/cdk/portal';
 import { CodeInputModule } from 'angular-code-input';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -173,6 +175,7 @@ registerLocaleData(localeFr, 'fr-FR');
     AccordionCardComponent,
     FooterComponent,
     DisplayPriceCardComponent,
+    LabelComponent,
   ],
   imports: [
     CommonModule,
@@ -181,6 +184,7 @@ registerLocaleData(localeFr, 'fr-FR');
     CarouselModule,
     CodeInputModule,
     NgxDaterangepickerMd.forRoot(),
+    OverlayModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [
@@ -254,6 +258,7 @@ registerLocaleData(localeFr, 'fr-FR');
     AccordionCardComponent,
     FooterComponent,
     DisplayPriceCardComponent,
+    LabelComponent,
   ],
 })
 export class DesignSystemModule {}

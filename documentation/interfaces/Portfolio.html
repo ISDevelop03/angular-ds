@@ -322,9 +322,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { animate, style, transition, trigger } from &#x27;@angular/animations&#x27;;
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   Renderer2,
   SimpleChanges,
 } from &#x27;@angular/core&#x27;;
@@ -366,6 +368,8 @@ export class PortfolioComponent implements OnInit, OnChanges {
   @Input() show: boolean &#x3D; false;
   @Input() className &#x3D; &#x27;&#x27;;
 
+  @Output() clicked &#x3D; new EventEmitter&lt;Portfolio&gt;();
+
   displayPortfolio &#x3D; false;
   selectedPortfolio!: Portfolio;
   holdingPortfolio!: Portfolio;
@@ -391,12 +395,7 @@ export class PortfolioComponent implements OnInit, OnChanges {
   private resetState() {
     // pick the right “selected” and “holding”
     this.selectedPortfolio &#x3D; this.selected || this.portfolios[0]!;
-    this.holdingPortfolio &#x3D; this.holding || {
-      id: &#x27;__holding__&#x27;,
-      title: &#x27;Holding Name&#x27;,
-      image: &#x27;https://placehold.co/35x35?text&#x3D;Logo&#x27;,
-    };
-
+    this.holdingPortfolio &#x3D; this.holding;
     // set open/closed to whatever &#x60;show&#x60; was bound as
     this.displayPortfolio &#x3D; this.show;
 
@@ -410,7 +409,8 @@ export class PortfolioComponent implements OnInit, OnChanges {
 
   onSelect(portfolio: Portfolio) {
     this.selectedPortfolio &#x3D; portfolio;
-    this.displayPortfolio &#x3D; false; // close the portfolio selection
+    this.clicked.emit(portfolio);
+    this.displayPortfolio &#x3D; false;
     this.setBodyScroll(false);
   }
 
