@@ -54,12 +54,12 @@ export class StepsStoryComponent {
   ];
 
   prevStepHandler(event: any) {
-    this.currentStepIndex = event;
+    this.currentStepIndex = event.currentIndex;
     console.log('Previous step:', event);
   }
 
   nextStepHandler(event: any) {
-    this.currentStepIndex = event;
+    this.currentStepIndex = event.currentIndex;
     console.log('Next step:', event);
   }
 }
