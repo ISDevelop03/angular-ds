@@ -4,10 +4,5 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "whitelistedNonPeerDependencies": [
-    "ngx-owl-carousel-o",
-    "angular-code-input",
-    "ngx-daterangepicker-material",
-    "moment"
-  ]
+  "whitelistedNonPeerDependencies": ["ngx-owl-carousel-o", "angular-code-input"]
 }

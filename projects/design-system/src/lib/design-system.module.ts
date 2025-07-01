@@ -93,14 +93,14 @@ import { PaymentCardComponent } from './components/cards/payment-card/payment-ca
 import { StepsComponent } from './components/steps/steps.component';
 import { StepComponent } from './components/steps/step.component';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PortalModule } from '@angular/cdk/portal';
 import { CodeInputModule } from 'angular-code-input';
-import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+// import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 registerLocaleData(localeFr, 'fr-FR');
@@ -183,8 +183,9 @@ registerLocaleData(localeFr, 'fr-FR');
     PortalModule,
     CarouselModule,
     CodeInputModule,
-    NgxDaterangepickerMd.forRoot(),
+    // NgxDaterangepickerMd.forRoot(),
     OverlayModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [

@@ -77,4 +77,31 @@
     variant="default"
     [placeholder]="'Enter Input...'"
   ></ds-input>
+
+  <form [formGroup]="loginForm" class="grid gap-4">
+    <ds-input
+      id="email"
+      required="true"
+      name="email"
+      label="Email"
+      formControlName="email"
+      [hasError]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+      [errorMessage]="'Email is invalid!'"
+    ></ds-input>
+
+    <ds-select
+      formControlName="country"
+      label="Country"
+      required="true"
+      [items]="countries"
+      [hasError]="loginForm.get('country')?.invalid && loginForm.get('country')?.touched"
+      [errorMessage]="'Country is invalid!'"
+    >
+    </ds-select>
+
+    {{loginForm.get('country')?.invalid && loginForm.get('country')?.touched ?
+    'Invalid country' : 'Valid country'}}
+
+    <pre>{{ loginForm.value | json }}</pre>
+  </form>
 </div>

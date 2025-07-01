@@ -6,8 +6,10 @@ import {
   ElementRef,
   ViewChild,
   HostListener,
+  forwardRef,
 } from '@angular/core';
 import { theme } from './theme';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface SelectItem {
   value: string;
@@ -29,8 +31,15 @@ export interface SelectItem {
 @Component({
   selector: 'ds-select',
   templateUrl: './select.component.html',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DsSelectComponent),
+      multi: true,
+    },
+  ],
 })
-export class DsSelectComponent {
+export class DsSelectComponent implements ControlValueAccessor {
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -61,6 +70,29 @@ export class DsSelectComponent {
   optionsContainer?: ElementRef;
 
   theme = theme;
+
+  // hold the form’s callbacks
+  private _onChange: (v: any) => void = () => {};
+  private _onTouched: () => void = () => {};
+
+  // ----------------------------------------
+  // ControlValueAccessor API
+  // ----------------------------------------
+  writeValue(obj: any): void {
+    this.value = obj;
+  }
+
+  registerOnChange(fn: any): void {
+    this._onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this._onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   get mergedStyles() {
     return Object.assign(
@@ -122,6 +154,10 @@ export class DsSelectComponent {
       this.isOpen = false;
     }
 
+    // 1) notify Reactive Forms
+    this._onChange(this.value);
+    // 2) mark “touched”
+    this._onTouched();
     this.valueChange.emit({ value: this.value, event });
   }
 
@@ -160,12 +196,18 @@ export class DsSelectComponent {
 
     // if you clicked *neither* on the button nor inside the dropdown, close it
     if (!clickedTrigger && !clickedOptions) {
+      if (this.isOpen) {
+        this._onTouched(); // <— mark “touched” here
+      }
       this.isOpen = false;
     }
   }
 
   @HostListener('document:keydown.escape', ['$event'])
   onEscClose(event: KeyboardEvent) {
+    if (this.isOpen) {
+      this._onTouched(); // <— and here too
+    }
     this.isOpen = false;
   }
 }

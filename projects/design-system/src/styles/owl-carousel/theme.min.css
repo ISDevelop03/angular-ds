@@ -5,8 +5,15 @@
  */
 .owl-theme .owl-dots {
   margin-top: -10px;
-  margin-left: 35px;
+  margin-left: 15px;
+  width: fit-content;
 }
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next {
+  @apply flex justify-center items-center size-[14px];
+}
+
 .owl-theme .owl-dots,
 .owl-theme .owl-nav {
   text-align: center;

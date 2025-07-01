@@ -1,6 +1,6 @@
 <div id="ds-select" class="relative w-full" [ngClass]="className">
   <ng-container *ngIf="label">
-    <label [class]="theme[variant].element.label">{{ label }}</label>
+    <ds-label [className]="theme[variant].element.label">{{ label }}</ds-label>
   </ng-container>
 
   <button

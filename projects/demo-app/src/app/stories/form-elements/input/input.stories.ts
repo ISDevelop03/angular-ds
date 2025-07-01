@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
+import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.stories.html',
 })
 export class InputStoryComponent {
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    country: new FormControl(''),
+  });
+
+  countries = [
+    { value: 'us', label: 'United States' },
+    { value: 'ca', label: 'Canada' },
+    { value: 'mx', label: 'Mexico' },
+  ];
+
   amount = 0;
   textValue: string = '';
   numberValue: number = 0;

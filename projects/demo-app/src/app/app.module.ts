@@ -76,7 +76,7 @@ import { DesignSystemModule } from 'projects/design-system/src/lib/design-system
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const pages: Routes = [
   { path: '', component: HomeComponent },
@@ -177,6 +177,7 @@ const router = RouterModule.forRoot(pages);
     router,
     DesignSystemModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     // App Pages
