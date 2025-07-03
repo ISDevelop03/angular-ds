@@ -56,7 +56,7 @@
               "projects/demo-app/src/assets"
             ],
             "styles": ["styles/styles.css"],
-            "scripts": []
+            "scripts": ["projects/demo-app/src/assets/owl-carousel.js"]
           },
           "configurations": {
             "production": {

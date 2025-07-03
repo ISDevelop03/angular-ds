@@ -8,6 +8,8 @@ export const defaultTheme = {
       secondary:
         'opacity-70 hover:!border-black hover:!bg-black hover:!text-white',
       gray: 'opacity-70 hover:!border-card-level-1 hover:!bg-card-level-1 hover:!text-neutral-700',
+      white:
+        'opacity-70 hover:!border-card-level-2 hover:!bg-card-level-2 hover:!text-red-500',
       neutral:
         'opacity-70 hover:!border-neutral-200 hover:!bg-neutral-200 hover:!text-neutral-700',
     },
@@ -16,6 +18,7 @@ export const defaultTheme = {
       secondary: 'opacity-70 hover:!bg-transparent hover:!text-black',
       gray: 'opacity-70 hover:!bg-transparent hover:!text-neutral-700',
       neutral: 'opacity-70 hover:!bg-transparent hover:!text-neutral-700',
+      white: 'opacity-70 hover:!bg-transparent hover:!text-red-500',
     },
   },
   size: {
@@ -44,10 +47,14 @@ export const defaultTheme = {
     gray: 'font-[700] border-2 border-card-level-1 bg-card-level-1 text-neutral-700 hover:bg-card-level-1/80 hover:!border-card-level-1/10',
     neutral:
       'font-[700] border-2 border-neutral-200 bg-neutral-200 text-neutral-700 hover:bg-neutral-200/80 hover:!border-neutral-200/10',
+    white:
+      'font-[700] border-2 border-card-level-2 bg-card-level-2 text-red-500 hover:bg-card-level-2/80 hover:!border-card-level-2/10',
   },
   outlineVariants: {
     primary:
       'text-[12px] leading-[24px] font-[700] border-2 border-primary bg-transparent hover:text-white text-primary hover:bg-primary',
+    white:
+      'text-[12px] leading-[24px] font-[700] border-2 border-card-level-2 bg-transparent hover:text-red-500 text-card-level-2 hover:bg-card-level-2',
     secondary:
       'text-[12px] leading-[24px] font-[700] border-2 border-black bg-transparent hover:text-white text-black  hover:bg-black',
     neutral:

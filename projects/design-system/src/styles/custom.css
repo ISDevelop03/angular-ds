@@ -143,6 +143,14 @@ input[type="number"]::-webkit-outer-spin-button {
   @apply bg-primary/80;
 }
 
+body #main-content {
+  @apply w-[calc(100vw-54px-12px)];
+}
+
+body.main-menu-open #main-content {
+  @apply w-[calc(100vw-54px-12px-260px)];
+}
+
 @layer utilities {
   /* pause animation on hover */
   .pause-on-hover:hover {

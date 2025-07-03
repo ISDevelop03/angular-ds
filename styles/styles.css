@@ -154,7 +154,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Montserrat, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -1254,6 +1254,18 @@ video {
   top: 1.25rem;
 }
 
+.top-full {
+  top: 100%;
+}
+
+.top-\[calc\(100\%\+16px\)\] {
+  top: calc(100% + 16px);
+}
+
+.top-\[calc\(100\%\+8px\)\] {
+  top: calc(100% + 8px);
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -1878,6 +1890,10 @@ video {
   width: 17px;
 }
 
+.w-\[275px\] {
+  width: 275px;
+}
+
 .w-\[30px\] {
   width: 30px;
 }
@@ -1926,8 +1942,8 @@ video {
   width: calc(100% + 16px);
 }
 
-.w-\[calc\(100vw-54px-12px\)\] {
-  width: calc(100vw - 54px - 12px);
+.w-\[calc\(100\%-32px\)\] {
+  width: calc(100% - 32px);
 }
 
 .w-auto {
@@ -2074,15 +2090,15 @@ video {
   flex: 1 1 0%;
 }
 
-.flex-shrink {
-  flex-shrink: 1;
-}
-
 .shrink-0 {
   flex-shrink: 0;
 }
 
 .flex-grow {
+  flex-grow: 1;
+}
+
+.grow {
   flex-grow: 1;
 }
 
@@ -2288,6 +2304,10 @@ video {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.grid-cols-\[40px_1fr\] {
+  grid-template-columns: 40px 1fr;
+}
+
 .grid-cols-\[repeat\(auto-fill\2c _minmax\(132px\2c _1fr\)\)\] {
   grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
 }
@@ -2338,6 +2358,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .gap-0 {
@@ -2426,12 +2450,20 @@ video {
   row-gap: 0.25rem;
 }
 
+.gap-y-1\.5 {
+  row-gap: 0.375rem;
+}
+
 .gap-y-10 {
   row-gap: 2.5rem;
 }
 
 .gap-y-2 {
   row-gap: 0.5rem;
+}
+
+.gap-y-3 {
+  row-gap: 0.75rem;
 }
 
 .gap-y-4 {
@@ -2470,6 +2502,12 @@ video {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
 .space-y-3\.5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));
@@ -2506,6 +2544,12 @@ video {
   margin-bottom: calc(10px * var(--tw-space-y-reverse));
 }
 
+.space-y-\[14px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(14px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(14px * var(--tw-space-y-reverse));
+}
+
 .space-y-\[17px\] > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(17px * calc(1 - var(--tw-space-y-reverse)));
@@ -2532,12 +2576,12 @@ video {
   overflow: visible;
 }
 
-.overflow-x-auto {
-  overflow-x: auto;
-}
-
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .truncate {
@@ -3489,11 +3533,6 @@ video {
   line-height: 2.25rem;
 }
 
-.text-3xl\/10 {
-  font-size: 1.875rem;
-  line-height: 2.5rem;
-}
-
 .text-3xs {
   font-size: 8px;
   line-height: 12px;
@@ -3518,6 +3557,11 @@ video {
   font-size: 10px;
 }
 
+.text-\[10px\]\/\[12px\] {
+  font-size: 10px;
+  line-height: 12px;
+}
+
 .text-\[10px\]\/\[14px\] {
   font-size: 10px;
   line-height: 14px;
@@ -3534,6 +3578,11 @@ video {
 
 .text-\[14px\] {
   font-size: 14px;
+}
+
+.text-\[14px\]\/\[16px\] {
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .text-\[14px\]\/\[18px\] {
@@ -3768,6 +3817,11 @@ video {
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(var(--color-blue-600) / var(--tw-text-opacity, 1));
+}
+
+.text-card-level-2 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--card-level-2) / var(--tw-text-opacity, 1));
 }
 
 .text-custom-black {
@@ -4200,7 +4254,7 @@ video {
 }
 
 body {
-  font-family: Montserrat, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -4406,6 +4460,14 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgb(220 38 38 / 0.8);
+}
+
+body #main-content {
+  width: calc(100vw - 54px - 12px);
+}
+
+body.main-menu-open #main-content {
+  width: calc(100vw - 54px - 12px - 260px);
 }
 
 /* [id^="ds-"] {
@@ -5334,6 +5396,15 @@ input[type="number"]::-webkit-outer-spin-button {
   border-color: rgb(var(--card-level-1) / 0.1) !important;
 }
 
+.hover\:\!border-card-level-2:hover {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(var(--card-level-2) / var(--tw-border-opacity, 1)) !important;
+}
+
+.hover\:\!border-card-level-2\/10:hover {
+  border-color: rgb(var(--card-level-2) / 0.1) !important;
+}
+
 .hover\:\!border-neutral-200:hover {
   --tw-border-opacity: 1 !important;
   border-color: rgb(var(--color-neutral-200) / var(--tw-border-opacity, 1)) !important;
@@ -5392,6 +5463,11 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: rgb(var(--card-level-1) / var(--tw-bg-opacity, 1)) !important;
 }
 
+.hover\:\!bg-card-level-2:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(var(--card-level-2) / var(--tw-bg-opacity, 1)) !important;
+}
+
 .hover\:\!bg-neutral-200:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(var(--color-neutral-200) / var(--tw-bg-opacity, 1)) !important;
@@ -5427,6 +5503,15 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .hover\:bg-card-level-1\/80:hover {
   background-color: rgb(var(--card-level-1) / 0.8);
+}
+
+.hover\:bg-card-level-2:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--card-level-2) / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-card-level-2\/80:hover {
+  background-color: rgb(var(--card-level-2) / 0.8);
 }
 
 .hover\:bg-gray-100:hover {
@@ -5514,6 +5599,11 @@ input[type="number"]::-webkit-outer-spin-button {
   color: rgb(220 38 38 / var(--tw-text-opacity, 1)) !important;
 }
 
+.hover\:\!text-red-500:hover {
+  --tw-text-opacity: 1 !important;
+  color: rgb(var(--color-red-500) / var(--tw-text-opacity, 1)) !important;
+}
+
 .hover\:\!text-white:hover {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
@@ -5557,6 +5647,10 @@ input[type="number"]::-webkit-outer-spin-button {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .hover\:opacity-50:hover {
@@ -5954,6 +6048,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:text-\[32px\] {

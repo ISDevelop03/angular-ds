@@ -18,21 +18,21 @@
     <ds-icon
       *ngIf="isLoading"
       id="Loader"
-      size="14px"
+      size="16px"
       class="animate-spin"
     ></ds-icon>
     <span [ngClass]="appliedTheme.contentWrapper">
       <ng-container *ngIf="icon; else projectedContentButton">
-        <ds-icon [id]="icon" size="14px"></ds-icon>
+        <ds-icon [id]="icon" size="16px"></ds-icon>
       </ng-container>
       <ng-template #projectedContentButton>
         <ng-container *ngIf="iconLeft">
-          <ds-icon [id]="iconLeft" size="14px"></ds-icon>
+          <ds-icon [id]="iconLeft" size="16px"></ds-icon>
         </ng-container>
         <!-- Content projection for button text -->
         <ng-content></ng-content>
         <ng-container *ngIf="iconRight">
-          <ds-icon [id]="iconRight" size="14px"></ds-icon>
+          <ds-icon [id]="iconRight" size="16px"></ds-icon>
         </ng-container>
       </ng-template>
     </span>

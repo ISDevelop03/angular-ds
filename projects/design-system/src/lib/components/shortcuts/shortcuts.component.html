@@ -42,12 +42,8 @@
   </div>
   <ul
     *ngIf="isOpen && shortcuts"
-    class="w-full bg-card-level-5 rounded shadow-dropdown"
+    class="absolute z-[1000] top-[calc(100%+8px)] left-0 w-full bg-card-level-5 rounded shadow-dropdown"
   >
-    <!-- (click)="
-        !shortcut.isSelected &&
-          shortcut.onClick({ shortcut: shortcut, index: index }, $event)
-      " -->
     <li
       tabindex="0"
       role="button"
