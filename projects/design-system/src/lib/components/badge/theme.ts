@@ -1,5 +1,5 @@
 export const badge = {
-  base: 'inline-flex items-center gap-[7px] font-medium rounded-[2px] w-fit',
+  base: 'inline-flex text-nowrap items-center gap-[7px] font-medium rounded-[2px] w-fit',
   sizes: {
     sm: 'px-4 py-1',
     md: 'px-5 py-1.5',
@@ -32,7 +32,7 @@ export const badge = {
 };
 
 export const textVariants = {
-  sm: 'text-[10px] leading-[12px] font-medium',
-  md: 'text-[12px] leading-[14px] font-medium',
-  lg: 'text-[14px] leading-[16px] font-medium',
+  sm: 'text-[12px]/[14px] font-medium',
+  md: 'text-[14px]/[16px] font-medium',
+  lg: 'text-[16px]/[18px] font-medium',
 };

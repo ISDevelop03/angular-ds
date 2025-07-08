@@ -18,7 +18,8 @@ export const radio = {
     },
     error: 'border-error-500',
     label: {
-      disabled: 'text-neutral-900 cursor-not-allowed opacity-50 hob',
+      base: 'text-[16px]/[20px] font-normal',
+      disabled: 'text-neutral-900 cursor-not-allowed opacity-50',
       unchecked: 'text-black dark:text-white cursor-pointer',
       checked: 'text-red-500 cursor-pointer',
       error: 'text-error-500',

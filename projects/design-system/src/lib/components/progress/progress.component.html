@@ -13,10 +13,10 @@
       label ? 'justify-between' : 'justify-end'
     ]"
   >
-    <span *ngIf="label" class="text-neutral-900 text-base font-medium">
+    <span *ngIf="label" class="text-neutral-900 text-[16px]/normal font-medium">
       {{ label }}
     </span>
-    <span class="text-neutral-900 text-[14px] leading-[20px] font-bold">
+    <span class="text-neutral-900 text-[16px]/[22px] font-bold">
       {{ percentage }}{{ suffix }}{{ total ? "/" + total : "" }}
     </span>
   </span>
@@ -36,7 +36,7 @@
 
   <span
     *ngIf="type === 'inline'"
-    class="text-neutral-900 text-[14px] leading-[20px] font-bold"
+    class="text-neutral-900 text-[16px]/[22px] font-bold"
   >
     {{ percentage }}{{ suffix }}{{ total ? "/" + total : "" }}
   </span>

@@ -16,18 +16,21 @@
     <ds-icon id="Mail" [size]="16" style="width: 16px; height: 16px"></ds-icon>
   </div>
 
-  <div class="space-y-1">
-    <span *ngIf="title" class="text-neutral-900 text-xs font-normal">
+  <div class="space-y-1.5">
+    <span
+      *ngIf="title"
+      class="text-neutral-900 text-[14px]/[18px] font-semibold"
+    >
       {{ title }}
     </span>
 
-    <p *ngIf="content" class="text-neutral-700 text-2xs font-medium">
+    <p *ngIf="content" class="text-neutral-700 text-[12px]/[16px] font-medium">
       {{ content }}
     </p>
 
     <div
       *ngIf="date"
-      class="text-neutral-700 text-2xs font-medium flex items-center gap-2"
+      class="text-neutral-700 text-[10px]/[14px] font-medium flex items-center gap-2"
     >
       <ds-icon
         id="clock2"

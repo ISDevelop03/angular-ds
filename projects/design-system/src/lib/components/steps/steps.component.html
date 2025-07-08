@@ -1,6 +1,6 @@
 <!-- src/lib/steps.component.html -->
 <section id="ds-steps" class="flex flex-col gap-6">
-  <h2 *ngIf="title" class="text-[18px] leading-[27px] font-bold">
+  <h2 *ngIf="title" class="text-[20px]/[28px] font-bold">
     {{ title }}
   </h2>
   <ul class="relative flex justify-between items-center overflow-hidden">
@@ -45,7 +45,7 @@
       </div>
 
       <span
-        class="text-[14px] leading-[18px] text-center"
+        class="text-[16px]/[20px] text-center"
         [ngClass]="
           i <= currentStepIndex
             ? 'font-bold text-red-500'

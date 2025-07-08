@@ -1,0 +1,56 @@
+<div id="ds-autocomplete" class="relative space-y-1" [ngClass]="className">
+  <div
+    class="flex justify-start flex-wrap gap-1 bg-level-4 rounded border border-neutral-50 p-2"
+  >
+    <ds-badge
+      size="sm"
+      pill="true"
+      *ngFor="let val of values"
+      [label]="val.label"
+      icon="close"
+      iconRight="true"
+      (onClick)="onDeleteBadge($event, val)"
+    ></ds-badge>
+
+    <input
+      #myInput
+      class="text-sm font-bold flex-1 bg-transparent placeholder-text-sm outline-none border-none focus:ring-0 p-0"
+      [value]="value"
+      (focus)="showDropdown = true"
+      (input)="onInput($event)"
+      (keydown.backspace)="onBackspace()"
+    />
+  </div>
+
+  <div
+    *ngIf="showDropdown"
+    class="absolute top-full left-0 w-full min-w-[300px] max-w-[500px] bg-white border border-gray-300 rounded shadow z-10"
+  >
+    <ul
+      *ngIf="filteredItems.length"
+      class="max-h-60 overflow-y-auto custom-scrollbar"
+    >
+      <li
+        *ngFor="let item of filteredItems"
+        class="px-4 py-2 flex items-center hover:bg-neutral-50 cursor-pointer gap-2"
+        (click)="onSelectItem($event, item)"
+      >
+        <ds-checkbox
+          [checked]="item.checked"
+          [label]="item.label"
+          variant="autocomplete"
+          className="w-full"
+        ></ds-checkbox>
+      </li>
+    </ul>
+
+    <div
+      *ngIf="!filteredItems.length"
+      class="w-full min-h-32 bg-level-4 max-h-60 p-5 flex justify-center items-center overflow-y-auto custom-scrollbar"
+    >
+      <h3 class="text-[16px]/[24px] font-bold text-neutral-800">
+        No results found
+      </h3>
+    </div>
+  </div>
+</div>

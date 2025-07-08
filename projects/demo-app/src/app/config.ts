@@ -262,4 +262,8 @@ export const menus: Menu[] = [
     path: '/display-price-card',
   },
   { key: 'label', name: 'Label', path: '/label' },
+  { key: 'error-card', name: 'ErrorCard', path: '/error-card' },
+  { key: 'badge-group', name: 'BadgeGroup', path: '/badge-group' },
+  { key: 'skeleton', name: 'Skeleton', path: '/skeleton' },
+  { key: 'autocomplete', name: 'Autocomplete', path: '/autocomplete' },
 ];

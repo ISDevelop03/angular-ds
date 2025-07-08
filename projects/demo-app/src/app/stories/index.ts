@@ -111,3 +111,15 @@ export * from './cards/display-price-card/display-price-card.stories';
 
 // Auto-export for label stories
 export * from './form-elements/label/label.stories';
+
+// Auto-export for error-card stories
+export * from './cards/error-card/error-card.stories';
+
+// Auto-export for badge-group stories
+export * from './badge-group/badge-group.stories';
+
+// Auto-export for skeleton stories
+export * from './skeleton/skeleton.stories';
+
+// Auto-export for autocomplete stories
+export * from './form-elements/autocomplete/autocomplete.stories';

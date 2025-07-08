@@ -45,7 +45,14 @@ export class PortfolioComponent implements OnInit, OnChanges {
   @Input() selected: Portfolio | null = null;
   @Input() holding: Portfolio | null = null;
   @Input() show: boolean = false;
+  @Input() showDots: boolean = true;
+  @Input() perPage: number = 6;
   @Input() className = '';
+
+  paginatedPortfolios: Portfolio[] = [];
+  currentPage = 1;
+  totalPages = 1;
+  pages: number[] = [];
 
   @Output() clicked = new EventEmitter<Portfolio>();
 
@@ -57,6 +64,7 @@ export class PortfolioComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.resetState();
+    this.initializePagination();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -68,7 +76,63 @@ export class PortfolioComponent implements OnInit, OnChanges {
       changes.show
     ) {
       this.resetState();
+      this.initializePagination();
     }
+  }
+
+  /** Initialize pagination values, placing currentPage on the page containing selected item if provided */
+  private initializePagination() {
+    this.totalPages = Math.ceil(this.portfolios.length / this.perPage) || 1;
+    // build pages array [1, 2, ..., totalPages]
+    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+
+    if (this.selected) {
+      const idx = this.portfolios.findIndex((p) => p.id === this.selected!.id);
+      if (idx >= 0) {
+        this.currentPage = Math.floor(idx / this.perPage) + 1;
+      } else {
+        this.currentPage = 1;
+      }
+    } else {
+      this.currentPage = 1;
+    }
+
+    this.updatePaginated();
+  }
+
+  /** Go to next page if available */
+  onNextPage(event: Event) {
+    event.preventDefault();
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePaginated();
+    }
+  }
+
+  /** Go to previous page if available */
+  onPrevPage(event: Event) {
+    event.preventDefault();
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePaginated();
+    }
+  }
+
+  /** Go to specific page */
+  onGoToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.updatePaginated();
+    }
+  }
+
+  /** Slice the portfolios array for current page */
+  private updatePaginated() {
+    const start = (this.currentPage - 1) * this.perPage;
+    this.paginatedPortfolios = this.portfolios.slice(
+      start,
+      start + this.perPage
+    );
   }
 
   private resetState() {

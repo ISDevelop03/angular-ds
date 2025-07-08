@@ -1,5 +1,9 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AutocompleteComponent } from './components/form-elements/autocomplete/autocomplete.component';
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
+import { BadgeGroupComponent } from './components/badge-group/badge-group.component';
+import { ErrorCardComponent } from './components/cards/error-card/error-card.component';
 import { LabelComponent } from './components/form-elements/label/label.component';
 import { DisplayPriceCardComponent } from './components/cards/display-price-card/display-price-card.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -176,6 +180,10 @@ registerLocaleData(localeFr, 'fr-FR');
     FooterComponent,
     DisplayPriceCardComponent,
     LabelComponent,
+    ErrorCardComponent,
+    BadgeGroupComponent,
+    SkeletonComponent,
+    AutocompleteComponent,
   ],
   imports: [
     CommonModule,
@@ -260,6 +268,10 @@ registerLocaleData(localeFr, 'fr-FR');
     FooterComponent,
     DisplayPriceCardComponent,
     LabelComponent,
+    ErrorCardComponent,
+    BadgeGroupComponent,
+    SkeletonComponent,
+    AutocompleteComponent,
   ],
 })
 export class DesignSystemModule {}

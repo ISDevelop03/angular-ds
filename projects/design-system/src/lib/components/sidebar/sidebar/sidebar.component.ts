@@ -23,22 +23,32 @@ export class DsSidebarComponent {
     alt: 'Français',
   };
 
+  @Input() subSidebarIsOpen: boolean = false;
+
   @Output() callingOnClick = new EventEmitter();
   @Output() reclamationOnClick = new EventEmitter();
   @Output() languageOnClick = new EventEmitter();
   @Output() settingsOnClick = new EventEmitter();
+  @Output() onOpenSidebar = new EventEmitter();
 
   openMainMenuIndex: number = -1;
 
-  subSidebarIsOpen: boolean = false;
-  subMenuData: IMenus = { title: '', items: [] };
+  @Input() subMenuData: IMenus = { title: '', items: [] };
 
   openSubSidebar(menus: IMenus | undefined, idx: number): void {
     if (menus) {
       this.subSidebarIsOpen = true;
       document.body.classList.add('main-menu-open');
+
       this.subMenuData = menus;
       this.openMainMenuIndex = this.openMainMenuIndex === idx ? -1 : idx;
+
+      // Emit the event to notify the parent component
+      this.onOpenSidebar.emit({
+        subMenuData: menus,
+        open: true,
+        openMainMenuIndex: this.openMainMenuIndex === idx ? -1 : idx,
+      });
     }
   }
 
@@ -46,11 +56,26 @@ export class DsSidebarComponent {
     this.subSidebarIsOpen = false;
     document.body.classList.remove('main-menu-open');
     this.subMenuData = { title: '', items: [] };
+
+    //Emiit the event to notify the parent component
+    this.onOpenSidebar.emit({
+      subMenuData: { title: '', items: [] },
+      openMainMenuIndex: this.openMainMenuIndex,
+      open: false,
+    });
   }
 
   toggleMainMenu(idx: number): void {
     console.log('idxidxidx', idx);
     this.openMainMenuIndex = this.openMainMenuIndex === idx ? -1 : idx;
+
     this.subMenuData = this.mainMenus[idx].menus;
+
+    //Emiit the event to notify the parent component
+    this.onOpenSidebar.emit({
+      subMenuData: this.mainMenus[idx].menus,
+      openMainMenuIndex: this.openMainMenuIndex === idx ? -1 : idx,
+      open: this.subSidebarIsOpen,
+    });
   }
 }

@@ -1,6 +1,10 @@
 <div class="p-4 grid gap-6 grid-cols-1 place-content-start min-h-screen">
-  <h3>Default Tabs</h3>
-  <ds-tabs [items]="tabsDefault"></ds-tabs>
+  <h3>Default Tabs {{selectedIndex}}</h3>
+  <ds-tabs
+    [items]="tabsDefault"
+    [selectedIndex]="selectedIndex"
+    (onSelect)="onSelect($event)"
+  ></ds-tabs>
 
   <h3>Tabs with Custom Class</h3>
   <ds-tabs [items]="tabsCustom"></ds-tabs>

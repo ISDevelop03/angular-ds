@@ -23,19 +23,19 @@ export const defaultTheme = {
   },
   size: {
     small: {
-      text: 'py-2 px-4 text-[12px] leading-[14px]',
+      text: 'py-2 px-3 text-[12px]/[16px]',
       icon: 'p-2.5',
     },
     normal: {
-      text: 'py-[12px] px-4 text-[12px] leading-[14px]',
+      text: 'py-2.5 px-3.5 text-[14px]/[18px]',
       icon: 'p-2.5',
     },
     medium: {
-      text: 'py-[12px] px-[20px] text-[12px] leading-[14px]',
+      text: 'py-3 px-4 text-[16px]/[22px]',
       icon: 'p-4',
     },
     large: {
-      text: 'py-[16px] px-[24px] text-[12px] leading-[14px]',
+      text: 'py-3.5 px-[18px] text-[18px]/[24px]',
       icon: 'p-6',
     },
   },
@@ -52,13 +52,13 @@ export const defaultTheme = {
   },
   outlineVariants: {
     primary:
-      'text-[12px] leading-[24px] font-[700] border-2 border-primary bg-transparent hover:text-white text-primary hover:bg-primary',
+      'font-[700] border-2 border-primary bg-transparent hover:text-white text-primary hover:bg-primary',
     white:
-      'text-[12px] leading-[24px] font-[700] border-2 border-card-level-2 bg-transparent hover:text-red-500 text-card-level-2 hover:bg-card-level-2',
+      'font-[700] border-2 border-card-level-2 bg-transparent hover:text-red-500 text-card-level-2 hover:bg-card-level-2',
     secondary:
-      'text-[12px] leading-[24px] font-[700] border-2 border-black bg-transparent hover:text-white text-black  hover:bg-black',
+      'font-[700] border-2 border-black bg-transparent hover:text-white text-black  hover:bg-black',
     neutral:
-      'text-[12px] leading-[24px] font-[700] border-2 border-neutral-200 bg-transparent text-neutral-700 hover:bg-neutral-200',
-    gray: 'text-[12px] leading-[24px] font-[700] border-2 border-card-level-1 bg-transparent text-neutral-700 hover:bg-card-level-1',
+      'font-[700] border-2 border-neutral-200 bg-transparent text-neutral-700 hover:bg-neutral-200',
+    gray: 'font-[700] border-2 border-card-level-1 bg-transparent text-neutral-700 hover:bg-card-level-1',
   },
 };

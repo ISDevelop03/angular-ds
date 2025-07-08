@@ -1,10 +1,14 @@
 <div class="flex items-start justify-start bg-level-1">
   <ds-sidebar
+    [subSidebarIsOpen]="subSidebarIsOpen"
+    [subMenuData]="subMenuData"
+    (onOpenSidebar)="onOpenSidebar($event)"
     [mainMenus]="mainMenus"
     [profileMenus]="profileMenus"
     className="bg-level-1"
     (callingOnClick)="callingOnClick($event)"
   ></ds-sidebar>
+
   <div
     class="bg-level-2 rounded-r-2xl my-[14px] mr-3"
     [ngClass]="{

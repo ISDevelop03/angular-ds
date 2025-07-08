@@ -13,6 +13,16 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
   mainMenus: IMainMenu[] = mainMenusMOCKDATA;
   hideWrapperBackground = false;
 
+  subSidebarIsOpen = false;
+
+  subMenuData = mainMenusMOCKDATA[1].menus;
+
+  onOpenSidebar(payload: any) {
+    console.log('onOpenSidebar payload: ', payload);
+    this.subSidebarIsOpen = payload.open;
+    this.subMenuData = payload.subMenuData;
+  }
+
   portfolios = [
     {
       id: 'id1',

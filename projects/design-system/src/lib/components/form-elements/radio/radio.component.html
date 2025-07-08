@@ -21,14 +21,12 @@
       ></div>
     </div>
 
-    <ng-container *ngIf="label">
-      <span [ngClass]="labelClass">
-        {{ label }}
-      </span>
-    </ng-container>
+    <span *ngIf="label" [ngClass]="[radio[variant].label.base, labelClass]">
+      {{ label }}
+    </span>
   </div>
 
   <ng-container *ngIf="hasError && errorMessage">
-    <span class="text-error-500 text-[12px]">{{ errorMessage }}</span>
+    <span class="text-error-500 text-[14px]/normal">{{ errorMessage }}</span>
   </ng-container>
 </label>

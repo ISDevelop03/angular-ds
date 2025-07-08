@@ -24,7 +24,9 @@
       <button (click)="onClose()" class="absolute top-1 right-1">
         <ds-icon id="close" size="1.25rem"></ds-icon>
       </button>
-      <h2 *ngIf="heading" class="flex justify-between">{{ heading }}</h2>
+      <h2 *ngIf="heading" class="text-[16px]/[20px] font-bold">
+        {{ heading }}
+      </h2>
       <ng-content></ng-content>
     </div>
   </div>

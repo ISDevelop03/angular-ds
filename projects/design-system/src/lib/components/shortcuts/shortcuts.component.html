@@ -18,13 +18,13 @@
       </div>
       <a
         *ngIf="!item.isShortcut && item.href; else noLink"
-        class="text-neutral-900 text-left inline-flex text-[10px]/[14px] font-bold after:absolute after:inset-0"
+        class="text-neutral-900 text-left inline-flex text-[12px]/[16px] font-bold after:absolute after:inset-0"
         [href]="item.href"
       >
         {{ item.title }}
       </a>
       <ng-template #noLink>
-        <span class="text-left inline-flex text-[10px]/[14px] font-bold">
+        <span class="text-left inline-flex text-[12px]/[16px] font-bold">
           {{ item.title }}
         </span>
       </ng-template>
@@ -56,7 +56,7 @@
           : 'hover:bg-gray-50 dark:hover:bg-gray-700'
       "
     >
-      <span class="text-neutral-900 text-[12px] leading-[14px] font-bold">
+      <span class="text-neutral-900 text-[14px]/[18px] font-bold">
         {{ shortcut.title }}
       </span>
       <ds-icon

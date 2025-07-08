@@ -6,16 +6,11 @@ import { Component } from '@angular/core';
 })
 export class CheckboxStoryComponent {
   isCheckedDefault = false;
-  isCheckedAligned = false;
   isCheckedError = false;
-  hasError = false;
+  hasError = true;
 
   onCheckboxChange() {
     this.isCheckedDefault = !this.isCheckedDefault;
-  }
-
-  onAlignedCheckboxChange() {
-    this.isCheckedAligned = !this.isCheckedAligned;
   }
 
   onErrorCheckboxChange() {

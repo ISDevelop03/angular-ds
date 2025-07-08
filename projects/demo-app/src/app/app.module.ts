@@ -70,6 +70,10 @@ import {
   FooterStoryComponent,
   DisplayPriceCardStoryComponent,
   LabelStoryComponent,
+  ErrorCardStoryComponent,
+  BadgeGroupStoryComponent,
+  SkeletonStoryComponent,
+  AutocompleteStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -77,6 +81,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoComponent } from './logo/logo.component';
 
 export const pages: Routes = [
   { path: '', component: HomeComponent },
@@ -164,6 +169,10 @@ export const pages: Routes = [
   { path: 'footer', component: FooterStoryComponent },
   { path: 'display-price-card', component: DisplayPriceCardStoryComponent },
   { path: 'label', component: LabelStoryComponent },
+  { path: 'error-card', component: ErrorCardStoryComponent },
+  { path: 'badge-group', component: BadgeGroupStoryComponent },
+  { path: 'skeleton', component: SkeletonStoryComponent },
+  { path: 'autocomplete', component: AutocompleteStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -186,6 +195,7 @@ const router = RouterModule.forRoot(pages);
     NotFoundComponent,
 
     // Blocks
+    LogoComponent,
     SidebarComponent,
 
     // Stories
@@ -255,6 +265,10 @@ const router = RouterModule.forRoot(pages);
     FooterStoryComponent,
     DisplayPriceCardStoryComponent,
     LabelStoryComponent,
+    ErrorCardStoryComponent,
+    BadgeGroupStoryComponent,
+    SkeletonStoryComponent,
+    AutocompleteStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

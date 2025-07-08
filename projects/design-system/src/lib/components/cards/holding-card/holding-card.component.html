@@ -1,10 +1,22 @@
 <a
   id="ds-holding-card"
+  *ngIf="href"
   [href]="href"
-  class="inline-block py-[22px] px-[38px] rounded-[5px] bg-level-4 shadow-holdingcard shadow-neutral-50"
+  class="inline-block py-[22px] px-[38px] text-center rounded-[5px] bg-level-4 shadow-holdingcard shadow-neutral-50"
   [ngClass]="[className]"
 >
-  <h3 *ngIf="title" class="text-[18px] leading-[27px] font-bold">
+  <h3 *ngIf="title" class="text-[20px]/[27px] font-bold">
     {{ title }}
   </h3>
 </a>
+
+<div
+  *ngIf="!href"
+  id="ds-holding-card"
+  class="inline-block py-[22px] px-[38px] text-center rounded-[5px] bg-level-4 shadow-holdingcard shadow-neutral-50"
+  [ngClass]="[className]"
+>
+  <h3 *ngIf="title" class="text-[20px]/[27px] font-bold">
+    {{ title }}
+  </h3>
+</div>

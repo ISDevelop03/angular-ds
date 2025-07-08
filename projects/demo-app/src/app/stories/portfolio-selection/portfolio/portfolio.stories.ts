@@ -60,6 +60,60 @@ export class PortfolioStoryComponent {
       reference: 'ID: 002534567000097',
       image: 'https://placehold.co/35x35?text=Logo',
     },
+    {
+      id: 'id9',
+      title: 'Prayon',
+      reference: 'ID: 002534567000090',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+
+    {
+      id: 'id10',
+      title: 'OCP Africa',
+      reference: 'ID: 002534567000091',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+
+    {
+      id: 'id11',
+      title: 'JESA Group',
+      reference: 'ID: 002534567000092',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+
+    {
+      id: 'id12',
+      title: 'TEAL Technology',
+      reference: 'ID: 002534567000093',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+    {
+      id: 'id13',
+      title: 'Phosboucraa',
+      reference: 'ID: 002534567000094',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+
+    {
+      id: 'id14',
+      title: 'Saftco SA',
+      reference: 'ID: 002534567000095',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+
+    {
+      id: 'id15',
+      title: 'Jorf Fertilizers',
+      reference: 'ID: 002534567000096',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+
+    {
+      id: 'id16',
+      title: 'Dupont',
+      reference: 'ID: 002534567000097',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
   ];
 
   holding = {
@@ -68,7 +122,7 @@ export class PortfolioStoryComponent {
     image: 'https://placehold.co/35x35?text=Logo',
   };
 
-  selected = this.portfolios[0];
+  selected = this.portfolios[10];
 
   onSelect(portfolio: any) {
     this.selected = portfolio;

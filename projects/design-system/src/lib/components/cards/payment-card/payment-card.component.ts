@@ -16,6 +16,7 @@ export class PaymentCardComponent {
   @Input() image?: string = '';
   @Input() price?: number = 0;
   @Input() currency?: string = '';
+  @Input() deleteText?: string = 'Supprimer';
   @Input() isSelected?: boolean = false;
   @Input() className?: string = '';
 

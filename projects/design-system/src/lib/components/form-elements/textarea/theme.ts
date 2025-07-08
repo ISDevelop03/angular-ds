@@ -1,8 +1,8 @@
 export const textarea = {
   default: {
-    base: 'dark:bg-gray-600 text-sm block relative w-full px-3 py-3 border border-gray-300 focus:ring-0 hover:border-primary-300 focus:border-primary-500 shadow rounded dark:placeholder-gray-300 placeholder-gray-500 placeholder-text-sm text-primary-800',
+    base: 'dark:bg-gray-600 text-[16px]/[20px] block relative w-full px-3 py-3 border border-gray-300 focus:ring-0 hover:border-primary-300 focus:border-primary-500 shadow rounded dark:placeholder-gray-300 placeholder-gray-500 placeholder-text-[16px]/[20px] text-primary-800',
     label: 'mb-1',
-    counter: 'absolute bottom-2 right-2 text-sm',
+    counter: 'absolute bottom-2 right-2 text-[16px]/[20px]',
     resize: 'resize-none',
     description: 'inline-block text-gray-500 mt-1',
     errorMessage: 'inline-block text-error-500 mt-1',

@@ -1,9 +1,17 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { theme } from './theme';
 
 export interface ITab {
   title: string;
   panel: string | TemplateRef<any>;
+  href?: string;
+  disabled?: boolean;
 }
 
 /**
@@ -21,11 +29,18 @@ export class DsTabsComponent {
   @Input() className: string = '';
   @Input() variant: keyof typeof theme = 'default';
 
-  selectedIndex = 0;
+  @Output() onSelect = new EventEmitter<any>();
+
+  @Input() selectedIndex = 0;
   theme = theme;
 
-  selectTab(index: number) {
+  selectTab(event: Event, tab: ITab, index: number) {
+    if (tab.disabled || tab.href) {
+      return;
+    }
+
     this.selectedIndex = index;
+    this.onSelect.emit({ event, tab, index });
   }
 
   isSelected(index: number): boolean {

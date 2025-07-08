@@ -1,0 +1,20 @@
+<ul
+  id="ds-error-card"
+  class="flex flex-col gap-2 border border-red-200 bg-red-50 rounded p-4"
+  [ngClass]="className"
+>
+  <li
+    *ngFor="let item of items"
+    class="flex w-full text-neutral-900 items-center gap-4 [&_*]:text-[12px]/[14px]"
+    [ngClass]="[
+      item.className,
+      item.className ? '[&_span]:text-[14px]/[16px]' : '',
+      item.value ? 'justify-between' : 'justify-start'
+    ]"
+  >
+    <span class="inline-block font-medium">
+      {{ item.label }}
+    </span>
+    <p>{{ item.value }}</p>
+  </li>
+</ul>

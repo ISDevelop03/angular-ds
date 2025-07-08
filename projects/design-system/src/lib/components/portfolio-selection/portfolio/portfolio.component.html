@@ -8,7 +8,7 @@
     [reference]="selectedPortfolio.reference"
     [image]="selectedPortfolio.image"
     [isOpen]="displayPortfolio"
-    [className]="'min-w-[200px]'"
+    [className]="'min-w-[220px]'"
     (clicked)="togglePortfolio()"
   ></ds-portfolio-select-card>
   <div
@@ -31,14 +31,34 @@
       ></ds-portfolio-vision-card>
     </div>
 
-    <div class="grid grid-cols-2 gap-[14px]">
-      <ds-portfolio-item-card
-        *ngFor="let portfolio of portfolios"
-        [title]="portfolio.title"
-        [image]="portfolio.image"
-        [isSelected]="portfolio.id == selectedPortfolio.id"
-        (clicked)="onSelect(portfolio)"
-      ></ds-portfolio-item-card>
+    <div class="space-y-2">
+      <div class="grid grid-cols-2 gap-[14px] relative">
+        <div
+          class="absolute text-red-500 right-0 -top-6 z-[1000] flex justify-end gap-1 items-center"
+        >
+          <button (click)="onPrevPage($event)" class="p-0.5">
+            <ds-icon size="14px" id="arrow-left"></ds-icon>
+          </button>
+          <button (click)="onNextPage($event)" class="p-0.5">
+            <ds-icon size="14px" id="arrow-right"></ds-icon>
+          </button>
+        </div>
+        <ds-portfolio-item-card
+          *ngFor="let portfolio of paginatedPortfolios"
+          [title]="portfolio.title"
+          [image]="portfolio.image"
+          [isSelected]="portfolio.id == selectedPortfolio.id"
+          (clicked)="onSelect(portfolio)"
+        ></ds-portfolio-item-card>
+      </div>
+      <div *ngIf="showDots" class="flex justify-center gap-2 items-center">
+        <button
+          *ngFor="let page of pages"
+          class="rounded-full size-2 flex transition-all duration-300 ease-in-out justify-center items-center text-neutral-800 hover:bg-neutral-200"
+          [ngClass]="[page === currentPage ? 'bg-red-500' : 'bg-neutral-50']"
+          (click)="onGoToPage(page)"
+        ></button>
+      </div>
     </div>
   </div>
 </div>

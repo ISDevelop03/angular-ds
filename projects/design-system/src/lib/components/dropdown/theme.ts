@@ -7,7 +7,7 @@ export const dropdown = {
   container:
     'p-1 absolute mt-2 min-w-[150px] origin-top-right rounded-md border border-neutral-100 bg-level-4 text-custom-black shadow-dropdown focus:outline-none',
   item: {
-    base: 'group whitespace-nowrap flex justify-start gap-2 w-full items-center rounded-md p-3 hover:bg-neutral-50 text-[12px] font-[400]',
+    base: 'group whitespace-nowrap flex justify-start gap-2 w-full items-center rounded-md p-3 hover:bg-neutral-50 text-[14px]/normal font-[400]',
   },
   variants: {
     base: '',
