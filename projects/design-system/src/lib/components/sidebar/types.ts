@@ -61,3 +61,10 @@ export interface ILanguage {
   alt: string;
   className?: string;
 }
+
+export type CapsSize = 'S' | 'M' | 'L' | 'XL';
+
+export interface Cap {
+  name: CapsSize;
+  size: number;
+}

@@ -32,7 +32,7 @@ export const badge = {
 };
 
 export const textVariants = {
-  sm: 'text-[12px]/[14px] font-medium',
-  md: 'text-[14px]/[16px] font-medium',
-  lg: 'text-[16px]/[18px] font-medium',
+  sm: 'text-[0.75rem]/[0.875rem] font-medium',
+  md: 'text-[0.875rem]/[1rem] font-medium',
+  lg: 'text-[1rem]/[1.125rem] font-medium',
 };

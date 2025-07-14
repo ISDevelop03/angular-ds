@@ -777,7 +777,7 @@ export class StepsComponent implements AfterContentInit {
       variant: &#x27;gray&#x27;,
       content: &#x27;Prev&#x27;,
       onClick: (btn) &#x3D;&gt; {
-        console.log(&#x27;this is prev hahah&#x27;, btn);
+        console.log(&#x27;this is prev &#x27;, btn);
       },
     },
   ];
@@ -788,16 +788,24 @@ export class StepsComponent implements AfterContentInit {
       content: &#x27;Next&#x27;,
       pill: true,
       onClick: (btn) &#x3D;&gt; {
-        console.log(&#x27;this is next hahah&#x27;, btn);
+        console.log(&#x27;this is next &#x27;, btn);
       },
     },
   ];
 
   /** Emitted when advancing to a new step */
-  @Output() nextStep &#x3D; new EventEmitter&lt;number&gt;();
+  @Output() nextStep &#x3D; new EventEmitter&lt;{
+    button: StepButton;
+    event: any;
+    currentIndex: number;
+  }&gt;();
 
   /** Emitted when going back to a previous step */
-  @Output() prevStep &#x3D; new EventEmitter&lt;number&gt;();
+  @Output() prevStep &#x3D; new EventEmitter&lt;{
+    button: StepButton;
+    event: any;
+    currentIndex: number;
+  }&gt;();
 
   /** Resolved theme for the selected variant */
   theme: StepsTheme &#x3D; STEPS_THEME[this.variant] || STEPS_THEME.default;
@@ -817,7 +825,11 @@ export class StepsComponent implements AfterContentInit {
     const step &#x3D; this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoNext &amp;&amp; this.currentStepIndex &lt; this.steps.length - 1) {
       this.currentStepIndex++;
-      this.nextStep.emit(this.currentStepIndex);
+      this.nextStep.emit({
+        button,
+        event,
+        currentIndex: this.currentStepIndex,
+      });
       button.onClick({ button, event, currentIndex: this.currentStepIndex });
     }
   };
@@ -832,7 +844,11 @@ export class StepsComponent implements AfterContentInit {
     const step &#x3D; this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoPrev &amp;&amp; this.currentStepIndex &gt; 0) {
       this.currentStepIndex--;
-      this.prevStep.emit(this.currentStepIndex);
+      this.prevStep.emit({
+        button,
+        event,
+        currentIndex: this.currentStepIndex,
+      });
     }
     button.onClick({ button, event, currentIndex: this.currentStepIndex });
   };

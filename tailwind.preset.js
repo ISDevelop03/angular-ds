@@ -393,6 +393,7 @@ module.exports = {
         accordion: "0px -10px 22px 0px var(--color-red-100)",
         dropdown2:
           "0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)",
+        floated: "0px 0px 22px 0px",
       },
       keyframes: {
         fadeInScale: {

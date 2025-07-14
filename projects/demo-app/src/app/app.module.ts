@@ -74,6 +74,7 @@ import {
   BadgeGroupStoryComponent,
   SkeletonStoryComponent,
   AutocompleteStoryComponent,
+  FloatedButtonsStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -173,6 +174,7 @@ export const pages: Routes = [
   { path: 'badge-group', component: BadgeGroupStoryComponent },
   { path: 'skeleton', component: SkeletonStoryComponent },
   { path: 'autocomplete', component: AutocompleteStoryComponent },
+  { path: 'floated-buttons', component: FloatedButtonsStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -269,6 +271,7 @@ const router = RouterModule.forRoot(pages);
     BadgeGroupStoryComponent,
     SkeletonStoryComponent,
     AutocompleteStoryComponent,
+    FloatedButtonsStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

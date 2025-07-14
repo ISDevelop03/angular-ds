@@ -23,19 +23,19 @@ export const defaultTheme = {
   },
   size: {
     small: {
-      text: 'py-2 px-3 text-[12px]/[16px]',
+      text: 'py-2 px-3 text-[0.75rem]/[1rem]',
       icon: 'p-2.5',
     },
     normal: {
-      text: 'py-2.5 px-3.5 text-[14px]/[18px]',
+      text: 'py-2.5 px-3.5 text-[0.875rem]/[1.125rem]',
       icon: 'p-2.5',
     },
     medium: {
-      text: 'py-3 px-4 text-[16px]/[22px]',
+      text: 'py-3 px-4 text-[1rem]/[1.375rem]',
       icon: 'p-4',
     },
     large: {
-      text: 'py-3.5 px-[18px] text-[18px]/[24px]',
+      text: 'py-3.5 px-[18px] text-[1.125rem]/[1.5rem]',
       icon: 'p-6',
     },
   },

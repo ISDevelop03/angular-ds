@@ -35,6 +35,7 @@ interface IEventEmitter<T> {
 })
 export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   @Input() className = '';
+  @Input() placeholder = '';
   @Input() items: IField[] = [];
   @Input() values: IField[] = [];
 

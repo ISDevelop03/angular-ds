@@ -14,20 +14,20 @@
       class="shrink-0 w-[50px] h-[26px] rounded-[2px] object-cover"
     />
 
-    <h3 *ngIf="title" class="text-[16px]/[20px] font-semibold text-neutral-900">
+    <h3 *ngIf="title" class="text-[1rem]/[1.25rem] font-semibold text-neutral-900">
       {{ title }}
     </h3>
 
     <div class="flex flex-col gap-1 bg-neutral-25 py-1 px-2">
-      <span class="inline-flex text-[12px]/[14px]">Montant</span>
-      <span class="inline-flex text-[14px]/[16px] font-bold">
+      <span class="inline-flex text-[0.75rem]/[0.875rem]">Montant</span>
+      <span class="inline-flex text-[0.875rem]/[1rem] font-bold">
         {{ formattedPrice }} {{ currency }}
       </span>
     </div>
   </div>
 
   <button
-    class="inline-flex text-[14px]/[16px] text-neutral-700 font-bold items-center gap-2"
+    class="inline-flex text-[0.875rem]/[1rem] text-neutral-700 font-bold items-center gap-2"
     (click)="handleDelete($event)"
   >
     {{ deleteText }}

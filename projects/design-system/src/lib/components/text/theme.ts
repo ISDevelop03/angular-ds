@@ -56,7 +56,7 @@ export const typography = {
   'text-2xl/Bold': 'text-2xl font-bold',
 
   'paragraph-title':
-    'text-[22px] leading-[28px] md:text-[32px] md:leading-[45px] font-semibold',
+    'text-[1.375rem] leading-[28px] md:text-[2rem] md:leading-[45px] font-semibold',
 
   nostyle: '',
 };

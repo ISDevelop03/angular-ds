@@ -123,3 +123,6 @@ export * from './skeleton/skeleton.stories';
 
 // Auto-export for autocomplete stories
 export * from './form-elements/autocomplete/autocomplete.stories';
+
+// Auto-export for floated-buttons stories
+export * from './floated-buttons/floated-buttons.stories';

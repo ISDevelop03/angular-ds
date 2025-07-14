@@ -35,14 +35,14 @@
       <div class="flex flex-col gap-2.5" *ngIf="type || account_number">
         <h3 *ngIf="type" class="inline-flex gap-2 items-center">
           <ds-icon id="bank2" size="14" class="text-red-500"></ds-icon>
-          <span class="text-[16px]/[20px] font-medium">
+          <span class="text-[1rem]/[1.25rem] font-medium">
             {{ type }}
           </span>
         </h3>
 
         <p
           *ngIf="account_number"
-          class="text-[14px]/[18px] font-bold inline-flex gap-px"
+          class="text-[0.875rem]/[1.125rem] font-bold inline-flex gap-px"
         >
           <sup class="inline-flex mt-2.5 font-light">N°</sup>
           {{ account_number }}
@@ -50,7 +50,7 @@
       </div>
 
       <div class="flex items-center justify-between w-full mt-2.5">
-        <span class="text-[12px]/[16px] text-neutral-700">
+        <span class="text-[0.75rem]/[1rem] text-neutral-700">
           Solde en temps réel
         </span>
 
@@ -59,7 +59,7 @@
           [isDiscrete]="isDiscrete"
           [balance]="solde_temps_reel || 0"
           [currency]="currency"
-          [currencyClassName]="'text-[14px]/[16px]'"
+          [currencyClassName]="'text-[0.875rem]/[1rem]'"
         >
         </ds-balance-formatter>
       </div>
@@ -68,7 +68,7 @@
     <hr class="w-[80%] mx-auto h-px bg-stroke-3 border-stroke-3" />
     <!-- Bottom Block -->
     <div class="px-4 py-3 flex flex-col justify-center items-end gap-2">
-      <span class="self-start text-[12px]/[12px] text-neutral-700">
+      <span class="self-start text-[0.75rem]/[0.75rem] text-neutral-700">
         Solde comptable
       </span>
       <ds-balance-formatter
@@ -76,7 +76,7 @@
         [isDiscrete]="isDiscrete"
         [balance]="solde_comptable"
         [currency]="currency"
-        [currencyClassName]="'text-[14px]/[16px]'"
+        [currencyClassName]="'text-[0.875rem]/[1rem]'"
       >
       </ds-balance-formatter>
     </div>

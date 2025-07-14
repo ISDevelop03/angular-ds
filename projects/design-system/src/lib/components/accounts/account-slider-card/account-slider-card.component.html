@@ -17,13 +17,13 @@
 
   <!-- Account Info -->
   <div *ngIf="type || account_number" class="space-y-2 mb-10">
-    <h3 *ngIf="type" class="text-[16px]/[20px] font-medium">
+    <h3 *ngIf="type" class="text-[1rem]/[1.25rem] font-medium">
       {{ type }}
     </h3>
 
     <p
       *ngIf="account_number"
-      class="text-[14px]/[20px] transition-all duration-300 ease-in-out font-bold inline-flex gap-1"
+      class="text-[0.875rem]/[1.25rem] transition-all duration-300 ease-in-out font-bold inline-flex gap-1"
     >
       <sup class="inline-flex mt-2.5 font-light">N°</sup>
       {{ account_number }}
@@ -37,7 +37,7 @@
     [balance]="balance"
     [currency]="currency"
     className="ml-auto"
-    currencyClassName="text-[14px]/[16px]"
+    currencyClassName="text-[0.875rem]/[1rem]"
   >
   </ds-balance-formatter>
 </article>

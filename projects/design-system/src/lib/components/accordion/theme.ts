@@ -4,7 +4,7 @@ export const theme = {
     disclosure: '',
     button: {
       base: 'w-full space-y-2 bg-level-4 rounded-b-lg py-4 px-6 text-left focus:outline-none outline-none border-none shadow-accordion shadow-neutral-100 overflow-hidden',
-      title: 'text-[14px] leading-[24px] font-bold text-neutral-900',
+      title: 'text-[0.875rem]/[1.5rem] font-bold text-neutral-900',
       active: '!rounded-none !shadow-none',
       titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',
 
@@ -27,7 +27,7 @@ export const theme = {
     button: {
       base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 pb-3 text-left text-sm font-medium focus:outline-none',
       active: '',
-      title: 'text-[14px] leading-[18px] font-bold',
+      title: 'text-[0.875rem]/[1.125rem] font-bold',
       titleWrapper: 'flex items-center justify-between',
       icon: {
         base: 'transition ease-in duration-300',

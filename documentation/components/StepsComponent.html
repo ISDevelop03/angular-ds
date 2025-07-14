@@ -337,7 +337,7 @@
       variant: &#x27;gray&#x27;,
       content: &#x27;Prev&#x27;,
       onClick: (btn) &#x3D;&gt; {
-        console.log(&#x27;this is prev hahah&#x27;, btn);
+        console.log(&#x27;this is prev &#x27;, btn);
       },
     },
   ]</code>
@@ -372,7 +372,7 @@
       content: &#x27;Next&#x27;,
       pill: true,
       onClick: (btn) &#x3D;&gt; {
-        console.log(&#x27;this is next hahah&#x27;, btn);
+        console.log(&#x27;this is next &#x27;, btn);
       },
     },
   ]</code>
@@ -489,7 +489,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:75</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:79</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -528,8 +528,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="80"
-                                    class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:80</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:88</a></div>
                         </td>
                     </tr>
 
@@ -569,7 +569,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:86</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -600,7 +600,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:113</a></div>
                         </td>
                     </tr>
 
@@ -679,7 +679,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/design-system/src/lib/components/steps/steps.component.ts:86</a></div>
                         </td>
                     </tr>
 
@@ -751,7 +751,7 @@ export class StepsComponent implements AfterContentInit {
       variant: &#x27;gray&#x27;,
       content: &#x27;Prev&#x27;,
       onClick: (btn) &#x3D;&gt; {
-        console.log(&#x27;this is prev hahah&#x27;, btn);
+        console.log(&#x27;this is prev &#x27;, btn);
       },
     },
   ];
@@ -762,16 +762,24 @@ export class StepsComponent implements AfterContentInit {
       content: &#x27;Next&#x27;,
       pill: true,
       onClick: (btn) &#x3D;&gt; {
-        console.log(&#x27;this is next hahah&#x27;, btn);
+        console.log(&#x27;this is next &#x27;, btn);
       },
     },
   ];
 
   /** Emitted when advancing to a new step */
-  @Output() nextStep &#x3D; new EventEmitter&lt;number&gt;();
+  @Output() nextStep &#x3D; new EventEmitter&lt;{
+    button: StepButton;
+    event: any;
+    currentIndex: number;
+  }&gt;();
 
   /** Emitted when going back to a previous step */
-  @Output() prevStep &#x3D; new EventEmitter&lt;number&gt;();
+  @Output() prevStep &#x3D; new EventEmitter&lt;{
+    button: StepButton;
+    event: any;
+    currentIndex: number;
+  }&gt;();
 
   /** Resolved theme for the selected variant */
   theme: StepsTheme &#x3D; STEPS_THEME[this.variant] || STEPS_THEME.default;
@@ -791,7 +799,11 @@ export class StepsComponent implements AfterContentInit {
     const step &#x3D; this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoNext &amp;&amp; this.currentStepIndex &lt; this.steps.length - 1) {
       this.currentStepIndex++;
-      this.nextStep.emit(this.currentStepIndex);
+      this.nextStep.emit({
+        button,
+        event,
+        currentIndex: this.currentStepIndex,
+      });
       button.onClick({ button, event, currentIndex: this.currentStepIndex });
     }
   };
@@ -806,7 +818,11 @@ export class StepsComponent implements AfterContentInit {
     const step &#x3D; this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoPrev &amp;&amp; this.currentStepIndex &gt; 0) {
       this.currentStepIndex--;
-      this.prevStep.emit(this.currentStepIndex);
+      this.prevStep.emit({
+        button,
+        event,
+        currentIndex: this.currentStepIndex,
+      });
     }
     button.onClick({ button, event, currentIndex: this.currentStepIndex });
   };
@@ -817,7 +833,7 @@ export class StepsComponent implements AfterContentInit {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;!-- src/lib/steps.component.html --&gt;
 &lt;section id&#x3D;&quot;ds-steps&quot; class&#x3D;&quot;flex flex-col gap-6&quot;&gt;
-  &lt;h2 *ngIf&#x3D;&quot;title&quot; class&#x3D;&quot;text-[18px] leading-[27px] font-bold&quot;&gt;
+  &lt;h2 *ngIf&#x3D;&quot;title&quot; class&#x3D;&quot;text-[20px]/[28px] font-bold&quot;&gt;
     {{ title }}
   &lt;/h2&gt;
   &lt;ul class&#x3D;&quot;relative flex justify-between items-center overflow-hidden&quot;&gt;
@@ -862,7 +878,7 @@ export class StepsComponent implements AfterContentInit {
       &lt;/div&gt;
 
       &lt;span
-        class&#x3D;&quot;text-[14px] leading-[18px] text-center&quot;
+        class&#x3D;&quot;text-[16px]/[20px] text-center&quot;
         [ngClass]&#x3D;&quot;
           i &lt;&#x3D; currentStepIndex
             ? &#x27;font-bold text-red-500&#x27;
@@ -963,8 +979,8 @@ export class StepsComponent implements AfterContentInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- src/lib/steps.component.html --><section id="ds-steps" class="flex flex-col gap-6">  <h2 *ngIf="title" class="text-[18px] leading-[27px] font-bold">    {{ title }}  </h2>  <ul class="relative flex justify-between items-center overflow-hidden">    <li      *ngFor="let step of steps.toArray(); let i = index; let isLast = last"      class="relative flex-1 flex flex-col before:transition-all before:duration-300 transition-all duration-300 items-center before:absolute before:top-4 before:-z-[1] before:-left-1/2 before:h-px"      [ngClass]="[        i <= currentStepIndex ? \'before:bg-red-500\' : \'before:bg-neutral-200\',        isLast          ? \'before:-left-1/2 before:w-[150%]\'          : \'before:-left-1/2 before:w-full\'      ]"    >      <div        [ngClass]="[          \'shrink-0 w-8 h-8 mb-3 flex items-center transition-all duration-300 justify-center rounded-full relative z-[1] border-[1.5px]\',          i < currentStepIndex || (isLast && i === currentStepIndex)            ? \'bg-red-500 border-red-500 text-white\'            : i === currentStepIndex            ? \'bg-level-4 border-red-500 text-red-500\'            : \'bg-level-4 border-neutral-200 text-neutral-400\'        ]"      >        <!-- COMPLETED: all steps before current, + the very last when active -->        <ng-container          *ngIf="i < currentStepIndex || (isLast && i === currentStepIndex)"        >          <ds-icon id="check" class="text-white" size="24"></ds-icon>        </ng-container>        <!-- ACTIVE (only if it\'s current AND not the last) -->        <ng-container *ngIf="i === currentStepIndex && !isLast">          <span class="inline-flex w-2.5 h-2.5 rounded-full bg-red-500"></span>        </ng-container>        <!-- UPCOMING -->        <ng-container *ngIf="i > currentStepIndex">          <span            class="inline-flex w-2.5 h-2.5 rounded-full bg-neutral-200"          ></span>        </ng-container>      </div>      <span        class="text-[14px] leading-[18px] text-center"        [ngClass]="          i <= currentStepIndex            ? \'font-bold text-red-500\'            : \'font-normal text-neutral-700\'        "      >        {{ step.title }}      </span>    </li>  </ul>  <div class="{{ theme.contentWrapper }}">    <!-- Step content -->    <ng-container      *ngTemplateOutlet="steps.toArray()[currentStepIndex].contentTemplate"    ></ng-container>  </div>  <div class="{{ theme.navigationWrapper }}">    <!-- Navigation buttons -->    <div class="flex justify-end gap-2">      <ds-button        *ngFor="let button of leftButtons"        [variant]="button.variant"        [icon]="button.icon"        [iconRight]="button.iconRight"        [iconLeft]="button.iconLeft"        [pill]="button.pill"        [outline]="button.outline"        [type]="button.type || \'button\'"        [className]="button.className"        [size]="button.size || \'normal\'"        (onClick)="goPrev($event, button)"        [disabled]="          button.disabled === undefined            ? !steps.toArray()[currentStepIndex].shouldGoPrev            : button.disabled        "      >        {{ button.content }}      </ds-button>    </div>    <div class="flex justify-end gap-2">      <ds-button        *ngFor="let button of rightButtons"        [variant]="button.variant"        [icon]="button.icon"        [iconRight]="button.iconRight"        [iconLeft]="button.iconLeft"        [pill]="button.pill"        [outline]="button.outline"        [type]="button.type || \'button\'"        [className]="button.className"        [size]="button.size || \'normal\'"        (onClick)="goNext($event, button)"        [disabled]="          button.disabled === undefined            ? !steps.toArray()[currentStepIndex].shouldGoNext            : button.disabled        "      >        {{ button.content }}      </ds-button>    </div>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><!-- src/lib/steps.component.html --><section id="ds-steps" class="flex flex-col gap-6">  <h2 *ngIf="title" class="text-[20px]/[28px] font-bold">    {{ title }}  </h2>  <ul class="relative flex justify-between items-center overflow-hidden">    <li      *ngFor="let step of steps.toArray(); let i = index; let isLast = last"      class="relative flex-1 flex flex-col before:transition-all before:duration-300 transition-all duration-300 items-center before:absolute before:top-4 before:-z-[1] before:-left-1/2 before:h-px"      [ngClass]="[        i <= currentStepIndex ? \'before:bg-red-500\' : \'before:bg-neutral-200\',        isLast          ? \'before:-left-1/2 before:w-[150%]\'          : \'before:-left-1/2 before:w-full\'      ]"    >      <div        [ngClass]="[          \'shrink-0 w-8 h-8 mb-3 flex items-center transition-all duration-300 justify-center rounded-full relative z-[1] border-[1.5px]\',          i < currentStepIndex || (isLast && i === currentStepIndex)            ? \'bg-red-500 border-red-500 text-white\'            : i === currentStepIndex            ? \'bg-level-4 border-red-500 text-red-500\'            : \'bg-level-4 border-neutral-200 text-neutral-400\'        ]"      >        <!-- COMPLETED: all steps before current, + the very last when active -->        <ng-container          *ngIf="i < currentStepIndex || (isLast && i === currentStepIndex)"        >          <ds-icon id="check" class="text-white" size="24"></ds-icon>        </ng-container>        <!-- ACTIVE (only if it\'s current AND not the last) -->        <ng-container *ngIf="i === currentStepIndex && !isLast">          <span class="inline-flex w-2.5 h-2.5 rounded-full bg-red-500"></span>        </ng-container>        <!-- UPCOMING -->        <ng-container *ngIf="i > currentStepIndex">          <span            class="inline-flex w-2.5 h-2.5 rounded-full bg-neutral-200"          ></span>        </ng-container>      </div>      <span        class="text-[16px]/[20px] text-center"        [ngClass]="          i <= currentStepIndex            ? \'font-bold text-red-500\'            : \'font-normal text-neutral-700\'        "      >        {{ step.title }}      </span>    </li>  </ul>  <div class="{{ theme.contentWrapper }}">    <!-- Step content -->    <ng-container      *ngTemplateOutlet="steps.toArray()[currentStepIndex].contentTemplate"    ></ng-container>  </div>  <div class="{{ theme.navigationWrapper }}">    <!-- Navigation buttons -->    <div class="flex justify-end gap-2">      <ds-button        *ngFor="let button of leftButtons"        [variant]="button.variant"        [icon]="button.icon"        [iconRight]="button.iconRight"        [iconLeft]="button.iconLeft"        [pill]="button.pill"        [outline]="button.outline"        [type]="button.type || \'button\'"        [className]="button.className"        [size]="button.size || \'normal\'"        (onClick)="goPrev($event, button)"        [disabled]="          button.disabled === undefined            ? !steps.toArray()[currentStepIndex].shouldGoPrev            : button.disabled        "      >        {{ button.content }}      </ds-button>    </div>    <div class="flex justify-end gap-2">      <ds-button        *ngFor="let button of rightButtons"        [variant]="button.variant"        [icon]="button.icon"        [iconRight]="button.iconRight"        [iconLeft]="button.iconLeft"        [pill]="button.pill"        [outline]="button.outline"        [type]="button.type || \'button\'"        [className]="button.className"        [size]="button.size || \'normal\'"        (onClick)="goNext($event, button)"        [disabled]="          button.disabled === undefined            ? !steps.toArray()[currentStepIndex].shouldGoNext            : button.disabled        "      >        {{ button.content }}      </ds-button>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AutocompleteComponent', 'selector': 'ds-autocomplete'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeGroupComponent', 'selector': 'ds-badge-group'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'ErrorCardComponent', 'selector': 'ds-error-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SkeletonComponent', 'selector': 'ds-skeleton'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'StepsComponent'};
 </script>

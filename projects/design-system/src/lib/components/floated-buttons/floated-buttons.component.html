@@ -1,0 +1,28 @@
+<div
+  id="ds-floated-buttons"
+  *ngIf="items && items.length"
+  class="flex items-center gap-4 rounded-lg py-3 px-6 bg-level-5 border border-neutral-100 shadow-floated shadow-neutral-100 w-fit"
+  [ngClass]="className"
+>
+  <ng-container *ngFor="let item of items; let last = last">
+    <button
+      [type]="item.type"
+      [disabled]="item.disabled"
+      (click)="item.onClick($event)"
+      class="inline-flex text-nowrap items-center gap-2 text-[0.875rem]/[1.2rem] font-medium disabled:cursor-not-allowed disabled:opacity-40"
+      [ngClass]="[item.className || '', item.isDelete ? 'text-red-500' : '']"
+    >
+      <ng-container *ngIf="item.isLoading">
+        <ds-icon [id]="'Loader'" class="animate-spin" size="14px"></ds-icon>
+      </ng-container>
+      <ng-container *ngIf="!item.isLoading && item.icon && !item.iconRight">
+        <ds-icon [id]="item.icon" size="14px"></ds-icon>
+      </ng-container>
+      {{ item.content }}
+      <ng-container *ngIf="!item.isLoading && item.icon && item.iconRight">
+        <ds-icon [id]="item.icon" size="14px"></ds-icon>
+      </ng-container>
+    </button>
+    <span *ngIf="!last" class="inline-flex bg-neutral-700 h-3 w-px"></span>
+  </ng-container>
+</div>

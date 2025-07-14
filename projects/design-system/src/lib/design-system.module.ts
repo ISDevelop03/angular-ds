@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FloatedButtonsComponent } from './components/floated-buttons/floated-buttons.component';
 import { AutocompleteComponent } from './components/form-elements/autocomplete/autocomplete.component';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
 import { BadgeGroupComponent } from './components/badge-group/badge-group.component';
@@ -184,6 +185,7 @@ registerLocaleData(localeFr, 'fr-FR');
     BadgeGroupComponent,
     SkeletonComponent,
     AutocompleteComponent,
+    FloatedButtonsComponent,
   ],
   imports: [
     CommonModule,
@@ -272,6 +274,7 @@ registerLocaleData(localeFr, 'fr-FR');
     BadgeGroupComponent,
     SkeletonComponent,
     AutocompleteComponent,
+    FloatedButtonsComponent,
   ],
 })
 export class DesignSystemModule {}

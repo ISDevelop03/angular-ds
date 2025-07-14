@@ -46,6 +46,7 @@
       </div>
 
       <ds-bottom-menus
+        [sizes]="sizes"
         [language]="language"
         (callingOnClick)="callingOnClick.emit($event)"
         (reclamationOnClick)="reclamationOnClick.emit($event)"
@@ -74,7 +75,7 @@
             [href]="item.href"
             class="flex justify-between items-center w-full"
           >
-            <h4 class="text-[14px] leading-[16px] font-bold">
+            <h4 class="text-[0.875rem] leading-[16px] font-bold">
               {{ item?.title }}
             </h4>
           </a>
@@ -83,7 +84,7 @@
             class="flex justify-between items-center w-full"
             (click)="toggleMainMenu(idx)"
           >
-            <h4 class="text-[14px] leading-[16px] font-bold">
+            <h4 class="text-[0.875rem] leading-[16px] font-bold">
               {{ item?.title }}
             </h4>
 

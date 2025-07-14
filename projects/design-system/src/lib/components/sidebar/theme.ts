@@ -1,14 +1,14 @@
 export const levels = {
   1: {
-    title: "text-[14px] leading-[21px]",
+    title: "text-[0.875rem] leading-[21px]",
     icon: "size-4",
   },
   2: {
-    title: "text-[12px] leading-[16px] font-bold",
+    title: "text-[0.75rem] leading-[16px] font-bold",
     icon: "size-4",
   },
   3: {
-    title: "text-[12px] leading-[16px]",
+    title: "text-[0.75rem] leading-[16px]",
     icon: "size-4",
   },
 };

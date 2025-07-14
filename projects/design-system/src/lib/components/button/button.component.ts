@@ -18,8 +18,8 @@ export class ButtonComponent implements OnInit {
   @Input() iconLeft: string;
   @Input() type = 'button';
   @Input() className = '';
-  @Input() variant = 'primary';
-  @Input() size = 'normal';
+  @Input() variant: keyof typeof defaultTheme.variants = 'primary';
+  @Input() size: keyof typeof defaultTheme.size = 'normal';
   @Input() disabled = false;
   @Input() outline = false;
   @Input() pill = false;

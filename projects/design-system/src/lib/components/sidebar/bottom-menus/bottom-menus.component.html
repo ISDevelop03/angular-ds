@@ -9,6 +9,25 @@
   <li (click)="reclamationOnClick.emit($event)">
     <ds-icon id="reclamation" class="size-4"></ds-icon>
   </li>
+  <li class="relative">
+    <button (click)="capsClick($event)">
+      <ds-icon id="smallcaps" class="size-4"></ds-icon>
+    </button>
+    <ul
+      @dropdown
+      *ngIf="showCaps"
+      class="absolute bg-level-2 flex text-neutral-900 text-center justify-start items-center shadow-lg border border-neutral-100 left-[calc(100%+20px)] py-2 px-4 top-1/2 rounded-md gap-2 -translate-y-1/2"
+    >
+      <li
+        *ngFor="let size of sizes"
+        class="border border-neutral-50 rounded shrink-0 w-10 inline-flex items-center justify-center aspect-square"
+        [ngClass]="{ 'bg-neutral-100': currentCap.name === size.name }"
+        (click)="onSizeChange(size)"
+      >
+        {{ size.name }}
+      </li>
+    </ul>
+  </li>
 
   <li (click)="languageOnClick.emit($event)">
     <img
@@ -43,7 +62,7 @@
 
       <ng-template #suffix>
         <li
-          class="font-medium text-[8px] leading-[8px] space-y-2 bg-neutral-50 p-3"
+          class="font-medium text-[0.5rem] leading-[8px] space-y-2 bg-neutral-50 p-3"
         >
           <span class="inline-block text-neutral-700">Derniere Connexion</span>
           <p class="text-neutral-900">{{ lastLoginDate }}</p>

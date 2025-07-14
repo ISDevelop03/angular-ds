@@ -3,11 +3,9 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
   Renderer2,
-  SimpleChanges,
 } from '@angular/core';
 
 interface Portfolio {
@@ -40,7 +38,7 @@ interface Portfolio {
     ]),
   ],
 })
-export class PortfolioComponent implements OnInit, OnChanges {
+export class PortfolioComponent implements OnInit {
   @Input() portfolios: Portfolio[] = [];
   @Input() selected: Portfolio | null = null;
   @Input() holding: Portfolio | null = null;
@@ -49,11 +47,12 @@ export class PortfolioComponent implements OnInit, OnChanges {
   @Input() perPage: number = 6;
   @Input() className = '';
 
-  paginatedPortfolios: Portfolio[] = [];
-  currentPage = 1;
-  totalPages = 1;
-  pages: number[] = [];
+  @Input() currentPage = 1; // ← from parent
+  @Input() totalPages = 1; // ← from parent
+  // pages: number[] = [];
 
+  /** fire whenever user wants a different page */
+  @Output() pageChange = new EventEmitter<number>();
   @Output() clicked = new EventEmitter<Portfolio>();
 
   displayPortfolio = false;
@@ -62,50 +61,19 @@ export class PortfolioComponent implements OnInit, OnChanges {
 
   constructor(private renderer: Renderer2) {}
 
+  get pages(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
   ngOnInit() {
     this.resetState();
-    this.initializePagination();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    // if any of these inputs change, re-initialize
-    if (
-      changes.portfolios ||
-      changes.selected ||
-      changes.holding ||
-      changes.show
-    ) {
-      this.resetState();
-      this.initializePagination();
-    }
-  }
-
-  /** Initialize pagination values, placing currentPage on the page containing selected item if provided */
-  private initializePagination() {
-    this.totalPages = Math.ceil(this.portfolios.length / this.perPage) || 1;
-    // build pages array [1, 2, ..., totalPages]
-    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
-
-    if (this.selected) {
-      const idx = this.portfolios.findIndex((p) => p.id === this.selected!.id);
-      if (idx >= 0) {
-        this.currentPage = Math.floor(idx / this.perPage) + 1;
-      } else {
-        this.currentPage = 1;
-      }
-    } else {
-      this.currentPage = 1;
-    }
-
-    this.updatePaginated();
   }
 
   /** Go to next page if available */
-  onNextPage(event: Event) {
-    event.preventDefault();
+  onNextPage(e: Event) {
+    e.preventDefault();
     if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-      this.updatePaginated();
+      this.pageChange.emit(this.currentPage + 1);
     }
   }
 
@@ -113,26 +81,15 @@ export class PortfolioComponent implements OnInit, OnChanges {
   onPrevPage(event: Event) {
     event.preventDefault();
     if (this.currentPage > 1) {
-      this.currentPage--;
-      this.updatePaginated();
+      this.pageChange.emit(this.currentPage - 1);
     }
   }
 
   /** Go to specific page */
   onGoToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      this.updatePaginated();
+      this.pageChange.emit(page);
     }
-  }
-
-  /** Slice the portfolios array for current page */
-  private updatePaginated() {
-    const start = (this.currentPage - 1) * this.perPage;
-    this.paginatedPortfolios = this.portfolios.slice(
-      start,
-      start + this.perPage
-    );
   }
 
   private resetState() {

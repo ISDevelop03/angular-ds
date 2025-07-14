@@ -14,11 +14,13 @@
 
     <input
       #myInput
-      class="text-sm font-bold flex-1 bg-transparent placeholder-text-sm outline-none border-none focus:ring-0 p-0"
+      class="text-sm font-bold flex-1 bg-transparent placeholder:text-sm placeholder:text-neutral-200 outline-none border-none focus:ring-0 p-0"
       [value]="value"
       (focus)="showDropdown = true"
       (input)="onInput($event)"
       (keydown.backspace)="onBackspace()"
+      [placeholder]="placeholder"
+      [attr.aria-label]="'Autocomplete input for ' + placeholder"
     />
   </div>
 
@@ -28,11 +30,11 @@
   >
     <ul
       *ngIf="filteredItems.length"
-      class="max-h-60 overflow-y-auto custom-scrollbar"
+      class="max-h-60 p-6 overflow-y-auto custom-scrollbar grid grid-cols-2 gap-2"
     >
       <li
         *ngFor="let item of filteredItems"
-        class="px-4 py-2 flex items-center hover:bg-neutral-50 cursor-pointer gap-2"
+        class="px-4 pt-3 pb-2 rounded transition-all duration-300 ease-in-out flex items-center hover:bg-neutral-25 cursor-pointer gap-2"
         (click)="onSelectItem($event, item)"
       >
         <ds-checkbox
@@ -46,9 +48,9 @@
 
     <div
       *ngIf="!filteredItems.length"
-      class="w-full min-h-32 bg-level-4 max-h-60 p-5 flex justify-center items-center overflow-y-auto custom-scrollbar"
+      class="w-full min-h-32 bg-level-4 max-h-60 p-6 flex justify-center items-center overflow-y-auto custom-scrollbar"
     >
-      <h3 class="text-[16px]/[24px] font-bold text-neutral-800">
+      <h3 class="text-[1rem]/[1.5rem] font-bold text-neutral-800">
         No results found
       </h3>
     </div>

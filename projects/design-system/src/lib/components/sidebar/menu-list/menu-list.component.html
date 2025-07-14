@@ -38,7 +38,7 @@
                       ]" [href]="subSub.href">
                       <span class="text-sm">{{ subSub.title }} </span>
                       <span *ngIf="subSub.isNew"
-                        class="absolute top-1/2 -translate-y-1/2 -left-10 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[10px] leading-[12px] font-bold bg-amber-400 z-[10]">New</span>
+                        class="absolute top-1/2 -translate-y-1/2 -left-10 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]">New</span>
                     </a>
                   </li>
                 </ul>
@@ -57,7 +57,7 @@
 
 
                   <span *ngIf="subItem.isNew"
-                    class="absolute top-1/2 -translate-y-1/2 right-1.5 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[10px] leading-[12px] font-bold bg-amber-400 z-[10]">New</span>
+                    class="absolute top-1/2 -translate-y-1/2 right-1.5 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]">New</span>
                 </a>
               </ng-template>
             </li>
@@ -69,7 +69,7 @@
           <ds-icon [id]="item.icon" class="size-4"></ds-icon>
           <span class="text-sm">{{ item.title }}</span>
           <span *ngIf="item.isNew"
-            class="absolute top-1/2 -translate-y-1/2 right-0 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[10px] leading-[12px] font-bold bg-amber-400">New</span>
+            class="absolute top-1/2 -translate-y-1/2 right-0 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400">New</span>
         </a>
       </ng-template>
     </li>

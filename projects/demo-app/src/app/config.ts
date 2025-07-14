@@ -266,4 +266,5 @@ export const menus: Menu[] = [
   { key: 'badge-group', name: 'BadgeGroup', path: '/badge-group' },
   { key: 'skeleton', name: 'Skeleton', path: '/skeleton' },
   { key: 'autocomplete', name: 'Autocomplete', path: '/autocomplete' },
+  { key: 'floated-buttons', name: 'FloatedButtons', path: '/floated-buttons' },
 ];

@@ -8,7 +8,7 @@
     class="flex gap-5 items-center justify-between transition-all duration-300 ease-in"
     [ngClass]="showAccordion ? 'px-3.5 pt-3.5' : 'px-3.5 py-3'"
   >
-    <h3 *ngIf="title" class="text-neutral-900 text-[14px]/[18px]">
+    <h3 *ngIf="title" class="text-neutral-900 text-[0.875rem]/[1.125rem]">
       {{ title }}
     </h3>
 
@@ -20,27 +20,27 @@
           [isDiscrete]="isDiscrete"
           [balance]="price"
           [currency]="currency"
-          class="text-[16px]/[16px] font-bold"
-          currencyClassName="text-[12px]/[12px]"
+          class="text-[1rem]/[1rem] font-bold"
+          currencyClassName="text-[0.75rem]/[0.75rem]"
         ></ds-balance-formatter>
       </ds-display-value>
 
       <!-- Date -->
 
       <div class="flex flex-col gap-y-1 font-normal">
-        <span class="text-neutral-500 text-[12px]/[14px]">
+        <span class="text-neutral-500 text-[0.75rem]/[0.875rem]">
           Date opération
         </span>
         <ds-display-value [value]="dateOperation">
-          <p class="text-neutral-900 text-[14px]/[18px]">
+          <p class="text-neutral-900 text-[0.875rem]/[1.125rem]">
             {{ dateOperation }}
           </p>
         </ds-display-value>
       </div>
       <div class="flex flex-col gap-y-1 font-normal">
-        <span class="text-neutral-500 text-[12px]/[14px]"> Date valeur </span>
+        <span class="text-neutral-500 text-[0.75rem]/[0.875rem]"> Date valeur </span>
         <ds-display-value [value]="dateValue">
-          <p class="text-neutral-900 text-[14px]/[18px]">
+          <p class="text-neutral-900 text-[0.875rem]/[1.125rem]">
             {{ dateValue }}
           </p>
         </ds-display-value>

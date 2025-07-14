@@ -5,10 +5,10 @@
 >
   <li
     *ngFor="let item of items"
-    class="flex w-full text-neutral-900 items-center gap-4 [&_*]:text-[12px]/[14px]"
+    class="flex w-full text-neutral-900 items-center gap-4 [&_*]:text-[0.75rem]/[0.875rem]"
     [ngClass]="[
       item.className,
-      item.className ? '[&_span]:text-[14px]/[16px]' : '',
+      item.className ? '[&_span]:text-[0.875rem]/[1rem]' : '',
       item.value ? 'justify-between' : 'justify-start'
     ]"
   >

@@ -513,8 +513,10 @@
   ElementRef,
   ViewChild,
   HostListener,
+  forwardRef,
 } from &#x27;@angular/core&#x27;;
 import { theme } from &#x27;./theme&#x27;;
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 
 export interface SelectItem {
   value: string;
@@ -536,8 +538,15 @@ export interface SelectItem {
 @Component({
   selector: &#x27;ds-select&#x27;,
   templateUrl: &#x27;./select.component.html&#x27;,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() &#x3D;&gt; DsSelectComponent),
+      multi: true,
+    },
+  ],
 })
-export class DsSelectComponent {
+export class DsSelectComponent implements ControlValueAccessor {
   @Input() items: SelectItem[] &#x3D; [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -568,6 +577,29 @@ export class DsSelectComponent {
   optionsContainer?: ElementRef;
 
   theme &#x3D; theme;
+
+  // hold the form’s callbacks
+  private _onChange: (v: any) &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
+  private _onTouched: () &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
+
+  // ----------------------------------------
+  // ControlValueAccessor API
+  // ----------------------------------------
+  writeValue(obj: any): void {
+    this.value &#x3D; obj;
+  }
+
+  registerOnChange(fn: any): void {
+    this._onChange &#x3D; fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this._onTouched &#x3D; fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled &#x3D; isDisabled;
+  }
 
   get mergedStyles() {
     return Object.assign(
@@ -629,6 +661,10 @@ export class DsSelectComponent {
       this.isOpen &#x3D; false;
     }
 
+    // 1) notify Reactive Forms
+    this._onChange(this.value);
+    // 2) mark “touched”
+    this._onTouched();
     this.valueChange.emit({ value: this.value, event });
   }
 
@@ -667,12 +703,18 @@ export class DsSelectComponent {
 
     // if you clicked *neither* on the button nor inside the dropdown, close it
     if (!clickedTrigger &amp;&amp; !clickedOptions) {
+      if (this.isOpen) {
+        this._onTouched(); // &lt;— mark “touched” here
+      }
       this.isOpen &#x3D; false;
     }
   }
 
   @HostListener(&#x27;document:keydown.escape&#x27;, [&#x27;$event&#x27;])
   onEscClose(event: KeyboardEvent) {
+    if (this.isOpen) {
+      this._onTouched(); // &lt;— and here too
+    }
     this.isOpen &#x3D; false;
   }
 }

@@ -5,116 +5,12 @@ import { Component, Input } from '@angular/core';
   templateUrl: './portfolio.stories.html',
 })
 export class PortfolioStoryComponent {
-  portfolios = [
-    {
-      id: 'id1',
-      title: 'Prayon',
-      reference: 'ID: 002534567000090',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id2',
-      title: 'OCP Africa',
-      reference: 'ID: 002534567000091',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id3',
-      title: 'JESA Group',
-      reference: 'ID: 002534567000092',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id4',
-      title: 'TEAL Technology',
-      reference: 'ID: 002534567000093',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-    {
-      id: 'id5',
-      title: 'Phosboucraa',
-      reference: 'ID: 002534567000094',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id6',
-      title: 'Saftco SA',
-      reference: 'ID: 002534567000095',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id7',
-      title: 'Jorf Fertilizers',
-      reference: 'ID: 002534567000096',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id8',
-      title: 'Dupont',
-      reference: 'ID: 002534567000097',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-    {
-      id: 'id9',
-      title: 'Prayon',
-      reference: 'ID: 002534567000090',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id10',
-      title: 'OCP Africa',
-      reference: 'ID: 002534567000091',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id11',
-      title: 'JESA Group',
-      reference: 'ID: 002534567000092',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id12',
-      title: 'TEAL Technology',
-      reference: 'ID: 002534567000093',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-    {
-      id: 'id13',
-      title: 'Phosboucraa',
-      reference: 'ID: 002534567000094',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id14',
-      title: 'Saftco SA',
-      reference: 'ID: 002534567000095',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id15',
-      title: 'Jorf Fertilizers',
-      reference: 'ID: 002534567000096',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-
-    {
-      id: 'id16',
-      title: 'Dupont',
-      reference: 'ID: 002534567000097',
-      image: 'https://placehold.co/35x35?text=Logo',
-    },
-  ];
+  mockData: any = Array.from({ length: 42 }, (_, i) => ({
+    id: i + 1,
+    title: `Item #${i + 1}`,
+    reference: `ID: 00253456700009${i + 1}`,
+    image: `https://placehold.co/35x35?text=Logo${i + 1}`,
+  }));
 
   holding = {
     id: 'id1hodling',
@@ -122,7 +18,27 @@ export class PortfolioStoryComponent {
     image: 'https://placehold.co/35x35?text=Logo',
   };
 
-  selected = this.portfolios[10];
+  selected = this.mockData[10];
+
+  perPage = 6;
+  currentPage = 1;
+  totalPages!: number;
+  pageItems: any[] = [];
+
+  ngOnInit() {
+    this.totalPages = Math.ceil(this.mockData.length / this.perPage);
+    this.loadPage(1);
+  }
+
+  onPageChange(page: number) {
+    this.loadPage(page);
+  }
+
+  private loadPage(page: number) {
+    this.currentPage = page;
+    const start = (page - 1) * this.perPage;
+    this.pageItems = this.mockData.slice(start, start + this.perPage);
+  }
 
   onSelect(portfolio: any) {
     this.selected = portfolio;

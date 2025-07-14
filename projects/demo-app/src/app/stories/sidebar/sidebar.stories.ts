@@ -4,6 +4,13 @@ import { OnInit, Component, OnDestroy, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+export type CapsSize = 'S' | 'M' | 'L' | 'XL' | 'XXL';
+
+export interface Cap {
+  name: CapsSize;
+  size: number;
+}
+
 @Component({
   selector: 'app-sidebar-story',
   templateUrl: './sidebar.stories.html',
@@ -22,6 +29,17 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
     this.subSidebarIsOpen = payload.open;
     this.subMenuData = payload.subMenuData;
   }
+  currentCapSize: Cap = {
+    name: 'M',
+    size: 16,
+  };
+
+  sizes: Cap[] = [
+    { name: 'S', size: 14 },
+    { name: 'M', size: 16 },
+    { name: 'L', size: 18 },
+    { name: 'XL', size: 20 },
+  ];
 
   portfolios = [
     {
@@ -170,18 +188,7 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
     nav: true,
     navText: [`<`, '>'],
     dotsEach: true,
-    items: 4,
-    // responsive: {
-    //   0: {
-    //     items: 1,
-    //   },
-    //   600: {
-    //     items: 2,
-    //   },
-    //   1024: {
-    //     items: 3.5,
-    //   },
-    // },
+    items: 3,
   };
 
   callingOnClick = (event: any) => {
@@ -206,6 +213,27 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
       attributes: true,
       attributeFilter: ['class'],
     });
+
+    //font size
+
+    const el = this.document.body;
+    const obs = new MutationObserver(() => {
+      const raw = el.getAttribute('data-fontsize');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        this.currentCapSize = parsed;
+        this.customOptions = {
+          ...this.customOptions,
+          items:
+            this.currentCapSize.name === 'M'
+              ? 4
+              : this.currentCapSize.name === 'L'
+              ? 3
+              : 1,
+        };
+      }
+    });
+    obs.observe(el, { attributes: true, attributeFilter: ['data-fontsize'] });
   }
 
   ngOnDestroy() {

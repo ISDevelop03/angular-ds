@@ -141,6 +141,7 @@
     </p>
     <p class="comment">
                 <code>AfterViewInit</code>
+                <code>ControlValueAccessor</code>
     </p>
 
 
@@ -158,6 +159,14 @@
 
 
 
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../components/DsInputComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; DsInputComponent), multi: true,
+}</a></code>
+                </td>
+            </tr>
 
 
             <tr>
@@ -199,6 +208,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_onChange" >_onChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_onTouched" >_onTouched</a>
+                            </li>
+                            <li>
                                 <a href="#hasProjectedPrefix" >hasProjectedPrefix</a>
                             </li>
                             <li>
@@ -225,6 +242,25 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#onNativeBlur" >onNativeBlur</a>
+                            </li>
+                            <li>
+                                <a href="#onNativeInput" >onNativeInput</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnChange" >registerOnChange</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnTouched" >registerOnTouched</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#setDisabledState" >setDisabledState</a>
+                            </li>
+                            <li>
+                                <a href="#writeValue" >writeValue</a>
                             </li>
                         </ul>
                     </td>
@@ -355,7 +391,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:68</a></div>
                             </td>
                         </tr>
 
@@ -428,7 +464,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:48</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -449,7 +485,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:44</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -475,7 +511,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:45</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -501,7 +537,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:37</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -522,7 +558,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:43</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -548,7 +584,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:42</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -569,7 +605,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -595,7 +631,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:49</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -616,7 +652,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:35</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -637,7 +673,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:34</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -658,7 +694,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:38</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -679,7 +715,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:39</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -705,7 +741,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:46</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -726,7 +762,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:40</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -752,7 +788,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:41</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -773,7 +809,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:47</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -793,7 +829,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:36</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -817,7 +853,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:55</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -838,7 +874,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:53</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -859,7 +895,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:51</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -880,7 +916,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:58</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -901,7 +937,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:59</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -922,7 +958,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:54</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -943,7 +979,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:52</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -964,7 +1000,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:56</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -985,7 +1021,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:57</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1006,7 +1042,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:60</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1027,7 +1063,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:61</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1060,8 +1096,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:110</a></div>
                         </td>
                     </tr>
 
@@ -1077,12 +1113,479 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNativeBlur"></a>
+                    <span class="name">
+                        <span ><b>onNativeBlur</b></span>
+                        <a href="#onNativeBlur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNativeBlur(event: FocusEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>FocusEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNativeInput"></a>
+                    <span class="name">
+                        <span ><b>onNativeInput</b></span>
+                        <a href="#onNativeInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNativeInput(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnChange"></a>
+                    <span class="name">
+                        <span ><b>registerOnChange</b></span>
+                        <a href="#registerOnChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnChange(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnTouched"></a>
+                    <span class="name">
+                        <span ><b>registerOnTouched</b></span>
+                        <a href="#registerOnTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnTouched(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDisabledState"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>setDisabledState</b></span>
+                        <a href="#setDisabledState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDisabledState(isDisabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isDisabled</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeValue"></a>
+                    <span class="name">
+                        <span ><b>writeValue</b></span>
+                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_onChange"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_onChange</b></span>
+                        <a href="#_onChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_onTouched"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_onTouched</b></span>
+                        <a href="#_onTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1101,7 +1604,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -1126,7 +1629,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -1162,7 +1665,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -1187,7 +1690,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/design-system/src/lib/components/form-elements/input/input.component.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -1209,8 +1712,10 @@
   ViewChild,
   Renderer2,
   AfterViewInit,
+  forwardRef,
 } from &#x27;@angular/core&#x27;;
 import { input } from &#x27;./theme&#x27;;
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 
 /**
  * InputComponent
@@ -1221,8 +1726,15 @@ import { input } from &#x27;./theme&#x27;;
 @Component({
   selector: &#x27;ds-input&#x27;,
   templateUrl: &#x27;./input.component.html&#x27;,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() &#x3D;&gt; DsInputComponent),
+      multi: true,
+    },
+  ],
 })
-export class DsInputComponent implements AfterViewInit {
+export class DsInputComponent implements AfterViewInit, ControlValueAccessor {
   @Input() id: string;
   @Input() name: string;
   @Input() label?: string;
@@ -1261,6 +1773,44 @@ export class DsInputComponent implements AfterViewInit {
   hasProjectedSuffix &#x3D; false;
 
   constructor(private host: ElementRef, private renderer: Renderer2) {}
+
+  // these will be filled in by Angular
+  private _onChange: (value: any) &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
+  private _onTouched: () &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
+
+  // -----------------------------------------------------
+  // ControlValueAccessor methods
+  // -----------------------------------------------------
+  writeValue(value: any): void {
+    this.value &#x3D; value;
+  }
+
+  registerOnChange(fn: any): void {
+    this._onChange &#x3D; fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this._onTouched &#x3D; fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled &#x3D; isDisabled;
+  }
+
+  // -----------------------------------------------------
+  // Hook into your native &lt;input&gt; events
+  // -----------------------------------------------------
+  onNativeInput(event: Event) {
+    const v &#x3D; (event.target as HTMLInputElement).value;
+    this.value &#x3D; v;
+    this._onChange(v); // notify Angular forms
+    this.onInput.emit(event); // still emit your public output
+  }
+
+  onNativeBlur(event: FocusEvent) {
+    this._onTouched();
+    this.onBlur.emit(event);
+  }
 
   ngAfterViewInit() {
     const hostAttrs: NamedNodeMap &#x3D; this.host.nativeElement.attributes;
@@ -1334,15 +1884,15 @@ export class DsInputComponent implements AfterViewInit {
         #inner
         [type]&#x3D;&quot;type&quot;
         [id]&#x3D;&quot;id&quot;
-        [name]&#x3D;&quot;name&quot;
+        [attr.name]&#x3D;&quot;name&quot;
         [placeholder]&#x3D;&quot;placeholder || &#x27;&#x27;&quot;
         [disabled]&#x3D;&quot;disabled&quot;
         [value]&#x3D;&quot;value&quot;
         (click)&#x3D;&quot;onClick.emit($event)&quot;
-        (input)&#x3D;&quot;onInput.emit($event)&quot;
+        (input)&#x3D;&quot;onNativeInput($event)&quot;
         (change)&#x3D;&quot;onChange.emit($event)&quot;
         (focus)&#x3D;&quot;onFocus.emit($event)&quot;
-        (blur)&#x3D;&quot;onBlur.emit($event)&quot;
+        (blur)&#x3D;&quot;onNativeBlur($event)&quot;
         (keydown)&#x3D;&quot;onKeydown.emit($event)&quot;
         (keyup)&#x3D;&quot;onKeyup.emit($event)&quot;
         (keydown.enter)&#x3D;&quot;onEnter.emit($event)&quot;
@@ -1353,6 +1903,7 @@ export class DsInputComponent implements AfterViewInit {
           input[variant].input,
           disabled ? &#x27;cursor-not-allowed bg-gray-50&#x27; : &#x27;&#x27;,
           type &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? &#x27;[appearance:textfield]&#x27; : &#x27;&#x27;,
+          hasError ? &#x27;!text-red-500&#x27; : &#x27;&#x27;,
           inputClassName
         ]&quot;
       /&gt;
@@ -1415,8 +1966,8 @@ export class DsInputComponent implements AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div  id="ds-input"  [ngClass]="[    \'relative w-full\',    input[variant].container,    display === \'inline\' ? \'flex flex-row items-center gap-2\' : \'\',    className  ]">  <!-- label + hidden logic omitted for brevity… -->  <ng-container *ngIf="type !== \'hidden\' && label">    <label      [for]="id"      [ngClass]="[        \'shrink-0\',        input[variant].label || \'\',        hasError && errorMessage ? \'!text-error-500\' : \'\',        display === \'inline\' ? \'!mb-0\' : \'\',        display === \'inline\' && (description || (hasError && errorMessage))          ? \'self-start mt-2.5\'          : \'\'      ]"    >      {{ label }}      <span *ngIf="required" class="text-red-500">*</span>    </label>  </ng-container>  <div class="w-full">    <div      [ngClass]="[        input[variant].wrapper.base,        disabled          ? input[variant].wrapper.disabled          : input[variant].wrapper.enabled,        type === \'hidden\' ? \'border-none\' : \'\',        hasError ? input[variant].hasError : \'\'      ]"    >      <!-- 1a) projected template prefix -->      <ng-content select="[prefix]"></ng-content>      <!-- 1b) fallback string prefix -->      <div        *ngIf="prefix && !hasProjectedPrefix"        [ngClass]="input[variant].prefix"      >        {{ prefix }}      </div>      <input        #inner        [type]="type"        [id]="id"        [name]="name"        [placeholder]="placeholder || \'\'"        [disabled]="disabled"        [value]="value"        (click)="onClick.emit($event)"        (input)="onInput.emit($event)"        (change)="onChange.emit($event)"        (focus)="onFocus.emit($event)"        (blur)="onBlur.emit($event)"        (keydown)="onKeydown.emit($event)"        (keyup)="onKeyup.emit($event)"        (keydown.enter)="onEnter.emit($event)"        (keydown.escape)="onEscape.emit($event)"        (paste)="onPaste.emit($event)"        (select)="onSelect.emit($event)"        [ngClass]="[          input[variant].input,          disabled ? \'cursor-not-allowed bg-gray-50\' : \'\',          type === \'number\' ? \'[appearance:textfield]\' : \'\',          inputClassName        ]"      />      <!-- 1c) fallback string suffix -->      <div        *ngIf="suffix && !hasProjectedSuffix"        [ngClass]="input[variant].sufix"      >        {{ suffix }}      </div>      <!-- 1d) projected template suffix -->      <ng-content select="[suffix]"></ng-content>    </div>    <!-- description + errorMessage omitted for brevity… -->    <div *ngIf="description" [ngClass]="input[variant].description">      {{ description }}    </div>    <div      *ngIf="hasError && errorMessage"      [ngClass]="input[variant].errorMessage"    >      {{ errorMessage }}    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><div  id="ds-input"  [ngClass]="[    \'relative w-full\',    input[variant].container,    display === \'inline\' ? \'flex flex-row items-center gap-2\' : \'\',    className  ]">  <!-- label + hidden logic omitted for brevity… -->  <ng-container *ngIf="type !== \'hidden\' && label">    <label      [for]="id"      [ngClass]="[        \'shrink-0\',        input[variant].label || \'\',        hasError && errorMessage ? \'!text-error-500\' : \'\',        display === \'inline\' ? \'!mb-0\' : \'\',        display === \'inline\' && (description || (hasError && errorMessage))          ? \'self-start mt-2.5\'          : \'\'      ]"    >      {{ label }}      <span *ngIf="required" class="text-red-500">*</span>    </label>  </ng-container>  <div class="w-full">    <div      [ngClass]="[        input[variant].wrapper.base,        disabled          ? input[variant].wrapper.disabled          : input[variant].wrapper.enabled,        type === \'hidden\' ? \'border-none\' : \'\',        hasError ? input[variant].hasError : \'\'      ]"    >      <!-- 1a) projected template prefix -->      <ng-content select="[prefix]"></ng-content>      <!-- 1b) fallback string prefix -->      <div        *ngIf="prefix && !hasProjectedPrefix"        [ngClass]="input[variant].prefix"      >        {{ prefix }}      </div>      <input        #inner        [type]="type"        [id]="id"        [attr.name]="name"        [placeholder]="placeholder || \'\'"        [disabled]="disabled"        [value]="value"        (click)="onClick.emit($event)"        (input)="onNativeInput($event)"        (change)="onChange.emit($event)"        (focus)="onFocus.emit($event)"        (blur)="onNativeBlur($event)"        (keydown)="onKeydown.emit($event)"        (keyup)="onKeyup.emit($event)"        (keydown.enter)="onEnter.emit($event)"        (keydown.escape)="onEscape.emit($event)"        (paste)="onPaste.emit($event)"        (select)="onSelect.emit($event)"        [ngClass]="[          input[variant].input,          disabled ? \'cursor-not-allowed bg-gray-50\' : \'\',          type === \'number\' ? \'[appearance:textfield]\' : \'\',          hasError ? \'!text-red-500\' : \'\',          inputClassName        ]"      />      <!-- 1c) fallback string suffix -->      <div        *ngIf="suffix && !hasProjectedSuffix"        [ngClass]="input[variant].sufix"      >        {{ suffix }}      </div>      <!-- 1d) projected template suffix -->      <ng-content select="[suffix]"></ng-content>    </div>    <!-- description + errorMessage omitted for brevity… -->    <div *ngIf="description" [ngClass]="input[variant].description">      {{ description }}    </div>    <div      *ngIf="hasError && errorMessage"      [ngClass]="input[variant].errorMessage"    >      {{ errorMessage }}    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AutocompleteComponent', 'selector': 'ds-autocomplete'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeGroupComponent', 'selector': 'ds-badge-group'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'ErrorCardComponent', 'selector': 'ds-error-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SkeletonComponent', 'selector': 'ds-skeleton'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DsInputComponent'};
 </script>

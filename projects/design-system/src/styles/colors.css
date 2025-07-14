@@ -2,6 +2,9 @@
   :root {
     /* LIGHT MODE COLORS */
     /* Main Colors */
+
+    --font-size: 16px;
+    font-size: var(--font-size);
     --level-1: 13 15 18; /* #0D0F12 */
     --level-2: 255 255 255; /* #FFFFFF */
     --level-3: 255 255 255; /* #FFFFFF */

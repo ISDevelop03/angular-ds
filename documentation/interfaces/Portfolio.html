@@ -324,11 +324,9 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
   Renderer2,
-  SimpleChanges,
 } from &#x27;@angular/core&#x27;;
 
 interface Portfolio {
@@ -361,13 +359,21 @@ interface Portfolio {
     ]),
   ],
 })
-export class PortfolioComponent implements OnInit, OnChanges {
+export class PortfolioComponent implements OnInit {
   @Input() portfolios: Portfolio[] &#x3D; [];
   @Input() selected: Portfolio | null &#x3D; null;
   @Input() holding: Portfolio | null &#x3D; null;
   @Input() show: boolean &#x3D; false;
+  @Input() showDots: boolean &#x3D; true;
+  @Input() perPage: number &#x3D; 6;
   @Input() className &#x3D; &#x27;&#x27;;
 
+  @Input() currentPage &#x3D; 1; // ← from parent
+  @Input() totalPages &#x3D; 1; // ← from parent
+  // pages: number[] &#x3D; [];
+
+  /** fire whenever user wants a different page */
+  @Output() pageChange &#x3D; new EventEmitter&lt;number&gt;();
   @Output() clicked &#x3D; new EventEmitter&lt;Portfolio&gt;();
 
   displayPortfolio &#x3D; false;
@@ -376,19 +382,34 @@ export class PortfolioComponent implements OnInit, OnChanges {
 
   constructor(private renderer: Renderer2) {}
 
+  get pages(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) &#x3D;&gt; i + 1);
+  }
+
   ngOnInit() {
     this.resetState();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // if any of these inputs change, re-initialize
-    if (
-      changes.portfolios ||
-      changes.selected ||
-      changes.holding ||
-      changes.show
-    ) {
-      this.resetState();
+  /** Go to next page if available */
+  onNextPage(e: Event) {
+    e.preventDefault();
+    if (this.currentPage &lt; this.totalPages) {
+      this.pageChange.emit(this.currentPage + 1);
+    }
+  }
+
+  /** Go to previous page if available */
+  onPrevPage(event: Event) {
+    event.preventDefault();
+    if (this.currentPage &gt; 1) {
+      this.pageChange.emit(this.currentPage - 1);
+    }
+  }
+
+  /** Go to specific page */
+  onGoToPage(page: number) {
+    if (page &gt;&#x3D; 1 &amp;&amp; page &lt;&#x3D; this.totalPages) {
+      this.pageChange.emit(page);
     }
   }
 

@@ -6,7 +6,7 @@
   <li *ngFor="let item of items; let idx = index" class="flex flex-col gap-1">
     <span
       *ngIf="item.label"
-      class="inline-block text-[14px]/[16px] text-neutral-500"
+      class="inline-block text-[0.875rem]/[1rem] text-neutral-500"
     >
       {{ item.label }}
     </span>
@@ -15,7 +15,7 @@
       <ng-container *ngTemplateOutlet="item.value"></ng-container>
     </ng-container>
     <ng-template #showHtml>
-      <div [innerHTML]="item.value" class="text-[14px]/[18px] font-bold"></div>
+      <div [innerHTML]="item.value" class="text-[0.875rem]/[1.125rem] font-bold"></div>
     </ng-template>
   </li>
 </ul>
