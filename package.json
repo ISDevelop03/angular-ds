@@ -8,6 +8,8 @@
   },
   "scripts": {
     "ng": "ng",
+    "start:mybs": "cp projects/demo-app/src/assets/icons.svg projects/mybusiness-app/src/assets/icons.svg  && ng serve --project=mybusiness-app --port 4201",
+    "build:mybs": "ng build --project=mybusiness-app",
     "start": "ng serve --project=demo-app",
     "build:app": "ng build --project=demo-app",
     "build:ds": "ng build --project=design-system && cp styles/styles.css dist/mybusiness-design-system && cp projects/demo-app/src/assets/icons.svg dist/mybusiness-design-system",

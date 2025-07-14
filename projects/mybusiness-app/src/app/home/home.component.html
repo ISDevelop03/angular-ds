@@ -1,0 +1,117 @@
+<section class="w-full flex flex-col gap-4">
+  <div class="w-full flex justify-start items-center gap-4">
+    <div
+      class="w-[calc(100%-32px)] flex items-center bg-card-level-2 px-5 py-2 rounded-lg overflow-hidden"
+    >
+      <app-marquee
+        [speed]="120"
+        [direction]="'left'"
+        [pauseOnHover]="true"
+        [className]="'[&>*]:shrink-0 gap-4'"
+      >
+        <ds-ticker-card
+          *ngFor="let currency of currencies"
+          [title]="currency.code"
+          [image]="currency.image"
+          [price]="currency.value"
+          [className]="'shrink-0'"
+        >
+        </ds-ticker-card>
+      </app-marquee>
+    </div>
+
+    <ds-button variant="white" size="medium" icon="arrow-refresh-03">
+    </ds-button>
+  </div>
+
+  <div class="w-full space-y-6 bg-level-4 rounded-lg p-6">
+    <div id="accounts" class="space-y-3">
+      <div class="flex w-full items-center justify-between gap-4">
+        <h3 class="text-[16px]/[18px] font-bold">Vos comptes favoris</h3>
+
+        <ds-call-to-action-icons
+          [actions]="actionsBasic"
+          className="w-fit"
+          variant="separated"
+        ></ds-call-to-action-icons>
+      </div>
+      <div
+        class="flex md:flex-row flex-col items-center gap-3 w-full justify-start"
+      >
+        <ds-account-selected-card
+          [account_number]="selected.account_number"
+          [balance]="selected.balance"
+          [currency]="selected.currency"
+          [type]="selected.type"
+          [id]="selected.id"
+          [date]="selected.date"
+          [data]="selected"
+          [isDiscrete]="isDiscrete"
+          [solde_comptable]="selected.solde_comptable"
+          [solde_temps_reel]="selected.solde_temps_reel"
+          [actionsList]="actionsList"
+          className="!w-[300px] shrink-0"
+        >
+        </ds-account-selected-card>
+        <!-- <h2 class="text-lg font-semibold mb-4">Accounts</h2> -->
+        <div class="w-full overflow-hidden">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let account of accounts; let idx = index">
+              <ng-template carouselSlide [width]="300" [id]="idx">
+                <ds-account-slider-card
+                  [account_number]="account.account_number"
+                  [balance]="account.balance"
+                  [currency]="account.currency"
+                  [type]="account.type"
+                  [id]="account.id"
+                  [isDiscrete]="isDiscrete"
+                  [date]="account.date"
+                  [data]="account"
+                  [actionsList]="actionsList"
+                  (onClick)="onClick($event)"
+                  className="!shrink-0"
+                ></ds-account-slider-card>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+
+    <div id="latest-operations" class="w-full space-y-2">
+      <div class="flex w-full items-center justify-between gap-4">
+        <div class="flex items-center justify-start gap-2">
+          <ds-icon id="clock-forward" class="text-red-500"></ds-icon>
+          <h3 class="text-[16px]/[18px] font-bold">Dernières opérations</h3>
+        </div>
+
+        <div class="flex items-center justify-start gap-2">
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 text-[14px]/[16px] font-bold hover:text-red-500 text-neutral-900 transition-all duration-500 ease-in-out hover:underline"
+          >
+            Toutes les opérations
+            <ds-icon id="link-external" class="text-red-500"></ds-icon>
+          </a>
+          <ds-call-to-action-icons
+            [actions]="actionsBasic2"
+            className="w-fit"
+            variant="separated"
+          ></ds-call-to-action-icons>
+        </div>
+      </div>
+      <div class="w-full flex flex-col gap-y-1.5">
+        <ds-account-grid-card
+          *ngFor="let transaction of transactions"
+          [isDiscrete]="isDiscrete"
+          [price]="transaction.amount"
+          [currency]="transaction.currency"
+          [title]="transaction.description"
+          [dateOperation]="transaction.dateOperation"
+          [dateValue]="transaction.dateValue"
+        >
+        </ds-account-grid-card>
+      </div>
+    </div>
+  </div>
+</section>

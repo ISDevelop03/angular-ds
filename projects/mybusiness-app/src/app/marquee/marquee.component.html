@@ -1,0 +1,15 @@
+<div class="overflow-hidden flex justify-center flex-col relative w-full">
+  <div
+    #marquee
+    class="inline-flex items-center whitespace-nowrap animate-marquee"
+    [ngClass]="className"
+    [class.pause-on-hover]="pauseOnHover"
+    [style.animationDuration]="durationSeconds + 's'"
+    [style.animationDirection]="direction === 'right' ? 'reverse' : 'normal'"
+  >
+    <!-- original content -->
+    <ng-content></ng-content>
+    <!-- duplicate for seamless loop -->
+    <ng-content></ng-content>
+  </div>
+</div>

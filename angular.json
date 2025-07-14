@@ -128,6 +128,100 @@
           }
         }
       }
+    },
+    "mybusiness-app": {
+      "root": "projects/mybusiness-app/",
+      "sourceRoot": "projects/mybusiness-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mybusiness-app",
+            "index": "projects/mybusiness-app/src/index.html",
+            "main": "projects/mybusiness-app/src/main.ts",
+            "polyfills": "projects/mybusiness-app/src/polyfills.ts",
+            "tsConfig": "projects/mybusiness-app/tsconfig.app.json",
+            "assets": [
+              "projects/mybusiness-app/src/favicon.ico",
+              "projects/mybusiness-app/src/assets"
+            ],
+            "styles": ["styles/styles.css"],
+            "scripts": ["projects/mybusiness-app/src/assets/owl-carousel.js"],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mybusiness-app/src/environments/environment.ts",
+                  "with": "projects/mybusiness-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mybusiness-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mybusiness-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mybusiness-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mybusiness-app/src/test.ts",
+            "polyfills": "projects/mybusiness-app/src/polyfills.ts",
+            "tsConfig": "projects/mybusiness-app/tsconfig.spec.json",
+            "karmaConfig": "projects/mybusiness-app/karma.conf.js",
+            "styles": ["projects/mybusiness-app/src/styles.css"],
+            "scripts": [],
+            "assets": [
+              "projects/mybusiness-app/src/favicon.ico",
+              "projects/mybusiness-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mybusiness-app/tsconfig.app.json",
+              "projects/mybusiness-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   }
 }

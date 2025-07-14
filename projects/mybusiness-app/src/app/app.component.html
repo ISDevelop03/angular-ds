@@ -1,0 +1,24 @@
+<div class="relative z-[4] min-h-screen flex items-start justify-start">
+  <div class="w-full flex items-start justify-start bg-level-1">
+    <ds-sidebar
+      [mainMenus]="mainMenus"
+      [profileMenus]="profileMenus"
+      className="bg-level-1"
+      [language]="language"
+      (callingOnClick)="callingOnClick($event)"
+      [disableMainMenus]="currentUrl === '/'"
+    ></ds-sidebar>
+    <main class="bg-level-2 rounded-lg my-[14px] mr-3 w-full">
+      <section
+        id="main-content"
+        class="h-[calc(100vh-28px)] z-[3] relative overflow-y-auto overflow-x-hidden rounded-lg pt-4 px-4"
+      >
+        <router-outlet></router-outlet>
+        <ds-footer
+          [rightMenus]="rightMenus"
+          [leftMenus]="leftMenus"
+        ></ds-footer>
+      </section>
+    </main>
+  </div>
+</div>

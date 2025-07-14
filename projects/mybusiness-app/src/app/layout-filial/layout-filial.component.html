@@ -1,0 +1,117 @@
+<div class="flex items-center justify-between mb-4 w-full">
+  <ds-portfolio
+    [portfolios]="portfolios"
+    [selected]="selected"
+    [holding]="holding"
+    (clicked)="onSelect($event)"
+  ></ds-portfolio>
+
+  <ds-actions-layout
+    [items]="actions"
+    className="max-w-fit"
+  ></ds-actions-layout>
+</div>
+<section
+  class="w-full flex flex-row mb-4"
+  [ngClass]="[openSidebar ? 'gap-4' : 'gap-0']"
+>
+  <!-- dark:bg-black bg-white border border-neutral-100 rounded-md -->
+  <div class="w-full h-sidebar overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
+  <div [@slideInOut]="openSidebar ? 'open' : 'closed'" class="w-full h-sidebar">
+    <!-- inject the correct template here -->
+    <ng-container
+      *ngTemplateOutlet="
+        sidebarType === 'notifications'
+          ? notifications
+          : sidebarType === 'messages'
+          ? messages
+          : main
+      "
+    >
+    </ng-container>
+  </div>
+</section>
+
+<ng-template #notifications>
+  <div
+    class="shrink-0 dark:bg-black bg-white border border-neutral-100 h-full rounded-md overflow-hidden"
+    [ngClass]="[openSidebar ? 'p-4' : 'p-0']"
+  >
+    Notifications
+  </div>
+</ng-template>
+<ng-template #messages>
+  <div
+    class="shrink-0 dark:bg-black bg-white border border-neutral-100 h-full rounded-md overflow-hidden"
+    [ngClass]="[openSidebar ? 'p-4' : 'p-0']"
+  >
+    Messages
+  </div>
+</ng-template>
+<ng-template #main>
+  <div class="shrink-0 space-y-[14px] h-full">
+    <div class="flex flex-col gap-y-3 w-full">
+      <h3 class="text-[16px]/[18px] font-bold">Vos raccourcis</h3>
+      <ds-shortcuts
+        (click)="onClick($event)"
+        [items]="items"
+        [shortcuts]="shortcuts"
+      ></ds-shortcuts>
+    </div>
+    <div class="flex flex-col bg-level-4 rounded-lg gap-y-3 w-full p-[14px]">
+      <div class="space-y-1">
+        <div class="w-full flex justify-between items-center gap-4">
+          <div>
+            <h3 class="text-[16px]/[18px] font-bold">Cours virement</h3>
+            <time class="text-[12px]/[14px] font-normal text-neutral-500">
+              28.01.2025
+            </time>
+          </div>
+          <ds-call-to-action-icons
+            [actions]="actionsBasic"
+            className="w-fit"
+            variant="separated"
+          ></ds-call-to-action-icons>
+        </div>
+        <p class="text-[12px]/[14px]">Cotation des changes à titre indicatif</p>
+      </div>
+
+      <div class="grid grid-cols-[40px_1fr]">
+        <div class="flex h-full items-start justify-evenly flex-col grow gap-2">
+          <p class="flex items-center justify-center gap-1">
+            <ds-icon size="12px" id="minus" class="text-red-500"></ds-icon>
+            <span class="text-[10px]/[12px]"> 5 %</span>
+          </p>
+          <p class="flex items-center justify-center gap-1">
+            <ds-icon size="10px" id="plus" class="text-green-500"></ds-icon>
+            <span class="text-[10px]/[12px]"> 5 %</span>
+          </p>
+        </div>
+        <div class="relative flex flex-col gap-y-1.5">
+          <button
+            class="absolute top-1/2 text-red-500 -translate-y-1/2 left-1/2 bg-level-4 size-7 flex justify-center items-center -translate-x-1/2 rounded-full"
+          >
+            <ds-icon id="arrow-refresh-03" size="18px"></ds-icon>
+          </button>
+          <ds-currency-converter
+            [currencies]="currencies"
+            [value]="value"
+            [currency]="currency"
+            (valueChange)="value = $event"
+            (currencyChange)="currency = $event.value"
+          ></ds-currency-converter>
+          <ds-currency-converter
+            [currencies]="currencies"
+            [value]="value1"
+            [currency]="currency1"
+            (valueChange)="value1 = $event"
+            (currencyChange)="currency1 = $event.value"
+          ></ds-currency-converter>
+        </div>
+      </div>
+      <p class="text-[14px]/[16px] font-bold">1 EUR = 1.07915 MAD</p>
+    </div>
+  </div>
+</ng-template>
