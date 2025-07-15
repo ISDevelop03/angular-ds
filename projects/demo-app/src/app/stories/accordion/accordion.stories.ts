@@ -69,6 +69,7 @@ export class AccordionStoryComponent {
       // caption: 'This is the first default item',
       content: '<p>Default content <strong>one</strong></p>',
       count: 6,
+      open: true,
     },
     {
       id: 'default-2',

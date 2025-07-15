@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 
 /**
  * Sheet-cardComponent
@@ -15,7 +15,7 @@ export class SheetCardComponent {
   @Input() icon?: string;
   @Input() label?: string;
   @Input() isDraggable?: string;
-
+  @Input() leftContent?: string | TemplateRef<any>;
   @Input() data?: any;
 
   @Input() iconRight?: string;
@@ -27,4 +27,8 @@ export class SheetCardComponent {
 
   @Input() onClick?: (item: any) => void;
   @Input() startClick?: (item: any) => void;
+
+  isTemplate(ref: any): ref is TemplateRef<any> {
+    return ref instanceof TemplateRef;
+  }
 }

@@ -55,9 +55,9 @@ export class AccordionComponent implements OnInit {
   }
 
   private buildLocalItems() {
-    this.localItems = this.items.map((it, idx) => ({
+    this.localItems = this.items.map((it) => ({
       ...it,
-      isOpen: it.open ? (this.allowMultiple ? true : idx === 0) : false,
+      isOpen: it.open ? (this.allowMultiple ? true : it.open) : false,
     }));
   }
 

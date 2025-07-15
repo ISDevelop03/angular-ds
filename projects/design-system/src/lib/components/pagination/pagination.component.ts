@@ -65,13 +65,18 @@ export class DsPaginationComponent implements OnChanges {
   }
 
   private calculatePages() {
-    this.pageCount = Math.ceil(this.totalItems / this.itemsPerPage);
+    this.pageCount = Math.max(
+      1,
+      Math.ceil(this.totalItems / this.itemsPerPage)
+    );
     const total = this.pageCount;
-    const startCnt = this.boundaryStartCount;
-    const endCnt = this.boundaryEndCount;
+
+    // never request more boundary pages than we actually have
+    const startCnt = Math.min(this.boundaryStartCount, total);
+    const endCnt = Math.min(this.boundaryEndCount, total);
     const win = this.windowSize;
 
-    // build the three sets
+    // build the three sets, now guaranteed within [1…total]
     const startPages = Array.from({ length: startCnt }, (_, i) => i + 1);
     const endPages = Array.from(
       { length: endCnt },
@@ -82,20 +87,18 @@ export class DsPaginationComponent implements OnChanges {
     const windowStart = Math.max(this.currentPage - win, startCnt + 1);
     const windowEnd = Math.min(this.currentPage + win, total - endCnt);
 
-    const windowPages = [];
+    const windowPages: number[] = [];
     for (let i = windowStart; i <= windowEnd; i++) {
       windowPages.push(i);
     }
 
-    // merge & insert ellipses on gaps
+    // merge & inject ellipses
     const all = startPages
       .concat(windowPages, endPages)
-      .filter((v, i, arr) => arr.indexOf(v) === i) // unique
-      .sort((a, b) =>
-        typeof a === 'number' && typeof b === 'number' ? a - b : 0
-      );
+      .filter((v, i, arr) => arr.indexOf(v) === i) // dedupe
+      .sort((a, b) => a - b);
 
-    const pages: (number | '...')[] = [all[0]];
+    const pages: PageItem[] = [all[0]];
     for (let i = 1; i < all.length; i++) {
       const prev = all[i - 1] as number;
       const curr = all[i] as number;

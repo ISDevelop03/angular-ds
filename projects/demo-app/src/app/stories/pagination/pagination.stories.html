@@ -4,20 +4,19 @@
   <ds-pagination
     [totalItems]="totalItems"
     [currentPage]="currentPage"
+    [perPageOptions]="perPageOptions"
     variant="default"
-    [boundaryStartCount]="2"
-    [boundaryEndCount]="2"
     [(itemsPerPage)]="itemsPerPage"
     (pageChange)="onPageChange($event)"
     (perPageChange)="onPerPageChange($event)"
   ></ds-pagination>
   <ds-pagination
     [totalItems]="totalItems"
+    onPageChange
     [currentPage]="currentPage"
     [showPerPage]="showPerPage"
+    [perPageOptions]="perPageOptions"
     variant="default"
-    [boundaryStartCount]="2"
-    [boundaryEndCount]="2"
     [(itemsPerPage)]="itemsPerPage"
     (pageChange)="onPageChange($event)"
     (perPageChange)="onPerPageChange($event)"

@@ -9,6 +9,9 @@
   ]"
   class="px-3.5 relative bg-level-3 flex flex-row rounded items-center justify-start py-3 gap-2"
 >
+  <ng-container *ngIf="isTemplate(leftContent)">
+    <ng-container *ngTemplateOutlet="leftContent"></ng-container>
+  </ng-container>
   <div
     *ngIf="isDraggable"
     class="absolute top-1/2 -translate-y-1/2 left-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer"
