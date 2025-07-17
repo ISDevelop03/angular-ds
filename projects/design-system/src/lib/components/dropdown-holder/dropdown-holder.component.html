@@ -1,0 +1,19 @@
+<div id="ds-dropdown-holder" id="ds-dropdown" [ngClass]="[className]">
+  <button #trigger (click)="toggleMenu()">
+    <ng-container *ngIf="buttonContent">
+      <ng-template [ngTemplateOutlet]="buttonContent"></ng-template>
+    </ng-container>
+  </button>
+
+  <ng-template #menuTpl>
+    <div
+      #menu
+      @dropdownAnim
+      class="p-2 absolute mt-2 min-w-[350px] origin-top-right shadow-dropdown focus:outline-none"
+      [ngStyle]="menuStyles"
+      [ngClass]="containerClassName"
+    >
+      <ng-content></ng-content>
+    </div>
+  </ng-template>
+</div>

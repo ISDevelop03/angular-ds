@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DropdownHolderComponent } from './components/dropdown-holder/dropdown-holder.component';
 import { FloatedButtonsComponent } from './components/floated-buttons/floated-buttons.component';
 import { AutocompleteComponent } from './components/form-elements/autocomplete/autocomplete.component';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
@@ -107,6 +108,8 @@ import { PortalModule } from '@angular/cdk/portal';
 import { CodeInputModule } from 'angular-code-input';
 // import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -186,6 +189,7 @@ registerLocaleData(localeFr, 'fr-FR');
     SkeletonComponent,
     AutocompleteComponent,
     FloatedButtonsComponent,
+    DropdownHolderComponent,
   ],
   imports: [
     CommonModule,
@@ -196,6 +200,8 @@ registerLocaleData(localeFr, 'fr-FR');
     // NgxDaterangepickerMd.forRoot(),
     OverlayModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    // BsDatepickerModule.forRoot(),
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [
@@ -275,6 +281,7 @@ registerLocaleData(localeFr, 'fr-FR');
     SkeletonComponent,
     AutocompleteComponent,
     FloatedButtonsComponent,
+    DropdownHolderComponent,
   ],
 })
 export class DesignSystemModule {}

@@ -48,13 +48,13 @@ export class DsBottomMenusComponent {
   showCaps: boolean = false;
 
   @Input() sizes: Cap[] = [
-    { name: 'S', size: 14 },
-    { name: 'M', size: 16 },
-    { name: 'L', size: 18 },
-    { name: 'XL', size: 20 },
+    // { name: 'S', size: 14 },
+    // { name: 'M', size: 16 },
+    // { name: 'L', size: 18 },
+    // { name: 'XL', size: 20 },
   ];
 
-  currentCap: Cap = this.sizes[1]; // Default to 'M'
+  currentCap: Cap = this.sizes[1] || null; // Default to 'M'
   @Input() profileMenus: ISelectItem[] = [];
   @Input() lastLoginDate: string = 'Le 03.10.2024, à 16h45';
   @Input() language: ILanguage = {

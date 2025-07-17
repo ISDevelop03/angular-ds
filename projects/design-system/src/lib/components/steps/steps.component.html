@@ -68,7 +68,7 @@
     <!-- Navigation buttons -->
     <div class="flex justify-end gap-2">
       <ds-button
-        *ngFor="let button of leftButtons"
+        *ngFor="let button of steps.toArray()[currentStepIndex].leftButtons"
         [variant]="button.variant"
         [icon]="button.icon"
         [iconRight]="button.iconRight"
@@ -90,7 +90,7 @@
     </div>
     <div class="flex justify-end gap-2">
       <ds-button
-        *ngFor="let button of rightButtons"
+        *ngFor="let button of steps.toArray()[currentStepIndex].rightButtons"
         [variant]="button.variant"
         [icon]="button.icon"
         [iconRight]="button.iconRight"

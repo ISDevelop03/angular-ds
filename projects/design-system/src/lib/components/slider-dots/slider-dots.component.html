@@ -4,13 +4,17 @@
 -->
 <div id="ds-slider-dots" [ngClass]="[theme.container, className]">
   <!-- ─── PREV ARROW (conditionally shown) ───────────────────────────────────── -->
-  <div *ngIf="showArrows" (click)="onPrev()" [ngClass]="prevArrowWrapperClass">
+  <button
+    *ngIf="showArrows"
+    (click)="onPrev()"
+    [ngClass]="prevArrowWrapperClass"
+  >
     <!-- 
       We pass [name] to <ds-icon> (change if your icon API is different).
       We bind [ngClass] so that the icon’s color/size come from the theme.
     -->
     <ds-icon [id]="'arrow-left'" size="12px" [class]="prevIconClass"></ds-icon>
-  </div>
+  </button>
 
   <!-- ─── DOTS ROW ─────────────────────────────────────────────────────────────── -->
   <div [ngClass]="theme.dotsWrapper">
@@ -27,7 +31,11 @@
   </div>
 
   <!-- ─── NEXT ARROW (conditionally shown) ───────────────────────────────────── -->
-  <div *ngIf="showArrows" (click)="onNext()" [ngClass]="nextArrowWrapperClass">
+  <button
+    *ngIf="showArrows"
+    (click)="onNext()"
+    [ngClass]="nextArrowWrapperClass"
+  >
     <ds-icon [id]="'arrow-right'" size="12px" [class]="nextIconClass"></ds-icon>
-  </div>
+  </button>
 </div>

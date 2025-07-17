@@ -4,14 +4,18 @@
   <div class="flex flex-col gap-4">
     <!-- src/app/app.component.html -->
     <ds-steps
-      (nextStep)="nextStepHandler($event)"
-      (prevStep)="prevStepHandler($event)"
-      [leftButtons]="leftButtons"
-      [rightButtons]="rightButtons"
       [currentStepIndex]="currentStepIndex"
       title="Paiement de factures"
     >
-      <ds-step title="Step 1" [shouldGoNext]="step1Done">
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons"
+        [rightButtons]="rightButtons"
+        title="Step 1"
+        [data]="{test:'1'}"
+        [shouldGoNext]="step1Done"
+      >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Do this first thing.</p>
@@ -25,7 +29,15 @@
         </ng-template>
       </ds-step>
 
-      <ds-step title="Step 2" [shouldGoPrev]="true" [shouldGoNext]="step2Done">
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons1"
+        [rightButtons]="rightButtons1"
+        title="Step 2"
+        [shouldGoPrev]="true"
+        [shouldGoNext]="step2Done"
+      >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Then configure this.</p>
@@ -38,7 +50,16 @@
           </div>
         </ng-template>
       </ds-step>
-      <ds-step title="Step 3" [shouldGoPrev]="true" [shouldGoNext]="step3Done">
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons"
+        [rightButtons]="rightButtons"
+        title="Step 3"
+        [data]="{test:'1'}"
+        [shouldGoPrev]="true"
+        [shouldGoNext]="step3Done"
+      >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Then configure this.</p>
@@ -51,7 +72,15 @@
           </div>
         </ng-template>
       </ds-step>
-      <ds-step title="Step 4" [shouldGoPrev]="true" [shouldGoNext]="step4Done">
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons1"
+        [rightButtons]="rightButtons1"
+        title="Step 4"
+        [shouldGoPrev]="true"
+        [shouldGoNext]="step4Done"
+      >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Then configure this.</p>
@@ -65,7 +94,14 @@
         </ng-template>
       </ds-step>
 
-      <ds-step title="Finish" [shouldGoPrev]="true">
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons"
+        [rightButtons]="rightButtons"
+        title="Finish"
+        [shouldGoPrev]="true"
+      >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Finish line.</p>

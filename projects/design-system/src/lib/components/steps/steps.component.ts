@@ -5,13 +5,11 @@ import {
   ContentChildren,
   QueryList,
   Input,
-  Output,
-  EventEmitter,
 } from '@angular/core';
 import { StepComponent } from './step.component';
 import { STEPS_THEME, StepsTheme } from './theme';
 
-interface StepButton {
+export interface StepButton {
   variant: string;
   content: string;
   disableHandleStep?: boolean;
@@ -47,41 +45,6 @@ export class StepsComponent implements AfterContentInit {
   @Input() variant: string = 'default';
   @Input() title: string = '';
 
-  @Input() leftButtons: StepButton[] = [
-    {
-      variant: 'gray',
-      content: 'Prev',
-      onClick: (btn) => {
-        console.log('this is prev ', btn);
-      },
-    },
-  ];
-
-  @Input() rightButtons: StepButton[] = [
-    {
-      variant: 'primary',
-      content: 'Next',
-      pill: true,
-      onClick: (btn) => {
-        console.log('this is next ', btn);
-      },
-    },
-  ];
-
-  /** Emitted when advancing to a new step */
-  @Output() nextStep = new EventEmitter<{
-    button: StepButton;
-    event: any;
-    currentIndex: number;
-  }>();
-
-  /** Emitted when going back to a previous step */
-  @Output() prevStep = new EventEmitter<{
-    button: StepButton;
-    event: any;
-    currentIndex: number;
-  }>();
-
   /** Resolved theme for the selected variant */
   theme: StepsTheme = STEPS_THEME[this.variant] || STEPS_THEME.default;
 
@@ -100,12 +63,18 @@ export class StepsComponent implements AfterContentInit {
     const step = this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoNext && this.currentStepIndex < this.steps.length - 1) {
       this.currentStepIndex++;
-      this.nextStep.emit({
+      step.nextStep.emit({
         button,
         event,
+        data: step.data,
         currentIndex: this.currentStepIndex,
       });
-      button.onClick({ button, event, currentIndex: this.currentStepIndex });
+      button.onClick({
+        button,
+        event,
+        data: step.data,
+        currentIndex: this.currentStepIndex,
+      });
     }
   };
 
@@ -119,12 +88,18 @@ export class StepsComponent implements AfterContentInit {
     const step = this.steps.toArray()[this.currentStepIndex];
     if (step.shouldGoPrev && this.currentStepIndex > 0) {
       this.currentStepIndex--;
-      this.prevStep.emit({
+      step.prevStep.emit({
         button,
+        data: step.data,
         event,
         currentIndex: this.currentStepIndex,
       });
     }
-    button.onClick({ button, event, currentIndex: this.currentStepIndex });
+    button.onClick({
+      button,
+      event,
+      data: step.data,
+      currentIndex: this.currentStepIndex,
+    });
   };
 }

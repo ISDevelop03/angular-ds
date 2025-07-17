@@ -52,6 +52,35 @@ export class StepsStoryComponent {
       },
     },
   ];
+  leftButtons1 = [
+    {
+      variant: 'gray',
+      content: 'A Cancel',
+      disableHandleStep: true,
+      onClick: (btn) => {
+        this.cancel();
+        console.log('this is cancel hahah', btn);
+      },
+    },
+    {
+      variant: 'secondary',
+      content: 'A Prev',
+      onClick: (btn) => {
+        console.log('this is prev hahah', btn);
+      },
+    },
+  ];
+
+  rightButtons1 = [
+    {
+      variant: 'primary',
+      content: 'A Next',
+      pill: true,
+      onClick: (btn) => {
+        console.log('this is next hahah', btn);
+      },
+    },
+  ];
 
   prevStepHandler(event: any) {
     this.currentStepIndex = event.currentIndex;

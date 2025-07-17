@@ -34,159 +34,209 @@
         </button>
       </div>
 
-      <div class="flex items-items gap-4 w-full justify-start">
+      <div class="flex items-items gap-10 w-full justify-start">
         <!-- <h2 class="text-lg font-semibold mb-4">Accounts</h2> -->
         <div
-          class="w-full overflow-hidden"
+          class="w-full overflow-hidden flex flex-col gap-5"
           [ngClass]="[hideWrapperBackground ? 'max-w-[calc(100vw-225px-54px-32px)]':'max-w-[calc(100vw-225px-54px-32px)]']"
         >
-          <owl-carousel-o [options]="customOptions">
-            <ng-container *ngFor="let account of accounts; let idx = index">
-              <ng-template carouselSlide [id]="idx">
-                <ds-account-slider-card
-                  [account_number]="account.account_number"
-                  [balance]="account.balance"
-                  [currency]="account.currency"
-                  [type]="account.type"
-                  [id]="account.id"
-                  [date]="account.date"
-                  [actionsList]="actionsList"
-                  (onClick)="cardOnClick.bind(this, account.id)"
-                ></ds-account-slider-card>
-              </ng-template>
-            </ng-container>
-          </owl-carousel-o>
+          <div id="accounts" class="space-y-3">
+            <div class="flex w-full items-center justify-between gap-4">
+              <h3 class="text-[16px]/[18px] font-bold">Vos comptes favoris</h3>
+
+              <ds-call-to-action-icons
+                [actions]="actionsBasic"
+                className="w-fit"
+                variant="separated"
+              ></ds-call-to-action-icons>
+            </div>
+            <div
+              class="flex md:flex-row flex-col items-center gap-3 w-full justify-start"
+            >
+              <ds-account-selected-card
+                [account_number]="selected.account_number"
+                [balance]="selected.balance"
+                [currency]="selected.currency"
+                [type]="selected.type"
+                [id]="selected.id"
+                [date]="selected.date"
+                [data]="selected"
+                [isDiscrete]="isDiscrete"
+                [solde_comptable]="selected.solde_comptable"
+                [solde_temps_reel]="selected.solde_temps_reel"
+                [actionsList]="actionsList"
+                className="!w-[300px] shrink-0"
+              >
+              </ds-account-selected-card>
+              <!-- <h2 class="text-lg font-semibold mb-4">Accounts</h2> -->
+              <div class="w-full overflow-hidden">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-container
+                    *ngFor="let account of accounts; let idx = index"
+                  >
+                    <ng-template carouselSlide [width]="300" [id]="idx">
+                      <ds-account-slider-card
+                        [account_number]="account.account_number"
+                        [balance]="account.balance"
+                        [currency]="account.currency"
+                        [type]="account.type"
+                        [id]="account.id"
+                        [isDiscrete]="isDiscrete"
+                        [date]="account.date"
+                        [data]="account"
+                        [actionsList]="actionsList"
+                        (onClick)="onClick($event)"
+                        className="!shrink-0"
+                      ></ds-account-slider-card>
+                    </ng-template>
+                  </ng-container>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 space-y-4">
+            <p class="text-gray-600 dark:text-gray-400">
+              This sidebar contains a list of main menus and profile menus,
+              which can be expanded or collapsed.
+            </p>
+            <h1 class="text-2xl font-bold mb-4">Sidebar Demo</h1>
+            <p class="dark:text-gray-400 text-gray-700">
+              This is a live preview of the ds-sidebar component with nested
+              menus.
+            </p>
+            <p>
+              The sidebar is designed to be responsive and user-friendly,
+              providing easy navigation through the application. You can expand
+              and collapse the sidebar to suit your needs.
+            </p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
+              explicabo cumque est voluptatum necessitatibus sint dignissimos
+              iusto temporibus, vero accusantium non provident optio aspernatur.
+              Impedit at voluptatem totam ipsum. Blanditiis, officia alias.
+              Nulla, eius. Eaque necessitatibus blanditiis iusto cumque deleniti
+              explicabo doloremque, illo numquam. Dolores aspernatur
+              reprehenderit nulla optio illo, possimus rerum aliquid laboriosam,
+              corporis consequatur accusantium neque maiores aliquam sint
+              perspiciatis repellendus fugiat beatae blanditiis! Iste
+              repellendus omnis fuga magni dolorum quo itaque totam doloribus,
+              culpa minima numquam maiores fugiat velit. Magnam modi perferendis
+              consequatur! Vitae ipsam dolore veritatis, hic ut dolor
+              perferendis itaque quasi cupiditate quae quam autem, reiciendis
+              asperiores iure expedita sed qui non consectetur in odit, alias
+              fugiat! Vero, iure velit assumenda eligendi soluta quod autem
+              illum tempore optio alias dolore dolor id eveniet. Amet asperiores
+              deleniti optio nam necessitatibus ducimus. Expedita quo
+              necessitatibus ut debitis magnam laboriosam quos mollitia
+              recusandae amet commodi inventore magni enim neque nam voluptatem
+              a nihil atque deleniti, dolorum, voluptatibus culpa, molestias
+              obcaecati accusantium. Perspiciatis, placeat? Esse fugiat nisi
+              voluptates suscipit dicta provident, reprehenderit earum excepturi
+              rem quibusdam eos a et reiciendis eius odio nostrum dolor quo quod
+              placeat debitis recusandae, corrupti veniam alias? Voluptas
+              blanditiis ipsum unde beatae dolores, minus, quia repudiandae
+              iusto et distinctio provident autem enim sunt! Sunt suscipit
+              inventore ipsa corporis harum, laborum pariatur est amet velit
+              sapiente quae commodi fugiat deleniti, aperiam nemo, dicta qui.
+              Nobis ipsam enim, minus nostrum explicabo officiis quis, corrupti
+              dolore in saepe quibusdam sequi possimus velit culpa qui a nihil
+              aliquid. Fugiat consectetur vero praesentium, fugit sit porro,
+              vitae maiores reiciendis beatae quaerat quos asperiores omnis et
+              quasi? Distinctio alias quo molestiae, fugiat accusamus animi
+              tenetur voluptates amet iure nostrum omnis? Veniam non perferendis
+              minus quaerat provident aut dolor voluptate temporibus voluptatem
+              nihil repudiandae ipsam neque asperiores molestiae delectus qui
+              doloremque, ullam quo. Modi dicta ratione delectus adipisci
+              temporibus! Natus itaque quia, aut laborum explicabo nisi
+              voluptates! Consequuntur blanditiis itaque ea sapiente deleniti
+              iusto provident eius velit quo, ipsa, modi qui soluta est quos.
+              Iusto sequi, praesentium iste quasi error possimus natus! Modi
+              voluptas deleniti reprehenderit sapiente consequatur sint! Fugit
+              reprehenderit repellendus qui perspiciatis, sit consectetur totam
+              dolores, obcaecati nesciunt iure, explicabo illum cum rerum eum
+              rem pariatur recusandae. Recusandae explicabo tempore impedit
+              pariatur quis expedita nostrum quos unde, sapiente quibusdam
+              excepturi corrupti quasi maxime labore accusamus alias aperiam
+              fugiat ipsum nihil. Qui, quo perferendis! Consectetur, nobis!
+              Cupiditate cumque illo harum debitis facilis, obcaecati reiciendis
+              atque, enim iure earum fugiat error. Illo perferendis in natus
+              totam deleniti eius placeat eos consectetur dolorem tempora, quasi
+              quo explicabo rem sunt? Harum repudiandae aliquam libero adipisci,
+              expedita aliquid sequi sit laboriosam enim quia laborum, eum non
+              est similique neque quasi facilis et? Blanditiis cumque vero neque
+              itaque, expedita minus accusamus quis, officia inventore repellat
+              possimus vitae molestias ipsum laboriosam, sapiente debitis
+              voluptatem nulla labore omnis et? Quaerat maiores doloribus, quo
+              eos provident nihil nobis fugiat commodi. Voluptate pariatur
+              quibusdam, minus corrupti tempora porro incidunt vitae soluta
+              voluptas omnis itaque obcaecati, debitis atque blanditiis eveniet
+              iure odit ratione libero delectus! Veniam nostrum labore, culpa
+              quam nemo incidunt numquam molestiae! Magni, sit! Inventore
+              laborum minus nisi, at dignissimos ea? Excepturi veritatis aut
+              molestiae adipisci, tempora placeat harum quisquam repellat quae
+              illum delectus voluptatem? Doloremque, quas molestias deleniti
+              quibusdam cupiditate totam asperiores numquam expedita
+              perspiciatis nostrum nihil obcaecati dignissimos consectetur
+              laboriosam non iure blanditiis praesentium perferendis labore
+              illum facere porro, dolorem quasi. Ducimus, dicta quo. Delectus
+              excepturi accusamus reprehenderit neque, cumque architecto saepe,
+              autem ullam iure perspiciatis, voluptas ipsam quo quos corporis
+              labore. Odit fuga voluptas suscipit ad autem vero eius aspernatur?
+              Voluptates, atque fugit quae illo dignissimos omnis suscipit
+              tenetur expedita porro iusto doloremque iste corporis eos
+              eligendi. Amet libero cupiditate modi officiis excepturi
+              voluptatem, possimus itaque ullam cumque illo autem veniam,
+              reiciendis, voluptas quas voluptates. Culpa ullam repellat
+              voluptas pariatur architecto amet eum, ipsam recusandae sit
+              perspiciatis, asperiores magnam commodi incidunt iusto, minima
+              nulla nisi est exercitationem neque corrupti nostrum eveniet vitae
+              hic? Possimus labore accusantium iure debitis quam temporibus
+              deleniti exercitationem maxime aperiam enim molestias sed unde
+              fugit libero commodi distinctio, dolore ex minus laudantium nihil,
+              natus perferendis assumenda aut amet! Consequuntur eos explicabo
+              tenetur repellat incidunt at delectus quasi omnis nobis quae quia
+              praesentium excepturi illum vel, eius vitae accusantium in
+              officia, impedit itaque odit iure placeat blanditiis laboriosam!
+              Ratione illum porro corporis, quibusdam repellat earum error, unde
+              suscipit similique veritatis nostrum, excepturi rerum corrupti
+              tenetur adipisci doloribus voluptatibus quidem perspiciatis.
+              Officia repudiandae magnam rerum quibusdam modi nostrum blanditiis
+              quaerat id repellat dolorem, excepturi numquam odio? Ex qui sint
+              minus magnam omnis rem culpa sapiente vel molestias adipisci
+              eveniet, facere officia, architecto praesentium maiores porro
+              deleniti laborum iste ducimus ullam. Nulla repellendus itaque
+              dolorum voluptatum rerum corporis nemo facere laborum consequatur
+              iste obcaecati in doloribus alias at voluptates, facilis,
+              accusantium reprehenderit numquam, eligendi odio vero quidem.
+              Voluptatibus veritatis deserunt voluptatum facilis, earum
+              asperiores reprehenderit sed ea? Dolore quam cum enim quisquam ea
+              facilis consectetur, perspiciatis labore voluptatem adipisci nisi
+              quasi quo atque nam inventore, rerum illo qui, repudiandae
+              accusantium consequatur vero! Rerum adipisci totam est vero optio
+              quae reiciendis excepturi dignissimos nostrum eligendi, amet
+              ratione asperiores perspiciatis aperiam? Cum fugiat nihil alias
+              quia temporibus modi itaque at! Numquam, impedit explicabo ea
+              sequi provident in quasi. Et nobis molestiae error aliquam
+              delectus libero assumenda pariatur provident alias? Repellendus
+              veniam libero itaque ipsa officiis saepe repellat accusamus est
+              ipsam doloribus, excepturi ducimus recusandae, obcaecati non, quam
+              exercitationem. Tempore cum molestias cumque aspernatur, iure
+              ipsam voluptatem hic ratione, quis ex est quibusdam aut nulla eos
+              nihil excepturi ducimus quas inventore. Veniam reiciendis itaque
+              nisi ea reprehenderit maxime cupiditate, animi dolorem alias iure?
+              Mollitia porro tenetur reprehenderit provident ullam error ea
+              quibusdam, aspernatur enim nisi at voluptate odio doloremque
+              repellat veritatis temporibus debitis sunt numquam culpa quia
+              minus optio? Facilis dicta ex enim ipsa aspernatur iusto quisquam
+              vitae exercitationem ratione, delectus voluptatem rem eveniet
+              laborum autem non cumque voluptates eaque quibusdam? Unde in
+              illum, debitis aspernatur molestiae perspiciatis sapiente
+              similique labore vero reprehenderit veniam, distinctio, totam
+              eius!
+            </p>
+          </div>
         </div>
       </div>
-      <div class="mb-4">
-        <p class="text-gray-600 dark:text-gray-400">
-          This sidebar contains a list of main menus and profile menus, which
-          can be expanded or collapsed.
-        </p>
-      </div>
-      <h1 class="text-2xl font-bold mb-4">Sidebar Demo</h1>
-      <p class="dark:text-gray-400 text-gray-700">
-        This is a live preview of the ds-sidebar component with nested menus.
-      </p>
-      <p>
-        The sidebar is designed to be responsive and user-friendly, providing
-        easy navigation through the application. You can expand and collapse the
-        sidebar to suit your needs.
-      </p>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-        explicabo cumque est voluptatum necessitatibus sint dignissimos iusto
-        temporibus, vero accusantium non provident optio aspernatur. Impedit at
-        voluptatem totam ipsum. Blanditiis, officia alias. Nulla, eius. Eaque
-        necessitatibus blanditiis iusto cumque deleniti explicabo doloremque,
-        illo numquam. Dolores aspernatur reprehenderit nulla optio illo,
-        possimus rerum aliquid laboriosam, corporis consequatur accusantium
-        neque maiores aliquam sint perspiciatis repellendus fugiat beatae
-        blanditiis! Iste repellendus omnis fuga magni dolorum quo itaque totam
-        doloribus, culpa minima numquam maiores fugiat velit. Magnam modi
-        perferendis consequatur! Vitae ipsam dolore veritatis, hic ut dolor
-        perferendis itaque quasi cupiditate quae quam autem, reiciendis
-        asperiores iure expedita sed qui non consectetur in odit, alias fugiat!
-        Vero, iure velit assumenda eligendi soluta quod autem illum tempore
-        optio alias dolore dolor id eveniet. Amet asperiores deleniti optio nam
-        necessitatibus ducimus. Expedita quo necessitatibus ut debitis magnam
-        laboriosam quos mollitia recusandae amet commodi inventore magni enim
-        neque nam voluptatem a nihil atque deleniti, dolorum, voluptatibus
-        culpa, molestias obcaecati accusantium. Perspiciatis, placeat? Esse
-        fugiat nisi voluptates suscipit dicta provident, reprehenderit earum
-        excepturi rem quibusdam eos a et reiciendis eius odio nostrum dolor quo
-        quod placeat debitis recusandae, corrupti veniam alias? Voluptas
-        blanditiis ipsum unde beatae dolores, minus, quia repudiandae iusto et
-        distinctio provident autem enim sunt! Sunt suscipit inventore ipsa
-        corporis harum, laborum pariatur est amet velit sapiente quae commodi
-        fugiat deleniti, aperiam nemo, dicta qui. Nobis ipsam enim, minus
-        nostrum explicabo officiis quis, corrupti dolore in saepe quibusdam
-        sequi possimus velit culpa qui a nihil aliquid. Fugiat consectetur vero
-        praesentium, fugit sit porro, vitae maiores reiciendis beatae quaerat
-        quos asperiores omnis et quasi? Distinctio alias quo molestiae, fugiat
-        accusamus animi tenetur voluptates amet iure nostrum omnis? Veniam non
-        perferendis minus quaerat provident aut dolor voluptate temporibus
-        voluptatem nihil repudiandae ipsam neque asperiores molestiae delectus
-        qui doloremque, ullam quo. Modi dicta ratione delectus adipisci
-        temporibus! Natus itaque quia, aut laborum explicabo nisi voluptates!
-        Consequuntur blanditiis itaque ea sapiente deleniti iusto provident eius
-        velit quo, ipsa, modi qui soluta est quos. Iusto sequi, praesentium iste
-        quasi error possimus natus! Modi voluptas deleniti reprehenderit
-        sapiente consequatur sint! Fugit reprehenderit repellendus qui
-        perspiciatis, sit consectetur totam dolores, obcaecati nesciunt iure,
-        explicabo illum cum rerum eum rem pariatur recusandae. Recusandae
-        explicabo tempore impedit pariatur quis expedita nostrum quos unde,
-        sapiente quibusdam excepturi corrupti quasi maxime labore accusamus
-        alias aperiam fugiat ipsum nihil. Qui, quo perferendis! Consectetur,
-        nobis! Cupiditate cumque illo harum debitis facilis, obcaecati
-        reiciendis atque, enim iure earum fugiat error. Illo perferendis in
-        natus totam deleniti eius placeat eos consectetur dolorem tempora, quasi
-        quo explicabo rem sunt? Harum repudiandae aliquam libero adipisci,
-        expedita aliquid sequi sit laboriosam enim quia laborum, eum non est
-        similique neque quasi facilis et? Blanditiis cumque vero neque itaque,
-        expedita minus accusamus quis, officia inventore repellat possimus vitae
-        molestias ipsum laboriosam, sapiente debitis voluptatem nulla labore
-        omnis et? Quaerat maiores doloribus, quo eos provident nihil nobis
-        fugiat commodi. Voluptate pariatur quibusdam, minus corrupti tempora
-        porro incidunt vitae soluta voluptas omnis itaque obcaecati, debitis
-        atque blanditiis eveniet iure odit ratione libero delectus! Veniam
-        nostrum labore, culpa quam nemo incidunt numquam molestiae! Magni, sit!
-        Inventore laborum minus nisi, at dignissimos ea? Excepturi veritatis aut
-        molestiae adipisci, tempora placeat harum quisquam repellat quae illum
-        delectus voluptatem? Doloremque, quas molestias deleniti quibusdam
-        cupiditate totam asperiores numquam expedita perspiciatis nostrum nihil
-        obcaecati dignissimos consectetur laboriosam non iure blanditiis
-        praesentium perferendis labore illum facere porro, dolorem quasi.
-        Ducimus, dicta quo. Delectus excepturi accusamus reprehenderit neque,
-        cumque architecto saepe, autem ullam iure perspiciatis, voluptas ipsam
-        quo quos corporis labore. Odit fuga voluptas suscipit ad autem vero eius
-        aspernatur? Voluptates, atque fugit quae illo dignissimos omnis suscipit
-        tenetur expedita porro iusto doloremque iste corporis eos eligendi. Amet
-        libero cupiditate modi officiis excepturi voluptatem, possimus itaque
-        ullam cumque illo autem veniam, reiciendis, voluptas quas voluptates.
-        Culpa ullam repellat voluptas pariatur architecto amet eum, ipsam
-        recusandae sit perspiciatis, asperiores magnam commodi incidunt iusto,
-        minima nulla nisi est exercitationem neque corrupti nostrum eveniet
-        vitae hic? Possimus labore accusantium iure debitis quam temporibus
-        deleniti exercitationem maxime aperiam enim molestias sed unde fugit
-        libero commodi distinctio, dolore ex minus laudantium nihil, natus
-        perferendis assumenda aut amet! Consequuntur eos explicabo tenetur
-        repellat incidunt at delectus quasi omnis nobis quae quia praesentium
-        excepturi illum vel, eius vitae accusantium in officia, impedit itaque
-        odit iure placeat blanditiis laboriosam! Ratione illum porro corporis,
-        quibusdam repellat earum error, unde suscipit similique veritatis
-        nostrum, excepturi rerum corrupti tenetur adipisci doloribus
-        voluptatibus quidem perspiciatis. Officia repudiandae magnam rerum
-        quibusdam modi nostrum blanditiis quaerat id repellat dolorem, excepturi
-        numquam odio? Ex qui sint minus magnam omnis rem culpa sapiente vel
-        molestias adipisci eveniet, facere officia, architecto praesentium
-        maiores porro deleniti laborum iste ducimus ullam. Nulla repellendus
-        itaque dolorum voluptatum rerum corporis nemo facere laborum consequatur
-        iste obcaecati in doloribus alias at voluptates, facilis, accusantium
-        reprehenderit numquam, eligendi odio vero quidem. Voluptatibus veritatis
-        deserunt voluptatum facilis, earum asperiores reprehenderit sed ea?
-        Dolore quam cum enim quisquam ea facilis consectetur, perspiciatis
-        labore voluptatem adipisci nisi quasi quo atque nam inventore, rerum
-        illo qui, repudiandae accusantium consequatur vero! Rerum adipisci totam
-        est vero optio quae reiciendis excepturi dignissimos nostrum eligendi,
-        amet ratione asperiores perspiciatis aperiam? Cum fugiat nihil alias
-        quia temporibus modi itaque at! Numquam, impedit explicabo ea sequi
-        provident in quasi. Et nobis molestiae error aliquam delectus libero
-        assumenda pariatur provident alias? Repellendus veniam libero itaque
-        ipsa officiis saepe repellat accusamus est ipsam doloribus, excepturi
-        ducimus recusandae, obcaecati non, quam exercitationem. Tempore cum
-        molestias cumque aspernatur, iure ipsam voluptatem hic ratione, quis ex
-        est quibusdam aut nulla eos nihil excepturi ducimus quas inventore.
-        Veniam reiciendis itaque nisi ea reprehenderit maxime cupiditate, animi
-        dolorem alias iure? Mollitia porro tenetur reprehenderit provident ullam
-        error ea quibusdam, aspernatur enim nisi at voluptate odio doloremque
-        repellat veritatis temporibus debitis sunt numquam culpa quia minus
-        optio? Facilis dicta ex enim ipsa aspernatur iusto quisquam vitae
-        exercitationem ratione, delectus voluptatem rem eveniet laborum autem
-        non cumque voluptates eaque quibusdam? Unde in illum, debitis aspernatur
-        molestiae perspiciatis sapiente similique labore vero reprehenderit
-        veniam, distinctio, totam eius!
-      </p>
     </div>
   </div>
 </div>

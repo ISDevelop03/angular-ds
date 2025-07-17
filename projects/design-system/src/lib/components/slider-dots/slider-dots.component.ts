@@ -23,6 +23,7 @@ export class SliderDotsComponent {
 
   /** 0-based index of the currently “active” slide. */
   @Input() active: number = 0;
+  @Input() doNotDisableArrows: boolean = false;
 
   /**
    * Which theme (variant) from SliderDotsTheme to use.
@@ -73,6 +74,11 @@ export class SliderDotsComponent {
 
   /** Handler for clicking Prev: only emit if not disabled. */
   onPrev(): void {
+    if (this.doNotDisableArrows) {
+      this.next.emit();
+      return;
+    }
+
     if (!this.isPrevDisabled) {
       this.prev.emit();
     }
@@ -80,6 +86,11 @@ export class SliderDotsComponent {
 
   /** Handler for clicking Next: only emit if not disabled. */
   onNext(): void {
+    if (this.doNotDisableArrows) {
+      this.next.emit();
+      return;
+    }
+
     if (!this.isNextDisabled) {
       this.next.emit();
     }
@@ -98,6 +109,11 @@ export class SliderDotsComponent {
    */
   get prevArrowWrapperClass(): string {
     const base = this.theme.arrow.wrapper;
+
+    if (this.doNotDisableArrows) {
+      return base;
+    }
+
     return this.isPrevDisabled
       ? `${base} ${this.theme.arrow.disabledOpacity}`
       : base;
@@ -109,6 +125,10 @@ export class SliderDotsComponent {
    */
   get nextArrowWrapperClass(): string {
     const base = this.theme.arrow.wrapper;
+
+    if (this.doNotDisableArrows) {
+      return base;
+    }
     return this.isNextDisabled
       ? `${base} ${this.theme.arrow.disabledOpacity}`
       : base;
@@ -120,12 +140,19 @@ export class SliderDotsComponent {
    * When disabled, we replace that with `disabledText`.
    */
   get prevIconClass(): string {
+    if (this.doNotDisableArrows) {
+      return `${this.theme.arrow.activeText}`;
+    }
+
     return this.isPrevDisabled
       ? `${this.theme.arrow.disabledText}`
       : `${this.theme.arrow.activeText}`;
   }
 
   get nextIconClass(): string {
+    if (this.doNotDisableArrows) {
+      return `${this.theme.arrow.activeText}`;
+    }
     return this.isNextDisabled
       ? `${this.theme.arrow.disabledText}`
       : `${this.theme.arrow.activeText}`;

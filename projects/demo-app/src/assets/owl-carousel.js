@@ -21,7 +21,7 @@ const positionCarouselDots = () => {
   prevBtn.innerHTML = svgIcon("arrow-left");
   nextBtn.innerHTML = svgIcon("arrow-right");
 
-  const width = dots?.offsetWidth || 0;
+  const width = dots.offsetWidth || 0;
   nextBtn.style.position = "absolute";
   nextBtn.style.left = width + 18 + "px";
 };

@@ -1,0 +1,35 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">DropdownHolder</h2>
+  <div class="flex flex-col gap-4">
+    <ds-dropdown-holder
+      (toggle)="toggleDropdown($event)"
+      [buttonContent]="buttonContent"
+      containerClassName="max-w-[500px] p-4 rounded-md border border-neutral-100 bg-level-4"
+    >
+      <div>
+        <p class="text-sm text-neutral-500">
+          This is a dropdown holder component that can be used to wrap any
+          content. It allows for custom button content and emits an event when
+          the dropdown is toggled.
+        </p>
+        <p class="text-sm text-neutral-500">
+          Click the button below to toggle the dropdown. The button content can
+          be customized using the <code>buttonContent</code> input.
+        </p>
+      </div>
+    </ds-dropdown-holder>
+  </div>
+</section>
+
+<ng-template #buttonContent>
+  <div
+    class="flex items-center gap-2 border bg-level-2 text-sm border-neutral-100 rounded-md px-3 py-2"
+  >
+    <ds-icon id="Police" class="text-red-500" size="20px"></ds-icon>
+    <span> Placeholder </span>
+    <ds-icon
+      id="arrow-down"
+      [class]="['transition-all duration-500 ease-in-out',isOpen ? '-rotate-180':'']"
+    ></ds-icon>
+  </div>
+</ng-template>

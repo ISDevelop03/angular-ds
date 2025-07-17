@@ -19,10 +19,9 @@ export class DsSidebarComponent {
   @Input() mainMenus: IMainMenu[] = [];
   @Input() disableMainMenus: boolean = false;
   @Input() sizes: Cap[] = [
-    { name: 'S', size: 14 },
-    { name: 'M', size: 16 },
-    { name: 'L', size: 18 },
-    { name: 'XL', size: 20 },
+    // { name: 'S', size: 14 },
+    // { name: 'M', size: 16 },
+    // { name: 'L', size: 18 },
   ];
   @Input() language: ILanguage = {
     src: '/assets/france-flag.svg',

@@ -158,6 +158,9 @@ body.main-menu-open #main-content {
   }
 }
 
+.carousel-item {
+  @apply snap-start;
+}
 /* [id^="ds-"] {
   @apply !bg-red-400;
 } */

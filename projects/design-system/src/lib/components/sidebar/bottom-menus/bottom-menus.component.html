@@ -9,7 +9,7 @@
   <li (click)="reclamationOnClick.emit($event)">
     <ds-icon id="reclamation" class="size-4"></ds-icon>
   </li>
-  <li class="relative">
+  <li *ngIf="sizes.length > 0" class="relative">
     <button (click)="capsClick($event)">
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
