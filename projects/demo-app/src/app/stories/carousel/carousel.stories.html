@@ -1,0 +1,23 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">Carousel</h2>
+  <div class="flex flex-col gap-10">
+    <ds-carousel [itemCount]="accounts.length" wrapperClass="w-full">
+      <ng-container *ngFor="let account of accounts; let idx = index">
+        <div class="carousel-item shrink-0 w-[250px]">
+          <ds-account-slider-card
+            [account_number]="account.account_number"
+            [balance]="account.balance"
+            [currency]="account.currency"
+            [type]="account.type"
+            [id]="account.id"
+            [date]="account.date"
+            [data]="account"
+            [actionsList]="actionsList"
+            (onClick)="onCardClick($event)"
+            className="w-[250px]"
+          ></ds-account-slider-card>
+        </div>
+      </ng-container>
+    </ds-carousel>
+  </div>
+</section>

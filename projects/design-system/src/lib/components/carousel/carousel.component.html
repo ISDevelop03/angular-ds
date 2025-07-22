@@ -1,0 +1,20 @@
+<div id="ds-carousel" [ngClass]="className">
+  <div class="relative flex flex-col gap-3 w-full">
+    <div
+      #carousel
+      class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-x-4 no-scrollbar"
+      [ngClass]="wrapperClass"
+    >
+      <ng-content></ng-content>
+    </div>
+
+    <ds-slider-dots
+      [count]="visibleSlides.length"
+      [active]="activeIndex"
+      [showArrows]="true"
+      (prev)="scrollPrev()"
+      (next)="scrollNext()"
+      (select)="onSelect($event)"
+    ></ds-slider-dots>
+  </div>
+</div>

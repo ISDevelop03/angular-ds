@@ -127,5 +127,8 @@ export * from './form-elements/autocomplete/autocomplete.stories';
 // Auto-export for floated-buttons stories
 export * from './floated-buttons/floated-buttons.stories';
 
+// Auto-export for carousel stories
+export * from './carousel/carousel.stories';
+
 // Auto-export for dropdown-holder stories
 export * from './dropdown-holder/dropdown-holder.stories';

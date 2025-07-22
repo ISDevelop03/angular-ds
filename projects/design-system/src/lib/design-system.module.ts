@@ -1,6 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DropdownHolderComponent } from './components/dropdown-holder/dropdown-holder.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { FloatedButtonsComponent } from './components/floated-buttons/floated-buttons.component';
 import { AutocompleteComponent } from './components/form-elements/autocomplete/autocomplete.component';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
@@ -189,6 +190,7 @@ registerLocaleData(localeFr, 'fr-FR');
     SkeletonComponent,
     AutocompleteComponent,
     FloatedButtonsComponent,
+    CarouselComponent,
     DropdownHolderComponent,
   ],
   imports: [
@@ -201,7 +203,7 @@ registerLocaleData(localeFr, 'fr-FR');
     OverlayModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    // BsDatepickerModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   exports: [
@@ -281,6 +283,7 @@ registerLocaleData(localeFr, 'fr-FR');
     SkeletonComponent,
     AutocompleteComponent,
     FloatedButtonsComponent,
+    CarouselComponent,
     DropdownHolderComponent,
   ],
 })

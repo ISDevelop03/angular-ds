@@ -75,6 +75,7 @@ import {
   SkeletonStoryComponent,
   AutocompleteStoryComponent,
   FloatedButtonsStoryComponent,
+  CarouselStoryComponent,
   DropdownHolderStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
@@ -176,6 +177,7 @@ export const pages: Routes = [
   { path: 'skeleton', component: SkeletonStoryComponent },
   { path: 'autocomplete', component: AutocompleteStoryComponent },
   { path: 'floated-buttons', component: FloatedButtonsStoryComponent },
+  { path: 'carousel', component: CarouselStoryComponent },
   { path: 'dropdown-holder', component: DropdownHolderStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
@@ -274,6 +276,7 @@ const router = RouterModule.forRoot(pages);
     SkeletonStoryComponent,
     AutocompleteStoryComponent,
     FloatedButtonsStoryComponent,
+    CarouselStoryComponent,
     DropdownHolderStoryComponent,
   ],
   providers: [],

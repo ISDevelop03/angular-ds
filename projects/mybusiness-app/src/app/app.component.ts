@@ -29,6 +29,12 @@ export class AppComponent implements OnInit {
     alt: 'Français QWERTYUIOP',
   };
 
+  sizes = [
+    { name: 'S', size: 14 },
+    { name: 'M', size: 16 },
+    { name: 'L', size: 18 },
+  ];
+
   currentUrl: string;
   private bodyClassObserver: MutationObserver;
 

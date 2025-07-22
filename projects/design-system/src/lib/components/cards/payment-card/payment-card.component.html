@@ -11,10 +11,13 @@
     <img
       [src]="image"
       [alt]="title"
-      class="shrink-0 w-[50px] h-[26px] rounded-[2px] object-cover"
+      class="shrink-0 w-[50px] aspect-square rounded-[2px] object-cover"
     />
 
-    <h3 *ngIf="title" class="text-[1rem]/[1.25rem] font-semibold text-neutral-900">
+    <h3
+      *ngIf="title"
+      class="text-[1rem]/[1.25rem] font-semibold text-neutral-900"
+    >
       {{ title }}
     </h3>
 
