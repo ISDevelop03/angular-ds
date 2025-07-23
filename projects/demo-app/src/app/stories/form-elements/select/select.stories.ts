@@ -61,4 +61,9 @@ export class SelectStoryComponent {
     console.log('data.valuedata.value', data);
     this.selectedValue = data.value;
   }
+
+  onSearchValueChange(value: string) {
+    console.log('value', value);
+  }
+
 }

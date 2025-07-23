@@ -5,7 +5,7 @@ export const theme = {
       button: {
         select:
           'cursor-default border text-[1rem]/normal border-neutral-50 h-[40px] flex items-center justify-between w-full px-3 py-2 rounded bg-level-3 placeholder:text-[1rem]/normal focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
-        selected: 'flex items-center justify-between gap-2',
+        selected: 'flex items-center justify-between gap-2 w-full relative',
         error:
           'ring-1 ring-error-400 border-1 border-error-400 outline-1 border-1 border-error-400',
         iconeError: 'text-error-500',

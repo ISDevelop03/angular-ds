@@ -3,11 +3,10 @@
     <ds-label [className]="theme[variant].element.label">{{ label }}</ds-label>
   </ng-container>
 
-  <button
+  <div
     #triggerButton
     type="button"
     (click)="toggleDropdown()"
-    [disabled]="disabled || isLoading"
     [ngClass]="[
       theme[variant].element.button.select,
       hasError ? theme[variant].element.button.error : '',
@@ -28,7 +27,8 @@
         [alt]="selected.label"
         class="rounded-full size-5"
       />
-      <span
+      <ng-container *ngIf="!autoComplete">
+        <span
         [ngClass]="
           selected.label !== placeholder
             ? theme[variant].element.button.label
@@ -37,6 +37,10 @@
       >
         {{ selected.label }}
       </span>
+      </ng-container>
+      <ng-container *ngIf="autoComplete">
+        <input type="text" class="w-full outline-none" [placeholder]="placeholder" (input)="onSearchInput($event.target.value)" />
+      </ng-container>
     </div>
 
     <ds-icon
@@ -50,7 +54,7 @@
       id="Loader"
       [class]="theme[variant].element.icone.arrow + ' animate-spin'"
     ></ds-icon>
-  </button>
+  </div>
 
   <div
     *ngIf="isOpen"

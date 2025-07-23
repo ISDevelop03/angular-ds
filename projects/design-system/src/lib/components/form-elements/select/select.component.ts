@@ -7,9 +7,12 @@ import {
   ViewChild,
   HostListener,
   forwardRef,
+  OnDestroy,
 } from '@angular/core';
 import { theme } from './theme';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 
 export interface SelectItem {
   value: string;
@@ -39,7 +42,7 @@ export interface SelectItem {
     },
   ],
 })
-export class DsSelectComponent implements ControlValueAccessor {
+export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -55,10 +58,15 @@ export class DsSelectComponent implements ControlValueAccessor {
   @Input() buttonIcon?: string;
   @Input() value: string | string[] | null = null;
   @Input() customOptionsStyles?: { [key: string]: any };
-
+  @Input() autoComplete?: boolean = false;
+  @Input() debounceTime: number = 300; // Default debounce time in milliseconds
+  
+  @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
 
   private static zIndexCounter = 10000;
+  private searchSubject = new Subject<string>();
+  private destroy$ = new Subject<void>();
 
   isOpen: boolean = false;
   containerPosition: { [key: string]: any } = {};
@@ -74,6 +82,28 @@ export class DsSelectComponent implements ControlValueAccessor {
   // hold the form’s callbacks
   private _onChange: (v: any) => void = () => {};
   private _onTouched: () => void = () => {};
+
+  constructor() {
+    // Set up debounced search
+    this.searchSubject
+      .pipe(
+        debounceTime(this.debounceTime),
+        takeUntil(this.destroy$)
+      )
+      .subscribe((searchTerm: string) => {
+        this.onSearch.emit(searchTerm);
+      });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // Method to handle search input with debouncing
+  onSearchInput(searchTerm: string) {
+    this.searchSubject.next(searchTerm);
+  }
 
   // ----------------------------------------
   // ControlValueAccessor API

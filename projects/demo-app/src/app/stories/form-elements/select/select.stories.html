@@ -18,6 +18,17 @@
     pill="true"
   ></ds-select>
 
+  <h3>Auto Complete Select</h3>
+  <ds-select
+    [items]="options1"
+    [value]="selectedValue"
+    (valueChange)="valueChange($event)"
+    (onSearch)="onSearchValueChange($event)"
+    label="Select Account"
+    autoComplete="true"
+    placeholder="Pick one..."
+  ></ds-select>
+
   <h3>Multi Select</h3>
   <ds-select
     [items]="options1"
