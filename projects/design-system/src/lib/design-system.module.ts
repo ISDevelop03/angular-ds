@@ -110,7 +110,6 @@ import { CodeInputModule } from 'angular-code-input';
 // import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -202,7 +201,6 @@ registerLocaleData(localeFr, 'fr-FR');
     // NgxDaterangepickerMd.forRoot(),
     OverlayModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
