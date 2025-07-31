@@ -17,7 +17,7 @@
     "watch:css": "tailwindcss -i ./projects/design-system/src/styles/styles.css -o ./styles/styles.css --watch",
     "docs": "compodoc -p projects/design-system/tsconfig.lib.json -s --watch  --theme laravel",
     "icons:build": "npx --yes @vactorynext/svg-spreact-cli ./icons --optimize true --tidy true > ./projects/demo-app/src/assets/icons.svg",
-    "pack:ds": "npm run build:ds && cd dist/mybusiness-design-system && npm pack && mv mybusiness-design-system-*.tgz ../../ && cd ../../ && npm install mybusiness-design-system-0.0.15.tgz"
+    "pack:ds": "npm run build:ds && cd dist/mybusiness-design-system && npm pack && mv mybusiness-design-system-*.tgz ../../ && cd ../../ && npm install mybusiness-design-system-0.0.16.tgz"
   },
   "files": [
     "dist"
