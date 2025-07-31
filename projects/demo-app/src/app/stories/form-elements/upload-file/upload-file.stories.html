@@ -25,5 +25,12 @@
         </p>
       </div>
     </ds-upload-file>
+    <ds-upload-file
+      [maxFileSizeMB]="10"
+      [allowedExtensions]="['csv','txt','json','pdf']"
+      [isMultiple]="true"
+      [downloadTemplateLink]="templateLink"
+      (fileSelected)="onFileSelected($event)"
+    ></ds-upload-file>
   </div>
 </section>
