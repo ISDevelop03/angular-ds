@@ -12,7 +12,6 @@ import {
 import { theme } from './theme';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { debounceTime, takeUntil } from 'rxjs/operators';
 
 export interface SelectItem {
   value: string;
@@ -64,6 +63,15 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
 
+  filteredItems: SelectItem[] = [];
+
+ 
+
+  ngOnInit() {
+    this.filteredItems = [].concat(this.items);
+    console.log("filteredItems", this.filteredItems)
+  }
+
   private static zIndexCounter = 10000;
   private searchSubject = new Subject<string>();
   private destroy$ = new Subject<void>();
@@ -83,18 +91,7 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
   private _onChange: (v: any) => void = () => {};
   private _onTouched: () => void = () => {};
 
-  constructor() {
-    // Set up debounced search
-    this.searchSubject
-      .pipe(
-        debounceTime(this.debounceTime),
-        takeUntil(this.destroy$)
-      )
-      .subscribe((searchTerm: string) => {
-        this.onSearch.emit(searchTerm);
-      });
-  }
-
+  
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
@@ -102,7 +99,8 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
 
   // Method to handle search input with debouncing
   onSearchInput(searchTerm: string) {
-    this.searchSubject.next(searchTerm);
+    console.log("searchTerm", searchTerm)
+    this.filteredItems = this.items.filter((item) => item.label.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 
   // ----------------------------------------

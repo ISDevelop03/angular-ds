@@ -62,9 +62,9 @@
     [ngStyle]="mergedStyles"
     [ngClass]="theme[variant].element.options.container"
   >
-    <ng-container *ngIf="items.length > 0; else emptyState">
+    <ng-container *ngIf="filteredItems.length > 0; else emptyState">
       <div
-        *ngFor="let item of items"
+        *ngFor="let item of filteredItems"
         (click)="selectOption($event, item)"
         class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r"
         [ngClass]="[
