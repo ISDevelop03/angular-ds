@@ -52,7 +52,7 @@
     <!-- panel -->
     <div *ngIf="item.isOpen" [ngClass]="getPanelClasses()">
       <ng-container *ngIf="isTemplate(item.content); else showHtml">
-        <ng-container *ngTemplateOutlet="item.content"></ng-container>
+        <ng-container *ngTemplateOutlet="item.content; context: item.context"></ng-container>
       </ng-container>
       <ng-template #showHtml>
         <div [innerHTML]="item.content"></div>

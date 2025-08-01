@@ -20,6 +20,7 @@ export class PaymentDetailsCardComponent {
   @Input() isSelected?: boolean = false;
   @Input() useCheckbox?: boolean = false;
   @Input() className?: string = '';
+  @Input() disabled?: boolean = false
 
   @Input() data?: any;
 

@@ -15,6 +15,7 @@ export interface AccordionItem {
   caption?: string;
   /** Either a string (HTML) or an Angular `<ng-template>` */
   content: string | TemplateRef<any>;
+  context?: any;
   count?: string | number;
   open?: boolean;
 }
