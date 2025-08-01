@@ -40,5 +40,32 @@
         </p>
       </div>
     </ds-payment-details-card>
+    <ds-payment-details-card
+    title="Article ID N°234567997656875"
+    date="2023-10-01"
+    [price]="2837"
+    useCheckbox="true"
+    currency="USD"
+    [isSelected]="isSelected"
+    (onSelect)="onSelect($event)"
+    className="max-w-[650px]"
+    [disabled]="true"
+  >
+    <div class="space-y-2">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+        necessitatibus fugit placeat ab, harum sit dolorem dolor illo,
+        expedita accusamus omnis quasi nam rerum labore velit repellat
+        corporis. Quaerat, adipisci.
+      </p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+        iusto sequi consectetur exercitationem, inventore et voluptatibus eos
+        cupiditate id, laudantium facilis mollitia sint aut aperiam autem
+        tempore vero aspernatur molestias.
+      </p>
+    </div>
+  </ds-payment-details-card>
   </div>
 </section>
