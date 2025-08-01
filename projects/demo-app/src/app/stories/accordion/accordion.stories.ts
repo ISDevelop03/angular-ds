@@ -9,6 +9,8 @@ export class AccordionStoryComponent {
   @ViewChild('templateOne') templateOne!: TemplateRef<any>;
   @ViewChild('templateTwo') templateTwo!: TemplateRef<any>;
   @ViewChild('templateThree') templateThree!: TemplateRef<any>;
+  @ViewChild('contentTemplate') contentTemplate!: TemplateRef<any>;
+
 
   account = {
     account_number: 'ACC-24681357',
@@ -62,28 +64,48 @@ export class AccordionStoryComponent {
     },
   ];
 
-  defaultItems: AccordionItem[] = [
+  mockData = [
     {
       id: 'default-1',
       title: 'Default Accordion 1',
-      // caption: 'This is the first default item',
-      content: '<p>Default content <strong>one</strong></p>',
+      content: [
+        {label: 'Default content one', value: 'Default content one'},
+        {label: 'Default content two', value: 'Default content two'},
+        {label: 'Default content three', value: 'Default content three'},
+        {label: 'Default content four', value: 'Default content four'},
+      ],
       count: 6,
       open: true,
     },
     {
       id: 'default-2',
-      title: 'Default Accordion 2',
-      content: '<p>Default content two</p>',
-      count: 10,
-    },
-  ];
+      title: 'Default Accordion 1',
+      content: [
+        {label: 'Default content one', value: 'Default content one'},
+        {label: 'Default content two', value: 'Default content two'},
+      ],
+      count: 6,
+      open: true,
+    }
+  ]
 
+  defaultItems: AccordionItem[] = [];
   borderlessItems: AccordionItem[] = [];
   whiteItems: AccordionItem[] = [];
 
   ngAfterViewInit() {
     setTimeout(() => {
+      this.defaultItems = this.mockData.map((item) => ({
+        id: item.id,
+        title: item.title,
+        content: this.contentTemplate,
+        context: {
+          content: item.content,
+        },
+        count: item.count,
+        open: item.open,
+      }));
+
       this.whiteItems = [
         {
           id: 'default-1',
@@ -118,6 +140,8 @@ export class AccordionStoryComponent {
       ];
     });
   }
+
+  
 
   onAccordionOpen(item: AccordionItem) {
     console.log('Accordion item opened:', item);
