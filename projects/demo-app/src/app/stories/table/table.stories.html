@@ -64,6 +64,24 @@
     (sortChange)="onServerSort($event)"
   ></ds-table>
 
+  <h2 class="text-2xl font-bold">bordered Variant</h2>
+
+  <div class="w-full p-6 bg-white">
+    <ds-table
+    variant="secondary"
+    [data]="registres"
+    [columns]="[
+      { header: 'Name',   accessor: 'name'},
+      { header: 'Bio',    accessor: 'bio'},
+      { header: 'Bio',    accessor: 'bio_1'},
+      { header: 'Bio',    accessor: 'bio_2'},
+      { header: 'Age',    accessor: 'age'},
+      { header: 'Status', accessor: 'status'}
+    ]"
+    (sortChange)="onServerSort($event)"
+  ></ds-table>
+  </div>
+
   <!-- Status badge template -->
   <ng-template #statusTpl let-status let-row="row">
     <span

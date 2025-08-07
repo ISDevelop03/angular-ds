@@ -1,5 +1,5 @@
 // theme.ts
-export type TableVariant = 'default' | 'striped' | 'bordered';
+export type TableVariant = 'default' | 'secondary' | 'bordered';
 
 export interface TableTheme {
   table: string;
@@ -29,9 +29,9 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     row: () => 'dark:bg-black bg-white rounded',
     cell: 'px-4 text-[1rem]/normal font-medium py-2',
   },
-  striped: {
-    table: 'w-full text-left',
-    header: 'bg-gray-200',
+  secondary: {
+    table: 'w-full text-left rounded-lg border border-gray-100 border-separate border-spacing-0 overflow-hidden',
+    header: 'bg-gray-50 rounded-t-lg',
     headerIcons: 'inline-flex items-center text-gray-500',
     headerText: 'inline-flex text-[0.875rem]/[1.125rem]',
 
@@ -40,8 +40,8 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellButton: 'w-fit',
     headerCellSortable: ' select-none',
     body: '',
-    row: (i) => (i % 2 === 0 ? 'dark:bg-black bg-white' : 'bg-gray-50'),
-    cell: 'px-4 text-sm py-2',
+    row: () => 'bg-white',
+    cell: 'px-4 text-sm py-2 whitespace-nowrap',
   },
   bordered: {
     table: 'w-full text-left border-collapse border',
