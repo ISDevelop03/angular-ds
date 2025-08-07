@@ -77,6 +77,8 @@ import {
   FloatedButtonsStoryComponent,
   CarouselStoryComponent,
   DropdownHolderStoryComponent,
+  MessageStoryComponent,
+  ImportCardStoryComponent,  
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -179,6 +181,8 @@ export const pages: Routes = [
   { path: 'floated-buttons', component: FloatedButtonsStoryComponent },
   { path: 'carousel', component: CarouselStoryComponent },
   { path: 'dropdown-holder', component: DropdownHolderStoryComponent },
+  { path: 'message', component: MessageStoryComponent },
+  { path: 'import-card', component: ImportCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -278,6 +282,8 @@ const router = RouterModule.forRoot(pages);
     FloatedButtonsStoryComponent,
     CarouselStoryComponent,
     DropdownHolderStoryComponent,
+    MessageStoryComponent,
+    ImportCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ImportCardComponent } from './components/import-card/import-card.component';
+import { MessageComponent } from './components/message/message.component';
 import { DropdownHolderComponent } from './components/dropdown-holder/dropdown-holder.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FloatedButtonsComponent } from './components/floated-buttons/floated-buttons.component';
@@ -191,6 +193,8 @@ registerLocaleData(localeFr, 'fr-FR');
     FloatedButtonsComponent,
     CarouselComponent,
     DropdownHolderComponent,
+    MessageComponent,
+    ImportCardComponent,
   ],
   imports: [
     CommonModule,
@@ -283,6 +287,8 @@ registerLocaleData(localeFr, 'fr-FR');
     FloatedButtonsComponent,
     CarouselComponent,
     DropdownHolderComponent,
+    MessageComponent,
+    ImportCardComponent,
   ],
 })
 export class DesignSystemModule {}
