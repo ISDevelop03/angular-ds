@@ -1,10 +1,10 @@
 export const theme = {
   default: {
     element: {
-      label: 'inline-block text-neutral-900 font-bold text-sm mb-2',
+      label: 'inline-block text-neutral-900 font-light text-xs mb-2',
       button: {
         select:
-          'cursor-default border text-[1rem]/normal border-neutral-50 h-[40px] flex items-center justify-between w-full px-3 py-2 rounded bg-level-3 placeholder:text-[1rem]/normal focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
+          'cursor-default border text-[1rem]/normal border-stroke-1 h-[40px] flex items-center justify-between w-full px-3 py-2 rounded bg-level-3 placeholder:text-[1rem]/normal focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
         selected: 'flex items-center gap-2 w-full relative',
         error:
           'ring-1 ring-error-400 border-1 border-error-400 outline-1 border-1 border-error-400',
