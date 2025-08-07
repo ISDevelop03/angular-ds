@@ -65,8 +65,8 @@
         ]"
         [class.cursor-not-allowed]="item.unavailable"
       >
-        <div class="w-full flex justify-between items-center">
-          <div class="w-full flex justify-start items-center gap-3">
+        <div class="relative w-full flex justify-between items-center">
+          <div class="w-full flex justify-between items-center gap-3">
             <div
               *ngIf="item.icon"
               class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-level-2 rounded-full"
@@ -78,34 +78,25 @@
               ></ds-icon>
             </div>
 
-            <div class="w-full flex flex-col gap-1">
-              <div class="w-full flex items-center justify-between gap-2">
-                <span
-                  class="inline-flex text-neutral-500 font-light text-[0.875rem] leading-[18px]"
-                >
-                  {{ item.title }}
-                </span>
-                <span
-                  class="inline-flex text-neutral-500 font-light text-[0.875rem] leading-[18px]"
-                >
-                  Solde réel
-                </span>
-              </div>
+            <div class="w-fit flex flex-col gap-1">
+             
               <div class="w-full flex items-center justify-between gap-2">
                 <span class="inline-flex font-bold text-[0.875rem] leading-[18px]">
                   {{ item.accountNumber }}
                 </span>
-                <div class="flex items-center gap-1.5">
+                <div class="flex items-center gap-1.5 shrink-0">
                   <ds-balance-formatter
                     *ngIf="item.price"
                     [balance]="item.price"
                     [currency]="item.currency"
                   ></ds-balance-formatter>
-                  <img
-                    [src]="item.image"
-                    alt="[item.title]"
-                    class="rounded-full size-4"
-                  />
+                  <div class="relative rounded-full size-4">
+                    <img
+                      [src]="item.image"
+                      alt="[item.title]"
+                      class="relative rounded-full size-4"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
