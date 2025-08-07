@@ -17,6 +17,8 @@ export interface AccordionItem {
   content: string | TemplateRef<any>;
   context?: any;
   count?: string | number;
+  countColor?: string;
+  isCountReversed?: boolean;
   open?: boolean;
 }
 

@@ -103,6 +103,8 @@ export class AccordionStoryComponent {
           content: item.content,
         },
         count: item.count,
+        countColor: 'bg-yellow-500',
+        isCountReversed: true,
         open: item.open,
       }));
 

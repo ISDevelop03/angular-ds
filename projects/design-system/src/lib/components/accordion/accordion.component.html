@@ -11,10 +11,16 @@
       [ngClass]="getButtonClasses(item.isOpen)"
     >
       <div [class]="theme[variant].button.titleWrapper">
-        <div *ngIf="item.count" class="flex items-center gap-2">
+        <div *ngIf="item.count" [ngClass]="[
+          'flex items-center gap-2',
+          item.isCountReversed ? 'flex-row-reverse' : ''
+        ]">
           <!-- count -->
           <span
-            class="rounded-full font-bold text-white text-[0.75rem]/[1rem] bg-red-500 inline-flex justify-center items-center size-[20px]"
+            [ngClass]="[
+              'rounded-full font-bold text-white text-[0.75rem]/[1rem] inline-flex justify-center items-center size-[20px]',
+              item.countColor || 'bg-red-500'
+            ]"
           >
             {{ item.count }}
           </span>
