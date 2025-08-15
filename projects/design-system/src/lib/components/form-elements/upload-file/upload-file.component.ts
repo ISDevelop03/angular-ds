@@ -1,5 +1,5 @@
 // upload-file.component.ts
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
 import { uploadFileThemes, UploadFileTheme } from './theme';
 
 /**
@@ -16,14 +16,26 @@ export class UploadFileComponent implements OnInit {
   @Input() variant: string = 'default';
   @Input() maxFileSizeMB: number = 10;
   @Input() allowedExtensions: string[] = ['csv'];
-  @Input() downloadTemplateLink: string;
   @Input() className = '';
   @Input() isMultiple: boolean = false;
+  @Input() errors: string[] = [];
+  @Input() hasError: boolean = false;
+  @Input() progress: number = 0;
+  @Input() loading: boolean = false;
+  
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['progress']) {
+      console.log('Progress changed:', changes['progress'].currentValue);
+    }
+  }
 
   /** If true, we'll fake the upload progress (instead of immediately reading). */
   @Input() simulateSlowUpload: boolean = false;
 
   @Output() fileSelected = new EventEmitter<File>();
+
+  @ViewChild('fileInput') fileInput: ElementRef<HTMLInputElement>;
 
   theme = uploadFileThemes;
   currentTheme: UploadFileTheme;
@@ -32,13 +44,20 @@ export class UploadFileComponent implements OnInit {
   selectedFile: File | null = null;
   selectedFiles: (File & { uniqueId: string })[] = [];
   previewRows: string[][] = [];
+  
+  /** for errors accordion */
+  showErrors: boolean = false;
 
-  /** new: loading + (optional) progress */
-  loading: boolean = false;
-  progress: number = 30; // from 0 to 100
+
 
   ngOnInit() {
     this.currentTheme = this.theme[this.variant] || this.theme.light;
+  }
+
+  openFileInput() {
+    if (this.fileInput && this.fileInput.nativeElement) {
+      this.fileInput.nativeElement.click();
+    }
   }
 
   private generateUniqueId(): string {
@@ -72,7 +91,6 @@ export class UploadFileComponent implements OnInit {
   }
 
   private handleMultipleFiles(files: File[]) {
-    console.log("files", files)
     for (const file of files) {
       this.handleFile(file);
     }
@@ -80,6 +98,10 @@ export class UploadFileComponent implements OnInit {
 
   removeFile(uniqueId: string) {
     this.selectedFiles = this.selectedFiles.filter(file => file.uniqueId !== uniqueId);
+  }
+
+  toggleErrors() {
+    this.showErrors = !this.showErrors;
   }
 
   private handleFile(file: File) {
@@ -107,94 +129,20 @@ export class UploadFileComponent implements OnInit {
     }
     else{
       this.selectedFile = fileWithId;
-      this.loading = true;
-      this.progress = 0;
+    }
+
+    // real‐world: immediately show preview/progress
+    // this.parsePreview(fileWithId);
+    this.fileSelected.emit(fileWithId);
+  
+  }
+
+  getErrorsContent(): string {
+    if (!this.errors || this.errors.length === 0) {
+      return '';
     }
     
-
-    if (this.simulateSlowUpload) {
-      this.mockUploadThenPreview(fileWithId);
-    } else {
-      // real‐world: immediately show preview/progress
-      this.parsePreview(fileWithId);
-      this.fileSelected.emit(fileWithId);
-    }
-
-    // If you were uploading to a server, you could also hook into
-    // an XHR upload progress event here, e.g.:
-    // const xhr = new XMLHttpRequest();
-    // xhr.upload.onprogress = (e) => {
-    //   if (e.lengthComputable) {
-    //     this.progress = Math.round((e.loaded / e.total) * 100);
-    //   }
-    // };
-    // xhr.onloadend = () => {
-    //   this.loading = false;
-    // };
-    // ... etc.
-  }
-
-
-  private mockUploadThenPreview(file: File & { uniqueId: string }) {
-    // How often (ms) to tick, and how many ticks total → ~3 seconds
-    const totalDurationMs = 3000;
-    const tickIntervalMs = 100; // every 100ms
-    const totalTicks = totalDurationMs / tickIntervalMs; // e.g. 30 ticks
-    let ticks = 0;
-
-    const intervalId = window.setInterval(() => {
-      ticks++;
-      this.progress = Math.round((ticks / totalTicks) * 100);
-
-      if (ticks >= totalTicks) {
-        clearInterval(intervalId);
-
-        // Ensure progress is exactly 100
-        this.progress = 100;
-
-        // Now that "upload" is "done," parse the preview and emit
-        this.parsePreview(file);
-        this.fileSelected.emit(file);
-      }
-    }, tickIntervalMs);
-  }
-
-  private parsePreview(file: File & { uniqueId: string }) {
-    // only CSV preview
-    if (file.type !== 'text/csv' && !file.name.toLowerCase().endsWith('.csv')) {
-      // no preview; immediately clear loading
-      this.previewRows = [];
-      this.loading = false;
-      return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onprogress = (event: ProgressEvent) => {
-      if (event.lengthComputable) {
-        this.progress = Math.round((event.loaded / event.total) * 100);
-      }
-    };
-
-    reader.onload = () => {
-      const text = reader.result as string;
-      const lines = text
-        .split(/\r\n|\n/)
-        .filter((l) => l.trim().length)
-        .slice(0, 6); // header + first 5 rows
-      this.previewRows = lines.map((line) => line.split(/[,;]+/));
-
-      // Parsing is done, turn off loading
-      this.loading = false;
-      this.progress = 100;
-    };
-
-    reader.onerror = () => {
-      alert('Error reading file for preview.');
-      this.loading = false;
-      this.progress = 0;
-    };
-
-    reader.readAsText(file);
+    const errorsList = this.errors.map(error => `<li class="text-red-600 text-sm py-1">${error}</li>`).join('');
+    return `<ul class="list-disc ml-4 space-y-1">${errorsList}</ul>`;
   }
 }

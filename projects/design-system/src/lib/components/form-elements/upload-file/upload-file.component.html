@@ -3,45 +3,29 @@
   [ngClass]="[currentTheme.wrapper, className]"
   (drop)="onDrop($event)"
   (dragover)="onDragOver($event)"
+  (click)="openFileInput()"
 >
   <div [ngClass]="currentTheme.icon">
     <ds-icon id="upload-cloud" size="20px" class="text-red-500"></ds-icon>
   </div>
 
-  <div [ngClass]="[currentTheme.text]">
+  <div [ngClass]="[currentTheme.text]" class="relative">
     <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
-    <p>
-      Fichier
-      <span class="font-semibold">
-        {{ allowedExtensions.join(", ") }}
-      </span>
-      - Taille autorisée : {{ maxFileSizeMB }} Mo
-    </p>
-    <p>
-      Un modèle de fichier est à votre disposition pour téléchargement
-      <a
-        [href]="downloadTemplateLink"
-        target="_blank"
-        class="relative underline text-red-500 font-bold"
-      >
-        <input
-          type="file"
-          [accept]="'.' + allowedExtensions.join(',.')"
-          [multiple]="isMultiple"
-          class="absolute inset-0 opacity-0 cursor-pointer"
-          (change)="onFileChange($event)"
-        />
-        ici</a
-      >
-    </p>
+    <input
+      #fileInput
+      type="file"
+      [accept]="'.' + allowedExtensions.join(',.')"
+      class="absolute inset-0 opacity-0 cursor-pointer"
+      (change)="onFileChange($event)"
+    />
     <ng-content></ng-content>
   </div>
 </div>
 
-<ng-container *ngIf="loading; else selected" class="mt-2">
+<ng-container *ngIf="loading && !isMultiple; else selected" class="mt-2">
   <div
     *ngIf="selectedFile"
-    class="relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4 mt-4"
+    class="relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4 mt-2"
   >
     <div
       class="absolute inset-0 h-full bg-red-50 w-1/4 transition-all duration-300 ease-in-out"
@@ -70,31 +54,89 @@
     </div>
   </div>
 </ng-container>
+
 <!-- Preview section -->
 <ng-template #selected>
   <div
     *ngIf="selectedFile && !isMultiple"
-    class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start mt-4"
+    [ngClass]="[
+      'relative border border-green-100 rounded-lg p-4 mt-2',
+      hasError ? 'bg-error-25' : 'bg-level-4'
+    ]"
   >
-    <div
-      class="flex items-center justify-center rounded-md w-8 h-8 bg-green-50 text-green-500"
-    >
-      <ds-icon id="file-edit-02" size="16px"></ds-icon>
+    <div class="flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div
+          class="flex items-center justify-center rounded-md w-8 h-8"
+          [ngClass]="[hasError ? 'bg-rose-100 text-rose-500' : 'bg-green-50 text-green-500']"
+        >
+          <ds-icon id="file-edit-02" size="16px"></ds-icon>
+        </div>
+        <div
+          [ngClass]="[
+            'flex flex-col gap-1',
+            hasError ? 'text-rose-700' : 'text-neutral-700'
+          ]"
+        >
+          <p class="text-[1rem]/[1.375rem] font-medium">
+            {{ selectedFile.name }}
+          </p>
+          <p class="text-[0.875rem]/[1.25rem] font-normal">
+            {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+          </p>
+        </div>
+        <span
+          *ngIf="!hasError"
+          class="absolute right-3 top-0 bottom-0 m-auto rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5"
+        >
+          <ds-icon id="check" size="16px" class="shrink-0"></ds-icon>
+        </span>
+      </div>
+      <button
+        (click)="openFileInput()"
+        *ngIf="hasError"
+        class="rounded-full text-rose-700 flex items-center justify-center w-5 h-5"
+      >
+        <ds-icon id="arrow-refresh-03" size="20px" class="shrink-0"></ds-icon>
+      </button>
     </div>
-
-    <div class="flex flex-col gap-1 text-neutral-700">
-      <p class="text-[1rem]/[1.375rem] font-bold">
-        {{ selectedFile.name }}
-      </p>
-      <p class="text-[0.875rem]/[1.25rem] font-normal">
-        {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
-      </p>
+    <div *ngIf="errors && errors.length > 0" class="mt-3">
+      <div class="overflow-hidden">
+        <button
+          type="button"
+          class="w-full text-left transition-colors duration-200 flex items-center justify-start gap-x-2"
+          (click)="toggleErrors()"
+          [attr.aria-expanded]="showErrors"
+          aria-controls="errors-panel"
+        >
+          <ds-icon 
+            [id]="showErrors ? 'arrow-up' : 'arrow-down'" 
+            size="16px" 
+            class="transition-transform duration-200"
+            [ngClass]="{'rotate-180': showErrors}"
+          ></ds-icon>
+          <span class="font-medium text-sm text-black">Please check this errors</span>
+          
+        </button>
+        
+        <div 
+          id="errors-panel"
+          class="mt-2"
+          [ngClass]="{'max-h-0 overflow-hidden': !showErrors, 'max-h-96 overflow-y-auto': showErrors}"
+          style="transition: max-height 0.3s ease-in-out;"
+        >
+          <ul class="space-y-1">
+            <li 
+              *ngFor="let error of errors" 
+              class="flex items-start gap-2 text-rose-700"
+            >
+              <ds-icon id="dash" size="16px" class="text-error-500 mt-0.5 flex-shrink-0"></ds-icon>
+              <span class="text-sm">{{ error }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <span
-      class="absolute right-3 top-0 bottom-0 m-auto rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5"
-    >
-      <ds-icon id="check" size="16px" class="shrink-0"></ds-icon>
-    </span>
   </div>
 
   <!-- Multiple files selected template -->
@@ -103,29 +145,92 @@
     class="mt-4 space-y-3"
   >
     <div
-      *ngFor="let file of selectedFiles; let i = index"
-      class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-start"
+      *ngFor="let file of selectedFiles.slice(0, -1)"
+      class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-between"
     >
-      <div
-        class="flex items-center justify-center rounded-md w-8 h-8 text-red-500"
-      >
-        <ds-icon id="file-edit-02" size="16px"></ds-icon>
-      </div>
-
-      <div class="flex flex-col gap-1 text-neutral-700">
-        <p class="text-[1rem]/[1.375rem] font-bold">
-          {{ file.name }}
-        </p>
-        <p class="text-[0.875rem]/[1.25rem] font-normal">
-          {{ (file.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
-        </p>
+      <div class="flex items-center justify-start gap-4">
+        <div
+          class="flex items-center justify-center rounded-md w-8 h-8"
+          [ngClass]="[hasError ? 'bg-rose-100 text-rose-500' : 'bg-green-50 text-green-500']"
+        >
+          <ds-icon id="file-edit-02" size="16px"></ds-icon>
+        </div>
+        <div class="flex flex-col gap-1 text-neutral-700">
+          <p class="text-[1rem]/[1.375rem] font-bold">
+            {{ file.name }}
+          </p>
+          <p class="text-[0.875rem]/[1.25rem] font-normal">
+            {{ (file.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+          </p>
+        </div>
       </div>
       <button
         (click)="removeFile(file?.uniqueId)"
-        class="absolute right-3 top-0 bottom-0 m-auto w-5 h-5"
+        class="p-2 hover:bg-gray-50 rounded-full"
       >
         <ds-icon id="trash" size="16px" class="shrink-0"></ds-icon>
       </button>
     </div>
+
+    <ng-container *ngIf="!loading">
+      <div
+        class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-between"
+      >
+        <div class="flex items-center justify-start gap-4">
+          <div
+            class="flex items-center justify-center rounded-md w-8 h-8"
+            [ngClass]="[hasError ? 'bg-rose-100 text-rose-500' : 'bg-green-50 text-green-500']"
+          >
+            <ds-icon id="file-edit-02" size="16px"></ds-icon>
+          </div>
+          <div class="flex flex-col gap-1 text-neutral-700">
+            <p class="text-[1rem]/[1.375rem] font-bold">
+              {{ selectedFiles[selectedFiles.length-1].name }}
+            </p>
+            <p class="text-[0.875rem]/[1.25rem] font-normal">
+              {{ (selectedFiles[selectedFiles.length-1].size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+            </p>
+          </div>
+        </div>
+        <button
+          (click)="removeFile(selectedFiles[selectedFiles.length-1]?.uniqueId)"
+          class="p-2 hover:bg-gray-50 rounded-full"
+        >
+          <ds-icon id="trash" size="16px" class="shrink-0"></ds-icon>
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="loading">
+      <div
+        class="relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4 mt-2"
+      >
+        <div
+          class="absolute inset-0 h-full bg-red-50 w-1/4 transition-all duration-300 ease-in-out"
+          [style.width]="progress + '%'"
+        ></div>
+        <div class="relative w-full z-[1] flex gap-4 items-center justify-start">
+          <div
+            class="flex items-center justify-center rounded-md w-8 h-8 bg-level-3 text-red-500"
+          >
+            <ds-icon id="file-edit-02" size="16px"></ds-icon>
+          </div>
+
+          <div class="flex flex-col gap-1 text-neutral-700">
+            <p class="text-[1rem]/[1.375rem] font-bold">
+              {{ selectedFiles[selectedFiles.length-1].name }}
+            </p>
+            <p class="text-[0.875rem]/[1.25rem] font-normal">
+              {{ (selectedFiles[selectedFiles.length-1].size / 1024 / 1024).toFixed(2) }} Mo
+            </p>
+          </div>
+          <span
+            class="absolute right-3 top-1/2 -translate-y-1/2 font-medium text-[1rem]/[1.25rem]"
+          >
+            {{ progress }} %
+          </span>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </ng-template>
