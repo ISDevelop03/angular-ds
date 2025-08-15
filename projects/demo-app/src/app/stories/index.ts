@@ -73,8 +73,8 @@ export * from './cards/payment-details-card/payment-details-card.stories';
 // Auto-export for accounts-select stories
 export * from './accounts/accounts-select/accounts-select.stories';
 
-// Auto-export for upload-file stories
-export * from './form-elements/upload-file/upload-file.stories';
+// // Auto-export for upload-file stories
+// export * from './form-elements/upload-file/upload-file.stories';
 
 // Auto-export for date-picker stories
 export * from './form-elements/date-picker/date-picker.stories';
@@ -138,3 +138,9 @@ export * from './message/message.stories';
 
 // Auto-export for import-card stories
 export * from './import-card/import-card.stories';
+
+// Auto-export for file-uploader stories
+export * from './file-uploader/file-uploader.stories';
+
+// Auto-export for file-list stories
+export * from './file-list/file-list.stories';

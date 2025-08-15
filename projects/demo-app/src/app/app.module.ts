@@ -57,7 +57,6 @@ import {
   StepsStoryComponent,
   PaymentDetailsCardStoryComponent,
   AccountsSelectStoryComponent,
-  UploadFileStoryComponent,
   DatePickerStoryComponent,
   TodoTabStoryComponent,
   TodoCardStoryComponent,
@@ -79,6 +78,8 @@ import {
   DropdownHolderStoryComponent,
   MessageStoryComponent,
   ImportCardStoryComponent,  
+  FileUploaderStoryComponent,
+  FileListStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -161,7 +162,6 @@ export const pages: Routes = [
   { path: 'steps', component: StepsStoryComponent },
   { path: 'payment-details-card', component: PaymentDetailsCardStoryComponent },
   { path: 'accounts-select', component: AccountsSelectStoryComponent },
-  { path: 'upload-file', component: UploadFileStoryComponent },
   { path: 'date-picker', component: DatePickerStoryComponent },
   { path: 'todo-tab', component: TodoTabStoryComponent },
   { path: 'todo-card', component: TodoCardStoryComponent },
@@ -183,6 +183,8 @@ export const pages: Routes = [
   { path: 'dropdown-holder', component: DropdownHolderStoryComponent },
   { path: 'message', component: MessageStoryComponent },
   { path: 'import-card', component: ImportCardStoryComponent },
+  { path: 'file-uploader', component: FileUploaderStoryComponent },
+  { path: 'file-list', component: FileListStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -262,7 +264,6 @@ const router = RouterModule.forRoot(pages);
     StepsStoryComponent,
     PaymentDetailsCardStoryComponent,
     AccountsSelectStoryComponent,
-    UploadFileStoryComponent,
     DatePickerStoryComponent,
     TodoTabStoryComponent,
     TodoCardStoryComponent,
@@ -284,6 +285,8 @@ const router = RouterModule.forRoot(pages);
     DropdownHolderStoryComponent,
     MessageStoryComponent,
     ImportCardStoryComponent,
+    FileUploaderStoryComponent,
+    FileListStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

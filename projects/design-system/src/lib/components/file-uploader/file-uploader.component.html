@@ -1,0 +1,31 @@
+<div id="ds-file-uploader">
+  <div
+    [ngClass]="[currentTheme.wrapper, className]"
+    (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+    (click)="openFileInput()"
+  >
+    <div [ngClass]="currentTheme.icon">
+      <ds-icon 
+        id="upload-cloud" 
+        size="20px" 
+        class="text-red-500"
+      ></ds-icon>
+    </div>
+
+    <div [ngClass]="[currentTheme.text]" class="relative">
+      <input
+        #fileInput
+        type="file"
+        [accept]="'.' + allowedExtensions.join(',.')"
+        class="absolute inset-0 opacity-0 cursor-pointer"
+        (change)="onFileChange($event)"
+        [multiple]="isMultiple"
+      />
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div>
+    <ds-file-list [files]="files" [isMultiple]="isMultiple" (onDelete)="removeFile($event)" (onReUpload)="reUploadFile($event)" ></ds-file-list>
+  </div>
+</div>

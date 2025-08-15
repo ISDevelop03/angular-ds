@@ -245,7 +245,6 @@ export const menus: Menu[] = [
   { key: 'table', name: 'Table', path: '/table' },
   { key: 'steps', name: 'Steps', path: '/steps' },
   { key: 'accounts-select', name: 'AccountsSelect', path: '/accounts-select' },
-  { key: 'upload-file', name: 'UploadFile', path: '/upload-file' },
   { key: 'date-picker', name: 'DatePicker', path: '/date-picker' },
   { key: 'todo-tab', name: 'TodoTab', path: '/todo-tab' },
   { key: 'todo-card', name: 'TodoCard', path: '/todo-card' },
@@ -271,4 +270,6 @@ export const menus: Menu[] = [
   { key: 'dropdown-holder', name: 'DropdownHolder', path: '/dropdown-holder' },
   { key: 'message', name: 'Message', path: '/message' },
   { key: 'import-card', name: 'ImportCard', path: '/import-card' },
+  { key: 'file-uploader', name: 'FileUploader', path: '/file-uploader' },
+  { key: 'file-list', name: 'FileList', path: '/file-list' },
 ];

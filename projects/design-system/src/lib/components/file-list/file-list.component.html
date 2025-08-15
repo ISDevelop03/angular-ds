@@ -1,0 +1,148 @@
+<div id="ds-file-list" [ngClass]="className">
+  <div *ngFor="let file of files" class="flex flex-col gap-1 mt-1">
+    <!-- Success status file -->
+    <div
+      *ngIf="file.status === 'success' || !file.status"
+      class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-between"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <div
+          class="flex items-center justify-center rounded-md w-8 h-8"
+          [ngClass]="[hasError ? 'bg-rose-100 text-rose-500' : 'bg-green-50 text-green-500']"
+        >
+          <ds-icon id="file-edit-02" size="16px"></ds-icon>
+        </div>
+        <div class="flex flex-col gap-1 text-neutral-700">
+          <p class="text-[1rem]/[1.375rem] font-bold">
+            {{ file.file.name }}
+          </p>
+          <p class="text-[0.875rem]/[1.25rem] font-normal">
+            {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+          </p>
+        </div>
+      </div>
+      <div *ngIf="isMultiple && !isDownloadable">
+        <button
+          (click)="removeFile(file?.file.id)"
+          class="p-2 hover:bg-gray-50 rounded-full"
+        >
+          <ds-icon id="trash" size="16px" class="shrink-0"></ds-icon>
+        </button>
+      </div>
+      <div *ngIf="!isMultiple && !isDownloadable">
+        <span
+          class="rounded-full text-white bg-green-500 flex items-center justify-center w-5 h-5"
+        >
+          <ds-icon id="check" size="16px" class="shrink-0"></ds-icon>
+        </span>
+      </div>
+      <div *ngIf="isDownloadable">
+        <button
+          (click)="downloadFile(file?.file)"
+          class="p-2 hover:bg-gray-50 rounded-full"
+        >
+          <ds-icon id="download" size="16px" class="shrink-0"></ds-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Uploading status file -->
+    <div
+      *ngIf="file.status === 'uploading'"
+      class="relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4"
+    >
+      <div
+        class="absolute inset-0 h-full bg-red-50 w-1/4 transition-all duration-300 ease-in-out"
+        [style.width]="file.progress + '%'"
+      ></div>
+      <div class="relative w-full z-[1] flex gap-4 items-center justify-start">
+        <div
+          class="flex items-center justify-center rounded-md w-8 h-8 bg-level-3 text-red-500"
+        >
+          <ds-icon id="file-edit-02" size="16px"></ds-icon>
+        </div>
+
+        <div class="flex flex-col gap-1 text-neutral-700">
+          <p class="text-[1rem]/[1.375rem] font-bold">
+            {{ file.file.name }}
+          </p>
+          <p class="text-[0.875rem]/[1.25rem] font-normal">
+            {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo
+          </p>
+        </div>
+        <span
+          class="absolute right-3 top-1/2 -translate-y-1/2 font-medium text-[1rem]/[1.25rem]"
+        >
+          {{ file.progress }} %
+        </span>
+      </div>
+    </div>
+
+    <!-- Error status file -->
+    <div *ngIf="file.status === 'error'">
+      <div
+        class="relative border border-green-100 rounded-lg p-4 bg-error-25"
+      >
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div
+              class="flex items-center justify-center rounded-md w-8 h-8 bg-rose-100 text-rose-500"
+            >
+              <ds-icon id="file-edit-02" size="16px"></ds-icon>
+            </div>
+            <div
+             class="flex flex-col gap-1 text-rose-700"
+            >
+              <p class="text-[1rem]/[1.375rem] font-medium">
+                {{ file.file.name }}
+              </p>
+              <p class="text-[0.875rem]/[1.25rem] font-normal">
+                {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+              </p>
+            </div>
+          </div>
+          <button
+            (click)="reUploadFile(file.file.id)"
+            class="rounded-full text-rose-700 flex items-center justify-center w-5 h-5"
+          >
+            <ds-icon id="arrow-refresh-03" size="20px" class="shrink-0"></ds-icon>
+          </button>
+        </div>
+        <div *ngIf="file.errors && file.errors.length > 0" class="mt-3">
+          <div class="overflow-hidden">
+            <button
+              type="button"
+              class="w-full text-left transition-colors duration-200 flex items-center justify-start gap-x-2"
+              (click)="toggleErrors(file.file.id)"
+            >
+              <ds-icon 
+                [id]="isErrorVisible(file.file.id) ? 'arrow-up' : 'arrow-down'" 
+                size="16px" 
+                class="transition-transform duration-200"
+                [ngClass]="{'rotate-180': isErrorVisible(file.file.id)}"
+              ></ds-icon>
+              <span class="font-medium text-sm text-black">Merci de consulter ci-dessous les erreurs identifiées au niveau de votre fichier</span>
+            </button>
+            
+            <div 
+              *ngIf="isErrorVisible(file.file.id)"
+              class="mt-2"
+              [ngClass]="{'max-h-0 overflow-hidden': !isErrorVisible(file.file.id), 'max-h-96 overflow-y-auto': isErrorVisible(file.file.id)}"
+              style="transition: max-height 0.3s ease-in-out;"
+            >
+              <ul class="space-y-1">
+                <li 
+                  *ngFor="let error of file.errors" 
+                  class="flex items-start gap-2 text-rose-700"
+                >
+                  <ds-icon id="dash" size="16px" class="text-error-500 mt-0.5 flex-shrink-0"></ds-icon>
+                  <span class="text-sm">{{ error }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
