@@ -36,7 +36,7 @@ export class FileUploaderStoryComponent {
         progress: 0,
         status: 'uploading',
         errors: []
-      };
+      } as UploadedFiles;
       this.successfullFiles.push(fileItem);
       this.simulateSuccessfullUpload(fileItem);
     });
@@ -49,7 +49,7 @@ export class FileUploaderStoryComponent {
         progress: 0,
         status: 'uploading',
         errors: []
-      };   
+      } as UploadedFiles;   
     });
     this.errorFiles = files
     this.simulateErrorUpload(this.errorFiles[0]);
@@ -62,7 +62,7 @@ export class FileUploaderStoryComponent {
         progress: 0,
         status: 'uploading',
         errors: []
-      };
+      } as UploadedFiles;
       if(!this.multipleFiles.some(existingFile => existingFile.file.id === fileItem.file.id)){
         this.multipleFiles.push(fileItem);
       }
@@ -86,7 +86,7 @@ export class FileUploaderStoryComponent {
         progress: 0,
         status: 'uploading',
         errors: []
-      };
+      } as UploadedFiles;
       this.multipleErrorFiles.push(fileItem);
       this.simulateErrorUpload(fileItem);
     });
@@ -105,7 +105,7 @@ export class FileUploaderStoryComponent {
         progress: 0,
         status: 'uploading',
         errors: []
-      };
+      } as UploadedFiles;
       if(!this.defaultFiles.some(existingFile => existingFile.file.id === fileItem.file.id)){
         this.defaultFiles.push(fileItem);
       }
