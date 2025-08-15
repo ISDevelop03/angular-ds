@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FileListComponent } from './components/file-list/file-list.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { ImportCardComponent } from './components/import-card/import-card.component';
 import { MessageComponent } from './components/message/message.component';
 import { DropdownHolderComponent } from './components/dropdown-holder/dropdown-holder.component';
@@ -195,6 +197,8 @@ registerLocaleData(localeFr, 'fr-FR');
     DropdownHolderComponent,
     MessageComponent,
     ImportCardComponent,
+    FileUploaderComponent,
+    FileListComponent,
   ],
   imports: [
     CommonModule,
@@ -289,6 +293,8 @@ registerLocaleData(localeFr, 'fr-FR');
     DropdownHolderComponent,
     MessageComponent,
     ImportCardComponent,
+    FileUploaderComponent,
+    FileListComponent,
   ],
 })
 export class DesignSystemModule {}
