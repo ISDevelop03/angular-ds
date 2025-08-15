@@ -74,7 +74,9 @@ export class AccordionStoryComponent {
         {label: 'Default content three', value: 'Default content three'},
         {label: 'Default content four', value: 'Default content four'},
       ],
-      count: 6,
+      count: 5,
+      countColor: 'bg-yellow-500',
+      isCountReversed: true,
       open: true,
     },
     {
@@ -85,6 +87,8 @@ export class AccordionStoryComponent {
         {label: 'Default content two', value: 'Default content two'},
       ],
       count: 6,
+      countColor: 'bg-purple-500',
+      isCountReversed: false,
       open: true,
     }
   ]
@@ -103,9 +107,9 @@ export class AccordionStoryComponent {
           content: item.content,
         },
         count: item.count,
-        countColor: 'bg-yellow-500',
-        isCountReversed: true,
         open: item.open,
+        countColor: item.countColor,
+        isCountReversed: item.isCountReversed,
       }));
 
       this.whiteItems = [
