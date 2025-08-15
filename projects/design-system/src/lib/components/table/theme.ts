@@ -30,7 +30,7 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     cell: 'px-4 text-[1rem]/normal font-medium py-2',
   },
   secondary: {
-    table: 'w-full text-left rounded-lg border border-gray-100 border-separate border-spacing-0 overflow-hidden',
+    table: 'w-full text-left rounded-lg border border-neutral-50 border-separate border-spacing-0 overflow-hidden',
     header: 'bg-gray-50 rounded-t-lg',
     headerIcons: 'inline-flex items-center text-gray-500',
     headerText: 'inline-flex text-[0.875rem]/[1.125rem]',
@@ -41,7 +41,7 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellSortable: ' select-none',
     body: '',
     row: () => 'bg-white',
-    cell: 'px-4 text-sm py-2 whitespace-nowrap',
+    cell: 'px-4 text-sm py-2.5 whitespace-nowrap',
   },
   bordered: {
     table: 'w-full text-left border-collapse border',

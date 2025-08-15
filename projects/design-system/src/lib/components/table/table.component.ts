@@ -34,7 +34,7 @@ export class TableComponent implements OnChanges {
   @Input() variant: TableVariant = 'default';
   @Input() remoteSort = false;
   @Input() selectionEnabled = false;
-
+  @Input() className?: string;
   @Output() sortChange = new EventEmitter<{
     accessor: string | null;
     direction?: 'asc' | 'desc';

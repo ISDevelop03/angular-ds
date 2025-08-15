@@ -1,4 +1,4 @@
-<div class="overflow-x-auto w-full relative">
+<div [ngClass]="['overflow-x-auto w-full relative', className || '']">
   <table id="ds-table" [ngClass]="theme[variant].table">
     <thead [ngClass]="theme[variant].header">
       <tr class="overflow-hidden">
