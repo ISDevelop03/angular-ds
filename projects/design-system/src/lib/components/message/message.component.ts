@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { theme } from './theme';
+
+type TVariant = "success" | "info" | "warning"
 /**
  * MessageComponent
  *
@@ -12,4 +15,7 @@ import { Component, Input } from '@angular/core';
 export class MessageComponent {
   @Input() className?: string = '';
   @Input() content?: string = '';
+  @Input() variant?: TVariant
+
+  theme = theme
 }

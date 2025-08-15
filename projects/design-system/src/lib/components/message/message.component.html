@@ -1,8 +1,10 @@
-<div id="ds-message" class="rounded-md border border-amber-400 w-full flex items-center gap-4 py-3 px-4 bg-amber-100" [ngClass]="className">
-  <div class="rounded-full bg-amber-400 p-3">
-    <ds-icon id="link-external" class="text-white w-5 h-5"></ds-icon>
+<div id="ds-message" [ngClass]="theme[variant].wrapper" [ngClass]="className">
+  <div [ngClass]="theme[variant].icon">
+    <ds-icon *ngIf="variant === 'warning'" id="danger" class="text-white w-5 h-5"></ds-icon>
+    <ds-icon *ngIf="variant === 'success'" id="check" class="text-white w-5 h-5"></ds-icon>
+    <ds-icon *ngIf="variant === 'info'" id="info-circle" class="text-white w-5 h-5"></ds-icon>
   </div>
   <div>
-      <p class="text-[1rem] font-bold text-amber-800">{{ content }}</p>
+      <p [ngClass]="theme[variant].content">{{ content }}</p>
   </div>
 </div>
