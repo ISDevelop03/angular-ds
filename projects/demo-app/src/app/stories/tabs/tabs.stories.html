@@ -4,6 +4,7 @@
     [items]="tabsDefault"
     [selectedIndex]="selectedIndex"
     (onSelect)="onSelect($event)"
+    [rightContent]="rightContent"
   ></ds-tabs>
 
   <h3>Tabs with Custom Class</h3>
@@ -19,6 +20,12 @@
   <p>
     This is <strong>projected template content</strong> for the first panel.
   </p>
+</ng-template>
+
+<ng-template #rightContent>
+  <ds-button>
+    <ds-icon id="plus"></ds-icon>
+  </ds-button>
 </ng-template>
 
 <ng-template #tabTwo>

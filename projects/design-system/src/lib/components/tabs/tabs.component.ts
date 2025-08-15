@@ -28,6 +28,7 @@ export class DsTabsComponent {
   @Input() items: ITab[] = [];
   @Input() className: string = '';
   @Input() variant: keyof typeof theme = 'default';
+  @Input() rightContent?: TemplateRef<any>;
 
   @Output() onSelect = new EventEmitter<any>();
 

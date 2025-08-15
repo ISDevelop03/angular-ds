@@ -1,38 +1,43 @@
 <div id="ds-tabs" [ngClass]="[theme[variant].wrapper, className]">
-  <div [ngClass]="[theme[variant].list.container]">
-    <ng-container *ngFor="let tab of items; let idx = index">
-      <button
-        *ngIf="!tab.href; else linkTab"
-        (click)="selectTab($event, tab, idx)"
-        [ngClass]="[
-          theme[variant].list.tab.base,
-          isSelected(idx)
-            ? theme[variant].list.tab.selected
-            : theme[variant].list.tab.unselected,
-          tab.disabled ? 'cursor-not-allowed opacity-40' : ''
-        ]"
-        [attr.aria-selected]="isSelected(idx) ? 'true' : 'false'"
-        [attr.aria-disabled]="tab.disabled ? 'true' : null"
-        [attr.disabled]="tab.disabled ? true : null"
-      >
-        {{ tab.title }}
-      </button>
-
-      <ng-template #linkTab>
-        <a
-          [href]="tab.href"
+  <div class="flex items-center justify-between">
+    <div [ngClass]="[theme[variant].list.container]">
+      <ng-container *ngFor="let tab of items; let idx = index">
+        <button
+          *ngIf="!tab.href; else linkTab"
+          (click)="selectTab($event, tab, idx)"
           [ngClass]="[
-            theme[variant].list.tab.base || '',
+            theme[variant].list.tab.base,
             isSelected(idx)
-              ? theme[variant].list.tab.selected || ''
-              : theme[variant].list.tab.unselected || ''
+              ? theme[variant].list.tab.selected
+              : theme[variant].list.tab.unselected,
+            tab.disabled ? 'cursor-not-allowed opacity-40' : ''
           ]"
+          [attr.aria-selected]="isSelected(idx) ? 'true' : 'false'"
           [attr.aria-disabled]="tab.disabled ? 'true' : null"
           [attr.disabled]="tab.disabled ? true : null"
         >
           {{ tab.title }}
-        </a>
-      </ng-template>
+        </button>
+  
+        <ng-template #linkTab>
+          <a
+            [href]="tab.href"
+            [ngClass]="[
+              theme[variant].list.tab.base || '',
+              isSelected(idx)
+                ? theme[variant].list.tab.selected || ''
+                : theme[variant].list.tab.unselected || ''
+            ]"
+            [attr.aria-disabled]="tab.disabled ? 'true' : null"
+            [attr.disabled]="tab.disabled ? true : null"
+          >
+            {{ tab.title }}
+          </a>
+        </ng-template>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="rightContent">
+      <ng-container *ngTemplateOutlet="rightContent"></ng-container>
     </ng-container>
   </div>
 
