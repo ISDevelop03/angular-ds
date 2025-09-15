@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICallToActionIcon } from '../call-to-action-icons/types';
 /**
  * ImportCardComponent
@@ -15,4 +15,10 @@ export class ImportCardComponent {
   @Input() title: string = '';
   @Input() description: string = '';
   @Input() actionsList: ICallToActionIcon[] = [];
+  @Input() icon?: string
+  @Output() onClick = new EventEmitter();
+
+  onImportButtonClick(){
+    this.onClick.emit()
+  }
 }

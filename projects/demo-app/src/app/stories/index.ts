@@ -144,3 +144,6 @@ export * from './file-uploader/file-uploader.stories';
 
 // Auto-export for file-list stories
 export * from './file-list/file-list.stories';
+
+// Auto-export for total-list stories
+export * from './total-list/total-list.stories';

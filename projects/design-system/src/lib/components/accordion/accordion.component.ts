@@ -18,7 +18,6 @@ export interface AccordionItem {
   context?: any;
   count?: string | number;
   countColor?: string;
-  isCountReversed?: boolean;
   open?: boolean;
 }
 

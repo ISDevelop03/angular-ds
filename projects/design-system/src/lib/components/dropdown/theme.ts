@@ -13,5 +13,5 @@ export const dropdown = {
     base: '',
     select: 'border border-gray-300 py-2 px-2 rounded',
   },
-  icon: 'text-heading shrink-0 dark:text-white h-5 w-5',
+  icon: 'text-heading shrink-0 dark:text-white h-5 w-5 font-semibold',
 };

@@ -59,7 +59,7 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Input() customOptionsStyles?: { [key: string]: any };
   @Input() autoComplete?: boolean = false;
   @Input() debounceTime: number = 300; // Default debounce time in milliseconds
-  
+  @Input() description?: string;
   @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
 

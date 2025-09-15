@@ -12,8 +12,7 @@
     >
       <div [class]="theme[variant].button.titleWrapper">
         <div *ngIf="item.count" [ngClass]="[
-          'flex items-center gap-2',
-          item.isCountReversed ? 'flex-row-reverse' : ''
+          'flex items-center flex-row-reverse gap-2'
         ]">
           <!-- count -->
           <span
@@ -50,10 +49,6 @@
       </span>
     </button>
 
-    <hr
-      *ngIf="item.isOpen && variant === 'default'"
-      class="w-[95%] mx-auto border-stroke-1"
-    />
 
     <!-- panel -->
     <div *ngIf="item.isOpen" [ngClass]="getPanelClasses()">

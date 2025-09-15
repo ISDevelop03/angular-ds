@@ -355,6 +355,7 @@ export class DsTabsComponent {
   @Input() items: ITab[] &#x3D; [];
   @Input() className: string &#x3D; &#x27;&#x27;;
   @Input() variant: keyof typeof theme &#x3D; &#x27;default&#x27;;
+  @Input() rightContent?: TemplateRef&lt;any&gt;;
 
   @Output() onSelect &#x3D; new EventEmitter&lt;any&gt;();
 

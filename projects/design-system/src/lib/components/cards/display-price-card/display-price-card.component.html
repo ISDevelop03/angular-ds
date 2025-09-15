@@ -1,12 +1,12 @@
 <div
   id="ds-display-price-card"
   [ngClass]="className"
-  class="py-3 px-4 bg-red-50 border border-red-200 rounded-[4px] flex flex-col gap-5"
+  class="py-3 px-4 bg-crame-100 border border-crame-300 rounded-[4px] flex flex-col gap-5"
 >
   <div *ngIf="items.length > 0" class="flex flex-col gap-2">
     <div
       *ngFor="let item of items"
-      class="w-full flex justify-between items-center gap-4 text-[0.875rem]/[1rem] text-neutral-500 [&_p]:font-bold"
+      class="w-full flex justify-between items-center gap-4 text-[0.875rem]/[1rem] text-neutral-900 [&_p]:font-bold"
     >
       <span class="inline-flex">
         {{ item.label }}
@@ -33,7 +33,7 @@
     >
       <span> {{ price }} </span>
 
-      <ds-icon [id]="icon" size="24px" class="text-red-500"></ds-icon>
+      <ds-icon [id]="icon" size="24px" class="text-crame-500"></ds-icon>
     </p>
   </div>
 

@@ -138,6 +138,19 @@ module.exports = {
           900: "rgb(var(--color-orange-900) / <alpha-value>)",
           950: "rgb(var(--color-orange-950) / <alpha-value>)",
         },
+        crame: {
+          50: "rgb(var(--color-crame-50) / <alpha-value>)",
+          100: "rgb(var(--color-crame-100) / <alpha-value>)",
+          200: "rgb(var(--color-crame-200) / <alpha-value>)",
+          300: "rgb(var(--color-crame-300) / <alpha-value>)",
+          400: "rgb(var(--color-crame-400) / <alpha-value>)",
+          500: "rgb(var(--color-crame-500) / <alpha-value>)",
+          600: "rgb(var(--color-crame-600) / <alpha-value>)",
+          700: "rgb(var(--color-crame-700) / <alpha-value>)",
+          800: "rgb(var(--color-crame-800) / <alpha-value>)",
+          900: "rgb(var(--color-crame-900) / <alpha-value>)",
+          950: "rgb(var(--color-crame-950) / <alpha-value>)",
+        },
         "sidebar-bg": {
           DEFAULT: "#171717",
           dark: "#171717",
@@ -194,6 +207,10 @@ module.exports = {
           DEFAULT: "#444445",
           dark: "#444445",
         },
+
+        success: "rgb(var(--color-succes) / <alpha-value>)",
+        error: "rgb(var(--color-erreur) / <alpha-value>)",
+
         "level-1": "rgb(var(--level-1) / <alpha-value>)",
         "level-2": "rgb(var(--level-2) / <alpha-value>)",
         "level-3": "rgb(var(--level-3) / <alpha-value>)",

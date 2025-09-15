@@ -18,7 +18,7 @@
       <ds-icon
         *ngIf="buttonIcon && !selected.image"
         [id]="selected.icon || buttonIcon"
-        class="text-red-500"
+        [ngClass]="['text-red-500', disabled ? 'text-neutral-500' : '']"
       ></ds-icon>
 
       <img
@@ -30,16 +30,17 @@
       <ng-container *ngIf="!autoComplete">
         <span
         [ngClass]="
-          selected.label !== placeholder
+          [selected.label !== placeholder
             ? theme[variant].element.button.label
-            : theme[variant].element.button.placeholder
+            : theme[variant].element.button.placeholder,
+          disabled ? '!text-neutral-500' : '']
         "
       >
         {{ selected.label }}
       </span>
       </ng-container>
       <ng-container *ngIf="autoComplete">
-        <input type="text" class="w-full outline-none" [placeholder]="placeholder" (input)="onSearchInput($event.target.value)" />
+        <input type="text" class="w-full outline-none placeholder:font-bold placeholder:text-neutral-900 placeholder:text-xs" [placeholder]="placeholder" (input)="onSearchInput($event.target.value)" />
       </ng-container>
     </div>
 
@@ -146,5 +147,8 @@
 
   <ng-container *ngIf="hasError && errorMessage">
     <span [ngClass]="theme[variant].element.error">{{ errorMessage }}</span>
+  </ng-container>
+  <ng-container *ngIf="description">
+    <span [ngClass]="theme[variant].element.description">{{ description }}</span>
   </ng-container>
 </div>

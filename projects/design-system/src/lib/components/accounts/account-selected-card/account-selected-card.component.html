@@ -2,18 +2,11 @@
   id="ds-account-selected-card"
   class="shrink-0 text-neutral-900 rounded-lg relative p-px shadow-content shadow-neutral-50"
   [ngClass]="[
-    solde_comptable > 0 ? 'bg-selected-green' : 'bg-selected-red',
     className
   ]"
 >
   <div
-    class="rounded-[7px] relative after:rounded-[7px] after:absolute after:inset-0 after:bg-red-10 after:-z-[1] z-[2]"
-    [ngStyle]="{
-      'background-image':
-        solde_comptable > 0
-          ? 'linear-gradient(325deg, hsl(var(--card-selected-green)) 0%, rgb(var(--color-neutral-25)) 30%)'
-          : 'linear-gradient(325deg, hsl(var(--card-selected-red)) 0%, rgb(var(--color-neutral-25)) 30%)'
-    }"
+    class="rounded-[7px] relative after:rounded-[7px] after:absolute after:inset-0 after:bg-red-10 after:-z-[1] z-[2] bg-green-500 text-white"
   >
     <!-- [ngStyle]="{
       'background-image':
@@ -34,7 +27,7 @@
       <!-- Account Info -->
       <div class="flex flex-col gap-2.5" *ngIf="type || account_number">
         <h3 *ngIf="type" class="inline-flex gap-2 items-center">
-          <ds-icon id="bank2" size="14" class="text-red-500"></ds-icon>
+          <ds-icon id="bank2" size="14" class="text-white"></ds-icon>
           <span class="text-[1rem]/[1.25rem] font-medium">
             {{ type }}
           </span>
@@ -50,7 +43,7 @@
       </div>
 
       <div class="flex items-center justify-between w-full mt-2.5">
-        <span class="text-[0.75rem]/[1rem] text-neutral-700">
+        <span class="text-[0.75rem]/[1rem] text-white">
           Solde en temps réel
         </span>
 
@@ -59,7 +52,8 @@
           [isDiscrete]="isDiscrete"
           [balance]="solde_temps_reel || 0"
           [currency]="currency"
-          [currencyClassName]="'text-[0.875rem]/[1rem]'"
+          [currencyClassName]="'text-[0.875rem]/[1rem] text-white'"
+          [className]="'text-white'"
         >
         </ds-balance-formatter>
       </div>
@@ -68,7 +62,7 @@
     <hr class="w-[80%] mx-auto h-px bg-stroke-3 border-stroke-3" />
     <!-- Bottom Block -->
     <div class="px-4 py-3 flex flex-col justify-center items-end gap-2">
-      <span class="self-start text-[0.75rem]/[0.75rem] text-neutral-700">
+      <span class="self-start text-[0.75rem]/[0.75rem] text-white">
         Solde comptable
       </span>
       <ds-balance-formatter
@@ -76,7 +70,8 @@
         [isDiscrete]="isDiscrete"
         [balance]="solde_comptable"
         [currency]="currency"
-        [currencyClassName]="'text-[0.875rem]/[1rem]'"
+        [currencyClassName]="'text-[0.875rem]/[1rem] text-white'"
+        [className]="'text-white'"
       >
       </ds-balance-formatter>
     </div>

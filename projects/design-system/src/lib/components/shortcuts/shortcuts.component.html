@@ -5,26 +5,26 @@
       (click)="onItemClick(item, idx, $event)"
       class="group w-full relative group justify-start border border-stroke-1 py-3 px-2 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500 hover:shadow-xl"
       [ngClass]="[
-        item.isShortcut ? 'cursor-pointer bg-card-level-2' : 'bg-card-level-5'
+        item.isShortcut ? 'cursor-pointer bg-white' : 'bg-crame-100'
       ]"
     >
       <div
-        class="shrink-0 size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded text-violet-500"
+        class="shrink-0 size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded"
         [ngClass]="[
-          item.isShortcut ? 'group-hover:bg-violet-100' : 'bg-violet-100'
+          item.isShortcut ? 'bg-green-50 text-green-500' : 'bg-white text-green-500'
         ]"
       >
-        <ds-icon [id]="item.icon" [size]="16"></ds-icon>
+        <ds-icon [id]="item.icon" [size]="12"></ds-icon>
       </div>
       <a
         *ngIf="!item.isShortcut && item.href; else noLink"
-        class="text-neutral-900 text-left inline-flex text-[0.75rem]/[1rem] font-bold after:absolute after:inset-0"
+        class="text-neutral-900 text-left inline-flex text-[0.75rem]/[1rem] font-semibold after:absolute after:inset-0"
         [href]="item.href"
       >
         {{ item.title }}
       </a>
       <ng-template #noLink>
-        <span class="text-left inline-flex text-[0.75rem]/[1rem] font-bold">
+        <span class="text-left inline-flex text-[0.75rem]/[1rem] font-semibold">
           {{ item.title }}
         </span>
       </ng-template>

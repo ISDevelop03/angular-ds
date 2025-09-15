@@ -1,12 +1,11 @@
 <div class="p-4 grid gap-4">
   <h3 class="text-xl font-bold">Account Holding Card</h3>
-
-  <ds-account-holding-card
+    <ds-account-holding-card
     [image]="data.image"
     [title]="data.title"
     [actionsList]="data.actionsList"
     [data]="data"
-    
+    className="max-w-[270px]"
     (onClick)="clicked($event)"
   ></ds-account-holding-card>
 </div>

@@ -273,6 +273,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#className" >className</a>
+                            </li>
+                            <li>
                                 <a href="#columns" >columns</a>
                             </li>
                             <li>
@@ -335,6 +338,27 @@
 
     <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="className"></a>
+                        <b>className</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/design-system/src/lib/components/table/table.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -1430,7 +1454,7 @@ export class TableComponent implements OnChanges {
   @Input() variant: TableVariant &#x3D; &#x27;default&#x27;;
   @Input() remoteSort &#x3D; false;
   @Input() selectionEnabled &#x3D; false;
-
+  @Input() className?: string;
   @Output() sortChange &#x3D; new EventEmitter&lt;{
     accessor: string | null;
     direction?: &#x27;asc&#x27; | &#x27;desc&#x27;;
@@ -1635,144 +1659,150 @@ export class TableComponent implements OnChanges {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;table id&#x3D;&quot;ds-table&quot; [ngClass]&#x3D;&quot;theme[variant].table&quot;&gt;
-  &lt;thead [ngClass]&#x3D;&quot;theme[variant].header&quot;&gt;
-    &lt;tr class&#x3D;&quot;rounded overflow-hidden&quot;&gt;
-      &lt;!-- 1) HEADER ds-checkbox --&gt;
-      &lt;th
-        *ngIf&#x3D;&quot;selectionEnabled&quot;
-        [ngClass]&#x3D;&quot;[theme[variant].headerCell, &#x27;w-[30px] rounded-l-md&#x27;]&quot;
-      &gt;
-        &lt;ds-checkbox
-          [checked]&#x3D;&quot;isAllSelected&quot;
-          [disabled]&#x3D;&quot;displayData.length &#x3D;&#x3D;&#x3D; 0&quot;
-          [change]&#x3D;&quot;headerCheckboxChange&quot;
-        &gt;&lt;/ds-checkbox&gt;
-      &lt;/th&gt;
-
-      &lt;th
-        *ngFor&#x3D;&quot;let col of columns; let idx &#x3D; index&quot;
-        [ngClass]&#x3D;&quot;[
-          theme[variant].headerCell,
-          !col.sortable ? &#x27;pb-2.5 pt-1.5&#x27; : &#x27;py-2.5&#x27;,
-          idx &#x3D;&#x3D;&#x3D; 0 ? &#x27;rounded-l-md&#x27; : &#x27;&#x27;,
-          columns.length - 1 &#x3D;&#x3D;&#x3D; idx ? &#x27;rounded-r-md&#x27; : &#x27;&#x27;,
-          col.sortable ? theme[variant].headerCellSortable : &#x27;&#x27;
-        ]&quot;
-        [ngStyle]&#x3D;&quot;
-          col.styles &amp;&amp; col.styles.width
-            ? { width: col.styles.width + &#x27;px&#x27; }
-            : {}
-        &quot;
-      &gt;
-        &lt;span
-          *ngIf&#x3D;&quot;!col.sortable&quot;
+        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;[&#x27;overflow-x-auto w-full relative&#x27;, className || &#x27;&#x27;]&quot;&gt;
+  &lt;table id&#x3D;&quot;ds-table&quot; [ngClass]&#x3D;&quot;theme[variant].table&quot;&gt;
+    &lt;thead [ngClass]&#x3D;&quot;theme[variant].header&quot;&gt;
+      &lt;tr class&#x3D;&quot;overflow-hidden&quot;&gt;
+        &lt;!-- 1) HEADER ds-checkbox --&gt;
+        &lt;th
+          *ngIf&#x3D;&quot;selectionEnabled&quot;
           [ngClass]&#x3D;&quot;[
-            theme[variant].headerTh,
-            col.expandable ? &#x27;flex justify-between items-center w-full&#x27; : &#x27;&#x27;
+            theme[variant].headerCell,
+            &#x27;w-[30px]&#x27;,
+            variant &#x3D;&#x3D;&#x3D; &#x27;default&#x27; ? &#x27;rounded-l-md&#x27; : &#x27;&#x27;,
+            variant &#x3D;&#x3D;&#x3D; &#x27;secondary&#x27; ? &#x27;rounded-tl-lg&#x27; : &#x27;&#x27;
           ]&quot;
         &gt;
-          &lt;span [ngClass]&#x3D;&quot;[theme[variant].headerText]&quot;&gt;
-            {{ col.header }}
-          &lt;/span&gt;
-          &lt;button
-            (click)&#x3D;&quot;toggleTruncateData(col)&quot;
-            [ngClass]&#x3D;&quot;[col.truncate ? &#x27;text-green-500&#x27; : &#x27;text-red-500&#x27;]&quot;
-            *ngIf&#x3D;&quot;col.expandable&quot;
-          &gt;
-            &lt;ds-icon [id]&#x3D;&quot;col.truncate ? &#x27;plus&#x27; : &#x27;minus&#x27;&quot; size&#x3D;&quot;16&quot;&gt;&lt;/ds-icon&gt;
-          &lt;/button&gt;
-        &lt;/span&gt;
-        &lt;button
-          *ngIf&#x3D;&quot;col.sortable&quot;
+          &lt;ds-checkbox
+            [checked]&#x3D;&quot;isAllSelected&quot;
+            [disabled]&#x3D;&quot;displayData.length &#x3D;&#x3D;&#x3D; 0&quot;
+            [change]&#x3D;&quot;headerCheckboxChange&quot;
+          &gt;&lt;/ds-checkbox&gt;
+        &lt;/th&gt;
+  
+        &lt;th
+          *ngFor&#x3D;&quot;let col of columns; let idx &#x3D; index&quot;
           [ngClass]&#x3D;&quot;[
-            theme[variant].headerCellButton,
-            col.expandable ? &#x27;flex justify-between items-center w-full&#x27; : &#x27;&#x27;
+            theme[variant].headerCell,
+            !col.sortable ? &#x27;pb-2.5 pt-1.5&#x27; : &#x27;py-2.5&#x27;,
+            idx &#x3D;&#x3D;&#x3D; 0 &amp;&amp; variant &#x3D;&#x3D;&#x3D; &#x27;default&#x27; ? &#x27;rounded-l-md&#x27; : &#x27;&#x27;,
+            columns.length - 1 &#x3D;&#x3D;&#x3D; idx &amp;&amp; variant &#x3D;&#x3D;&#x3D; &#x27;default&#x27; ? &#x27;rounded-r-md&#x27; : &#x27;&#x27;
           ]&quot;
+          [ngStyle]&#x3D;&quot;
+            col.styles &amp;&amp; col.styles.width
+              ? { width: col.styles.width + &#x27;px&#x27; }
+              : {}
+          &quot;
         &gt;
           &lt;span
-            (click)&#x3D;&quot;col.sortable &amp;&amp; onSort(col)&quot;
-            [ngClass]&#x3D;&quot;[theme[variant].headerTh]&quot;
+            *ngIf&#x3D;&quot;!col.sortable&quot;
+            [ngClass]&#x3D;&quot;[
+              theme[variant].headerTh,
+              col.expandable ? &#x27;flex justify-between items-center w-full&#x27; : &#x27;&#x27;
+            ]&quot;
           &gt;
-            &lt;span [ngClass]&#x3D;&quot;[theme[variant].headerIcons]&quot;&gt;
-              &lt;!-- default “no sort” icon --&gt;
-              &lt;ds-icon
-                *ngIf&#x3D;&quot;col.sortable &amp;&amp; sortColumn !&#x3D;&#x3D; col.accessor&quot;
-                id&#x3D;&quot;filter-up-down&quot;
-                size&#x3D;&quot;12&quot;
-              &gt;&lt;/ds-icon&gt;
-
-              &lt;!-- asc / desc icons --&gt;
-              &lt;ng-container *ngIf&#x3D;&quot;sortColumn &#x3D;&#x3D;&#x3D; col.accessor&quot;&gt;
-                &lt;ds-icon
-                  *ngIf&#x3D;&quot;sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27;&quot;
-                  id&#x3D;&quot;filter-up&quot;
-                  size&#x3D;&quot;12&quot;
-                &gt;&lt;/ds-icon&gt;
-                &lt;ds-icon
-                  *ngIf&#x3D;&quot;sortDirection &#x3D;&#x3D;&#x3D; &#x27;desc&#x27;&quot;
-                  id&#x3D;&quot;filter-down&quot;
-                  size&#x3D;&quot;12&quot;
-                &gt;&lt;/ds-icon&gt;
-              &lt;/ng-container&gt;
-            &lt;/span&gt;
             &lt;span [ngClass]&#x3D;&quot;[theme[variant].headerText]&quot;&gt;
               {{ col.header }}
             &lt;/span&gt;
+            &lt;button
+              (click)&#x3D;&quot;toggleTruncateData(col)&quot;
+              [ngClass]&#x3D;&quot;[col.truncate ? &#x27;text-green-500&#x27; : &#x27;text-red-500&#x27;]&quot;
+              *ngIf&#x3D;&quot;col.expandable&quot;
+            &gt;
+              &lt;ds-icon [id]&#x3D;&quot;col.truncate ? &#x27;plus&#x27; : &#x27;minus&#x27;&quot; size&#x3D;&quot;16&quot;&gt;&lt;/ds-icon&gt;
+            &lt;/button&gt;
           &lt;/span&gt;
           &lt;button
-            (click)&#x3D;&quot;toggleTruncateData(col)&quot;
-            [ngClass]&#x3D;&quot;[col.truncate ? &#x27;text-green-500&#x27; : &#x27;text-red-500&#x27;]&quot;
-            *ngIf&#x3D;&quot;col.expandable&quot;
+            *ngIf&#x3D;&quot;col.sortable&quot;
+            [ngClass]&#x3D;&quot;[
+              theme[variant].headerCellButton,
+              col.expandable ? &#x27;flex justify-between items-center w-full&#x27; : &#x27;&#x27;
+            ]&quot;
           &gt;
-            &lt;ds-icon [id]&#x3D;&quot;col.truncate ? &#x27;plus&#x27; : &#x27;minus&#x27;&quot; size&#x3D;&quot;16&quot;&gt;&lt;/ds-icon&gt;
+            &lt;span
+              (click)&#x3D;&quot;col.sortable &amp;&amp; onSort(col)&quot;
+              [ngClass]&#x3D;&quot;[theme[variant].headerTh]&quot;
+            &gt;
+              &lt;span [ngClass]&#x3D;&quot;[theme[variant].headerIcons]&quot;&gt;
+                &lt;!-- default “no sort” icon --&gt;
+                &lt;ds-icon
+                  *ngIf&#x3D;&quot;col.sortable &amp;&amp; sortColumn !&#x3D;&#x3D; col.accessor&quot;
+                  id&#x3D;&quot;filter-up-down&quot;
+                  size&#x3D;&quot;12&quot;
+                &gt;&lt;/ds-icon&gt;
+  
+                &lt;!-- asc / desc icons --&gt;
+                &lt;ng-container *ngIf&#x3D;&quot;sortColumn &#x3D;&#x3D;&#x3D; col.accessor&quot;&gt;
+                  &lt;ds-icon
+                    *ngIf&#x3D;&quot;sortDirection &#x3D;&#x3D;&#x3D; &#x27;asc&#x27;&quot;
+                    id&#x3D;&quot;filter-up&quot;
+                    size&#x3D;&quot;12&quot;
+                  &gt;&lt;/ds-icon&gt;
+                  &lt;ds-icon
+                    *ngIf&#x3D;&quot;sortDirection &#x3D;&#x3D;&#x3D; &#x27;desc&#x27;&quot;
+                    id&#x3D;&quot;filter-down&quot;
+                    size&#x3D;&quot;12&quot;
+                  &gt;&lt;/ds-icon&gt;
+                &lt;/ng-container&gt;
+              &lt;/span&gt;
+              &lt;span [ngClass]&#x3D;&quot;[theme[variant].headerText]&quot;&gt;
+                {{ col.header }}
+              &lt;/span&gt;
+            &lt;/span&gt;
+            &lt;button
+              (click)&#x3D;&quot;toggleTruncateData(col)&quot;
+              [ngClass]&#x3D;&quot;[col.truncate ? &#x27;text-green-500&#x27; : &#x27;text-red-500&#x27;]&quot;
+              *ngIf&#x3D;&quot;col.expandable&quot;
+            &gt;
+              &lt;ds-icon [id]&#x3D;&quot;col.truncate ? &#x27;plus&#x27; : &#x27;minus&#x27;&quot; size&#x3D;&quot;16&quot;&gt;&lt;/ds-icon&gt;
+            &lt;/button&gt;
           &lt;/button&gt;
-        &lt;/button&gt;
-      &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody [ngClass]&#x3D;&quot;theme[variant].body&quot;&gt;
-    &lt;tr
-      *ngFor&#x3D;&quot;let row of displayData; let i &#x3D; index&quot;
-      [ngClass]&#x3D;&quot;theme[variant].row(i)&quot;
-    &gt;
-      &lt;!-- ROW ds-checkbox --&gt;
-      &lt;td *ngIf&#x3D;&quot;selectionEnabled&quot; [ngClass]&#x3D;&quot;theme[variant].cell&quot;&gt;
-        &lt;ds-checkbox
-          [checked]&#x3D;&quot;isSelected(row)&quot;
-          [change]&#x3D;&quot;getRowCheckboxChange(row)&quot;
-        &gt;&lt;/ds-checkbox&gt;
-      &lt;/td&gt;
-
-      &lt;td
-        *ngFor&#x3D;&quot;let col of columns&quot;
-        [ngClass]&#x3D;&quot;[
-          theme[variant].cell,
-          col.expandable &amp;&amp; col.truncate
-            ? &#x27;py-3 inline-block truncate line-clamp-1&#x27;
-            : &#x27;&#x27;
-        ]&quot;
-        [ngStyle]&#x3D;&quot;
-          col.styles &amp;&amp; col.styles.width
-            ? { width: col.styles.width + &#x27;px&#x27; }
-            : {}
-        &quot;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody [ngClass]&#x3D;&quot;theme[variant].body&quot;&gt;
+      &lt;tr
+        *ngFor&#x3D;&quot;let row of displayData; let i &#x3D; index&quot;
+        [ngClass]&#x3D;&quot;theme[variant].row(i)&quot;
       &gt;
-        &lt;ng-container
-          *ngIf&#x3D;&quot;col.cellTemplate; else defaultCell&quot;
-          [ngTemplateOutlet]&#x3D;&quot;col.cellTemplate&quot;
-          [ngTemplateOutletContext]&#x3D;&quot;{
-            $implicit: row[col.accessor],
-            row: row
-          }&quot;
-        &gt;&lt;/ng-container&gt;
-        &lt;ng-template #defaultCell&gt;
-          {{ row[col.accessor] }}
-        &lt;/ng-template&gt;
-      &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+        &lt;!-- ROW ds-checkbox --&gt;
+        &lt;td *ngIf&#x3D;&quot;selectionEnabled&quot; [ngClass]&#x3D;&quot;theme[variant].cell&quot;&gt;
+          &lt;ds-checkbox
+            [checked]&#x3D;&quot;isSelected(row)&quot;
+            [change]&#x3D;&quot;getRowCheckboxChange(row)&quot;
+          &gt;&lt;/ds-checkbox&gt;
+        &lt;/td&gt;
+  
+        &lt;td
+          *ngFor&#x3D;&quot;let col of columns&quot;
+          [ngClass]&#x3D;&quot;[
+            theme[variant].cell,
+            col.expandable &amp;&amp; col.truncate
+              ? &#x27;py-3 inline-block truncate line-clamp-1&#x27;
+              : &#x27;&#x27;
+          ]&quot;
+          [ngStyle]&#x3D;&quot;
+            col.styles &amp;&amp; col.styles.width
+              ? { width: col.styles.width + &#x27;px&#x27; }
+              : {}
+          &quot;
+        &gt;
+          &lt;ng-container
+            *ngIf&#x3D;&quot;col.cellTemplate; else defaultCell&quot;
+            [ngTemplateOutlet]&#x3D;&quot;col.cellTemplate&quot;
+            [ngTemplateOutletContext]&#x3D;&quot;{
+              $implicit: row[col.accessor],
+              row: row
+            }&quot;
+          &gt;&lt;/ng-container&gt;
+          &lt;ng-template #defaultCell&gt;
+            {{ row[col.accessor] }}
+          &lt;/ng-template&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -1807,8 +1837,8 @@ export class TableComponent implements OnChanges {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><table id="ds-table" [ngClass]="theme[variant].table">  <thead [ngClass]="theme[variant].header">    <tr class="rounded overflow-hidden">      <!-- 1) HEADER ds-checkbox -->      <th        *ngIf="selectionEnabled"        [ngClass]="[theme[variant].headerCell, \'w-[30px] rounded-l-md\']"      >        <ds-checkbox          [checked]="isAllSelected"          [disabled]="displayData.length === 0"          [change]="headerCheckboxChange"        ></ds-checkbox>      </th>      <th        *ngFor="let col of columns; let idx = index"        [ngClass]="[          theme[variant].headerCell,          !col.sortable ? \'pb-2.5 pt-1.5\' : \'py-2.5\',          idx === 0 ? \'rounded-l-md\' : \'\',          columns.length - 1 === idx ? \'rounded-r-md\' : \'\',          col.sortable ? theme[variant].headerCellSortable : \'\'        ]"        [ngStyle]="          col.styles && col.styles.width            ? { width: col.styles.width + \'px\' }            : {}        "      >        <span          *ngIf="!col.sortable"          [ngClass]="[            theme[variant].headerTh,            col.expandable ? \'flex justify-between items-center w-full\' : \'\'          ]"        >          <span [ngClass]="[theme[variant].headerText]">            {{ col.header }}          </span>          <button            (click)="toggleTruncateData(col)"            [ngClass]="[col.truncate ? \'text-green-500\' : \'text-red-500\']"            *ngIf="col.expandable"          >            <ds-icon [id]="col.truncate ? \'plus\' : \'minus\'" size="16"></ds-icon>          </button>        </span>        <button          *ngIf="col.sortable"          [ngClass]="[            theme[variant].headerCellButton,            col.expandable ? \'flex justify-between items-center w-full\' : \'\'          ]"        >          <span            (click)="col.sortable && onSort(col)"            [ngClass]="[theme[variant].headerTh]"          >            <span [ngClass]="[theme[variant].headerIcons]">              <!-- default “no sort” icon -->              <ds-icon                *ngIf="col.sortable && sortColumn !== col.accessor"                id="filter-up-down"                size="12"              ></ds-icon>              <!-- asc / desc icons -->              <ng-container *ngIf="sortColumn === col.accessor">                <ds-icon                  *ngIf="sortDirection === \'asc\'"                  id="filter-up"                  size="12"                ></ds-icon>                <ds-icon                  *ngIf="sortDirection === \'desc\'"                  id="filter-down"                  size="12"                ></ds-icon>              </ng-container>            </span>            <span [ngClass]="[theme[variant].headerText]">              {{ col.header }}            </span>          </span>          <button            (click)="toggleTruncateData(col)"            [ngClass]="[col.truncate ? \'text-green-500\' : \'text-red-500\']"            *ngIf="col.expandable"          >            <ds-icon [id]="col.truncate ? \'plus\' : \'minus\'" size="16"></ds-icon>          </button>        </button>      </th>    </tr>  </thead>  <tbody [ngClass]="theme[variant].body">    <tr      *ngFor="let row of displayData; let i = index"      [ngClass]="theme[variant].row(i)"    >      <!-- ROW ds-checkbox -->      <td *ngIf="selectionEnabled" [ngClass]="theme[variant].cell">        <ds-checkbox          [checked]="isSelected(row)"          [change]="getRowCheckboxChange(row)"        ></ds-checkbox>      </td>      <td        *ngFor="let col of columns"        [ngClass]="[          theme[variant].cell,          col.expandable && col.truncate            ? \'py-3 inline-block truncate line-clamp-1\'            : \'\'        ]"        [ngStyle]="          col.styles && col.styles.width            ? { width: col.styles.width + \'px\' }            : {}        "      >        <ng-container          *ngIf="col.cellTemplate; else defaultCell"          [ngTemplateOutlet]="col.cellTemplate"          [ngTemplateOutletContext]="{            $implicit: row[col.accessor],            row: row          }"        ></ng-container>        <ng-template #defaultCell>          {{ row[col.accessor] }}        </ng-template>      </td>    </tr>  </tbody></table></div>'
-    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AutocompleteComponent', 'selector': 'ds-autocomplete'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeGroupComponent', 'selector': 'ds-badge-group'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'ErrorCardComponent', 'selector': 'ds-error-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SkeletonComponent', 'selector': 'ds-skeleton'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><div [ngClass]="[\'overflow-x-auto w-full relative\', className || \'\']">  <table id="ds-table" [ngClass]="theme[variant].table">    <thead [ngClass]="theme[variant].header">      <tr class="overflow-hidden">        <!-- 1) HEADER ds-checkbox -->        <th          *ngIf="selectionEnabled"          [ngClass]="[            theme[variant].headerCell,            \'w-[30px]\',            variant === \'default\' ? \'rounded-l-md\' : \'\',            variant === \'secondary\' ? \'rounded-tl-lg\' : \'\'          ]"        >          <ds-checkbox            [checked]="isAllSelected"            [disabled]="displayData.length === 0"            [change]="headerCheckboxChange"          ></ds-checkbox>        </th>          <th          *ngFor="let col of columns; let idx = index"          [ngClass]="[            theme[variant].headerCell,            !col.sortable ? \'pb-2.5 pt-1.5\' : \'py-2.5\',            idx === 0 && variant === \'default\' ? \'rounded-l-md\' : \'\',            columns.length - 1 === idx && variant === \'default\' ? \'rounded-r-md\' : \'\'          ]"          [ngStyle]="            col.styles && col.styles.width              ? { width: col.styles.width + \'px\' }              : {}          "        >          <span            *ngIf="!col.sortable"            [ngClass]="[              theme[variant].headerTh,              col.expandable ? \'flex justify-between items-center w-full\' : \'\'            ]"          >            <span [ngClass]="[theme[variant].headerText]">              {{ col.header }}            </span>            <button              (click)="toggleTruncateData(col)"              [ngClass]="[col.truncate ? \'text-green-500\' : \'text-red-500\']"              *ngIf="col.expandable"            >              <ds-icon [id]="col.truncate ? \'plus\' : \'minus\'" size="16"></ds-icon>            </button>          </span>          <button            *ngIf="col.sortable"            [ngClass]="[              theme[variant].headerCellButton,              col.expandable ? \'flex justify-between items-center w-full\' : \'\'            ]"          >            <span              (click)="col.sortable && onSort(col)"              [ngClass]="[theme[variant].headerTh]"            >              <span [ngClass]="[theme[variant].headerIcons]">                <!-- default “no sort” icon -->                <ds-icon                  *ngIf="col.sortable && sortColumn !== col.accessor"                  id="filter-up-down"                  size="12"                ></ds-icon>                  <!-- asc / desc icons -->                <ng-container *ngIf="sortColumn === col.accessor">                  <ds-icon                    *ngIf="sortDirection === \'asc\'"                    id="filter-up"                    size="12"                  ></ds-icon>                  <ds-icon                    *ngIf="sortDirection === \'desc\'"                    id="filter-down"                    size="12"                  ></ds-icon>                </ng-container>              </span>              <span [ngClass]="[theme[variant].headerText]">                {{ col.header }}              </span>            </span>            <button              (click)="toggleTruncateData(col)"              [ngClass]="[col.truncate ? \'text-green-500\' : \'text-red-500\']"              *ngIf="col.expandable"            >              <ds-icon [id]="col.truncate ? \'plus\' : \'minus\'" size="16"></ds-icon>            </button>          </button>        </th>      </tr>    </thead>    <tbody [ngClass]="theme[variant].body">      <tr        *ngFor="let row of displayData; let i = index"        [ngClass]="theme[variant].row(i)"      >        <!-- ROW ds-checkbox -->        <td *ngIf="selectionEnabled" [ngClass]="theme[variant].cell">          <ds-checkbox            [checked]="isSelected(row)"            [change]="getRowCheckboxChange(row)"          ></ds-checkbox>        </td>          <td          *ngFor="let col of columns"          [ngClass]="[            theme[variant].cell,            col.expandable && col.truncate              ? \'py-3 inline-block truncate line-clamp-1\'              : \'\'          ]"          [ngStyle]="            col.styles && col.styles.width              ? { width: col.styles.width + \'px\' }              : {}          "        >          <ng-container            *ngIf="col.cellTemplate; else defaultCell"            [ngTemplateOutlet]="col.cellTemplate"            [ngTemplateOutletContext]="{              $implicit: row[col.accessor],              row: row            }"          ></ng-container>          <ng-template #defaultCell>            {{ row[col.accessor] }}          </ng-template>        </td>      </tr>    </tbody>  </table></div></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AutocompleteComponent', 'selector': 'ds-autocomplete'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeGroupComponent', 'selector': 'ds-badge-group'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CarouselComponent', 'selector': 'ds-carousel'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DropdownHolderComponent', 'selector': 'ds-dropdown-holder'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'ErrorCardComponent', 'selector': 'ds-error-card'},{'name': 'FileListComponent', 'selector': 'ds-file-list'},{'name': 'FileUploaderComponent', 'selector': 'ds-file-uploader'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FloatedButtonsComponent', 'selector': 'ds-floated-buttons'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'ImportCardComponent', 'selector': 'ds-import-card'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'MessageComponent', 'selector': 'ds-message'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SkeletonComponent', 'selector': 'ds-skeleton'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TableComponent'};
 </script>

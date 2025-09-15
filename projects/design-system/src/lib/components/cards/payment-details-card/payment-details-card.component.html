@@ -25,18 +25,18 @@
   </div>
   <div class="grid grid-cols-5">
     <div
-      class="col-span-3 text-[0.875rem]/[1.25rem] py-2.5 px-3 justify-start text-neutral-500 items-center"
+      class="col-span-3 text-[0.875rem]/[1.25rem] py-2.5 px-3 justify-start text-neutral-500 items-center bg-white"
     >
       <ng-content></ng-content>
     </div>
     <span
-      class="inline-flex text-[0.875rem]/[1rem] font-bold py-2.5 px-3 justify-start items-center"
+      class="inline-flex text-[0.875rem]/[1rem] font-bold py-2.5 px-3 justify-start items-center bg-white"
     >
       {{ date | date : "dd.MM.yyyy" }}
     </span>
 
     <span
-      class="inline-flex text-[0.875rem]/[1rem] font-bold py-2.5 px-3 justify-start items-center"
+      class="inline-flex text-[0.875rem]/[1rem] font-bold py-2.5 px-3 justify-start items-center bg-white"
     >
       {{ price | number : "1.2-2" : "fr-FR" }} {{ currency }}
     </span>

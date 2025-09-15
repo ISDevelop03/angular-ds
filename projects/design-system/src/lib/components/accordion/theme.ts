@@ -18,7 +18,7 @@ export const theme = {
       },
     },
     panel: {
-      base: 'p-5 overflow-hidden rounded-b-lg',
+      base: 'p-5 overflow-hidden rounded-b-lg border-t border-stroke-1',
     },
   },
   borderless: {

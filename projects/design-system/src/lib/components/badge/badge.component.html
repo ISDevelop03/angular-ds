@@ -18,7 +18,8 @@
     class="size-1.5 rounded-full inline-flex"
     [ngClass]="[
       'bg-' + (variant === 'default' ? 'neutral' : variant) + '-500',
-      variant === 'stroke1' ? 'bg-neutral-700' : ''
+      variant === 'stroke1' ? 'bg-neutral-700' : '',
+      variant === 'green' ? 'bg-success' : ''
     ]"
     *ngIf="withDot"
   ></span>

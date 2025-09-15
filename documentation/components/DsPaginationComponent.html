@@ -841,8 +841,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="129"
-                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:129</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:132</a></div>
                         </td>
                     </tr>
 
@@ -908,8 +908,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="125"
-                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:125</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:128</a></div>
                         </td>
                     </tr>
 
@@ -1012,8 +1012,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="121"
-                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:121</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:124</a></div>
                         </td>
                     </tr>
 
@@ -1049,8 +1049,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="112"
-                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:112</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">projects/design-system/src/lib/components/pagination/pagination.component.ts:115</a></div>
                         </td>
                     </tr>
 
@@ -1268,13 +1268,18 @@ export class DsPaginationComponent implements OnChanges {
   }
 
   private calculatePages() {
-    this.pageCount &#x3D; Math.ceil(this.totalItems / this.itemsPerPage);
+    this.pageCount &#x3D; Math.max(
+      1,
+      Math.ceil(this.totalItems / this.itemsPerPage)
+    );
     const total &#x3D; this.pageCount;
-    const startCnt &#x3D; this.boundaryStartCount;
-    const endCnt &#x3D; this.boundaryEndCount;
+
+    // never request more boundary pages than we actually have
+    const startCnt &#x3D; Math.min(this.boundaryStartCount, total);
+    const endCnt &#x3D; Math.min(this.boundaryEndCount, total);
     const win &#x3D; this.windowSize;
 
-    // build the three sets
+    // build the three sets, now guaranteed within [1…total]
     const startPages &#x3D; Array.from({ length: startCnt }, (_, i) &#x3D;&gt; i + 1);
     const endPages &#x3D; Array.from(
       { length: endCnt },
@@ -1285,20 +1290,18 @@ export class DsPaginationComponent implements OnChanges {
     const windowStart &#x3D; Math.max(this.currentPage - win, startCnt + 1);
     const windowEnd &#x3D; Math.min(this.currentPage + win, total - endCnt);
 
-    const windowPages &#x3D; [];
+    const windowPages: number[] &#x3D; [];
     for (let i &#x3D; windowStart; i &lt;&#x3D; windowEnd; i++) {
       windowPages.push(i);
     }
 
-    // merge &amp; insert ellipses on gaps
+    // merge &amp; inject ellipses
     const all &#x3D; startPages
       .concat(windowPages, endPages)
-      .filter((v, i, arr) &#x3D;&gt; arr.indexOf(v) &#x3D;&#x3D;&#x3D; i) // unique
-      .sort((a, b) &#x3D;&gt;
-        typeof a &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; typeof b &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? a - b : 0
-      );
+      .filter((v, i, arr) &#x3D;&gt; arr.indexOf(v) &#x3D;&#x3D;&#x3D; i) // dedupe
+      .sort((a, b) &#x3D;&gt; a - b);
 
-    const pages: (number | &#x27;...&#x27;)[] &#x3D; [all[0]];
+    const pages: PageItem[] &#x3D; [all[0]];
     for (let i &#x3D; 1; i &lt; all.length; i++) {
       const prev &#x3D; all[i - 1] as number;
       const curr &#x3D; all[i] as number;
@@ -1347,7 +1350,7 @@ export class DsPaginationComponent implements OnChanges {
 
     &lt;ul *ngIf&#x3D;&quot;showPerPage&quot; class&#x3D;&quot;flex items-center justify-center gap-2&quot;&gt;
       &lt;li
-        class&#x3D;&quot;text-[16px]/[20px]&quot;
+        class&#x3D;&quot;text-[1rem]/[1.25rem]&quot;
         [ngClass]&#x3D;&quot;[
           itemsPerPage &#x3D;&#x3D;&#x3D; item ? &#x27;text-red-500 font-bold&#x27; : &#x27;text-neutral-700&#x27;
         ]&quot;
@@ -1453,8 +1456,8 @@ export class DsPaginationComponent implements OnChanges {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav id="ds-pagination" [ngClass]="[theme[variant].wrapper, className]">  <div class="flex items-center justify-center gap-3">    <span [ngClass]="[theme[variant].info]">      ({{ firstItem }}-{{ itemsPerPage }}/{{ totalItems }}) Par page:    </span>    <ul *ngIf="showPerPage" class="flex items-center justify-center gap-2">      <li        class="text-[16px]/[20px]"        [ngClass]="[          itemsPerPage === item ? \'text-red-500 font-bold\' : \'text-neutral-700\'        ]"        *ngFor="let item of perPageOptions"      >        <button (click)="changePerPage(item)">          {{ item }}        </button>      </li>    </ul>  </div>  <div [ngClass]="[theme[variant].container]">    <!-- Prev Button -->    <button      (click)="prev()"      [disabled]="currentPage <= 1"      [ngClass]="[        theme[variant].nextPrevButtons.base,        theme[variant].nextPrevButtons.prev.base      ]"    >      <ds-icon        [id]="theme[variant].nextPrevButtons.prev.id"        [size]="theme[variant].nextPrevButtons.prev.size"        [class]="theme[variant].nextPrevButtons.prev.base"      >      </ds-icon>      {{ prevLabel }}    </button>    <!-- Page Buttons + Ellipsis -->    <ul [ngClass]="[theme[variant].buttons.base]">      <li *ngFor="let pNum of pages">        <ng-container *ngIf="pNum !== \'...\'">          <button            (click)="selectPage(+pNum)"            [ngClass]="[              theme[variant].buttons.button.base,              pNum === currentPage                ? theme[variant].buttons.button.active                : theme[variant].buttons.button.inactive            ]"          >            {{ pNum }}          </button>        </ng-container>        <ng-container *ngIf="pNum === \'...\'">          <span [ngClass]="[theme[variant].buttons.ellipsis]">…</span>        </ng-container>      </li>    </ul>    <!-- Next Button -->    <button      (click)="next()"      [disabled]="currentPage >= pageCount"      [ngClass]="[        theme[variant].nextPrevButtons.base,        theme[variant].nextPrevButtons.next.base      ]"    >      {{ nextLabel }}      <ds-icon        [id]="theme[variant].nextPrevButtons.next.id"        [size]="theme[variant].nextPrevButtons.next.size"        [class]="theme[variant].nextPrevButtons.next.base"      >      </ds-icon>    </button>  </div></nav></div>'
-    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AutocompleteComponent', 'selector': 'ds-autocomplete'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeGroupComponent', 'selector': 'ds-badge-group'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'ErrorCardComponent', 'selector': 'ds-error-card'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SkeletonComponent', 'selector': 'ds-skeleton'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
+        var COMPONENT_TEMPLATE = '<div><nav id="ds-pagination" [ngClass]="[theme[variant].wrapper, className]">  <div class="flex items-center justify-center gap-3">    <span [ngClass]="[theme[variant].info]">      ({{ firstItem }}-{{ itemsPerPage }}/{{ totalItems }}) Par page:    </span>    <ul *ngIf="showPerPage" class="flex items-center justify-center gap-2">      <li        class="text-[1rem]/[1.25rem]"        [ngClass]="[          itemsPerPage === item ? \'text-red-500 font-bold\' : \'text-neutral-700\'        ]"        *ngFor="let item of perPageOptions"      >        <button (click)="changePerPage(item)">          {{ item }}        </button>      </li>    </ul>  </div>  <div [ngClass]="[theme[variant].container]">    <!-- Prev Button -->    <button      (click)="prev()"      [disabled]="currentPage <= 1"      [ngClass]="[        theme[variant].nextPrevButtons.base,        theme[variant].nextPrevButtons.prev.base      ]"    >      <ds-icon        [id]="theme[variant].nextPrevButtons.prev.id"        [size]="theme[variant].nextPrevButtons.prev.size"        [class]="theme[variant].nextPrevButtons.prev.base"      >      </ds-icon>      {{ prevLabel }}    </button>    <!-- Page Buttons + Ellipsis -->    <ul [ngClass]="[theme[variant].buttons.base]">      <li *ngFor="let pNum of pages">        <ng-container *ngIf="pNum !== \'...\'">          <button            (click)="selectPage(+pNum)"            [ngClass]="[              theme[variant].buttons.button.base,              pNum === currentPage                ? theme[variant].buttons.button.active                : theme[variant].buttons.button.inactive            ]"          >            {{ pNum }}          </button>        </ng-container>        <ng-container *ngIf="pNum === \'...\'">          <span [ngClass]="[theme[variant].buttons.ellipsis]">…</span>        </ng-container>      </li>    </ul>    <!-- Next Button -->    <button      (click)="next()"      [disabled]="currentPage >= pageCount"      [ngClass]="[        theme[variant].nextPrevButtons.base,        theme[variant].nextPrevButtons.next.base      ]"    >      {{ nextLabel }}      <ds-icon        [id]="theme[variant].nextPrevButtons.next.id"        [size]="theme[variant].nextPrevButtons.next.size"        [class]="theme[variant].nextPrevButtons.next.base"      >      </ds-icon>    </button>  </div></nav></div>'
+    var COMPONENTS = [{'name': 'AccordionCardComponent', 'selector': 'ds-accordion-card'},{'name': 'AccordionComponent', 'selector': 'ds-accordion'},{'name': 'AccountCardComponent', 'selector': 'ds-account-card'},{'name': 'AccountHoldingCardComponent', 'selector': 'ds-account-holding-card'},{'name': 'AccountHoldingSelectedCardComponent', 'selector': 'ds-account-holding-selected-card'},{'name': 'AccountsSelectComponent', 'selector': 'ds-accounts-select'},{'name': 'AutocompleteComponent', 'selector': 'ds-autocomplete'},{'name': 'AvatarComponent', 'selector': 'ds-avatar'},{'name': 'BadgeComponent', 'selector': 'ds-badge'},{'name': 'BadgeGroupComponent', 'selector': 'ds-badge-group'},{'name': 'ButtonComponent', 'selector': 'ds-button'},{'name': 'CallToActionIconsComponent', 'selector': 'ds-call-to-action-icons'},{'name': 'CarouselComponent', 'selector': 'ds-carousel'},{'name': 'CodeInputComponent', 'selector': 'ds-code-input'},{'name': 'CurrencyConverterComponent', 'selector': 'ds-currency-converter'},{'name': 'DatePickerComponent', 'selector': 'ds-date-picker'},{'name': 'DesignSystemComponent', 'selector': 'lib-design-system'},{'name': 'DisplayPriceCardComponent', 'selector': 'ds-display-price-card'},{'name': 'DropdownHolderComponent', 'selector': 'ds-dropdown-holder'},{'name': 'DsAccountFilialHoldingCardComponent', 'selector': 'ds-account-filial-holding-card'},{'name': 'DsAccountGridCardComponent', 'selector': 'ds-account-grid-card'},{'name': 'DsAccountGridHoldingCardComponent', 'selector': 'ds-account-grid-holding-card'},{'name': 'DsAccountSelectedCardComponent', 'selector': 'ds-account-selected-card'},{'name': 'DsAccountSliderCardComponent', 'selector': 'ds-account-slider-card'},{'name': 'DsActionsLayoutComponent', 'selector': 'ds-actions-layout'},{'name': 'DsBalanceFormatterComponent', 'selector': 'ds-balance-formatter'},{'name': 'DsBreadcrumbComponent', 'selector': 'ds-breadcrumb'},{'name': 'DsCheckboxComponent', 'selector': 'ds-checkbox'},{'name': 'DsDropdownComponent', 'selector': 'ds-dropdown'},{'name': 'DsHoldingCardComponent', 'selector': 'ds-holding-card'},{'name': 'DsInputComponent', 'selector': 'ds-input'},{'name': 'DsPaginationComponent', 'selector': 'ds-pagination'},{'name': 'DsPopupComponent', 'selector': 'ds-popup'},{'name': 'DsRadioComponent', 'selector': 'ds-radio'},{'name': 'DsRangeComponent', 'selector': 'ds-range'},{'name': 'DsSelectComponent', 'selector': 'ds-select'},{'name': 'DsShortcutsCardComponent', 'selector': 'ds-shortcuts'},{'name': 'DsSidebarComponent', 'selector': 'ds-sidebar'},{'name': 'DsTabsComponent', 'selector': 'ds-tabs'},{'name': 'DsTextareaComponent', 'selector': 'ds-textarea'},{'name': 'DsTextComponent', 'selector': 'ds-text'},{'name': 'DsThemeToggleComponent', 'selector': 'ds-theme-toggle'},{'name': 'DsToggleComponent', 'selector': 'ds-toggle'},{'name': 'EmptyCardComponent', 'selector': 'ds-empty-card'},{'name': 'ErrorCardComponent', 'selector': 'ds-error-card'},{'name': 'FileListComponent', 'selector': 'ds-file-list'},{'name': 'FileUploaderComponent', 'selector': 'ds-file-uploader'},{'name': 'FilialCardComponent', 'selector': 'ds-filial-card'},{'name': 'FloatedButtonsComponent', 'selector': 'ds-floated-buttons'},{'name': 'FooterComponent', 'selector': 'ds-footer'},{'name': 'IconComponent', 'selector': 'ds-icon'},{'name': 'ImportCardComponent', 'selector': 'ds-import-card'},{'name': 'InboxCardComponent', 'selector': 'ds-inbox-card'},{'name': 'InvoiceCardComponent', 'selector': 'ds-invoice-card'},{'name': 'LabelComponent', 'selector': 'ds-label'},{'name': 'MessageComponent', 'selector': 'ds-message'},{'name': 'NotificationCardComponent', 'selector': 'ds-notification-card'},{'name': 'PaymentCardComponent', 'selector': 'ds-payment-card'},{'name': 'PaymentDetailsCardComponent', 'selector': 'ds-payment-details-card'},{'name': 'PinInputComponent', 'selector': 'ds-pin-input'},{'name': 'PortfolioComponent', 'selector': 'ds-portfolio'},{'name': 'PortfolioItemCardComponent', 'selector': 'ds-portfolio-item-card'},{'name': 'PortfolioSelectCardComponent', 'selector': 'ds-portfolio-select-card'},{'name': 'PortfolioVisionCardComponent', 'selector': 'ds-portfolio-vision-card'},{'name': 'ProfileDropdownComponent', 'selector': 'ds-profile-dropdown'},{'name': 'ProgressComponent', 'selector': 'ds-progress'},{'name': 'SheetCardComponent', 'selector': 'ds-sheet-card'},{'name': 'SheetLatestOpsComponent', 'selector': 'ds-sheet-latest-ops'},{'name': 'SkeletonComponent', 'selector': 'ds-skeleton'},{'name': 'SliderDotsComponent', 'selector': 'ds-slider-dots'},{'name': 'StepsComponent', 'selector': 'ds-steps'},{'name': 'TableComponent', 'selector': 'ds-table'},{'name': 'TickerCardComponent', 'selector': 'ds-ticker-card'},{'name': 'TodoCardComponent', 'selector': 'ds-todo-card'},{'name': 'TodoTabComponent', 'selector': 'ds-todo-tab'},{'name': 'UploadFileComponent', 'selector': 'ds-upload-file'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DsPaginationComponent'};
 </script>

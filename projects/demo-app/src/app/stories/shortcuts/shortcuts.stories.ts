@@ -10,21 +10,20 @@ export class ShortcutsCardStoryComponent {
       icon: 'home',
       title: 'Recharge de cartes',
       href: '/shortcuts',
+      isShortcut: true,
     },
     {
-      icon: 'help',
+      icon: 'plus',
       title: 'Prélèvement de masse',
       href: '/shortcuts',
     },
     {
       icon: 'plus',
       title: 'Ajouter un service favori',
-      isShortcut: true,
     },
     {
       icon: 'plus',
       title: 'Ajouter un service favori',
-      isShortcut: true,
     },
   ];
 

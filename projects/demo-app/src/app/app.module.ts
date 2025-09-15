@@ -80,6 +80,8 @@ import {
   ImportCardStoryComponent,  
   FileUploaderStoryComponent,
   FileListStoryComponent,
+  TotalListStoryComponent,
+  
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -185,6 +187,7 @@ export const pages: Routes = [
   { path: 'import-card', component: ImportCardStoryComponent },
   { path: 'file-uploader', component: FileUploaderStoryComponent },
   { path: 'file-list', component: FileListStoryComponent },
+  { path: 'total-list', component: TotalListStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -287,6 +290,7 @@ const router = RouterModule.forRoot(pages);
     ImportCardStoryComponent,
     FileUploaderStoryComponent,
     FileListStoryComponent,
+    TotalListStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

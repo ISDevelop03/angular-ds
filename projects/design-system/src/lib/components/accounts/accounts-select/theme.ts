@@ -10,7 +10,7 @@ export const theme = {
           'ring-1 ring-error-400 border-1 border-error-400 outline-1 border-1 border-error-400',
         iconeError: 'text-error-500',
         disabled:
-          '!opacity-50 text-neutral-900 placeholder:text-neutral-800 cursor-not-allowed hover:bg-transparent',
+          '!opacity-50 !bg-gray-100 text-neutral-900 placeholder:text-neutral-800 cursor-not-allowed !border-gray-100 hover:border-gray-100 hover:bg-transparent',
         label: 'text-heading dark:text-white !font-[400]',
         placeholder: 'text-heading dark:text-white text-[0.75rem]',
       },

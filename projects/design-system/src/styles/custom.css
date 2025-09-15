@@ -10,8 +10,7 @@ body {
 
 .light {
   @apply text-black;
-  background: linear-gradient(217deg, #fef2f2 2.44%, #f9fafb 43.42%) no-repeat
-    fixed;
+  background: white
 }
 .dark #main-content {
   @apply text-white;
@@ -21,8 +20,7 @@ body {
 
 .light #main-content {
   @apply text-black;
-  background: linear-gradient(217deg, #fef2f2 2.44%, #f9fafb 43.42%) no-repeat
-    fixed;
+  background: white
 }
 
 input[type="range"].defaultInputRangeThumb::-webkit-slider-thumb {

@@ -586,7 +586,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export type TableVariant &#x3D; &#x27;default&#x27; | &#x27;striped&#x27; | &#x27;bordered&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export type TableVariant &#x3D; &#x27;default&#x27; | &#x27;secondary&#x27; | &#x27;bordered&#x27;;
 
 export interface TableTheme {
   table: string;
@@ -608,35 +608,35 @@ export const TableThemes: Record&lt;TableVariant, TableTheme&gt; &#x3D; {
     header: &#x27;bg-level-4&#x27;,
     headerCell: &#x27;px-4 py-1.5 font-normal&#x27;,
     headerTh: &#x27;inline-flex items-center my-auto gap-1&#x27;,
-    headerText: &#x27;inline-flex text-[14px]/[20px]&#x27;,
+    headerText: &#x27;inline-flex text-[0.875rem]/[1.25rem]&#x27;,
     headerIcons: &#x27;inline-flex items-center text-gray-500&#x27;,
     headerCellButton: &#x27;w-fit&#x27;,
     headerCellSortable: &#x27; select-none&#x27;,
     body: &#x27;&#x27;,
     row: () &#x3D;&gt; &#x27;dark:bg-black bg-white rounded&#x27;,
-    cell: &#x27;px-4 text-[16px]/normal font-medium py-2&#x27;,
+    cell: &#x27;px-4 text-[1rem]/normal font-medium py-2&#x27;,
   },
-  striped: {
-    table: &#x27;w-full text-left&#x27;,
-    header: &#x27;bg-gray-200&#x27;,
+  secondary: {
+    table: &#x27;w-full text-left rounded-lg border border-neutral-50 border-separate border-spacing-0 overflow-hidden&#x27;,
+    header: &#x27;bg-gray-50 rounded-t-lg&#x27;,
     headerIcons: &#x27;inline-flex items-center text-gray-500&#x27;,
-    headerText: &#x27;inline-flex text-[14px]/[18px]&#x27;,
+    headerText: &#x27;inline-flex text-[0.875rem]/[1.125rem]&#x27;,
 
     headerCell: &#x27;px-4 py-1.5 text-sm font-semibold&#x27;,
-    headerTh: &#x27;inline-flex items-center gap-1 text-[14px]/[18px]&#x27;,
+    headerTh: &#x27;inline-flex items-center gap-1 text-[0.875rem]/[1.125rem]&#x27;,
     headerCellButton: &#x27;w-fit&#x27;,
     headerCellSortable: &#x27; select-none&#x27;,
     body: &#x27;&#x27;,
-    row: (i) &#x3D;&gt; (i % 2 &#x3D;&#x3D;&#x3D; 0 ? &#x27;dark:bg-black bg-white&#x27; : &#x27;bg-gray-50&#x27;),
-    cell: &#x27;px-4 text-sm py-2&#x27;,
+    row: () &#x3D;&gt; &#x27;bg-white&#x27;,
+    cell: &#x27;px-4 text-sm py-2.5 whitespace-nowrap&#x27;,
   },
   bordered: {
     table: &#x27;w-full text-left border-collapse border&#x27;,
     header: &#x27;bg-gray-100 border-b&#x27;,
     headerCell: &#x27;px-4 py-2 border-r&#x27;,
-    headerTh: &#x27;inline-flex items-center gap-1 text-[14px]/[20px]&#x27;,
+    headerTh: &#x27;inline-flex items-center gap-1 text-[0.875rem]/[1.25rem]&#x27;,
     headerIcons: &#x27;inline-flex items-center text-gray-500&#x27;,
-    headerText: &#x27;inline-flex text-[14px]/[20px]&#x27;,
+    headerText: &#x27;inline-flex text-[0.875rem]/[1.25rem]&#x27;,
 
     headerCellButton: &#x27;w-fit&#x27;,
     headerCellSortable: &#x27; select-none&#x27;,

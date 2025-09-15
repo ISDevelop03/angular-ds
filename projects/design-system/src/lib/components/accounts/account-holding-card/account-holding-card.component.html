@@ -1,7 +1,7 @@
 <article
   id="ds-account-holding-card"
   [ngClass]="[
-    'group relative flex items-center justify-start text-neutral-900 bg-level-3 gap-[14px]  rounded-lg px-6 py-[14px] shadow-content shadow-neutral-50 w-full',
+    'group relative flex items-center justify-start text-neutral-900 gap-[14px] rounded-lg p-3.5 bg-card-level-1 w-full',
     className
   ]"
   (click)="handleClick($event)"
@@ -18,7 +18,7 @@
     *ngIf="image"
     [src]="image"
     [alt]="title"
-    class="object-contain rounded bg-level-3 size-[82px]"
+    class="object-contain rounded bg-level-3 size-[62px]"
   />
   <h3 *ngIf="title" class="text-[1.25rem]/[1.688rem] text-left font-bold">
     {{ title }}

@@ -12,7 +12,7 @@ export const badge = {
     default: 'bg-neutral-50 text-neutral-500',
     amber: 'bg-amber-50 text-amber-500',
     blue: 'bg-blue-50 text-blue-500',
-    green: 'bg-green-50 text-green-500',
+    green: 'bg-[#E6F4EF] text-success',
     violet: 'bg-violet-50 text-violet-500',
     red: 'bg-red-50 text-red-500',
     stroke1:

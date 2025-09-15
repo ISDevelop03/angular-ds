@@ -53,7 +53,7 @@
             {{ pNum }}
           </button>
         </ng-container>
-        <ng-container *ngIf="pNum === '...'">
+        <ng-container *ngIf="pNum === '...'" class="border-r border-neutral-100 h-full">
           <span [ngClass]="[theme[variant].buttons.ellipsis]">…</span>
         </ng-container>
       </li>

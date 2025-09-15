@@ -76,7 +76,6 @@ export class AccordionStoryComponent {
       ],
       count: 5,
       countColor: 'bg-yellow-500',
-      isCountReversed: true,
       open: true,
     },
     {
@@ -88,7 +87,6 @@ export class AccordionStoryComponent {
       ],
       count: 6,
       countColor: 'bg-purple-500',
-      isCountReversed: false,
       open: true,
     }
   ]
@@ -109,7 +107,6 @@ export class AccordionStoryComponent {
         count: item.count,
         open: item.open,
         countColor: item.countColor,
-        isCountReversed: item.isCountReversed,
       }));
 
       this.whiteItems = [

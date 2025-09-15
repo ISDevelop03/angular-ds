@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TotalListComponent } from './components/total-list/total-list.component';
 import { FileListComponent } from './components/file-list/file-list.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { ImportCardComponent } from './components/import-card/import-card.component';
@@ -199,6 +200,7 @@ registerLocaleData(localeFr, 'fr-FR');
     ImportCardComponent,
     FileUploaderComponent,
     FileListComponent,
+    TotalListComponent,
   ],
   imports: [
     CommonModule,
@@ -295,6 +297,7 @@ registerLocaleData(localeFr, 'fr-FR');
     ImportCardComponent,
     FileUploaderComponent,
     FileListComponent,
+    TotalListComponent,
   ],
 })
 export class DesignSystemModule {}

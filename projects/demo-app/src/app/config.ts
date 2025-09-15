@@ -272,4 +272,5 @@ export const menus: Menu[] = [
   { key: 'import-card', name: 'ImportCard', path: '/import-card' },
   { key: 'file-uploader', name: 'FileUploader', path: '/file-uploader' },
   { key: 'file-list', name: 'FileList', path: '/file-list' },
+  { key: 'total-list', name: 'TotalList', path: '/total-list' },
 ];

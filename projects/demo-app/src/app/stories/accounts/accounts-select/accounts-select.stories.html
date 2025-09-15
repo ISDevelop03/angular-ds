@@ -7,6 +7,17 @@
       label="Choose Option"
       placeholder="Pick one..."
       buttonIcon="message"
+      
+    ></ds-accounts-select>
+  </div>
+  <div class="w-60 gap-4">
+    <ds-accounts-select
+      [items]="options"
+      [(value)]="selectedValue"
+      label="Choose Option"
+      placeholder="Pick one..."
+      buttonIcon="message"
+      disabled="true"
     ></ds-accounts-select>
   </div>
 </section>

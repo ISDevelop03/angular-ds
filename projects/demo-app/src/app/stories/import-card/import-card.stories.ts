@@ -19,4 +19,8 @@ export class ImportCardStoryComponent {
       onClick: () => console.log("okklk"),
     },
   ]
+
+  onImportButtonClick(){
+    console.log("onImportButtonClick");
+  }
 }

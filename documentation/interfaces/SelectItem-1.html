@@ -514,9 +514,11 @@
   ViewChild,
   HostListener,
   forwardRef,
+  OnDestroy,
 } from &#x27;@angular/core&#x27;;
 import { theme } from &#x27;./theme&#x27;;
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
+import { Subject } from &#x27;rxjs&#x27;;
 
 export interface SelectItem {
   value: string;
@@ -546,7 +548,7 @@ export interface SelectItem {
     },
   ],
 })
-export class DsSelectComponent implements ControlValueAccessor {
+export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
   @Input() items: SelectItem[] &#x3D; [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -562,10 +564,24 @@ export class DsSelectComponent implements ControlValueAccessor {
   @Input() buttonIcon?: string;
   @Input() value: string | string[] | null &#x3D; null;
   @Input() customOptionsStyles?: { [key: string]: any };
-
+  @Input() autoComplete?: boolean &#x3D; false;
+  @Input() debounceTime: number &#x3D; 300; // Default debounce time in milliseconds
+  
+  @Output() onSearch &#x3D; new EventEmitter&lt;string&gt;();
   @Output() valueChange &#x3D; new EventEmitter&lt;any&gt;();
 
+  filteredItems: SelectItem[] &#x3D; [];
+
+ 
+
+  ngOnInit() {
+    this.filteredItems &#x3D; [].concat(this.items);
+    console.log(&quot;filteredItems&quot;, this.filteredItems)
+  }
+
   private static zIndexCounter &#x3D; 10000;
+  private searchSubject &#x3D; new Subject&lt;string&gt;();
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
 
   isOpen: boolean &#x3D; false;
   containerPosition: { [key: string]: any } &#x3D; {};
@@ -581,6 +597,18 @@ export class DsSelectComponent implements ControlValueAccessor {
   // hold the form’s callbacks
   private _onChange: (v: any) &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
   private _onTouched: () &#x3D;&gt; void &#x3D; () &#x3D;&gt; {};
+
+  
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // Method to handle search input with debouncing
+  onSearchInput(searchTerm: string) {
+    console.log(&quot;searchTerm&quot;, searchTerm)
+    this.filteredItems &#x3D; this.items.filter((item) &#x3D;&gt; item.label.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
 
   // ----------------------------------------
   // ControlValueAccessor API
