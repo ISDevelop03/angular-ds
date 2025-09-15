@@ -91,6 +91,7 @@ export class ShortcutsCardStoryComponent {
       this.items[data.idx] = {
         icon: 'plus',
         title: 'Ajouter un service favori',
+        href: '/shortcuts',
         isShortcut: true,
       };
       // also mark the removed shortcut as unselected
