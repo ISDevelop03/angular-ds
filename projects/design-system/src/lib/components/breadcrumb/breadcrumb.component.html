@@ -9,7 +9,8 @@
   <ol role="list" [ngClass]="theme.list">
     <li *ngIf="homeUrl" [ngClass]="theme.listElement">
       <a [href]="homeUrl" [ngClass]="theme.link">
-        <span [ngClass]="theme.link"> Accueil </span>
+        <span *ngIf="!showLimit" [ngClass]="theme.link"> Accueil </span>
+        <ds-icon id="home" size="12px" *ngIf="showLimit" [ngClass]="theme.link"></ds-icon>
       </a>
     </li>
 

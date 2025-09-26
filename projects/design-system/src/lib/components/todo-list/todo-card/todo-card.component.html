@@ -1,11 +1,11 @@
 <div
   id="ds-todo-card"
-  class="flex gap-2 items-start border-l justify-start p-2"
+  class="flex gap-2 items-start justify-start p-2"
   [ngClass]="[
     className,
     isRead
-      ? 'border-red-500 bg-card-level-6'
-      : 'border-transparent bg-transparent'
+      ? 'border-l border-red-500 bg-card-level-6'
+      : 'border-b border-stroke-1 bg-transparent'
   ]"
 >
   <span

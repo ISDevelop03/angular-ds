@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './portfolio.stories.html',
 })
 export class PortfolioStoryComponent {
-  mockData: any = Array.from({ length: 42 }, (_, i) => ({
+  mockData: any = Array.from({ length: 16 }, (_, i) => ({
     id: i + 1,
     title: `Item #${i + 1}`,
     reference: `ID: 00253456700009${i + 1}`,
@@ -20,7 +20,7 @@ export class PortfolioStoryComponent {
 
   selected = this.mockData[10];
 
-  perPage = 6;
+  perPage = 4;
   currentPage = 1;
   totalPages!: number;
   pageItems: any[] = [];

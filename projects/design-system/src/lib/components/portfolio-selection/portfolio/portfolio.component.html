@@ -1,6 +1,6 @@
 <div
   id="ds-portfolio"
-  class="relative z-[10001] isolate w-full flex flex-col gap-3 shrink-0"
+  class="relative z-10 isolate w-full flex flex-col gap-3 shrink-0"
   [ngClass]="className"
 >
   <ds-portfolio-select-card
@@ -20,7 +20,7 @@
   <div
     @dropdownAnim
     *ngIf="displayPortfolio"
-    class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[405px] shadow-dropdown"
+    class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[300px] shadow-dropdown"
   >
     <ds-portfolio-vision-card
       [title]="holding.title"
@@ -30,7 +30,7 @@
     ></ds-portfolio-vision-card>
 
     <div class="space-y-4">
-      <div class="grid grid-cols-2 gap-4 relative">
+      <div class="flex flex-col gap-y-3">
         <ds-portfolio-item-card
           *ngFor="let portfolio of portfolios"
           [title]="portfolio.title"
@@ -40,7 +40,11 @@
         ></ds-portfolio-item-card>
       </div>
 
-      <div *ngIf="showDots" class="flex justify-center gap-2 items-center">
+     <div class="flex justify-between items-center">
+      <div>
+        <p class="text-[0.875rem]/[1rem] font-medium text-neutral-500">({{ currentPage }} - {{ currentPage + totalItems }}/{{ portfolios.length }})</p>
+      </div>
+      <div *ngIf="showDots" class="flex justify-center gap-1 items-center">
         <button
           (click)="onPrevPage($event)"
           class="p-0.5"
@@ -49,12 +53,11 @@
           ]"
           [disabled]="currentPage === 1 ? true : false"
         >
-          <ds-icon size="14px" id="arrow-left"></ds-icon>
+          <ds-icon size="12px" id="arrow-left"></ds-icon>
         </button>
-
         <button
           *ngFor="let page of pages"
-          class="rounded-[2px] size-2.5 flex transition-all duration-300 ease-in-out justify-center items-center text-neutral-800 hover:bg-neutral-200"
+          class="rounded-full size-2 flex transition-all duration-300 ease-in-out justify-center items-center text-neutral-800 hover:bg-neutral-200"
           [ngClass]="[page === currentPage ? 'bg-red-500' : 'bg-neutral-50']"
           (click)="onGoToPage(page)"
         ></button>
@@ -68,9 +71,10 @@
           (click)="onNextPage($event)"
           class="p-0.5"
         >
-          <ds-icon size="14px" id="arrow-right"></ds-icon>
+          <ds-icon size="12px" id="arrow-right"></ds-icon>
         </button>
       </div>
+     </div>
     </div>
   </div>
 </div>

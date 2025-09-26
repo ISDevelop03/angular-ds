@@ -12,7 +12,7 @@ export const theme = {
     },
     success: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-green-500 rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-success rounded-full',
     },
     warning: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
@@ -20,7 +20,7 @@ export const theme = {
     },
     error: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-red-500 rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-error rounded-full',
     },
   },
 };

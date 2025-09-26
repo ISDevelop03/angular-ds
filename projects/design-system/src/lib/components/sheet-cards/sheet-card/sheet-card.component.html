@@ -31,7 +31,7 @@
   />
   <div
     *ngIf="icon"
-    class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-level-2 rounded-full"
+    class="size-10 shrink-0 flex items-center justify-center border border-neutral-100 bg-white rounded-full"
   >
     <ds-icon [id]="icon" size="20" class="text-red-500"></ds-icon>
   </div>
@@ -58,7 +58,8 @@
       </h4>
       <ng-content></ng-content>
     </div>
-
+    
+    
     <button
       (click)="
         startClick && startClick({ event: $event, data: data });

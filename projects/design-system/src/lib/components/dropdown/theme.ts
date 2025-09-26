@@ -2,7 +2,7 @@ export const dropdown = {
   base: 'relative isolate inline-block',
   button: {
     base: 'flex w-full items-center gap-2 justify-between focus:outline-none focus:border-none data-[hover]:text-custom-black',
-    active: 'text-primary',
+    active: '',
   },
   container:
     'p-1 absolute mt-2 min-w-[150px] origin-top-right rounded-md border border-neutral-100 bg-level-4 text-custom-black shadow-dropdown focus:outline-none',

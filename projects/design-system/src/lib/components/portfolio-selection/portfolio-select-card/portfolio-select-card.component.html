@@ -22,7 +22,7 @@
       id="arrow-up"
       [class]="[
         'transition-all duration-300 ease-in-out ',
-        isOpen ? 'rotate-180' : ''
+        !isOpen ? 'rotate-180' : ''
       ]"
       size="12px"
     ></ds-icon>
@@ -36,7 +36,7 @@
         id="arrow-up"
         [class]="[
           'transition-all duration-300 ease-in-out ',
-          isOpen ? 'rotate-180' : ''
+          !isOpen ? 'rotate-180' : ''
         ]"
         size="12px"
       ></ds-icon>

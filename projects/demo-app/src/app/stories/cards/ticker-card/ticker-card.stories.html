@@ -1,17 +1,45 @@
-<div class="p-4 grid gap-4 max-w-fit">
+<div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
   <h3 class="text-xl">Ticker Card</h3>
-  <ds-ticker-card
-    [title]="item.title"
-    [image]="item.image"
-    [price]="item.price"
-    [className]="item.className"
-  ></ds-ticker-card>
+  <div class="flex gap-4 bg-white max-w-fit px-2 py-1 rounded">
+    <ds-ticker-card
+      [title]="item.title"
+      [image]="item.image"
+      [price]="item.price"
+      [className]="item.className">
+    </ds-ticker-card>
+    
+    <ds-ticker-card
+      [title]="item.title"
+      [image]="item.image"
+      [price]="item.price"
+      [className]="item.className">
+    </ds-ticker-card>
+    
+    <ds-ticker-card
+      [title]="item.title"
+      [image]="item.image"
+      [price]="item.price"
+      [className]="item.className">
+    </ds-ticker-card>
+  </div>
 
   <h3 class="text-xl">Ticker Card No Image</h3>
 
-  <ds-ticker-card
-    [title]="item.title"
-    [price]="item.price"
-    [className]="item.className"
-  ></ds-ticker-card>
+  <div class="flex gap-4 bg-white max-w-fit px-2 py-1 rounded">
+    <ds-ticker-card
+      [title]="item.title"
+      [price]="item.price"
+      [className]="item.className"
+    ></ds-ticker-card>
+    <ds-ticker-card
+      [title]="item.title"
+      [price]="item.price"
+      [className]="item.className"
+    ></ds-ticker-card>
+    <ds-ticker-card
+      [title]="item.title"
+      [price]="item.price"
+      [className]="item.className"
+    ></ds-ticker-card>
+  </div>
 </div>

@@ -23,6 +23,8 @@ export class DsSidebarComponent {
     // { name: 'M', size: 16 },
     // { name: 'L', size: 18 },
   ];
+  @Input() logo: string = '/assets/logo-mybusiness.svg';
+  @Input() miniLogo: string = '/assets/mini-logo.svg';
   @Input() language: ILanguage = {
     src: '/assets/france-flag.svg',
     alt: 'Français',

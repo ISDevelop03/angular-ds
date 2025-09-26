@@ -7,14 +7,14 @@
   <div class="px-4 py-6 flex justify-between items-center">
     <img
       *ngIf="!subSidebarIsOpen"
-      src="/assets/mini-logo.svg"
+      [src]="miniLogo"
       alt="mini logo svg"
       class="w-5 h-2.5 object-cover"
     />
 
     <img
       *ngIf="subSidebarIsOpen"
-      src="/assets/logo-mybusiness.svg"
+      [src]="logo"
       alt="mybusiness logo svg"
       class="w-[140px] h-[16px]"
     />

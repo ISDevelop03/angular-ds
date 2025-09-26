@@ -9,31 +9,6 @@
       (onClick)="onBadgeClick($event)"
     ></ds-badge>
   </div>
-  <div class="flex gap-2 flex-wrap">
-    <ds-badge
-      pill="true"
-      *ngFor="let variant of variants"
-      [label]="variant"
-      [variant]="variant"
-    ></ds-badge>
-  </div>
-  <div class="flex gap-2 flex-wrap">
-    <ds-badge
-      outline="true"
-      *ngFor="let variant of variants"
-      [label]="variant"
-      [variant]="variant"
-    ></ds-badge>
-  </div>
-  <div class="flex gap-2 flex-wrap">
-    <ds-badge
-      pill="true"
-      outline="true"
-      *ngFor="let variant of variants"
-      [label]="variant"
-      [variant]="variant"
-    ></ds-badge>
-  </div>
 
   <h3>Sizes</h3>
   <div class="flex gap-2 flex-wrap">
@@ -47,7 +22,14 @@
 
   <h3>Pill Style</h3>
   <div class="flex gap-2 flex-wrap">
-    <ds-badge label="Rounded Pill" variant="green" [pill]="true"></ds-badge>
+    <ds-badge
+      *ngFor="let variant of variants"
+      [label]="variant"
+      [variant]="variant"
+      withDot="true"
+      (onClick)="onBadgeClick($event)"
+      [pill]="true"
+    ></ds-badge>
   </div>
 
   <h3>With Icons</h3>

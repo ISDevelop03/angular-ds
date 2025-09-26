@@ -44,7 +44,8 @@ export class PortfolioComponent implements OnInit {
   @Input() holding: Portfolio | null = null;
   @Input() show: boolean = false;
   @Input() showDots: boolean = true;
-  @Input() perPage: number = 6;
+  @Input() perPage: number = 4;
+  @Input() totalItems: number = 0;
   @Input() className = '';
 
   @Input() currentPage = 1; // ← from parent

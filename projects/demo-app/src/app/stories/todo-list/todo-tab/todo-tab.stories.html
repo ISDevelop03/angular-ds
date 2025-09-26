@@ -1,20 +1,22 @@
-<section class="flex flex-col gap-4 p-4 ml-auto w-fit">
+<section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
   <h2 class="text-2xl font-bold">TodoTab</h2>
-  <div class="dark:bg-black bg-white px-4 rounded">
-    <div class="flex relative gap-3 items-center justify-start max-w-[258px]">
-      <ds-todo-tab
-        title="Mes opérations en attente"
-        icon="flag"
-        count="6"
-        [isOpen]="isOpen"
-        [onClick]="onClick"
-      ></ds-todo-tab>
-      <span class="w-px shrink-0 h-[41px] bg-stroke-1 inline-block"></span>
-      <ds-todo-tab
-        title="Tâches administratives"
-        count="4"
-        [isOpen]="false"
-      ></ds-todo-tab>
+  <div class="mr-auto w-fit">
+    <div class="dark:bg-black bg-white px-4 rounded">
+      <div class="flex relative gap-3 items-center justify-start max-w-[258px]">
+        <ds-todo-tab
+          title="Mes opérations en attente"
+          icon="flag"
+          count="6"
+          [isOpen]="isOpen"
+          [onClick]="onClick"
+        ></ds-todo-tab>
+        <span class="w-px shrink-0 h-[41px] bg-stroke-1 inline-block"></span>
+        <ds-todo-tab
+          title="Tâches administratives"
+          count="4"
+          [isOpen]="false"
+        ></ds-todo-tab>
+      </div>
     </div>
   </div>
 </section>

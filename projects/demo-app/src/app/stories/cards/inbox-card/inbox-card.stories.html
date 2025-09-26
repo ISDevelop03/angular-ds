@@ -1,18 +1,5 @@
-<div class="p-4 grid gap-4">
-  <h3 class="text-3xl">Unread Inbox Example</h3>
-  <div class="max-w-[250px]">
-    <ds-inbox-card
-      title="Urgent Notice"
-      content="This inbox is unread."
-      date="5 mins ago"
-      [isRead]="false"
-      [data]="data"
-      (onClick)="handleInboxClick($event)"
-    ></ds-inbox-card>
-  </div>
-
-  <h3 class="text-3xl">Read Inbox Example</h3>
-
+<div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
+<div class="flex flex-col gap-4 bg-white w-fit">
   <div class="max-w-[250px]">
     <ds-inbox-card
       title="Update Completed"
@@ -20,7 +7,30 @@
       date="2 days ago"
       [isRead]="true"
       [data]="data"
-      (onClick)="handleInboxClick($event)"
-    ></ds-inbox-card>
+      (onClick)="handleInboxClick($event)">
+    </ds-inbox-card>
   </div>
+  
+  <div class="max-w-[250px]">
+    <ds-inbox-card
+      title="Urgent Notice"
+      content="This inbox is unread."
+      date="5 mins ago"
+      [isRead]="false"
+      [data]="data"
+      (onClick)="handleInboxClick($event)">
+    </ds-inbox-card>
+  </div>
+  
+  <div class="max-w-[250px]">
+    <ds-inbox-card
+      title="Update Completed"
+      content="Your update was successful."
+      date="2 days ago"
+      [isRead]="true"
+      [data]="data"
+      (onClick)="handleInboxClick($event)">
+    </ds-inbox-card>
+  </div>
+</div>
 </div>

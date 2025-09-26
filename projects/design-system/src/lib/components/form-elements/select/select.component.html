@@ -73,7 +73,7 @@
           item.unavailable
             ? theme[variant].element.options.unavailable
             : theme[variant].element.options.available,
-          isSelected(item) ? 'bg-red-50/50 ' : 'bg-transparent',
+          isSelected(item) ? 'bg-neutral-50 ' : 'bg-transparent',
           item.isAccount
             ? isSelected(item)
               ? 'after:bg-red-500'
@@ -96,7 +96,7 @@
               *ngIf="item.image"
               [src]="item.image"
               [alt]="item.label"
-              class="rounded-full size-5"
+              class="shrink-0 rounded-full size-5"
               [ngClass]="[item.imageClass || '']"
             />
             <span
@@ -104,7 +104,8 @@
                 theme[variant].element.options.fontcolor,
                 isSelected(item)
                   ? theme[variant].element.options.selectedfont
-                  : ''
+                  : '', 
+                'whitespace-nowrap'
               ]"
             >
               {{ item.label }}

@@ -1,71 +1,95 @@
-<div class="p-4 grid gap-6 max-w-xl">
-  <h3>Single Select</h3>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    label="Choose Option"
-    placeholder="Pick one..."
-    buttonIcon="message"
-    disabled="true"
-    description="This is a description"
-  ></ds-select>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    label="Choose Option"
-    placeholder="Pick one..."
-    buttonIcon="message"
-    pill="true"
-  ></ds-select>
+<div class="p-4 flex flex-col gap-y-6 gap-4 bg-crame-50 min-h-screen">
+  <!-- Single Select -->
+  <div class="flex flex-col gap-4 max-w-xl">
+    <h3><strong>Single Select</strong></h3>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Choose Option"
+        placeholder="Pick one..."
+        buttonIcon="message"
+        pill="true"
+        class="w-full">
+      </ds-select>
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Choose Option"
+        placeholder="Pick one..."
+        buttonIcon="message"
+        pill="true"
+        class="w-full">
+      </ds-select>
+    </div>
+  </div>
 
-  <h3>Auto Complete Select</h3>
-  <ds-select
-    [items]="options1"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    (onSearch)="onSearchValueChange($event)"
-    label="Select Account"
-    autoComplete="true"
-    placeholder="Pick one..."
-  ></ds-select>
+  <!-- Auto Complete Select -->
+  <div class="max-w-xl">
+    <h3 class="mb-4"><strong>Auto Complete Select</strong></h3>
+    <ds-select
+      [items]="options1"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      (onSearch)="onSearchValueChange($event)"
+      label="Select Account"
+      autoComplete="true"
+      placeholder="Pick one...">
+    </ds-select>
+  </div>
 
-  <h3>Multi Select</h3>
-  <ds-select
-    [items]="options1"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    label="Select Account"
-  ></ds-select>
-  <h3>Multi Select</h3>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    [multiple]="true"
-    label="Select Multiple"
-  ></ds-select>
+  <!-- Multi Select -->
+  <div class="max-w-xl">
+    <h3 class="mb-4"><strong>Multi Select</strong></h3>
+    <ds-select
+      [items]="options1"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      label="Select Account">
+    </ds-select>
+  </div>
 
-  <h3>Loading State</h3>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    [isLoading]="true"
-    label="Loading Select"
-  ></ds-select>
+  <!-- Multi Select with Multiple Property -->
+  <div class="max-w-xl">
+    <h3 class="mb-4"><strong>Multi Select</strong></h3>
+    <ds-select
+      [items]="options"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      [multiple]="true"
+      label="Select Multiple">
+    </ds-select>
+  </div>
 
-  <h3>Select With Error</h3>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    [hasError]="true"
-    errorMessage="You must select an option"
-    label="Select Error"
-  ></ds-select>
+  <!-- Loading State -->
+  <div class="max-w-xl">
+    <h3 class="mb-4"><strong>Loading State</strong></h3>
+    <ds-select
+      [items]="options"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      [isLoading]="true"
+      label="Loading Select">
+    </ds-select>
+  </div>
 
+  <!-- Select With Error -->
+  <div class="max-w-xl">
+    <h3 class="mb-4"><strong>Select With Error</strong></h3>
+    <ds-select
+      [items]="options"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      [hasError]="true"
+      errorMessage="You must select an option"
+      label="Select Error">
+    </ds-select>
+  </div>
+
+  <!-- Commented out Currency Variant examples -->
+  <!--
   <h3>Currency Variant</h3>
   <ds-select
     [items]="options"
@@ -74,8 +98,9 @@
     label="Choose Option"
     placeholder="Pick one..."
     buttonIcon="message"
-    variant="currency"
-  ></ds-select>
+    variant="currency">
+  </ds-select>
+  
   <h3>Currency Variant</h3>
   <ds-select
     [items]="options"
@@ -84,6 +109,7 @@
     label="Choose Option"
     placeholder="Pick one..."
     buttonIcon="message"
-    variant="currency"
-  ></ds-select>
+    variant="currency">
+  </ds-select>
+  -->
 </div>

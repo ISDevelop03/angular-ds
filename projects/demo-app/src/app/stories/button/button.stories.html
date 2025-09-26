@@ -2,28 +2,14 @@
   <h3>Variants</h3>
 
   <div class="grid gap-2">
-    <div><strong>Filled</strong></div>
+    <div><strong>Enabled</strong></div>
     <div class="flex gap-2 flex-wrap">
       <ds-button
         *ngFor="let variant of variants"
         [variant]="variant"
         (onClick)="handleClick($event)"
       >
-        {{ variant }} filled
-      </ds-button>
-    </div>
-  </div>
-
-  <div class="grid gap-2 mt-4">
-    <div><strong>Outlined</strong></div>
-    <div class="flex gap-2 flex-wrap">
-      <ds-button
-        *ngFor="let variant of variants"
-        [variant]="variant"
-        [outline]="true"
-        (onClick)="handleClick($event)"
-      >
-        {{ variant }} outline
+        {{ variant }} variant
       </ds-button>
     </div>
   </div>
@@ -36,23 +22,8 @@
         *ngFor="let variant of variants"
         [variant]="variant"
         [disabled]="true"
-        >{{ variant }} disabled</ds-button
+        >{{ variant }} variant</ds-button
       >
-    </div>
-  </div>
-
-  <div class="grid gap-2 mt-4">
-    <div><strong>Outline + Disabled</strong></div>
-    <div class="flex gap-2 flex-wrap">
-      <ds-button
-        (onClick)="handleClick($event)"
-        *ngFor="let variant of variants"
-        [variant]="variant"
-        [outline]="true"
-        [disabled]="true"
-      >
-        {{ variant }} outline disabled
-      </ds-button>
     </div>
   </div>
 
@@ -70,18 +41,20 @@
 
   <div class="grid gap-2 mt-4">
     <div><strong>With Icons</strong></div>
-    <div class="flex gap-2 flex-wrap">
-      <ds-button icon="arrow-right" (onClick)="handleClick($event)"
-        >Only Icon</ds-button
-      >
-      <ds-button iconLeft="arrow-left" (onClick)="handleClick($event)"
-        >Left Icon</ds-button
-      >
-      <ds-button iconRight="arrow-right" (onClick)="handleClick($event)"
-        >Right Icon</ds-button
-      >
+      <div class="flex gap-2 flex-wrap">
+        <ds-button icon="arrow-right" (onClick)="handleClick($event)">Only Icon</ds-button>
+        <ds-button iconLeft="arrow-left" (onClick)="handleClick($event)">Left Icon</ds-button>
+        <ds-button iconRight="arrow-right" (onClick)="handleClick($event)">Right Icon</ds-button>
     </div>
   </div>
+
+  <!--
+
+
+  
+
+
+    
 
   <div class="grid gap-2 mt-4">
     <div><strong>Loading</strong></div>
@@ -90,5 +63,5 @@
         >Loading...</ds-button
       >
     </div>
-  </div>
+  </div> -->
 </div>

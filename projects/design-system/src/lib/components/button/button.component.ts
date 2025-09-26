@@ -55,12 +55,7 @@ export class ButtonComponent implements OnInit {
       classes.push(theme.variants[this.variant]);
     }
     if (this.disabled) {
-      classes.push(theme.disabled.base);
-      if (this.outline) {
-        classes.push(theme.disabled.outlined[this.variant]);
-      } else {
-        classes.push(theme.disabled.basic[this.variant]);
-      }
+      classes.push(theme.disabled[this.variant]);
     }
     if (this.pill) {
       classes.push('!rounded-full');

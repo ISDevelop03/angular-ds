@@ -1,105 +1,114 @@
-<div class="p-4 flex flex-col gap-4 max-w-[500px] bg-crame-50">
-  <h3 class="text-2xl font-bold">Sheet Card</h3>
-
-  <ds-sheet-card
-    [image]="story1.image"
-    [icon]="story1.icon"
-    [label]="story1.label"
-    [iconRight]="story1.iconRight"
-    [iconPosition]="story1.iconPosition"
-    [data]="story1"
-    [onClick]="onClick"
-    [startClick]="startClick"
-  >
-    <p class="text-neutral-900 font-bold text-sm">This is the content</p>
-  </ds-sheet-card>
-
-  <h2 class="text-xl font-bold">HTML Content:</h2>
-  <ds-sheet-card
-    [label]="story5.label"
-    [iconRight]="story5.iconRight"
-    [iconPosition]="story5.iconPosition"
-    [leftContent]="leftContent"
-    [data]="story5"
-    [onClick]="onClick"
-    [startClick]="startClick"
-  >
-    <p class="text-base text-neutral-900 font-bold">This is the content</p>
-  </ds-sheet-card>
-  <ds-sheet-card
-    [image]="story1.image"
-    [icon]="story1.icon"
-    [label]="story1.label"
-    [iconRight]="story1.iconRight"
-    [iconPosition]="story1.iconPosition"
-    [data]="story1"
-    [onClick]="onClick"
-    [startClick]="startClick"
-    removeImageRounded="true"
-  >
-  </ds-sheet-card>
-  <ds-sheet-card
-    [image]="story1.image"
-    [icon]="story1.icon"
-    [label]="story1.label"
-    [iconRight]="story1.iconRight"
-    [iconPosition]="story1.iconPosition"
-    [data]="story1"
-    [onClick]="onClick"
-    [startClick]="startClick"
-    isDraggable="true"
-    removeImageRounded="true"
-  >
-  </ds-sheet-card>
-  <ds-sheet-card
-    [image]="story2.image"
-    [icon]="story2.icon"
-    [label]="story2.label"
-    [iconRight]="story2.iconRight"
-    [iconPosition]="story2.iconPosition"
-    [data]="story2"
-    [onClick]="onClick"
-    [startClick]="startClick"
-  >
-    <p class="text-base text-neutral-900 font-bold">This is the content</p>
-  </ds-sheet-card>
-  <ds-sheet-card
-    [image]="story3.image"
-    [icon]="story3.icon"
-    [label]="story3.label"
-    [iconRight]="story3.iconRight"
-    [data]="story3"
-    [iconPosition]="story3.iconPosition"
-    iconPositionClassName="!text-amber-500"
-    [onClick]="onClick"
-    [startClick]="startClick"
-  >
-    <p class="text-base text-neutral-900 font-bold">This is the content</p>
-  </ds-sheet-card>
-  <ds-sheet-card
-    [image]="story4.image"
-    [icon]="story4.icon"
-    [label]="story4.label"
-    [iconRight]="story4.iconRight"
-    [iconPosition]="story4.iconPosition"
-    [data]="story4"
-    iconPositionClassName="!text-amber-500"
-    [className]="'border-l-2 border-red-500 rounded-none'"
-    [onClick]="onClick"
-    [startClick]="startClick"
-  >
-    <p class="text-base text-neutral-900 font-bold">This is the content</p>
-  </ds-sheet-card>
-  <ng-template #leftContent>
-    <div
-      class="border w-[72px] text-red-500 aspect-square gap-0 flex flex-col justify-center items-center rounded"
+<div class="p-4 bg-crame-50 min-h-screen">
+  <div class="max-w-[500px] flex flex-col gap-4">
+    <h3 class="text-2xl font-bold">Sheet Card</h3>
+    
+    <ds-sheet-card
+      [image]="story1.image"
+      [icon]="story1.icon"
+      [label]="story1.label"
+      [iconRight]="story1.iconRight"
+      [iconPosition]="story1.iconPosition"
+      [data]="story1"
+      [onClick]="onClick"
+      [startClick]="startClick"
     >
-      <ds-icon id="Police" size="16px"></ds-icon>
-      <div class="flex items-center gap-2">
-        <ds-icon id="barcode" size="16px"></ds-icon>
-        <ds-icon id="bank-note-05" size="16px"></ds-icon>
+      <p class="text-neutral-900 font-bold text-sm">This is the content</p>
+    </ds-sheet-card>
+
+    <h2 class="text-xl font-bold">HTML Content:</h2>
+    
+    <ds-sheet-card
+      [label]="story5.label"
+      [iconRight]="story5.iconRight"
+      [iconPosition]="story5.iconPosition"
+      [leftContent]="leftContent"
+      [data]="story5"
+      [onClick]="onClick"
+      [startClick]="startClick"
+    >
+      <p class="text-base text-neutral-900 font-bold">This is the content</p>
+    </ds-sheet-card>
+
+    <ds-sheet-card
+      [image]="story1.image"
+      [icon]="story1.icon"
+      [label]="story1.label"
+      [iconRight]="story1.iconRight"
+      [iconPosition]="story1.iconPosition"
+      [data]="story1"
+      [onClick]="onClick"
+      [startClick]="startClick"
+      removeImageRounded="true"
+    >
+    </ds-sheet-card>
+
+    <ds-sheet-card
+      [image]="story1.image"
+      [icon]="story1.icon"
+      [label]="story1.label"
+      [iconRight]="story1.iconRight"
+      [iconPosition]="story1.iconPosition"
+      [data]="story1"
+      [onClick]="onClick"
+      [startClick]="startClick"
+      isDraggable="true"
+      removeImageRounded="true"
+    >
+    </ds-sheet-card>
+
+    <ds-sheet-card
+      [image]="story2.image"
+      [icon]="story2.icon"
+      [label]="story2.label"
+      [iconRight]="story2.iconRight"
+      [iconPosition]="story2.iconPosition"
+      [data]="story2"
+      [onClick]="onClick"
+      [startClick]="startClick"
+    >
+      <p class="text-base text-neutral-900 font-bold">This is the content</p>
+    </ds-sheet-card>
+
+    <ds-sheet-card
+      [image]="story3.image"
+      [icon]="story3.icon"
+      [label]="story3.label"
+      [iconRight]="story3.iconRight"
+      [data]="story3"
+      [iconPosition]="story3.iconPosition"
+      iconPositionClassName="!text-amber-500"
+      [onClick]="onClick"
+      [startClick]="startClick"
+    >
+      <p class="text-base text-neutral-900 font-bold">This is the content</p>
+    </ds-sheet-card>
+
+    <ds-sheet-card
+      [image]="story4.image"
+      [icon]="story4.icon"
+      [label]="story4.label"
+      [iconRight]="story4.iconRight"
+      [iconPosition]="story4.iconPosition"
+      [data]="story4"
+      iconPositionClassName="!text-amber-500"
+      [className]="'border-l-2 border-red-500 rounded-none'"
+      [onClick]="onClick"
+      [startClick]="startClick"
+    >
+      <p class="text-base text-neutral-900 font-bold">This is the content</p>
+    </ds-sheet-card>
+
+    <ng-template #leftContent>
+      <div
+        class="border w-[72px] text-red-500 aspect-square gap-0 flex flex-col justify-center items-center rounded"
+      >
+        <ds-icon id="Police" size="16px"></ds-icon>
+        <div class="flex items-center gap-2">
+          <ds-icon id="barcode" size="16px"></ds-icon>
+          <ds-icon id="bank-note-05" size="16px"></ds-icon>
+        </div>
+        <ds-icon id="cookie" size="16px"></ds-icon>
       </div>
-      <ds-icon id="cookie" size="16px"></ds-icon>
-    </div>
-  </ng-template>
+    </ng-template>
+  </div>
 </div>

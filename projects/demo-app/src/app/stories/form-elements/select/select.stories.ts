@@ -20,7 +20,7 @@ export class SelectStoryComponent {
       iconClass: 'text-amber-400',
     },
     {
-      label: 'Option 4',
+      label: 'This is a long label Option 4',
       value: 'option4',
       unavailable: true,
       image: 'https://placehold.co/20',
