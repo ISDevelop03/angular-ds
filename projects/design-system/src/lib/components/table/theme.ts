@@ -17,8 +17,8 @@ export interface TableTheme {
 
 export const TableThemes: Record<TableVariant, TableTheme> = {
   default: {
-    table: 'w-full text-left border-spacing-y-2 border-separate',
-    header: 'bg-level-4',
+    table: 'w-full text-left border-spacing-y-1 border-separate',
+    header: 'bg-level-5',
     headerCell: 'px-4 py-1.5 font-normal',
     headerTh: 'inline-flex items-center my-auto gap-1',
     headerText: 'inline-flex text-[0.875rem]/[1.25rem]',
@@ -26,12 +26,12 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellButton: 'w-fit',
     headerCellSortable: ' select-none',
     body: '',
-    row: () => 'dark:bg-black bg-white rounded',
+    row: () => 'bg-level-5',
     cell: 'px-4 text-[1rem]/normal font-medium py-2',
   },
   secondary: {
     table: 'w-full text-left rounded-lg border border-neutral-50 border-separate border-spacing-0 overflow-hidden',
-    header: 'bg-gray-50 rounded-t-lg',
+    header: 'bg-neutral-25 rounded-t-lg',
     headerIcons: 'inline-flex items-center text-gray-500',
     headerText: 'inline-flex text-[0.875rem]/[1.125rem]',
 
@@ -40,7 +40,7 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     headerCellButton: 'w-fit',
     headerCellSortable: ' select-none',
     body: '',
-    row: () => 'bg-white',
+    row: () => 'bg-level-3',
     cell: 'px-4 text-sm py-2.5 whitespace-nowrap',
   },
   bordered: {

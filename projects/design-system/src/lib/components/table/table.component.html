@@ -103,6 +103,7 @@
       <tr
         *ngFor="let row of displayData; let i = index"
         [ngClass]="theme[variant].row(i)"
+        
       >
         <!-- ROW ds-checkbox -->
         <td *ngIf="selectionEnabled" [ngClass]="theme[variant].cell">
@@ -113,12 +114,14 @@
         </td>
   
         <td
-          *ngFor="let col of columns"
+          *ngFor="let col of columns; let colIdx = index"
           [ngClass]="[
             theme[variant].cell,
             col.expandable && col.truncate
               ? 'py-3 inline-block truncate line-clamp-1'
-              : ''
+              : '',
+            colIdx === 0 && variant === 'default' ? 'rounded-l-md' : '',
+            columns.length - 1 === colIdx && variant === 'default' ? 'rounded-r-md' : ''
           ]"
           [ngStyle]="
             col.styles && col.styles.width

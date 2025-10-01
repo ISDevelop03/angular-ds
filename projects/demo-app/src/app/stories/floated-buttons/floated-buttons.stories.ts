@@ -27,21 +27,10 @@ export class FloatedButtonsStoryComponent {
       onClick: () => console.log('Add clicked'),
     },
     {
-      content: 'Save',
-      type: 'submit',
-      isLoading: false,
-      icon: 'Je-deviens-client',
-      className: 'text-green-500',
-    },
-    {
       content: 'Loading',
       type: 'button',
       isLoading: true,
       icon: 'Je-deviens-client',
-    },
-    {
-      content: 'Learn More',
-      icon: 'plus',
     },
     {
       content: 'Delete',

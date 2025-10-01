@@ -1,6 +1,6 @@
-<section class="flex flex-col gap-4 p-4 bg-white ">
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
   <h2 class="text-2xl font-bold">Successfull upload</h2>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader (onChange)="onFileSuccessfullChange($event)" [isMultiple]="false" [files]="successfullFiles" [allowedExtensions]="['png','jpg','jpeg']">
       <p>
         <strong>Sélectionnez votre fichier</strong> ou déposez-le
@@ -8,7 +8,7 @@
     </ds-file-uploader>
   </div>
   <h2 class="text-2xl font-bold">Error upload</h2>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader (onChange)="onFileErrorChange($event)" [isMultiple]="false" [files]="errorFiles">
       <p>
         <strong>Sélectionnez votre fichier</strong> ou déposez-le
@@ -16,7 +16,7 @@
     </ds-file-uploader>
   </div>
   <h2 class="text-2xl font-bold">Multiple upload</h2>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader (onRemove)="onFileMultipleRemove($event)" (onChange)="onFileMultipleChange($event)" [isMultiple]="true" [files]="multipleFiles" [allowedExtensions]="['png','jpg','jpeg']">
       <p>
         <strong>Sélectionnez votre fichier</strong> ou déposez-le
@@ -24,7 +24,7 @@
     </ds-file-uploader>
   </div>
   <h2 class="text-2xl font-bold">Multiple upload with errors</h2>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader (onReUpload)="onFileMultipleReUpload($event)" (onChange)="onFileMultipleErrorChange($event)" [isMultiple]="true" [files]="multipleErrorFiles">
       <div>
         <p>
@@ -40,7 +40,7 @@
     </ds-file-uploader>
   </div>
   <h2 class="text-2xl font-bold">Default upload</h2>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader [isMultiple]="true" [files]="defaultFiles" (onRemove)="onFileDefaultRemove($event)" (onChange)="onFileDefaultChange($event)">
       <p>
         <strong>Sélectionnez votre fichier</strong> ou déposez-le

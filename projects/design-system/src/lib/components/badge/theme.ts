@@ -9,12 +9,12 @@ export const badge = {
   //bg-violet-500
   //bg-neutral-500
   variants: {
-    default: 'bg-neutral-50 text-neutral-500',
+    default: 'bg-neutral-50 dark:bg-neutral-50 text-neutral-500',
     amber: 'bg-amber-50 text-amber-500',
     blue: 'bg-blue-50 text-blue-500',
-    green: 'bg-[#E6F4EF] text-success',
+    green: 'bg-[#E6F4EF] dark:bg-[#245140] text-success',
     violet: 'bg-violet-50 text-violet-500',
-    red: 'bg-red-50 text-red-500',
+    red: 'bg-red-50 dark:bg-[#460809] text-red-500',
   },
   icon: 'w-4 h-4',
 };

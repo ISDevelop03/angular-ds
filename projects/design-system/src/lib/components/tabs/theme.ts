@@ -42,9 +42,9 @@ export const theme = {
         'flex space-x-2 rounded bg-crame-100 p-1 w-fit',
       tab: {
         base: 'w-fit relative text-[0.75rem]/[1.125rem] rounded py-3 px-3 focus:outline-none outline-none text-nowrap focus:border-none focus:ring-none transition-all duration-300 ease-in-out after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[70%] after:rounded-t-full after:h-[3px] after:bg-red-500 after:transition-all after:duration-300 after:ease-in-out after:opacity-0 after:content-[""]',
-        selected: 'bg-level-4 text-neutral-900 after:opacity-100 font-bold',
+        selected: 'bg-level-3 text-neutral-900 after:opacity-100 font-bold',
         unselected:
-          'bg-transparent text-neutral-900 hover:bg-level-4  hover:text-neutral-900 hover:after:opacity-100 disabled:hover:bg-transparent disabled:hover:text-neutral-500 disabled:hover:after:opacity-0',
+          'bg-transparent text-neutral-900 hover:bg-level-3 hover:text-neutral-900 hover:after:opacity-100 disabled:hover:bg-transparent disabled:hover:text-neutral-500 disabled:hover:after:opacity-0',
       },
     },
     panels: {

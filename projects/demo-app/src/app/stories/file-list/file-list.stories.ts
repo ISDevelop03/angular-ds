@@ -12,13 +12,26 @@ export class FileListStoryComponent {
   files: UploadedFiles[] = [
     {
       file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-1' }),
+      status: 'error',
     },
     {
       file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-2' }),
+      status: 'success',
     },
     {
       file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-3' }),
-    }
+      status: 'uploading',
+      progress: 50,
+    },
+    {
+      file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-3' }),
+    },
+  ];
+
+  downloadableFiles: UploadedFiles[] = [
+    {
+      file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-1' }),
+    },
   ];
 
   onDownload(file: File) {

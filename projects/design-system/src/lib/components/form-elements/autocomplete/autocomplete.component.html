@@ -1,6 +1,6 @@
 <div id="ds-autocomplete" class="relative space-y-1" [ngClass]="className">
   <div
-    class="flex justify-start flex-wrap gap-1 bg-level-4 rounded border border-neutral-50 p-2"
+    class="flex justify-start flex-wrap gap-1 bg-level-3 rounded border border-neutral-50 hover:border-primary text-left p-2"
   >
     <ds-badge
       size="sm"
@@ -14,7 +14,7 @@
 
     <input
       #myInput
-      class="text-sm font-bold flex-1 bg-transparent placeholder:text-sm placeholder:text-neutral-200 outline-none border-none focus:ring-0 p-0"
+      class="text-sm font-bold flex-1 bg-transparent dark:placeholder-gray-300 placeholder-gray-400 placeholder-text-sm outline-none border-none focus:ring-0 p-0"
       [value]="value"
       (focus)="showDropdown = true"
       (input)="onInput($event)"
@@ -26,7 +26,7 @@
 
   <div
     *ngIf="showDropdown"
-    class="absolute top-full left-0 w-full min-w-[300px] max-w-[500px] bg-white border border-gray-300 rounded shadow z-10 p-4"
+    class="absolute top-full left-0 w-full min-w-fullmax-w-[500px] bg-level-3 border border-stroke-2 rounded z-10 p-4"
   >
     <ul
       *ngIf="filteredItems.length"
@@ -34,7 +34,7 @@
     >
       <li
         *ngFor="let item of filteredItems"
-        class="rounded transition-all duration-300 ease-in-out flex items-center hover:bg-neutral-25 cursor-pointer gap-2"
+        class="rounded transition-all duration-300 ease-in-out flex items-center cursor-pointer gap-2"
         (click)="onSelectItem($event, item)"
       >
         <ds-checkbox

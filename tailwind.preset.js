@@ -224,7 +224,7 @@ module.exports = {
         "card-selected-red": "hsl(var(--card-selected-red) / <alpha-value>)",
         "card-selected-green":
           "hsl(var(--card-selected-green) / <alpha-value>)",
-        "gradient-red": "rgb(var(--gradient-red) / <alpha-value>)",
+        "gradient-crame": "rgb(var(--gradient-crame) / <alpha-value>)",
         "card-level-1": "rgb(var(--card-level-1) / <alpha-value>)",
         "card-level-2": "rgb(var(--card-level-2) / <alpha-value>)",
         "card-level-4": "rgb(var(--card-level-4) / <alpha-value>)",

@@ -4,7 +4,7 @@
     <ds-dropdown-holder
       (toggle)="toggleDropdown($event)"
       [buttonContent]="buttonContent"
-      containerClassName="max-w-[500px] p-4 rounded-md border border-neutral-100 bg-neutral-50"
+      containerClassName="max-w-[500px] p-4 rounded-md border border-neutral-100 bg-level-3"
     >
       <div>
         <p class="text-sm text-neutral-500">
@@ -23,7 +23,7 @@
 
 <ng-template #buttonContent>
   <div
-    class="flex items-center gap-2 border text-sm border-neutral-100 rounded-md px-3 py-2"
+    class="flex items-center gap-2 border text-sm border-neutral-100 bg-level-3 hover:border-primary rounded-md px-3 py-2"
   >
     <ds-icon id="Police" class="text-red-500" size="20px"></ds-icon>
     <span> Placeholder </span>

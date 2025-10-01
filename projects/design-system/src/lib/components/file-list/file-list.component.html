@@ -3,13 +3,13 @@
     <!-- Neutral status file -->
     <div
       *ngIf="!file.status"
-      class="relative border border-neutral-100 bg-white rounded-lg p-4 flex gap-4 items-center justify-between"
+      class="relative border border-neutral-100 bg-level-3 rounded-lg p-4 flex gap-4 items-center justify-between"
     >
       <div class="flex items-center justify-start gap-4">
         <div
-          class="flex items-center justify-center w-8 h-8 bg-neutral-50 p-1.5 rounded text-neutral-500"
+          class="flex items-center justify-center w-10 h-10 bg-level-4 border border-stroke-1 rounded-full text-neutral-500"
         >
-          <ds-icon id="file-edit-02" size="16px" class="text-red-500"></ds-icon>
+          <ds-icon id="file-edit-02" size="20px" class="text-red-500"></ds-icon>
         </div>
         <div class="flex flex-col gap-1 text-neutral-700">
           <p class="text-[1rem]/[1.375rem] font-bold">
@@ -33,17 +33,16 @@
     <!-- Success status file -->
     <div
       *ngIf="file.status === 'success'"
-      class="relative border border-green-100 bg-level-4 rounded-lg p-4 flex gap-4 items-center justify-between"
+      class="relative border border-success bg-green-50 dark:bg-[#142E24] rounded-lg p-4 flex gap-4 items-center justify-between"
     >
       <div class="flex items-center justify-start gap-4">
         <div
-          class="flex items-center justify-center rounded-md w-8 h-8"
-          class="bg-green-50 p-1.5 rounded text-green-500"
+          class="flex items-center justify-center rounded-full w-8 h-8 bg-[#E6F4EF] dark:bg-[#245140] p-1.5 text-color-success dark:text-green-500"
         >
           <ds-icon id="file-edit-02" size="16px"></ds-icon>
         </div>
         <div class="flex flex-col gap-1 text-neutral-700">
-          <p class="text-[1rem]/[1.375rem] font-bold">
+          <p class="text-[1rem]/[1.375rem] font-medium">
             {{ file.file.name }}
           </p>
           <p class="text-[0.875rem]/[1.25rem] font-normal">
@@ -79,15 +78,15 @@
     <!-- Uploading status file -->
     <div
       *ngIf="file.status === 'uploading'"
-      class="relative border overflow-hidden border-red-200 bg-level-3 rounded-lg p-4"
+      class="relative border overflow-hidden border-red-200 bg-transparent rounded-lg p-4"
     >
       <div
-        class="absolute inset-0 h-full bg-red-50 w-1/4 transition-all duration-300 ease-in-out"
+        class="absolute inset-0 h-full bg-red-50 dark:bg-[#290505] w-1/4 transition-all duration-300 ease-in-out"
         [style.width]="file.progress + '%'"
       ></div>
       <div class="relative w-full z-[1] flex gap-4 items-center justify-start">
         <div
-          class="flex items-center justify-center rounded-md w-8 h-8 bg-level-3 text-red-500"
+          class="flex items-center justify-center rounded-full w-8 h-8 bg-red-100 text-red-500"
         >
           <ds-icon id="file-edit-02" size="16px"></ds-icon>
         </div>
@@ -101,7 +100,7 @@
           </p>
         </div>
         <span
-          class="absolute right-3 top-1/2 -translate-y-1/2 font-medium text-[1rem]/[1.25rem]"
+          class="absolute right-0 top-1/2 -translate-y-1/2 font-medium text-[1rem]/[1.25rem]"
         >
           {{ file.progress }} %
         </span>
@@ -111,12 +110,12 @@
     <!-- Error status file -->
     <div *ngIf="file.status === 'error'">
       <div
-        class="relative border border-red-100 rounded-lg p-4 bg-error-25"
+        class="relative border border-red-200 rounded-lg p-4 bg-error-25 dark:bg-[#290505]"
       >
         <div class="flex items-center justify-between gap-4">
           <div class="flex items-center gap-4">
             <div
-              class="flex items-center justify-center rounded-md w-8 h-8 bg-rose-100 text-rose-500"
+              class="flex items-center justify-center rounded-full w-8 h-8 bg-red-100 dark:bg-red-50 text-red-500"
             >
               <ds-icon id="file-edit-02" size="16px"></ds-icon>
             </div>

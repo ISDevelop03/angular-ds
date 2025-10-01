@@ -5,11 +5,11 @@ export const paginationVariants: PaginationVariants = {
     wrapper:
       'ds-pagination flex flex-wrap items-center justify-between gap-4 px-4 py-2 rounded',
     container:
-      'bg-level-4 border flex flex-wrap items-center justify-center border-neutral-100 rounded-md overflow-hidden',
+      'bg-level-3 border flex flex-wrap items-center justify-center border-neutral-100 rounded-md overflow-hidden',
     nextPrevButtons: {
-      base: 'inline-flex font-medium text-neutral-500 border-r border-neutral-100 items-center gap-2 text-[0.875rem]/[1.125rem] px-3 py-2 disabled:opacity-40 disabled:cursor-not-allowed',
+      base: 'inline-flex font-medium text-neutral-500 items-center gap-2 text-[0.875rem]/[1.125rem] px-3 py-2 disabled:opacity-40 disabled:cursor-not-allowed',
       prev: {
-        base: '',
+        base: 'border-r border-neutral-100',
         id: 'arrow-left',
         size: '1rem',
       },
@@ -23,9 +23,9 @@ export const paginationVariants: PaginationVariants = {
     buttons: {
       base: 'flex items-center',
       button: {
-        base: ' text-[0.875rem]/[1.125rem] font-medium border-r border-neutral-100 text-neutral-500 w-[32px] aspect-square flex items-center justify-center',
-        active: 'bg-card-level-4',
-        inactive: 'bg-level-4',
+        base: ' text-[0.875rem]/[1.125rem] border-r border-neutral-100 text-neutral-500 w-[32px] aspect-square flex items-center justify-center',
+        active: 'bg-neutral-100  text-neutral-500 font-bold',
+        inactive: 'bg-level-4 font-medium',
       },
       ellipsis: 'px-2 text-neutral-500 w-[32px] aspect-square flex items-center justify-center border-r border-neutral-100 h-full block',
     },
