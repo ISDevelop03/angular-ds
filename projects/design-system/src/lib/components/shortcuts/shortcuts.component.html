@@ -29,7 +29,7 @@
 
       <!-- delete icon -->
       <button
-        *ngIf="item.isShortcut"
+        *ngIf="!item.isShortcut"
         (click)="remove(item, idx, $event)"
         class="absolute -top-2 right-2 text-white size-[16px] rounded-full flex justify-center items-center bg-red-500 opacity-0 duration-300 transition-all translate-y-1 group-hover:translate-y-0 ease-in-out group-hover:opacity-100"
         aria-label="Remove shortcut"

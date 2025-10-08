@@ -27,7 +27,7 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
   mainMenus: IMainMenu[] = mainMenusMOCKDATA;
   hideWrapperBackground = false;
 
-  logo = '/assets/logo-mybusiness.svg';
+  logo = '/assets/mybusiness.svg';
   miniLogo = '/assets/mini-logo.svg';
   subSidebarIsOpen = false;
 

@@ -14,7 +14,7 @@ export class ShortcutsCardStoryComponent {
     },
     {
       icon: 'plus',
-      title: 'Prélèvement de masse',
+      title: 'Ajouter un service favori',
       href: '/shortcuts',
     },
     {

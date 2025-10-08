@@ -9,14 +9,14 @@
       *ngIf="!subSidebarIsOpen"
       [src]="miniLogo"
       alt="mini logo svg"
-      class="w-5 h-2.5 object-cover"
+      class="w-5 h-auto object-cover"
     />
 
     <img
       *ngIf="subSidebarIsOpen"
       [src]="logo"
       alt="mybusiness logo svg"
-      class="w-[140px] h-[16px]"
+      class="w-[140px] h-auto"
     />
 
     <button *ngIf="subSidebarIsOpen" (click)="closeSubSidebar()">

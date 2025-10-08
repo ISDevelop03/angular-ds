@@ -12,7 +12,7 @@ export const callToActionIconsTheme = {
     separator: '',
     button:
       'border border-stroke-1 bg-level-5 rounded p-2 hover:opacity-50 transition-opacity duration-300',
-    icon: 'flex items-center justify-center text-neutral-900',
+    icon: 'flex items-center justify-center',
     iconSize: '16',
   },
   borderless: {
