@@ -70,7 +70,7 @@ export class DsShortcutsCardComponent {
 
   onItemClick(item: ShortcutItem, idx: number, event: MouseEvent) {
     event.stopPropagation();
-    if (item.isShortcut) {
+    if (!item.isShortcut) {
       this.isOpen = !this.isOpen;
       this.openIdx = idx;
     } else {

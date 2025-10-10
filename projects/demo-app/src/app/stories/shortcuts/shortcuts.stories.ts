@@ -15,7 +15,6 @@ export class ShortcutsCardStoryComponent {
     {
       icon: 'plus',
       title: 'Ajouter un service favori',
-      href: '/shortcuts',
     },
     {
       icon: 'plus',
@@ -92,7 +91,7 @@ export class ShortcutsCardStoryComponent {
         icon: 'plus',
         title: 'Ajouter un service favori',
         href: '/shortcuts',
-        isShortcut: true,
+        isShortcut: false,
       };
       // also mark the removed shortcut as unselected
       const sc = this.shortcuts.find((s) => s.title === data.item.title);
@@ -106,6 +105,7 @@ export class ShortcutsCardStoryComponent {
         icon: this.iconMap[shortcut.title] || 'home',
         title: shortcut.title,
         href: shortcut.href,
+        isShortcut: true,
       };
       // mark as selected in dropdown
       const sc = this.shortcuts.find((s) => s.title === shortcut.title);

@@ -40,7 +40,7 @@
       </span>
       </ng-container>
       <ng-container *ngIf="autoComplete">
-        <input type="text" class="w-full outline-none placeholder:font-bold placeholder:text-neutral-900 placeholder:text-xs bg-level-3" [placeholder]="placeholder" (input)="onSearchInput($event.target.value)" />
+        <input type="text" class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2" [placeholder]="placeholder" (input)="onSearchInput($event.target.value)" />
       </ng-container>
     </div>
 
@@ -128,10 +128,10 @@
               />
               <div class="flex flex-col gap-1">
                 <span
-                  class="inline-flex text-neutral-500 font-light text-[1rem]/[1.25rem]"
+                  class="inline-flex text-neutral-500 font-light text-[0.75rem]/[1rem]"
                   >{{ item.label }}</span
                 >
-                <span class="inline-flex font-bold text-[1rem]/[1.25rem]">
+                <span class="inline-flex font-semibold text-[0.75rem]/[1rem]">
                   {{ item.value }}
                 </span>
               </div>

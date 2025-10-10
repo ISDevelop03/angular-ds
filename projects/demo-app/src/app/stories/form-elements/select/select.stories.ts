@@ -35,19 +35,19 @@ export class SelectStoryComponent {
   ];
   options1: SelectItem[] = [
     {
-      label: 'Option 1',
+      label: 'Lorem ipsum dolor sit amet',
       value: 'option1',
       isAccount: true,
       image: 'https://placehold.co/400',
     },
     {
-      label: 'Option 2',
+      label: 'Lorem ipsum dolor sit amet',
       value: 'option2',
       isAccount: true,
       image: 'https://placehold.co/400',
     },
     {
-      label: 'Option 3',
+      label: 'Lorem ipsum dolor sit amet',
       value: 'option3',
       isAccount: true,
       image: 'https://placehold.co/400',

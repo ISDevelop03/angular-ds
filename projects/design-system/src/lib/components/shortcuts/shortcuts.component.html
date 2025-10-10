@@ -4,7 +4,7 @@
       *ngFor="let item of items; let idx = index"
       (click)="onItemClick(item, idx, $event)"
       class="group w-full relative group justify-start py-3 px-2.5 rounded gap-2 flex items-center text-center transition-all ease-in-out duration-500"
-      [ngClass]="item.isShortcut ? 'cursor-pointer bg-level-5 dark:bg-[#171717]' : 'bg-crame-100'"
+      [ngClass]="item.isShortcut ? 'cursor-pointer bg-level-5 dark:bg-[#171717]' : 'cursor-pointer bg-crame-100'"
     >
       <div
         class="shrink-0 size-[28px] flex transition-all ease-in-out duration-300 justify-center items-center rounded dark:bg-level-6"
@@ -29,7 +29,7 @@
 
       <!-- delete icon -->
       <button
-        *ngIf="!item.isShortcut"
+        *ngIf="item.isShortcut"
         (click)="remove(item, idx, $event)"
         class="absolute -top-2 right-2 text-white size-[16px] rounded-full flex justify-center items-center bg-red-500 opacity-0 duration-300 transition-all translate-y-1 group-hover:translate-y-0 ease-in-out group-hover:opacity-100"
         aria-label="Remove shortcut"
@@ -58,8 +58,8 @@
         {{ shortcut.title }}
       </span>
       <ds-icon
-        [id]="shortcut.isSelected ? 'minus' : 'plus'"
-        [size]="16"
+        [id]="shortcut.isSelected ? 'minus' : 'add'"
+        [size]="24"
         [className]="shortcut.isSelected ? 'text-red-500' : ''"
       ></ds-icon>
     </li>
