@@ -1,22 +1,31 @@
 <ul
-  class="space-y-3.5 [&_li]:cursor-pointer text-white flex justify-center items-center flex-col pb-6"
+  class="w-full space-y-3.5 [&_li]:cursor-pointer text-white flex justify-center items-center flex-col pb-6"
 >
   <hr class="w-full border-customgray-400 mx-auto" />
 
-  <li (click)="callingOnClick.emit($event)">
+  <li (click)="callingOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="calling" class="size-4"></ds-icon>
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      besoin d'assistance
+    </span>
   </li>
-  <li (click)="reclamationOnClick.emit($event)">
+  <li (click)="reclamationOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="reclamation" class="size-4"></ds-icon>
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      Vous avez une réclamation ?
+    </span>
   </li>
-  <li *ngIf="sizes.length > 0" class="relative">
+  <li *ngIf="sizes.length > 0" class="flex items-center justify-center group relative">
     <button (click)="capsClick($event)">
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      Mode Sombre
+    </span>
     <ul
       @dropdown
       *ngIf="showCaps"
-      class="absolute bg-white flex text-neutral-900 text-center justify-start items-center shadow-lg border border-neutral-100 left-[calc(100%+20px)] py-2 px-4 top-1/2 rounded-md gap-2 -translate-y-1/2"
+      class="absolute bg-white flex text-neutral-900 text-center justify-start items-center shadow-lg border border-neutral-100 left-[calc(100%+20px)] py-2 px-4 top-1/2 rounded-md gap-2 -translate-y-1/2 z-[9999]"
     >
       <li
         *ngFor="let size of sizes"
@@ -29,21 +38,30 @@
     </ul>
   </li>
 
-  <li (click)="languageOnClick.emit($event)">
+  <li (click)="languageOnClick.emit($event)" class="flex items-center justify-center group relative">
     <img
       [alt]="language.alt || ''"
       [src]="language.src"
       class="size-4"
       [ngClass]="language.className"
     />
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      Choix de langue
+    </span>
   </li>
 
-  <li>
+  <li class="flex items-center justify-center group relative">
     <ds-theme-toggle></ds-theme-toggle>
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      Mode Sombre
+    </span>
   </li>
 
-  <li (click)="settingsOnClick.emit($event)">
+  <li (click)="settingsOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="settings" class="size-4"></ds-icon>
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      Paramètres
+    </span>
   </li>
 
   <hr class="w-full border-customgray-400 mx-auto" />

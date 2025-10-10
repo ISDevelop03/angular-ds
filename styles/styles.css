@@ -1126,6 +1126,10 @@ video {
   left: calc(100% + 20px);
 }
 
+.left-full {
+  left: 100%;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -1192,6 +1196,18 @@ video {
 
 .top-full {
   top: 100%;
+}
+
+.left-\[calc\(100\%\+10px\)\] {
+  left: calc(100% + 10px);
+}
+
+.left-\[40px\] {
+  left: 40px;
+}
+
+.left-\[100\%\] {
+  left: 100%;
 }
 
 .isolate {
@@ -1374,6 +1390,10 @@ video {
   margin-right: 0.25rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -1420,10 +1440,6 @@ video {
 
 .mt-px {
   margin-top: 1px;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
 }
 
 .box-border {
@@ -2218,6 +2234,11 @@ video {
 
 .translate-y-1\/2 {
   --tw-translate-y: 50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-\[-100\%\] {
+  --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -4048,11 +4069,6 @@ video {
   line-height: 18px;
 }
 
-.text-\[0\.75rem\]\/\[1\.25rem\] {
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-}
-
 .\!font-\[400\] {
   font-weight: 400 !important;
 }
@@ -4901,10 +4917,6 @@ body.main-menu-open #main-content {
 .carousel-item {
   scroll-snap-align: start;
 }
-
-/* [id^="ds-"] {
-  @apply !bg-red-400;
-} */
 
 /**
  * Owl Carousel v2.3.4

@@ -25,7 +25,7 @@
   </div>
 
   <div class="flex items-start justify-start w-max h-[calc(100%-64px)]">
-    <div class="shrink-0 flex flex-col h-full justify-between items-center">
+    <div class="w-full shrink-0 flex flex-col h-full justify-between items-center">
       <div>
         <hr class="w-1/2 border-customgray-400 mx-auto" />
         <ul class="flex flex-col py-3.5">
@@ -45,7 +45,8 @@
         </ul>
       </div>
 
-      <ds-bottom-menus
+      <div class="w-full">
+        <ds-bottom-menus
         [sizes]="sizes"
         [language]="language"
         (callingOnClick)="callingOnClick.emit($event)"
@@ -54,6 +55,9 @@
         (settingsOnClick)="settingsOnClick.emit($event)"
         [profileMenus]="profileMenus"
       ></ds-bottom-menus>
+      </div>
+ 
+      
     </div>
 
     <div
