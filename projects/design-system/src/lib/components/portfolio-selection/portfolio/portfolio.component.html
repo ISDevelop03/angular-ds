@@ -22,12 +22,15 @@
     *ngIf="displayPortfolio"
     class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[300px] shadow-dropdown"
   >
-    <ds-portfolio-vision-card
-      [title]="holding.title"
-      [image]="holding.image"
-      (clicked)="onSelect(holding)"
-      [isSelected]="holding.id == selectedPortfolio.id"
-    ></ds-portfolio-vision-card>
+    <ng-container *ngIf="holding" class="flex flex-col gap-y-3">
+      <ds-portfolio-vision-card
+        [title]="holding.title"
+        [image]="holding.image"
+        (clicked)="onSelect(holding)"
+        [isSelected]="holding.id == selectedPortfolio.id"
+      ></ds-portfolio-vision-card>
+    </ng-container>
+    
 
     <div class="space-y-4">
       <div class="flex flex-col gap-y-3">

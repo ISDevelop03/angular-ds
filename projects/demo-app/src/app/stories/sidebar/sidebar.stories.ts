@@ -72,7 +72,7 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
       account_number: '01178000001234567890366262',
       balance: 7411971.152,
       currency: 'JPY',
-      type: 'Compte annexe 03',
+      type: 'Compte annexe Compte annexe Compte annexe',
       date: '2025-02-12',
       id: 'account-3',
       solde_comptable: -137882.378,

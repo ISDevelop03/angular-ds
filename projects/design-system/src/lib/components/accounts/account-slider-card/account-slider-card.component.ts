@@ -22,6 +22,7 @@ export class DsAccountSliderCardComponent implements OnInit {
   @Input() isSelected: boolean = false;
   @Input() actionsList: ICallToActionIcon[] = [];
   @Input() className?: string = '';
+  @Input() minHeight: number = 152;
 
   @Input() data?: any;
 
