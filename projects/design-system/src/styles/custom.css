@@ -163,3 +163,7 @@ body.main-menu-open #main-content {
 button {
   @apply outline-none !important;
 }
+
+button:focus {
+  @apply outline-none !important;
+}
