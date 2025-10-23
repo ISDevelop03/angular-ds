@@ -234,4 +234,14 @@ export class TableComponent implements OnChanges {
   getRowCheckboxChange(row: any): () => void {
     return () => this.toggleRow(row, !this.isSelected(row));
   }
+
+  /** Get all lines of text as an array, handling newline characters */
+  getAllLines(text: any, col: ColumnDef): string[] {
+    if (text == null) return [''];
+    const textStr = String(text);
+    if(col.truncate){
+      return textStr.split('\n').slice(0,1);
+    }
+    return textStr.split('\n');
+  }
 }

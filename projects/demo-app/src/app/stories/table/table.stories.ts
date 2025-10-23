@@ -98,7 +98,7 @@ export class TableStoryComponent {
       id: 'product-1',
       name: 'Product 1',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
+        'met consectetur adipisicing elit. Sit, beatae commodi sequi non illum \n nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? \n Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum \n quod labore laboriosam molestiae neque esse.',
 
       price: 100,
       category: 'Category A',
@@ -108,7 +108,7 @@ export class TableStoryComponent {
       id: 'product-2',
       name: 'Product 2',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit\n beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiaeatibus.',
       price: 200,
       category: 'Category B',
       stock: 30,
@@ -117,21 +117,10 @@ export class TableStoryComponent {
       id: 'product-3',
       name: 'Product 3',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
-
-      price: 150,
-      category: 'Category A',
-      stock: 20,
-    },
-    {
-      id: 'product-4',
-      name: 'Product 4',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiae neque esse ex expedita amet voluptatibus.',
-
-      price: 300,
-      category: 'Category C',
-      stock: 10,
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit\n beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiaeatibus.',
+      price: 200,
+      category: 'Category B',
+      stock: 30,
     },
   ];
 

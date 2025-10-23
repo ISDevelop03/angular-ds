@@ -118,14 +118,14 @@
           [ngClass]="[
             theme[variant].cell,
             col.expandable && col.truncate
-              ? 'py-3 inline-block truncate line-clamp-1'
-              : '',
+              ? 'whitespace-nowrap'
+              : 'whitespace-nowrap',
             colIdx === 0 && variant === 'default' ? 'rounded-l-md' : '',
             columns.length - 1 === colIdx && variant === 'default' ? 'rounded-r-md' : ''
           ]"
           [ngStyle]="
             col.styles && col.styles.width
-              ? { width: col.styles.width + 'px' }
+              ? { width: col.styles.width + 'px',minWidth: col.styles.width + 'px' }
               : {}
           "
         >
@@ -138,7 +138,14 @@
             }"
           ></ng-container>
           <ng-template #defaultCell>
-            {{ row[col.accessor] }}
+            <div class="flex flex-col">
+              <span 
+                *ngFor="let line of getAllLines(row[col.accessor], col)" 
+                class="whitespace-nowrap"
+              >
+                {{ line }}
+              </span>
+            </div>
           </ng-template>
         </td>
       </tr>
