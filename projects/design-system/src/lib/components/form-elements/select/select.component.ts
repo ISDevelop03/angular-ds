@@ -8,6 +8,8 @@ import {
   HostListener,
   forwardRef,
   OnDestroy,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { theme } from './theme';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -41,7 +43,7 @@ export interface SelectItem {
     },
   ],
 })
-export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
+export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnChanges {
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -70,6 +72,13 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy {
   ngOnInit() {
     this.filteredItems = [].concat(this.items);
     console.log("filteredItems", this.filteredItems)
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['items'] && changes['items'].currentValue) {
+      this.filteredItems = [].concat(this.items);
+      console.log("filteredItems updated", this.filteredItems);
+    }
   }
 
   private static zIndexCounter = 10000;

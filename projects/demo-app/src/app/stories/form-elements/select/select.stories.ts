@@ -33,6 +33,14 @@ export class SelectStoryComponent {
       imageClass: 'rounded-full',
     },
   ];
+
+  handleChangeClick(){
+    this.options=[
+      { label: 'Option 8', value: 'option8' },
+      { label: 'Option 9', value: 'option9', icon: 'vide' }
+    ]
+  }
+  
   options1: SelectItem[] = [
     {
       label: 'Lorem ipsum dolor sit amet',
@@ -53,6 +61,10 @@ export class SelectStoryComponent {
       image: 'https://placehold.co/400',
     },
   ];
+
+
+
+
 
   handleValueChange(value: string | string[]) {
     this.selectedValue = value;
