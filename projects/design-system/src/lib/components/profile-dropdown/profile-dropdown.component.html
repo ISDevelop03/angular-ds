@@ -1,6 +1,6 @@
 <div
   id="ds-profile-dropdown"
-  [ngClass]="['relative overflow-visible z-[1100]', className || '']"
+  [ngClass]="['relative overflow-visible z-[10000]', className || '']"
 >
   <div tabIndex="0" role="button" (click)="handleOpen()">
     <ng-content></ng-content>
@@ -11,12 +11,12 @@
     (click)="handleClose()"
     tabIndex="0"
     role="button"
-    class="fixed inset-0 z-[999] isolate bg-black/30"
+    class="fixed inset-0 z-[10001] isolate bg-black/30"
   ></div>
   <ul
     *ngIf="isOpen"
     [ngClass]="[
-      'absolute flex z-[1000] p-1 border border-neutral-200 flex-col text-custom-black overflow-hidden shadow-dropdown bg-level-4 rounded-lg w-max',
+      'absolute flex z-[10002] p-1 border border-neutral-200 flex-col text-custom-black overflow-hidden shadow-dropdown bg-level-4 rounded-lg w-max',
       positions[position] || '',
       ulClassName || ''
     ]"

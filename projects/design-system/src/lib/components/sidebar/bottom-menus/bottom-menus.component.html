@@ -1,11 +1,11 @@
 <ul
   class="w-full space-y-3.5 [&_li]:cursor-pointer text-white flex justify-center items-center flex-col pb-6"
 >
-  <hr class="w-full border-customgray-400 mx-auto" />
+  <hr class="w-full border-[#355A57] mx-auto" />
 
   <li (click)="callingOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="calling" class="size-4"></ds-icon>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       besoin d'assistance
     </span>
   </li>
@@ -19,8 +19,8 @@
     <button (click)="capsClick($event)">
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
-      Mode Sombre
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+      Taille de la police
     </span>
     <ul
       @dropdown
@@ -45,26 +45,26 @@
       class="size-4"
       [ngClass]="language.className"
     />
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Choix de langue
     </span>
   </li>
 
   <li class="flex items-center justify-center group relative">
     <ds-theme-toggle></ds-theme-toggle>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Mode Sombre
     </span>
   </li>
 
   <li (click)="settingsOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="settings" class="size-4"></ds-icon>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Paramètres
     </span>
   </li>
 
-  <hr class="w-full border-customgray-400 mx-auto" />
+  <hr class="w-full border-[#355A57] mx-auto" />
 
   <li>
     <ds-profile-dropdown
