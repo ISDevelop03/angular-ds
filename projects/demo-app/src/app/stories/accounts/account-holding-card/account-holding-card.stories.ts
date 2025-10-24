@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class AccountHoldingCardStoryComponent {
   data = {
-    title: 'Prayon',
+    title: 'GROUPEEGUY CHARLESPEGUY PRIVE',
     className: '',
     image: 'https://placehold.co/82',
     actionsList: [

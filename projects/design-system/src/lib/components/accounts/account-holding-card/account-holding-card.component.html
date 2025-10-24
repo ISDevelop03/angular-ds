@@ -1,13 +1,13 @@
 <article
   id="ds-account-holding-card"
   [ngClass]="[
-    'group relative flex items-center justify-start text-neutral-900 gap-[14px] rounded-lg p-3.5 bg-card-level-1 w-full',
+    'group relative flex items-center justify-start min-h-[90px] text-neutral-900 gap-[14px] rounded-lg p-3.5 pr-6 bg-card-level-1 w-full',
     className
   ]"
   (click)="handleClick($event)"
 >
   <ds-dropdown
-    class="absolute top-2 right-3"
+    class="absolute top-2 right-1.5"
     [items]="actionsList"
     anchor="bottom end"
   >
@@ -20,7 +20,7 @@
     [alt]="title"
     class="object-contain rounded bg-level-3 size-[62px]"
   />
-  <h3 *ngIf="title" class="text-[1.25rem]/[1.688rem] text-left font-bold">
+  <h3 *ngIf="title" class="text-[1rem]/[1.30rem] text-left font-bold">
     {{ title }}
   </h3>
 </article>

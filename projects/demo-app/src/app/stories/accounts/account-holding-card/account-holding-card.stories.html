@@ -1,11 +1,21 @@
 <div class="p-4 grid gap-4">
   <h3 class="text-xl font-bold">Account Holding Card</h3>
+  <div class="flex gap-4">
     <ds-account-holding-card
-    [image]="data.image"
-    [title]="data.title"
-    [actionsList]="data.actionsList"
-    [data]="data"
-    className="max-w-[270px]"
-    (onClick)="clicked($event)"
-  ></ds-account-holding-card>
+      [image]="data.image"
+      [title]="data.title"
+      [actionsList]="data.actionsList"
+      [data]="data"
+      className="max-w-[270px]"
+      (onClick)="clicked($event)"
+    ></ds-account-holding-card>
+    <ds-account-holding-card
+      [image]="data.image"
+      title="dlkjdlkjdkl lkjd lkj"
+      [actionsList]="data.actionsList"
+      [data]="data"
+      className="max-w-[270px]"
+      (onClick)="clicked($event)"
+    ></ds-account-holding-card>
+  </div>
 </div>

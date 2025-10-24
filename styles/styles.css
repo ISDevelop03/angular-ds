@@ -1759,6 +1759,10 @@ video {
   height: calc(100vh - 28px - 16px - 48px - 32px - 43px);
 }
 
+.h-\[90px\] {
+  height: 90px;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -1790,6 +1794,10 @@ video {
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-\[90px\] {
+  min-height: 90px;
 }
 
 .\!w-\[300px\] {
@@ -3771,6 +3779,10 @@ video {
   padding-top: 9px;
 }
 
+.pr-6 {
+  padding-right: 1.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -4059,6 +4071,16 @@ video {
 .text-xs {
   font-size: 12px;
   line-height: 18px;
+}
+
+.text-\[1rem\]\/\[1\.688rem\] {
+  font-size: 1rem;
+  line-height: 1.688rem;
+}
+
+.text-\[1rem\]\/\[1\.30rem\] {
+  font-size: 1rem;
+  line-height: 1.30rem;
 }
 
 .\!font-\[400\] {
