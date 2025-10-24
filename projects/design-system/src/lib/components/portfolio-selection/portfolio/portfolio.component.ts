@@ -6,6 +6,8 @@ import {
   OnInit,
   Output,
   Renderer2,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 
 interface Portfolio {
@@ -38,7 +40,7 @@ interface Portfolio {
     ]),
   ],
 })
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent implements OnInit, OnChanges {
   @Input() portfolios: Portfolio[] = [];
   @Input() selected: Portfolio | null = null;
   @Input() holding: Portfolio | null = null;
@@ -66,8 +68,43 @@ export class PortfolioComponent implements OnInit {
     return Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
 
+  /** Get paginated portfolios for current page */
+  getPaginatedPortfolios(): Portfolio[] {
+    const startIndex = (this.currentPage - 1) * this.perPage;
+    const endIndex = startIndex + this.perPage;
+    return this.portfolios.slice(startIndex, endIndex);
+  }
+
+  /** Get start index for display */
+  getStartIndex(): number {
+    return (this.currentPage - 1) * this.perPage + 1;
+  }
+
+  /** Get end index for display */
+  getEndIndex(): number {
+    const endIndex = this.currentPage * this.perPage;
+    return Math.min(endIndex, this.portfolios.length);
+  }
+
   ngOnInit() {
     this.resetState();
+    this.calculateTotalPages();
+  }
+
+  /** Calculate total pages based on portfolios length and perPage */
+  private calculateTotalPages() {
+    this.totalPages = Math.ceil(this.portfolios.length / this.perPage);
+  }
+
+  /** Handle input changes */
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['portfolios'] || changes['perPage']) {
+      this.calculateTotalPages();
+      // Reset to first page if current page is beyond total pages
+      if (this.currentPage > this.totalPages) {
+        this.currentPage = 1;
+      }
+    }
   }
 
   /** Go to next page if available */
@@ -75,6 +112,7 @@ export class PortfolioComponent implements OnInit {
     e.preventDefault();
     if (this.currentPage < this.totalPages) {
       this.pageChange.emit(this.currentPage + 1);
+      this.currentPage = this.currentPage + 1;
     }
   }
 
@@ -83,6 +121,7 @@ export class PortfolioComponent implements OnInit {
     event.preventDefault();
     if (this.currentPage > 1) {
       this.pageChange.emit(this.currentPage - 1);
+      this.currentPage = this.currentPage - 1;
     }
   }
 
@@ -90,6 +129,7 @@ export class PortfolioComponent implements OnInit {
   onGoToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
       this.pageChange.emit(page);
+      this.currentPage = page;
     }
   }
 

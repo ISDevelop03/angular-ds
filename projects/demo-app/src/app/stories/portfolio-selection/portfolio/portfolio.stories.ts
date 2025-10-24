@@ -18,22 +18,9 @@ export class PortfolioStoryComponent {
 
   perPage = 4;
   currentPage = 1;
-  totalPages!: number;
-  pageItems: any[] = [];
-
-  ngOnInit() {
-    this.totalPages = Math.ceil(this.mockData.length / this.perPage);
-    this.loadPage(1);
-  }
 
   onPageChange(page: number) {
-    this.loadPage(page);
-  }
-
-  private loadPage(page: number) {
     this.currentPage = page;
-    const start = (page - 1) * this.perPage;
-    this.pageItems = this.mockData.slice(start, start + this.perPage);
   }
 
   onSelect(portfolio: any) {
