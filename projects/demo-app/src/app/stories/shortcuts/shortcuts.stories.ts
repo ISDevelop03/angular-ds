@@ -9,7 +9,7 @@ export class ShortcutsCardStoryComponent {
     {
       icon: 'home',
       title: 'Recharge de cartes',
-      href: '/shortcuts',
+      href: '/dlmkdm',
       isShortcut: true,
     },
     {

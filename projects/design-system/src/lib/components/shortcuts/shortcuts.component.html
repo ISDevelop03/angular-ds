@@ -15,7 +15,7 @@
         <ds-icon [id]="item.icon" [size]="12"></ds-icon>
       </div>
       <a
-        *ngIf="!item.isShortcut && item.href; else noLink"
+        *ngIf="item.isShortcut && item.href; else noLink"
         class="text-neutral-900 text-left inline-flex text-[0.75rem]/[1rem] font-semibold after:absolute after:inset-0"
         [href]="item.href"
       >
