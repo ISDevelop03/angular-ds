@@ -14,23 +14,82 @@
       disabled ? theme[variant].element.button.disabled : ''
     ]"
   >
-    <div [ngClass]="[theme[variant].element.button.selected]">
-      <ds-icon
-        [id]="(selected && selected.icon) || buttonIcon"
-        class="text-red-500"
-      ></ds-icon>
-
-      <span
-        [ngClass]="
-          selected.title !== placeholder
-            ? theme[variant].element.button.label
-            : theme[variant].element.button.placeholder
-        "
-      >
-        {{ selected.title }}
+    <ng-container *ngIf="selectedValue === null">
+      <span class="text-neutral-500 text-[0.75rem] leading-[18px]">
+        {{ placeholder }}
       </span>
-    </div>
-
+    </ng-container>
+    <ng-container *ngIf="selectedValue !== null">
+        <div class="relative w-full flex justify-between items-center">
+          <div class="w-full flex justify-between items-center gap-3">
+            <div
+              *ngIf="selectedValue?.icon"
+              class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-white rounded-full"
+            >
+              <ds-icon
+                [id]="selectedValue?.icon"
+                size="20"
+                class="text-red-500"
+              ></ds-icon>
+            </div>
+            <div class="w-full flex items-center justify-between gap-5">
+              <div class="flex flex-col gap-1">
+                <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
+                  {{ selectedValue?.accountName }}
+                </span>
+                <span class="inline-flex font-bold text-[0.75rem] leading-[18px]">
+                  {{ selectedValue?.accountNumber }}
+                </span>
+              </div>
+              <div>
+                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                  {{ selectedValue?.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                </span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <ds-balance-formatter
+                    *ngIf="selectedValue?.soldeComptable.value"
+                    [balance]="selectedValue?.soldeComptable.value"
+                    className="!text-[0.75rem] !leading-[18px]"
+                  ></ds-balance-formatter>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ selectedValue?.soldeTempsReel.currency }}</span>
+                    <div class="relative rounded-full size-4">
+                      <img
+                        [src]="getFlagPath(selectedValue?.soldeComptable?.currency)"
+                        alt="[item.title]"
+                        class="relative rounded-full size-4"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                  {{ selectedValue?.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                </span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <ds-balance-formatter
+                    *ngIf="selectedValue?.soldeTempsReel?.value"
+                    [balance]="selectedValue?.soldeTempsReel?.value"
+                    className="!text-[0.75rem] !leading-[18px]"
+                  ></ds-balance-formatter>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ selectedValue?.soldeTempsReel.currency }}</span>
+                    <div class="relative rounded-full size-4">
+                      <img
+                        [src]="getFlagPath(selectedValue?.soldeTempsReel?.currency)"
+                        alt="[item.title]"
+                        class="relative rounded-full size-4"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+    </ng-container>
     <ds-icon
       *ngIf="!isLoading"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
@@ -77,35 +136,62 @@
                 class="text-red-500"
               ></ds-icon>
             </div>
-
-            <div class="w-fit flex flex-col gap-1">
-             
-              <div class="w-full flex items-center justify-between gap-2">
-                <span class="inline-flex font-bold text-[0.875rem] leading-[18px]">
+            <div class="w-full flex items-center justify-between gap-5">
+              <div>
+                <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
+                  {{ item.accountName }}
+                </span>
+                <span class="inline-flex font-bold text-[0.75rem] leading-[18px]">
                   {{ item.accountNumber }}
+                </span>
+              </div>
+              <div>
+                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                  {{ item.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
                 </span>
                 <div class="flex items-center gap-1.5 shrink-0">
                   <ds-balance-formatter
-                    *ngIf="item.price"
-                    [balance]="item.price"
-                    [currency]="item.currency"
+                    *ngIf="item.soldeComptable.value"
+                    [balance]="item.soldeComptable.value"
+                    className="!text-[0.75rem] !leading-[18px]"
                   ></ds-balance-formatter>
-                  <div class="relative rounded-full size-4">
-                    <img
-                      [src]="item.image"
-                      alt="[item.title]"
-                      class="relative rounded-full size-4"
-                    />
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ item.soldeTempsReel.currency }}</span>
+                    <div class="relative rounded-full size-4">
+                      <img
+                        [src]="getFlagPath(item.soldeComptable.currency)"
+                        alt="[item.title]"
+                        class="relative rounded-full size-4"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+              <div>
+                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                  {{ item.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                </span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <ds-balance-formatter
+                    *ngIf="item.soldeTempsReel.value"
+                    [balance]="item.soldeTempsReel.value"
+                    className="!text-[0.75rem] !leading-[18px]"
+                  ></ds-balance-formatter>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ item.soldeTempsReel.currency }}</span>
+                    <div class="relative rounded-full size-4">
+                      <img
+                        [src]="getFlagPath(item.soldeTempsReel.currency)"
+                        alt="[item.title]"
+                        class="relative rounded-full size-4"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
             </div>
           </div>
-          <!-- <ds-icon
-            *ngIf="isSelected(item)"
-            id="check"
-            [class]="theme[variant].element.icone.checked"
-          ></ds-icon> -->
         </div>
       </div>
     </ng-container>

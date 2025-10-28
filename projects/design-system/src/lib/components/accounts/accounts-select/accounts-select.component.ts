@@ -9,19 +9,42 @@ import {
 } from '@angular/core';
 import { theme } from './theme';
 
+// Import all flags from assets
+export const CURRENCY_FLAGS: { [key: string]: string } = {
+  AED: '/assets/flag/AED.png',
+  CAD: '/assets/flag/CAD.png',
+  CFA: '/assets/flag/CFA.png',
+  CHF: '/assets/flag/CHF.png',
+  CNY: 'assets/flag/CNY.png',
+  DKK: '/assets/flag/DKK.png',
+  EUR: '/assets/flag/EUR.png',
+  GBP: 'assets/flag/GBP.png',
+  JPY: '/assets/flag/JPY.png',
+  KWD: '/assets/flag/KWD.png',
+  MAD: 'assets/flag/MAD.png',
+  NOK: '/assets/flag/NOK.png',
+  QAR: 'assets/flag/QAR.png',
+  SAR: '/assets/flag/SAR.png',
+  SEK: '/assets/flag/SEK.png',
+  USD: '/assets/flag/USD.png',
+  XOF: '/assets/flag/XOF.jpg',
+};
+
+export interface Solde{
+  type: 'solde_comptable' | 'solde_temps_reel';
+  value: number;
+  currency: keyof typeof CURRENCY_FLAGS;
+}
 export interface SelectItem {
-  value: string;
-  title: string;
-  accountNumber: string;
-  price: number;
-  currency: string;
-  image: string;
   icon: string;
-  unavailable?: boolean;
+  value: string;
+  accountName: string;
+  accountNumber: string;
+  soldeComptable: Solde;
+  soldeTempsReel: Solde;
 }
 export interface OmittedSelectItem {
   value: string;
-  title: string;
   icon?: string;
   unavailable?: boolean;
 }
@@ -49,7 +72,7 @@ export class AccountsSelectComponent {
   @Input() isLoading: boolean = false;
   @Input() className?: string;
   @Input() buttonIcon?: string;
-  @Input() value: string | string[] | null = null;
+  @Input() value: string | null = null;
   @Input() customOptionsStyles?: { [key: string]: any };
 
   @Output() valueChange = new EventEmitter<string | string[]>();
@@ -57,6 +80,7 @@ export class AccountsSelectComponent {
   private static zIndexCounter = 10000;
 
   isOpen: boolean = false;
+  selectedValue: SelectItem | null = null;
   containerPosition: { [key: string]: any } = {};
 
   containerStyles = {};
@@ -66,6 +90,12 @@ export class AccountsSelectComponent {
   optionsContainer?: ElementRef;
 
   theme = theme;
+  currencyFlags = CURRENCY_FLAGS;
+
+  constructor() {
+    // Debug: Check what value is on first render
+    console.log('Initial value:', this.value, 'Type:', typeof this.value);
+  }
 
   get mergedStyles() {
     return Object.assign(
@@ -89,6 +119,9 @@ export class AccountsSelectComponent {
     }
   }
 
+  shouldAppear(){
+    return this.value !== null
+  }
   calculatePosition() {
     if (
       this.triggerButton &&
@@ -113,19 +146,10 @@ export class AccountsSelectComponent {
   }
 
   selectOption(item: SelectItem) {
-    if (item.unavailable) return;
-
-    if (this.multiple) {
-      const current = Array.isArray(this.value) ? this.value : [];
-      if (current.includes(item.value)) {
-        this.value = current.filter((val) => val !== item.value);
-      } else {
-        this.value = current.concat(item.value);
-      }
-    } else {
-      this.value = item.value;
-      this.isOpen = false;
-    }
+    console.log(item)
+    this.value = item.value;
+    this.isOpen = false;
+    this.selectedValue = item;
 
     this.valueChange.emit(this.value);
   }
@@ -137,22 +161,19 @@ export class AccountsSelectComponent {
     return this.value === item.value;
   }
 
-  // tighten returned type to always be a SelectItem
-  get selected(): OmittedSelectItem {
-    if (this.multiple && Array.isArray(this.value)) {
-      const labels = this.items
-        .filter((i) => this.value!.includes(i.value))
-        .map((i) => i.title)
-        .join(', ');
-      return {
-        value: '',
-        title: labels || this.placeholder,
-      };
-    }
-
+  // // tighten returned type to always be a SelectItem
+  get selected(): SelectItem {
     const found = this.items.find((i) => i.value === this.value);
+    console.log(found)
     return (
-      (found as OmittedSelectItem) || { value: '', title: this.placeholder }
+      (found as SelectItem) || { 
+        icon: '',
+        value: '', 
+        accountName: this.placeholder, 
+        accountNumber: '', 
+        soldeComptable: { type: 'solde_comptable', value: 0, currency: '' }, 
+        soldeTempsReel: { type: 'solde_temps_reel', value: 0, currency: '' } 
+      }
     );
   }
 
@@ -174,5 +195,14 @@ export class AccountsSelectComponent {
   @HostListener('document:keydown.escape', ['$event'])
   onEscClose(event: KeyboardEvent) {
     this.isOpen = false;
+  }
+
+  /**
+   * Get flag image path for a currency code
+   * @param currency - The currency code (e.g., 'USD', 'EUR')
+   * @returns The path to the flag image or empty string if not found
+   */
+  getFlagPath(currency: string): string {
+    return this.currencyFlags[currency] || '';
   }
 }
