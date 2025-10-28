@@ -47,7 +47,9 @@
 
       <div class="w-full">
         <ds-bottom-menus
+        (onThemeChange)="_onThemeChange($event)"
         [sizes]="sizes"
+        [defaultCap]="defaultCap"
         [language]="language"
         (callingOnClick)="callingOnClick.emit($event)"
         (reclamationOnClick)="reclamationOnClick.emit($event)"

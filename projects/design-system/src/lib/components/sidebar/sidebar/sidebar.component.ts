@@ -18,17 +18,15 @@ export class DsSidebarComponent {
   @Input() profileMenus: ISelectItem[] = [];
   @Input() mainMenus: IMainMenu[] = [];
   @Input() disableMainMenus: boolean = false;
-  @Input() sizes: Cap[] = [
-    // { name: 'S', size: 14 },
-    // { name: 'M', size: 16 },
-    // { name: 'L', size: 18 },
-  ];
+  @Input() sizes: Cap[] = [];
+  @Input() defaultCap: Cap = {name: 'L', size: 18};
   @Input() logo: string = '/assets/logo-mybusiness.svg';
   @Input() miniLogo: string = '/assets/mini-logo.svg';
   @Input() language: ILanguage = {
     src: '/assets/france-flag.svg',
     alt: 'Français',
   };
+  @Output() onThemeChange = new EventEmitter();
 
   @Input() subSidebarIsOpen: boolean = false;
 
@@ -39,6 +37,11 @@ export class DsSidebarComponent {
   @Output() onOpenSidebar = new EventEmitter();
 
   openMainMenuIndex: number = -1;
+
+  _onThemeChange(theme: any): void {
+    console.log('theme sidebar', theme);
+    this.onThemeChange.emit(theme);
+  }
 
   @Input() subMenuData: IMenus = { title: '', items: [] };
 
@@ -73,7 +76,6 @@ export class DsSidebarComponent {
   }
 
   toggleMainMenu(idx: number): void {
-    console.log('idxidxidx', idx);
     this.openMainMenuIndex = this.openMainMenuIndex === idx ? -1 : idx;
 
     this.subMenuData = this.mainMenus[idx].menus;

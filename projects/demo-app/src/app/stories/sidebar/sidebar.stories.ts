@@ -39,7 +39,6 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
     { name: 'S', size: 14 },
     { name: 'M', size: 16 },
     { name: 'L', size: 18 },
-    // { name: 'XL', size: 20 },
   ];
 
   portfolios = portfolios;
