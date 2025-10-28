@@ -2,21 +2,33 @@
   id="ds-holding-card"
   *ngIf="href"
   [href]="href"
-  class="inline-block py-[22px] px-[38px] text-center bg-card-level-2 border border-stroke-1 rounded-[5px]"
+  class="inline-flex items-center gap-x-5 py-[22px] px-[38px] text-center bg-card-level-2 border border-stroke-1 rounded-md cursor-pointer hover:shadow-lg transition-all duration-300 ease-in-out"
   [ngClass]="[className]"
 >
+  <div class="rounded-full bg-level-4 border border-stroke-1 flex items-center justify-center p-3">
+    <ds-icon id="bank2" size="26" class="text-red-500"></ds-icon>
+  </div>
   <h3 *ngIf="title" class="text-[1.25rem]/[1.688rem] font-bold">
     {{ title }}
   </h3>
+  <div>
+    <ds-icon id="arrow-right-1" size="20" class="text-red-500"></ds-icon>
+  </div>
 </a>
 
 <div
   *ngIf="!href"
   id="ds-holding-card"
-  class="inline-block py-[22px] px-[38px] text-center border border-stroke-1 rounded-[5px] bg-card-level-2"
+  class="inline-flex items-center gap-x-5 py-[22px] px-[38px] text-center bg-card-level-2 border border-stroke-1 rounded-md cursor-pointer hover:shadow-lg transition-all duration-300 ease-in-out"
   [ngClass]="[className]"
 >
+  <div class="rounded-full bg-level-4 border border-stroke-1 flex items-center justify-center p-3">
+    <ds-icon id="bank2" size="26" class="text-red-500"></ds-icon>
+  </div>
   <h3 *ngIf="title" class="text-[1.25rem]/[1.688rem] font-bold">
     {{ title }}
   </h3>
+  <div>
+    <ds-icon id="arrow-right-1" size="20" class="text-red-500"></ds-icon>
+  </div>
 </div>
