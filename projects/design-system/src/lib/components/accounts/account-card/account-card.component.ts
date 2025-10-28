@@ -12,6 +12,7 @@ import { ICallToActionIcon } from '../../call-to-action-icons/types';
 })
 export class AccountCardComponent implements OnInit {
   @Input() isDiscrete: boolean = false;
+  @Input() isFavorite: boolean = false;
   @Input() account_number!: string;
   @Input() balance!: number;
   @Input() currency!: string;

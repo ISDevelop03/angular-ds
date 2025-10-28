@@ -64,6 +64,7 @@ export class AccountCardStoryComponent {
       id: 'account-131415',
       date: '2025-05-06',
       isDiscrete: false,
+      isFavorite: true,
     },
   ];
 

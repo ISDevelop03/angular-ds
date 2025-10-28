@@ -7,6 +7,7 @@
     >
       <ds-account-card
         *ngFor="let account of accounts"
+        [isFavorite]="account.isFavorite"
         [account_number]="account.account_number"
         [balance]="account.balance"
         [currency]="account.currency"
