@@ -47,14 +47,9 @@ export class DsBottomMenusComponent {
   fontSize: string = localStorage.getItem('mybusiness-fontsize') || 'M';
   showCaps: boolean = false;
 
-  @Input() sizes: Cap[] = [
-    // { name: 'S', size: 14 },
-    // { name: 'M', size: 16 },
-    // { name: 'L', size: 18 },
-    // { name: 'XL', size: 20 },
-  ];
-
-  currentCap: Cap = this.sizes[1] || null; // Default to 'M'
+  @Input() sizes: Cap[] = [];
+  @Input() defaultCap: Cap = { name: 'L', size: 18 };
+  currentCap: Cap = this.defaultCap
   @Input() profileMenus: ISelectItem[] = [];
   @Input() lastLoginDate: string = 'Le 03.10.2024, à 16h45';
   @Input() language: ILanguage = {
@@ -66,14 +61,16 @@ export class DsBottomMenusComponent {
   @Output() reclamationOnClick = new EventEmitter();
   @Output() languageOnClick = new EventEmitter();
   @Output() settingsOnClick = new EventEmitter();
+  @Output() onThemeChange = new EventEmitter<Cap>();
 
   constructor(private host: ElementRef<HTMLElement>) {}
 
   ngOnInit() {
     // Set the initial font size based on localStorage or default to 'M'
-    const storedFontSize = localStorage.getItem('mybusiness-fontsize') || 'M';
+
+    const storedFontSize = localStorage.getItem('mybusiness-fontsize') || 'L';
     this.currentCap =
-      this.sizes.find((item) => item.name === storedFontSize) || this.sizes[1];
+      this.sizes.find((item) => item.name === storedFontSize) || this.currentCap;
     document.documentElement.style.setProperty(
       '--font-size',
       `${this.currentCap.size}px`
@@ -101,6 +98,10 @@ export class DsBottomMenusComponent {
       `${JSON.stringify(this.currentCap)}`
     );
     localStorage.setItem('mybusiness-fontsize', size.name);
+  }
+
+  _onThemeChange(theme: any): void {
+    this.onThemeChange.emit(theme);
   }
 
   // ← listen to *all* clicks on the page

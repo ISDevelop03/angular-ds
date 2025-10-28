@@ -6,13 +6,13 @@
   <li (click)="callingOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="calling" class="size-4"></ds-icon>
     <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
-      besoin d'assistance
+      Besoin d'assistance
     </span>
   </li>
   <li (click)="reclamationOnClick.emit($event)" class="flex items-center justify-center group relative">
     <ds-icon id="reclamation" class="size-4"></ds-icon>
     <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
-      Vous avez une réclamation ?
+      Avez-vous une réclamation ?
     </span>
   </li>
   <li *ngIf="sizes.length > 0" class="flex items-center justify-center group relative">
@@ -20,7 +20,7 @@
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
     <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
-      Taille de la police
+      Accessibilité
     </span>
     <ul
       @dropdown
@@ -51,7 +51,7 @@
   </li>
 
   <li class="flex items-center justify-center group relative">
-    <ds-theme-toggle></ds-theme-toggle>
+    <ds-theme-toggle (onThemeChange)="_onThemeChange($event)"></ds-theme-toggle>
     <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Mode Sombre
     </span>
