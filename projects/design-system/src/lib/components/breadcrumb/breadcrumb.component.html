@@ -19,12 +19,20 @@
         <span *ngIf="i !== 0 || homeUrl" [ngClass]="theme.separator">/</span>
 
         <a
+          *ngIf="i < list.length - 1"
           [href]="page.href || '#.'"
           [attr.aria-current]="page.current ? 'page' : null"
           [ngClass]="page.current ? theme.linkActive : theme.link"
         >
           {{ page.name }}
         </a>
+        <div
+          *ngIf="i === list.length - 1"
+          [attr.aria-current]="page.current ? 'page' : null"
+          [ngClass]="page.current ? theme.linkActive : theme.link"
+        >
+          {{ page.name }}
+        </div>
       </li>
     </ng-container>
 
@@ -36,15 +44,14 @@
 
       <li [ngClass]="theme.listElement">
         <span [ngClass]="theme.separator">/</span>
-        <a
-          [href]="lastPage.href || '#.'"
+        <div
           [ngClass]="lastPage.current ? theme.linkActive : theme.link"
           [attr.aria-current]="lastPage.current ? 'page' : null"
         >
           <span [ngClass]="theme.link">
             {{ lastPage.name }}
           </span>
-        </a>
+        </div>
       </li>
     </ng-container>
   </ol>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 type Theme = 'light' | 'dark';
 
@@ -25,6 +25,7 @@ type Theme = 'light' | 'dark';
 })
 export class DsThemeToggleComponent implements OnInit {
   theme: Theme = 'light';
+  @Output() onThemeChange = new EventEmitter<Theme>();
 
   ngOnInit(): void {
     this.initTheme();
@@ -45,6 +46,7 @@ export class DsThemeToggleComponent implements OnInit {
   toggleTheme(): void {
     this.theme = this.theme === 'dark' ? 'light' : 'dark';
     this.applyThemeClass();
+    this.onThemeChange.emit(this.theme);
     localStorage.setItem('storybook-theme', this.theme);
     console.log('Theme toggled:', this.theme);
   }
