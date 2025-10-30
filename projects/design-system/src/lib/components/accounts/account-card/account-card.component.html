@@ -11,11 +11,11 @@
   <!-- Top Block -->
   <div class="relative rounded-t-lg p-4">
     <ds-dropdown
-      class="absolute top-4 right-3.5"
+      class="absolute top-4 right-3"
       [items]="actionsList"
       anchor="bottom end"
     >
-      <ds-icon id="more-1" size="18"></ds-icon>
+      <ds-icon id="dot-vertical" size="18"></ds-icon>
     </ds-dropdown>
 
     <!-- Account Info -->
@@ -23,8 +23,8 @@
       <h3 *ngIf="type" class="inline-flex gap-2 items-center">
         <ds-icon *ngIf="!isFavorite" id="bank2" size="14"></ds-icon>
         <ds-icon *ngIf="isFavorite" id="star-bold" size="14" class="!text-yellow-500"></ds-icon>
-        <span class="text-[1rem]/[20px] font-medium">
-          {{ type }}
+        <span class="text-[1rem]/[20px] font-medium truncate mr-5">
+          dkjpod ipod podi podi podi podi pd
         </span>
       </h3>
 

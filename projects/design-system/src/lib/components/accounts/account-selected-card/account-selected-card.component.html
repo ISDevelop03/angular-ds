@@ -17,18 +17,18 @@
     <!-- Top Block -->
     <div class="relative rounded-t-lg p-4">
       <ds-dropdown
-        class="absolute top-4 right-3.5"
+        class="absolute top-4 right-2"
         [items]="actionsList"
         anchor="bottom end"
       >
-        <ds-icon id="more-1" size="18"></ds-icon>
+        <ds-icon id="dot-vertical" size="18"></ds-icon>
       </ds-dropdown>
 
       <!-- Account Info -->
       <div class="flex flex-col gap-2.5" *ngIf="type || account_number">
         <h3 *ngIf="type" class="inline-flex gap-2 items-center">
           <ds-icon id="bank2" size="14" class="text-white"></ds-icon>
-          <span class="text-[1rem]/[1.25rem] font-medium">
+          <span class="text-[1rem]/[1.25rem] font-medium truncate mr-5">
             {{ type }}
           </span>
         </h3>
@@ -61,8 +61,8 @@
 
     <span class="mx-4 h-px bg-stroke-3 dark:bg-white block"></span>
     <!-- Bottom Block -->
-    <div class="px-4 py-3 flex flex-col justify-center items-end gap-2">
-      <span class="self-start text-[0.75rem]/[0.75rem] text-white">
+    <div class="px-4 py-3 flex justify-center items-center gap-2">
+      <span class="text-[0.75rem]/[0.75rem] text-white">
         Solde comptable
       </span>
       <ds-balance-formatter

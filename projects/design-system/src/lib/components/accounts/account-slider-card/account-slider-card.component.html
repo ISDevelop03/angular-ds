@@ -3,17 +3,17 @@
   (click)="handleClick($event)"
   tabindex="0"
   role="button"
-  class="shrink-0 text-neutral-900 rounded-lg snap-start relative bg-card-level-1 px-3.5 py-3.5 pb-2 flex flex-col justify-between"
+  class="shrink-0 text-neutral-900 rounded-lg snap-start relative bg-card-level-1 px-4 py-4 pb-2 flex flex-col justify-between"
   [ngClass]="className"
   [style.min-height]="minHeight + 'px'"
 >
   <!-- Dropdown -->
   <ds-dropdown
     [items]="actionsList"
-    class="absolute top-2 right-3.5"
+    class="absolute top-4 right-2"
     anchor="bottom end"
   >
-    <ds-icon id="more-1" class="size-4"></ds-icon>
+    <ds-icon id="dot-vertical" class="size-4"></ds-icon>
   </ds-dropdown>
 
   <!-- Account Info -->
