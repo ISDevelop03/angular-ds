@@ -16,30 +16,47 @@ export class AccountsSelectStoryComponent {
       accountNumber: '123456789012345678',
       accountName: 'Account 1',
       soldeComptable: {
-        type: 'solde_comptable',
         value: 467949595,
         currency: 'USD',
+        currency_flag: 'https://flagcdn.com/w40/us.png',
       },
       soldeTempsReel: {
-        type: 'solde_temps_reel',
         value: 467949595,
         currency: 'USD',
+        currency_flag: 'https://flagcdn.com/w40/us.png',
       },
     },
     {
       value: 'option2',
       icon: 'Je-deviens-client',
       accountNumber: '123456789012345678',
-      accountName: 'Account 1',
+      accountName: 'Courant Compte N2',
       soldeComptable: {
-        type: 'solde_comptable',
         value: 467949595,
         currency: 'USD',
+        currency_flag: 'https://flagcdn.com/w40/us.png',
       },
       soldeTempsReel: {
-        type: 'solde_temps_reel',
         value: 467949595,
         currency: 'USD',
+        currency_flag: 'https://flagcdn.com/w40/us.png',
+      },
+    },
+    {
+      value: 'option2',
+      icon: 'Passer-un-ordre',
+      accountNumber: '123456789012345678',
+      accountName: 'Courant Compte N2',
+      unavailable: true,
+      soldeComptable: {
+        value: 467949595,
+        currency: 'MAD',
+        currency_flag: 'https://flagcdn.com/w40/ma.png',
+      },
+      soldeTempsReel: {
+        value: 467949595,
+        currency: 'MAD',
+        currency_flag: 'https://flagcdn.com/w40/ma.png',
       },
     },
   ];

@@ -20,7 +20,7 @@
       </span>
     </ng-container>
     <ng-container *ngIf="selectedValue !== null">
-        <div class="relative w-full flex justify-between items-center">
+        <div class="relative w-full flex justify-between items-center mr-3">
           <div class="w-full flex justify-between items-center gap-3">
             <div
               *ngIf="selectedValue?.icon"
@@ -43,7 +43,7 @@
               </div>
               <div>
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  {{ selectedValue?.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                  Solde réel
                 </span>
                 <div class="flex items-center gap-1.5 shrink-0">
                   <ds-balance-formatter
@@ -55,7 +55,7 @@
                     <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ selectedValue?.soldeTempsReel.currency }}</span>
                     <div class="relative rounded-full size-4">
                       <img
-                        [src]="getFlagPath(selectedValue?.soldeComptable?.currency)"
+                        [src]="selectedValue?.soldeComptable?.currency_flag"
                         alt="[item.title]"
                         class="relative rounded-full size-4"
                       />
@@ -65,7 +65,7 @@
               </div>
               <div>
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  {{ selectedValue?.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                  Solde comptable
                 </span>
                 <div class="flex items-center gap-1.5 shrink-0">
                   <ds-balance-formatter
@@ -77,7 +77,7 @@
                     <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ selectedValue?.soldeTempsReel.currency }}</span>
                     <div class="relative rounded-full size-4">
                       <img
-                        [src]="getFlagPath(selectedValue?.soldeTempsReel?.currency)"
+                        [src]="selectedValue?.soldeTempsReel?.currency_flag"
                         alt="[item.title]"
                         class="relative rounded-full size-4"
                       />
@@ -112,7 +112,7 @@
     <ng-container *ngIf="items.length > 0; else emptyState">
       <div
         *ngFor="let item of items"
-        (click)="selectOption(item)"
+        (click)="item.unavailable ? null : selectOption(item)"
         class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r"
         [ngClass]="[
           theme[variant].element.options.element,
@@ -147,7 +147,7 @@
               </div>
               <div>
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  {{ item.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                  Solde réel
                 </span>
                 <div class="flex items-center gap-1.5 shrink-0">
                   <ds-balance-formatter
@@ -159,7 +159,7 @@
                     <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ item.soldeTempsReel.currency }}</span>
                     <div class="relative rounded-full size-4">
                       <img
-                        [src]="getFlagPath(item.soldeComptable.currency)"
+                        [src]="item.soldeComptable.currency_flag"
                         alt="[item.title]"
                         class="relative rounded-full size-4"
                       />
@@ -169,7 +169,7 @@
               </div>
               <div>
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  {{ item.soldeTempsReel.type === 'solde_temps_reel' ? 'Solde réel' : 'Solde comptable' }}
+                  Solde comptable
                 </span>
                 <div class="flex items-center gap-1.5 shrink-0">
                   <ds-balance-formatter
@@ -181,7 +181,7 @@
                     <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ item.soldeTempsReel.currency }}</span>
                     <div class="relative rounded-full size-4">
                       <img
-                        [src]="getFlagPath(item.soldeTempsReel.currency)"
+                        [src]="item.soldeTempsReel.currency_flag"
                         alt="[item.title]"
                         class="relative rounded-full size-4"
                       />
@@ -189,7 +189,6 @@
                   </div>
                 </div>
               </div>
-             
             </div>
           </div>
         </div>
