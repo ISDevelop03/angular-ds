@@ -1,11 +1,12 @@
-<section class="flex flex-col gap-4 p-4">
+<section class="flex flex-col gap-4 p-4 h-screen">
   <h2 class="text-2xl font-bold">Steps</h2>
   <span> {{currentStepIndex}} </span>
-  <div class="flex flex-col gap-4">
+  <div class="grow flex flex-col gap-4">
     <!-- src/app/app.component.html -->
     <ds-steps
       [currentStepIndex]="currentStepIndex"
       title="Paiement de factures"
+      class="h-full flex flex-col"
     >
       <ds-step
         (nextStep)="nextStepHandler($event)"
@@ -28,7 +29,6 @@
           </div>
         </ng-template>
       </ds-step>
-
       <ds-step
         (nextStep)="nextStepHandler($event)"
         (prevStep)="prevStepHandler($event)"
@@ -93,7 +93,6 @@
           </div>
         </ng-template>
       </ds-step>
-
       <ds-step
         (nextStep)="nextStepHandler($event)"
         (prevStep)="prevStepHandler($event)"

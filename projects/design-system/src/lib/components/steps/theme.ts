@@ -20,7 +20,7 @@ export const STEPS_THEME: { [variant: string]: StepsTheme } = {
     headerWrapper: 'flex space-x-4 bg-gray-100 p-4 rounded-t',
     step: 'flex items-center space-x-2 text-gray-600 cursor-pointer',
     activeStep: 'font-semibold text-gray-900',
-    contentWrapper: '',
+    contentWrapper: 'grow',
     navigationWrapper: 'flex justify-between items-center gap-x-3',
     button:
       'px-4 py-2 rounded shadow-sm transition ease-in-out duration-150 ' +
