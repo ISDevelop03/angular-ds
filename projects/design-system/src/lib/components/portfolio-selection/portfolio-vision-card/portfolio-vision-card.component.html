@@ -1,11 +1,11 @@
 <div
   id="ds-portfolio-vision-card"
-  class="group relative border border-stroke-1 flex justify-start items-start gap-2.5 p-3 rounded-[4px] cursor-pointer flex-col bg-card-level-2 transition-all duration-200 ease-in-out"
+  class="group relative border border-stroke-1 flex justify-start items-center gap-2.5 p-3 rounded-[4px] cursor-pointer bg-card-level-2 transition-all duration-200 ease-in-out"
   (click)="handleClick()"
   [ngClass]="className"
 >
   <div
-    class="group-hover:opacity-100 opacity-0 absolute right-2 top-2 border border-primary dark:border-primary-600 flex  justify-center items-center rounded-full overflow-hidden size-2.5 shrink-0 transition-opacity ease-in-out duration-300"
+    class="group-hover:opacity-100 opacity-0 absolute right-2 top-2 border border-primary dark:border-primary-600 flex justify-center items-center rounded-full overflow-hidden size-2.5 shrink-0 transition-opacity ease-in-out duration-300"
     [ngClass]="isSelected ? 'opacity-100' : ''"
   >
     <span
@@ -17,7 +17,7 @@
     *ngIf="image"
     [src]="image"
     [alt]="title"
-    class="w-[96px] aspect-video object-cover rounded"
+    class="w-[96px] aspect-square object-cover rounded"
   />
 
   <h3 *ngIf="title" class="text-[0.875rem]/[1rem] text-left font-bold">

@@ -12,7 +12,7 @@ export class PortfolioStoryComponent {
     image: `https://placehold.co/35x35?text=Logo${i + 1}`,
   }));
 
-  holding = null
+  holding = this.mockData[10];
 
   selected = this.mockData[10];
 
