@@ -18,7 +18,7 @@
         #fileInput
         type="file"
         [accept]="'.' + allowedExtensions.join(',.')"
-        class="absolute inset-0 opacity-0 cursor-pointer"
+        class="absolute inset-0 opacity-0 cursor-pointer z-[-1000]"
         (change)="onFileChange($event)"
         [multiple]="isMultiple"
       />
