@@ -1274,6 +1274,10 @@ video {
   z-index: -1000;
 }
 
+.z-\[-1001\] {
+  z-index: -1001;
+}
+
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
@@ -1802,6 +1806,10 @@ video {
 .max-h-fit {
   max-height: -moz-fit-content;
   max-height: fit-content;
+}
+
+.max-h-\[220px\] {
+  max-height: 220px;
 }
 
 .min-h-32 {
