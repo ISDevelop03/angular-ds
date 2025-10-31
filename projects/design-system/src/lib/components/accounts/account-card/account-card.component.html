@@ -24,7 +24,7 @@
         <ds-icon *ngIf="!isFavorite" id="bank2" size="14"></ds-icon>
         <ds-icon *ngIf="isFavorite" id="star-bold" size="14" class="!text-yellow-500"></ds-icon>
         <span class="text-[1rem]/[20px] font-medium truncate mr-5">
-          dkjpod ipod podi podi podi podi pd
+          {{type}}
         </span>
       </h3>
 
@@ -55,7 +55,7 @@
 
   <hr class="w-[80%] mx-auto h-px bg-stroke-3 border-stroke-3" />
   <!-- Bottom Block -->
-  <div class="px-4 py-3 flex flex-col justify-center items-end gap-2">
+  <div class="px-4 py-3 flex justify-between items-center gap-2">
     <span class="self-start text-[0.75rem]/[1rem] text-neutral-900">
       Solde comptable
     </span>
