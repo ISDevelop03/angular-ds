@@ -18,6 +18,7 @@ export class DsSidebarComponent {
   @Input() profileMenus: ISelectItem[] = [];
   @Input() mainMenus: IMainMenu[] = [];
   @Input() disableMainMenus: boolean = false;
+  @Input() disableBottomMenus: boolean = false;
   @Input() sizes: Cap[] = [];
   @Input() defaultCap: Cap = {name: 'L', size: 18};
   @Input() logo: string = '/assets/logo-mybusiness.svg';

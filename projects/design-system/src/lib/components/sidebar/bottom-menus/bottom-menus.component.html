@@ -3,15 +3,15 @@
 >
   <hr class="w-full border-[#355A57] mx-auto" />
 
-  <li (click)="callingOnClick.emit($event)" class="flex items-center justify-center group relative">
-    <ds-icon id="calling" class="size-4"></ds-icon>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+  <li (click)="callingOnClick.emit($event)" class="flex items-center justify-center group relative" [ngClass]="{ 'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus }">
+    <ds-icon id="calling" class="size-4" [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"></ds-icon>
+    <span *ngIf="!disableBottomMenus" class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Besoin d'assistance
     </span>
   </li>
-  <li (click)="reclamationOnClick.emit($event)" class="flex items-center justify-center group relative">
-    <ds-icon id="reclamation" class="size-4"></ds-icon>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+  <li (click)="reclamationOnClick.emit($event)" class="flex items-center justify-center group relative" [ngClass]="{ 'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus }">
+    <ds-icon id="reclamation" class="size-4" [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"></ds-icon>
+    <span *ngIf="!disableBottomMenus" class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Avez-vous une réclamation ?
     </span>
   </li>
@@ -19,7 +19,7 @@
     <button (click)="capsClick($event)">
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+    <span *ngIf="!disableBottomMenus" class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Accessibilité
     </span>
     <ul
@@ -38,35 +38,38 @@
     </ul>
   </li>
 
-  <li (click)="languageOnClick.emit($event)" class="flex items-center justify-center group relative">
+  <li (click)="languageOnClick.emit($event)" class="flex items-center justify-center group relative" [ngClass]="{ 'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus }">
     <img
       [alt]="language.alt || ''"
       [src]="language.src"
       class="size-4"
-      [ngClass]="language.className"
+      [ngClass]="[
+      language.className,
+      { 'cursor-not-allowed': disableBottomMenus }
+      ]"
     />
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+    <span *ngIf="!disableBottomMenus" class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Choix de langue
     </span>
   </li>
 
-  <li class="flex items-center justify-center group relative">
-    <ds-theme-toggle (onThemeChange)="_onThemeChange($event)"></ds-theme-toggle>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+  <li class="flex items-center justify-center group relative" [ngClass]="{ 'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus }">
+    <ds-theme-toggle (onThemeChange)="_onThemeChange($event)" [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"></ds-theme-toggle>
+    <span *ngIf="!disableBottomMenus" class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Mode Sombre
     </span>
   </li>
 
-  <li (click)="settingsOnClick.emit($event)" class="flex items-center justify-center group relative">
-    <ds-icon id="settings" class="size-4"></ds-icon>
-    <span class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
+  <li (click)="settingsOnClick.emit($event)" class="flex items-center justify-center group relative" [ngClass]="{ 'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus }">
+    <ds-icon id="settings" class="size-4" [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"></ds-icon>
+    <span *ngIf="!disableBottomMenus" class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]">
       Paramètres
     </span>
   </li>
 
   <hr class="w-full border-[#355A57] mx-auto" />
 
-  <li>
+  <li [ngClass]="{ 'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus }">
     <ds-profile-dropdown
       [list]="profileMenus"
       position="bottomLeft"
@@ -76,6 +79,7 @@
         src="https://placehold.co/60"
         class="size-6 rounded-full"
         alt="current user logo"
+        [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"
       />
 
       <ng-template #suffix>

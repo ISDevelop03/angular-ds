@@ -47,6 +47,7 @@
 
       <div class="w-full">
         <ds-bottom-menus
+        [disableBottomMenus]="disableBottomMenus"
         (onThemeChange)="_onThemeChange($event)"
         [sizes]="sizes"
         [defaultCap]="defaultCap"

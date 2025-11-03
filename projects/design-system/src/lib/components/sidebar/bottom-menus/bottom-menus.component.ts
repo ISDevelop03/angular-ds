@@ -56,6 +56,7 @@ export class DsBottomMenusComponent {
     src: '/assets/france-flag.svg',
     alt: 'Français',
   };
+  @Input() disableBottomMenus: boolean = false;
 
   @Output() callingOnClick = new EventEmitter();
   @Output() reclamationOnClick = new EventEmitter();
