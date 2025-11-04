@@ -28,9 +28,4 @@ export class ProgressComponent {
     }
     return (this.percentage / this.total) * 100;
   }
-  ngOnInit() {
-    setInterval(() => {
-      this.percentage = Math.floor(Math.random() * 100 + 1);
-    }, 5000);
-  }
 }
