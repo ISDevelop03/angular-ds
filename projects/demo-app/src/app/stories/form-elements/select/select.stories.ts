@@ -40,6 +40,14 @@ export class SelectStoryComponent {
       { label: 'Option 9', value: 'option9', icon: 'vide' }
     ]
   }
+
+  autoCompleteOptions: SelectItem[] = [
+    { label: 'auto complete option 1', value: 'auto 1', image: 'https://flagcdn.com/w40/pl.png', imageClass: 'rounded-full' },
+    { label: 'auto complete option 2', value: 'auto 2', image: 'https://flagcdn.com/w40/mr.png', imageClass: 'rounded-full'},
+    { label: 'auto complete option 3', value: 'auto 3', image: 'https://flagcdn.com/w40/mr.png', imageClass: 'rounded-full' },
+    { label: 'auto complete option 4', value: 'auto 4', image: 'https://flagcdn.com/w40/fr.png', imageClass: 'rounded-full' },
+    { label: 'auto complete option 5', value: 'auto 5', image: 'https://flagcdn.com/w40/us.png', imageClass: 'rounded-full' },
+  ];
   
   options1: SelectItem[] = [
     {

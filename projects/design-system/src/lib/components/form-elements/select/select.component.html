@@ -40,12 +40,12 @@
       </span>
       </ng-container>
       <ng-container *ngIf="autoComplete">
-        <input type="text" class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2" [placeholder]="placeholder" (input)="onSearchInput($event.target.value)" />
+        <input type="text" class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2" [placeholder]="selected.label" (input)="onSearchInput($event.target.value)" />
       </ng-container>
     </div>
 
     <ds-icon
-      *ngIf="!isLoading"
+      *ngIf="!isLoading && selected.value === ''"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
       [class]="theme[variant].element.icone.arrow"
     ></ds-icon>
@@ -54,6 +54,12 @@
       *ngIf="isLoading"
       id="Loader"
       [class]="theme[variant].element.icone.arrow + ' animate-spin'"
+    ></ds-icon>
+    <ds-icon
+      (click)="clearSelection()"
+      *ngIf="selected.value !== ''"
+      id="close"
+      [class]="[theme[variant].element.icone.arrow, 'cursor-pointer']"
     ></ds-icon>
   </div>
 

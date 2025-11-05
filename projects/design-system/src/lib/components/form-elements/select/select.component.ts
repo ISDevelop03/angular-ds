@@ -67,7 +67,11 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
 
   filteredItems: SelectItem[] = [];
 
- 
+  clearSelection() {
+    console.log("clearSelection")
+    this.value = '';
+    this.filteredItems = [].concat(this.items);
+  }
 
   ngOnInit() {
     this.filteredItems = [].concat(this.items);
