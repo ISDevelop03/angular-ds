@@ -1,0 +1,20 @@
+<iframe
+  data-src-dev="http://localhost:4200/tooltip"
+  data-src-prod="https://example.com/tooltip"
+  frameborder="0"
+  style="width: 100%; height: 100%"
+></iframe>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const isLocal =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1";
+
+    document.querySelectorAll("iframe[data-src-dev]").forEach((iframe) => {
+      const devUrl = iframe.getAttribute("data-src-dev");
+      const prodUrl = iframe.getAttribute("data-src-prod");
+      iframe.src = isLocal ? devUrl : prodUrl;
+    });
+  });
+</script>

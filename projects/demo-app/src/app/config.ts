@@ -273,4 +273,5 @@ export const menus: Menu[] = [
   { key: 'file-uploader', name: 'FileUploader', path: '/file-uploader' },
   { key: 'file-list', name: 'FileList', path: '/file-list' },
   { key: 'total-list', name: 'TotalList', path: '/total-list' },
+  { key: 'tooltip', name: 'Tooltip', path: '/tooltip' },
 ];

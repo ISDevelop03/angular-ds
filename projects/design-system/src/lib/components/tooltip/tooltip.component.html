@@ -1,0 +1,16 @@
+<div class="relative w-fit inline-block">
+  <ng-content></ng-content>
+  <div
+    id="ds-tooltip"
+    *ngIf="content"
+    [@tooltipAnim]="animationState"
+    [ngClass]="computedClass"
+    [attr.aria-hidden]="!isVisible"
+    role="tooltip"
+  >
+    <div class="block">
+      {{ content }}
+    </div>
+    <div [ngClass]="arrowClass"></div>
+  </div>
+</div>

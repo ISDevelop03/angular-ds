@@ -147,3 +147,6 @@ export * from './file-list/file-list.stories';
 
 // Auto-export for total-list stories
 export * from './total-list/total-list.stories';
+
+// Auto-export for tooltip stories
+export * from './tooltip/tooltip.stories';

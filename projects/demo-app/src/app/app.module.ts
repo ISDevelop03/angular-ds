@@ -81,6 +81,7 @@ import {
   FileUploaderStoryComponent,
   FileListStoryComponent,
   TotalListStoryComponent,
+  TooltipStoryComponent,
   
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
@@ -188,7 +189,9 @@ export const pages: Routes = [
   { path: 'file-uploader', component: FileUploaderStoryComponent },
   { path: 'file-list', component: FileListStoryComponent },
   { path: 'total-list', component: TotalListStoryComponent },
+  { path: 'tooltip', component: TooltipStoryComponent },
   { path: '**', component: NotFoundComponent },
+
 ];
 
 const router = RouterModule.forRoot(pages);
@@ -291,6 +294,7 @@ const router = RouterModule.forRoot(pages);
     FileUploaderStoryComponent,
     FileListStoryComponent,
     TotalListStoryComponent,
+    TooltipStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
