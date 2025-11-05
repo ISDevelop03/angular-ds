@@ -39,4 +39,12 @@ export class AccountHoldingSelectedCardComponent implements OnInit {
       event: event,
     });
   }
+
+  getFirstTwoLetters(title: string) {
+    const titleWords = title.split(' ');
+    if(titleWords.length > 1) {
+      return `${titleWords[0][0]}${titleWords[1][0]}`.toUpperCase();
+    }
+    return titleWords[0][0].toUpperCase();
+  }
 }
