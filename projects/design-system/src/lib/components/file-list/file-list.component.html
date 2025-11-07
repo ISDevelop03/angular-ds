@@ -16,7 +16,7 @@
             {{ file.file.name }}
           </p>
           <p class="text-[0.875rem]/[1.25rem] font-normal">
-            {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+            {{ formatFileSize(file.file.size) }} - 100% Téléchargé
           </p>
         </div>
       </div>
@@ -46,7 +46,7 @@
             {{ file.file.name }}
           </p>
           <p class="text-[0.875rem]/[1.25rem] font-normal">
-            {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo - 100% Téléchargé
+            {{ formatFileSize(file.file.size) }} - 100% Téléchargé
           </p>
         </div>
       </div>
@@ -96,7 +96,7 @@
             {{ file.file.name }}
           </p>
           <p class="text-[0.875rem]/[1.25rem] font-normal">
-            {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo
+            {{ formatFileSize(file.file.size) }}
           </p>
         </div>
         <span

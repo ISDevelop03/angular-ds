@@ -60,4 +60,13 @@ export class FileListComponent {
       URL.revokeObjectURL(blobUrl);
     }
   }
+
+  formatFileSize(sizeInBytes: number): string {
+    const sizeInMB = sizeInBytes / 1024 / 1024;
+    if (sizeInMB < 1) {
+      const sizeInKB = sizeInBytes / 1024;
+      return `${sizeInKB.toFixed(2)} Ko`;
+    }
+    return `${sizeInMB.toFixed(2)} Mo`;
+  }
 }
