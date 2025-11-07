@@ -44,4 +44,9 @@ export class DsAccountFilialHoldingCardComponent {
           onClick: () => this.toggleAccordion(),
         }) || [];
   }
+
+  getFirstTwoLetters(title: string) {
+    const titleWords = title.split(' ');
+    return `${titleWords[0][0]}${titleWords[1][0]}`.toUpperCase();
+  }
 }
