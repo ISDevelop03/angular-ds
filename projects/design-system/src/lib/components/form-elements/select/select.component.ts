@@ -67,9 +67,11 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
 
   filteredItems: SelectItem[] = [];
 
+  searchTerm: string = '';
+
   clearSelection() {
-    console.log("clearSelection")
     this.value = '';
+    this.searchTerm = '';
     this.filteredItems = [].concat(this.items);
   }
 

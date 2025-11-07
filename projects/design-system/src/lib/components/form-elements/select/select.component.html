@@ -40,7 +40,7 @@
       </span>
       </ng-container>
       <ng-container *ngIf="autoComplete">
-        <input type="text" class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2" [placeholder]="selected.label" (input)="onSearchInput($event.target.value)" />
+        <input [(ngModel)]="searchTerm" type="text" class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2" [placeholder]="selected.label" (input)="onSearchInput($event.target.value)" />
       </ng-container>
     </div>
 
