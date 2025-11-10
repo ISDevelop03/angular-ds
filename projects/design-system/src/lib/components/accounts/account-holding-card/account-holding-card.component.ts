@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
+import { getFirstTwoLetters } from '../../../utils';
 
 /**
  * Account-holding-cardComponent
@@ -41,8 +42,5 @@ export class AccountHoldingCardComponent {
     });
   }
 
-  getFirstTwoLetters(title: string) {
-    const titleWords = title.split(' ');
-    return `${titleWords[0][0]}${titleWords[1][0]}`.toUpperCase();
-  }
+  getFirstTwoLetters = getFirstTwoLetters;
 }

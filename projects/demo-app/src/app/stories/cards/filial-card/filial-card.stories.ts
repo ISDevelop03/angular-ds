@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class FilialCardStoryComponent {
   item = {
     icon: 'https://placehold.co/400',
-    name: 'Filial A',
+    name: 'Filial',
     id: 1,
     sector: 'Sector A',
   };

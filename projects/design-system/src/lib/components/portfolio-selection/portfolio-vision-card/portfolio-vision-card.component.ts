@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { getFirstTwoLetters } from '../../../utils';
 
 /**
  * Portfolio-vision-cardComponent
@@ -21,8 +22,5 @@ export class PortfolioVisionCardComponent {
   handleClick() {
     this.clicked.emit();
   }
-  getFirstTwoLetters(title: string) {
-    const titleWords = title.split(' ');
-    return `${titleWords[0][0]}${titleWords[1][0]}`.toUpperCase();
-  }
+  getFirstTwoLetters = getFirstTwoLetters;
 }

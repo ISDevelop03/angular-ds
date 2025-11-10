@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { getFirstTwoLetters } from '../../../utils';
 
 /**
  * Filial-cardComponent
@@ -24,8 +25,5 @@ export class FilialCardComponent {
   onClick(event: Event) {
     this.setSelected.emit({ event: event, data: this.data });
   }
-  getFirstTwoLetters(title: string) {
-    const titleWords = title.split(' ');
-    return `${titleWords[0][0]}${titleWords[1][0]}`.toUpperCase();
-  }
+  getFirstTwoLetters = getFirstTwoLetters;
 }
