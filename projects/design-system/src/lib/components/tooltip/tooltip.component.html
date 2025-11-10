@@ -9,7 +9,12 @@
     role="tooltip"
   >
     <div class="block">
-      {{ content }}
+      <ng-container *ngIf="isStringContent; else templateRef">
+        {{ content }}
+      </ng-container>
+      <ng-template #templateRef>
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </ng-template>
     </div>
     <div [ngClass]="arrowClass"></div>
   </div>

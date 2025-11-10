@@ -8,6 +8,7 @@ import {
   AfterViewChecked,
   HostListener,
   ChangeDetectorRef,
+  TemplateRef,
 } from '@angular/core';
 import {
   trigger,
@@ -41,7 +42,7 @@ import { defaultTheme } from './theme';
   ],
 })
 export class TooltipComponent implements OnInit, OnDestroy, AfterViewChecked {
-  @Input() content: string = '';
+  @Input() content: TemplateRef<any> | string;
   @Input() position: 'top' | 'topRight' | 'topLeft' | 'bottom' | 'bottomRight' | 'bottomLeft' | 'left' | 'right' = 'top';
   @Input() className?: string = '';
   @Input() disabled: boolean = false;
@@ -113,6 +114,10 @@ export class TooltipComponent implements OnInit, OnDestroy, AfterViewChecked {
   get arrowClass(): string {
     const theme = this.appliedTheme;
     return `${theme.arrow.base} ${theme.arrow.positions[this.position]}`;
+  }
+
+  get isStringContent(): boolean {
+    return typeof this.content === 'string';
   }
 
   @HostListener('mouseenter', ['$event'])
