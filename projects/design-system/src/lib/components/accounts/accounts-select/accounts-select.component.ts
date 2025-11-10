@@ -81,7 +81,6 @@ export class AccountsSelectComponent {
   }
 
   toggleDropdown() {
-    console.log("toggleDropdown")
     if (!this.disabled && !this.isLoading) {
       const myZ = ++AccountsSelectComponent.zIndexCounter;
 

@@ -137,7 +137,7 @@
               ></ds-icon>
             </div>
             <div class="w-full flex items-center justify-between gap-5">
-              <div>
+              <div class="flex-1">
                 <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
                   {{ item.accountName }}
                 </span>
@@ -145,11 +145,11 @@
                   {{ item.accountNumber }}
                 </span>
               </div>
-              <div>
+              <div class="flex-1">
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
                   Solde réel
                 </span>
-                <div class="flex items-center gap-1.5 shrink-0">
+                <div class="flex items-center justify-end gap-1.5 shrink-0">
                   <ds-balance-formatter
                     *ngIf="item.soldeComptable.value"
                     [balance]="item.soldeComptable.value"
@@ -167,11 +167,11 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="flex-1">
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
                   Solde comptable
                 </span>
-                <div class="flex items-center gap-1.5 shrink-0">
+                <div class="flex items-center justify-end gap-1.5 shrink-0">
                   <ds-balance-formatter
                     *ngIf="item.soldeTempsReel.value"
                     [balance]="item.soldeTempsReel.value"
