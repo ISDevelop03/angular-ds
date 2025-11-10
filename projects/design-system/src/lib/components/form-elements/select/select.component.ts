@@ -114,7 +114,7 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
 
   // Method to handle search input with debouncing
   onSearchInput(searchTerm: string) {
-    console.log("searchTerm", searchTerm)
+    this.isOpen = true
     this.filteredItems = this.items.filter((item) => item.label.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 
