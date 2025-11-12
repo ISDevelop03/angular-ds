@@ -13,6 +13,7 @@ export class ActionsLayoutStoryComponent {
       handler: () => {
         console.log('Eye slash clicked');
       },
+      disabled: true,
     },
     {
       iconId: 'bell-2',

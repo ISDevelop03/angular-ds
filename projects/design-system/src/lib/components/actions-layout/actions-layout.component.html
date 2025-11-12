@@ -4,16 +4,19 @@
   [ngClass]="className"
 >
   <button
+    [disabled]="item.disabled"
     *ngFor="let item of items; let i = index"
     (click)="onClick(item, i)"
-    class="relative hover:text-red-500"
+    class="relative"
+
     [ngClass]="[
       isSelected(i) ? 'text-red-500' : '',
       item.badge && item.iconId.includes('bell')
         ? 'after:absolute after:size-2 after:rounded-full after:top-0 after:border after:border-card-level-2 after:right-[3px] after:bg-red-500'
         : '',
       selectedClass,
-      item.className || ''
+      item.className || '',
+      item.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:text-red-500'
     ]"
   >
     <ds-icon
