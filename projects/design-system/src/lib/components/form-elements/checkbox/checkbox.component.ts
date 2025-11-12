@@ -31,7 +31,6 @@ export class DsCheckboxComponent {
 
   get checkboxClass() {
     const variantStyles = checkbox[this.variant].checkbox;
-    console.log('variantStyles.errorvariantStyles.error', variantStyles.error);
     if (this.disabled) {
       return `${variantStyles.base} ${
         this.checked
