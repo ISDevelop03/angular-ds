@@ -4,9 +4,9 @@
   <div class="grow flex flex-col gap-4">
     <!-- src/app/app.component.html -->
     <ds-steps
+      variant="vertical"
       [currentStepIndex]="currentStepIndex"
       title="Paiement de factures"
-      class="h-full flex flex-col"
     >
       <ds-step
         (nextStep)="nextStepHandler($event)"
@@ -18,7 +18,7 @@
         [shouldGoNext]="step1Done"
       >
         <ng-template>
-          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded h-[150vh]">
             <p class="mb-4">Do this first thing.</p>
             <button
               class="px-3 py-1 bg-blue-500 text-white rounded"

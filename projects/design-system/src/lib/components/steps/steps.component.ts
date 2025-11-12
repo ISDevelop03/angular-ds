@@ -33,6 +33,7 @@ export interface StepButton {
 @Component({
   selector: 'ds-steps',
   templateUrl: './steps.component.html',
+  host: { 'class': 'grow' }
 })
 export class StepsComponent implements AfterContentInit {
   /** Index of the currently visible step */
