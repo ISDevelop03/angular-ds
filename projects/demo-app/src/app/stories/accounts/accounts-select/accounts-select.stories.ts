@@ -33,13 +33,13 @@ export class AccountsSelectStoryComponent {
       accountName: 'Courant Compte N2',
       soldeComptable: {
         value: 467995,
-        currency: 'USD',
-        currency_flag: 'https://flagcdn.com/w40/us.png',
+        currency: 'MAD',
+        currency_flag: 'https://flagcdn.com/w40/ma.png',
       },
       soldeTempsReel: {
-        value: 467945,
-        currency: 'USD',
-        currency_flag: 'https://flagcdn.com/w40/us.png',
+        value: -467945,
+        currency: 'MAD',
+        currency_flag: 'https://flagcdn.com/w40/ma.png',
       },
     },
     {

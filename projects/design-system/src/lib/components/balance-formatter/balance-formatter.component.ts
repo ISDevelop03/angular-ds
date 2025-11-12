@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { theme } from './theme';
 
 /**
@@ -11,7 +11,7 @@ import { theme } from './theme';
   selector: 'ds-balance-formatter',
   templateUrl: './balance-formatter.component.html',
 })
-export class DsBalanceFormatterComponent implements OnInit {
+export class DsBalanceFormatterComponent {
   @Input() isDiscrete: boolean = false;
   @Input() variant: keyof typeof theme = 'default';
   @Input() balance: number = 0;
@@ -20,16 +20,10 @@ export class DsBalanceFormatterComponent implements OnInit {
   @Input() currencyClassName?: string;
   @Input() noIcon: boolean = false;
 
-  num: number = Math.abs(this.balance);
-
   theme = theme;
 
-  ngOnInit(): void {
-    if (this.balance < 0) {
-      this.num = Math.abs(this.balance);
-    } else {
-      this.num = this.balance;
-    }
+  get num(): number {
+    return Math.abs(this.balance);
   }
 
   get wrapperClass() {

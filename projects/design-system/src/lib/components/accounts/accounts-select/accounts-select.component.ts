@@ -120,7 +120,6 @@ export class AccountsSelectComponent {
   }
 
   selectOption(item: SelectItem) {
-    console.log(item)
     this.value = item.value;
     this.isOpen = false;
     this.selectedValue = item;
