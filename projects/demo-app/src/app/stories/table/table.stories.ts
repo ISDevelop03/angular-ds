@@ -114,9 +114,9 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       id: `product-${i + 1}`,
       name: `Product ${i + 1}`,
       description: descriptions[i % descriptions.length],
-      price: Math.floor(Math.random() * 900) + 50, // Random price between 50 and 950
+      price: 6000, 
       category: categories[i % categories.length],
-      stock: Math.floor(Math.random() * 200) + 10, // Random stock between 10 and 210
+      stock: 100,
     };
   });
 
