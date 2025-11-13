@@ -6,6 +6,9 @@ import {
   TemplateRef,
   OnChanges,
   SimpleChanges,
+  ElementRef,
+  ViewChild,
+  OnDestroy,
 } from '@angular/core';
 import { TableVariant, TableThemes } from './theme';
 
@@ -28,7 +31,7 @@ export interface ColumnDef {
   selector: 'ds-table',
   templateUrl: './table.component.html',
 })
-export class TableComponent implements OnChanges {
+export class TableComponent implements OnChanges, OnDestroy {
   @Input() data: any[] = [];
   @Input() columns: ColumnDef[] = [];
   @Input() variant: TableVariant = 'default';
@@ -40,17 +43,20 @@ export class TableComponent implements OnChanges {
     direction?: 'asc' | 'desc';
   }>();
 
-  /** NEW: emit when selection changes */
+  isOverflowing = false;
+  isOnLeft = true;
+  isOnRight = false;
+
   @Output() selectionChange = new EventEmitter<any[]>();
 
-  /** track selected rows */
+  @ViewChild('tableContainer') tableContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('tableElement') tableElement!: ElementRef<HTMLTableElement>;
+
   selectedRows = new Set<any>();
 
-  /** working copy of your rows */
   displayData: any[] = [];
   private originalData: any[] = [];
 
-  /** sort state */
   sortColumn: string | null = null;
   sortDirection: 'asc' | 'desc' = 'asc';
 
@@ -59,7 +65,7 @@ export class TableComponent implements OnChanges {
   ngOnInit() {
     this.columns = this.columns.map((col) => ({
       ...col,
-      truncate: col.expandable ? true : false, // default to true if expandable
+      truncate: col.expandable ? true : false,
     }));
   }
 
@@ -68,78 +74,51 @@ export class TableComponent implements OnChanges {
       this.originalData = this.data.concat();
       this.displayData = this.data.concat();
       this.sortColumn = null;
-      /** clear selection whenever the data changes */
       this.selectedRows.clear();
       this.emitSelection();
     }
   }
 
+  private resizeListener?: () => void;
+  private scrollListener?: () => void;
+
+  ngAfterViewInit() {
+    this.checkTableOverflow();
+    this.resizeListener = () => this.checkTableOverflow();
+    window.addEventListener('resize', this.resizeListener);
+    
+    // Add scroll event listener to the container
+    if (this.tableContainer) {
+      this.scrollListener = () => this.checkTableOverflow();
+      this.tableContainer.nativeElement.addEventListener('scroll', this.scrollListener);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.resizeListener) {
+      window.removeEventListener('resize', this.resizeListener);
+    }
+    if (this.scrollListener && this.tableContainer) {
+      this.tableContainer.nativeElement.removeEventListener('scroll', this.scrollListener);
+    }
+  }
+
   toggleTruncateData(col: ColumnDef) {
     if (!col.expandable) {
-      // if the column is not expandable, do nothing
-      return;
+        return;
     }
-    // toggle the expandable state of a row
     col.truncate = !col.truncate;
   }
 
-  // onSort(col: ColumnDef) {
-  //   // 1) Update sortColumn & sortDirection
-  //   if (this.sortColumn === col.accessor) {
-  //     this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  //   } else {
-  //     this.sortColumn = col.accessor;
-  //     this.sortDirection = 'asc';
-  //   }
-
-  //   // Payload for the event/emitter
-  //   const payload = {
-  //     accessor: this.sortColumn!,
-  //     direction: this.sortDirection,
-  //   };
-
-  //   if (this.remoteSort) {
-  //     // 2a) Server-side sorting: tell the parent to re-fetch
-  //     this.sortChange.emit(payload);
-  //   } else {
-  //     // 2b) Client-side sorting: sort displayData in place
-  //     this.displayData.sort((a, b) => {
-  //       const aVal = a[this.sortColumn!];
-  //       const bVal = b[this.sortColumn!];
-
-  //       // handle null/undefined
-  //       if (aVal == null) return 1;
-  //       if (bVal == null) return -1;
-
-  //       // if both are numbers
-  //       if (typeof aVal === 'number' && typeof bVal === 'number') {
-  //         return this.sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
-  //       }
-
-  //       // fallback: string compare
-  //       const aStr = String(aVal).toLowerCase();
-  //       const bStr = String(bVal).toLowerCase();
-  //       if (aStr > bStr) return this.sortDirection === 'asc' ? 1 : -1;
-  //       if (aStr < bStr) return this.sortDirection === 'asc' ? -1 : 1;
-  //       return 0;
-  //     });
-
-  //     // emit if you still want to notify parent
-  //     this.sortChange.emit(payload);
-  //   }
-  // }
   onSort(col: ColumnDef) {
-    // cycle through: none → asc → desc → none
     if (this.sortColumn === col.accessor) {
       if (this.sortDirection === 'asc') {
         this.sortDirection = 'desc';
       } else {
-        // was 'desc' (or undefined), so clear sorting entirely
         this.sortColumn = null;
         this.sortDirection = undefined;
       }
     } else {
-      // brand new column: start with asc
       this.sortColumn = col.accessor;
       this.sortDirection = 'asc';
     }
@@ -150,19 +129,16 @@ export class TableComponent implements OnChanges {
     };
 
     if (this.remoteSort) {
-      // let parent re-fetch or handle server-side
       this.sortChange.emit(payload);
       return;
     }
 
-    // client-side: if no sortColumn, restore original order
     if (!this.sortColumn) {
       this.displayData = this.originalData.concat();
       this.sortChange.emit(payload);
       return;
     }
 
-    // otherwise do your in-place sort just as before
     this.displayData.sort((a, b) => {
       const aVal = a[this.sortColumn!];
       const bVal = b[this.sortColumn!];
@@ -183,7 +159,7 @@ export class TableComponent implements OnChanges {
 
     this.sortChange.emit(payload);
   }
-  /** NEW: whether every row is selected */
+  
   get isAllSelected(): boolean {
     return (
       this.displayData.length > 0 &&
@@ -191,13 +167,11 @@ export class TableComponent implements OnChanges {
     );
   }
 
-  /** NEW: if some but not all are selected */
   get isIndeterminate(): boolean {
     const n = this.selectedRows.size;
     return n > 0 && n < this.displayData.length;
   }
 
-  /** NEW: toggle the “select all” checkbox */
   toggleSelectAll(checked: boolean) {
     if (checked) {
       this.displayData.forEach((row) => this.selectedRows.add(row));
@@ -207,7 +181,6 @@ export class TableComponent implements OnChanges {
     this.emitSelection();
   }
 
-  /** NEW: toggle a single row */
   toggleRow(row: any, checked: boolean) {
     if (checked) {
       this.selectedRows.add(row);
@@ -217,7 +190,6 @@ export class TableComponent implements OnChanges {
     this.emitSelection();
   }
 
-  /** NEW: helper for template binding */
   isSelected(row: any): boolean {
     return this.selectedRows.has(row);
   }
@@ -226,7 +198,6 @@ export class TableComponent implements OnChanges {
     this.selectionChange.emit(Array.from(this.selectedRows));
   }
 
-  /** helper for header checkbox click */
   headerCheckboxChange = () => {
     this.toggleSelectAll(!this.isAllSelected);
   };
@@ -235,7 +206,6 @@ export class TableComponent implements OnChanges {
     return () => this.toggleRow(row, !this.isSelected(row));
   }
 
-  /** Get all lines of text as an array, handling newline characters */
   getAllLines(text: any, col: ColumnDef): string[] {
     if (text == null) return [''];
     const textStr = String(text);
@@ -243,5 +213,35 @@ export class TableComponent implements OnChanges {
       return textStr.split('\n').slice(0,1);
     }
     return textStr.split('\n');
+  }
+
+  checkTableOverflow() {
+    if (!this.tableContainer || !this.tableElement) {
+      return;
+    }
+
+    const container = this.tableContainer.nativeElement;
+    const table = this.tableElement.nativeElement;
+
+    const isOverflowing = table.getBoundingClientRect().width > container.getBoundingClientRect().width;
+
+
+    if (isOverflowing) {  
+      this.isOverflowing = true;
+    }
+    else {
+      this.isOverflowing = false;
+    }
+
+    const scrollLeft = container.scrollLeft;
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+    if (scrollLeft === 0) {
+      this.isOnLeft = true;
+      this.isOnRight = false;
+    } else if (Math.ceil(scrollLeft) >= maxScrollLeft) {
+      this.isOnRight = true;
+      this.isOnLeft = false;
+    }
   }
 }

@@ -1,5 +1,10 @@
-<div [ngClass]="['overflow-x-auto w-full relative', className || '']">
-  <table id="ds-table" [ngClass]="theme[variant].table">
+<div class="relative h-full w-full" [ngClass]="className || ''">
+  <div #tableContainer [ngClass]="['overflow-auto h-full w-full']">
+    <div id="isOverflowing" *ngIf="isOverflowing" class="pointer-events-none">
+      <div *ngIf="isOnRight" class="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-[100]"></div>
+      <div *ngIf="isOnLeft" class="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-[100]"></div>
+    </div>
+    <table #tableElement id="ds-table" [ngClass]="theme[variant].table">
     <thead [ngClass]="theme[variant].header">
       <tr class="overflow-hidden">
         <!-- 1) HEADER ds-checkbox -->
@@ -123,11 +128,7 @@
             colIdx === 0 && variant === 'default' ? 'rounded-l-md' : '',
             columns.length - 1 === colIdx && variant === 'default' ? 'rounded-r-md' : ''
           ]"
-          [ngStyle]="
-            col.styles && col.styles.width
-              ? { width: col.styles.width + 'px',minWidth: col.styles.width + 'px' }
-              : {}
-          "
+          styles={col.styles}
         >
           <ng-container
             *ngIf="col.cellTemplate; else defaultCell"
@@ -151,4 +152,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>

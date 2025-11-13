@@ -1,12 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, TemplateRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.stories.html',
 })
-export class TableStoryComponent {
+export class TableStoryComponent implements OnInit, AfterViewInit {
   @Input() label: string = 'table';
   @Input() className?: string = '';
+  
+  // Dynamic columns that will be generated after backend response
+  dynamicColumns: any[] = [];
+  finaleColumns: any[] = [];
+  isLoadingColumns = true;
+
+  @ViewChild('statusTpl') statusTpl!: TemplateRef<any>;
+  @ViewChild('actionTpl') actionTpl!: TemplateRef<any>;
 
   users = [
     {
@@ -93,36 +101,24 @@ export class TableStoryComponent {
       joinedOn: '2023-04-01',
     },
   ];
-  products = [
-    {
-      id: 'product-1',
-      name: 'Product 1',
-      description:
-        'met consectetur adipisicing elit. Sit, beatae commodi sequi non illum \n nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? \n Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum \n quod labore laboriosam molestiae neque esse.',
-
-      price: 100,
-      category: 'Category A',
-      stock: 50,
-    },
-    {
-      id: 'product-2',
-      name: 'Product 2',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit\n beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiaeatibus.',
-      price: 200,
-      category: 'Category B',
-      stock: 30,
-    },
-    {
-      id: 'product-3',
-      name: 'Product 3',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit\n beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiaeatibus.',
-      price: 200,
-      category: 'Category B',
-      stock: 30,
-    },
-  ];
+  products = Array.from({ length: 100 }, (_, i) => {
+    const categories = ['Category A', 'Category B', 'Category C', 'Category D', 'Category E'];
+    const descriptions = [
+      'met consectetur adipisicing elit. Sit, beatae commodi sequi non illum \n nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? \n Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum \n quod labore laboriosam molestiae neque esse.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit\n beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiaeatibus.',
+      'Dolor sit amet consectetur adipisicing elit. Voluptatem\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam.',
+      'Ipsum dolor sit amet consectetur adipisicing elit. Sit beatae\n commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam?',
+      'Consectetur adipisicing elit. Sit, beatae commodi sequi non illum\n nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo?',
+    ];
+    return {
+      id: `product-${i + 1}`,
+      name: `Product ${i + 1}`,
+      description: descriptions[i % descriptions.length],
+      price: Math.floor(Math.random() * 900) + 50, // Random price between 50 and 950
+      category: categories[i % categories.length],
+      stock: Math.floor(Math.random() * 200) + 10, // Random stock between 10 and 210
+    };
+  });
 
   onServerSort(event: { accessor: string; direction: 'asc' | 'desc' }) {
     // call your API with event.accessor and event.direction
@@ -136,5 +132,68 @@ export class TableStoryComponent {
 
   onBulkSelection(event: any) {
     console.log('bulk bulk', event);
+  }
+
+  ngOnInit() {
+    console.log("ngOnInit", this.statusTpl)
+    this.fetchColumnDefinitions()
+  }
+
+  ngAfterViewInit() {
+    console.log(this.dynamicColumns)
+    // this.finaleColumns = [{header:this.dynamicColumns[0].header,accessor:this.dynamicColumns[0].accessor,cellTemplate: this.statusTpl}]
+    console.log("ngAfterViewInit", this.statusTpl)
+  }
+
+
+  fetchColumnDefinitions() {
+    this.isLoadingColumns = true;
+    setTimeout(() => {
+      const backendColumnConfig = [
+        { 
+          field: 'name', 
+          label: 'Name', 
+          sortable: true,
+          type: 'text'
+        },
+        { 
+          field: 'bio', 
+          label: 'Bio', 
+          sortable: true,
+          type: 'text'
+        },
+        { 
+          field: 'age', 
+          label: 'Age', 
+          sortable: true,
+          type: 'number'
+        },
+        { 
+          field: 'status', 
+          label: 'Status', 
+          sortable: true,
+          type: 'badge',
+          template: 'status'
+        },
+        { 
+          field: 'id', 
+          label: 'Actions',
+          type: 'action',
+          template: 'action'
+        }
+      ];
+      this.dynamicColumns = backendColumnConfig.map(col => {
+        const columnDef: any = {
+          header: col.label,
+          accessor: col.field,
+          sortable: col.sortable || false
+        };
+        return columnDef;
+      });
+
+      this.isLoadingColumns = false;
+      console.log('Columns loaded from backend:', this.dynamicColumns);
+    }, 2000);
+    console.log('onInit')
   }
 }

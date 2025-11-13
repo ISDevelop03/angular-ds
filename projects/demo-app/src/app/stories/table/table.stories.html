@@ -15,23 +15,6 @@
   ]"
     variant="default"
   ></ds-table>
-  <ds-table
-    [data]="products"
-    [columns]="[
-    { header: 'Id', accessor: 'id'  },
-    { header: 'Name', accessor: 'name'  },
-    { header: 'Description', accessor: 'description', expandable:true },
-    { header: 'Category', accessor: 'category'  },
-    { header: 'Price', accessor: 'price' },
-    { header: 'Stock', accessor: 'stock' },
-    {
-      header: 'Actions',
-      accessor: 'id',
-      cellTemplate: actionTpl
-    }
-  ]"
-    variant="default"
-  ></ds-table>
   <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
   <ds-table
     [data]="users"
@@ -50,13 +33,13 @@
     (selectionChange)="onBulkSelection($event)"
   ></ds-table>
 
-  <h2 class="text-2xl font-bold">Sortable Table</h2>
+  <h2 class="text-2xl font-bold">Sortable Table (Static Columns)</h2>
 
   <ds-table
     [data]="users"
     [columns]="[
       { header: 'Name',   accessor: 'name',   sortable: true },
-      { header: 'Bio',    accessor: 'bio',    sortable: true,expandable:true, styles:{width:400} },
+      { header: 'Bio',    accessor: 'bio'},
       { header: 'Age',    accessor: 'age',    sortable: true },
       { header: 'Status', accessor: 'status', sortable: true, cellTemplate: statusTpl },
       { header: 'Actions',accessor: 'id',     cellTemplate: actionTpl }
@@ -64,22 +47,41 @@
     (sortChange)="onServerSort($event)"
   ></ds-table>
 
-  <h2 class="text-2xl font-bold">bordered Variant</h2>
-
-  <div class="w-full p-6 bg-gradient-crame">
-    <ds-table
-    variant="secondary"
-    [data]="registres"
+  <ds-table 
+    class="block h-[300px] overflow-hidden"
+    [data]="products"
     [columns]="[
-      { header: 'Name',   accessor: 'name'},
-      { header: 'Bio',    accessor: 'bio'},
-      { header: 'Bio',    accessor: 'bio_1'},
-      { header: 'Bio',    accessor: 'bio_2'},
-      { header: 'Age',    accessor: 'age'},
-      { header: 'Status', accessor: 'status', cellTemplate: statusTpl}
+      { header: 'Id', accessor: 'id'  },
+      { header: 'Name', accessor: 'name'  },
+      { header: 'Description', accessor: 'description', expandable:true },
+      { header: 'Category', accessor: 'category'  },
+      { header: 'Price', accessor: 'price' },
+      { header: 'Stock', accessor: 'stock' },
+      {
+        header: 'Actions',
+        accessor: 'id',
+        cellTemplate: actionTpl
+      }
     ]"
+    variant="default"
     (sortChange)="onServerSort($event)"
   ></ds-table>
+
+  <h2 class="text-2xl font-bold">bordered Variant</h2>
+  <div class="w-full p-6 bg-gradient-crame">
+    <ds-table
+      variant="secondary"
+      [data]="registres"
+      [columns]="[
+        { header: 'Name',   accessor: 'name'},
+        { header: 'Bio',    accessor: 'bio'},
+        { header: 'Bio',    accessor: 'bio_1'},
+        { header: 'Bio',    accessor: 'bio_2'},
+        { header: 'Age',    accessor: 'age'},
+        { header: 'Status', accessor: 'status', cellTemplate: statusTpl}
+      ]"
+      (sortChange)="onServerSort($event)"
+    ></ds-table>
   </div>
 
   <!-- Status badge template -->
