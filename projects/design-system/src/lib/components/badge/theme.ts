@@ -15,6 +15,7 @@ export const badge = {
     green: 'bg-[#E6F4EF] dark:bg-[#245140] text-success',
     violet: 'bg-violet-50 text-violet-500',
     red: 'bg-red-50 dark:bg-[#460809] text-red-500',
+    orange: 'bg-amber-500 text-black',
   },
   icon: 'w-4 h-4',
 };

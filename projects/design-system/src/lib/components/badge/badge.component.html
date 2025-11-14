@@ -19,7 +19,8 @@
     [ngClass]="[
       'bg-' + (variant === 'default' ? 'neutral' : variant) + '-500',
       variant === 'stroke1' ? 'bg-neutral-700' : '',
-      variant === 'green' ? 'bg-success' : ''
+      variant === 'green' ? 'bg-success' : '',
+      variant === 'orange' ? 'bg-black' : ''
     ]"
     *ngIf="withDot"
   ></span>
