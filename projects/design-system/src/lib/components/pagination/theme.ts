@@ -3,13 +3,13 @@ import { PaginationVariants } from './types';
 export const paginationVariants: PaginationVariants = {
   default: {
     wrapper:
-      'ds-pagination flex flex-wrap items-center justify-between gap-4 px-4 py-2 rounded',
+      'ds-pagination flex flex-wrap items-center justify-between gap-4 rounded',
     container:
       'bg-level-3 border flex flex-wrap items-center justify-center border-neutral-100 rounded-md overflow-hidden',
     nextPrevButtons: {
       base: 'inline-flex font-medium text-neutral-500 items-center gap-2 text-[0.875rem]/[1.125rem] px-3 py-2 disabled:opacity-40 disabled:cursor-not-allowed',
       prev: {
-        base: 'border-r border-neutral-100',
+        base: '',
         id: 'arrow-left',
         size: '1rem',
       },

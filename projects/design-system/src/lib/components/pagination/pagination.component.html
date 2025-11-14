@@ -25,7 +25,8 @@
       [disabled]="currentPage <= 1"
       [ngClass]="[
         theme[variant].nextPrevButtons.base,
-        theme[variant].nextPrevButtons.prev.base
+        theme[variant].nextPrevButtons.prev.base,
+        currentPage <= 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-neutral-50'
       ]"
     >
       <ds-icon
@@ -34,7 +35,7 @@
         [class]="theme[variant].nextPrevButtons.prev.base"
       >
       </ds-icon>
-      {{ prevLabel }}
+      {{ minimized ? '' : prevLabel }}
     </button>
 
     <!-- Page Buttons + Ellipsis -->
@@ -65,10 +66,11 @@
       [disabled]="currentPage >= pageCount"
       [ngClass]="[
         theme[variant].nextPrevButtons.base,
-        theme[variant].nextPrevButtons.next.base
+        theme[variant].nextPrevButtons.next.base,
+        currentPage >= pageCount ? 'opacity-40 cursor-not-allowed' : 'hover:bg-neutral-50'
       ]"
     >
-      {{ nextLabel }}
+      {{ minimized ? '' : nextLabel }}
       <ds-icon
         [id]="theme[variant].nextPrevButtons.next.id"
         [size]="theme[variant].nextPrevButtons.next.size"
