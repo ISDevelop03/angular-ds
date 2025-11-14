@@ -7,7 +7,6 @@
     className
   ]"
 >
-  <!-- label + hidden logic omitted for brevity… -->
   <ng-container *ngIf="type !== 'hidden' && label">
     <div class="flex items-center gap-2 mb-2">
       <label
@@ -41,10 +40,8 @@
         hasError ? input[variant].hasError : ''
       ]"
     >
-      <!-- 1a) projected template prefix -->
       <ng-content select="[prefix]"></ng-content>
 
-      <!-- 1b) fallback string prefix -->
       <div
         *ngIf="prefix && !hasProjectedPrefix"
         [ngClass]="input[variant].prefix"
@@ -52,9 +49,10 @@
         {{ prefix }}
       </div>
 
+
       <input
         #inner
-        [type]="type"
+        [type]="passwordVisible ? type : 'password'"
         [id]="id"
         [attr.name]="name"
         [placeholder]="placeholder || ''"
@@ -80,18 +78,16 @@
         ]"
       />
 
-      <!-- 1c) fallback string suffix -->
+      <ds-icon [id]="passwordVisible ? 'eye' : 'eye-slash'" [class]="size-4" *ngIf="password" (click)="togglePassword()"></ds-icon>
       <div
-        *ngIf="suffix && !hasProjectedSuffix"
+        *ngIf="suffix && !hasProjectedSuffix && !password"
         [ngClass]="input[variant].sufix"
       >
         {{ suffix }}
       </div>
 
-      <!-- 1d) projected template suffix -->
       <ng-content select="[suffix]"></ng-content>
     </div>
-    <!-- description + errorMessage omitted for brevity… -->
     <div *ngIf="description" [ngClass]="input[variant].description">
       {{ description }}
     </div>

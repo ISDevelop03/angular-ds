@@ -49,6 +49,8 @@ export class DsInputComponent implements AfterViewInit, ControlValueAccessor {
   @Input() className?: string = '';
   @Input() inputClassName?: string = '';
   @Input() tooltip?: string | TemplateRef<any>;
+  @Input() password : boolean = false;
+  passwordVisible : boolean = false;
 
   @Output() onClick = new EventEmitter<Event>();
   @Output() onInput = new EventEmitter<Event>();
@@ -107,6 +109,10 @@ export class DsInputComponent implements AfterViewInit, ControlValueAccessor {
   onNativeBlur(event: FocusEvent) {
     this._onTouched();
     this.onBlur.emit(event);
+  }
+
+  togglePassword() {
+    this.passwordVisible = !this.passwordVisible;
   }
 
   ngAfterViewInit() {
