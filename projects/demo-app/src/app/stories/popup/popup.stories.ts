@@ -23,7 +23,13 @@ export class PopupStoryComponent {
 
   closeModal() {
     this.isModalOpen = false;
+  }
+
+  closeSlideLeft() {
     this.isSlideLeftOpen = false;
+  }
+
+  closeSlideRight() {
     this.isSlideRightOpen = false;
   }
 }

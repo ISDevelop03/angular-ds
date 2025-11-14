@@ -11,7 +11,7 @@ export const theme = {
     },
     slideLeft: {
       base: 'top-0 right-0 bottom-0 fixed max-w-fit max-h-fit',
-      panel: 'p-4',
+      panel: 'p-6',
     },
     slideRight: {
       base: 'top-0 left-0 bottom-0 fixed max-w-fit max-h-fit',
