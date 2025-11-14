@@ -167,6 +167,10 @@ export class TableComponent implements OnChanges, OnDestroy {
     );
   }
 
+  get isSomeSelected(): boolean {
+    return this.selectedRows.size > 0 && this.selectedRows.size < this.displayData.length;
+  }
+
   get isIndeterminate(): boolean {
     const n = this.selectedRows.size;
     return n > 0 && n < this.displayData.length;

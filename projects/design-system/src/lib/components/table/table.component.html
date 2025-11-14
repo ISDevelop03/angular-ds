@@ -18,7 +18,8 @@
           ]"
         >
           <ds-checkbox
-            [checked]="isAllSelected"
+            [checked]="isAllSelected || isSomeSelected"
+            [isIndeterminate]="isSomeSelected && !isAllSelected"
             [disabled]="displayData.length === 0"
             [change]="headerCheckboxChange"
           ></ds-checkbox>
