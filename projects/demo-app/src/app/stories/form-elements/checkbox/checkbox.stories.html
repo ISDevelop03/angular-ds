@@ -1,23 +1,46 @@
 <div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
-  <h3>Default Checkbox</h3>
-  <ds-checkbox
-    [label]="'Accept terms and conditions'"
-    [checked]="isCheckedDefault"
-    (change)="onCheckboxChange()"
-    variant="default"
-  ></ds-checkbox>
-
-  <h3>Checkbox with Error</h3>
-  <ds-checkbox
-    [label]="'I agree'"
-    [checked]="isCheckedError"
-    [hasError]="hasError"
-    [errorMessage]="'This field is required'"
-    (change)="onErrorCheckboxChange()"
-    variant="default"
-  ></ds-checkbox>
-  {{hasError}}
-  <ds-button (onClick)="toggleError()" className="mt-4">
-    Toggle Error
-  </ds-button>
+  <div class="mb-2">
+    <h3 class="text-2xl font-bold mb-2">Default Checkbox</h3>
+    <ds-checkbox
+      [label]="'Accept terms and conditions'"
+      [checked]="isCheckedDefault"
+      (change)="onCheckboxChange()"
+      variant="default"
+      [isIndeterminate]="false"
+    ></ds-checkbox>
+  </div>
+  <div class="mb-2">
+    <h3 class="text-2xl font-bold mb-2">Checkbox isIndeterminate</h3>
+    <ds-checkbox
+      [isIndeterminate]="true"
+      [label]="'I agree'"
+      [checked]="isIndeterminate"
+      (change)="onIndeterminateCheckboxChange()"
+      variant="default"
+    ></ds-checkbox>
+  </div>
+  <div class="mb-2">
+    <h3 class="text-2xl font-bold mb-2">Checkbox with Error</h3>
+    <ds-checkbox
+      [label]="'I agree'"
+      [checked]="isCheckedError"
+      [hasError]="hasError"
+      [errorMessage]="'This field is required'"
+      (change)="onErrorCheckboxChange()"
+      variant="default"
+    ></ds-checkbox>
+    <ds-button (onClick)="toggleError()" className="mt-4">
+      Toggle Error
+    </ds-button>
+  </div>
+  <div class="mb-2">
+    <h3 class="text-2xl font-bold mb-2">Checkbox variant="autocomplete"</h3>
+    <ds-checkbox
+      [label]="'I agree'"
+      [checked]="true"
+      [isIndeterminate]="true"
+      [disabled]="true"
+      (change)="onErrorCheckboxChange()"
+    ></ds-checkbox>
+  </div>
 </div>

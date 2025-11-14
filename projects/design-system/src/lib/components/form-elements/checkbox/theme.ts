@@ -2,8 +2,7 @@ export const checkbox = {
   default: {
     wrapper: 'flex gap-x-2 items-center',
     checkbox: {
-      icon: 'text-red-500',
-      base: 'relative flex h-3.5 w-3.5 items-center justify-center rounded shrink-0',
+      base: 'relative flex h-4 w-4 items-center justify-center rounded shrink-0',
       enabled: {
         checked: 'border border-primary-500 bg-red-50 text-red-500',
         unchecked:
@@ -11,9 +10,9 @@ export const checkbox = {
       },
       disabled: {
         checked:
-          'bg-gray-100 border border-gray-300 text-gray-400 cursor-not-allowed',
+          'bg-neutral-100 border border-neutral-200 text-gray-400 cursor-not-allowed',
         unchecked:
-          'bg-gray-100 border border-gray-300 text-gray-400 cursor-not-allowed',
+          'bg-neutral-100 border border-neutral-200 text-neutral-400 cursor-not-allowed',
       },
       error: 'border-error-500',
       label: {
@@ -27,7 +26,6 @@ export const checkbox = {
   autocomplete: {
     wrapper: 'flex gap-x-2 items-center',
     checkbox: {
-      icon: 'text-red-500',
       base: 'relative flex size-4 items-center justify-center rounded shrink-0',
       enabled: {
         checked: 'border border-red-500 bg-red-50 text-red-500',

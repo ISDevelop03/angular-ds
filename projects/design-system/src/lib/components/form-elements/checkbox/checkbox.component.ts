@@ -21,6 +21,7 @@ export class DsCheckboxComponent {
   @Input() label?: string;
   @Input() errorMessage?: string;
   @Input() className?: string;
+  @Input() isIndeterminate?: boolean = false;
   @Input() change: () => void = () => {};
 
   checkbox = checkbox;

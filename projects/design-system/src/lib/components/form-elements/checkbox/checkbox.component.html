@@ -13,12 +13,12 @@
       <!-- checkbox[variant]?.checkbox?.icon + -->
       <!-- *ngIf="checked" -->
       <ds-icon
-        [ngClass]="checked ? 'opacity-100' : 'opacity-0'"
-        id="check"
-        [class]="
-          checkbox[variant]?.checkbox?.icon +
-          'transition-opacity duration-200 ease-in-out absolute size-3'
-        "
+        [id]="[!isIndeterminate ? 'check' : 'minus']"
+        [ngClass]="[
+          'transition-opacity duration-200 ease-in-out absolute size-4',
+          checked ? 'opacity-100' : 'opacity-0',
+          disabled ? 'text-neutral-400' : 'text-red-500'
+        ]"
       ></ds-icon>
       <!-- <span
         class="bg-red-600 rounded-full size-2 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2"
