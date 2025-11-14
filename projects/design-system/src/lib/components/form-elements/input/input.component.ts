@@ -8,6 +8,7 @@ import {
   Renderer2,
   AfterViewInit,
   forwardRef,
+  TemplateRef,
 } from '@angular/core';
 import { input } from './theme';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -47,6 +48,7 @@ export class DsInputComponent implements AfterViewInit, ControlValueAccessor {
   @Input() value: any;
   @Input() className?: string = '';
   @Input() inputClassName?: string = '';
+  @Input() tooltip?: string | TemplateRef<any>;
 
   @Output() onClick = new EventEmitter<Event>();
   @Output() onInput = new EventEmitter<Event>();

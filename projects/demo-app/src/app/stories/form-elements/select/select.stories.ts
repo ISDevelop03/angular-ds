@@ -35,10 +35,7 @@ export class SelectStoryComponent {
   ];
 
   handleChangeClick(){
-    this.options=[
-      { label: 'Option 8', value: 'option8' },
-      { label: 'Option 9', value: 'option9', icon: 'vide' }
-    ]
+    this.options=[]
   }
 
   autoCompleteOptions: SelectItem[] = [

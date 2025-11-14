@@ -9,21 +9,26 @@
 >
   <!-- label + hidden logic omitted for brevity… -->
   <ng-container *ngIf="type !== 'hidden' && label">
-    <label
-      [for]="id"
-      [ngClass]="[
-        'shrink-0',
-        input[variant].label || '',
-        hasError && errorMessage ? '!text-error-500' : '',
-        display === 'inline' ? '!mb-0' : '',
-        display === 'inline' && (description || (hasError && errorMessage))
-          ? 'self-start mt-2.5'
-          : ''
-      ]"
-    >
-      {{ label }}
-      <span *ngIf="required" class="text-red-500">*</span>
-    </label>
+    <div class="flex items-center gap-2 mb-2">
+      <label
+        [for]="id"
+        [ngClass]="[
+          'shrink-0',
+          input[variant].label || '',
+          hasError && errorMessage ? '!text-error-500' : '',
+          display === 'inline' ? '!mb-0' : '',
+          display === 'inline' && (description || (hasError && errorMessage))
+            ? 'self-start mt-2.5'
+            : ''
+        ]"
+      >
+        {{ label }}
+        <span *ngIf="required" class="text-red-500">*</span>
+      </label>
+      <ds-tooltip *ngIf="tooltip" [content]="tooltip" position="right">
+        <ds-icon id="info-circle" [class]="size-4"></ds-icon>
+      </ds-tooltip>
+    </div> 
   </ng-container>
   <div class="w-full">
     <div

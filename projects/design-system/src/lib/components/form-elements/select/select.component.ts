@@ -10,6 +10,7 @@ import {
   OnDestroy,
   OnChanges,
   SimpleChanges,
+  TemplateRef,
 } from '@angular/core';
 import { theme } from './theme';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -62,8 +63,10 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
   @Input() autoComplete?: boolean = false;
   @Input() debounceTime: number = 300; // Default debounce time in milliseconds
   @Input() description?: string;
+  @Input() tooltip?: string | TemplateRef<any>;
   @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
+
 
   filteredItems: SelectItem[] = [];
 

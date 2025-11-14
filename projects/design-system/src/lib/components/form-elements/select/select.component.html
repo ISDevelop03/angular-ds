@@ -1,6 +1,11 @@
 <div id="ds-select" class="relative w-full" [ngClass]="className">
   <ng-container *ngIf="label">
-    <ds-label [className]="theme[variant].element.label">{{ label }}</ds-label>
+    <div class="flex items-center gap-2 mb-2">
+      <ds-label [className]="theme[variant].element.label + ' mb-0'">{{ label }}</ds-label>
+      <ds-tooltip *ngIf="tooltip" [content]="tooltip" position="right">
+        <ds-icon id="info-circle" [class]="size-4"></ds-icon>
+      </ds-tooltip>
+    </div>
   </ng-container>
 
   <div
