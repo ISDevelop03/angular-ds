@@ -51,22 +51,16 @@ export class SelectStoryComponent {
   
   options1: SelectItem[] = [
     {
-      label: 'Lorem ipsum dolor sit amet',
+      label: 'Lorem ipsum dolor sit amedk ud odui odu t',
       value: 'option1',
-      isAccount: true,
-      image: 'https://placehold.co/400',
     },
     {
       label: 'Lorem ipsum dolor sit amet',
       value: 'option2',
-      isAccount: true,
-      image: 'https://placehold.co/400',
     },
     {
       label: 'Lorem ipsum dolor sit amet',
       value: 'option3',
-      isAccount: true,
-      image: 'https://placehold.co/400',
     },
   ];
 

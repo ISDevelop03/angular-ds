@@ -18,7 +18,7 @@
       <ds-icon
         *ngIf="buttonIcon && !selected.image"
         [id]="selected.icon || buttonIcon"
-        [ngClass]="['text-red-500', disabled ? 'text-neutral-500' : '']"
+        [ngClass]="[disabled ? 'text-neutral-500' : 'text-red-500']"
       ></ds-icon>
 
       <img
