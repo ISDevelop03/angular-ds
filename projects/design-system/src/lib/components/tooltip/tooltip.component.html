@@ -1,4 +1,4 @@
-<div class="relative w-fit inline-block">
+<div class="relative w-fit flex items-center justify-center">
   <ng-content></ng-content>
   <div
     id="ds-tooltip"
@@ -13,7 +13,7 @@
         {{ content }}
       </ng-container>
       <ng-template #templateRef>
-        <ng-container *ngTemplateOutlet="content"></ng-container>
+        <ng-container *ngTemplateOutlet="content" class="flex items-center justify-center"></ng-container>
       </ng-template>
     </div>
     <div [ngClass]="arrowClass"></div>
