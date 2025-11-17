@@ -52,7 +52,7 @@
 
       <input
         #inner
-        [type]="passwordVisible ? type : 'password'"
+        [type]="password ? (passwordVisible ? type : 'password') : type"
         [id]="id"
         [attr.name]="name"
         [placeholder]="placeholder || ''"
