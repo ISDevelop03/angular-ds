@@ -92,11 +92,11 @@ export const menus: Menu[] = [
     path: '/range',
     key: 'range',
   },
-  // {
-  //   name: 'Textarea',
-  //   path: '/textarea',
-  //   key: 'textarea',
-  // },
+  {
+    name: 'Textarea',
+    path: '/textarea',
+    key: 'textarea',
+  },
   {
     name: 'Select',
     path: '/select',

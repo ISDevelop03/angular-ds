@@ -5,6 +5,7 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges,
+  TemplateRef,
 } from '@angular/core';
 import { textarea } from './theme';
 
@@ -30,6 +31,8 @@ export class DsTextareaComponent implements OnChanges {
   @Input() maxLength?: number;
   @Input() resize: boolean = true;
   @Input() label?: string;
+  @Input() required: boolean = false;
+  @Input() tooltip?: string | TemplateRef<any>;
 
   @Input() value: string = '';
   @Output() valueChange = new EventEmitter<string>();
