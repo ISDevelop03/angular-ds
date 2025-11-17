@@ -25,7 +25,7 @@
         <span *ngIf="required" class="text-red-500">*</span>
       </label>
       <ds-tooltip *ngIf="tooltip" [content]="tooltip" position="right">
-        <ds-icon id="info-circle" [class]="size-4"></ds-icon>
+        <ds-icon id="info-circle" class="size-4"></ds-icon>
       </ds-tooltip>
     </div> 
   </ng-container>
@@ -78,7 +78,7 @@
         ]"
       />
 
-      <ds-icon [id]="passwordVisible ? 'eye' : 'eye-slash'" [class]="size-4" *ngIf="password" (click)="togglePassword()"></ds-icon>
+      <ds-icon [id]="passwordVisible ? 'eye' : 'eye-slash'" class="size-4" *ngIf="password" (click)="togglePassword()"></ds-icon>
       <div
         *ngIf="suffix && !hasProjectedSuffix && !password"
         [ngClass]="input[variant].sufix"
