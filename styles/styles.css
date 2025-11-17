@@ -1478,6 +1478,10 @@ video {
   margin-bottom: 0px;
 }
 
+.mb-3\.5 {
+  margin-bottom: 0.875rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }

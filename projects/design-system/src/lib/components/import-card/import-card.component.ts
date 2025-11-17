@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ICallToActionIcon } from '../call-to-action-icons/types';
+
+export interface ImportCardAction {
+  label: string;
+  icon: string;
+  onClick: () => void;
+}
+
 /**
  * ImportCardComponent
  *
@@ -14,11 +20,6 @@ export class ImportCardComponent {
   @Input() className?: string = '';
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() actionsList: ICallToActionIcon[] = [];
-  @Input() icon?: string
-  @Output() onClick = new EventEmitter();
-
-  onImportButtonClick(){
-    this.onClick.emit()
-  }
+  @Input() actions: ImportCardAction[] = [];
+  @Input() icon?: string;
 }

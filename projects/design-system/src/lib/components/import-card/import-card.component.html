@@ -1,17 +1,17 @@
 <div id="ds-import-card" class="relative w-full bg-level-4 p-3 rounded-md" [ngClass]="className">
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-3 mb-3.5">
     <div *ngIf="icon" class="p-2 border bg-card-level-2 border-stroke-1 rounded-full">
       <ds-icon [id]="icon" size="20" class="text-primary"></ds-icon>
     </div>
     <div class="">
-      <h3 class="text-sm text-neutral-900 font-bold mb-2.5">{{ title }}</h3>
+      <h3 class="text-sm text-neutral-900 font-bold mb-1">{{ title }}</h3>
       <p class="text-xs text-neutral-900">{{ description }}</p>
     </div>
   </div>
-  <div class="flex items-center justify-end gap-2">
-    <button class="flex items-center gap-2" (click)="onImportButtonClick()">
-      <span class="text-xs font-bold">Import</span>
-      <ds-icon id="upload-cloud" class="w-4 h-4 text-primary-500"></ds-icon>
+  <div class="flex items-center justify-end gap-4">
+    <button *ngFor="let action of actions" class="flex items-center gap-2" (click)="action.onClick()">
+      <span class="text-xs font-bold">{{ action.label }}</span>
+      <ds-icon [id]="action.icon" class="w-4 h-4 text-primary-500"></ds-icon>
     </button>
   </div>
   <ds-dropdown *ngIf="actionsList && actionsList.length > 0" [items]="actionsList" anchor="bottom start" class="absolute top-2 right-3">
