@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BoxCheckboxComponent } from './components/box-checkbox/box-checkbox.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { TotalListComponent } from './components/total-list/total-list.component';
 import { FileListComponent } from './components/file-list/file-list.component';
@@ -203,6 +204,7 @@ registerLocaleData(localeFr, 'fr-FR');
     FileListComponent,
     TotalListComponent,
     TooltipComponent,
+    BoxCheckboxComponent,
   ],
   imports: [
     CommonModule,
@@ -301,6 +303,7 @@ registerLocaleData(localeFr, 'fr-FR');
     FileListComponent,
     TotalListComponent,
     TooltipComponent,
+    BoxCheckboxComponent,
   ],
 })
 export class DesignSystemModule {}

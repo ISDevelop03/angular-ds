@@ -1,0 +1,9 @@
+<div id="ds-box-checkbox" class="flex items-center justify-between border border-stroke-1 rounded-md p-2" [ngClass]="className">
+  <ds-checkbox
+    [checked]="checked"
+    [disabled]="disabled"
+    [label]="label"></ds-checkbox>
+  <ds-tooltip *ngIf="tooltip" [content]="tooltip" position="right">
+    <ds-icon id="info-circle" [class]="size-4"></ds-icon>
+  </ds-tooltip>
+</div>

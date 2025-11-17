@@ -83,6 +83,8 @@ import {
   TotalListStoryComponent,
   TooltipStoryComponent,
   
+  BoxCheckboxStoryComponent,
+  
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -190,6 +192,7 @@ export const pages: Routes = [
   { path: 'file-list', component: FileListStoryComponent },
   { path: 'total-list', component: TotalListStoryComponent },
   { path: 'tooltip', component: TooltipStoryComponent },
+  { path: 'box-checkbox', component: BoxCheckboxStoryComponent },
   { path: '**', component: NotFoundComponent },
 
 ];
@@ -295,6 +298,7 @@ const router = RouterModule.forRoot(pages);
     FileListStoryComponent,
     TotalListStoryComponent,
     TooltipStoryComponent,
+    BoxCheckboxStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

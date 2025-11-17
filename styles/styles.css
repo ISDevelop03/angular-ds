@@ -1290,6 +1290,10 @@ video {
   z-index: 999;
 }
 
+.z-40 {
+  z-index: 40;
+}
+
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
@@ -1468,6 +1472,10 @@ video {
 
 .mt-px {
   margin-top: 1px;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
 }
 
 .box-border {
@@ -1662,6 +1670,11 @@ video {
   height: 3.5rem;
 }
 
+.size-3\.5 {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
 .h-0 {
   height: 0px;
 }
@@ -1828,6 +1841,15 @@ video {
 
 .h-sidebar {
   height: calc(100vh - 28px - 16px - 48px - 32px - 43px);
+}
+
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .max-h-0 {
@@ -2069,6 +2091,14 @@ video {
   width: 1px;
 }
 
+.w-\[100px\] {
+  width: 100px;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
 .\!min-w-fit {
   min-width: -moz-fit-content !important;
   min-width: fit-content !important;
@@ -2232,6 +2262,14 @@ video {
   max-width: 36rem;
 }
 
+.max-w-40 {
+  max-width: 10rem;
+}
+
+.max-w-48 {
+  max-width: 12rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2254,6 +2292,10 @@ video {
 
 .grow {
   flex-grow: 1;
+}
+
+.table-fixed {
+  table-layout: fixed;
 }
 
 .border-collapse {
@@ -3234,6 +3276,11 @@ video {
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
 }
 
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(235 237 239 / var(--tw-border-opacity, 1));
+}
+
 .border-b-neutral-900 {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(var(--color-neutral-900) / var(--tw-border-opacity, 1));
@@ -3659,6 +3706,11 @@ video {
 .bg-zinc-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
+}
+
+.bg-amber-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-amber-600) / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-50 {
@@ -7062,6 +7114,11 @@ bs-daterangepicker-container {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
+}
+
+.hover\:bg-neutral-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
 }
 
 .hover\:pl-10:hover {

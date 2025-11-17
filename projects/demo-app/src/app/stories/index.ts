@@ -150,3 +150,6 @@ export * from './total-list/total-list.stories';
 
 // Auto-export for tooltip stories
 export * from './tooltip/tooltip.stories';
+
+// Auto-export for box-checkbox stories
+export * from './box-checkbox/box-checkbox.stories';
