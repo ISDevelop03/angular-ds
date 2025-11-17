@@ -4,8 +4,8 @@ export const textarea = {
     label: 'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
     counter: 'absolute bottom-2 right-2 text-[1rem]/[1.25rem]',
     resize: 'resize-none',
-    description: 'inline-block text-gray-500 mt-1',
-    errorMessage: 'inline-block text-error-500 mt-1',
+    description: 'text-[0.75rem]/[0.875rem] inline-block text-gray-500 mt-1',
+    errorMessage: 'text-[0.75rem]/[0.875rem] inline-block text-error-500 mt-1',
     hasError:
       'border border-error-400 hover:border-error-500 focus:border-error-500 focus-within:ring-error-500',
     disabled: 'bg-gray-50 cursor-not-allowed',
