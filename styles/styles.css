@@ -3717,6 +3717,16 @@ video {
   background-color: rgb(var(--color-amber-600) / var(--tw-bg-opacity, 1));
 }
 
+.bg-stroke-2 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--stroke-2) / var(--tw-bg-opacity, 1));
+}
+
+.bg-stroke-4 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--stroke-4) / var(--tw-bg-opacity, 1));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
