@@ -64,6 +64,8 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
   @Input() debounceTime: number = 300; // Default debounce time in milliseconds
   @Input() description?: string;
   @Input() tooltip?: string | TemplateRef<any>;
+  @Input() required: boolean = false;
+  
   @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
 

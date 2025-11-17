@@ -9,7 +9,7 @@ export const input = {
         'border-neutral-100 bg-neutral-100 [&_input]:!text-neutral-500 cursor-not-allowed ',
     },
     label:
-      'inline-block text-xs leading-[16px] font-light text-neutral-900',
+      'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
     input:
       'text-xs font-semibold w-full text-gray-800 dark:text-white bg-transparent appearance-none dark:placeholder-gray-300 placeholder-gray-400 placeholder-text-sm outline-none border-none focus:ring-0 p-0',
     prefix: 'mr-1 text-gray-500',
