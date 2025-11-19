@@ -1,8 +1,8 @@
 <!-- ds-menu-list.component.html -->
-<ul class="menu-wrapper w-full max-w-[260px] mt-4">
+<ul class="menu-wrapper w-full max-w-[280px] mt-4">
   <ng-container *ngFor="let item of data">
     <li
-      class="relative after:absolute after:top-[30px] after:bottom-0 after:left-1.5 after:w-px after:h-[calc(100%-44px)] after:bg-white">
+      class="relative after:absolute after:top-[30px] after:bottom-0 after:left-[6px] after:w-px after:h-[calc(100%-50px)] after:bg-white">
       <ng-container *ngIf="hasChildren(item); else linkLevel1">
         <div tabindex="0" role="button" class="flex w-full justify-between items-center" (click)="toggle(item)">
           <div class="flex gap-2 items-center">
@@ -14,10 +14,10 @@
           </ds-icon>
         </div>
 
-        <ul *ngIf="isOpen(item)" class="pl-4">
+        <ul *ngIf="isOpen(item)">
           <ng-container *ngFor="let subItem of item.items">
             <li
-              class="relative before:absolute before:-left-[22px] before:border-white before:rounded-bl-md before:border-l before:border-b before:border-r-transparent before:border-t-transparent before:-top-4 before:content-[''] before:w-4 before:h-[26.5px] font-light">
+              class="relative before:absolute before:-left-[22px] before:border-white before:rounded-bl-md before:border-l before:border-b before:border-r-transparent before:border-t-transparent before:-top-[16px] before:content-[''] before:w-4 before:h-[26.5px] font-light">
               <ng-container *ngIf="hasChildren(subItem); else linkLevel2">
                 <div tabindex="0" role="button" class="flex w-full justify-between items-center pl-0.5"
                   (click)="toggle(subItem)">
@@ -44,7 +44,7 @@
                 </ul>
               </ng-container>
               <ng-template #linkLevel2>
-                <a class="pl-0.5 pr-2 relative flex items-center gap-2 after:rounded-md after:z-[1] before:z-[3] after:absolute after:p-2 after:-inset-1 after:w-full after:content-[''] before:absolute before:content-[''] before:-left-1 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-3/4 before:rounded-r-full hover:before:bg-primary-500 hover:after:bg-[#323334] before:transition-colors before:duration-300 before:ease-in-out after:transition-colors after:duration-300 after:ease-in-out"
+                <a class="pl-0.5 pr-2 relative flex items-center gap-2 after:rounded-md after:z-[1] before:z-[3] after:absolute after:p-2 after:-inset-1 after:w-full after:content-[''] before:absolute before:content-[''] before:-left-1 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-3/4 before:rounded-r-full hover:before:bg-primary-500 hover:after:bg-green-700 before:transition-colors before:duration-300 before:ease-in-out after:transition-colors after:duration-300 after:ease-in-out"
                   [href]="subItem.href" [ngClass]="[
                     currentURL === subItem.href
                       ? 'before:bg-primary-500 after:bg-[#323334]'
