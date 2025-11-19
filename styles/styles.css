@@ -3727,6 +3727,11 @@ video {
   background-color: rgb(var(--stroke-4) / var(--tw-bg-opacity, 1));
 }
 
+.bg-gradient {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--gradient) / var(--tw-bg-opacity, 1));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -3767,8 +3772,18 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-primary-50 {
+  --tw-gradient-from: #F5F6F7 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(245 246 247 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.to-white {
+  --tw-gradient-to: #fff var(--tw-gradient-to-position);
 }
 
 .fill-\[\#213A38\] {
@@ -6522,6 +6537,12 @@ bs-daterangepicker-container {
   border-color: rgb(80 80 88 / var(--tw-border-opacity, 1));
 }
 
+.before\:border-white::before {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
 .before\:border-r-transparent::before {
   content: var(--tw-content);
   border-right-color: transparent;
@@ -6610,6 +6631,18 @@ bs-daterangepicker-container {
   inset: 0px;
 }
 
+.after\:-inset-x-1::after {
+  content: var(--tw-content);
+  left: -0.25rem;
+  right: -0.25rem;
+}
+
+.after\:-inset-y-1::after {
+  content: var(--tw-content);
+  top: -0.25rem;
+  bottom: -0.25rem;
+}
+
 .after\:-left-1::after {
   content: var(--tw-content);
   left: -0.25rem;
@@ -6696,6 +6729,11 @@ bs-daterangepicker-container {
   height: calc(100% - 44px);
 }
 
+.after\:h-\[120\%\]::after {
+  content: var(--tw-content);
+  height: 120%;
+}
+
 .after\:w-0::after {
   content: var(--tw-content);
   width: 0px;
@@ -6724,6 +6762,11 @@ bs-daterangepicker-container {
 .after\:w-px::after {
   content: var(--tw-content);
   width: 1px;
+}
+
+.after\:w-\[120\%\]::after {
+  content: var(--tw-content);
+  width: 120%;
 }
 
 .after\:-translate-x-1\/2::after {
@@ -6854,6 +6897,12 @@ bs-daterangepicker-container {
 .after\:bg-transparent::after {
   content: var(--tw-content);
   background-color: transparent;
+}
+
+.after\:bg-white::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .after\:p-2::after {
@@ -7140,6 +7189,11 @@ bs-daterangepicker-container {
   background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-\[\#323334\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(50 51 52 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:pl-10:hover {
   padding-left: 2.5rem;
 }
@@ -7238,6 +7292,11 @@ bs-daterangepicker-container {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:after\:w-full:hover::after {
+  content: var(--tw-content);
+  width: 100%;
 }
 
 .hover\:after\:bg-\[\#323334\]:hover::after {
