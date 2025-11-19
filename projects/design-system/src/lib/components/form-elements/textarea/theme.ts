@@ -1,6 +1,6 @@
 export const textarea = {
   default: {
-    base: 'text-neutral-900 text-[0.75rem]/[0.875rem] block relative w-full p-2 border border-neutral-50 focus:ring-0 focus:outline-0 hover:border-primary-500 focus:border-primary-500 rounded placeholder-gray-500 placeholder-text-[1rem]/[1.25rem]',
+    base: 'font-semibold text-neutral-900 text-[0.75rem]/[0.875rem] block relative w-full p-2 border border-neutral-50 focus:ring-0 focus:outline-0 hover:border-primary-500 focus:border-primary-500 rounded placeholder-gray-500 placeholder-text-[1rem]/[1.25rem]',
     label: 'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
     counter: 'absolute bottom-2 right-2 text-[1rem]/[1.25rem]',
     resize: 'resize-none',
