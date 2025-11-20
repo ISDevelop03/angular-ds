@@ -1,6 +1,6 @@
 <div id="ds-file-uploader">
   <div
-    [ngClass]="[currentTheme.wrapper, className]"
+    [ngClass]="[currentTheme.wrapper, className, disabled ? '!cursor-not-allowed opacity-40' : '']"
     (drop)="onDrop($event)"
     (dragover)="onDragOver($event)"
     (click)="openFileInput()"

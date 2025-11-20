@@ -18,6 +18,7 @@ export class FileUploaderComponent {
   @Input() variant: string = 'default';
   @Input() isMultiple: boolean = false;
   @Input() files: UploadedFiles[] = [];
+  @Input() disabled: boolean = false;
   @Output() onChange = new EventEmitter<File | File[]>();
   @Output() onRemove = new EventEmitter<string>();
   @Output() onReUpload = new EventEmitter<string>();
@@ -64,7 +65,7 @@ export class FileUploaderComponent {
   }
 
   openFileInput() {
-    if (this.fileInput && this.fileInput.nativeElement) {
+    if (this.fileInput && this.fileInput.nativeElement && !this.disabled) {
       this.fileInput.nativeElement.click();
     }
   }
@@ -103,7 +104,9 @@ export class FileUploaderComponent {
   }
 
   reUploadFile(id:string) {
-    this.fileInput.nativeElement.click();
+    if (!this.disabled) {
+      this.fileInput.nativeElement.click();
+    }
     this.onReUpload.emit(id);
   }
 }
