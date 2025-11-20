@@ -8,10 +8,16 @@ import { UploadedFiles } from 'projects/design-system/src/lib/components/file-li
 export class FileListStoryComponent {
   @Input() label: string = 'file-list';
   @Input() className?: string = '';
+  blob = new Blob([new Uint8Array(303039)]);
+
+  ngOnInit(): void {
+    console.log('blob', Object.assign(new File([this.blob], 'test.txt', { type: 'text/plain' }), { id: 'file-1' }));
+  }
+
 
   files: UploadedFiles[] = [
     {
-      file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-1' }),
+      file: Object.assign(new File([this.blob], 'test.txt', { type: 'text/plain' }), { id: 'file-1' }),
       status: 'error',
     },
     {
