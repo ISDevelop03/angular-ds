@@ -6,6 +6,10 @@ import {
   ElementRef,
   ViewChild,
   HostListener,
+  AfterViewInit,
+  OnInit,
+  SimpleChanges,
+  OnChanges,
 } from '@angular/core';
 import { theme } from './theme';
 
@@ -39,7 +43,7 @@ export interface OmittedSelectItem {
   selector: 'ds-accounts-select',
   templateUrl: './accounts-select.component.html',
 })
-export class AccountsSelectComponent {
+export class AccountsSelectComponent implements OnChanges {
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -70,6 +74,14 @@ export class AccountsSelectComponent {
   optionsContainer?: ElementRef;
 
   theme = theme;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['items']) {
+      if (this.items.length > 0) {
+        this.selectedValue = this.items.find((option) => option.value === this.value);
+      }
+    }
+  }
 
   get mergedStyles() {
     return Object.assign(

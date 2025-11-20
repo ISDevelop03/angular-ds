@@ -25,7 +25,7 @@ export const theme = {
         selectedfont:
           'flex text-heading dark:text-white items-center justify-between w-full',
         container:
-          'absolute top-0 border border-neutral-100 bottom-0 mb-1 mt-1 max-h-60 overflow-y-auto w-fit rounded-lg bg-level-3 py-1 text-[0.75rem] leading-[14px] focus:outline-none border shadow-dropdown2',
+          'absolute top-0 border border-neutral-100 bottom-0 mb-1 mt-1 max-h-60 overflow-y-auto w-full rounded-lg bg-level-3 py-1 text-[0.75rem] leading-[14px] focus:outline-none border shadow-dropdown2',
         element:
           'shrink-0 w-full hover:bg-neutral-50 rounded cursor-default text-neutral-900 font-bold select-none py-3 px-4',
         fontcolor: 'white',

@@ -20,65 +20,70 @@
       </span>
     </ng-container>
     <ng-container *ngIf="selectedValue !== null">
-        <div class="relative w-full flex justify-between items-center mr-3">
-          <div class="w-full flex justify-between items-center gap-3">
-            <div
-              *ngIf="selectedValue?.icon"
-              class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-white rounded-full"
-            >
-              <ds-icon
-                [id]="selectedValue?.icon"
-                size="20"
-                class="text-red-500"
-              ></ds-icon>
+      <div class="relative w-full flex justify-between items-center mr-2">
+        <div class="w-full flex justify-between items-center gap-3">
+          <div
+            *ngIf="selectedValue.icon"
+            class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-white rounded-full"
+          >
+            <ds-icon
+              [id]="selectedValue.icon"
+              size="20"
+              class="text-red-500"
+            ></ds-icon>
+          </div>
+          <div class="w-full flex items-center justify-between gap-5">
+            <div class="flex-1 flex flex-col">
+              <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
+                {{ selectedValue.accountName }}
+              </span>
+              <span class="inline-flex font-bold text-[0.75rem] leading-[18px]">
+                {{ selectedValue.accountNumber }}
+              </span>
             </div>
-            <div class="w-full flex items-center justify-between gap-5">
-              <div class="flex flex-col gap-1">
-                <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
-                  {{ selectedValue?.accountName }}
-                </span>
-                <span class="inline-flex font-bold text-[0.75rem] leading-[18px]">
-                  {{ selectedValue?.accountNumber }}
-                </span>
-              </div>
-              <div>
+            <div class="flex-1 flex flex-col gap-y-2">
+              <div class="flex-1 flex gap-x-2">
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
                   Solde réel
                 </span>
-                <div class="flex items-center gap-1.5 shrink-0">
+                <div class="flex items-center justify-end gap-1.5 shrink-0">
                   <ds-balance-formatter
-                    *ngIf="selectedValue?.soldeComptable.value"
-                    [balance]="selectedValue?.soldeComptable.value"
+                    *ngIf="selectedValue.soldeComptable.value"
+                    [balance]="selectedValue.soldeComptable.value"
                     className="!text-[0.75rem] !leading-[18px]"
                   ></ds-balance-formatter>
                   <div class="flex items-center gap-1.5 shrink-0">
-                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ selectedValue?.soldeTempsReel.currency }}</span>
+                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                      {{ selectedValue.soldeTempsReel.currency }}
+                    </span>
                     <div class="relative rounded-full size-4">
                       <img
-                        [src]="selectedValue?.soldeComptable?.currency_flag"
-                        alt="[item.title]"
+                        [src]="selectedValue.soldeComptable.currency_flag"
+                        alt="[selectedValue.title]"
                         class="relative rounded-full size-4"
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="flex-1 flex gap-x-2">
                 <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
                   Solde comptable
                 </span>
-                <div class="flex items-center gap-1.5 shrink-0">
+                <div class="flex items-center justify-end gap-1.5 shrink-0">
                   <ds-balance-formatter
-                    *ngIf="selectedValue?.soldeTempsReel?.value"
-                    [balance]="selectedValue?.soldeTempsReel?.value"
+                    *ngIf="selectedValue.soldeTempsReel.value"
+                    [balance]="selectedValue.soldeTempsReel.value"
                     className="!text-[0.75rem] !leading-[18px]"
                   ></ds-balance-formatter>
                   <div class="flex items-center gap-1.5 shrink-0">
-                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ selectedValue?.soldeTempsReel.currency }}</span>
+                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                      {{ selectedValue.soldeTempsReel.currency }}
+                    </span>
                     <div class="relative rounded-full size-4">
                       <img
-                        [src]="selectedValue?.soldeTempsReel?.currency_flag"
-                        alt="[item.title]"
+                        [src]="selectedValue.soldeTempsReel.currency_flag"
+                        alt="[selectedValue.title]"
                         class="relative rounded-full size-4"
                       />
                     </div>
@@ -87,7 +92,7 @@
               </div>
             </div>
           </div>
-       
+        </div>
       </div>
     </ng-container>
     <ds-icon
@@ -113,14 +118,14 @@
       <div
         *ngFor="let item of items"
         (click)="item.unavailable ? null : selectOption(item)"
-        class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r"
+        class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r border-b border-stroke-1 last-of-type:border-b-0"
         [ngClass]="[
           theme[variant].element.options.element,
           item.unavailable
             ? theme[variant].element.options.unavailable
             : theme[variant].element.options.available,
-          isSelected(item) ? 'bg-red-50/50 ' : 'bg-transparent',
-          isSelected(item) ? 'after:bg-red-500' : 'after:bg-transparent'
+          isSelected(item) ? 'bg-gray-50' : 'bg-transparent',
+          isSelected(item) ? 'after:bg-gray-500' : 'after:bg-transparent'
         ]"
         [class.cursor-not-allowed]="item.unavailable"
       >
@@ -137,7 +142,7 @@
               ></ds-icon>
             </div>
             <div class="w-full flex items-center justify-between gap-5">
-              <div class="flex-1">
+              <div class="flex-1 flex flex-col">
                 <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
                   {{ item.accountName }}
                 </span>
@@ -145,46 +150,52 @@
                   {{ item.accountNumber }}
                 </span>
               </div>
-              <div class="flex-1">
-                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  Solde réel
-                </span>
-                <div class="flex items-center justify-end gap-1.5 shrink-0">
-                  <ds-balance-formatter
-                    *ngIf="item.soldeComptable.value"
-                    [balance]="item.soldeComptable.value"
-                    className="!text-[0.75rem] !leading-[18px]"
-                  ></ds-balance-formatter>
-                  <div class="flex items-center gap-1.5 shrink-0">
-                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ item.soldeTempsReel.currency }}</span>
-                    <div class="relative rounded-full size-4">
-                      <img
-                        [src]="item.soldeComptable.currency_flag"
-                        alt="[item.title]"
-                        class="relative rounded-full size-4"
-                      />
+              <div class="flex-1 flex flex-col gap-y-2">
+                <div class="flex-1 flex gap-x-2">
+                  <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                    Solde réel
+                  </span>
+                  <div class="flex items-center justify-end gap-1.5 shrink-0">
+                    <ds-balance-formatter
+                      *ngIf="item.soldeComptable.value"
+                      [balance]="item.soldeComptable.value"
+                      className="!text-[0.75rem] !leading-[18px]"
+                    ></ds-balance-formatter>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                        {{ item.soldeTempsReel.currency }}
+                      </span>
+                      <div class="relative rounded-full size-4">
+                        <img
+                          [src]="item.soldeComptable.currency_flag"
+                          alt="[item.title]"
+                          class="relative rounded-full size-4"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="flex-1">
-                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  Solde comptable
-                </span>
-                <div class="flex items-center justify-end gap-1.5 shrink-0">
-                  <ds-balance-formatter
-                    *ngIf="item.soldeTempsReel.value"
-                    [balance]="item.soldeTempsReel.value"
-                    className="!text-[0.75rem] !leading-[18px]"
-                  ></ds-balance-formatter>
-                  <div class="flex items-center gap-1.5 shrink-0">
-                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">{{ item.soldeTempsReel.currency }}</span>
-                    <div class="relative rounded-full size-4">
-                      <img
-                        [src]="item.soldeTempsReel.currency_flag"
-                        alt="[item.title]"
-                        class="relative rounded-full size-4"
-                      />
+                <div class="flex-1 flex gap-x-2">
+                  <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                    Solde comptable
+                  </span>
+                  <div class="flex items-center justify-end gap-1.5 shrink-0">
+                    <ds-balance-formatter
+                      *ngIf="item.soldeTempsReel.value"
+                      [balance]="item.soldeTempsReel.value"
+                      className="!text-[0.75rem] !leading-[18px]"
+                    ></ds-balance-formatter>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
+                        {{ item.soldeTempsReel.currency }}
+                      </span>
+                      <div class="relative rounded-full size-4">
+                        <img
+                          [src]="item.soldeTempsReel.currency_flag"
+                          alt="[item.title]"
+                          class="relative rounded-full size-4"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
