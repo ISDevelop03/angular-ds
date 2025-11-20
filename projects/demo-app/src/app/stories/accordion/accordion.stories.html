@@ -6,6 +6,7 @@
     [items]="defaultItems"
     variant="default"
     (openHandler)="onAccordionOpen($event)"
+
   ></ds-accordion>
 
   <h3 class="text-primary">With Border Variant</h3>
@@ -74,3 +75,7 @@
     (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>
 </div>
+
+<ng-template #buttonTemplate let-item="item">
+  <button (click)="handleClick($event, item)" class="bg-primary-500 text-white px-4 py-2 rounded-md">dkdlkjkldj</button>
+</ng-template>

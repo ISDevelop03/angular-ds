@@ -10,6 +10,7 @@ export class AccordionStoryComponent {
   @ViewChild('templateTwo') templateTwo!: TemplateRef<any>;
   @ViewChild('templateThree') templateThree!: TemplateRef<any>;
   @ViewChild('contentTemplate') contentTemplate!: TemplateRef<any>;
+  @ViewChild('buttonTemplate') buttonTemplate!: TemplateRef<any>;
 
 
   account = {
@@ -104,6 +105,7 @@ export class AccordionStoryComponent {
         context: {
           content: item.content,
         },
+        buttonTemplate: this.buttonTemplate,
         count: item.count,
         open: item.open,
         countColor: item.countColor,
@@ -144,7 +146,10 @@ export class AccordionStoryComponent {
     });
   }
 
-  
+  handleClick(event: Event) {
+    event.stopPropagation();
+    console.log('Button clicked:', event);
+  }
 
   onAccordionOpen(item: AccordionItem) {
     console.log('Accordion item opened:', item);

@@ -10,43 +10,43 @@
       (click)="handleChange(item)"
       [ngClass]="getButtonClasses(item.isOpen)"
     >
-      <div [class]="theme[variant].button.titleWrapper">
-        <div *ngIf="item.count" [ngClass]="[
-          'flex items-center flex-row-reverse gap-2'
-        ]">
-          <!-- count -->
-          <span
-            [ngClass]="[
-              'rounded-full font-bold text-white text-[0.75rem]/[1rem] inline-flex justify-center items-center size-[20px]',
-              item.countColor || 'bg-red-500'
-            ]"
-          >
-            {{ item.count }}
-          </span>
+      <div class="flex items-center justify-between gap-2">
+        <div [class]="theme[variant].button.titleWrapper">
+          <div *ngIf="item.count" [ngClass]="[
+            'flex items-center flex-row-reverse gap-2'
+          ]">
+            <!-- count -->
+            <span
+              [ngClass]="[
+                'rounded-full font-bold text-white text-[0.75rem]/[1rem] inline-flex justify-center items-center size-[20px]',
+                item.countColor || 'bg-red-500'
+              ]"
+            >
+              {{ item.count }}
+            </span>
+            <!-- title -->
+            <span
+              [ngClass]="[textClassName, theme[this.variant].button.title || '']"
+              >{{ item.title }}</span
+            >
+          </div>
           <!-- title -->
           <span
+            *ngIf="!item.count"
             [ngClass]="[textClassName, theme[this.variant].button.title || '']"
             >{{ item.title }}</span
           >
+          <!-- icon -->
+          <ds-icon
+            [id]="getIconId(item.isOpen)"
+            [size]="theme[variant].button.icon.size"
+            [class]="getIconClasses(item.isOpen)"
+          ></ds-icon>
         </div>
-        <!-- title -->
-        <span
-          *ngIf="!item.count"
-          [ngClass]="[textClassName, theme[this.variant].button.title || '']"
-          >{{ item.title }}</span
-        >
-        <!-- icon -->
-        <ds-icon
-          [id]="getIconId(item.isOpen)"
-          [size]="theme[variant].button.icon.size"
-          [class]="getIconClasses(item.isOpen)"
-        ></ds-icon>
+        <ng-container *ngIf="item.buttonTemplate">
+          <ng-container *ngTemplateOutlet="item.buttonTemplate; context: item"></ng-container>
+        </ng-container>
       </div>
-
-      <!-- optional caption -->
-      <span *ngIf="item.caption" class="text-gray-600">
-        {{ item.caption }}
-      </span>
     </button>
 
 
