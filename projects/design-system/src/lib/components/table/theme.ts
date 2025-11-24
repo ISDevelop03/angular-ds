@@ -30,7 +30,8 @@ export const TableThemes: Record<TableVariant, TableTheme> = {
     cell: 'px-4 text-[1rem]/normal font-medium py-2',
   },
   secondary: {
-    table: 'w-full text-left rounded-lg border border-neutral-50 border-separate border-spacing-0 overflow-hidden',
+    table:
+      'w-full text-left rounded-lg border border-neutral-50 border-separate border-spacing-0 overflow-hidden',
     header: 'bg-neutral-25 rounded-t-lg',
     headerIcons: 'inline-flex items-center text-gray-500',
     headerText: 'inline-flex text-[0.875rem]/[1.125rem]',
