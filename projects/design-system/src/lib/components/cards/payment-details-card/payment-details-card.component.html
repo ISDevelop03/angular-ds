@@ -3,24 +3,25 @@
   [ngClass]="className"
   class="border border-neutral-50 bg-level-2 rounded flex flex-col"
 >
-  <div class="grid grid-cols-5 bg-neutral-25">
+  <div class="grid grid-cols-5 justify-between bg-neutral-25">
     <div class="col-span-3 flex items-center justify-strat gap-3 py-2 px-4">
       <ds-checkbox
         *ngIf="useCheckbox"
         [checked]="isSelected"
         [disabled]="disabled"
         (change)="onSelectChange($event)"
-        
       ></ds-checkbox>
       <h3 *ngIf="title" class="text-[0.875rem]/[1rem]">
         {{ title }}
       </h3>
     </div>
     <div class="flex items-center justify-between py-2 px-4">
-      <span class="inline-flex text-[0.875rem]/[1rem]">Date</span>
+      <span *ngIf="date" class="inline-flex text-[0.875rem]/[1rem]">Date</span>
     </div>
     <div class="flex items-center justify-between py-2 px-4">
-      <span class="inline-flex text-[0.875rem]/[1rem]">Montant TTC</span>
+      <span *ngIf="price" class="inline-flex text-[0.875rem]/[1rem]"
+        >Montant TTC</span
+      >
     </div>
   </div>
   <div class="grid grid-cols-5">
@@ -29,16 +30,19 @@
     >
       <ng-content></ng-content>
     </div>
-    <span
+    <div
       class="inline-flex text-[0.875rem]/[1rem] font-bold py-2.5 px-3 justify-start items-center bg-level-3"
     >
-      {{ date | date : "dd.MM.yyyy" }}
-    </span>
-
-    <span
+      <span *ngIf="date">
+        {{ date | date : "dd.MM.yyyy" }}
+      </span>
+    </div>
+    <div
       class="inline-flex text-[0.875rem]/[1rem] font-bold py-2.5 px-3 justify-start items-center bg-level-3"
     >
-      {{ price | number : "1.2-2" : "fr-FR" }} {{ currency }}
-    </span>
+      <span *ngIf="price">
+        {{ price | number : "1.2-2" : "fr-FR" }} {{ currency }}
+      </span>
+    </div>
   </div>
 </div>
