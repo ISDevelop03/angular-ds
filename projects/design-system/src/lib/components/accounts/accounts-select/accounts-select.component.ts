@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { theme } from './theme';
 
-export interface Solde{
+export interface Solde {
   value: number;
   currency: string;
   currency_flag: string;
@@ -76,10 +76,9 @@ export class AccountsSelectComponent implements OnChanges {
   theme = theme;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['items']) {
-      if (this.items.length > 0) {
-        this.selectedValue = this.items.find((option) => option.value === this.value);
-      }
+    if (changes['value']) {
+      this.selectedValue =
+        this.items.find((option) => option.value === this.value) || null;
     }
   }
 
@@ -105,8 +104,8 @@ export class AccountsSelectComponent implements OnChanges {
     }
   }
 
-  shouldAppear(){
-    return this.value !== null
+  shouldAppear() {
+    return this.value !== null;
   }
   calculatePosition() {
     if (
@@ -150,13 +149,13 @@ export class AccountsSelectComponent implements OnChanges {
   get selected(): SelectItem {
     const found = this.items.find((i) => i.value === this.value);
     return (
-      (found as SelectItem) || { 
+      (found as SelectItem) || {
         icon: '',
-        value: '', 
-        accountName: this.placeholder, 
-        accountNumber: '', 
-        soldeComptable: { value: 0, currency: '', currency_flag: '' }, 
-        soldeTempsReel: { value: 0, currency: '', currency_flag: '' } 
+        value: '',
+        accountName: this.placeholder,
+        accountNumber: '',
+        soldeComptable: { value: 0, currency: '', currency_flag: '' },
+        soldeTempsReel: { value: 0, currency: '', currency_flag: '' },
       }
     );
   }
