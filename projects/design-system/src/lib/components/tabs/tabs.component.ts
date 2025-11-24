@@ -11,6 +11,7 @@ export interface ITab {
   title: string;
   panel: string | TemplateRef<any>;
   href?: string;
+  link?: string;
   disabled?: boolean;
 }
 

@@ -108,6 +108,7 @@ import { StepsComponent } from './components/steps/steps.component';
 import { StepComponent } from './components/steps/step.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
@@ -209,6 +210,7 @@ registerLocaleData(localeFr, 'fr-FR');
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     PortalModule,
     CarouselModule,
     CodeInputModule,

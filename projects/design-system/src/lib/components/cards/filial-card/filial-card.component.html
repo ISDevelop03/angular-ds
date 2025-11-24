@@ -8,10 +8,16 @@
     className
   ]"
 >
-  <div class="shrink-0 rounded-md bg-[#e9f4f3] dark:bg-[#245140] text-green-500 dark:text-green-900 size-[82px] font-bold text-[1.75rem]/[1.688rem] flex items-center justify-center">
-    {{getFirstTwoLetters(name) | uppercase}}
+  <div
+    translate="no"
+    class="shrink-0 rounded-md bg-[#e9f4f3] dark:bg-[#245140] text-green-500 dark:text-green-900 size-[82px] font-bold text-[1.75rem]/[1.688rem] flex items-center justify-center"
+  >
+    {{ getFirstTwoLetters(name) | uppercase }}
   </div>
-  <h3 *ngIf="name" class="text-[1.125rem]/[1.688rem] text-neutral-900 font-bold text-left">
+  <h3
+    *ngIf="name"
+    class="text-[1.125rem]/[1.688rem] text-neutral-900 font-bold text-left"
+  >
     {{ name }}
   </h3>
 </article>

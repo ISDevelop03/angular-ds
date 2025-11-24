@@ -4,18 +4,36 @@
   <ds-table
     [data]="users"
     [columns]="[
-    { header: 'Name', accessor: 'name'  },
-    { header: 'Age', accessor: 'age'  },
-    { header: 'Joined', accessor: 'joinedOn' },
+    { header: 'Name', accessor: 'name',style: { width: '1%' } },
+    { header: 'Age', accessor: 'age',style: { width: '1%' }  },
+    { header: 'Joined', accessor: 'joinedOn',style: { width: '1%' } },
+    { header: 'Bio', accessor: 'bio' },
     {
       header: 'Actions',
       accessor: 'id',
-      cellTemplate: actionTpl
+      cellTemplate: actionTpl,
+      style: { width: '1%' }
     }
   ]"
     variant="default"
   ></ds-table>
-  <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
+  <ds-table
+    [data]="users1"
+    [columns]="[
+    { header: 'Name', accessor: 'name',style: { width: '1%' }  },
+    { header: 'Age', accessor: 'age',style: { width: '1%' }  },
+    { header: 'Joined', accessor: 'joinedOn',style: { width: '1%' } },
+    { header: 'Bio', accessor: 'bio' },
+    {
+      header: 'Actions',
+      accessor: 'id',
+      cellTemplate: actionTpl,
+      style: { width: '1%' }
+    }
+  ]"
+    variant="default"
+  ></ds-table>
+  <!-- <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
   <ds-table
     [data]="users"
     [columns]="[
@@ -34,7 +52,6 @@
   ></ds-table>
 
   <h2 class="text-2xl font-bold">Sortable Table (Static Columns)</h2>
-
   <ds-table
     [data]="users"
     [columns]="[
@@ -82,7 +99,7 @@
       ]"
       (sortChange)="onServerSort($event)"
     ></ds-table>
-  </div>
+  </div> -->
 
   <!-- Status badge template -->
   <ng-template #statusTpl let-status let-row="row">

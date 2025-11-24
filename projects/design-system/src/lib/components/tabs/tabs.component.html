@@ -18,10 +18,11 @@
         >
           {{ tab.title }}
         </button>
-  
+
         <ng-template #linkTab>
           <a
             [href]="tab.href"
+            [routerLink]="tab.link"
             [ngClass]="[
               theme[variant].list.tab.base || '',
               isSelected(idx)

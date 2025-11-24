@@ -14,8 +14,11 @@
     <ds-icon id="dot-vertical" size="18"></ds-icon>
   </ds-dropdown>
 
-  <div class="shrink-0 rounded-md bg-green-50 dark:bg-green-900 text-green-500 dark:text-green-50 size-[62px] font-bold text-[1.5rem]/[1.688rem] flex items-center justify-center">
-    {{getFirstTwoLetters(title) | uppercase}}
+  <div
+    translate="no"
+    class="shrink-0 rounded-md bg-green-50 dark:bg-green-900 text-green-500 dark:text-green-50 size-[62px] font-bold text-[1.5rem]/[1.688rem] flex items-center justify-center"
+  >
+    {{ getFirstTwoLetters(title) | uppercase }}
   </div>
   <h3 *ngIf="title" class="text-[1.25rem]/[1.688rem] text-left font-bold">
     {{ title }}
