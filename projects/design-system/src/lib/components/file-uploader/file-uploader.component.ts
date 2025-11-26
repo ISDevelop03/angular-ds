@@ -1,4 +1,12 @@
-import { Component, ElementRef, EventEmitter, Input, Output, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { theme } from './theme';
 import { UploadedFiles } from '../file-list/file-list.component';
 /**
@@ -28,24 +36,31 @@ export class FileUploaderComponent {
   currentTheme = theme[this.variant];
 
   selectedFiles: (File & { id: string })[] = [];
-  
 
   handleFile(files: File[]) {
     const errors = [];
-    files.forEach((file)=>{
+    files.forEach((file) => {
       const ext = (file.name.split('.').pop() || '').toLowerCase();
-      if (!this.allowedExtensions.includes(ext) && this.allowedExtensions.length > 0) {
-        errors.push(`Invalid file type. Allowed: ${this.allowedExtensions.join(', ')}`);
+      if (
+        !this.allowedExtensions.includes(ext) &&
+        this.allowedExtensions.length > 0
+      ) {
+        errors.push(
+          `Invalid file type. Allowed: ${this.allowedExtensions.join(', ')}`
+        );
       }
     });
- 
-    files.forEach((file)=>{
-      if (file.size > this.maxFileSizeMB * 1024 * 1024 && this.maxFileSizeMB > 0) {
+
+    files.forEach((file) => {
+      if (
+        file.size > this.maxFileSizeMB * 1024 * 1024 &&
+        this.maxFileSizeMB > 0
+      ) {
         errors.push(`Max file size is ${this.maxFileSizeMB} MB`);
       }
     });
 
-    if (!this.isMultiple && files.length > 1) {
+    if (!this.isMultiple && this.files.length >= 1) {
       errors.push('Multiple files are not allowed');
     }
 
@@ -54,12 +69,12 @@ export class FileUploaderComponent {
       return;
     }
 
-    const filesWithId = Array.from(files).map((file)=>{
+    const filesWithId = Array.from(files).map((file) => {
       const fileWithId = file as File & { id: string };
       fileWithId.id = this.generateUniqueId();
       return fileWithId;
     });
-    if(filesWithId.length > 0){
+    if (filesWithId.length > 0) {
       this.onChange.emit(filesWithId);
     }
   }
@@ -80,7 +95,8 @@ export class FileUploaderComponent {
   }
 
   private generateUniqueId(): string {
-    const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const chars =
+      '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let id = '';
     for (let group = 0; group < 4; group++) {
       for (let i = 0; i < 4; i++) {
@@ -99,11 +115,11 @@ export class FileUploaderComponent {
     this.handleFile(Array.from(input.files) as File[]);
   }
 
-  removeFile(id:string) {
+  removeFile(id: string) {
     this.onRemove.emit(id);
   }
 
-  reUploadFile(id:string) {
+  reUploadFile(id: string) {
     if (!this.disabled) {
       this.fileInput.nativeElement.click();
     }

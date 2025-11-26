@@ -16,18 +16,22 @@ export class FileUploaderStoryComponent {
 
   defaultFiles: UploadedFiles[] = [
     {
-        file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-1' }),
-        "progress": 100,
-        "status": "success",
-        "errors": []
+      file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), {
+        id: 'file-1',
+      }),
+      progress: 100,
+      status: 'success',
+      errors: [],
     },
     {
-        file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), { id: 'file-2' }),
-        "progress": 100,
-        "status": "success",
-        "errors": []
-    }
-]
+      file: Object.assign(new File([''], 'test.txt', { type: 'text/plain' }), {
+        id: 'file-2',
+      }),
+      progress: 100,
+      status: 'success',
+      errors: [],
+    },
+  ];
 
   onFileSuccessfullChange(event: (File & { id: string })[]) {
     event.forEach((file, index) => {
@@ -35,7 +39,7 @@ export class FileUploaderStoryComponent {
         file: file,
         progress: 0,
         status: 'uploading',
-        errors: []
+        errors: [],
       } as UploadedFiles;
       this.successfullFiles.push(fileItem);
       this.simulateSuccessfullUpload(fileItem);
@@ -43,15 +47,15 @@ export class FileUploaderStoryComponent {
   }
 
   onFileErrorChange(event: (File & { id: string })[]) {
-    const files:UploadedFiles[] = event.map((file) => {
+    const files: UploadedFiles[] = event.map((file) => {
       return {
         file: file,
         progress: 0,
         status: 'uploading',
-        errors: []
-      } as UploadedFiles;   
+        errors: [],
+      } as UploadedFiles;
     });
-    this.errorFiles = files
+    this.errorFiles = files;
     this.simulateErrorUpload(this.errorFiles[0]);
   }
 
@@ -61,23 +65,31 @@ export class FileUploaderStoryComponent {
         file: file,
         progress: 0,
         status: 'uploading',
-        errors: []
+        errors: [],
       } as UploadedFiles;
-      if(!this.multipleFiles.some(existingFile => existingFile.file.id === fileItem.file.id)){
+      if (
+        !this.multipleFiles.some(
+          (existingFile) => existingFile.file.id === fileItem.file.id
+        )
+      ) {
         this.multipleFiles.push(fileItem);
       }
       this.simulateSuccessfullUpload(fileItem);
     });
-    console.log(this.multipleFiles)
+    console.log(this.multipleFiles);
   }
 
   onFileMultipleRemove(id: string) {
-    this.multipleFiles = this.multipleFiles.filter(file => file.file.id !== id);
+    this.multipleFiles = this.multipleFiles.filter(
+      (file) => file.file.id !== id
+    );
   }
 
   onFileMultipleReUpload(id: string) {
-    this.multipleErrorFiles = this.multipleErrorFiles.filter(file => file.file.id !== id);
-  } 
+    this.multipleErrorFiles = this.multipleErrorFiles.filter(
+      (file) => file.file.id !== id
+    );
+  }
 
   onFileMultipleErrorChange(event: (File & { id: string })[]) {
     event.forEach((file, index) => {
@@ -85,17 +97,21 @@ export class FileUploaderStoryComponent {
         file: file,
         progress: 0,
         status: 'uploading',
-        errors: []
+        errors: [],
       } as UploadedFiles;
       this.multipleErrorFiles.push(fileItem);
       this.simulateErrorUpload(fileItem);
     });
   }
 
+  onFileRemove(id: string) {
+    this.successfullFiles = this.successfullFiles.filter(
+      (file) => file.file.id !== id
+    );
+  }
+
   onFileDefaultRemove(id: string) {
-    console.log(id)
-    console.log(this.defaultFiles)
-    this.defaultFiles = this.defaultFiles.filter(file => file.file.id !== id);
+    this.defaultFiles = this.defaultFiles.filter((file) => file.file.id !== id);
   }
 
   onFileDefaultChange(event: (File & { id: string })[]) {
@@ -104,9 +120,13 @@ export class FileUploaderStoryComponent {
         file: file,
         progress: 0,
         status: 'uploading',
-        errors: []
+        errors: [],
       } as UploadedFiles;
-      if(!this.defaultFiles.some(existingFile => existingFile.file.id === fileItem.file.id)){
+      if (
+        !this.defaultFiles.some(
+          (existingFile) => existingFile.file.id === fileItem.file.id
+        )
+      ) {
         this.defaultFiles.push(fileItem);
       }
       this.simulateSuccessfullUpload(fileItem);
@@ -121,13 +141,13 @@ export class FileUploaderStoryComponent {
     const progressTimer = setInterval(() => {
       currentStep++;
       const progress = Math.min((currentStep / totalSteps) * 100, 100);
-      
+
       fileItem.progress = Math.round(progress);
-      
+
       // Update status based on progress
       if (progress >= 100) {
         fileItem.status = 'success';
-        fileItem.progress = 100;      
+        fileItem.progress = 100;
         clearInterval(progressTimer);
       }
     }, progressInterval);
@@ -141,13 +161,13 @@ export class FileUploaderStoryComponent {
     const progressTimer = setInterval(() => {
       currentStep++;
       const progress = Math.min((currentStep / totalSteps) * 100, 100);
-      
+
       fileItem.progress = Math.round(progress);
-      
+
       // Update status based on progress
       if (progress >= 100) {
         fileItem.status = 'error';
-        fileItem.progress = 100;        
+        fileItem.progress = 100;
         fileItem.errors = [
           'Le champ année sur la ligne 34 doit être numérique',
           'Le champ puissance fiscale sur la ligne 87 ne doit pas dépasser 4 caractères',
@@ -155,12 +175,11 @@ export class FileUploaderStoryComponent {
           'Taille de fichier trop importante',
           'Fichier corrompu ou endommagé',
           'Erreur de validation des données',
-          'Problème d\'encodage détecté',
-          'Format de date invalide'
-        ];    
+          "Problème d'encodage détecté",
+          'Format de date invalide',
+        ];
         clearInterval(progressTimer);
       }
     }, progressInterval);
   }
-
 }
