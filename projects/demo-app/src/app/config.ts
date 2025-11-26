@@ -253,7 +253,6 @@ export const menus: Menu[] = [
   { key: 'portfolio', name: 'Portfolio', path: '/portfolio' },
   { key: 'pin-input', name: 'PinInput', path: '/pin-input' },
   { key: 'code-input', name: 'CodeInput', path: '/code-input' },
-  { key: 'accordion-card', name: 'AccordionCard', path: '/accordion-card' },
   { key: 'footer', name: 'Footer', path: '/footer' },
   {
     key: 'display-price-card',
