@@ -28,7 +28,7 @@ export const theme = {
       base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 pb-3 text-left text-sm font-medium focus:outline-none',
       active: '',
       title: 'text-[0.875rem]/[1.125rem] font-bold',
-      titleWrapper: 'flex items-center justify-between',
+      titleWrapper: 'w-full flex items-center justify-between justify-between',
       icon: {
         base: 'transition ease-in duration-300',
         classActive: '',
