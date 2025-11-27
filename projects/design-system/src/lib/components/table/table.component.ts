@@ -188,7 +188,7 @@ export class TableComponent implements OnChanges, OnDestroy {
   toggleSelectAll(checked: boolean) {
     if (checked) {
       this.displayData.forEach((row) => {
-        if (row.isSelectable) {
+        if (row.isSelectable !== false) {
           this.selectedRows.add(row);
         }
       });
