@@ -12,9 +12,10 @@
     >
       <div class="flex items-center justify-between gap-2">
         <div [class]="theme[variant].button.titleWrapper">
-          <div *ngIf="item.count" [ngClass]="[
-            'flex items-center flex-row-reverse gap-2'
-          ]">
+          <div
+            *ngIf="item.count"
+            [ngClass]="['flex items-center flex-row-reverse gap-2']"
+          >
             <!-- count -->
             <span
               [ngClass]="[
@@ -26,7 +27,10 @@
             </span>
             <!-- title -->
             <span
-              [ngClass]="[textClassName, theme[this.variant].button.title || '']"
+              [ngClass]="[
+                textClassName,
+                theme[this.variant].button.title || ''
+              ]"
               >{{ item.title }}</span
             >
           </div>
@@ -44,16 +48,19 @@
           ></ds-icon>
         </div>
         <ng-container *ngIf="item.buttonTemplate">
-          <ng-container *ngTemplateOutlet="item.buttonTemplate; context: item"></ng-container>
+          <ng-container
+            *ngTemplateOutlet="item.buttonTemplate; context: item"
+          ></ng-container>
         </ng-container>
       </div>
     </button>
 
-
     <!-- panel -->
     <div *ngIf="item.isOpen" [ngClass]="getPanelClasses()">
       <ng-container *ngIf="isTemplate(item.content); else showHtml">
-        <ng-container *ngTemplateOutlet="item.content; context: item.context"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="item.content; context: item.context"
+        ></ng-container>
       </ng-container>
       <ng-template #showHtml>
         <div [innerHTML]="item.content"></div>

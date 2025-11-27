@@ -2488,6 +2488,12 @@ video {
           user-select: none;
 }
 
+.select-all {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+}
+
 .resize-none {
   resize: none;
 }
@@ -3673,6 +3679,16 @@ video {
   background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
 }
 
+.bg-purple-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 243 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -4028,6 +4044,10 @@ video {
 
 .align-text-top {
   vertical-align: text-top;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .\!text-\[0\.75rem\] {
@@ -7052,11 +7072,6 @@ bs-daterangepicker-container {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-green-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-green-600) / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-level-3:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--level-3) / var(--tw-bg-opacity, 1));
@@ -7103,6 +7118,11 @@ bs-daterangepicker-container {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
+}
+
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-green-600) / var(--tw-bg-opacity, 1));
 }
 
 .hover\:pl-10:hover {
