@@ -1,5 +1,5 @@
 <section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">DisplayPriceCard</h2>
+  <h2 class="text-4xl font-bold mb-6">Display Price Card</h2>
   <div class="flex flex-col gap-4">
     <ds-display-price-card
       [items]="items"
@@ -12,6 +12,411 @@
       [text]="'Montant total de la sélection :'"
       [price]="'730 MAD'"
     ></ds-display-price-card>
-   
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            text
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The label text displayed before the price (e.g., 'Montant total de
+            la sélection :'). Shown in bold on the left side of the price
+            section.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            price
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The price value displayed on the right side (e.g., '730 MAD'). Can
+            include currency symbols or codes. Displayed in large, bold text
+            alongside the icon.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'receipt-lines'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Icon identifier displayed next to the price. Should match an
+            available icon in your icon library. Defaults to 'receipt-lines'.
+            The icon appears in a colored style (crame-500) with a size of 24px.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">DisplayPriceCardItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional array of detail items displayed above the price section.
+            Each item shows a label on the left and a value on the right. When
+            provided, a dashed border separator appears above the price section.
+            See the <strong>DisplayPriceCardItem Interface</strong> section
+            below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttons
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ButtonItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional array of action buttons displayed at the bottom of the
+            card. Buttons are aligned to the right. Each button can have custom
+            styling, icons, and click handlers. See the
+            <strong>ButtonItem Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the card container.
+            Useful for custom styling or layout adjustments (e.g.,
+            <code>max-w-[600px]</code> for width control).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to button click handlers. When a button
+            is clicked, the handler receives an object with
+            <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: $event, data: data &#125;</code>. Use to pass
+            context or additional information to button handlers.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DisplayPriceCardItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># DisplayPriceCardItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>DisplayPriceCardItem</code> interface defines the structure for
+    detail items passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The label text displayed on the left side
+            of the item (e.g., 'Subtotal', 'Tax', 'Discount'). Shown in regular
+            weight text.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The value text displayed on the right
+            side of the item (e.g., '500 MAD', '50.00', '10%'). Shown in bold
+            text.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showLine
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional flag indicating whether to display a dashed line between
+            the label and value. When <code>true</code>, displays a horizontal
+            dashed border line connecting the label and value. Use for visual
+            separation when the label and value are far apart.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ButtonItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># ButtonItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>ButtonItem</code> interface defines the structure for action
+    buttons passed to the <code>buttons</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            text
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The button label text displayed on the
+            button.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> CSS classes to apply to the button.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(event: Event) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Callback function executed when the
+            button is clicked. Receives an object with <code>event</code> and
+            <code>data</code> properties:
+            <code>&#123; event: Event, data: any &#125;</code>. The
+            <code>data</code> comes from the component's <code>data</code> input
+            property.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'primary'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Button style variant. Defaults to
+            <code>'primary'</code> if not provided. Available options:
+            <code>'primary'</code>, <code>'secondary'</code>,
+            <code>'gray'</code>, <code>'outline'</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            size
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'normal'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Button size. Defaults to
+            <code>'normal'</code> if not provided. Available options:
+            <code>'small'</code>, <code>'normal'</code>, <code>'medium'</code>,
+            <code>'large'</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'submit' | 'button' | 'reset'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'button'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> HTML button type attribute. Defaults to
+            <code>'button'</code> if not provided. Use <code>'submit'</code> for
+            form submission buttons.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isLoading
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> When <code>true</code>, displays a
+            loading spinner on the button. Use to indicate that an action is in
+            progress.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Icon identifier for icon-only buttons.
+            Should match an available icon in your icon library. Mutually
+            exclusive with <code>iconLeft</code> and <code>iconRight</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconRight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Icon identifier displayed on the right
+            side of the button text. Should match an available icon in your icon
+            library. Mutually exclusive with <code>icon</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconLeft
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Icon identifier displayed on the left
+            side of the button text. Should match an available icon in your icon
+            library. Mutually exclusive with <code>icon</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

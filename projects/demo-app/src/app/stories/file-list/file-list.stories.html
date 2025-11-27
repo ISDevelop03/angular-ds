@@ -1,11 +1,279 @@
 <section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">FileList</h2>
+  <h2 class="text-4xl font-bold mb-6">File List</h2>
   <div class="flex flex-col gap-4">
     <ds-file-list [files]="files"></ds-file-list>
   </div>
-  <h2 class="text-2xl font-bold">Downloadable FileList with callback</h2>
+  <h3 class="text-2xl font-bold">Downloadable FileList with callback</h3>
   <div class="flex flex-col gap-4">
-    <ds-file-list [files]="downloadableFiles" [isDownloadable]="true" (onDownload)="onDownload($event)"></ds-file-list>
+    <ds-file-list
+      [files]="downloadableFiles"
+      [isDownloadable]="true"
+      (onDownload)="onDownload($event)"
+    ></ds-file-list>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            files
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">UploadedFiles[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of file objects to display in the
+            list. Each file object contains file information, upload status,
+            progress, and optional error messages. The component automatically
+            formats file sizes and displays different UI states based on the
+            file status. See the <strong>UploadedFiles Type</strong> section
+            below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isDownloadable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a download button for each file
+            instead of a delete button. When <code>false</code>, shows a delete
+            button for successfully uploaded files. If <code>onDownload</code>
+            has listeners, it emits the file; otherwise, triggers a default
+            browser download.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isMultiple
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that multiple files can be
+            displayed. Currently used for internal logic and future
+            enhancements. The component supports displaying multiple files
+            regardless of this setting.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the file list container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onDelete
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a file's delete button is clicked. Provides the file ID
+            (string) as the event value. Use to handle file deletion and remove
+            the file from your data source. Only shown for files with
+            <code>status === 'success'</code> when
+            <code>isDownloadable</code> is <code>false</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onReUpload
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a file's re-upload button is clicked (for files with
+            <code>status === 'error'</code>). Provides the file ID (string) as
+            the event value. Use to handle file re-upload attempts and retry
+            failed uploads.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onDownload
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;File&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a file's download button is clicked (when
+            <code>isDownloadable</code> is <code>true</code>). Provides the File
+            object as the event value. If no listeners are registered, the
+            component automatically triggers a browser download. Use to handle
+            custom download logic (e.g., server-side downloads, custom file
+            handling).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- UploadedFiles Type Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># UploadedFiles Type</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>UploadedFiles</code> type defines the structure for file objects
+    passed to the <code>files</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            file
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">File &amp; &#123; id: string &#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The File object with an additional
+            <code>id</code> property. The File object contains standard file
+            properties (name, size, type, etc.). The <code>id</code> property
+            must be a unique string identifier used for tracking, deletion, and
+            error management. The component uses this ID to identify files when
+            emitting events.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            status
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'uploading' | 'success' | 'error'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional upload status that determines the visual state and
+            available actions. Available options:
+            <code>'uploading'</code> (shows progress bar),
+            <code>'success'</code> (shows success styling with delete/download
+            button), <code>'error'</code> (shows error styling with re-upload
+            button and expandable error messages). When not provided, displays a
+            neutral state with file information.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            progress
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional upload progress percentage (0-100). Only used when
+            <code>status === 'uploading'</code>. Displays a progress bar with
+            the percentage value. The progress bar width is animated based on
+            this value. Use to show real-time upload progress to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errors
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null | string[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional array of error messages. Only used when
+            <code>status === 'error'</code>. When provided, displays an
+            expandable error section with a list of error messages. Users can
+            click to expand/collapse the error list. Each error is displayed as
+            a bulleted list item. Use to provide detailed validation or upload
+            error information to users.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
-

@@ -1,4 +1,5 @@
 <div class="p-6 grid grid-cols-1 gap-6">
+  <h2 class="text-4xl font-bold mb-6">Dropdown</h2>
   <h3 class="font-bold text-2xl">Dropdown With Only Icons</h3>
   <ds-dropdown [items]="items">
     <ds-icon id="more-1" class="h-5 w-5"></ds-icon>
@@ -8,4 +9,201 @@
   <ds-dropdown [items]="items">
     <span>Click me</span>
   </ds-dropdown>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">DropdownItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of dropdown menu items to display.
+            Each item represents a clickable option in the dropdown menu. Items
+            can have labels, icons, click handlers, and nested sub-items. See
+            the <strong>DropdownItem Interface</strong> section below for
+            details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof dropdown.variants</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'base'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the dropdown trigger button. Available
+            options: <code>'base'</code>, <code>'select'</code>. The
+            <code>'base'</code> variant has no additional styling. The
+            <code>'select'</code> variant applies border and padding styling
+            similar to a select input.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the dropdown container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Content Projection
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ng-content</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            The dropdown trigger button uses content projection. You can project
+            any content (icons, text, or both) into the trigger button. For
+            example: <code>&lt;ds-icon id="more-1"&gt;&lt;/ds-icon&gt;</code> or
+            <code>&lt;span&gt;Click me&lt;/span&gt;</code>. The projected
+            content becomes the clickable trigger for the dropdown menu.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DropdownItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># DropdownItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>DropdownItem</code> interface defines the structure for menu items
+    passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display text for the menu item. Shown
+            in the dropdown menu. This is the primary visible text label for the
+            item.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed before the label. Should match an
+            available icon in your icon library (e.g., 'edit', 'delete',
+            'more'). The icon appears on the left side of the label with proper
+            spacing.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(item: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the menu item is clicked.
+            Receives the click event as a parameter. When provided, the dropdown
+            menu automatically closes after the handler executes. Use to handle
+            item selection and perform actions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">DropdownItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional array of nested dropdown items. When provided, creates a
+            nested submenu for this item. Use to create hierarchical dropdown
+            menus with multiple levels. The nested items follow the same
+            structure as the parent items.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

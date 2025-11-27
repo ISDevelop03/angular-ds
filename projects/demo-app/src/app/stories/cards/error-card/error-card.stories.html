@@ -1,6 +1,155 @@
 <section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">ErrorCard</h2>
+  <h2 class="text-4xl font-bold mb-6">Error Card</h2>
   <div class="flex flex-col gap-4">
     <ds-error-card [items]="items" className="max-w-[342px]"></ds-error-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">IErrorCard[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of error items to display in the
+            card. Each item represents an error or validation message with a
+            label and optional value. Items are displayed as a list with red
+            error styling. See the <strong>IErrorCard Interface</strong>
+            section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the error card
+            container. Useful for custom styling or layout adjustments (e.g.,
+            <code>max-w-[342px]</code> for width control). The card has default
+            red border and background styling.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- IErrorCard Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># IErrorCard Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>IErrorCard</code> interface defines the structure for error items
+    passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The error label or field name displayed
+            on the left side of the error item. Shown in medium font weight.
+            This typically identifies the field or area where the error
+            occurred.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional error message or value displayed on the right side of the
+            error item. When provided, the item layout uses
+            <code>justify-between</code> to space the label and value. When not
+            provided, the item uses <code>justify-start</code> and only shows
+            the label.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the individual error item (list
+            item). Use for custom styling of specific error items. When
+            provided, also applies additional text sizing to the span element.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

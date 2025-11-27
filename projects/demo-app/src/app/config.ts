@@ -52,11 +52,11 @@ export const menus: Menu[] = [
     path: '/toggle',
     key: 'toggle',
   },
-  {
-    name: 'Empty Card',
-    path: '/empty-card',
-    key: 'empty-card',
-  },
+  // {
+  //   name: 'Empty Card',
+  //   path: '/empty-card',
+  //   key: 'empty-card',
+  // },
   {
     name: 'Dropdown',
     path: '/dropdown',
@@ -245,7 +245,7 @@ export const menus: Menu[] = [
   { key: 'table', name: 'Table', path: '/table' },
   { key: 'steps', name: 'Steps', path: '/steps' },
   { key: 'accounts-select', name: 'AccountsSelect', path: '/accounts-select' },
-  { key: 'date-picker', name: 'DatePicker', path: '/date-picker' },
+  // { key: 'date-picker', name: 'DatePicker', path: '/date-picker' },
   { key: 'todo-tab', name: 'TodoTab', path: '/todo-tab' },
   { key: 'todo-card', name: 'TodoCard', path: '/todo-card' },
   { key: 'slider-dots', name: 'SliderDots', path: '/slider-dots' },

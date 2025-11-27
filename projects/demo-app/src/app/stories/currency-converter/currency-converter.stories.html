@@ -1,4 +1,5 @@
 <div class="p-4 flex flex-col gap-4">
+  <h2 class="text-4xl font-bold mb-6">Currency Converter</h2>
   <h3 class="text-2xl font-bold">Currency Converter Demo</h3>
   <div class="max-w-[250px]">
     <ds-currency-converter
@@ -8,6 +9,233 @@
       (valueChange)="value = $event"
       (currencyChange)="currency = $event.value"
     ></ds-currency-converter>
-    {{value}} {{currency}}
+    {{ value }} {{ currency }}
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The numeric amount value displayed in the
+            input field. Supports two-way binding with
+            <code>[(value)]</code>. When the user types in the input, this
+            value is updated and the <code>valueChange</code> event is emitted.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currency
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The currently selected currency code
+            (e.g., 'EUR', 'USD', 'MAD'). This should match the
+            <code>value</code> property of one of the items in the
+            <code>currencies</code> array. Supports two-way binding with
+            <code>[(currency)]</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currencies
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">CurrencyProps[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of available currency options to
+            display in the currency selector dropdown. Each currency object
+            defines a currency option with its code, label, symbol, color, and
+            flag image. See the <strong>CurrencyProps Interface</strong> section
+            below for details.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;number&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the numeric input value changes (on every keystroke).
+            Provides the new numeric value. Use with two-way binding
+            <code>[(value)]</code> or listen to this event to track value
+            changes. The component automatically converts the input string to a
+            number.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currencyChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the currency selection changes. Provides the selected
+            currency object (with <code>value</code>, <code>label</code>,
+            <code>symbol</code>, <code>color</code>, <code>image</code>
+            properties). Use with two-way binding <code>[(currency)]</code> or
+            listen to this event to track currency changes. Access the currency
+            code via <code>$event.value</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CurrencyProps Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># CurrencyProps Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>CurrencyProps</code> interface defines the structure for
+    currency items passed to the <code>currencies</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The currency code (e.g., 'EUR', 'USD',
+            'MAD'). This is the unique identifier for the currency and should
+            match the <code>currency</code> input value when this currency is
+            selected.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display name of the currency (e.g.,
+            'Euro', 'Dollar', 'Dirham'). Shown in the currency selector
+            dropdown.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            symbol
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The currency symbol (e.g., '€', '$', 'د.م').
+            Used for display purposes in the currency selector.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            color
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The color associated with the currency.
+            Can be a CSS color value (e.g., 'red', '#FF0000', 'rgb(255, 0, 0)').
+            Used for styling the currency selector.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> URL or path to the currency flag image.
+            Displayed in the currency selector to provide visual identification
+            of the currency. Should be a valid image URL or path.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
