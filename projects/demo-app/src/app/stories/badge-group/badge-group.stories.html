@@ -1,5 +1,5 @@
 <section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">BadgeGroup</h2>
+  <h2 class="text-4xl font-bold mb-6">Badge Group</h2>
   <div class="flex flex-col gap-4">
     <ds-badge-group
       [tags]="tags"
@@ -13,5 +13,300 @@
       [tags]="tags"
       className="border border-neutral-100 max-w-fit rounded p-3 "
     ></ds-badge-group>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tags
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">IBadge[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of badge items to display in the
+            group. The component automatically handles overflow by showing
+            visible badges and a "+N" button for overflow items. When the "+N"
+            button is clicked, a dropdown appears with the hidden badges. See
+            the <strong>IBadge Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the badge group
+            container. Useful for custom styling or layout adjustments (e.g.,
+            setting borders: <code>border border-neutral-100 max-w-fit rounded
+            p-3</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            moreClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the "+N" overflow button. Use for
+            custom styling of the button that appears when badges overflow the
+            container width.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            moreIcon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'more'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Icon identifier for the overflow button. Should match an available
+            icon in your icon library. Defaults to 'more'. The overflow button
+            displays this icon alongside the count of hidden badges.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            moreIconSize
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'20px'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Size of the overflow button icon. Accepts any valid CSS size value
+            (e.g., '20px', '1rem', '24px'). Use to adjust the icon size to
+            match your design requirements.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- IBadge Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># IBadge Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>IBadge</code> interface defines the structure for badge items
+    passed to the <code>tags</code> input property. This interface matches the
+    badge component's properties.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The text content displayed in the badge.
+            This is the primary visible text label for the badge.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Visual style variant of the badge.
+            Available options: <code>'default'</code>, <code>'amber'</code>,
+            <code>'blue'</code>, <code>'green'</code>, <code>'violet'</code>,
+            <code>'red'</code>, <code>'orange'</code>. Each variant has a
+            distinct background and text color combination.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            size
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Size of the badge. Available options:
+            <code>'sm'</code>, <code>'md'</code>, <code>'lg'</code>. Controls
+            padding and text size. Defaults to <code>'md'</code> if not
+            specified.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            pill
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> When <code>true</code>, applies fully
+            rounded corners (pill shape) to the badge. When
+            <code>false</code>, uses slightly rounded corners.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            outline
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> When <code>true</code>, applies outline
+            styling to the badge (border with transparent background). When
+            <code>false</code>, uses filled background styling.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            withDot
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> When <code>true</code>, displays a small
+            colored dot before the label. The dot color matches the badge
+            variant. Use to add visual emphasis or indicate status.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconRight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> When <code>true</code>, displays the icon
+            on the right side of the label. When <code>false</code>, the icon
+            appears on the left side. Only applies when <code>icon</code> is
+            provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Additional CSS classes to apply to the
+            individual badge. Use for custom styling of specific badges.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed in the badge. Should match an
+            available icon in your icon library (e.g., 'check', 'close',
+            'message'). Position is controlled by <code>iconRight</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path. When provided, the badge renders as an
+            anchor tag, making it clickable and navigable. Use for badges that
+            should link to other pages or resources.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

@@ -1,5 +1,5 @@
 <div class="p-4 grid gap-4">
-  <h3 class="text-xl font-bold">Account Holding Card</h3>
+  <h2 class="text-4xl font-bold mb-6">Account Holding Card</h2>
   <div class="flex gap-4">
     <ds-account-holding-card
       [image]="data.image"
@@ -17,5 +17,253 @@
       className="max-w-[270px]"
       (onClick)="clicked($event)"
     ></ds-account-holding-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional unique identifier for the account holding card. Used
+            internally for tracking and can be passed to action handlers via the
+            <code>data</code> property.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The image URL or path for the account
+            holding. Displayed on the card, typically as an avatar or logo. If
+            no image is provided, the component may display initials derived
+            from the title.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title or name of the account holding
+            displayed on the card. This is the primary text label for the card.
+            If no image is provided, the first two letters of the title are used
+            to generate an avatar.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actionsList
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ICallToActionIcon[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of action icons displayed on the card (e.g., edit, delete,
+            more options). Each action can have an icon, click handler, and
+            optional dropdown items. See the
+            <strong>ICallToActionIcon Interface</strong> section below for
+            details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to action handlers and the card click
+            event. When action icons are clicked or the card is clicked, this
+            data is included in the event payload, allowing handlers to access
+            the full account holding information.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the card container.
+            Useful for custom styling or layout adjustments (e.g., setting max
+            width: <code>max-w-[270px]</code>).
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the card is clicked. Provides an object with
+            <code>data</code> and <code>event</code> properties. The
+            <code>data</code> property contains the value passed to the card's
+            <code>data</code> input. Use for navigation, opening details, or any
+            card-level interactions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ICallToActionIcon Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># ICallToActionIcon Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>ICallToActionIcon</code> interface defines the structure for
+    action items passed to the <code>actionsList</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The icon identifier or name to display.
+            Should match an available icon in your icon library (e.g., 'pen',
+            'trash', 'more-vertical').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(item?: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the action icon is clicked.
+            Receives an object with <code>event</code> and
+            <code>data</code> properties. The <code>data</code> property
+            contains the value passed to the card's <code>data</code> input.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttonClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the action button. Use for custom
+            styling of individual action icons (e.g., different colors for
+            different actions).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            dropdownItems
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">DropdownItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional array of dropdown menu items. When provided, clicking the
+            action icon opens a dropdown menu with these items instead of
+            directly executing the <code>onClick</code> handler. Useful for
+            actions with multiple options (e.g., a "more" menu).
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

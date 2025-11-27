@@ -1,6 +1,228 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
-  <h2 class="text-2xl font-bold">Autocomplete</h2>
+  <h2 class="text-4xl font-bold mb-6">Autocomplete</h2>
   <div class="flex flex-col gap-4">
     <ds-autocomplete [items]="items" placeholder="Country..."></ds-autocomplete>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">IField[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of available options to display in
+            the autocomplete dropdown. Each item represents a selectable option.
+            See the <strong>IField Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            values
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">IField[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of selected values displayed as badges. Supports two-way
+            binding with <code>[(values)]</code>. When items are selected or
+            removed, this array is updated accordingly. The component implements
+            <code>ControlValueAccessor</code>, so it can be used with Angular
+            reactive forms.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Placeholder text displayed in the input field when it is empty. Use
+            to provide context or instructions to users (e.g., 'Country...',
+            'Search options...').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the autocomplete
+            container. Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valuesChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;IField[]&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the selected values change (items are added or
+            removed). Provides the updated array of selected
+            <code>IField</code> objects. Use with two-way binding
+            <code>[(values)]</code> or listen to this event to track selection
+            changes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;IEventEmitter&lt;IField&gt;&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when an item is selected or deselected. Provides an object
+            with <code>event</code>, <code>values</code> (current selected
+            array), and <code>field</code> (the item that was
+            selected/deselected, or <code>null</code> if removed). Use to
+            perform actions when selections change or to track individual item
+            selections.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- IField Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># IField Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>IField</code> interface defines the structure for items passed to
+    the <code>items</code> and <code>values</code> input properties.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display text for the option. Shown in
+            the dropdown list and as the badge label when selected. Used for
+            filtering when the user types in the input field.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the option. Used to
+            match items between <code>items</code> and
+            <code>values</code> arrays, and must be unique within the
+            <code>items</code> array.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            checked
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional flag indicating if the item is currently selected. The
+            component automatically manages this property based on the
+            <code>values</code> array. When an item is in <code>values</code>,
+            its <code>checked</code> flag is set to <code>true</code> in the
+            dropdown.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
