@@ -1,5 +1,5 @@
 <div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
-  <h2 class="text-4xl font-bold">Tables</h2>
+  <h2 class="text-4xl font-bold mb-6">Tables</h2>
   <h3 class="text-2xl font-bold">Default Table</h3>
   <ds-table
     [data]="defaultData"
@@ -17,6 +17,7 @@
   ]"
     variant="default"
   ></ds-table>
+  <h3 class="text-2xl font-bold">Selection Enabled Table</h3>
   <ds-table
     [data]="selectionData"
     selectionEnabled="true"
@@ -104,7 +105,7 @@
   </div> -->
 
   <!-- API Documentation Table -->
-  <h3 class="text-2xl font-bold mt-8">API Reference</h3>
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
   <div class="overflow-x-auto">
     <table class="min-w-full border-collapse border border-gray-300 bg-white">
@@ -145,9 +146,16 @@
             <code class="text-sm">[]</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Array of data objects to display in the table. Each object
-            represents a row, and properties should match the
-            <code>accessor</code> values in column definitions.
+            <p class="mb-2">
+              Array of data objects to display in the table. Each object
+              represents a row, and properties should match the
+              <code>accessor</code> values in column definitions.
+            </p>
+            <p>
+              <strong>Note:</strong> The data array is copied internally to
+              ensure immutability. Any changes to the original array will not
+              affect the table's display.
+            </p>
           </td>
         </tr>
         <tr>
@@ -210,9 +218,17 @@
             <code class="text-sm">false</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Enables row selection with checkboxes. When <code>true</code>, adds
-            a checkbox column and header checkbox for select-all functionality.
-            Use for bulk actions or multi-row operations.
+            <p class="mb-2">
+              Enables row selection with checkboxes. When <code>true</code>,
+              adds a checkbox column and header checkbox for select-all
+              functionality. Use for bulk actions or multi-row operations.
+            </p>
+            <p>
+              <strong>Note:</strong> If you set
+              <code>isSelectable: false</code> inside a data object and
+              <code>selectionEnabled</code> is set to <code>true</code>, the
+              checkbox for that row will be disabled and cannot be selected.
+            </p>
           </td>
         </tr>
         <tr>
@@ -278,7 +294,7 @@
   </div>
 
   <!-- ColumnDef Interface Documentation -->
-  <h3 class="text-2xl font-bold mt-8">ColumnDef Interface</h3>
+  <h3 class="text-2xl font-bold mt-8"># ColumnDef Interface</h3>
   <p class="text-gray-600 mb-4">
     The <code>ColumnDef</code> interface defines the structure for column
     configurations passed to the <code>columns</code> input property.

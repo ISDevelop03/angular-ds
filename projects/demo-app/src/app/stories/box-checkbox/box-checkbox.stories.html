@@ -1,7 +1,143 @@
 <section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">BoxCheckbox</h2>
+  <h2 class="text-4xl font-bold mb-6">Box Checkbox</h2>
   <div class="flex flex-col gap-4 max-w-[300px]">
-    <ds-box-checkbox [label]="'Box Checkbox'" [checked]="checked" [disabled]="false" [tooltip]="'Tooltip'" (change)="onCheckboxChange()"></ds-box-checkbox>
+    <ds-box-checkbox
+      [label]="'Box Checkbox'"
+      [checked]="checked"
+      [disabled]="false"
+      [tooltip]="'Tooltip'"
+      (change)="onCheckboxChange()"
+    ></ds-box-checkbox>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            checked
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The checked state of the checkbox. When <code>true</code>, the
+            checkbox is checked. When <code>false</code>, it is unchecked.
+            Supports two-way binding.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional text label displayed next to the checkbox. When provided,
+            appears to the right of the checkbox input.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the checkbox, preventing user
+            interaction. The checkbox appears grayed out and cannot be toggled.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tooltip
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional tooltip content displayed when hovering over the info icon.
+            Can be a string for simple text tooltips or a
+            <code>TemplateRef</code> for complex, reusable tooltip content with
+            custom components. When provided, displays an info icon on the right
+            side of the box.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            change
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">() =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">() =&gt; &#123;&#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Callback function executed when the checkbox state changes. Use to
+            handle checkbox toggle events and update the <code>checked</code>
+            state or perform other actions when the checkbox is clicked.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the box checkbox
+            container. Useful for custom styling or layout adjustments. The
+            container has a border and padding by default.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
-

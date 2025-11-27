@@ -7,15 +7,6 @@ import { SelectItem } from 'projects/design-system/src/lib/components/accounts/a
 })
 export class AccountsSelectStoryComponent {
   selectedValue: string | string[] = null;
-  isLoading: boolean = false;
-
-  ngOnInit() {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.selectedValue = 'option1';
-      this.isLoading = false;
-    }, 3000);
-  }
 
   options: SelectItem[] = [
     {

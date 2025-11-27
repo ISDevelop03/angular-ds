@@ -1,4 +1,5 @@
 <div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Breadcrumb</h2>
   <h3>Basic Breadcrumb</h3>
   <ds-breadcrumb [pages]="pages"></ds-breadcrumb>
 
@@ -7,4 +8,272 @@
 
   <h3>Limited View (showLimit: true)</h3>
   <ds-breadcrumb [pages]="pages" [showLimit]="true" homeUrl="/"></ds-breadcrumb>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            pages
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Page[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of page objects representing the
+            breadcrumb trail. Each page object defines a navigation level. See
+            the <strong>Page Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            homeUrl
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL for the home link. When provided, displays a home icon
+            or "Accueil" text at the beginning of the breadcrumb. When
+            <code>showLimit</code> is <code>true</code>, shows only the home
+            icon instead of text.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showLimit
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, limits the number of visible breadcrumb
+            items. If <code>homeUrl</code> is provided and there are more than 2
+            pages, shows only the first page. Otherwise, if there are more than
+            3 pages, shows only the first 2 pages. The remaining pages are
+            collapsed with "..." and the last page is always shown.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof breadcrumb</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the breadcrumb. Currently supports
+            <code>'default'</code>. The variant determines the wrapper, list,
+            link, and separator styling. The component is designed to be
+            extensible with additional variants.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            prevUrl
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL for the previous navigation link. When provided,
+            displays a left arrow icon before the breadcrumb list that links to
+            the previous page.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            prevClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the previous navigation link (left
+            arrow). Use for custom styling of the previous button.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            nextUrl
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL for the next navigation link. When provided, displays a
+            right arrow icon after the breadcrumb list that links to the next
+            page.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            nextClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the next navigation link (right
+            arrow). Use for custom styling of the next button.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the breadcrumb wrapper.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Page Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># Page Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>Page</code> interface defines the structure for page objects
+    passed to the <code>pages</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the page. Used
+            internally to track and manage breadcrumb items.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display text for the breadcrumb item.
+            This is the visible label shown in the breadcrumb trail.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path for the page. When provided, the
+            breadcrumb item becomes a clickable link. When not provided, uses
+            <code>'#.'</code> as a fallback. The last page in the list is always
+            rendered as a non-clickable div, regardless of this value.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            current
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional flag indicating if this is the current page. When
+            <code>true</code>, applies active styling (bold text, darker color)
+            and sets <code>aria-current="page"</code> for accessibility. Use to
+            highlight the current page in the breadcrumb trail.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

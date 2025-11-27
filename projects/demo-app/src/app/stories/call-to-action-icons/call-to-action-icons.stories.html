@@ -1,4 +1,5 @@
 <div class="p-4 grid gap-6">
+  <h2 class="text-4xl font-bold mb-6">Call to Action Icons</h2>
   <div>
     <h3 class="text-xl font-bold mb-4">Default Variant</h3>
     <ds-call-to-action-icons
@@ -29,5 +30,193 @@
       className="w-fit text-red-500"
       variant="separated"
     ></ds-call-to-action-icons>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actions
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ICallToActionIcon[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of action icon objects to display.
+            Each action represents an icon button or dropdown. Actions are
+            rendered horizontally with separators between them (depending on the
+            variant). See the <strong>ICallToActionIcon Interface</strong>
+            section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof callToActionIconsTheme</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the call-to-action icons container.
+            Available options: <code>'default'</code>, <code>'separated'</code>,
+            <code>'borderless'</code>. Each variant has distinct wrapper,
+            button, separator, and icon styling. The
+            <code>'default'</code> variant shows a border around all icons with
+            vertical separators. The <code>'separated'</code> variant shows each
+            icon in its own bordered container. The
+            <code>'borderless'</code> variant shows icons without borders or
+            separators.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the call-to-action icons
+            wrapper. Useful for custom styling or layout adjustments (e.g.,
+            <code>w-fit</code> for width control).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ICallToActionIcon Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># ICallToActionIcon Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>ICallToActionIcon</code> interface defines the structure for
+    action items passed to the <code>actions</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Icon identifier displayed in the action
+            button. Should match an available icon in your icon library (e.g.,
+            'edit', 'delete', 'more', 'download'). The icon size is determined
+            by the variant theme (default: 16px).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(item?: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the action button is
+            clicked. Receives the click event as a parameter. Only applies when
+            <code>dropdownItems</code> is not provided (simple button action,
+            not a dropdown). Use to handle click events and perform actions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttonClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the individual action button. Use
+            for custom styling of specific action buttons. Only applies when
+            <code>dropdownItems</code> is not provided (simple button, not a
+            dropdown).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            dropdownItems
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">DropdownItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional array of dropdown items. When provided, the action renders
+            as a dropdown menu instead of a simple button. The icon becomes a
+            trigger for the dropdown. When not provided, the action renders as a
+            clickable button. Mutually exclusive with <code>onClick</code> (use
+            dropdown item handlers instead).
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

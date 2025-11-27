@@ -1,5 +1,6 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50">
   <h2 class="text-4xl font-bold mb-6">Accounts Select</h2>
+  <h3 class="text-2xl font-bold">Default Accounts Select</h3>
   <div class="w-full gap-4">
     <ds-accounts-select
       [items]="options"
@@ -10,18 +11,40 @@
       buttonIcon="message"
     ></ds-accounts-select>
   </div>
+  <h3 class="text-2xl font-bold">Disabled Accounts Select</h3>
   <div class="w-full gap-4">
     <ds-accounts-select
       [items]="options"
       [(value)]="selectedValue"
-      [isLoading]="isLoading"
       label="Choose Option"
       placeholder="Pick one..."
       buttonIcon="message"
       disabled="true"
     ></ds-accounts-select>
   </div>
-
+  <h3 class="text-2xl font-bold">Error Accounts Select</h3>
+  <div class="w-full gap-4">
+    <ds-accounts-select
+      [items]="options"
+      [(value)]="selectedValue"
+      label="Choose Option"
+      placeholder="Pick one..."
+      buttonIcon="message"
+      hasError="true"
+    ></ds-accounts-select>
+  </div>
+  <h3 class="text-2xl font-bold">Loading Accounts Select</h3>
+  <div class="w-full gap-4">
+    <ds-accounts-select
+      [items]="options"
+      [(value)]="selectedValue"
+      [isLoading]="true"
+      label="Choose Option"
+      placeholder="Pick one..."
+      buttonIcon="message"
+      isLoading="true"
+    ></ds-accounts-select>
+  </div>
   <!-- API Documentation Table -->
   <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
@@ -377,8 +400,9 @@
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> The account number or identifier displayed
-            alongside the account name. Used to uniquely identify the account.
+            <strong>Required.</strong> The account number or identifier
+            displayed alongside the account name. Used to uniquely identify the
+            account.
           </td>
         </tr>
         <tr>

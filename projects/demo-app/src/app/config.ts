@@ -265,7 +265,7 @@ export const menus: Menu[] = [
   { key: 'skeleton', name: 'Skeleton', path: '/skeleton' },
   { key: 'autocomplete', name: 'Autocomplete', path: '/autocomplete' },
   { key: 'floated-buttons', name: 'FloatedButtons', path: '/floated-buttons' },
-  { key: 'carousel', name: 'Carousel', path: '/carousel' },
+  // { key: 'carousel', name: 'Carousel', path: '/carousel' },
   { key: 'dropdown-holder', name: 'DropdownHolder', path: '/dropdown-holder' },
   { key: 'message', name: 'Message', path: '/message' },
   { key: 'import-card', name: 'ImportCard', path: '/import-card' },
