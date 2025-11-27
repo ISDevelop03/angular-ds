@@ -1524,6 +1524,14 @@ video {
   display: table;
 }
 
+.table-cell {
+  display: table-cell;
+}
+
+.table-row {
+  display: table-row;
+}
+
 .grid {
   display: grid;
 }
@@ -2264,6 +2272,10 @@ video {
   flex-shrink: 0;
 }
 
+.shrink {
+  flex-shrink: 1;
+}
+
 .flex-grow {
   flex-grow: 1;
 }
@@ -2550,6 +2562,10 @@ video {
 
 .grid-cols-\[repeat\(auto-fill\2c _minmax\(132px\2c _1fr\)\)\] {
   grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+}
+
+.grid-cols-\[auto_1fr_1fr_auto_auto\] {
+  grid-template-columns: auto 1fr 1fr auto auto;
 }
 
 .flex-row {
