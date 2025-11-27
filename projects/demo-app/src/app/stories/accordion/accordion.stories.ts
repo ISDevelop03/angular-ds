@@ -1,11 +1,17 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  TemplateRef,
+  ViewChild,
+  AfterViewInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { AccordionItem } from 'projects/design-system/src/lib/components/accordion/accordion.component';
 
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.stories.html',
 })
-export class AccordionStoryComponent {
+export class AccordionStoryComponent implements AfterViewInit {
   @ViewChild('templateOne') templateOne!: TemplateRef<any>;
   @ViewChild('templateTwo') templateTwo!: TemplateRef<any>;
   @ViewChild('templateThree') templateThree!: TemplateRef<any>;
@@ -15,6 +21,8 @@ export class AccordionStoryComponent {
   items: AccordionItem[] = [];
   itemsWithTemplate: AccordionItem[] = [];
   itemsBorderless: AccordionItem[] = [];
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.items = [
@@ -35,6 +43,7 @@ export class AccordionStoryComponent {
         open: true,
       },
     ];
+    this.cdr.detectChanges();
   }
 
   handleClick(event: Event) {
