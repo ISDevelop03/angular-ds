@@ -23,7 +23,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
   @ViewChild('statusTpl') statusTpl!: TemplateRef<any>;
   @ViewChild('actionTpl') actionTpl!: TemplateRef<any>;
 
-  users = [
+  defaultData = [
     {
       id: 1,
       name: 'John Doe',
@@ -66,7 +66,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  users1 = [
+  selectionData = [
     {
       id: 1,
       name: 'John Doe',
@@ -76,6 +76,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum doloropioep ieo iopei poei eopi',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-01-01',
+      isSelectable: true,
     },
     {
       id: 2,
@@ -86,6 +87,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum dolor',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-02-01',
+      isSelectable: true,
     },
     {
       id: 3,
@@ -96,6 +98,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum dolor',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-03-01',
+      isSelectable: true,
     },
     {
       id: 4,
@@ -106,75 +109,9 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum dolor',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-04-01',
+      isSelectable: false,
     },
   ];
-
-  registres = [
-    {
-      id: 1,
-      name: 'John Doe',
-      age: 35,
-      status: 'Active',
-      bio: 'A Lorem ipsum dolor',
-      bio_1: 'A Lorem ipsum dolor',
-      bio_2: 'A Lorem ipsum dolor',
-      joinedOn: '2023-01-01',
-    },
-    {
-      id: 2,
-      name: 'Jane Doe',
-      age: 25,
-      status: 'Pending',
-      bio: 'A Lorem ipsum dolor',
-      bio_1: 'A Lorem ipsum dolor',
-      bio_2: 'A Lorem ipsum dolor',
-      joinedOn: '2023-02-01',
-    },
-    {
-      id: 3,
-      name: 'Steve Doe',
-      age: 30,
-      status: 'Inactive',
-      bio: 'A Lorem ipsum dolor',
-      bio_1: 'A Lorem ipsum dolor',
-      bio_2: 'A Lorem ipsum dolor',
-      joinedOn: '2023-03-01',
-    },
-    {
-      id: 4,
-      name: 'Will Smith',
-      status: 'Pending',
-      age: 40,
-      bio: 'A Lorem ipsum dolor',
-      bio_1: 'A Lorem ipsum dolor',
-      bio_2: 'A Lorem ipsum dolor',
-      joinedOn: '2023-04-01',
-    },
-  ];
-  products = Array.from({ length: 100 }, (_, i) => {
-    const categories = [
-      'Category A',
-      'Category B',
-      'Category C',
-      'Category D',
-      'Category E',
-    ];
-    const descriptions = [
-      'met consectetur adipisicing elit. Sit, beatae commodi sequi non illum \n nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo? \n Excepturi facere nemo iure, sed earum unde provident asperiores repellat soluta voluptatum \n quod labore laboriosam molestiae neque esse.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit\n beatae commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam molestiaeatibus.',
-      'Dolor sit amet consectetur adipisicing elit. Voluptatem\n accusantium repellat iusto explicabo? Excepturi facere nemo iure,\n sed earum unde provident asperiores repellat soluta voluptatum quod labore laboriosam.',
-      'Ipsum dolor sit amet consectetur adipisicing elit. Sit beatae\n commodi sequi non illum nemo quae! Earum vero nobis magni, numquam velit magnam?',
-      'Consectetur adipisicing elit. Sit, beatae commodi sequi non illum\n nemo quae! Earum vero nobis magni, numquam velit magnam? Itaque accusantium repellat iusto explicabo?',
-    ];
-    return {
-      id: `product-${i + 1}`,
-      name: `Product ${i + 1}`,
-      description: descriptions[i % descriptions.length],
-      price: 6000,
-      category: categories[i % categories.length],
-      stock: 100,
-    };
-  });
 
   onServerSort(event: { accessor: string; direction: 'asc' | 'desc' }) {
     // call your API with event.accessor and event.direction

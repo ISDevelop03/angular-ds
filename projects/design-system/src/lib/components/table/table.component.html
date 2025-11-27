@@ -125,6 +125,7 @@
             <ds-checkbox
               [checked]="isSelected(row)"
               [change]="getRowCheckboxChange(row)"
+              [disabled]="!row.isSelectable"
             ></ds-checkbox>
           </td>
 

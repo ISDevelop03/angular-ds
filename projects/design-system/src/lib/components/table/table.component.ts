@@ -86,11 +86,14 @@ export class TableComponent implements OnChanges, OnDestroy {
     this.checkTableOverflow();
     this.resizeListener = () => this.checkTableOverflow();
     window.addEventListener('resize', this.resizeListener);
-    
+
     // Add scroll event listener to the container
     if (this.tableContainer) {
       this.scrollListener = () => this.checkTableOverflow();
-      this.tableContainer.nativeElement.addEventListener('scroll', this.scrollListener);
+      this.tableContainer.nativeElement.addEventListener(
+        'scroll',
+        this.scrollListener
+      );
     }
   }
 
@@ -99,13 +102,16 @@ export class TableComponent implements OnChanges, OnDestroy {
       window.removeEventListener('resize', this.resizeListener);
     }
     if (this.scrollListener && this.tableContainer) {
-      this.tableContainer.nativeElement.removeEventListener('scroll', this.scrollListener);
+      this.tableContainer.nativeElement.removeEventListener(
+        'scroll',
+        this.scrollListener
+      );
     }
   }
 
   toggleTruncateData(col: ColumnDef) {
     if (!col.expandable) {
-        return;
+      return;
     }
     col.truncate = !col.truncate;
   }
@@ -159,7 +165,7 @@ export class TableComponent implements OnChanges, OnDestroy {
 
     this.sortChange.emit(payload);
   }
-  
+
   get isAllSelected(): boolean {
     return (
       this.displayData.length > 0 &&
@@ -168,7 +174,10 @@ export class TableComponent implements OnChanges, OnDestroy {
   }
 
   get isSomeSelected(): boolean {
-    return this.selectedRows.size > 0 && this.selectedRows.size < this.displayData.length;
+    return (
+      this.selectedRows.size > 0 &&
+      this.selectedRows.size < this.displayData.length
+    );
   }
 
   get isIndeterminate(): boolean {
@@ -178,9 +187,14 @@ export class TableComponent implements OnChanges, OnDestroy {
 
   toggleSelectAll(checked: boolean) {
     if (checked) {
-      this.displayData.forEach((row) => this.selectedRows.add(row));
+      this.displayData.forEach((row) => {
+        if (row.isSelectable) {
+          this.selectedRows.add(row);
+        }
+      });
     } else {
       this.selectedRows.clear();
+      console.log('clear');
     }
     this.emitSelection();
   }
@@ -203,7 +217,7 @@ export class TableComponent implements OnChanges, OnDestroy {
   }
 
   headerCheckboxChange = () => {
-    this.toggleSelectAll(!this.isAllSelected);
+    this.toggleSelectAll(!this.isSomeSelected);
   };
 
   getRowCheckboxChange(row: any): () => void {
@@ -213,8 +227,8 @@ export class TableComponent implements OnChanges, OnDestroy {
   getAllLines(text: any, col: ColumnDef): string[] {
     if (text == null) return [''];
     const textStr = String(text);
-    if(col.truncate){
-      return textStr.split('\n').slice(0,1);
+    if (col.truncate) {
+      return textStr.split('\n').slice(0, 1);
     }
     return textStr.split('\n');
   }
@@ -227,13 +241,13 @@ export class TableComponent implements OnChanges, OnDestroy {
     const container = this.tableContainer.nativeElement;
     const table = this.tableElement.nativeElement;
 
-    const isOverflowing = table.getBoundingClientRect().width > container.getBoundingClientRect().width;
+    const isOverflowing =
+      table.getBoundingClientRect().width >
+      container.getBoundingClientRect().width;
 
-
-    if (isOverflowing) {  
+    if (isOverflowing) {
       this.isOverflowing = true;
-    }
-    else {
+    } else {
       this.isOverflowing = false;
     }
 
