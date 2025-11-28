@@ -103,10 +103,8 @@
             <code class="text-sm">null</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            The selected value(s). When <code>multiple</code> is
-            <code>true</code>, this should be an array of strings. When
-            <code>multiple</code> is <code>false</code>, this is a single string
-            or null. Supports two-way binding with <code>[(value)]</code>.
+            This is a single stringor null. Supports two-way binding with
+            <code>[(value)]</code>.
           </td>
         </tr>
         <tr>
@@ -217,22 +215,7 @@
             empty. Use to inform users that no options are available.
           </td>
         </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            multiple
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, enables multiple selection. The
-            <code>value</code> should be an array of strings, and users can
-            select multiple account options.
-          </td>
-        </tr>
+
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             isLoading
@@ -311,14 +294,13 @@
             valueChange
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">EventEmitter&lt;string | string[]&gt;</code>
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
             Emitted when the selected value changes. Provides the selected value
-            (string for single selection, string array for multiple selection).
-            Use with two-way binding <code>[(value)]</code> or listen to this
-            event to track selection changes.
+            as a string. Use with two-way binding <code>[(value)]</code> or
+            listen to this event to track selection changes.
           </td>
         </tr>
       </tbody>

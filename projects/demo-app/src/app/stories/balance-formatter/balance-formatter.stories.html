@@ -1,30 +1,36 @@
 <div class="p-4 grid gap-6">
   <h2 class="text-4xl font-bold mb-6">Balance Formatter</h2>
-  <h3>Positive Balance</h3>
-  <ds-balance-formatter
-    [balance]="15677890.25"
-    currency="USD"
-  ></ds-balance-formatter>
+  <h3 class="text-2xl font-bold">Positive Balance</h3>
+  <div class="bg-gradient-crame p-4 rounded-lg">
+    <ds-balance-formatter
+      [balance]="15677890.25"
+      currency="USD"
+    ></ds-balance-formatter>
+  </div>
+  <h3 class="text-2xl font-bold">Negative Balance</h3>
+  <div class="bg-gradient-crame p-4 rounded-lg">
+    <ds-balance-formatter
+      [balance]="-75.50"
+      currency="EUR"
+    ></ds-balance-formatter>
+  </div>
+  <h3 class="text-2xl font-bold">Discrete Balance</h3>
+  <div class="bg-gradient-crame p-4 rounded-lg">
+    <ds-balance-formatter
+      [balance]="250.75"
+      [isDiscrete]="true"
+      currency="GBP"
+    ></ds-balance-formatter>
+  </div>
 
-  <h3>Negative Balance</h3>
-  <ds-balance-formatter
-    [balance]="-75.50"
-    currency="EUR"
-  ></ds-balance-formatter>
-
-  <h3>Discrete Balance</h3>
-  <ds-balance-formatter
-    [balance]="250.75"
-    [isDiscrete]="true"
-    currency="GBP"
-  ></ds-balance-formatter>
-
-  <h3>Without Icon</h3>
-  <ds-balance-formatter
-    [balance]="-125.00"
-    [noIcon]="true"
-    currency="JPY"
-  ></ds-balance-formatter>
+  <h3 class="text-2xl font-bold">Without Icon</h3>
+  <div class="bg-gradient-crame p-4 rounded-lg">
+    <ds-balance-formatter
+      [balance]="-125.00"
+      [noIcon]="true"
+      currency="JPY"
+    ></ds-balance-formatter>
+  </div>
 
   <!-- API Documentation Table -->
   <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
@@ -71,8 +77,8 @@
             The balance amount to display. Can be positive or negative. The
             component automatically displays a plus icon for positive values and
             a minus icon for negative values. When <code>isDiscrete</code> is
-            <code>true</code>, the balance is masked. The component only
-            renders when <code>balance !== 0</code>.
+            <code>true</code>, the balance is masked. The component only renders
+            when <code>balance !== 0</code>.
           </td>
         </tr>
         <tr>

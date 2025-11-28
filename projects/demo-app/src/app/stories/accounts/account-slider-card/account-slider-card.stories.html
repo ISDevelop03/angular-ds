@@ -7,10 +7,7 @@
       [currency]="account.currency"
       [type]="account.type"
       [id]="account.id"
-      [date]="account.date"
-      [data]="account"
       [isDiscrete]="account.isDiscrete"
-      [isSelected]="account.isSelected"
       [actionsList]="actionsList"
       (onClick)="onCardClick($event)"
     >
@@ -122,22 +119,6 @@
           </td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            isSelected
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, applies selected styling to the card to
-            indicate it is currently selected. Use in slider or carousel
-            contexts where one card can be highlighted as active.
-          </td>
-        </tr>
-        <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">string</code>
@@ -149,21 +130,6 @@
             Optional unique identifier for the account. Used internally for
             tracking and can be passed to action handlers via the
             <code>data</code> property.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            date
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional date string displayed on the card (e.g., account opening
-            date, last transaction date). Format as needed for display.
           </td>
         </tr>
         <tr>

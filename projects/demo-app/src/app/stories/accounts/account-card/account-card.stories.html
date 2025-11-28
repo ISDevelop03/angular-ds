@@ -9,12 +9,9 @@
         *ngFor="let account of accounts"
         [isFavorite]="account.isFavorite"
         [account_number]="account.account_number"
-        [balance]="account.balance"
         [currency]="account.currency"
         [type]="account.type"
         [id]="account.id"
-        [date]="account.date"
-        [data]="account"
         [isDiscrete]="account.isDiscrete"
         [solde_comptable]="account.solde_comptable"
         [solde_temps_reel]="account.solde_temps_reel"
@@ -74,20 +71,6 @@
               <strong>Required.</strong> The account number or identifier
               displayed on the card. This is the primary identifier for the
               account.
-            </td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-              balance
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">number</code>
-            </td>
-            <td class="border border-gray-300 px-4 py-2">-</td>
-            <td class="border border-gray-300 px-4 py-2">
-              <strong>Required.</strong> The account balance amount displayed on
-              the card. Should be a numeric value representing the current
-              balance.
             </td>
           </tr>
           <tr>
@@ -168,21 +151,6 @@
           </tr>
           <tr>
             <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-              date
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">string</code>
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">undefined</code>
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              Optional date string displayed on the card (e.g., account opening
-              date, last transaction date). Format as needed for display.
-            </td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
               solde_comptable
             </td>
             <td class="border border-gray-300 px-4 py-2">
@@ -229,22 +197,6 @@
               optional dropdown items. See the
               <strong>ICallToActionIcon Interface</strong> section below for
               details.
-            </td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-              data
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">any</code>
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">undefined</code>
-            </td>
-            <td class="border border-gray-300 px-4 py-2">
-              Optional data object passed to action handlers. When action icons
-              are clicked, this data is included in the event payload, allowing
-              handlers to access the full account information.
             </td>
           </tr>
           <tr>
