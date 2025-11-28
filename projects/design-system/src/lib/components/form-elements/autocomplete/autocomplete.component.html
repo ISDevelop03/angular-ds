@@ -1,6 +1,6 @@
 <div id="ds-autocomplete" class="relative space-y-1" [ngClass]="className">
   <div
-    class="flex justify-start flex-wrap gap-1 bg-level-3 rounded border border-neutral-50 hover:border-primary text-left p-2"
+    class="flex justify-start items-center flex-wrap gap-1 bg-level-3 rounded border border-neutral-50 hover:border-primary text-left p-2"
   >
     <ds-badge
       size="sm"
@@ -22,6 +22,10 @@
       [placeholder]="placeholder"
       [attr.aria-label]="'Autocomplete input for ' + placeholder"
     />
+    <ds-icon
+      [id]="showDropdown ? 'arrow-up' : 'arrow-down'"
+      class="text-heading dark:text-white w-4 h-4 shrink-0"
+    ></ds-icon>
   </div>
 
   <div
@@ -38,7 +42,7 @@
         (click)="onSelectItem($event, item)"
       >
         <ds-checkbox
-          [checked]="item.checked"
+          [checked]="getCheckedItems(item)"
           [label]="item.label"
           variant="autocomplete"
           className="w-full"
