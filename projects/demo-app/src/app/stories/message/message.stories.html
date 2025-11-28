@@ -1,9 +1,159 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
-  <h2 class="text-2xl font-bold">Message</h2>
+  <h2 class="text-4xl font-bold mb-6">Message</h2>
   <div class="flex flex-col gap-4">
-    <ds-message variant="warning" content="La banque ne prendra en charge que les fichiers qui seront confirmés par des ordres de virement remis à l’agence domiciliataire de votre compte."></ds-message>
-    <ds-message variant="success" content="La banque ne prendra en charge que les fichiers qui seront confirmés par des ordres de virement remis à l’agence domiciliataire de votre compte."></ds-message>
-    <ds-message variant="info" content="La banque ne prendra en charge que les fichiers qui seront confirmés par des ordres de virement remis à l’agence domiciliataire de votre compte."></ds-message>
+    <ds-message
+      variant="warning"
+      content="La banque ne prendra en charge que les fichiers qui seront confirmés par des ordres de virement remis à l’agence domiciliataire de votre compte."
+    ></ds-message>
+    <ds-message
+      variant="success"
+      content="La banque ne prendra en charge que les fichiers qui seront confirmés par des ordres de virement remis à l’agence domiciliataire de votre compte."
+    ></ds-message>
+    <ds-message
+      variant="info"
+      content="La banque ne prendra en charge que les fichiers qui seront confirmés par des ordres de virement remis à l'agence domiciliataire de votre compte."
+    ></ds-message>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'success' | 'info' | 'warning'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant for the message component. Determines the color
+            scheme, icon, and overall appearance:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'warning'</code>: Amber/yellow theme with danger icon.
+                Used for warnings or cautionary messages.
+              </li>
+              <li>
+                <code>'success'</code>: Green theme with check icon. Used for
+                success messages or confirmations.
+              </li>
+              <li>
+                <code>'info'</code>: Blue theme with info-circle icon. Used for
+                informational messages or general notices.
+              </li>
+            </ul>
+            Each variant has distinct styling for the wrapper (background,
+            border), icon container, and content text.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The message text content displayed in the component. Shown in bold
+            text next to the icon. This is the main message that users will
+            read. The text color and styling vary based on the selected
+            <code>variant</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the message component
+            container. Useful for custom styling, layout adjustments, or
+            responsive sizing. The component has default styling with rounded
+            corners, border, padding, and flex layout. Additional classes are
+            applied alongside the variant-specific theme classes.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Icons:</strong> The component automatically displays an icon
+        based on the <code>variant</code>:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>'warning'</code>: Displays a "danger" icon in white</li>
+          <li><code>'success'</code>: Displays a "check" icon in white</li>
+          <li><code>'info'</code>: Displays an "info-circle" icon in white</li>
+        </ul>
+        Icons are displayed in a rounded container with background color
+        matching the variant theme.
+      </li>
+      <li>
+        <strong>Layout:</strong> The message component uses a flex layout with
+        the icon on the left and content on the right. The wrapper has full
+        width, rounded corners, border, and padding. The icon container is
+        circular with padding, and the content text is bold with
+        variant-specific colors.
+      </li>
+      <li>
+        <strong>Styling:</strong> Each variant has its own color scheme:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Warning:</strong> Amber background (bg-amber-100), amber
+            border, amber icon background, amber-800 text
+          </li>
+          <li>
+            <strong>Success:</strong> Green background (bg-green-50), green
+            border, green icon background, green-600 text
+          </li>
+          <li>
+            <strong>Info:</strong> Blue background (bg-blue-100), blue border,
+            blue icon background, blue-800 text
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </section>
-

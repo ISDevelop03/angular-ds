@@ -1,6 +1,156 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">Footer</h2>
-  <div class="flex flex-col gap-4">
+  <h2 class="text-4xl font-bold mb-6">Footer</h2>
+  <div class="flex flex-col gap-4 bg-white p-4 rounded-lg">
     <ds-footer [rightMenus]="rightMenus" [leftMenus]="leftMenus"></ds-footer>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            leftMenus
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">FooterMenu[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of menu items displayed on the left side of the footer. Each
+            menu item is rendered as a link with a vertical divider between
+            items. Items are displayed in a horizontal list that wraps on
+            smaller screens. See the <strong>FooterMenu Interface</strong>
+            section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            rightMenus
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">FooterMenu[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of menu items displayed on the right side of the footer. Each
+            menu item is rendered as a link with a vertical divider between
+            items. Items are displayed in a horizontal list that wraps on
+            smaller screens. On larger screens (3xl breakpoint and above), the
+            left and right menus are displayed side by side. On smaller screens,
+            they stack vertically. See the <strong>FooterMenu Interface</strong>
+            section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the footer container.
+            Useful for custom styling or layout adjustments. The footer has
+            default styling with a top border, padding, and container queries
+            for responsive behavior.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FooterMenu Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># FooterMenu Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>FooterMenu</code> interface defines the structure for menu items
+    passed to the <code>leftMenus</code> and <code>rightMenus</code> input
+    properties.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display text for the menu link. Shown
+            as the clickable link text in the footer. This is the visible label
+            for the navigation item.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The URL or route path for the menu link.
+            Used as the <code>href</code> attribute of the anchor tag. Can be a
+            relative path, absolute URL, or route path depending on your routing
+            setup.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

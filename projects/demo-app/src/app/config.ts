@@ -205,21 +205,21 @@ export const menus: Menu[] = [
     key: 'sheet-card',
   },
 
-  {
-    name: 'Portfolio Item Card',
-    path: '/portfolio-item-card',
-    key: 'portfolio-item-card',
-  },
-  {
-    name: 'Portfolio Select Card',
-    path: '/portfolio-select-card',
-    key: 'portfolio-select-card',
-  },
-  {
-    name: 'Portfolio Vision Card',
-    path: '/portfolio-vision-card',
-    key: 'portfolio-vision-card',
-  },
+  // {
+  //   name: 'Portfolio Item Card',
+  //   path: '/portfolio-item-card',
+  //   key: 'portfolio-item-card',
+  // },
+  // {
+  //   name: 'Portfolio Select Card',
+  //   path: '/portfolio-select-card',
+  //   key: 'portfolio-select-card',
+  // },
+  // {
+  //   name: 'Portfolio Vision Card',
+  //   path: '/portfolio-vision-card',
+  //   key: 'portfolio-vision-card',
+  // },
   {
     name: 'Ticker Card',
     path: '/ticker-card',
@@ -248,7 +248,7 @@ export const menus: Menu[] = [
   // { key: 'date-picker', name: 'DatePicker', path: '/date-picker' },
   { key: 'todo-tab', name: 'TodoTab', path: '/todo-tab' },
   { key: 'todo-card', name: 'TodoCard', path: '/todo-card' },
-  { key: 'slider-dots', name: 'SliderDots', path: '/slider-dots' },
+  // { key: 'slider-dots', name: 'SliderDots', path: '/slider-dots' },
   { key: 'account-card', name: 'AccountCard', path: '/account-card' },
   { key: 'portfolio', name: 'Portfolio', path: '/portfolio' },
   { key: 'pin-input', name: 'PinInput', path: '/pin-input' },
@@ -259,10 +259,10 @@ export const menus: Menu[] = [
     name: 'DisplayPriceCard',
     path: '/display-price-card',
   },
-  { key: 'label', name: 'Label', path: '/label' },
+  // { key: 'label', name: 'Label', path: '/label' },
   { key: 'error-card', name: 'ErrorCard', path: '/error-card' },
   { key: 'badge-group', name: 'BadgeGroup', path: '/badge-group' },
-  { key: 'skeleton', name: 'Skeleton', path: '/skeleton' },
+  // { key: 'skeleton', name: 'Skeleton', path: '/skeleton' },
   { key: 'autocomplete', name: 'Autocomplete', path: '/autocomplete' },
   { key: 'floated-buttons', name: 'FloatedButtons', path: '/floated-buttons' },
   // { key: 'carousel', name: 'Carousel', path: '/carousel' },

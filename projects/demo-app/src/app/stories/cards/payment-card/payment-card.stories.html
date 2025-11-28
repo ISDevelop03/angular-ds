@@ -1,7 +1,6 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">PaymentCard</h2>
+  <h2 class="text-4xl font-bold mb-6">Payment Card</h2>
   <div class="flex flex-col gap-4">
-    {{isSelected ? 'tree': 'fasle'}}
     <ds-payment-card
       className="max-w-[800px]"
       [title]="data.title"
@@ -13,5 +12,265 @@
       (onSelect)="onSelect($event)"
       (onDelete)="onDelete($event)"
     ></ds-payment-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional title text displayed in the card. Shown in semibold text
+            next to the image. This is the primary heading for the payment card
+            (e.g., product name, service name). The title is also used as the
+            image alt text for accessibility.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or path to the payment card image. The image is
+            displayed on the left side of the card with a square aspect ratio
+            (50px × 50px), rounded corners, and object-cover styling. The image
+            appears between the checkbox and the title.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            price
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional price value displayed in the amount section. The price is
+            automatically formatted using the <code>formatMoney</code> utility
+            function and displayed in bold text below the "Montant" label. The
+            formatted price is shown alongside the currency.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currency
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional currency code displayed after the formatted price (e.g.,
+            'USD', 'EUR', 'GBP'). Shown in the amount section next to the
+            formatted price value.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isSelected
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The checked state of the checkbox. When <code>true</code>, the
+            checkbox is checked. The checkbox is always displayed on the left
+            side of the card. When the checkbox is toggled, the
+            <code>onSelect</code> event is emitted. Use to control the selection
+            state of the payment card.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            deleteText
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Supprimer'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Label text for the delete button displayed on the right side of the
+            card. Defaults to 'Supprimer' (French for "Delete"). The delete
+            button includes a trash icon and triggers the <code>onDelete</code>
+            event when clicked. Use to customize the button text for
+            localization or branding.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to the <code>onSelect</code> and
+            <code>onDelete</code> event handlers. When the checkbox is toggled
+            or the delete button is clicked, the respective handler receives an
+            object with <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: any, data: any &#125;</code>. Use to pass
+            additional context or payment information to the event handlers.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the payment card
+            container. Useful for custom styling, layout adjustments, or
+            responsive sizing (e.g., <code>max-w-[800px]</code>). The card has
+            default styling with border, background, rounded corners, padding,
+            and flex layout with space-between justification.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the checkbox is toggled. Provides an object with
+            <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: any, data: any &#125;</code>. The
+            <code>event</code> is the checkbox change event, and
+            <code>data</code> comes from the component's <code>data</code> input
+            property. Use to handle selection changes, update selection state,
+            or perform actions based on card selection.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onDelete
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the delete button is clicked. Provides an object with
+            <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: Event, data: any &#125;</code>. The
+            <code>event</code> is the click event, and <code>data</code> comes
+            from the component's <code>data</code> input property. Use to handle
+            deletion, remove items from lists, or trigger confirmation dialogs.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Layout:</strong> The card uses a horizontal flex layout with
+        space-between justification:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Left side:</strong> Checkbox, image (optional), title
+            (optional), and amount section (price + currency)
+          </li>
+          <li><strong>Right side:</strong> Delete button with trash icon</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Checkbox:</strong> The checkbox is always displayed on the left
+        side of the card, regardless of other content. It's used for selection
+        functionality and cannot be hidden.
+      </li>
+      <li>
+        <strong>Amount Section:</strong> The amount section displays a "Montant"
+        label above the formatted price and currency. The section has a light
+        background and padding. The price is automatically formatted using the
+        <code>formatMoney</code> utility function.
+      </li>
+      <li>
+        <strong>Delete Button:</strong> The delete button is always displayed on
+        the right side of the card with a trash icon. The button text is
+        customizable via the <code>deleteText</code> input property. The icon is
+        displayed in red color.
+      </li>
+      <li>
+        <strong>Image Display:</strong> When an image is provided, it's
+        displayed as a square (50px × 50px) with rounded corners and
+        object-cover styling to maintain aspect ratio. The image appears between
+        the checkbox and the title.
+      </li>
+    </ul>
   </div>
 </section>

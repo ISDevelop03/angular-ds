@@ -1,7 +1,7 @@
-<section class="flex flex-col gap-4 p-4 h-screen">
-  <h2 class="text-2xl font-bold">Steps</h2>
-  <span> {{currentStepIndex}} </span>
-  <div class="grow flex flex-col gap-4">
+<section class="flex flex-col gap-6 p-4">
+  <h2 class="text-4xl font-bold mb-6">Steps</h2>
+  <h3 class="text-2xl font-bold">Vertical variant</h3>
+  <div class="grow flex flex-col gap-4 mb-6">
     <!-- src/app/app.component.html -->
     <ds-steps
       variant="vertical"
@@ -18,7 +18,7 @@
         [shouldGoNext]="step1Done"
       >
         <ng-template>
-          <div class="p-6 bg-level-4 border border-neutral-200 rounded h-[150vh]">
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Do this first thing.</p>
             <button
               class="px-3 py-1 bg-blue-500 text-white rounded"
@@ -109,5 +109,771 @@
         </ng-template>
       </ds-step>
     </ds-steps>
+  </div>
+  <h3 class="text-2xl font-bold">Default variant</h3>
+  <div class="grow flex flex-col gap-4">
+    <!-- src/app/app.component.html -->
+    <ds-steps
+      variant="default"
+      [currentStepIndex]="currentStepIndex"
+      title="Paiement de factures"
+    >
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons"
+        [rightButtons]="rightButtons"
+        title="Step 1"
+        [data]="{test:'1'}"
+        [shouldGoNext]="step1Done"
+      >
+        <ng-template>
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+            <p class="mb-4">Do this first thing.</p>
+            <button
+              class="px-3 py-1 bg-blue-500 text-white rounded"
+              (click)="step1Done = !step1Done"
+            >
+              {{step1Done ? 'Step 1 Done' : 'Mark Step 1 Done'}}
+            </button>
+          </div>
+        </ng-template>
+      </ds-step>
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons1"
+        [rightButtons]="rightButtons1"
+        title="Step 2"
+        [shouldGoPrev]="true"
+        [shouldGoNext]="step2Done"
+      >
+        <ng-template>
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+            <p class="mb-4">Then configure this.</p>
+            <button
+              class="px-3 py-1 bg-blue-500 text-white rounded"
+              (click)="step2Done = !step2Done"
+            >
+              {{step2Done ? 'Step 2 Done' : 'Mark Step 2 Done'}}
+            </button>
+          </div>
+        </ng-template>
+      </ds-step>
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons"
+        [rightButtons]="rightButtons"
+        title="Step 3"
+        [data]="{test:'1'}"
+        [shouldGoPrev]="true"
+        [shouldGoNext]="step3Done"
+      >
+        <ng-template>
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+            <p class="mb-4">Then configure this.</p>
+            <button
+              class="px-3 py-1 bg-blue-500 text-white rounded"
+              (click)="step3Done = !step3Done"
+            >
+              {{step3Done ? 'Step 3 Done' : 'Mark Step 3 Done'}}
+            </button>
+          </div>
+        </ng-template>
+      </ds-step>
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons1"
+        [rightButtons]="rightButtons1"
+        title="Step 4"
+        [shouldGoPrev]="true"
+        [shouldGoNext]="step4Done"
+      >
+        <ng-template>
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+            <p class="mb-4">Then configure this.</p>
+            <button
+              class="px-4 py-1 bg-blue-500 text-white rounded"
+              (click)="step4Done = !step4Done"
+            >
+              {{step4Done ? 'Step 4 Done' : 'Mark Step 4 Done'}}
+            </button>
+          </div>
+        </ng-template>
+      </ds-step>
+      <ds-step
+        (nextStep)="nextStepHandler($event)"
+        (prevStep)="prevStepHandler($event)"
+        [leftButtons]="leftButtons"
+        [rightButtons]="rightButtons"
+        title="Finish"
+        [shouldGoPrev]="true"
+      >
+        <ng-template>
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+            <p class="mb-4">Finish line.</p>
+            <p class="text-green-600 font-semibold">All done! 🎉</p>
+          </div>
+        </ng-template>
+      </ds-step>
+    </ds-steps>
+  </div>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ds-steps Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            ds-steps Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currentStepIndex
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The index of the currently visible step. This is a zero-based index
+            (0 for the first step, 1 for the second, etc.). The component
+            automatically updates this value when navigating between steps using
+            the <code>goNext</code> and <code>goPrev</code> methods. You can
+            also control it externally to programmatically navigate to a
+            specific step.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant key for styling the steps component. Common values
+            include 'default', 'primary', 'success', 'vertical', etc. The
+            variant determines the visual appearance and layout of the steps
+            indicator. For example, 'vertical' displays steps in a vertical
+            layout.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional title text displayed at the top of the steps component.
+            This is typically used to describe the overall process or workflow
+            (e.g., "Paiement de factures", "Account Setup", "Order Process").
+          </td>
+        </tr>
+
+        <!-- ds-step Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            ds-step Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The title text displayed for this step in the steps indicator. This
+            is shown in the step header/navigation area to identify the step
+            (e.g., "Step 1", "Step 2", "Finish").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            shouldGoNext
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">true</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows navigation to the next step when the
+            "Next" button is clicked. When <code>false</code>, prevents
+            advancing to the next step, even if the button is clicked. This is
+            useful for validation - set to <code>false</code> until the step's
+            requirements are met (e.g., form validation, data completion). The
+            button's <code>onClick</code> handler will still be called, but the
+            step won't advance.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            shouldGoPrev
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">true</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows navigation to the previous step when
+            the "Prev" button is clicked. When <code>false</code>, prevents
+            going back to the previous step. This is useful for steps that
+            should not allow backward navigation (e.g., final confirmation
+            steps). The button's <code>onClick</code> handler will still be
+            called, but the step won't go back.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object associated with this step. This data is
+            included in the <code>nextStep</code> and <code>prevStep</code>
+            event payloads, allowing you to pass step-specific information when
+            navigating. Useful for storing form data, step state, or other
+            contextual information.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            leftButtons
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">StepButton[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >[&#123; variant: 'gray', content: 'Prev', onClick: ...
+              &#125;]</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of buttons displayed on the left side of the step footer.
+            Typically used for "Previous" or "Cancel" actions. Each button is a
+            <code>StepButton</code> object. The default includes a "Prev"
+            button. See the <strong>StepButton Interface</strong> section below
+            for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            rightButtons
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">StepButton[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >[&#123; variant: 'primary', content: 'Next', pill: true, onClick:
+              ... &#125;]</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of buttons displayed on the right side of the step footer.
+            Typically used for "Next", "Continue", or "Submit" actions. Each
+            button is a <code>StepButton</code> object. The default includes a
+            "Next" button with primary variant and pill styling. See the
+            <strong>StepButton Interface</strong> section below for details.
+          </td>
+        </tr>
+
+        <!-- ds-step Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            ds-step Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            nextStep
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;&#123; button: StepButton; event: any; data: any;
+              currentIndex: number &#125;&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when advancing to the next step. The event is only emitted
+            if <code>shouldGoNext</code> is <code>true</code> and there is a
+            next step available. The payload contains:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>button</code>: The <code>StepButton</code> that triggered
+                the navigation
+              </li>
+              <li><code>event</code>: The original click event</li>
+              <li><code>data</code>: The step's <code>data</code> object</li>
+              <li>
+                <code>currentIndex</code>: The new step index after navigation
+              </li>
+            </ul>
+            Use to handle step completion, save data, or perform actions when
+            moving forward.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            prevStep
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;&#123; button: StepButton; data: any; event: any;
+              currentIndex: number &#125;&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when going back to the previous step. The event is only
+            emitted if <code>shouldGoPrev</code> is <code>true</code> and there
+            is a previous step available. The payload contains:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>button</code>: The <code>StepButton</code> that triggered
+                the navigation
+              </li>
+              <li><code>data</code>: The step's <code>data</code> object</li>
+              <li><code>event</code>: The original click event</li>
+              <li>
+                <code>currentIndex</code>: The new step index after navigation
+              </li>
+            </ul>
+            Use to handle step cancellation, restore previous state, or perform
+            actions when moving backward.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- StepButton Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># StepButton Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>StepButton</code> interface defines the structure for buttons
+    passed to the <code>leftButtons</code> and <code>rightButtons</code> input
+    properties of <code>ds-step</code>.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Button variant for styling (e.g.,
+            'primary', 'secondary', 'gray', 'outline'). Determines the button's
+            visual appearance, colors, and styling. Common variants match the
+            button component's theme variants.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The text content displayed on the button
+            (e.g., "Next", "Previous", "Submit", "Cancel").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disableHandleStep
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the automatic step navigation
+            handling. The button's <code>onClick</code> handler will be called,
+            but the component won't automatically advance or go back to steps.
+            Use this for custom buttons that need to perform actions without
+            step navigation (e.g., "Save Draft", "Cancel", custom workflows).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(data: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Callback function executed when the
+            button is clicked. The function receives an object with:
+            <code
+              >&#123; button: StepButton, event: Event, data: any, currentIndex:
+              number &#125;</code
+            >. This handler is always called, regardless of step navigation. Use
+            to handle button-specific actions, validation, or custom logic.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed in the button. Should match an
+            available icon in your icon library (e.g., 'arrow-right',
+            'checkmark', 'close').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconRight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the right side of the button
+            text. Useful for directional indicators (e.g., 'arrow-right' for
+            "Next" buttons).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconLeft
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the left side of the button
+            text. Useful for directional indicators (e.g., 'arrow-left' for
+            "Previous" buttons).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'button' | 'submit' | 'reset'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional HTML button type. Use 'submit' for form submission buttons,
+            'reset' for reset buttons, or 'button' (default) for regular action
+            buttons.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the button. Useful for
+            custom styling, spacing, or layout adjustments.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            size
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional button size (e.g., 'small', 'medium', 'large'). Determines
+            the button's padding, font size, and overall dimensions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the button, preventing clicks and
+            showing a disabled visual state. Useful for conditional button
+            states based on form validation or step completion.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            outline
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies outline styling to the button
+            (transparent background with border). Useful for secondary actions
+            or less prominent buttons.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            pill
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies pill/rounded styling to the button
+            (fully rounded corners). The default "Next" button uses this styling
+            for a more modern appearance.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Component Structure:</strong> The steps component consists of
+        two parts:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>ds-steps:</strong> The parent container that manages step
+            navigation and displays the step indicator
+          </li>
+          <li>
+            <strong>ds-step:</strong> Individual step components projected as
+            children, each containing its own content and buttons
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Content Projection:</strong> Each <code>ds-step</code> uses
+        <code>ng-template</code> for content projection. Place your step content
+        inside an <code>&lt;ng-template&gt;</code> tag within each
+        <code>ds-step</code>. This allows the component to control when content
+        is displayed based on the current step index.
+      </li>
+      <li>
+        <strong>Step Navigation:</strong> Navigation between steps is controlled
+        by:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <code>shouldGoNext</code> and <code>shouldGoPrev</code> flags on
+            each step
+          </li>
+          <li>The <code>currentStepIndex</code> in the parent component</li>
+          <li>
+            Button click handlers that call <code>goNext()</code> or
+            <code>goPrev()</code> methods
+          </li>
+        </ul>
+        The component automatically prevents navigation beyond the first or last
+        step.
+      </li>
+      <li>
+        <strong>Button Behavior:</strong> Buttons can have two behaviors:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Automatic navigation</strong> (default): When clicked, the
+            button triggers step navigation if allowed by
+            <code>shouldGoNext</code>/<code>shouldGoPrev</code>
+          </li>
+          <li>
+            <strong>Custom handling</strong> (<code
+              >disableHandleStep: true</code
+            >): The button only calls its <code>onClick</code> handler without
+            automatic navigation
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Event Flow:</strong> When a navigation button is clicked:
+        <ol class="list-decimal list-inside ml-4 mt-1 space-y-1">
+          <li>The button's <code>onClick</code> handler is called</li>
+          <li>If navigation is allowed, the step index is updated</li>
+          <li>
+            The <code>nextStep</code> or <code>prevStep</code> event is emitted
+            from the step component
+          </li>
+          <li>
+            The button's <code>onClick</code> handler is called again with the
+            updated index
+          </li>
+        </ol>
+      </li>
+      <li>
+        <strong>Step Validation:</strong> Use <code>shouldGoNext</code> to
+        implement step validation. Set it to <code>false</code> initially, and
+        set it to <code>true</code> when the step's requirements are met (e.g.,
+        form validation passes, required fields are filled). This prevents users
+        from advancing until the step is complete.
+      </li>
+      <li>
+        <strong>Data Passing:</strong> Each step can have a <code>data</code>
+        object that is included in navigation events. This allows you to:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Pass form data between steps</li>
+          <li>Store step-specific state</li>
+          <li>Track progress or completion status</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Variants:</strong> The <code>variant</code> property on
+        <code>ds-steps</code> controls the overall layout and styling. Common
+        variants include:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>'default'</code>: Horizontal step indicator</li>
+          <li>
+            <code>'vertical'</code>: Vertical step indicator with content on the
+            side
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Default Buttons:</strong> Each step has default buttons:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><strong>Left:</strong> Gray "Prev" button</li>
+          <li>
+            <strong>Right:</strong> Primary "Next" button with pill styling
+          </li>
+        </ul>
+        You can override these by providing custom <code>leftButtons</code> and
+        <code>rightButtons</code> arrays.
+      </li>
+      <li>
+        <strong>Multiple Buttons:</strong> You can provide multiple buttons in
+        the <code>leftButtons</code> and <code>rightButtons</code> arrays. This
+        allows for complex button layouts (e.g., "Cancel" and "Previous" on the
+        left, "Save Draft" and "Next" on the right).
+      </li>
+      <li>
+        <strong>Step Indicator:</strong> The component automatically displays a
+        step indicator showing the current step, completed steps, and upcoming
+        steps. The indicator's appearance depends on the <code>variant</code>
+        property.
+      </li>
+      <li>
+        <strong>Programmatic Navigation:</strong> You can programmatically
+        navigate to a specific step by updating the
+        <code>currentStepIndex</code>
+        input. This is useful for:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Jumping to a specific step based on user selection</li>
+          <li>Resuming a saved workflow</li>
+          <li>Implementing step skipping logic</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </section>

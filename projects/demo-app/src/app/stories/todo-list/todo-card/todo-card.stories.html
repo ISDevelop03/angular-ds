@@ -1,5 +1,6 @@
-<section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
-  <h2 class="text-2xl font-bold">TodoCard</h2>
+<section class="flex flex-col gap-4 p-4 bg-crame-50">
+  <h2 class="text-4xl font-bold mb-6">Todo Card</h2>
+  <h3 class="text-2xl font-bold">TodoCard</h3>
   <div class="flex flex-col gap-0.5 max-w-[258px] bg-neutral-25">
     <ds-todo-card
       title="Paiement de facture"
@@ -35,5 +36,345 @@
       icon="book"
       [isRead]="true"
     ></ds-todo-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed at the top of
+            the todo card. Shown in bold text with a font size of 0.875rem
+            (14px) and line height of 16px. This is the main heading for the
+            todo item (e.g., "Paiement de facture", "Virement de masse").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional description text displayed below the title. Shown in
+            smaller text (0.75rem / 12px) with gray color. This provides
+            additional context or details about the todo item. The description
+            is only rendered if provided (conditional rendering with
+            <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            date
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The due date for the todo item. Can be
+            provided as a date string (e.g., "2025-02-26") or any format
+            recognized by Angular's date pipe. The date is formatted and
+            displayed as "Date d'échéance : dd.MM.yyyy" (e.g., "Date d'échéance
+            : 26.02.2025") with a clock icon. The date is only rendered if
+            provided (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            badgeText
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The text content displayed in the badge.
+            This is the status label for the todo item (e.g., "En attente de
+            paiement", "En attente de signature"). The badge is displayed with
+            pill styling (rounded-full) and small size. The badge is only
+            rendered if <code>badgeText</code> is provided (conditional
+            rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            badgeVariant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Visual style variant for the badge.
+            Available options: <code>'default'</code>, <code>'amber'</code>,
+            <code>'blue'</code>, <code>'green'</code>, <code>'violet'</code>,
+            <code>'red'</code>, <code>'orange'</code>. Each variant has a
+            distinct background and text color combination. Common usage:
+            <code>'red'</code> for urgent/important items,
+            <code>'amber'</code> for pending items, <code>'green'</code> for
+            completed items, etc.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the left side of the card.
+            Should match an available icon in your icon library (e.g.,
+            'message', 'flag', 'file', 'book'). The icon is displayed in a
+            circular container (36px × 36px) with a border, background, and red
+            color. The icon size is 18px. The icon is only rendered if provided
+            (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isRead
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the todo item has been read.
+            Read items have different styling:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                Left border: <code>border-l border-red-500</code> (red left
+                border)
+              </li>
+              <li>
+                Background: <code>bg-card-level-6</code> (darker background)
+              </li>
+            </ul>
+            When <code>false</code> (unread), the card has:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Bottom border: <code>border-b border-stroke-1</code></li>
+              <li>Background: <code>bg-level-4</code> (lighter background)</li>
+            </ul>
+            Use to visually distinguish read vs unread todo items.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the card container.
+            Useful for custom styling, spacing, or layout adjustments. The
+            component has default styling with flex layout, padding, gap
+            spacing, and conditional borders/backgrounds based on
+            <code>isRead</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Card Layout:</strong> The todo card uses a horizontal flex
+        layout with:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Left side:</strong> Optional icon in a circular container
+          </li>
+          <li>
+            <strong>Right side:</strong> Content area with title, description,
+            badge, and date
+          </li>
+        </ul>
+        The card has padding (<code>p-2</code>) and gap spacing
+        (<code>gap-2</code>) between elements.
+      </li>
+      <li>
+        <strong>Read/Unread States:</strong> The component provides visual
+        distinction between read and unread items:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Unread</strong> (<code>isRead: false</code>): Bottom border,
+            lighter background, appears more prominent
+          </li>
+          <li>
+            <strong>Read</strong> (<code>isRead: true</code>): Red left border,
+            darker background, appears less prominent
+          </li>
+        </ul>
+        This helps users quickly identify which items need attention.
+      </li>
+      <li>
+        <strong>Badge Integration:</strong> The component uses the
+        <code>ds-badge</code> component internally to display the status badge.
+        The badge is configured with:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>pill="true"</code> for rounded-full styling</li>
+          <li><code>size="sm"</code> for small size</li>
+          <li><code>variant</code> from the <code>badgeVariant</code> input</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Date Formatting:</strong> The date is automatically formatted
+        using Angular's date pipe with the format "dd.MM.yyyy" (e.g.,
+        "26.02.2025"). The date is displayed with a clock icon and the label
+        "Date d'échéance :" (Due date:). The date pipe uses the French locale
+        format.
+      </li>
+      <li>
+        <strong>Conditional Rendering:</strong> Several elements are
+        conditionally rendered:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Icon:</strong> Only shown if <code>icon</code> is provided
+          </li>
+          <li>
+            <strong>Description:</strong> Only shown if <code>description</code>
+            is provided
+          </li>
+          <li>
+            <strong>Badge:</strong> Only shown if <code>badgeText</code> is
+            provided
+          </li>
+          <li>
+            <strong>Date:</strong> Only shown if <code>date</code> is provided
+          </li>
+        </ul>
+        This allows for flexible card layouts based on available data.
+      </li>
+      <li>
+        <strong>Icon Styling:</strong> When an icon is provided, it's displayed
+        in a circular container with:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Size: 36px × 36px (<code>size-[36px]</code>)</li>
+          <li>Border: <code>border border-stroke-1</code></li>
+          <li>Background: <code>bg-card-level-2</code></li>
+          <li>Icon color: Red (<code>text-red-500</code>)</li>
+          <li>Icon size: 18px</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Typography:</strong> The card uses specific font sizes and
+        weights:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Title:</strong> 0.875rem (14px) font size, 16px line height,
+            bold weight
+          </li>
+          <li>
+            <strong>Description:</strong> 0.75rem (12px) font size, 16px line
+            height, normal weight, gray color
+          </li>
+          <li>
+            <strong>Date:</strong> 0.75rem (12px) font size, 16px line height,
+            normal weight, gray color
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Spacing:</strong> The card uses consistent spacing:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Card padding: <code>p-2</code> (8px)</li>
+          <li>Gap between icon and content: <code>gap-2</code> (8px)</li>
+          <li>Gap between content elements: <code>gap-3</code> (12px)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Use Cases:</strong> This component is designed for displaying
+        todo items, tasks, or notifications in a list format, such as:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Task lists</li>
+          <li>Notification cards</li>
+          <li>Action items</li>
+          <li>Pending approvals</li>
+          <li>Reminders or alerts</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Badge Variants:</strong> The badge variant determines the visual
+        appearance of the status badge. Common usage patterns:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>'red'</code>: Urgent items, errors, or critical status</li>
+          <li>
+            <code>'amber'</code>: Pending items, warnings, or in-progress status
+          </li>
+          <li><code>'green'</code>: Completed items or success status</li>
+          <li><code>'blue'</code>: Informational items or neutral status</li>
+          <li><code>'violet'</code>: Special or custom status</li>
+          <li>
+            <code>'orange'</code>: High priority or attention-required status
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Responsive Design:</strong> The card uses flexbox for layout,
+        making it responsive. The content area takes up the available space, and
+        the icon (if provided) is positioned on the left. The card maintains its
+        structure across different screen sizes.
+      </li>
+    </ul>
   </div>
 </section>

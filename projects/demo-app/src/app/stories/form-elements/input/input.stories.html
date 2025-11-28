@@ -1,5 +1,6 @@
-<div class="p-4 grid gap-4 bg-crame-50 min-h-screen">
-  <h2>Default Input</h2>
+<div class="p-4 bg-crame-50 min-h-screen flex flex-col gap-6">
+  <h2 class="text-4xl font-bold mb-6">Input Component</h2>
+  <h3 class="text-2xl font-bold">Default</h3>
   <ds-input
     id="default-input"
     name="default-input"
@@ -15,8 +16,8 @@
     pattern="[0-9]*"
     [tooltip]="'tooltip'"
   ></ds-input>
+  <h3 class="text-2xl font-bold">Password</h3>
   <ds-input
-    display="inline"
     [label]="'Text Input'"
     required="true"
     [placeholder]="'Enter text...'"
@@ -26,84 +27,602 @@
     (onClick)="onClick($event)"
     [password]="true"
   ></ds-input>
-
-  {{textValue}}
-
-  <ds-input [(value)]="amount" prefix="$" suffix="USD"></ds-input>
-  <ds-input [(value)]="amount">
-    <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
-
-    <button suffix (click)="onClear()" class="text-neutral-500">
-      <ds-icon prefix id="close" size="24"></ds-icon>
-    </button>
-  </ds-input>
-  <h2>Search Input</h2>
+  <h3 class="text-2xl font-bold">Disabled</h3>
   <ds-input
-    variant="search"
-    [(value)]="amount"
-    prefix="$"
-    suffix="USD"
-  ></ds-input>
-  <ds-input [(value)]="amount">
-    <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
-
-    <button suffix (click)="onClear()" class="text-neutral-500">
-      <ds-icon prefix id="close" size="24"></ds-icon>
-    </button>
-  </ds-input>
-
-  <ds-input
-    [label]="'Number Input'"
-    [type]="'number'"
-    [value]="numberValue"
-    (valueChange)="handleNumberChange($event)"
-    variant="default"
-  ></ds-input>
-
-  <ds-input
-    [label]="'Disabled Input'"
-    [value]="disabledValue"
+    [label]="'Text Input'"
+    required="true"
     [disabled]="true"
-    variant="default"
     [placeholder]="'Enter text...'"
-  ></ds-input>
-
-  <ds-input
-    display="inline"
-    [label]="'Error Input'"
-    [value]="errorValue"
-    [hasError]="true"
-    [errorMessage]="'This field is required.'"
-    [description]="'This field is required.'"
-    (valueChange)="handleErrorChange($event)"
+    [value]="textValue"
     variant="default"
-    [placeholder]="'Enter Input...'"
+    (onInput)="handleInputChange($event)"
   ></ds-input>
+  <h3 class="text-2xl font-bold">Error</h3>
+  <ds-input
+    [label]="'Text Input'"
+    required="true"
+    [hasError]="true"
+    [errorMessage]="'Error message'"
+    [placeholder]="'Enter text...'"
+    [value]="textValue"
+    variant="default"
+  ></ds-input>
+  <h3 class="text-2xl font-bold">Prefix and Suffix (Text)</h3>
+  <ds-input
+    [label]="'Text Input'"
+    required="true"
+    [prefix]="'$'"
+    [suffix]="'USD'"
+    [placeholder]="'Enter text...'"
+    [value]="textValue"
+    variant="default"
+  >
+  </ds-input>
+  <h3 class="text-2xl font-bold">Prefix and Suffix (Icon)</h3>
+  <ds-input
+    [label]="'Text Input'"
+    required="true"
+    [placeholder]="'Enter text...'"
+    [value]="textValue"
+    variant="default"
+  >
+    <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
+    <button suffix (click)="onClear()" class="text-neutral-500">
+      <ds-icon prefix id="close" size="24"></ds-icon>
+    </button>
+  </ds-input>
 
-  <form [formGroup]="loginForm" class="grid gap-4">
-    <ds-input
-      id="email"
-      required="true"
-      name="email"
-      label="Email"
-      formControlName="email"
-      [hasError]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
-      [errorMessage]="'Email is invalid!'"
-    ></ds-input>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
-    <ds-select
-      formControlName="country"
-      label="Country"
-      required="true"
-      [items]="countries"
-      [hasError]="loginForm.get('country')?.invalid && loginForm.get('country')?.touched"
-      [errorMessage]="'Country is invalid!'"
-    >
-    </ds-select>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the input element.
+            Used to associate the label with the input for accessibility. Also
+            used as the <code>for</code> attribute on the label element.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Name attribute for the input element.
+            Used for form submission and Angular forms integration. Should match
+            the form control name when using reactive forms.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed above the input field. When provided,
+            a label element is rendered and associated with the input via the
+            <code>id</code> attribute. The label is hidden when
+            <code>type</code> is 'hidden'. A red asterisk (*) is automatically
+            appended when <code>required</code> is <code>true</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default' | 'search'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant for the input component.
+            <code>'default'</code>: standard input styling with neutral
+            background. <code>'search'</code>: search input styling with
+            different background and label styling. Each variant has its own
+            theme configuration for wrapper, label, input, and error states.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            display
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'inline' | 'block'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'block'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Layout display mode for the input and label. <code>'block'</code>:
+            label appears above the input (default). <code>'inline'</code>:
+            label and input are displayed side-by-side in a flex row. When
+            inline, the label margin is adjusted and positioned at the top if
+            description or error message is present.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'text'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            HTML input type attribute (e.g., 'text', 'email', 'password',
+            'number', 'tel', 'url', 'hidden'). When set to 'hidden', the label
+            is not rendered and the wrapper border is removed. When set to
+            'number', special styling is applied to hide number input spinners.
+            Standard HTML input types are supported.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional placeholder text displayed inside the input when it's
+            empty. Provides hints or examples of expected input format. The
+            placeholder has different styling in light and dark modes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            prefix
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional text or content displayed before the input field (on the
+            left side). Can be a string or projected content via
+            <code>ng-content select="[prefix]"</code>. If both string and
+            projected content are provided, projected content takes precedence.
+            Useful for currency symbols, icons, or other prefixes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            suffix
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional text or content displayed after the input field (on the
+            right side). Can be a string or projected content via
+            <code>ng-content select="[suffix]"</code>. If both string and
+            projected content are provided, projected content takes precedence.
+            Useful for units, icons, or action buttons (e.g., password toggle).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The input value. Can be bound using two-way binding with
+            <code>[(value)]</code> or one-way binding with <code>[value]</code>.
+            The component implements <code>ControlValueAccessor</code>, so it
+            can be used with Angular reactive forms and template-driven forms.
+            Value changes are automatically synchronized with Angular forms.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the input field. The input becomes
+            non-interactive, shows disabled styling (gray background, reduced
+            opacity), and prevents user input. Also sets the disabled state for
+            Angular forms integration.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            required
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, marks the input as required. A red asterisk
+            (*) is automatically appended to the label text. Use with Angular
+            forms validation to indicate mandatory fields. The HTML
+            <code>required</code> attribute is also set on the input element.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            hasError
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies error styling to the input (red
+            border, red text). Should be used together with
+            <code>errorMessage</code> to display validation errors. The error
+            state overrides hover and focus states with red colors.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errorMessage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional error message text displayed below the input field. Shown
+            in red text when <code>hasError</code> is <code>true</code>. Use to
+            display validation error messages from Angular forms or custom
+            validation logic. The label text also turns red when both
+            <code>hasError</code> and <code>errorMessage</code> are provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional descriptive text displayed below the input field. Shown in
+            smaller gray text. Use to provide additional context, hints, or
+            instructions about the expected input. Displayed above the error
+            message if both are present.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tooltip
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional tooltip content displayed next to the label. Can be a
+            string or a template reference. When provided, an info icon is shown
+            next to the label, and hovering over it displays the tooltip. Useful
+            for providing additional help or context about the input field.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            password
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, enables password visibility toggle
+            functionality. The input type automatically switches between
+            'password' and 'text' based on the toggle state. A toggle button is
+            typically shown in the suffix area to allow users to show/hide the
+            password. Use for password input fields.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the input component
+            container. Useful for custom styling, layout adjustments, or
+            spacing. Applied to the outermost wrapper element.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            inputClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply directly to the input
+            element. Useful for custom input styling that doesn't affect the
+            wrapper or other elements. Applied to the native
+            <code>&lt;input&gt;</code> element.
+          </td>
+        </tr>
 
-    {{loginForm.get('country')?.invalid && loginForm.get('country')?.touched ?
-    'Invalid country' : 'Valid country'}}
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;Event&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the input field is clicked. Provides the native click
+            event. Use to handle click interactions on the input field.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onInput
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;Event&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted on every input change (as the user types). Provides the
+            native input event. The component automatically updates its internal
+            value and notifies Angular forms. Use to handle real-time input
+            changes, validation, or live updates.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;Event&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the input value changes and the field loses focus
+            (blur). Provides the native change event. Use to handle value
+            changes that occur when the user finishes editing the field.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onFocus
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;FocusEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the input field receives focus. Provides the native
+            focus event. Use to handle focus interactions, show additional UI,
+            or trigger validation.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onBlur
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;FocusEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the input field loses focus. Provides the native blur
+            event. The component automatically marks the field as touched for
+            Angular forms. Use to handle blur interactions, trigger validation,
+            or save data.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onKeydown
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;KeyboardEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a key is pressed down while the input has focus.
+            Provides the native keyboard event. Use to handle keyboard
+            interactions, shortcuts, or special key handling.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onKeyup
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;KeyboardEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a key is released while the input has focus. Provides
+            the native keyboard event. Use to handle keyboard interactions after
+            a key is released.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onEnter
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;KeyboardEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the Enter key is pressed while the input has focus.
+            Provides the keyboard event. Use to submit forms, trigger actions,
+            or navigate to the next field.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onEscape
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;KeyboardEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the Escape key is pressed while the input has focus.
+            Provides the keyboard event. Use to cancel actions, clear the input,
+            or close modals.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onPaste
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;ClipboardEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when content is pasted into the input field. Provides the
+            clipboard event. Use to handle paste operations, validate pasted
+            content, or transform pasted data.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;UIEvent&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when text is selected in the input field. Provides the UI
+            event. Use to handle text selection, show context menus, or provide
+            selection-based actions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <pre>{{ loginForm.value | json }}</pre>
-  </form>
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>ControlValueAccessor:</strong> This component implements
+        <code>ControlValueAccessor</code>, making it fully compatible with
+        Angular reactive forms and template-driven forms. You can use it with
+        <code>FormControl</code>, <code>FormGroup</code>, and
+        <code>ngModel</code>.
+      </li>
+      <li>
+        <strong>Content Projection:</strong> The component supports content
+        projection for prefix and suffix via <code>ng-content</code>. Use
+        <code>&lt;ng-content select="[prefix]"&gt;</code> and
+        <code>&lt;ng-content select="[suffix]"&gt;</code> to project custom
+        content (e.g., icons, buttons) into the input wrapper.
+      </li>
+      <li>
+        <strong>HTML Attributes:</strong> Standard HTML input attributes (e.g.,
+        <code>maxlength</code>, <code>minlength</code>, <code>pattern</code>,
+        <code>autocomplete</code>, <code>readonly</code>) are automatically
+        forwarded to the native input element via <code>ngAfterViewInit</code>.
+      </li>
+      <li>
+        <strong>Password Toggle:</strong> When <code>password</code> is
+        <code>true</code>, the component manages password visibility state
+        internally. A toggle button should be provided in the suffix area to
+        allow users to show/hide the password.
+      </li>
+    </ul>
+  </div>
 </div>

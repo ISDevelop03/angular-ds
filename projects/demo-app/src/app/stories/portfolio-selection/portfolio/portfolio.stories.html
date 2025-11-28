@@ -1,5 +1,5 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
-  <h2 class="text-2xl font-bold">Portfolio</h2>
+  <h2 class="text-4xl font-bold mb-6">Portfolio</h2>
   <div class="flex flex-col gap-4 max-w-[250px]">
     <ds-portfolio
       [portfolios]="mockData"
@@ -7,5 +7,413 @@
       [holding]="holding"
       (clicked)="onSelect($event)"
     ></ds-portfolio>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            portfolios
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Portfolio[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of portfolio items to display in
+            the dropdown. Each portfolio item is displayed as a selectable card.
+            The portfolios are paginated based on <code>perPage</code>. See the
+            <strong>Portfolio Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selected
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Portfolio | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The currently selected portfolio. Displayed in the main selector
+            card at the top. When provided, this portfolio is shown as selected.
+            When <code>null</code>, the first portfolio from
+            <code>portfolios</code> array is used as the default selection.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            holding
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Portfolio | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional special portfolio item displayed at the top of the dropdown
+            list (above the regular portfolios). Typically used for a "holding"
+            or special portfolio option. When provided, it's displayed using the
+            <code>ds-portfolio-vision-card</code> component. When
+            <code>null</code>, it's not displayed.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            show
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Initial visibility state of the dropdown. When <code>true</code>,
+            the dropdown is open on component initialization. When
+            <code>false</code>, the dropdown is closed. The dropdown can be
+            toggled by clicking the selector card. When the dropdown is open,
+            body scroll is disabled.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showDots
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">true</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays pagination dots and navigation
+            arrows when there are multiple pages (<code>totalPages > 1</code>).
+            When <code>false</code>, pagination controls are hidden. The dots
+            indicate the current page and allow navigation between pages.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            perPage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">4</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Number of portfolio items to display per page. The portfolios array
+            is paginated based on this value. The component automatically
+            calculates <code>totalPages</code> based on
+            <code>portfolios.length</code> and <code>perPage</code>. Use to
+            control how many items are visible at once.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currentPage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">1</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The currently active page number (1-based). Controls which set of
+            portfolios is displayed. When changed, the component displays the
+            portfolios for that page. The component automatically resets to page
+            1 if <code>currentPage</code> exceeds <code>totalPages</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            totalPages
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">1</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Total number of pages calculated from
+            <code>portfolios.length</code> and <code>perPage</code>. The
+            component automatically calculates this value using
+            <code>Math.ceil(portfolios.length / perPage)</code>. Used to
+            determine pagination controls visibility and navigation limits.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            totalItems
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Total number of items (for display purposes). Currently available as
+            an input property for future use or custom implementations. The
+            component primarily uses <code>portfolios.length</code> for
+            calculations.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the portfolio component
+            container. Useful for custom styling, layout adjustments, or
+            responsive sizing (e.g., <code>max-w-[250px]</code>). The component
+            has default styling with relative positioning, z-index, flex layout,
+            and gap spacing.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            clicked
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;Portfolio&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a portfolio item is selected (clicked). Provides the
+            selected <code>Portfolio</code> object. This event is triggered
+            when:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>A regular portfolio item card is clicked</li>
+              <li>The holding portfolio (if provided) is clicked</li>
+            </ul>
+            When a portfolio is selected, the dropdown automatically closes and
+            the selected portfolio is displayed in the selector card. Use to
+            handle portfolio selection, update state, or trigger actions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            pageChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;number&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the user navigates to a different page. Provides the
+            new page number (1-based). Triggered when:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>A pagination dot is clicked</li>
+              <li>The previous arrow button is clicked</li>
+              <li>The next arrow button is clicked</li>
+            </ul>
+            Use to sync the page state with your application or perform actions
+            when the page changes.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Portfolio Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># Portfolio Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>Portfolio</code> interface defines the structure for portfolio
+    items passed to the <code>portfolios</code>, <code>selected</code>, and
+    <code>holding</code> input properties.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the portfolio item.
+            Used to determine which portfolio is selected (compared with
+            <code>selectedPortfolio.id</code>). Can be a string, number, or any
+            value that can be used for comparison.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed for the
+            portfolio. Shown in the selector card and in each portfolio item
+            card. This is the primary label for the portfolio (e.g., portfolio
+            name, account name).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> URL or path to the portfolio image. The
+            image is displayed in the selector card and in each portfolio item
+            card. Used for visual identification of the portfolio.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            reference
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional reference text displayed in the selector card. Shown below
+            or alongside the title. Use to provide additional information about
+            the portfolio (e.g., account number, reference code, identifier).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Dropdown Behavior:</strong> The component displays a dropdown
+        menu when the selector card is clicked. The dropdown includes:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>A backdrop overlay that closes the dropdown when clicked</li>
+          <li>The holding portfolio (if provided) at the top</li>
+          <li>Paginated list of regular portfolios</li>
+          <li>
+            Pagination controls (dots and arrows) when multiple pages exist
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Animations:</strong> The dropdown uses Angular animations with a
+        scale and fade effect. The animation triggers when the dropdown opens or
+        closes, providing smooth transitions.
+      </li>
+      <li>
+        <strong>Body Scroll Lock:</strong> When the dropdown is open, the
+        component automatically disables body scrolling by adding the
+        <code>overflow-hidden</code> class to the document body. This prevents
+        background scrolling while the dropdown is visible.
+      </li>
+      <li>
+        <strong>Pagination:</strong> The component automatically paginates the
+        portfolios based on <code>perPage</code>. Pagination controls are only
+        shown when <code>showDots</code> is <code>true</code> and
+        <code>totalPages > 1</code>. The pagination displays:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Item range (e.g., "1-4 of 10")</li>
+          <li>Previous/next arrow buttons</li>
+          <li>
+            Pagination dots (one per page, active dot is highlighted in red)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Selection State:</strong> The selected portfolio is visually
+        indicated in both the selector card and the dropdown list. Portfolio
+        items are compared by their <code>id</code> property to determine
+        selection state.
+      </li>
+      <li>
+        <strong>Auto-close:</strong> When a portfolio is selected, the dropdown
+        automatically closes and body scroll is re-enabled. The selected
+        portfolio is then displayed in the selector card.
+      </li>
+      <li>
+        <strong>Default Selection:</strong> If <code>selected</code> is
+        <code>null</code> and <code>portfolios</code> has items, the first
+        portfolio in the array is used as the default selection.
+      </li>
+    </ul>
   </div>
 </section>

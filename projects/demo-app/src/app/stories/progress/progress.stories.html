@@ -1,5 +1,6 @@
 <div class="p-4 flex flex-col min-h-screen dark:bg-black bg-white gap-5">
-  <h2 class="text-3xl font-bold">Progress Variants</h2>
+  <h2 class="text-4xl font-bold mb-6">Progress</h2>
+  <h3 class="text-3xl font-bold">Progress Variants</h3>
 
   <div
     *ngFor="let t of types"
@@ -26,4 +27,273 @@
     [percentage]="30"
     [total]="60"
   ></ds-progress>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            percentage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The progress value. When <code>total</code> is provided, this
+            represents the current value (e.g., 30 out of 60). When
+            <code>total</code> is not provided, this represents the percentage
+            directly (0-100). The component automatically calculates the
+            percentage for display: if <code>total</code> exists, it calculates
+            <code>(percentage / total) * 100</code>; otherwise, it uses
+            <code>percentage</code> directly.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            total
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional total value for progress calculation. When provided, the
+            component calculates the percentage as
+            <code>(percentage / total) * 100</code>. The display shows both
+            values: <code>percentage / total</code> (e.g., "30/60"). When not
+            provided, the component uses <code>percentage</code> directly as the
+            percentage value (0-100). Useful for showing progress as a fraction
+            (e.g., 30 items out of 60 total).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >'neutral' | 'success' | 'warning' | 'error'</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'neutral'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant for the progress bar. Determines the color of
+            the progress indicator:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li><code>'neutral'</code>: Gray progress bar (default)</li>
+              <li>
+                <code>'success'</code>: Green progress bar for successful
+                operations or completion
+              </li>
+              <li>
+                <code>'warning'</code>: Yellow progress bar for warnings or
+                caution
+              </li>
+              <li>
+                <code>'error'</code>: Red progress bar for errors or failures
+              </li>
+            </ul>
+            Each variant has distinct color styling for the progress indicator.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'inline' | 'block'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'block'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Layout display type for the progress component:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'block'</code>: Vertical layout with label/value above the
+                progress bar. The label (if provided) and value are displayed in
+                a row above the progress bar.
+              </li>
+              <li>
+                <code>'inline'</code>: Horizontal layout with progress bar and
+                value side-by-side. The progress bar and value are displayed in
+                a flex row with gap spacing.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed above the progress bar (only for
+            <code>type="block"</code>). Shown on the left side of the header
+            row, with the value on the right. When provided, the header uses
+            space-between justification. When not provided, only the value is
+            shown, right-aligned. Use to provide context or description for the
+            progress (e.g., 'With total example', 'Upload Progress').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            suffix
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional suffix text appended to the percentage value. Displayed
+            immediately after the percentage number (e.g., '%' for "30%", 'GB'
+            for "5GB"). The suffix appears before the total fraction if
+            <code>total</code> is provided (e.g., "30%/60" or "30% / 60").
+            Useful for units or symbols.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the progress component
+            wrapper. Useful for custom styling, layout adjustments, or
+            responsive sizing. The component has default styling with full
+            width. When <code>type="inline"</code>, flex layout with gap is
+            applied.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Progress Calculation:</strong> The component automatically
+        calculates the visual progress percentage:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            When <code>total</code> is provided:
+            <code>(percentage / total) * 100</code>
+          </li>
+          <li>
+            When <code>total</code> is not provided: Uses
+            <code>percentage</code>
+            directly (should be 0-100)
+          </li>
+        </ul>
+        The calculated percentage is used to set the width of the progress
+        indicator bar.
+      </li>
+      <li>
+        <strong>Value Display:</strong> The displayed value format depends on
+        inputs:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            Without <code>total</code>: <code>percentage + suffix</code> (e.g.,
+            "30%")
+          </li>
+          <li>
+            With <code>total</code>:
+            <code>percentage + suffix + "/" + total</code> (e.g., "30%/60" or
+            "30% / 60")
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Progress Bar:</strong> The progress bar consists of:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            A background bar (container) with rounded corners and stroke
+            background
+          </li>
+          <li>
+            A progress indicator (filled portion) with variant-specific color,
+            positioned absolutely, and animated with smooth transitions
+          </li>
+        </ul>
+        The progress indicator width is set dynamically based on
+        <code>calcPercentage</code>.
+      </li>
+      <li>
+        <strong>Animations:</strong> The progress indicator has smooth
+        transitions for both color and width changes. When the percentage
+        changes, the width animates smoothly over 300ms with ease-in-out timing.
+        This provides a polished user experience when updating progress values.
+      </li>
+      <li>
+        <strong>Layout Differences:</strong>
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Block type:</strong> Label and value are shown above the
+            progress bar in a horizontal row. The value is right-aligned if no
+            label, or space-between if label exists.
+          </li>
+          <li>
+            <strong>Inline type:</strong> Progress bar and value are shown
+            side-by-side in a flex row with gap spacing. No label is displayed
+            in inline mode.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Accessibility:</strong> The progress bar uses semantic HTML and
+        can be enhanced with ARIA attributes for screen readers. Consider adding
+        <code>role="progressbar"</code>, <code>aria-valuenow</code>,
+        <code>aria-valuemin</code>, and <code>aria-valuemax</code> attributes
+        for better accessibility.
+      </li>
+    </ul>
+  </div>
 </div>

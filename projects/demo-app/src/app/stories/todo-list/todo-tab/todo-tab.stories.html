@@ -1,5 +1,6 @@
-<section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">TodoTab</h2>
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Todo Tab</h2>
+  <h3 class="text-2xl font-bold">TodoTab</h3>
   <div class="mr-auto w-fit">
     <div class="bg-level-4 px-4 rounded">
       <div class="flex relative gap-3 items-center justify-start max-w-[258px]">
@@ -18,5 +19,334 @@
         ></ds-todo-tab>
       </div>
     </div>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed below the count
+            and icon. Shown in small text (0.75rem / 12px) with medium font
+            weight. This is the label for the todo tab (e.g., "Mes opérations en
+            attente", "Tâches administratives").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            count
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The number displayed prominently at the top of the tab. Shown in
+            large text (2rem / 32px) with bold font weight and gray color. This
+            typically represents the number of items or tasks in the category
+            (e.g., 6, 4). The count is always displayed, even if 0.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed next to the count. Should match
+            an available icon in your icon library (e.g., 'flag', 'message',
+            'file'). The icon is displayed in red color
+            (<code>text-red-500</code>) with a size of 20px. The icon is only
+            rendered if provided (conditional rendering with
+            <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isOpen
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the tab is in an open/active
+            state. Open tabs have:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Red bottom border: <code>border-red-500</code></li>
+              <li>Arrow icon rotated 180 degrees and colored red</li>
+            </ul>
+            When <code>false</code> (closed), the tab has:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                Transparent bottom border: <code>border-transparent</code>
+              </li>
+              <li>Arrow icon in default position and color</li>
+            </ul>
+            Use to control the visual state of the tab and indicate which
+            section is currently active or expanded.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">() => void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the tab is clicked. The
+            function receives no parameters. Use to handle tab clicks, toggle
+            the <code>isOpen</code> state, or perform other actions when the
+            user interacts with the tab. The callback is only executed if
+            provided (conditional execution with
+            <code>onClick && onClick()</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the tab container.
+            Useful for custom styling, spacing, or layout adjustments. The
+            component has default styling with flex layout, padding, gap
+            spacing, and conditional borders based on <code>isOpen</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Tab Layout:</strong> The todo tab uses a vertical flex layout
+        with:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Top section:</strong> Count number and optional icon
+            displayed in a horizontal flex container
+          </li>
+          <li>
+            <strong>Bottom section:</strong> Title text and arrow icon displayed
+            in a horizontal flex container with space-between alignment
+          </li>
+        </ul>
+        The tab has padding (<code>py-3</code>) and gap spacing
+        (<code>gap-2</code>) between sections.
+      </li>
+      <li>
+        <strong>Open/Closed States:</strong> The component provides visual
+        distinction between open and closed states:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Open</strong> (<code>isOpen: true</code>): Red bottom
+            border, arrow rotated 180 degrees and colored red, appears active
+          </li>
+          <li>
+            <strong>Closed</strong> (<code>isOpen: false</code>): Transparent
+            bottom border, arrow in default position, appears inactive
+          </li>
+        </ul>
+        The transitions are animated with
+        <code>transition-all duration-500 ease-in-out</code> for smooth state
+        changes.
+      </li>
+      <li>
+        <strong>Count Display:</strong> The count is displayed prominently at
+        the top:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Font size: 2rem (32px)</li>
+          <li>Line height: 32px</li>
+          <li>Font weight: Bold</li>
+          <li>Color: Gray (<code>text-neutral-600</code>)</li>
+        </ul>
+        The count is always displayed, even if 0, allowing users to see when
+        there are no items in a category.
+      </li>
+      <li>
+        <strong>Icon Display:</strong> When an icon is provided, it's displayed
+        next to the count:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Icon size: 20px</li>
+          <li>Icon color: Red (<code>text-red-500</code>)</li>
+          <li>Gap between count and icon: <code>gap-2</code> (8px)</li>
+        </ul>
+        The icon helps visually identify the category or type of items in the
+        tab.
+      </li>
+      <li>
+        <strong>Arrow Icon:</strong> The component always displays an
+        "arrow-down" icon at the bottom right:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>When closed:</strong> Arrow points down in default color
+          </li>
+          <li>
+            <strong>When open:</strong> Arrow is rotated 180 degrees (points up)
+            and colored red
+          </li>
+        </ul>
+        The rotation and color change are animated with transitions, providing
+        visual feedback about the tab's state.
+      </li>
+      <li>
+        <strong>Click Handling:</strong> The tab is clickable and has:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>tabindex="0"</code> for keyboard accessibility</li>
+          <li><code>role="button"</code> for screen readers</li>
+          <li>Click handler that executes <code>onClick</code> if provided</li>
+        </ul>
+        The click handler is conditionally executed, so the tab can be used with
+        or without an <code>onClick</code> callback.
+      </li>
+      <li>
+        <strong>Typography:</strong> The tab uses specific font sizes and
+        weights:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Count:</strong> 2rem (32px) font size, 32px line height,
+            bold weight, gray color
+          </li>
+          <li>
+            <strong>Title:</strong> 0.75rem (12px) font size, 16px line height,
+            medium weight, neutral-900 color
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Spacing:</strong> The tab uses consistent spacing:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Vertical padding: <code>py-3</code> (12px top and bottom)</li>
+          <li>Gap between sections: <code>gap-2</code> (8px)</li>
+          <li>Gap between count and icon: <code>gap-2</code> (8px)</li>
+          <li>Gap between title and arrow: <code>gap-2</code> (8px)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Border Styling:</strong> The tab has a bottom border that
+        changes based on state:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Open:</strong> <code>border-b border-red-500</code> (red
+            bottom border, 1px)
+          </li>
+          <li>
+            <strong>Closed:</strong> <code>border-b border-transparent</code>
+            (transparent bottom border, maintains layout)
+          </li>
+        </ul>
+        The border transition is animated for smooth state changes.
+      </li>
+      <li>
+        <strong>Use Cases:</strong> This component is designed for displaying
+        todo categories or tabs in a todo list interface, such as:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            Todo list categories (e.g., "Pending", "In Progress", "Completed")
+          </li>
+          <li>Task groups with item counts</li>
+          <li>Filterable sections in a todo application</li>
+          <li>Expandable/collapsible todo categories</li>
+        </ul>
+      </li>
+      <li>
+        <strong>State Management:</strong> The component doesn't manage its own
+        state internally. You need to:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Control the <code>isOpen</code> state externally</li>
+          <li>Provide an <code>onClick</code> callback to toggle the state</li>
+          <li>Update the <code>isOpen</code> value when the tab is clicked</li>
+        </ul>
+        This allows for flexible state management and integration with parent
+        components or state management libraries.
+      </li>
+      <li>
+        <strong>Accessibility:</strong> The component includes accessibility
+        features:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>tabindex="0"</code> for keyboard navigation</li>
+          <li><code>role="button"</code> for screen readers</li>
+          <li>Click handler for mouse and keyboard interactions</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Responsive Design:</strong> The tab uses flexbox for layout,
+        making it responsive. The content adapts to the available width, and the
+        title and arrow maintain their alignment across different screen sizes.
+      </li>
+      <li>
+        <strong>Multiple Tabs:</strong> When using multiple tabs side by side,
+        you typically:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Place them in a flex container with horizontal layout</li>
+          <li>Add separators between tabs (e.g., vertical dividers)</li>
+          <li>
+            Manage the <code>isOpen</code> state for each tab independently
+          </li>
+          <li>
+            Ensure only one tab is open at a time (if using accordion-style
+            behavior)
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </section>

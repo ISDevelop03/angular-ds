@@ -1,4 +1,5 @@
 <div class="p-4 flex flex-col gap-y-4 bg-gradient-crame min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Shortcuts</h2>
   <h3 class="text-2xl font-bold">Shortcut Card</h3>
   <div class="max-w-[325px]">
     <ds-shortcuts
@@ -7,5 +8,444 @@
       [shortcuts]="shortcuts"
     ></ds-shortcuts>
   </div>
- 
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ShortcutItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of shortcut items displayed in a
+            2-column grid. Each item can be either a regular shortcut (with
+            <code>isShortcut: true</code>) or a placeholder for adding new
+            shortcuts (with <code>isShortcut: false</code>). Regular shortcuts
+            are clickable and can be removed. Placeholders open a dropdown to
+            select new shortcuts. See the
+            <strong>ShortcutItem Interface</strong>
+            section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            shortcuts
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">DropdownShortcut[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of available shortcuts displayed in
+            the dropdown menu when a placeholder item is clicked. Each shortcut
+            can be selected to add it to the <code>items</code> array. Shortcuts
+            that are already selected (present in <code>items</code>) should
+            have <code>isSelected: true</code>. See the
+            <strong>DropdownShortcut Interface</strong> section below for
+            details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the grid container
+            holding the shortcut items. Useful for custom styling, layout
+            adjustments, or responsive sizing (e.g.,
+            <code>max-w-[325px]</code>). The component has default styling with
+            a 2-column grid layout and gap spacing.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            click
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when various actions occur in the shortcuts component.
+            Provides different payloads based on the action:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <strong>Shortcut click:</strong> When a regular shortcut item
+                (with <code>isShortcut: true</code>) is clicked, emits the item
+                with its index: <code>&#123; ...item, idx: number &#125;</code>
+              </li>
+              <li>
+                <strong>Navigation:</strong> When a non-shortcut item is
+                clicked, emits:
+                <code
+                  >&#123; action: 'navigate', item: ShortcutItem, idx: number
+                  &#125;</code
+                >
+              </li>
+              <li>
+                <strong>Remove:</strong> When a shortcut's remove button is
+                clicked, emits:
+                <code
+                  >&#123; action: 'remove', item: ShortcutItem, idx: number
+                  &#125;</code
+                >
+              </li>
+              <li>
+                <strong>Add:</strong> When a shortcut is selected from the
+                dropdown, emits:
+                <code
+                  >&#123; action: 'add', shortcut: DropdownShortcut,
+                  placeholderIdx: number, idx: number &#125;</code
+                >
+              </li>
+            </ul>
+            Use to handle navigation, removal, addition, or other shortcut
+            actions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            removed
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;&#123; item: DropdownShortcut; idx: number
+              &#125;&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a shortcut is removed from the items array. Provides an
+            object with the removed item and its index:
+            <code>&#123; item: DropdownShortcut, idx: number &#125;</code>. The
+            component automatically removes the item from the
+            <code>items</code> array using <code>splice</code>. Use to track
+            removals, update state, or perform cleanup actions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ShortcutItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># ShortcutItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>ShortcutItem</code> interface defines the structure for shortcut
+    items passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Icon identifier displayed in the shortcut
+            card. Should match an available icon in your icon library (e.g.,
+            'home', 'settings', 'user'). The icon is displayed in a square
+            container (28px × 28px) with green color and background.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed in the shortcut
+            card. Shown next to the icon in semibold text. This is the label for
+            the shortcut (e.g., 'Home', 'Settings', 'Profile'). When
+            <code>href</code> is provided and <code>isShortcut</code> is
+            <code>true</code>, the title is rendered as a link.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path. When provided and
+            <code>isShortcut</code> is <code>true</code>, the title is rendered
+            as an anchor tag for navigation. Can be a relative path, absolute
+            URL, or route path depending on your routing setup. The link covers
+            the entire card area via absolute positioning.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isShortcut
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, the item is a regular shortcut that can be
+            clicked and removed. When <code>false</code> or
+            <code>undefined</code>, the item is a placeholder that opens the
+            dropdown menu when clicked to add a new shortcut. Regular shortcuts
+            have different styling (darker background) and show a remove button
+            on hover. Placeholders have lighter background styling.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DropdownShortcut Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># DropdownShortcut Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>DropdownShortcut</code> interface defines the structure for
+    available shortcuts passed to the <code>shortcuts</code> input property.
+    These shortcuts appear in the dropdown menu when a placeholder is clicked.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed in the dropdown
+            menu item. Shown in bold text. This is the label for the available
+            shortcut option (e.g., 'Home', 'Settings', 'Profile').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path. When provided, the shortcut can be used
+            for navigation. Can be a relative path, absolute URL, or route path
+            depending on your routing setup. This href can be passed to the
+            <code>ShortcutItem</code> when the shortcut is added to the items
+            array.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isSelected
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that this shortcut is already
+            present in the <code>items</code> array. Selected shortcuts are
+            displayed with reduced opacity, disabled cursor, and a minus icon
+            (red) instead of an add icon. They cannot be selected again. Use to
+            prevent duplicate shortcuts.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(data: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Callback function executed when the
+            shortcut is selected from the dropdown. Receives an object with
+            <code>shortcut</code> and <code>idx</code> properties:
+            <code>&#123; shortcut: DropdownShortcut, idx: number &#125;</code>.
+            The component automatically calls this handler after emitting the
+            <code>click</code> event with action 'add'. Use to handle shortcut
+            selection, update state, or perform additional actions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Grid Layout:</strong> The shortcuts are displayed in a 2-column
+        grid layout. Each shortcut item is a card with an icon, title, and
+        optional remove button. The grid automatically wraps items to new rows
+        as needed.
+      </li>
+      <li>
+        <strong>Shortcut Types:</strong> Items can be either:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Regular shortcuts</strong> (<code>isShortcut: true</code>):
+            Active shortcuts that can be clicked for navigation and removed via
+            the delete button that appears on hover
+          </li>
+          <li>
+            <strong>Placeholders</strong> (<code>isShortcut: false</code> or
+            undefined): Empty slots that open a dropdown menu when clicked to
+            add new shortcuts
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Dropdown Menu:</strong> When a placeholder is clicked, a
+        dropdown menu appears below the shortcuts grid showing all available
+        shortcuts from the <code>shortcuts</code> array. The dropdown:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Shows each shortcut with its title and an add/minus icon</li>
+          <li>Disables already-selected shortcuts (with reduced opacity)</li>
+          <li>Closes when a shortcut is selected or when clicking outside</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Remove Functionality:</strong> Regular shortcuts have a remove
+        button (minus icon) that appears on hover in the top-right corner. When
+        clicked, it:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Emits the <code>click</code> event with action 'remove'</li>
+          <li>Emits the <code>removed</code> event</li>
+          <li>Removes the item from the <code>items</code> array</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Click Outside:</strong> The component listens for document
+        clicks and automatically closes the dropdown menu when clicking outside
+        the component. This provides a better user experience.
+      </li>
+      <li>
+        <strong>Hover Effects:</strong> Regular shortcuts show a remove button
+        on hover with smooth transitions. The remove button slides down and
+        fades in when hovering over a shortcut card.
+      </li>
+      <li>
+        <strong>Styling Differences:</strong>
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Regular shortcuts:</strong> Darker background
+            (<code>bg-level-5</code>), green icon container with darker
+            background
+          </li>
+          <li>
+            <strong>Placeholders:</strong> Lighter background
+            (<code>bg-crame-100</code>), green icon container with lighter
+            background
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Event Propagation:</strong> All click events use
+        <code>stopPropagation()</code> to prevent event bubbling, ensuring that
+        clicks on shortcuts don't trigger parent element handlers.
+      </li>
+    </ul>
+  </div>
 </div>

@@ -1,22 +1,35 @@
-<section class="flex flex-col gap-8 p-6 bg-gray-50 min-h-screen">
-  <h2 class="text-3xl font-bold mb-2">Tooltip Component - All Use Cases</h2>
+<section class="flex flex-col gap-8 p-6 bg-gray-50">
+  <h2 class="text-4xl font-bold mb-6">Tooltip</h2>
+  <h3 class="text-2xl font-bold mb-2">Tooltip Component - All Use Cases</h3>
 
   <!-- Top Positions -->
   <div class="flex flex-col gap-4 p-4 bg-white rounded-lg shadow-sm">
     <h3 class="text-xl font-semibold mb-2">Top Positions</h3>
     <div class="flex flex-wrap gap-4 items-center justify-center">
-      <ds-tooltip content="Tooltip on top Tooltip on top Tooltip on top Tooltip on top" position="top">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <ds-tooltip
+        content="Tooltip on top Tooltip on top Tooltip on top Tooltip on top"
+        position="top"
+      >
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Top
         </button>
       </ds-tooltip>
       <ds-tooltip content="Tooltip on top left" position="topLeft">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Top Left
         </button>
       </ds-tooltip>
-      <ds-tooltip content="Tool dm odok dop idop idopdpoidopi dop itip on top right" position="topRight">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <ds-tooltip
+        content="Tool dm odok dop idop idopdpoidopi dop itip on top right"
+        position="topRight"
+      >
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Top Right
         </button>
       </ds-tooltip>
@@ -27,38 +40,56 @@
     <h3 class="text-xl font-semibold mb-2">Bottom Positions</h3>
     <div class="flex flex-wrap gap-4 items-center justify-center">
       <ds-tooltip content="Tooltip on bottom" position="bottom">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Bottom
         </button>
       </ds-tooltip>
       <ds-tooltip content="Tooltip on bottom left" position="bottomLeft">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Bottom Left
         </button>
       </ds-tooltip>
       <ds-tooltip content="Tooltip on bottom right" position="bottomRight">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Bottom Right
         </button>
       </ds-tooltip>
     </div>
-  </div>  
+  </div>
   <!-- Top Positions -->
   <div class="flex flex-col gap-4 p-4 bg-white rounded-lg shadow-sm">
     <h3 class="text-xl font-semibold mb-2">Top Positions</h3>
     <div class="flex flex-wrap gap-4 items-center justify-center">
-      <ds-tooltip content="Tooltip on top Tooltip on top Tooltip on top Tooltip on top" position="top">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <ds-tooltip
+        content="Tooltip on top Tooltip on top Tooltip on top Tooltip on top"
+        position="top"
+      >
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Top
         </button>
       </ds-tooltip>
       <ds-tooltip content="Tooltip on top left" position="topLeft">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Top Left
         </button>
       </ds-tooltip>
-      <ds-tooltip content="Tool dm odok dop idop idopdpoidopi dop itip on top right" position="topRight">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <ds-tooltip
+        content="Tool dm odok dop idop idopdpoidopi dop itip on top right"
+        position="topRight"
+      >
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Top Right
         </button>
       </ds-tooltip>
@@ -68,8 +99,13 @@
   <div class="flex flex-col gap-4 p-4 bg-white rounded-lg shadow-sm">
     <h3 class="text-xl font-semibold mb-2">Right Positions</h3>
     <div class="flex flex-wrap gap-4 items-center justify-center">
-      <ds-tooltip content="Tooltip on top Tooltip on top Tooltip on top Tooltip on top" position="right">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <ds-tooltip
+        content="Tooltip on top Tooltip on top Tooltip on top Tooltip on top"
+        position="right"
+      >
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Right
         </button>
       </ds-tooltip>
@@ -80,17 +116,427 @@
     <h3 class="text-xl font-semibold mb-2">Left Positions</h3>
     <div class="flex flex-wrap gap-4 items-center justify-center">
       <ds-tooltip [content]="myTemplate" position="left">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           Left
         </button>
       </ds-tooltip>
     </div>
   </div>
 
-</section>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TemplateRef&lt;any&gt; | string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The content to display in the tooltip.
+            Can be either:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <strong>String:</strong> Simple text content rendered directly.
+                Use for short, simple tooltip messages.
+              </li>
+              <li>
+                <strong>TemplateRef:</strong> Angular template reference for
+                complex content. Use for rich HTML content, multiple lines,
+                formatted text, or interactive elements. The template is
+                rendered using <code>ngTemplateOutlet</code>.
+              </li>
+            </ul>
+            The tooltip is only rendered if <code>content</code> is provided
+            (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            position
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >'top' | 'topRight' | 'topLeft' | 'bottom' | 'bottomRight' |
+              'bottomLeft' | 'left' | 'right'</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'top'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The position of the tooltip relative to the trigger element.
+            Available options:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li><code>'top'</code>: Above the element, centered</li>
+              <li>
+                <code>'topRight'</code>: Above the element, aligned to the right
+              </li>
+              <li>
+                <code>'topLeft'</code>: Above the element, aligned to the left
+              </li>
+              <li><code>'bottom'</code>: Below the element, centered</li>
+              <li>
+                <code>'bottomRight'</code>: Below the element, aligned to the
+                right
+              </li>
+              <li>
+                <code>'bottomLeft'</code>: Below the element, aligned to the
+                left
+              </li>
+              <li>
+                <code>'left'</code>: To the left of the element, vertically
+                centered
+              </li>
+              <li>
+                <code>'right'</code>: To the right of the element, vertically
+                centered
+              </li>
+            </ul>
+            Each position has corresponding arrow styling that points to the
+            trigger element.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the tooltip, preventing it from
+            showing on hover or focus. Disabled tooltips won't respond to mouse
+            enter/leave or focus events. Use for tooltips that should be
+            temporarily unavailable or conditionally shown.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            delay
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">200</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The delay in milliseconds before showing the tooltip after the user
+            hovers over or focuses the trigger element. This prevents tooltips
+            from appearing too quickly on accidental hovers. The delay is
+            applied using <code>setTimeout</code> and is cleared if the user
+            moves away before the delay completes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the tooltip container.
+            Useful for custom styling, spacing, or layout adjustments. The
+            component has default styling with dark background, white text,
+            rounded corners, shadow, and positioning based on the
+            <code>position</code> property.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            theme
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">defaultTheme</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional custom theme object to override the default styling. If not
+            provided, the component uses the default theme. The theme object
+            should follow the same structure as <code>defaultTheme</code>,
+            including <code>base</code>, <code>positions</code>, and
+            <code>arrow</code> properties. Use for custom color schemes, sizes,
+            or styling variations.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            style
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Record&lt;string, string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">&#123;&#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional inline styles object to apply directly to the tooltip
+            element. Each key-value pair in the object is applied as a CSS
+            property-value pair. Useful for dynamic styling, custom colors, or
+            specific positioning adjustments that can't be achieved with CSS
+            classes alone. Styles are applied after the tooltip becomes visible.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Content Projection:</strong> The tooltip component uses content
+        projection (<code>ng-content</code>) to wrap the trigger element. Any
+        content placed between the <code>&lt;ds-tooltip&gt;</code> tags will act
+        as the trigger element. The tooltip appears relative to this trigger.
+      </li>
+      <li>
+        <strong>Trigger Events:</strong> The tooltip appears on:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Mouse enter:</strong> When the user hovers over the trigger
+            element
+          </li>
+          <li>
+            <strong>Focus in:</strong> When the trigger element receives focus
+            (keyboard navigation)
+          </li>
+        </ul>
+        The tooltip hides on:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Mouse leave:</strong> When the user moves the mouse away
+          </li>
+          <li>
+            <strong>Focus out:</strong> When the trigger element loses focus
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Delay Behavior:</strong> The <code>delay</code> property
+        controls how long the user must hover or focus before the tooltip
+        appears. If the user moves away before the delay completes, the tooltip
+        won't show. This prevents tooltips from appearing on accidental hovers
+        or quick mouse movements.
+      </li>
+      <li>
+        <strong>Positioning:</strong> The tooltip is positioned absolutely
+        relative to the trigger element:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Top/Bottom positions:</strong> Tooltip appears above or
+            below, with optional left/right alignment
+          </li>
+          <li>
+            <strong>Left/Right positions:</strong> Tooltip appears to the side,
+            vertically centered
+          </li>
+          <li>
+            <strong>Arrow:</strong> Each position has a corresponding arrow that
+            points to the trigger element, created using CSS borders
+          </li>
+        </ul>
+        The tooltip has a maximum width of 300px (<code>max-w-[300px]</code>) to
+        prevent it from becoming too wide.
+      </li>
+      <li>
+        <strong>Animations:</strong> The tooltip includes smooth show/hide
+        animations:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><strong>Show:</strong> Fade in with scale up (150ms ease-out)</li>
+          <li>
+            <strong>Hide:</strong> Fade out with scale down (100ms ease-in)
+          </li>
+        </ul>
+        The animations use Angular's animation system with opacity and transform
+        transitions.
+      </li>
+      <li>
+        <strong>Styling:</strong> The default tooltip styling includes:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            Background: Dark gray (<code>bg-neutral-900</code>), with dark mode
+            support (<code>dark:bg-neutral-800</code>)
+          </li>
+          <li>
+            Text: White (<code>text-white</code>), small font size
+            (<code>text-sm</code>), medium weight (<code>font-medium</code>)
+          </li>
+          <li>
+            Padding: <code>px-3 py-2</code> (12px horizontal, 8px vertical)
+          </li>
+          <li>Border radius: <code>rounded-lg</code></li>
+          <li>Shadow: <code>shadow-tooltip</code></li>
+          <li>
+            Z-index: <code>z-[9999]</code> to ensure it appears above other
+            content
+          </li>
+          <li>
+            Pointer events: <code>pointer-events-none</code> to prevent
+            interaction with the tooltip itself
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>String vs Template Content:</strong> The component automatically
+        detects whether <code>content</code> is a string or TemplateRef:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>String:</strong> Rendered directly using interpolation
+            (<code>{{ content }}</code>)
+          </li>
+          <li>
+            <strong>TemplateRef:</strong> Rendered using
+            <code>ngTemplateOutlet</code>, allowing for complex HTML structures
+          </li>
+        </ul>
+        Use strings for simple text, and TemplateRef for rich content with
+        formatting, multiple elements, or interactive components.
+      </li>
+      <li>
+        <strong>Accessibility:</strong> The tooltip includes accessibility
+        features:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li><code>role="tooltip"</code> attribute for screen readers</li>
+          <li>
+            <code>aria-hidden</code> attribute that toggles based on visibility
+            state
+          </li>
+          <li>Keyboard support via focus events</li>
+        </ul>
+        Ensure the trigger element is keyboard accessible (e.g., has
+        <code>tabindex</code> or is a focusable element like a button or link).
+      </li>
+      <li>
+        <strong>Use Cases:</strong> This component is ideal for:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Providing additional information or context</li>
+          <li>Explaining form field requirements or validation rules</li>
+          <li>Showing help text or tips</li>
+          <li>Displaying truncated content on hover</li>
+          <li>Providing contextual information for icons or buttons</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Performance:</strong> The component uses efficient change
+        detection:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            Only renders the tooltip DOM when <code>content</code> is provided
+          </li>
+          <li>
+            Uses <code>ChangeDetectorRef.detectChanges()</code> to manually
+            trigger change detection when showing/hiding
+          </li>
+          <li>Cleans up timeouts on destroy to prevent memory leaks</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Custom Styling:</strong> You can customize the tooltip
+        appearance in multiple ways:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>className:</strong> Add custom CSS classes for styling
+            adjustments
+          </li>
+          <li>
+            <strong>style:</strong> Apply inline styles for dynamic or specific
+            styling
+          </li>
+          <li>
+            <strong>theme:</strong> Provide a complete custom theme object for
+            comprehensive styling changes
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Arrow Positioning:</strong> The arrow automatically positions
+        itself based on the <code>position</code> property:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            <strong>Top positions:</strong> Arrow at the bottom, pointing down
+          </li>
+          <li>
+            <strong>Bottom positions:</strong> Arrow at the top, pointing up
+          </li>
+          <li>
+            <strong>Left position:</strong> Arrow on the right, pointing right
+          </li>
+          <li>
+            <strong>Right position:</strong> Arrow on the left, pointing left
+          </li>
+        </ul>
+        The arrow is created using CSS borders to form a triangle shape.
+      </li>
+      <li>
+        <strong>Multiple Tooltips:</strong> You can use multiple tooltips on the
+        same page. Each tooltip manages its own visibility state and timing
+        independently. The high z-index ensures tooltips appear above other
+        content.
+      </li>
+      <li>
+        <strong>Responsive Behavior:</strong> The tooltip adapts to its content:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            Width: Automatically adjusts to content width, with a maximum of
+            300px
+          </li>
+          <li>Height: Automatically adjusts to content height</li>
+          <li>
+            Text wrapping: Long text automatically wraps within the tooltip
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
 
 <ng-template #myTemplate>
   <h2 class="font-bold">Infos pratiques</h2>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+  </p>
 </ng-template>

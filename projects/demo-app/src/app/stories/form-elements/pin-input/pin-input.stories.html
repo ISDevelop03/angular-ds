@@ -1,9 +1,326 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
-  <h2 class="text-2xl font-bold">PinInput</h2>
+  <h2 class="text-4xl font-bold mb-6">Pin Input</h2>
   <div class="flex flex-col gap-4">
     <ds-pin-input
       (onCodeChanged)="onCodeChanged($event)"
       (onCodeCompleted)="onCodeCompleted($event)"
     ></ds-pin-input>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            codeLength
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">4</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Number of input fields in the PIN input. Determines how many
+            individual input boxes are displayed. Common values are 4, 6, or 8
+            for PIN codes, OTP codes, or verification codes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            code
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number | string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The current PIN code value. Can be a number or string. Use to set an
+            initial value or bind the code value for two-way data binding. The
+            code is distributed across the individual input fields.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            inputType
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'text' | 'tel' | 'password'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'tel'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            HTML input type for each input field. <code>'tel'</code>: Optimized
+            for numeric input on mobile devices (shows numeric keypad).
+            <code>'text'</code>: Standard text input. <code>'password'</code>:
+            Masks input characters. Use <code>'tel'</code> for numeric PINs,
+            <code>'text'</code> for alphanumeric codes, or
+            <code>'password'</code> for hidden input.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isCodeHidden
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, hides the entered code characters (similar
+            to password input). Use for sensitive PIN codes where characters
+            should not be visible. When <code>false</code>, entered characters
+            are visible.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isCharsCode
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows alphanumeric characters in addition
+            to numbers. When <code>false</code>, only numeric input is allowed.
+            Use for alphanumeric verification codes or PINs that can contain
+            letters.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables all input fields. The PIN input
+            becomes non-interactive and users cannot enter or modify the code.
+            Use to prevent input in certain states or during processing.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            initialFocusField
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Index of the input field that should receive focus initially
+            (0-based). When the component loads, this field is automatically
+            focused. Use to control which field is focused on mount (e.g., 0 for
+            first field, 1 for second field).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isPrevFocusableAfterClearing
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows focusing the previous input field
+            when the current field is cleared (e.g., when Backspace is pressed
+            on an empty field). When <code>false</code>, clearing a field does
+            not move focus backward. Use to control navigation behavior when
+            users delete characters.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isFocusingOnLastByClickIfFilled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, clicking anywhere on the PIN input when all
+            fields are filled will focus the last (rightmost) input field. When
+            <code>false</code>, clicking behavior follows standard focus rules.
+            Use to provide quick access to the last field for editing.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            autocapitalize
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            HTML autocapitalize attribute value for the input fields. Controls
+            automatic capitalization behavior on mobile devices. Common values:
+            <code>'none'</code>, <code>'sentences'</code>, <code>'words'</code>,
+            <code>'characters'</code>. Use <code>'none'</code> or empty string
+            for PIN codes to prevent unwanted capitalization.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the PIN input wrapper.
+            Useful for custom styling, layout adjustments, or responsive sizing.
+            The component has default styling with full width, large text size,
+            and maximum width constraint.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onCodeChanged
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted whenever the code value changes (on every character input or
+            deletion). Provides the current code value. Use to track code
+            changes in real-time, validate partial codes, or update UI based on
+            input progress. This event fires for every character entered or
+            removed.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onCodeCompleted
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when all input fields are filled and the code is complete.
+            Provides the complete code value. Use to trigger validation,
+            submission, or automatic processing when the user has entered the
+            full PIN or verification code. This event fires once when the last
+            character is entered.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
+      <li>
+        <strong>Web Component:</strong> This component is a wrapper around the
+        <code>code-input</code> web component. All inputs are passed through to
+        the underlying web component, and events are forwarded from the web
+        component to Angular event emitters.
+      </li>
+      <li>
+        <strong>Auto-focus and Navigation:</strong> The component automatically
+        manages focus between input fields:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>
+            When a character is entered, focus moves to the next field
+            automatically
+          </li>
+          <li>
+            When Backspace is pressed on an empty field, focus may move to the
+            previous field (if <code>isPrevFocusableAfterClearing</code> is
+            enabled)
+          </li>
+          <li>
+            Initial focus is set on the field specified by
+            <code>initialFocusField</code>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Styling:</strong> The component uses CSS custom properties
+        (variables) for styling the input fields:
+        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+          <li>Item spacing, height, borders, and border radius</li>
+          <li>Border colors for default, focused, and filled states</li>
+          <li>Background colors and font weights</li>
+        </ul>
+        The default styling provides a clean, modern appearance with red focus
+        borders.
+      </li>
+      <li>
+        <strong>Mobile Optimization:</strong> When <code>inputType</code> is set
+        to <code>'tel'</code>, mobile devices will show a numeric keypad, making
+        it easier for users to enter PIN codes on touch devices.
+      </li>
+      <li>
+        <strong>Paste Support:</strong> The underlying web component supports
+        pasting codes from the clipboard. When a code is pasted, it's
+        automatically distributed across the input fields.
+      </li>
+    </ul>
   </div>
 </section>
