@@ -1482,6 +1482,14 @@ video {
   margin-top: 1px;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2526,8 +2534,16 @@ video {
   scroll-snap-align: start;
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
 .list-disc {
   list-style-type: disc;
+}
+
+.list-decimal {
+  list-style-type: decimal;
 }
 
 .appearance-none {
@@ -4040,6 +4056,10 @@ video {
 
 .pt-\[9px\] {
   padding-top: 9px;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
 }
 
 .text-left {
