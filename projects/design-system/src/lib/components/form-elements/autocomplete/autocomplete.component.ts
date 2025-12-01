@@ -205,6 +205,10 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
     setTimeout(() => this.inputRef.nativeElement.focus());
   }
 
+  getCheckedItems(item: IField) {
+    return this.values.some((v) => v.value === item.value);
+  }
+
   @HostListener('document:click', ['$event.target'])
   onClickOutside(target: HTMLElement) {
     if (!this.host.nativeElement.contains(target)) {

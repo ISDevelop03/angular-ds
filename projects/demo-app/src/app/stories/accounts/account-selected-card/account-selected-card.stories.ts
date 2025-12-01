@@ -13,7 +13,6 @@ export class AccountSelectedCardStoryComponent {
     currency: 'USD',
     type: 'Savings',
     id: 'account-123',
-    date: '2025-05-02',
     isDiscrete: false,
   };
   account2 = {
@@ -23,7 +22,6 @@ export class AccountSelectedCardStoryComponent {
     currency: 'USD',
     type: 'Savings',
     id: 'account-123',
-    date: '2025-05-02',
     isDiscrete: false,
   };
 

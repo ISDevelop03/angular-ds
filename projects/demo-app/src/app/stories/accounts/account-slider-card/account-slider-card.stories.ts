@@ -11,7 +11,6 @@ export class AccountSliderCardStoryComponent {
     balance: 45678.9,
     currency: 'EUR',
     type: 'Compte annexe',
-    date: '2025-05-01',
     id: 'account-1',
     isSelected: false,
     isDiscrete: false,

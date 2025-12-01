@@ -18,7 +18,6 @@ export class AccountCardComponent implements OnInit {
   @Input() currency!: string;
   @Input() type!: string;
   @Input() id?: string;
-  @Input() date?: string;
   @Input() actionsList: ICallToActionIcon[] = [];
   @Input() solde_comptable?: number;
   @Input() solde_temps_reel?: number;

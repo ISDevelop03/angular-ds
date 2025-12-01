@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { ICallToActionIcon } from '../../call-to-action-icons/types';
 import { getFirstTwoLetters } from '../../../utils';
 
@@ -22,10 +22,27 @@ export class DsAccountFilialHoldingCardComponent {
 
   @Input() actionsList?: ICallToActionIcon[] = [];
 
-  showAccordion: boolean = false;
+  _showAccordion: boolean = false;
+  showAccordionIcon: 'arrow-down' | 'arrow-up' = 'arrow-down';
 
   toggleAccordion() {
-    this.showAccordion = !this.showAccordion;
+    this.showAccordion = !this._showAccordion;
+    this.showAccordionIcon = this._showAccordion ? 'arrow-up' : 'arrow-down';
+  }
+
+  set showAccordion(value: boolean) {
+    this._showAccordion = value;
+    this.showAccordionIcon = this._showAccordion ? 'arrow-up' : 'arrow-down';
+    this.actionsList = this.actionsList.map((action, index) => {
+      if (index === this.actionsList.length - 1) {
+        return {
+          ...action,
+          icon: this.showAccordionIcon,
+        };
+      } else {
+        return action;
+      }
+    });
   }
 
   ngOnInit() {
@@ -41,7 +58,7 @@ export class DsAccountFilialHoldingCardComponent {
             }),
         }))
         .concat({
-          icon: 'arrow-down',
+          icon: this.showAccordionIcon,
           onClick: () => this.toggleAccordion(),
         }) || [];
   }

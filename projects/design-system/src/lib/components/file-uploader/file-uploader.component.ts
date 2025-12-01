@@ -117,6 +117,7 @@ export class FileUploaderComponent {
 
   removeFile(id: string) {
     this.onRemove.emit(id);
+    this.fileInput.nativeElement.value = '';
   }
 
   reUploadFile(id: string) {
@@ -124,5 +125,6 @@ export class FileUploaderComponent {
       this.fileInput.nativeElement.click();
     }
     this.onReUpload.emit(id);
+    this.fileInput.nativeElement.value = '';
   }
 }
