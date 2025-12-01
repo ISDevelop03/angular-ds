@@ -12,6 +12,41 @@
       [text]="'Montant total de la sélection :'"
       [price]="'730 MAD'"
     ></ds-display-price-card>
+    <ds-display-price-card
+      className="max-w-[600px]"
+      [text]="'Montant total de la sélection :'"
+      [price]="'730 MAD'"
+    ></ds-display-price-card>
+    <ds-display-price-card
+      className="max-w-[600px]"
+      [text]="'Montant total avec options :'"
+      [price]="'845 MAD'"
+      [icon]="'shopping-cart'"
+      [items]="[
+        { label: 'Service de base', value: '500 MAD', showLine: true },
+        { label: 'Option A', value: '200 MAD', showLine: true },
+        { label: 'Frais', value: '145 MAD', showLine: false }
+      ]"
+      [buttons]="[
+        {
+          text: 'Valider',
+          className: 'mr-2',
+          onClick: acceptAction,
+          variant: 'primary',
+          size: 'normal',
+          type: 'button'
+        },
+        {
+          text: 'Annuler',
+          className: '',
+          onClick: cancelAction,
+          variant: 'secondary',
+          size: 'normal',
+          type: 'button'
+        }
+      ]"
+      [data]="{ customPayload: 'valider-carte-options' }"
+    ></ds-display-price-card>
   </div>
 
   <!-- API Documentation Table -->

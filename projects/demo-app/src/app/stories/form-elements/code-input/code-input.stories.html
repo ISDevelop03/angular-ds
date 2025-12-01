@@ -1,7 +1,7 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50 min-h-screen">
   <h2 class="text-4xl font-bold mb-6">Code Input</h2>
   <div class="flex flex-col gap-4">
-    <h3 class="text-lg font-medium">Default</h3>
+    <h3 class="text-2xl font-bold">Default</h3>
     <ds-code-input
       id="default-input"
       name="default-input"
@@ -12,7 +12,7 @@
       minlength="5"
       pattern="[0-9]*"
     ></ds-code-input>
-    <h3 class="text-lg font-medium">Disabled</h3>
+    <h3 class="text-2xl font-bold">Disabled</h3>
     <ds-code-input
       id="default-input"
       name="default-input"
@@ -101,39 +101,6 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            type
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'text'</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            HTML input type attribute. The component template uses
-            <code>type="number"</code> by default, but this property can be used
-            to override it. Common values: <code>'text'</code>,
-            <code>'number'</code>, <code>'tel'</code>.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            placeholder
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional placeholder text displayed in the input when it is empty.
-            Use to provide context or instructions to users (e.g., 'Enter code',
-            '0000').
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             disabled
           </td>
           <td class="border border-gray-300 px-4 py-2">
@@ -146,113 +113,6 @@
             When <code>true</code>, disables the input, preventing user
             interaction. The input appears grayed out with reduced opacity and
             cannot be edited.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            required
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, marks the input as required for form
-            validation. Browsers will prevent form submission if the input is
-            empty.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            hasError
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, indicates that the input has a validation
-            error. Use with <code>errorMessage</code> to display error feedback
-            to users.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            errorMessage
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional error message text displayed when <code>hasError</code> is
-            <code>true</code>. Use to provide validation feedback to users.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            label
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional text label displayed above or alongside the input. Use for
-            accessibility and user guidance.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            description
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional descriptive text displayed below the input. Use to provide
-            additional context or instructions to users.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            prefix
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional prefix text or icon displayed before the input value. Use
-            for currency symbols, units, or other visual indicators.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            suffix
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional suffix text or icon displayed after the input value. Use
-            for currency symbols, units, or other visual indicators.
           </td>
         </tr>
         <tr>
