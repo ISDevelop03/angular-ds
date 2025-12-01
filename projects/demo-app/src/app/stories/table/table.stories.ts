@@ -76,6 +76,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum doloropioep ieo iopei poei eopi',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-01-01',
+      isSelectable: false,
     },
     {
       id: 2,
@@ -86,6 +87,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum dolor',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-02-01',
+      isSelectable: false,
     },
     {
       id: 3,
@@ -96,6 +98,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_1: 'A Lorem ipsum dolor',
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-03-01',
+      isSelectable: false,
     },
     {
       id: 4,

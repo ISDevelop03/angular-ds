@@ -26,7 +26,7 @@
             <ds-checkbox
               [checked]="isAllSelected || isSomeSelected"
               [isIndeterminate]="isSomeSelected && !isAllSelected"
-              [disabled]="displayData.length === 0"
+              [disabled]="displayData.length === 0 || isAllUnselectable()"
               [change]="headerCheckboxChange"
             ></ds-checkbox>
           </th>

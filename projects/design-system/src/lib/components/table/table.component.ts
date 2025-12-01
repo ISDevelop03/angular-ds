@@ -185,6 +185,10 @@ export class TableComponent implements OnChanges, OnDestroy {
     return n > 0 && n < this.displayData.length;
   }
 
+  isAllUnselectable(): boolean {
+    return this.displayData.every((row) => row.isSelectable === false);
+  }
+
   toggleSelectAll(checked: boolean) {
     if (checked) {
       this.displayData.forEach((row) => {
