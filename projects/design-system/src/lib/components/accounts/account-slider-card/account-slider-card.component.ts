@@ -18,7 +18,6 @@ export class DsAccountSliderCardComponent implements OnInit {
   @Input() currency!: string;
   @Input() type!: string;
   @Input() id?: string;
-  @Input() date?: string;
   @Input() isSelected: boolean = false;
   @Input() actionsList: ICallToActionIcon[] = [];
   @Input() className?: string = '';

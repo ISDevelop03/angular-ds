@@ -2,11 +2,13 @@ export const defaultTheme = {
   base: 'relative w-fit box-border flex items-center justify-center active:outline-none transition ease-in-out duration-300 gap-3 text-center rounded',
   contentWrapper: 'flex items-center justify-center gap-3',
   disabled: {
-    primary: 'cursor-not-allowed bg-red-200 border !border-red-200 hover:bg-red-200 hover:border-red-200 !text-white',
+    primary:
+      'cursor-not-allowed !bg-red-200 border !border-red-200 hover:bg-red-200 hover:border-red-200 !text-white',
     secondary:
-        'cursor-not-allowed bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
-    gray: 'cursor-not-allowed bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
-    outline: 'cursor-not-allowed border !border-neutral-50 hover:border-neutral-50 !text-neutral-300',
+      'cursor-not-allowed !bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
+    gray: 'cursor-not-allowed !bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
+    outline:
+      'cursor-not-allowed border !border-neutral-50 hover:border-neutral-50 !text-neutral-300',
   },
   size: {
     small: {
@@ -32,6 +34,7 @@ export const defaultTheme = {
     secondary:
       'font-[700] border-2 border-neutral-100 bg-neutral-100 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
     gray: 'font-[700] border-2 border-neutral-100 bg-neutral-100 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
-    outline: 'font-[700] border-2 border-neutral-100 bg-transparent text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
+    outline:
+      'font-[700] border-2 border-neutral-100 bg-transparent text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
   },
 };

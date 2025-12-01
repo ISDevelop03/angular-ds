@@ -18,7 +18,6 @@ export class AccountCardStoryComponent {
       currency: 'USD',
       type: 'Savings',
       id: 'account-123',
-      date: '2025-05-02',
       isDiscrete: false,
     },
     {
@@ -29,7 +28,6 @@ export class AccountCardStoryComponent {
       currency: 'EUR',
       type: 'Checking',
       id: 'account-456',
-      date: '2025-05-03',
       isDiscrete: true,
     },
     {
@@ -40,7 +38,6 @@ export class AccountCardStoryComponent {
       currency: 'GBP',
       type: 'Investment',
       id: 'account-789',
-      date: '2025-05-04',
       isDiscrete: false,
     },
     {
@@ -51,7 +48,6 @@ export class AccountCardStoryComponent {
       currency: 'JPY',
       type: 'Business',
       id: 'account-101112',
-      date: '2025-05-05',
       isDiscrete: true,
     },
     {
@@ -62,7 +58,6 @@ export class AccountCardStoryComponent {
       currency: 'AUD',
       type: 'Personal Loan',
       id: 'account-131415',
-      date: '2025-05-06',
       isDiscrete: false,
       isFavorite: true,
     },

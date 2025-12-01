@@ -6,7 +6,6 @@
     [items]="defaultItems"
     variant="default"
     (openHandler)="onAccordionOpen($event)"
-
   ></ds-accordion>
 
   <h3 class="text-primary">With Border Variant</h3>
@@ -39,7 +38,6 @@
           [currency]="account.currency"
           [type]="account.type"
           [id]="account.id"
-          [date]="account.date"
           [isDiscrete]="account.isDiscrete"
           [solde_comptable]="account.solde_comptable"
           [solde_temps_reel]="account.solde_temps_reel"
@@ -77,5 +75,10 @@
 </div>
 
 <ng-template #buttonTemplate let-item="item">
-  <button (click)="handleClick($event, item)" class="bg-primary-500 text-white px-4 py-2 rounded-md">dkdlkjkldj</button>
+  <button
+    (click)="handleClick($event, item)"
+    class="bg-primary-500 text-white px-4 py-2 rounded-md"
+  >
+    dkdlkjkldj
+  </button>
 </ng-template>
