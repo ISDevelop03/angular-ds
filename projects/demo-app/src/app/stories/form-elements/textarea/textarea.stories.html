@@ -1,5 +1,6 @@
 <div class="p-4 bg-gradient-crame grid gap-6">
-  <h3>Default Textarea</h3>
+  <h2 class="text-4xl font-bold mb-6">Textarea</h2>
+  <h3 class="text-2xl font-bold">Default Textarea</h3>
   <ds-textarea
     label="Enter Description"
     placeholder="---"
@@ -27,4 +28,333 @@
     [rows]="4"
     [(value)]="textValue"
   ></ds-textarea>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The current value of the textarea. Supports two-way data binding
+            with <code>[(value)]</code>. The value is bound to the textarea's
+            <code>value</code> attribute and updates when the user types.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed above the textarea. The label is only
+            rendered if provided (conditional rendering with
+            <code>*ngIf</code>). If <code>required</code> is <code>true</code>,
+            a red asterisk (*) is displayed next to the label. The label can
+            also include a tooltip icon if <code>tooltip</code> is provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional placeholder text displayed in the textarea when it's empty.
+            Provides a hint to the user about what to enter. The placeholder
+            text is styled with gray color and larger font size.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional name attribute for the textarea element. Useful for form
+            submission and identification. If not provided, the textarea won't
+            have a name attribute.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            rows
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">1</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The number of visible text lines (rows) for the textarea. Controls
+            the initial height of the textarea. The textarea can grow beyond
+            this if <code>resize</code> is <code>true</code> or if the content
+            exceeds the visible area. Common values: 3, 4, 5, or more depending
+            on the expected content length.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            maxLength
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional maximum number of characters allowed in the textarea. When
+            provided, the textarea's <code>maxlength</code> attribute is set,
+            preventing users from entering more characters than specified. Use
+            for fields with character limits (e.g., comments, descriptions,
+            messages).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            resize
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">true</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows the textarea to be resized by the
+            user (default browser behavior). When <code>false</code>, the
+            textarea has a fixed size and cannot be resized (<code
+              >resize-none</code
+            >
+            CSS class is applied). Use <code>false</code> for consistent layouts
+            where you don't want users to change the textarea size.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the textarea, preventing user
+            input. Disabled textareas have:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Gray background: <code>bg-gray-50</code></li>
+              <li>Not-allowed cursor: <code>cursor-not-allowed</code></li>
+              <li>No user interaction possible</li>
+            </ul>
+            Use for read-only states or when the field should be temporarily
+            unavailable.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            required
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the textarea is required.
+            This displays a red asterisk (*) next to the label. Use for form
+            validation and to indicate mandatory fields to users. Note: This is
+            a visual indicator only; actual validation should be handled in your
+            form logic.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            hasError
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the textarea has a validation
+            error. Error state styling includes:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                Red border: <code>border-error-400</code> (default),
+                <code>border-error-500</code> (hover/focus)
+              </li>
+              <li>
+                Error ring on focus: <code>focus-within:ring-error-500</code>
+              </li>
+            </ul>
+            Use in combination with <code>errorMessage</code> to display
+            validation feedback to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errorMessage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional error message text displayed below the textarea when
+            <code>hasError</code> is <code>true</code>. The error message is
+            styled in red (<code>text-error-500</code>) and appears below the
+            textarea. The message is only rendered if both
+            <code>hasError</code> and <code>errorMessage</code> are provided
+            (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional description text displayed below the textarea. Provides
+            additional context, hints, or instructions to users (e.g., "Minimum
+            100 characters", "Optional field", "Enter your message here"). The
+            description is styled in gray (<code>text-gray-500</code>) and
+            appears below the textarea. The description is only rendered if
+            provided (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tooltip
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional tooltip content displayed when hovering over an info icon
+            next to the label. Can be either:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li><strong>String:</strong> Simple text tooltip</li>
+              <li>
+                <strong>TemplateRef:</strong> Complex HTML content tooltip
+              </li>
+            </ul>
+            The tooltip icon (info-circle) is only displayed if
+            <code>tooltip</code> is provided. The tooltip appears to the right
+            of the label using the <code>ds-tooltip</code> component.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof textarea</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant for styling the textarea. Currently only
+            <code>'default'</code> is available. The variant determines the
+            visual styling, colors, and appearance of the textarea, label, error
+            message, and description. Future variants may be added for different
+            color schemes or styles.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the textarea value changes (user types or pastes text).
+            The event payload is the new string value of the textarea. This
+            event is used for two-way data binding with <code>[(value)]</code>.
+            Use to handle value changes, perform validation, or update parent
+            component state.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

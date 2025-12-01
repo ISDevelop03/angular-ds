@@ -307,48 +307,4 @@
       </tbody>
     </table>
   </div>
-
-  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
-    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
-      <li>
-        <strong>Content Projection:</strong> The component supports content
-        projection via <code>ng-content</code>. You can project custom content
-        (e.g., descriptions, additional details, HTML elements) into the main
-        content area of the card. The projected content appears in the left
-        column (spanning 3 columns) of the content row.
-      </li>
-      <li>
-        <strong>Layout:</strong> The card uses a 5-column grid layout:
-        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
-          <li>
-            <strong>Header row:</strong> Title/checkbox (3 columns), Date label
-            (1 column), Price label (1 column)
-          </li>
-          <li>
-            <strong>Content row:</strong> Projected content (3 columns),
-            Formatted date (1 column), Formatted price with currency (1 column)
-          </li>
-        </ul>
-      </li>
-      <li>
-        <strong>Price Formatting:</strong> The price is automatically formatted
-        using Angular's number pipe with French locale formatting (spaces as
-        thousand separators, comma as decimal separator). The format is
-        <code>"1.2-2"</code> which means: minimum 1 digit before decimal, 2
-        digits after decimal.
-      </li>
-      <li>
-        <strong>Date Formatting:</strong> The date is automatically formatted
-        using Angular's date pipe with format <code>"dd.MM.yyyy"</code> (e.g.,
-        '2023-10-01' displays as '01.10.2023').
-      </li>
-      <li>
-        <strong>Conditional Display:</strong> The date and price columns are
-        only displayed when their respective input properties are provided. The
-        checkbox is only displayed when <code>useCheckbox</code> is
-        <code>true</code>.
-      </li>
-    </ul>
-  </div>
 </section>

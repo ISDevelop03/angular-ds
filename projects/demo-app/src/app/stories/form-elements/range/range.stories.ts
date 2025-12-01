@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class RangeStoryComponent {
   rangeValue: number = 25;
 
-  myValue = 40;
+  myValue = 400;
   myRange = [0, 50000];
 
   onRangeChange(newValue: number) {

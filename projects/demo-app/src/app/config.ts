@@ -37,11 +37,11 @@ export const menus: Menu[] = [
     key: 'tabs',
   },
 
-  {
-    name: 'Text',
-    path: '/text',
-    key: 'text',
-  },
+  // {
+  //   name: 'Text',
+  //   path: '/text',
+  //   key: 'text',
+  // },
   {
     name: 'Breadcrumb',
     path: '/breadcrumb',

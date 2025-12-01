@@ -593,36 +593,4 @@
       </tbody>
     </table>
   </div>
-
-  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
-    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
-      <li>
-        <strong>ControlValueAccessor:</strong> This component implements
-        <code>ControlValueAccessor</code>, making it fully compatible with
-        Angular reactive forms and template-driven forms. You can use it with
-        <code>FormControl</code>, <code>FormGroup</code>, and
-        <code>ngModel</code>.
-      </li>
-      <li>
-        <strong>Content Projection:</strong> The component supports content
-        projection for prefix and suffix via <code>ng-content</code>. Use
-        <code>&lt;ng-content select="[prefix]"&gt;</code> and
-        <code>&lt;ng-content select="[suffix]"&gt;</code> to project custom
-        content (e.g., icons, buttons) into the input wrapper.
-      </li>
-      <li>
-        <strong>HTML Attributes:</strong> Standard HTML input attributes (e.g.,
-        <code>maxlength</code>, <code>minlength</code>, <code>pattern</code>,
-        <code>autocomplete</code>, <code>readonly</code>) are automatically
-        forwarded to the native input element via <code>ngAfterViewInit</code>.
-      </li>
-      <li>
-        <strong>Password Toggle:</strong> When <code>password</code> is
-        <code>true</code>, the component manages password visibility state
-        internally. A toggle button should be provided in the suffix area to
-        allow users to show/hide the password.
-      </li>
-    </ul>
-  </div>
 </div>

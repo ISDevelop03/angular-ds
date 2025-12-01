@@ -390,48 +390,4 @@
       </tbody>
     </table>
   </div>
-
-  <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-    <h4 class="font-bold text-lg mb-2">Additional Notes:</h4>
-    <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
-      <li>
-        <strong>Two-Way Binding:</strong> The <code>itemsPerPage</code> property
-        supports two-way binding using <code>[(itemsPerPage)]</code>. This
-        allows the component to automatically update the bound variable when the
-        user changes the items per page, and vice versa.
-      </li>
-      <li>
-        <strong>Page Calculation:</strong> The component automatically
-        calculates the total number of pages based on
-        <code>totalItems</code> and <code>itemsPerPage</code>. The calculation
-        is: <code>pageCount = Math.ceil(totalItems / itemsPerPage)</code>.
-      </li>
-      <li>
-        <strong>Smart Page Display:</strong> The component uses a smart
-        algorithm to display page buttons:
-        <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
-          <li>Always shows the first <code>boundaryStartCount</code> pages</li>
-          <li>Always shows the last <code>boundaryEndCount</code> pages</li>
-          <li>
-            Shows <code>windowSize</code> pages on each side of the current page
-          </li>
-          <li>
-            Inserts ellipses (<code>...</code>) when there are gaps between page
-            ranges
-          </li>
-        </ul>
-      </li>
-      <li>
-        <strong>Navigation:</strong> The component provides Previous and Next
-        buttons with customizable labels. These buttons are automatically
-        disabled when at the first or last page, respectively.
-      </li>
-      <li>
-        <strong>Item Range Display:</strong> The component can display the range
-        of items currently shown (e.g., "1-25 of 100") based on
-        <code>firstItem</code>, <code>itemsPerPage</code>, and
-        <code>totalItems</code>.
-      </li>
-    </ul>
-  </div>
 </div>
