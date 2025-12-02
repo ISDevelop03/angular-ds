@@ -1,19 +1,22 @@
 <!-- src/lib/steps.component.html -->
 <section id="ds-steps" class="h-full flex flex-col">
-  <div class="{{theme.wrapper}}">
-    <div [ngClass]="variant === 'vertical' ? 'sticky top-6' : ''">
+  <div class="{{ theme.wrapper }}">
+    <div
+      *ngIf="showHeader"
+      [ngClass]="variant === 'vertical' ? 'sticky top-6' : ''"
+    >
       <h2 *ngIf="title" class="text-[1.25rem]/[1.75rem] font-bold mb-6">
         {{ title }}
       </h2>
-      <ul class="{{theme.headerWrapper}}">
+      <ul class="{{ theme.headerWrapper }}">
         <li
           *ngFor="let step of steps.toArray(); let i = index; let isLast = last"
-          class="{{theme.step}}"
+          class="{{ theme.step }}"
           [ngClass]="[
-            i <= currentStepIndex ? 'before:bg-red-500' : 'before:bg-neutral-200',
-            isLast
-              ? 'before:w-[150%]'
-              : 'before:w-full'
+            i <= currentStepIndex
+              ? 'before:bg-red-500'
+              : 'before:bg-neutral-200',
+            isLast ? 'before:w-[150%]' : 'before:w-full'
           ]"
         >
           <div
@@ -32,12 +35,14 @@
             >
               <ds-icon id="check" class="text-white" size="24"></ds-icon>
             </ng-container>
-    
+
             <!-- ACTIVE (only if it's current AND not the last) -->
             <ng-container *ngIf="i === currentStepIndex && !isLast">
-              <span class="inline-flex w-2.5 h-2.5 rounded-full bg-red-500"></span>
+              <span
+                class="inline-flex w-2.5 h-2.5 rounded-full bg-red-500"
+              ></span>
             </ng-container>
-    
+
             <!-- UPCOMING -->
             <ng-container *ngIf="i > currentStepIndex">
               <span
@@ -45,7 +50,7 @@
               ></span>
             </ng-container>
           </div>
-    
+
           <span
             class="text-[1rem]/[1.25rem] text-center"
             [ngClass]="
@@ -66,7 +71,7 @@
       ></ng-container>
     </div>
   </div>
-  <div class="{{ theme.navigationWrapper }}">
+  <div *ngIf="showNavigation" class="{{ theme.navigationWrapper }}">
     <!-- Navigation buttons -->
     <div class="flex justify-end gap-2">
       <ds-button

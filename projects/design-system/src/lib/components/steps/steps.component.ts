@@ -33,7 +33,7 @@ export interface StepButton {
 @Component({
   selector: 'ds-steps',
   templateUrl: './steps.component.html',
-  host: { 'class': 'grow' }
+  host: { class: 'grow' },
 })
 export class StepsComponent implements AfterContentInit {
   /** Index of the currently visible step */
@@ -45,6 +45,8 @@ export class StepsComponent implements AfterContentInit {
   /** Theme variant key (e.g. 'default' | 'primary' | 'success') */
   @Input() variant: string = 'default';
   @Input() title: string = '';
+  @Input() showNavigation: boolean = true;
+  @Input() showHeader: boolean = true;
 
   /** Resolved theme for the selected variant */
   theme: StepsTheme = STEPS_THEME[this.variant] || STEPS_THEME.default;
