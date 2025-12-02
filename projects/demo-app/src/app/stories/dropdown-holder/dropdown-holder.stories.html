@@ -1,5 +1,5 @@
 <section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">DropdownHolder</h2>
+  <h2 class="text-4xl font-bold mb-6">Dropdown Holder</h2>
   <div class="flex flex-col gap-4">
     <ds-dropdown-holder
       (toggle)="toggleDropdown($event)"
@@ -18,6 +18,143 @@
         </p>
       </div>
     </ds-dropdown-holder>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttonContent
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Template reference for the dropdown
+            trigger button content. Use an <code>ng-template</code> with a
+            template reference variable (e.g., <code>#buttonContent</code>) to
+            define custom button content. The template can contain any HTML,
+            icons, text, or components. When provided, this content is rendered
+            inside the trigger button.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            containerClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the dropdown menu container. Use
+            for custom styling of the dropdown panel (e.g., borders, padding,
+            background colors, width constraints). Example:
+            <code
+              >max-w-[500px] p-4 rounded-md border border-neutral-100
+              bg-level-3</code
+            >.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the dropdown holder
+            wrapper. Useful for custom styling or layout adjustments of the
+            component container.
+          </td>
+        </tr>
+        <tr class="bg-yellow-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Content Projection
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            ng-content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            The dropdown menu content uses content projection. You can project
+            any content (HTML, components, text) into the dropdown panel. The
+            projected content appears inside the dropdown container when the
+            dropdown is open. Use for flexible, custom dropdown content.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            toggle
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;boolean&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the dropdown is opened or closed. Provides
+            <code>true</code> when the dropdown opens and <code>false</code>
+            when it closes. Use to track the dropdown state and perform actions
+            based on open/close events (e.g., updating UI, fetching data,
+            animating icons).
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 

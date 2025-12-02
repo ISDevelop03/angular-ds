@@ -1,7 +1,118 @@
-<section class="flex flex-col gap-4 p-4 bg-gradient-crame h-screen">
-  <h2 class="text-2xl font-bold">TotalList</h2>
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Total List</h2>
+  <h3 class="text-2xl font-bold">TotalList</h3>
   <div class="flex flex-col gap-4">
-    <ds-total-list [label]="label" [value]="value" [icon]="icon"></ds-total-list>
+    <ds-total-list
+      [label]="label"
+      [value]="value"
+      [icon]="icon"
+    ></ds-total-list>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The label text displayed on the left side of the total list item.
+            Shown in small text (0.875rem / 14px) with bold font weight and
+            neutral-900 color. This is typically a descriptive label for the
+            total (e.g., "Total", "Subtotal", "Tax", "Grand Total").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The value text displayed on the right side of the total list item,
+            next to the icon. Shown in larger text (1.25rem / 20px) with bold
+            font weight and neutral-900 color. This is typically a numeric
+            value, amount, or formatted text representing the total (e.g.,
+            "100", "€1,234.56", "50%").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The icon identifier displayed on the right side of the total list
+            item, next to the value. Should match an available icon in your icon
+            library (e.g., 'arrange-square', 'check', 'info'). The icon is
+            displayed with a size of 24px and crame-500 color
+            (<code>text-crame-500</code>). The icon is always displayed if
+            provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the total list item
+            container. Useful for custom styling, spacing, or layout
+            adjustments. The component has default styling with padding, crame
+            background and border, rounded corners, and flex layout with
+            space-between alignment.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
-

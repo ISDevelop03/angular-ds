@@ -1,6 +1,258 @@
 <section class="flex flex-col gap-4 p-4 bg-gray-50">
-  <h2 class="text-2xl font-bold">FloatedButtons</h2>
+  <h2 class="text-4xl font-bold mb-6">Floated Buttons</h2>
   <div class="relative flex flex-col gap-4 w-full h-96 bg-level-4">
-    <ds-floated-buttons [items]="floatedButtons" className="absolute bottom-6 right-0 left-0 mx-auto"></ds-floated-buttons>
+    <ds-floated-buttons
+      [items]="floatedButtons"
+      className="absolute bottom-6 right-0 left-0 mx-auto"
+    ></ds-floated-buttons>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">FloatedButton[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of button objects to display in the
+            floated buttons container. Each button can have text, icons, loading
+            states, and click handlers. Buttons are displayed horizontally with
+            vertical dividers between them. The component only renders if items
+            exist and have length. See the
+            <strong>FloatedButton Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the floated buttons
+            container. Useful for custom styling or positioning (e.g.,
+            <code>absolute bottom-6 right-0 left-0 mx-auto</code> for floating
+            positioning). The container has default styling with border, shadow,
+            and background.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FloatedButton Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># FloatedButton Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>FloatedButton</code> interface defines the structure for button
+    items passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The button label text displayed on the
+            button. This is the primary visible text content for the button.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(event: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the button is clicked.
+            Receives the click event as a parameter. Use to handle button clicks
+            and perform actions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'button' | 'submit' | 'reset'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional HTML button type attribute. Available options:
+            <code>'button'</code>, <code>'submit'</code>, <code>'reset'</code>.
+            Use <code>'submit'</code> for form submission buttons. When not
+            provided, defaults to <code>'button'</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the button. Should match an
+            available icon in your icon library (e.g., 'edit', 'delete',
+            'save'). The icon position is controlled by <code>iconRight</code>.
+            When <code>isLoading</code> is <code>true</code>, the icon is
+            replaced with a loading spinner.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconRight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays the icon on the right side of the
+            button text. When <code>false</code> or not provided, displays the
+            icon on the left side. Only applies when <code>icon</code> is
+            provided and <code>isLoading</code> is <code>false</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isLoading
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a loading spinner icon (Loader)
+            with animation instead of the regular icon. The spinner appears on
+            the left side of the button text. Use to indicate that an action is
+            in progress. When <code>true</code>, the regular icon is hidden.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isDelete
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies red text color styling to the button
+            (<code>text-red-500</code>). Use to indicate destructive actions
+            like delete operations. When <code>false</code> or not provided,
+            uses the default text color.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the button, preventing user
+            interaction. The button appears grayed out with reduced opacity and
+            a not-allowed cursor. Use to prevent actions in certain states.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the individual button. Use for
+            custom styling of specific buttons. Applied in addition to the
+            default button classes and the <code>isDelete</code> styling.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

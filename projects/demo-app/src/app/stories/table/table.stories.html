@@ -1,5 +1,5 @@
 <div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
-  <h2 class="text-4xl font-bold">Tables</h2>
+  <h2 class="text-4xl font-bold mb-6">Tables</h2>
   <h3 class="text-2xl font-bold">Default Table</h3>
   <ds-table
     [data]="defaultData"
@@ -17,6 +17,7 @@
   ]"
     variant="default"
   ></ds-table>
+  <h3 class="text-2xl font-bold">Selection Enabled Table</h3>
   <ds-table
     [data]="selectionData"
     selectionEnabled="true"
@@ -102,6 +103,337 @@
       (sortChange)="onServerSort($event)"
     ></ds-table>
   </div> -->
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <p class="mb-2">
+              Array of data objects to display in the table. Each object
+              represents a row, and properties should match the
+              <code>accessor</code> values in column definitions.
+            </p>
+            <p>
+              <strong>Note:</strong> The data array is copied internally to
+              ensure immutability. Any changes to the original array will not
+              affect the table's display.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            columns
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ColumnDef[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of column definitions that specify how each column should be
+            rendered. See the <strong>ColumnDef Interface</strong> section below
+            for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default' | 'secondary' | 'bordered'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the table. <code>'default'</code> for
+            standard styling, <code>'secondary'</code> for rounded borders with
+            neutral background, <code>'bordered'</code> for full border styling.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            remoteSort
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, sorting is handled server-side. The
+            <code>sortChange</code> event will be emitted but the table won't
+            sort data locally. Use this for large datasets or when sorting logic
+            is on the backend.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selectionEnabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <p class="mb-2">
+              Enables row selection with checkboxes. When <code>true</code>,
+              adds a checkbox column and header checkbox for select-all
+              functionality. Use for bulk actions or multi-row operations.
+            </p>
+            <p>
+              <strong>Note:</strong> If you set
+              <code>isSelectable: false</code> inside a data object and
+              <code>selectionEnabled</code> is set to <code>true</code>, the
+              checkbox for that row will be disabled and cannot be selected.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the table container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            sortChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;&#123; accessor: string | null; direction?: 'asc'
+              | 'desc' &#125;&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a column header is clicked for sorting. Provides the
+            column <code>accessor</code> and sort <code>direction</code> ('asc'
+            or 'desc'). Use with <code>remoteSort</code> for server-side sorting
+            or to track sort state.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selectionChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any[]&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when row selection changes (only when
+            <code>selectionEnabled</code> is <code>true</code>). Returns an
+            array of selected row objects. Use for bulk operations like delete,
+            export, or batch processing.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ColumnDef Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># ColumnDef Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>ColumnDef</code> interface defines the structure for column
+    configurations passed to the <code>columns</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            header
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The text displayed in the column header.
+            This is the visible label for the column.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            accessor
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The property key used to access data from
+            each row object. Must match a property name in your data objects
+            (e.g., 'name', 'age', 'id').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            sortable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, enables sorting for this column. Adds sort
+            indicators (arrows) to the header and makes the header clickable.
+            Use for columns that should be sortable by users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expandable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows column content to be
+            expanded/collapsed. Long text is truncated by default and can be
+            expanded to show full content. Automatically sets
+            <code>truncate</code> to <code>true</code>. Use for columns with
+            potentially long content like descriptions or notes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            truncate
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, truncates multi-line text to show only the
+            first line. Automatically set to <code>true</code> when
+            <code>expandable</code> is <code>true</code>. Use to keep table rows
+            compact when displaying long text content.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            styles
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">&#123; [key: string]: string &#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional inline styles object to apply to the column cells. Keys are
+            CSS property names (e.g., 'width', 'textAlign'). Use for
+            column-specific styling like fixed widths (e.g.,
+            <code>&#123; width: '1%' &#125;</code> for auto-sizing).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            cellTemplate
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional Angular template reference for custom cell rendering. The
+            template receives the cell value and the full row object. Use for
+            custom formatting, badges, buttons, or any complex cell content that
+            can't be achieved with plain text.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Status badge template -->
   <ng-template #statusTpl let-status let-row="row">

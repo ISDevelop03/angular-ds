@@ -33,7 +33,7 @@ export class AutocompleteStoryComponent {
   ];
 
   values = [
-    { label: 'Value 1', value: 'value1' },
-    { label: 'Value 2', value: 'value2' },
+    { label: 'Afghanistan', value: 'AF' },
+    { label: 'Albania', value: 'AL' },
   ];
 }

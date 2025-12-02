@@ -1,14 +1,102 @@
 <section class="p-5 flex flex-col gap-4 bg-crame-50 min-h-screen">
-  <h1 class="text-xl font-bold">Holding Card</h1>
+  <h2 class="text-4xl font-bold mb-6">Holding Card</h2>
 
   <div class="flex flex-col gap-4">
-    <h3>Default</h3>
+    <h3 class="text-2xl font-bold">Default</h3>
     <ds-holding-card [title]="title" [className]="className"></ds-holding-card>
-    <h3>With Href (Link)</h3>
+    <h3 class="text-2xl font-bold">With Href (Link)</h3>
     <ds-holding-card
       [title]="title"
       [href]="href"
       [className]="className"
     ></ds-holding-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The title text displayed in the card. Shown in bold text between the
+            bank icon and the arrow icon. When not provided or empty, the title
+            is not displayed. This is the primary content of the holding card.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path. When provided, the card renders as an
+            anchor tag (<code>&lt;a&gt;</code>) making it a clickable link. When
+            not provided or empty, the card renders as a
+            <code>&lt;div&gt;</code>
+            element. Use for navigation to holding details or related pages. Can
+            be a relative path, absolute URL, or route path depending on your
+            routing setup.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the holding card
+            container. Useful for custom styling or layout adjustments. The card
+            has default styling with border, background, padding, hover effects
+            (shadow on hover), and smooth transitions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

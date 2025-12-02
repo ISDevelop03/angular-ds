@@ -1,4 +1,5 @@
 <div class="p-4 flex bg-crame-50 flex-col min-h-screen gap-4">
+  <h2 class="text-4xl font-bold mb-6">Notification Card</h2>
   <h3 class="text-2xl font-bold">Unread Notification Example</h3>
   <div class="max-w-[250px]">
     <ds-notification-card
@@ -18,5 +19,187 @@
       [isRead]="true"
       (onClick)="handleNotificationClick()"
     ></ds-notification-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional title text displayed at the top of the notification card.
+            Shown in bold text above the content. This is the primary heading
+            for the notification (e.g., 'New Alert', 'System Update').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional content text displayed below the title. Shown in smaller,
+            medium-weight text with a line-clamp of 2 (truncates after 2 lines).
+            Use to provide additional details or the main message of the
+            notification (e.g., 'This notification is unread and important.',
+            'Your system is up to date.').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            time
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional time text displayed in the top-right corner of the card.
+            Shown in very small text. Use to indicate when the notification was
+            received or created (e.g., '5min', '2sec', '1 hour ago'). The time
+            is positioned absolutely in the top-right corner.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isRead
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>false</code> (unread), applies distinct styling: red left
+            border (<code>border-l-red-500</code>) and light background
+            (<code>bg-neutral-25</code>). When <code>true</code> (read), uses
+            transparent left border and transparent background. Use to visually
+            distinguish between read and unread notifications.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            link
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path. When provided, renders an invisible
+            anchor tag covering the entire card, making the entire card
+            clickable for navigation. The link is accessible via screen readers
+            using the title as the accessible text. Can be a relative path,
+            absolute URL, or route path depending on your routing setup.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional unique identifier for the notification card. Use for
+            tracking, identification, or DOM manipulation. Currently available
+            as an input property for future use or custom implementations.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to the <code>onClick</code> event
+            handler. When the card is clicked, the handler receives an object
+            with <code>data</code> and <code>event</code> properties:
+            <code>&#123; data: any, event: Event &#125;</code>. Use to pass
+            additional context or information to the click handler.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the notification card is clicked. Provides an object
+            with <code>data</code> and <code>event</code> properties:
+            <code>&#123; data: any, event: Event &#125;</code>. The
+            <code>event</code> is the click event, and <code>data</code> comes
+            from the component's <code>data</code> input property. The entire
+            card is clickable. Use to handle card selection, mark as read,
+            navigate to details, or trigger notification actions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

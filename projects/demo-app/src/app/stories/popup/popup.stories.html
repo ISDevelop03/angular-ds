@@ -1,5 +1,6 @@
 <div class="p-4 grid gap-4">
-  <h3>Popup Variants</h3>
+  <h2 class="text-4xl font-bold mb-6">Popup</h2>
+  <h3 class="text-2xl font-bold">Popup Variants</h3>
 
   <div class="flex gap-2">
     <ds-button (onClick)="openSlideLeft()" class="btn btn-secondary">
@@ -30,10 +31,9 @@
     <div class="h-screen w-96">
       <div>This is a slide left popup.</div>
       <ds-button (onClick)="openModal()" class="btn btn-primary"
-      >Open Modal</ds-button
-    >
+        >Open Modal</ds-button
+      >
     </div>
-    
   </ds-popup>
 
   <ds-popup
@@ -44,4 +44,144 @@
   >
     <div class="p-4">This is a slide right popup.</div>
   </ds-popup>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isShown
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Controls the visibility of the popup. When <code>true</code>, the
+            popup is displayed with backdrop and animations. When
+            <code>false</code>, the popup is hidden (removed from DOM via
+            <code>*ngIf</code>). Use to show/hide the popup programmatically.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'modal' | 'slideLeft' | 'slideRight'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'modal'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style and positioning variant for the popup:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'modal'</code>: Centered modal dialog with fade-in and
+                scale animation. Positioned in the center of the screen with
+                backdrop.
+              </li>
+              <li>
+                <code>'slideLeft'</code>: Slides in from the right side of the
+                screen. Fixed to the right edge, full height. Uses slide-in-left
+                animation.
+              </li>
+              <li>
+                <code>'slideRight'</code>: Slides in from the left side of the
+                screen. Fixed to the left edge, full height. Uses slide-in-right
+                animation.
+              </li>
+            </ul>
+            Each variant has its own positioning, styling, and animation.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            heading
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional heading text displayed at the top of the popup panel. Shown
+            in bold text above the content. When provided, a heading element is
+            rendered. Use to provide a title or label for the popup (e.g.,
+            'Modal Popup', 'Slide Left Popup').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            close
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">() =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">() =&gt; &#123;&#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Callback function executed when the popup is closed. Called when:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>The close button (X icon) is clicked</li>
+              <li>The Escape key is pressed</li>
+              <li>The backdrop is clicked (outside the popup panel)</li>
+            </ul>
+            Use to update state, clean up resources, or perform actions when the
+            popup closes. The component also sets <code>isShown</code> to
+            <code>false</code> internally.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the popup panel. Useful
+            for custom styling, layout adjustments, or z-index control (e.g.,
+            <code>z-50</code>, <code>z-40</code>). Applied to the panel element
+            alongside variant-specific theme classes and animation classes.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

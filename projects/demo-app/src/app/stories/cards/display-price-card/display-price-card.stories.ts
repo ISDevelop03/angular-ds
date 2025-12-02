@@ -59,4 +59,10 @@ export class DisplayPriceCardStoryComponent {
     icon: 'receipt-lines',
     text: 'This is a display price card that shows the price, discount, and total amount.',
   };
+  acceptAction = () => {
+    console.log('Accept action');
+  };
+  cancelAction = () => {
+    console.log('Cancel action');
+  };
 }

@@ -1,5 +1,5 @@
-<div class="p-4 flex flex-col gap-4  bg-crame-50 min-h-screen">
-  <h3 class="text-2xl font-bold">Filial Card</h3>
+<div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Filial Card</h2>
 
   <div class="max-w-[300px]">
     <ds-filial-card
@@ -11,5 +11,176 @@
       (setSelected)="onFilialCardSelected($event)"
     ></ds-filial-card>
   </div>
-  
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The name of the filial (branch or
+            subsidiary) displayed as the card title. Shown in bold text. The
+            component also uses the first two letters of the name to generate an
+            avatar/initial badge when no icon is provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the filial card.
+            Used for tracking and identification when the card is selected.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier or image URL. When provided, displays an
+            icon or image instead of the text initials avatar. Should match an
+            available icon in your icon library or be a valid image URL.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            sector
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional sector or category information for the filial. Can be used
+            for filtering, grouping, or additional context. Currently available
+            as an input property for future use or custom implementations.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            useImageBorder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies a border to the icon/image. Use for
+            custom styling of the icon container. When <code>false</code>, uses
+            the default styling without a border.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to the <code>setSelected</code> event
+            handler. When the card is clicked, the handler receives an object
+            with <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: Event, data: any &#125;</code>. Use to pass
+            additional context or information to the selection handler.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the filial card
+            container. Useful for custom styling or layout adjustments. The card
+            has default hover effects (shadow, background change, border
+            transparency).
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            setSelected
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the filial card is clicked. Provides an object with
+            <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: Event, data: any &#125;</code>. The
+            <code>event</code> is the click event, and <code>data</code> comes
+            from the component's <code>data</code> input property. The entire
+            card is clickable and has keyboard accessibility (tabindex, role).
+            Use to handle filial selection and navigation.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

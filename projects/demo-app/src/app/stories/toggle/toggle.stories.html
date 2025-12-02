@@ -1,5 +1,6 @@
-<div class="p-4 space-y-4 bg-crame-50 min-h-screen">
-  <h3 class="text-lg font-bold">Toggle Switch Demos</h3>
+<div class="p-4 space-y-4 bg-crame-50">
+  <h2 class="text-4xl font-bold mb-6">Toggle</h2>
+  <h3 class="text-2xl font-bold">Toggle Switch Demos</h3>
 
   <div class="flex items-center gap-4">
     <ds-toggle [checked]="state" (onChange)="handleChange($event)"></ds-toggle>
@@ -22,5 +23,156 @@
       (onChange)="handleChange($event)"
     ></ds-toggle>
     <span>Disabled & Unchecked</span>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            checked
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The checked/on state of the toggle switch. When <code>true</code>,
+            the toggle is in the enabled/on position (green background, switch
+            moved to the right). When <code>false</code>, the toggle is in the
+            disabled/off position (gray background, switch moved to the left).
+            The component automatically syncs its internal
+            <code>enabled</code> state when this value changes via
+            <code>ngOnChanges</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the toggle switch, preventing user
+            interaction. Disabled toggles have:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Reduced opacity: <code>opacity-50</code></li>
+              <li>Not-allowed cursor: <code>cursor-not-allowed</code></li>
+              <li>Click handler is ignored (no state change occurs)</li>
+            </ul>
+            Use for toggles that should be temporarily unavailable or require
+            certain conditions to be met.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof ToggleTheme</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant for styling the toggle switch. Currently only
+            <code>'default'</code> is available. The variant determines the
+            visual styling, colors, and animations of the toggle switch. Future
+            variants may be added for different color schemes or styles.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the toggle switch
+            container. Useful for custom styling, spacing, or layout
+            adjustments. The component has default styling with relative
+            positioning, flex layout, rounded-full shape, and specific
+            dimensions (36px width, 20px height).
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;boolean&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the toggle state changes. The event is emitted in two
+            scenarios:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <strong>User interaction:</strong> When the user clicks the
+                toggle (if not disabled), the new state (<code>true</code> or
+                <code>false</code>) is emitted.
+              </li>
+              <li>
+                <strong>Programmatic change:</strong> When the
+                <code>checked</code> input changes via <code>ngOnChanges</code>,
+                the new state is emitted.
+              </li>
+            </ul>
+            The payload is a boolean value representing the new checked state
+            (<code>true</code> for enabled/on, <code>false</code> for
+            disabled/off). Use to handle toggle state changes, update parent
+            component state, or perform actions based on the toggle state.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

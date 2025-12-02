@@ -1,77 +1,334 @@
 <div
   class="p-4 grid gap-6 w-full grid-cols-1 place-content-start min-h-screen bg-crame-50"
 >
-  <h3 class="text-primary">Default Variant</h3>
+  <h2 class="text-4xl font-bold mb-6">Accordion</h2>
+  <h3 class="text-2xl font-bold">Default Accordion</h3>
   <ds-accordion
-    [items]="defaultItems"
+    [items]="items"
     variant="default"
     (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>
 
-  <h3 class="text-primary">With Border Variant</h3>
+  <h3 class="text-2xl font-bold">Borderless Accordion</h3>
   <ds-accordion
-    [items]="borderlessItems"
+    [items]="items"
     variant="borderless"
     [allowMultiple]="true"
     (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>
 
-  <h3>White Variant with Template Content</h3>
-  <ng-template #templateOne>
-    <p>
-      This is <strong>projected template content</strong> for the first panel.
-    </p>
-
-    <ds-text content="Heading as H1" tag="h1" variant="text-xl/Bold"></ds-text>
-  </ng-template>
-
-  <ng-template #templateTwo>
-    <div class="grid gap-4">
-      <ul class="list-disc ml-4">
-        <li>Item One</li>
-        <li>Item Two</li>
-      </ul>
-      <div class="max-w-[300px]">
-        <ds-account-selected-card
-          [account_number]="account.account_number"
-          [balance]="account.balance"
-          [currency]="account.currency"
-          [type]="account.type"
-          [id]="account.id"
-          [isDiscrete]="account.isDiscrete"
-          [solde_comptable]="account.solde_comptable"
-          [solde_temps_reel]="account.solde_temps_reel"
-          [actionsList]="actionsList"
-        >
-        </ds-account-selected-card>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template #templateThree>
-    <ds-accordion-card [items]="items"></ds-accordion-card>
-  </ng-template>
-
   <!-- Template for content items -->
-  <ng-template #contentTemplate let-content="content">
-    <div class="space-y-2">
-      <div *ngFor="let item of content" class="p-2 border rounded">
-        <strong>{{ item.label }}:</strong> {{ item.value }}
-      </div>
-    </div>
+  <ng-template #contentTemplate>
+    <p>Here where your template goes</p>
   </ng-template>
 
-  <ds-accordion
-    [items]="whiteItems"
-    [allowMultiple]="false"
-    (openHandler)="onAccordionOpen($event)"
-  ></ds-accordion>
-  <ds-accordion
-    [items]="whiteItems"
-    variant="borderless"
-    [allowMultiple]="false"
-    (openHandler)="onAccordionOpen($event)"
-  ></ds-accordion>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default' | 'borderless'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the accordion. <code>'default'</code> for
+            standard styling with borders and background,
+            <code>'borderless'</code>
+            for a cleaner look without borders.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">AccordionItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of accordion items to display. Each item represents a
+            collapsible panel. See the
+            <strong>AccordionItem Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            allowMultiple
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows multiple accordion panels to be open
+            simultaneously. When <code>false</code>, opening one panel
+            automatically closes all others (accordion behavior).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            textClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the accordion item title text. Use
+            for custom text styling like font size, weight, or color.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the accordion container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            openHandler
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;AccordionItem&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when an accordion panel is opened or closed. Provides the
+            <code>AccordionItem</code> that was toggled, including its current
+            state. Use to track which panels are open or to perform actions when
+            panels are toggled.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AccordionItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># AccordionItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>AccordionItem</code> interface defines the structure for accordion
+    items passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the accordion item.
+            Used internally to track which panel is open/closed.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The text displayed in the accordion
+            header button. This is the visible label for the collapsible panel.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The content displayed when the panel is
+            open. Can be a string (HTML) for simple content or an Angular
+            <code>TemplateRef</code> for complex, reusable content with custom
+            components.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            caption
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional secondary text displayed below or alongside the title. Use
+            for additional context or descriptions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttonTemplate
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional template for custom button content in the accordion header.
+            Allows adding action buttons, icons, or other interactive elements
+            alongside the title. The template receives the item as context.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            context
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional context object passed to template references. Use when
+            <code>content</code> or <code>buttonTemplate</code> is a
+            <code>TemplateRef</code> to provide data that the template can
+            access.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            count
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional badge count displayed next to the title. Can be a number or
+            string (e.g., '5' or '+9'). When provided, displays as a circular
+            badge with the specified <code>countColor</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            countColor
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS class for the count badge background color. Defaults to
+            <code>'bg-red-500'</code> if not specified. Use Tailwind color
+            classes like <code>'bg-yellow-500'</code>,
+            <code>'bg-purple-500'</code>, etc.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            open
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional initial open state for the accordion panel. When
+            <code>true</code>, the panel starts expanded. When
+            <code>allowMultiple</code> is <code>false</code>, only one panel can
+            be open at a time, so setting multiple items to
+            <code>open: true</code>
+            will result in only the last one being open.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <ng-template #buttonTemplate let-item="item">

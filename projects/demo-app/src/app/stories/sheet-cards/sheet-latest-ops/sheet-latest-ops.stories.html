@@ -1,5 +1,6 @@
-<div class="p-4 flex flex-col gap-4">
-  <h2 class="text-2xl font-bold">Sheet Latest Ops</h2>
+<div class="p-4 flex flex-col gap-4 bg-gradient-crame min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Sheet Latest Ops</h2>
+  <h3 class="text-2xl font-bold">Sheet Latest Ops</h3>
   <div class="max-w-[410px]">
     <ds-sheet-latest-ops
       [isDiscrete]="isDiscrete"
@@ -11,5 +12,165 @@
       [className]="className"
     >
     </ds-sheet-latest-ops>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isDiscrete
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, enables discrete mode for the balance
+            formatter. In discrete mode, the price value may be displayed in a
+            more subtle or masked way (e.g., showing asterisks or reduced
+            visibility). This is useful for privacy-sensitive applications where
+            financial information should be partially hidden. The value is
+            passed to the internal <code>ds-balance-formatter</code> component.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The title text displayed at the top-left of the card. Shown in bold
+            text with a font size of 0.875rem (14px) and line height of 1rem
+            (16px). The title appears on the same row as the price, aligned to
+            the left. Use to describe the operation or transaction (e.g.,
+            "Virement", "Prélèvement", "Dépôt").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currency
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The currency code or symbol for the price
+            (e.g., "EUR", "USD", "MAD"). This is passed to the internal
+            <code>ds-balance-formatter</code> component, which displays the
+            currency alongside the formatted price value. The currency is
+            typically shown as a prefix or suffix to the price.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            price
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The numeric price or amount value to
+            display. This value is formatted and displayed using the
+            <code>ds-balance-formatter</code> component, which handles number
+            formatting, currency display, and discrete mode. The price is shown
+            on the top-right of the card, aligned to the right, in bold text. If
+            the price is falsy (null, undefined, 0, etc.), the balance formatter
+            is not rendered.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            dateOperation
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The date of the operation (transaction
+            date) displayed in the bottom-right section of the card. This is the
+            date when the transaction was executed or processed. The date is
+            displayed in bold text below the "Date opération" label. The value
+            is also used as a condition for the <code>ds-display-value</code>
+            component to determine if the date should be shown.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            dateValue
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The value date (date de valeur) displayed
+            in the bottom-left section of the card. This is the date when the
+            transaction value is effective or when funds are available. The date
+            is displayed in bold text below the "Date valeur" label. The value
+            is conditionally rendered using the
+            <code>ds-display-value</code> component based on the
+            <code>dateOperation</code> value.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the card container.
+            Useful for custom styling, borders, backgrounds, spacing, or layout
+            adjustments. The component has default styling with background
+            (<code>bg-level-3</code>), padding (<code>py-3 px-3.5</code>),
+            rounded corners (<code>rounded</code>), and flex layout with gap
+            spacing.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

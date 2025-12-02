@@ -1,240 +1,1067 @@
-<div class="flex items-start justify-start bg-level-1">
-  <ds-sidebar
-    [logo]="logo"
-    [miniLogo]="miniLogo"
-    [sizes]="sizes"
-    [subSidebarIsOpen]="subSidebarIsOpen"
-    [subMenuData]="subMenuData"
-    (onOpenSidebar)="onOpenSidebar($event)"
-    [mainMenus]="mainMenus"
-    [profileMenus]="profileMenus"
-    className="bg-level-1"
-    (callingOnClick)="callingOnClick($event)"
-    disableBottomMenus="true"
-  ></ds-sidebar>
+<div class="flex items-start justify-start bg-level-1 flex-col">
+  <div class="flex items-start justify-start w-full">
+    <ds-sidebar
+      [logo]="logo"
+      [miniLogo]="miniLogo"
+      [sizes]="sizes"
+      [subSidebarIsOpen]="subSidebarIsOpen"
+      [subMenuData]="subMenuData"
+      (onOpenSidebar)="onOpenSidebar($event)"
+      [mainMenus]="mainMenus"
+      [profileMenus]="profileMenus"
+      className="bg-level-1"
+      (callingOnClick)="callingOnClick($event)"
+      disableBottomMenus="true"
+    ></ds-sidebar>
 
-  <div
-    class="bg-level-2 rounded-r-2xl my-[14px] mr-3"
-    [ngClass]="{
+    <div
+      class="bg-level-2 rounded-r-2xl my-[14px] mr-3"
+      [ngClass]="{
     'rounded-tl-2xl': hideWrapperBackground,
     'rounded-l-2xl': !hideWrapperBackground
   }"
-  >
-    <div
-      class="h-[calc(100vh-24px)] z-[3] relative overflow-y-auto bg-white dark:bg-black text-black dark:text-white rounded-2xl p-4"
     >
-      <div class="flex items-center justify-between mb-4 w-full">
-        <ds-portfolio
-          [portfolios]="portfolios"
-          [selected]="this.portfolios[0]"
-          [holding]="holding"
-        ></ds-portfolio>
-        <button
-          class="text-sm text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
-          (click)="hideWrapperBackground = !hideWrapperBackground"
-        >
-          Toggle Background
-        </button>
-      </div>
+      <div
+        class="h-[calc(100vh-24px)] z-[3] relative overflow-y-auto bg-white dark:bg-black text-black dark:text-white rounded-2xl p-4"
+      >
+        <h2 class="text-4xl font-bold p-4 pb-0">Sidebar</h2>
+        <!-- API Documentation Table -->
+        <div class="p-4">
+          <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
-      <div class="flex items-items gap-10 w-full justify-start">
-        <!-- <h2 class="text-lg font-semibold mb-4">Accounts</h2> -->
-        <div
-          class="w-full overflow-hidden flex flex-col gap-5"
-          [ngClass]="[hideWrapperBackground ? 'max-w-[calc(100vw-225px-54px-32px)]':'max-w-[calc(100vw-225px-54px-32px)]']"
-        >
-          <div id="accounts" class="space-y-3">
-            <div class="flex w-full items-center justify-between gap-4">
-              <h3 class="text-[16px]/[18px] font-bold">Vos comptes favoris</h3>
-
-              <ds-call-to-action-icons
-                [actions]="actionsBasic"
-                className="w-fit"
-                variant="separated"
-              ></ds-call-to-action-icons>
-            </div>
-            <div
-              class="flex md:flex-row flex-col items-center gap-3 w-full justify-start"
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
             >
-              <ds-account-selected-card
-                [account_number]="selected.account_number"
-                [balance]="selected.balance"
-                [currency]="selected.currency"
-                [type]="selected.type"
-                [id]="selected.id"
-                [data]="selected"
-                [isDiscrete]="isDiscrete"
-                [solde_comptable]="selected.solde_comptable"
-                [solde_temps_reel]="selected.solde_temps_reel"
-                [actionsList]="actionsList"
-                className="!w-[300px] shrink-0"
-              >
-              </ds-account-selected-card>
-              <!-- <h2 class="text-lg font-semibold mb-4">Accounts</h2> -->
-              <div class="w-full overflow-hidden">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-container
-                    *ngFor="let account of accounts; let idx = index"
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
                   >
-                    <ng-template carouselSlide [width]="300" [id]="idx">
-                      <ds-account-slider-card
-                        [account_number]="account.account_number"
-                        [balance]="account.balance"
-                        [currency]="account.currency"
-                        [type]="account.type"
-                        [id]="account.id"
-                        [isDiscrete]="isDiscrete"
-                        [data]="account"
-                        [actionsList]="actionsList"
-                        (onClick)="onClick($event)"
-                        className=""
-                      ></ds-account-slider-card>
-                    </ng-template>
-                  </ng-container>
-                </owl-carousel-o>
-              </div>
-            </div>
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Component Inputs -->
+                <tr class="bg-blue-50">
+                  <td
+                    colspan="4"
+                    class="border border-gray-300 px-4 py-2 font-bold text-lg"
+                  >
+                    Component Inputs
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    className
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">''</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional additional CSS classes to apply to the sidebar
+                    container. Useful for custom styling, backgrounds, or layout
+                    adjustments (e.g., <code>'bg-level-1'</code>). The sidebar
+                    has default styling with sticky positioning, full height,
+                    and z-index for proper layering.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    profileMenus
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">ISelectItem[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Array of profile menu items displayed in the bottom section
+                    of the sidebar. Each item can have a label, icon, href, and
+                    onClick handler. These menus are typically used for user
+                    profile actions, settings, or account-related options. See
+                    the
+                    <strong>ISelectItem Interface</strong> section below for
+                    details.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    mainMenus
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">IMainMenu[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> Array of main menu items
+                    displayed in the sidebar. Each menu item can have a title,
+                    icon, color, href, and optional submenu. When a menu item
+                    with submenus is clicked, it opens a sub-sidebar panel. See
+                    the <strong>IMainMenu Interface</strong> section below for
+                    details.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    disableMainMenus
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">false</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables all main menu items,
+                    preventing clicks and interactions. Useful for read-only
+                    states or when navigation should be temporarily disabled.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    disableBottomMenus
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">false</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the bottom menus section
+                    (profile menus, theme toggle, language selector, etc.). This
+                    hides or disables the entire bottom section of the sidebar.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    sizes
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">Cap[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Array of cap size options for font size selection in the
+                    bottom menus. Each cap has a name (e.g., 'S', 'M', 'L',
+                    'XL') and a corresponding size value. Used for accessibility
+                    features allowing users to adjust text size. See the
+                    <strong>Cap Interface</strong>
+                    section below for details.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    defaultCap
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">Cap</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm"
+                      >&#123; name: 'L', size: 18 &#125;</code
+                    >
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    The default cap size selected when the sidebar loads. This
+                    determines the initial font size setting. The default is 'L'
+                    with size 18. See the <strong>Cap Interface</strong> section
+                    below for details.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    logo
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">'/assets/logo-mybusiness.svg'</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    URL path to the full logo image displayed in the sidebar
+                    header when the sub-sidebar is open. The logo is shown at
+                    140px width with automatic height. Use this for the main
+                    application logo.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    miniLogo
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">'/assets/mini-logo.svg'</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    URL path to the mini logo image displayed in the sidebar
+                    header when the sub-sidebar is closed. The mini logo is
+                    shown at 20px width (w-5) with automatic height. Use this
+                    for a compact logo icon.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    language
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">ILanguage</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm"
+                      >&#123; src: '/assets/france-flag.svg', alt: 'Français'
+                      &#125;</code
+                    >
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Language configuration object for the language selector in
+                    the bottom menus. Contains the flag image source and alt
+                    text. See the
+                    <strong>ILanguage Interface</strong> section below for
+                    details.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    subSidebarIsOpen
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">false</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Controls whether the sub-sidebar panel is open. When
+                    <code>true</code>, the sub-sidebar slides in from the right,
+                    showing the submenu items for the selected main menu. The
+                    logo switches from mini to full when the sub-sidebar is
+                    open. This should be controlled by the parent component
+                    based on the <code>onOpenSidebar</code> event.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    subMenuData
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">IMenus</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm"
+                      >&#123; title: '', items: [] &#125;</code
+                    >
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    The menu data to display in the sub-sidebar panel. Contains
+                    a title and array of menu items. This is automatically set
+                    when a main menu item with submenus is clicked, but can also
+                    be controlled externally. See the
+                    <strong>IMenus Interface</strong> section below for details.
+                  </td>
+                </tr>
+
+                <!-- Component Outputs -->
+                <tr class="bg-green-50">
+                  <td
+                    colspan="4"
+                    class="border border-gray-300 px-4 py-2 font-bold text-lg"
+                  >
+                    Component Outputs (Events)
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    onThemeChange
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">EventEmitter&lt;any&gt;</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Emitted when the theme is changed via the theme toggle in
+                    the bottom menus. The event payload contains the new theme
+                    value. Use to handle theme switching (e.g., light/dark mode)
+                    in your application.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    callingOnClick
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">EventEmitter&lt;any&gt;</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Emitted when the calling/phone icon is clicked in the bottom
+                    menus. Use to handle calling functionality or display a
+                    calling interface.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    reclamationOnClick
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">EventEmitter&lt;any&gt;</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Emitted when the reclamation/complaint icon is clicked in
+                    the bottom menus. Use to handle reclamation functionality or
+                    navigate to a reclamation page.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    languageOnClick
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">EventEmitter&lt;any&gt;</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Emitted when the language selector is clicked in the bottom
+                    menus. Use to handle language switching or display a
+                    language selection menu.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    settingsOnClick
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">EventEmitter&lt;any&gt;</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Emitted when the settings icon is clicked in the bottom
+                    menus. Use to handle settings functionality or navigate to a
+                    settings page.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    onOpenSidebar
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">EventEmitter&lt;any&gt;</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Emitted when the sub-sidebar is opened or closed. The event
+                    payload contains:
+                    <code
+                      >&#123; subMenuData: IMenus, open: boolean,
+                      openMainMenuIndex: number &#125;</code
+                    >. Use to synchronize the sub-sidebar state with your parent
+                    component and update the <code>subSidebarIsOpen</code> and
+                    <code>subMenuData</code> inputs accordingly.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="mb-4 space-y-4">
-            <p class="text-gray-600 dark:text-gray-400">
-              This sidebar contains a list of main menus and profile menus,
-              which can be expanded or collapsed.
-            </p>
-            <h1 class="text-2xl font-bold mb-4">Sidebar Demo</h1>
-            <p class="dark:text-gray-400 text-gray-700">
-              This is a live preview of the ds-sidebar component with nested
-              menus.
-            </p>
-            <p>
-              The sidebar is designed to be responsive and user-friendly,
-              providing easy navigation through the application. You can expand
-              and collapse the sidebar to suit your needs.
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              explicabo cumque est voluptatum necessitatibus sint dignissimos
-              iusto temporibus, vero accusantium non provident optio aspernatur.
-              Impedit at voluptatem totam ipsum. Blanditiis, officia alias.
-              Nulla, eius. Eaque necessitatibus blanditiis iusto cumque deleniti
-              explicabo doloremque, illo numquam. Dolores aspernatur
-              reprehenderit nulla optio illo, possimus rerum aliquid laboriosam,
-              corporis consequatur accusantium neque maiores aliquam sint
-              perspiciatis repellendus fugiat beatae blanditiis! Iste
-              repellendus omnis fuga magni dolorum quo itaque totam doloribus,
-              culpa minima numquam maiores fugiat velit. Magnam modi perferendis
-              consequatur! Vitae ipsam dolore veritatis, hic ut dolor
-              perferendis itaque quasi cupiditate quae quam autem, reiciendis
-              asperiores iure expedita sed qui non consectetur in odit, alias
-              fugiat! Vero, iure velit assumenda eligendi soluta quod autem
-              illum tempore optio alias dolore dolor id eveniet. Amet asperiores
-              deleniti optio nam necessitatibus ducimus. Expedita quo
-              necessitatibus ut debitis magnam laboriosam quos mollitia
-              recusandae amet commodi inventore magni enim neque nam voluptatem
-              a nihil atque deleniti, dolorum, voluptatibus culpa, molestias
-              obcaecati accusantium. Perspiciatis, placeat? Esse fugiat nisi
-              voluptates suscipit dicta provident, reprehenderit earum excepturi
-              rem quibusdam eos a et reiciendis eius odio nostrum dolor quo quod
-              placeat debitis recusandae, corrupti veniam alias? Voluptas
-              blanditiis ipsum unde beatae dolores, minus, quia repudiandae
-              iusto et distinctio provident autem enim sunt! Sunt suscipit
-              inventore ipsa corporis harum, laborum pariatur est amet velit
-              sapiente quae commodi fugiat deleniti, aperiam nemo, dicta qui.
-              Nobis ipsam enim, minus nostrum explicabo officiis quis, corrupti
-              dolore in saepe quibusdam sequi possimus velit culpa qui a nihil
-              aliquid. Fugiat consectetur vero praesentium, fugit sit porro,
-              vitae maiores reiciendis beatae quaerat quos asperiores omnis et
-              quasi? Distinctio alias quo molestiae, fugiat accusamus animi
-              tenetur voluptates amet iure nostrum omnis? Veniam non perferendis
-              minus quaerat provident aut dolor voluptate temporibus voluptatem
-              nihil repudiandae ipsam neque asperiores molestiae delectus qui
-              doloremque, ullam quo. Modi dicta ratione delectus adipisci
-              temporibus! Natus itaque quia, aut laborum explicabo nisi
-              voluptates! Consequuntur blanditiis itaque ea sapiente deleniti
-              iusto provident eius velit quo, ipsa, modi qui soluta est quos.
-              Iusto sequi, praesentium iste quasi error possimus natus! Modi
-              voluptas deleniti reprehenderit sapiente consequatur sint! Fugit
-              reprehenderit repellendus qui perspiciatis, sit consectetur totam
-              dolores, obcaecati nesciunt iure, explicabo illum cum rerum eum
-              rem pariatur recusandae. Recusandae explicabo tempore impedit
-              pariatur quis expedita nostrum quos unde, sapiente quibusdam
-              excepturi corrupti quasi maxime labore accusamus alias aperiam
-              fugiat ipsum nihil. Qui, quo perferendis! Consectetur, nobis!
-              Cupiditate cumque illo harum debitis facilis, obcaecati reiciendis
-              atque, enim iure earum fugiat error. Illo perferendis in natus
-              totam deleniti eius placeat eos consectetur dolorem tempora, quasi
-              quo explicabo rem sunt? Harum repudiandae aliquam libero adipisci,
-              expedita aliquid sequi sit laboriosam enim quia laborum, eum non
-              est similique neque quasi facilis et? Blanditiis cumque vero neque
-              itaque, expedita minus accusamus quis, officia inventore repellat
-              possimus vitae molestias ipsum laboriosam, sapiente debitis
-              voluptatem nulla labore omnis et? Quaerat maiores doloribus, quo
-              eos provident nihil nobis fugiat commodi. Voluptate pariatur
-              quibusdam, minus corrupti tempora porro incidunt vitae soluta
-              voluptas omnis itaque obcaecati, debitis atque blanditiis eveniet
-              iure odit ratione libero delectus! Veniam nostrum labore, culpa
-              quam nemo incidunt numquam molestiae! Magni, sit! Inventore
-              laborum minus nisi, at dignissimos ea? Excepturi veritatis aut
-              molestiae adipisci, tempora placeat harum quisquam repellat quae
-              illum delectus voluptatem? Doloremque, quas molestias deleniti
-              quibusdam cupiditate totam asperiores numquam expedita
-              perspiciatis nostrum nihil obcaecati dignissimos consectetur
-              laboriosam non iure blanditiis praesentium perferendis labore
-              illum facere porro, dolorem quasi. Ducimus, dicta quo. Delectus
-              excepturi accusamus reprehenderit neque, cumque architecto saepe,
-              autem ullam iure perspiciatis, voluptas ipsam quo quos corporis
-              labore. Odit fuga voluptas suscipit ad autem vero eius aspernatur?
-              Voluptates, atque fugit quae illo dignissimos omnis suscipit
-              tenetur expedita porro iusto doloremque iste corporis eos
-              eligendi. Amet libero cupiditate modi officiis excepturi
-              voluptatem, possimus itaque ullam cumque illo autem veniam,
-              reiciendis, voluptas quas voluptates. Culpa ullam repellat
-              voluptas pariatur architecto amet eum, ipsam recusandae sit
-              perspiciatis, asperiores magnam commodi incidunt iusto, minima
-              nulla nisi est exercitationem neque corrupti nostrum eveniet vitae
-              hic? Possimus labore accusantium iure debitis quam temporibus
-              deleniti exercitationem maxime aperiam enim molestias sed unde
-              fugit libero commodi distinctio, dolore ex minus laudantium nihil,
-              natus perferendis assumenda aut amet! Consequuntur eos explicabo
-              tenetur repellat incidunt at delectus quasi omnis nobis quae quia
-              praesentium excepturi illum vel, eius vitae accusantium in
-              officia, impedit itaque odit iure placeat blanditiis laboriosam!
-              Ratione illum porro corporis, quibusdam repellat earum error, unde
-              suscipit similique veritatis nostrum, excepturi rerum corrupti
-              tenetur adipisci doloribus voluptatibus quidem perspiciatis.
-              Officia repudiandae magnam rerum quibusdam modi nostrum blanditiis
-              quaerat id repellat dolorem, excepturi numquam odio? Ex qui sint
-              minus magnam omnis rem culpa sapiente vel molestias adipisci
-              eveniet, facere officia, architecto praesentium maiores porro
-              deleniti laborum iste ducimus ullam. Nulla repellendus itaque
-              dolorum voluptatum rerum corporis nemo facere laborum consequatur
-              iste obcaecati in doloribus alias at voluptates, facilis,
-              accusantium reprehenderit numquam, eligendi odio vero quidem.
-              Voluptatibus veritatis deserunt voluptatum facilis, earum
-              asperiores reprehenderit sed ea? Dolore quam cum enim quisquam ea
-              facilis consectetur, perspiciatis labore voluptatem adipisci nisi
-              quasi quo atque nam inventore, rerum illo qui, repudiandae
-              accusantium consequatur vero! Rerum adipisci totam est vero optio
-              quae reiciendis excepturi dignissimos nostrum eligendi, amet
-              ratione asperiores perspiciatis aperiam? Cum fugiat nihil alias
-              quia temporibus modi itaque at! Numquam, impedit explicabo ea
-              sequi provident in quasi. Et nobis molestiae error aliquam
-              delectus libero assumenda pariatur provident alias? Repellendus
-              veniam libero itaque ipsa officiis saepe repellat accusamus est
-              ipsam doloribus, excepturi ducimus recusandae, obcaecati non, quam
-              exercitationem. Tempore cum molestias cumque aspernatur, iure
-              ipsam voluptatem hic ratione, quis ex est quibusdam aut nulla eos
-              nihil excepturi ducimus quas inventore. Veniam reiciendis itaque
-              nisi ea reprehenderit maxime cupiditate, animi dolorem alias iure?
-              Mollitia porro tenetur reprehenderit provident ullam error ea
-              quibusdam, aspernatur enim nisi at voluptate odio doloremque
-              repellat veritatis temporibus debitis sunt numquam culpa quia
-              minus optio? Facilis dicta ex enim ipsa aspernatur iusto quisquam
-              vitae exercitationem ratione, delectus voluptatem rem eveniet
-              laborum autem non cumque voluptates eaque quibusdam? Unde in
-              illum, debitis aspernatur molestiae perspiciatis sapiente
-              similique labore vero reprehenderit veniam, distinctio, totam
-              eius!
-            </p>
+
+          <!-- IMainMenu Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># IMainMenu Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>IMainMenu</code> interface defines the structure for main
+            menu items passed to the <code>mainMenus</code> input property.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    title
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> The title text displayed for the
+                    menu item. This is the label shown in the sidebar for this
+                    menu option.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    icon
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional icon identifier displayed next to the menu title.
+                    Should match an available icon in your icon library (e.g.,
+                    'home', 'settings', 'user').
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    color
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> Color value for the menu item.
+                    Used for styling the menu item (e.g., icon color, active
+                    state color). Can be a CSS color value or theme color class.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    href
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> URL or route path for the menu
+                    item. Used for navigation when the menu item is clicked. Can
+                    be a relative path, absolute URL, or route path depending on
+                    your routing setup.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    menus
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">IMenus</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional submenu data. When provided, clicking the menu item
+                    opens a sub-sidebar panel displaying the submenu items. If
+                    not provided, clicking the menu item navigates to the
+                    <code>href</code>. See the
+                    <strong>IMenus Interface</strong> section below for details.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- IMenus Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># IMenus Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>IMenus</code> interface defines the structure for submenu
+            data passed to the <code>subMenuData</code> input or used in the
+            <code>menus</code> property of <code>IMainMenu</code>.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    title
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> The title text displayed at the
+                    top of the sub-sidebar panel. This is typically the same as
+                    the main menu item title or a category name.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    items
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">IMenuListItem[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> Array of menu list items
+                    displayed in the sub-sidebar. Each item can have a title,
+                    icon, href, and optional nested items for multi-level menus.
+                    See the <strong>IMenuListItem Interface</strong> section
+                    below for details.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- IMenuListItem Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># IMenuListItem Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>IMenuListItem</code> interface defines the structure for
+            individual items within a submenu's <code>items</code> array.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    title
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> The title text displayed for the
+                    menu item in the sub-sidebar.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    icon
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional icon identifier displayed next to the menu item
+                    title. Should match an available icon in your icon library.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    href
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> URL or route path for the menu
+                    item. Used for navigation when the item is clicked.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    isNew
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, indicates that this is a new menu
+                    item, which may be styled differently (e.g., with a "new"
+                    badge or highlight) to draw attention.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    items
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">IMenuListItem[]</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional nested menu items for multi-level menus. Allows
+                    creating hierarchical menu structures with sub-items under a
+                    parent item.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ILanguage Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># ILanguage Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>ILanguage</code> interface defines the structure for
+            language configuration passed to the <code>language</code> input
+            property.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    src
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> URL path to the language flag
+                    image (e.g., <code>'/assets/france-flag.svg'</code>). This
+                    image is displayed in the language selector in the bottom
+                    menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    alt
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> Alt text for the language flag
+                    image (e.g., <code>'Français'</code>). Used for
+                    accessibility and as a fallback if the image fails to load.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    className
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional additional CSS classes to apply to the language
+                    flag image. Useful for custom styling or sizing.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Cap Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># Cap Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>Cap</code> interface defines the structure for font size
+            options passed to the <code>sizes</code> and
+            <code>defaultCap</code> input properties.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    name
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">'S' | 'M' | 'L' | 'XL'</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> The name of the cap size. Must be
+                    one of 'S', 'M', 'L', or 'XL'. This is displayed as the
+                    label for the font size option in the accessibility menu.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    size
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">number</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> The font size value in pixels
+                    corresponding to the cap name. For example, 'S' might be
+                    14px, 'M' might be 16px, 'L' might be 18px, and 'XL' might
+                    be 20px. This value is used to apply the selected font size
+                    to the application.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ISelectItem Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># ISelectItem Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>ISelectItem</code> interface defines the structure for
+            profile menu items passed to the <code>profileMenus</code> input
+            property. This interface is also used in other components like
+            profile-dropdown.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    href
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional URL or route path. When provided, the menu item is
+                    rendered as a link. Can be a relative path, absolute URL, or
+                    route path depending on your routing setup.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    label
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">-</td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <strong>Required.</strong> The label text displayed for the
+                    menu item.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    isExternal
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, indicates that the link is external.
+                    This may affect how the link is rendered (e.g., opening in a
+                    new tab with <code>target="_blank"</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    icon
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional icon identifier displayed next to the menu item
+                    label. Should match an available icon in your icon library.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    className
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">string</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional additional CSS classes to apply to the menu item.
+                    Useful for custom styling.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    onClick
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">() =&gt; void</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Optional callback function executed when the menu item is
+                    clicked. Use to handle custom actions that don't require
+                    navigation (e.g., opening a modal, toggling a setting).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

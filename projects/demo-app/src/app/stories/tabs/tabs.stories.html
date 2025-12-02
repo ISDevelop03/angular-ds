@@ -1,8 +1,301 @@
-<div class="p-4 grid gap-6 grid-cols-1 place-content-start min-h-screen bg-crame-50">
-  <h3>No Background Tabs</h3>
+<div class="p-4 grid gap-6 grid-cols-1 place-content-start bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Tabs</h2>
+  <h3 class="text-2xl font-bold">No Background Tabs</h3>
   <ds-tabs variant="noBackground" [items]="tabsNoBackground"></ds-tabs>
-  <h3>With Border Tabs</h3>
+  <h3 class="text-2xl font-bold">With Border Tabs</h3>
   <ds-tabs variant="withBorder" [items]="tabsWithBorder"></ds-tabs>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ITab[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of tab items to display. Each item
+            defines a tab with its title, panel content, and optional
+            properties. The tabs are displayed in the order they appear in this
+            array. See the <strong>ITab Interface</strong> section below for
+            details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the tabs wrapper
+            container. Useful for custom styling, spacing, or layout
+            adjustments. The component has default styling based on the
+            <code>variant</code> property.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >'default' | 'noBackground' | 'withBorder'</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant for styling the tabs component. Options:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'default'</code>: Tabs with background container and
+                rounded styling
+              </li>
+              <li>
+                <code>'noBackground'</code>: Tabs without background, with
+                underline indicator
+              </li>
+              <li>
+                <code>'withBorder'</code>: Tabs with border container and
+                underline indicator
+              </li>
+            </ul>
+            Each variant has different visual styling for the tab list and
+            panels.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            rightContent
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional template reference for content displayed on the right side
+            of the tab list. This allows you to add custom content (e.g.,
+            buttons, icons, actions) next to the tabs. The content is rendered
+            using <code>ngTemplateOutlet</code> and appears in a flex container
+            with the tab list.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selectedIndex
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The index of the currently selected tab. This is a zero-based index
+            (0 for the first tab, 1 for the second, etc.). The component
+            automatically updates this value when a tab is clicked, but you can
+            also control it externally to programmatically select a specific
+            tab. The selected tab's panel is displayed, and other panels are
+            hidden.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a tab is selected (clicked). The event is only emitted
+            for non-disabled tabs without <code>href</code> (link tabs don't
+            emit this event). The payload contains:
+            <code>&#123; event: Event, tab: ITab, index: number &#125;</code>.
+            Use to handle tab selection, track user interactions, or perform
+            actions when switching tabs.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ITab Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># ITab Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>ITab</code> interface defines the structure for tab items passed
+    to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed in the tab
+            button/link. This is the label shown in the tab header (e.g., "Tab
+            1", "Settings", "Profile").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            panel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The content to display in the tab panel.
+            Can be either:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <strong>String:</strong> HTML content rendered using
+                <code>innerHTML</code>. Use for simple HTML content.
+              </li>
+              <li>
+                <strong>TemplateRef:</strong> Angular template reference for
+                complex content. Use for dynamic content, components, or
+                interactive elements. The template is rendered using
+                <code>ngTemplateOutlet</code>.
+              </li>
+            </ul>
+            The panel is only displayed when the tab is selected (based on
+            <code>selectedIndex</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL for link tabs. When provided, the tab is rendered as an
+            anchor tag (<code>&lt;a&gt;</code>) instead of a button, and
+            clicking it navigates to the URL. Link tabs don't trigger the
+            <code>onSelect</code> event and don't change the
+            <code>selectedIndex</code>. Use for external links or navigation
+            that should use browser routing.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            link
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional Angular router link for link tabs. When provided along with
+            <code>href</code>, the tab uses Angular's <code>routerLink</code>
+            directive for navigation. This allows for client-side routing
+            without page reloads. The tab is still rendered as an anchor tag,
+            but uses Angular routing instead of standard navigation.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the tab, preventing clicks and
+            showing a disabled visual state (reduced opacity, not-allowed
+            cursor). Disabled tabs don't trigger the <code>onSelect</code> event
+            and can't be selected. Use for tabs that should be temporarily
+            unavailable or require certain conditions to be met.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <ng-template #tabOne>

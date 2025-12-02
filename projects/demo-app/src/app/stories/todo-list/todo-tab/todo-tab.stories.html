@@ -1,5 +1,6 @@
-<section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">TodoTab</h2>
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Todo Tab</h2>
+  <h3 class="text-2xl font-bold">TodoTab</h3>
   <div class="mr-auto w-fit">
     <div class="bg-level-4 px-4 rounded">
       <div class="flex relative gap-3 items-center justify-start max-w-[258px]">
@@ -18,5 +19,157 @@
         ></ds-todo-tab>
       </div>
     </div>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The title text displayed below the count
+            and icon. Shown in small text (0.75rem / 12px) with medium font
+            weight. This is the label for the todo tab (e.g., "Mes opérations en
+            attente", "Tâches administratives").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            count
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The number displayed prominently at the top of the tab. Shown in
+            large text (2rem / 32px) with bold font weight and gray color. This
+            typically represents the number of items or tasks in the category
+            (e.g., 6, 4). The count is always displayed, even if 0.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed next to the count. Should match
+            an available icon in your icon library (e.g., 'flag', 'message',
+            'file'). The icon is displayed in red color
+            (<code>text-red-500</code>) with a size of 20px. The icon is only
+            rendered if provided (conditional rendering with
+            <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isOpen
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the tab is in an open/active
+            state. Open tabs have:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Red bottom border: <code>border-red-500</code></li>
+              <li>Arrow icon rotated 180 degrees and colored red</li>
+            </ul>
+            When <code>false</code> (closed), the tab has:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                Transparent bottom border: <code>border-transparent</code>
+              </li>
+              <li>Arrow icon in default position and color</li>
+            </ul>
+            Use to control the visual state of the tab and indicate which
+            section is currently active or expanded.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">() => void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the tab is clicked. The
+            function receives no parameters. Use to handle tab clicks, toggle
+            the <code>isOpen</code> state, or perform other actions when the
+            user interacts with the tab. The callback is only executed if
+            provided (conditional execution with
+            <code>onClick && onClick()</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the tab container.
+            Useful for custom styling, spacing, or layout adjustments. The
+            component has default styling with flex layout, padding, gap
+            spacing, and conditional borders based on <code>isOpen</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

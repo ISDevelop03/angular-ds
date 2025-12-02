@@ -1,5 +1,5 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">PaymentDetailsCard</h2>
+  <h2 class="text-4xl font-bold mb-6">Payment Details Card</h2>
   <div class="flex flex-col gap-4">
     <ds-payment-details-card
       title="Article ID N°234567997656875"
@@ -66,5 +66,245 @@
         </p>
       </div>
     </ds-payment-details-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The title text displayed in the card header. Shown in the left
+            column of the header row, next to the optional checkbox. This is the
+            primary heading for the payment details (e.g., 'Article ID
+            N°234567997656875').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            titleHeader
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional header text for the title column. Currently available as an
+            input property for future use or custom implementations. Not
+            currently displayed in the template.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            date
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional date string displayed in the date column. When provided,
+            the header shows "Date" label and the content row displays the
+            formatted date using Angular's date pipe with format
+            <code>"dd.MM.yyyy"</code> (e.g., '2023-10-01' displays as
+            '01.10.2023'). The date is shown in bold text.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            price
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional price value displayed in the price column. When provided,
+            the header shows "Montant TTC" label and the content row displays
+            the formatted price using Angular's number pipe with format
+            <code>"1.2-2"</code> and locale <code>"fr-FR"</code>, followed by
+            the currency. The price is shown in bold text (e.g., '1239' with
+            currency 'USD' displays as '1 239,00 USD').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currency
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional currency code displayed after the formatted price (e.g.,
+            'USD', 'EUR', 'GBP'). Shown in the price column when
+            <code>price</code> is provided. The currency appears after the
+            formatted number.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            useCheckbox
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a checkbox in the header row next
+            to the title. The checkbox state is controlled by
+            <code>isSelected</code> and can be disabled via
+            <code>disabled</code>. When the checkbox is toggled, the
+            <code>onSelect</code> event is emitted. Use for selection
+            functionality in lists or tables of payment details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isSelected
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The checked state of the checkbox when <code>useCheckbox</code> is
+            <code>true</code>. When <code>true</code>, the checkbox is checked.
+            Use to control the selection state of the card. The checkbox state
+            is bound to this property.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the checkbox when
+            <code>useCheckbox</code> is <code>true</code>. The checkbox becomes
+            non-interactive and cannot be toggled. Use to prevent selection in
+            certain states or conditions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to the <code>onSelect</code> event
+            handler. When the checkbox is toggled, the handler receives an
+            object with <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: any, data: any &#125;</code>. Use to pass
+            additional context or payment information to the selection handler.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the payment details card
+            container. Useful for custom styling, layout adjustments, or
+            responsive sizing (e.g., <code>max-w-[650px]</code>). The card has
+            default styling with border, background, rounded corners, and flex
+            column layout.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the checkbox is toggled (only when
+            <code>useCheckbox</code> is <code>true</code>). Provides an object
+            with <code>event</code> and <code>data</code> properties:
+            <code>&#123; event: any, data: any &#125;</code>. The
+            <code>event</code> is the checkbox change event, and
+            <code>data</code> comes from the component's <code>data</code> input
+            property. Use to handle selection changes, update selection state,
+            or perform actions based on card selection.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

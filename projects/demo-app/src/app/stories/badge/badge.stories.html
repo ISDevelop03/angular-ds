@@ -1,5 +1,6 @@
 <div class="p-4 flex flex-col gap-6 min-h-screen">
-  <h3>Variants</h3>
+  <h2 class="text-4xl font-bold mb-6">Badge</h2>
+  <h3 class="text-2xl font-bold">Variants</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge
       *ngFor="let variant of variants"
@@ -10,7 +11,7 @@
     ></ds-badge>
   </div>
 
-  <h3>Sizes</h3>
+  <h3 class="text-2xl font-bold">Sizes</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge
       *ngFor="let size of sizes"
@@ -20,7 +21,7 @@
     ></ds-badge>
   </div>
 
-  <h3>Pill Style</h3>
+  <h3 class="text-2xl font-bold">Pill Style</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge
       *ngFor="let variant of variants"
@@ -32,7 +33,7 @@
     ></ds-badge>
   </div>
 
-  <h3>With Icons</h3>
+  <h3 class="text-2xl font-bold">With Icons</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge label="With Icon" icon="check" variant="violet"></ds-badge>
     <ds-badge
@@ -43,8 +44,211 @@
     ></ds-badge>
   </div>
 
-  <h3>As Link</h3>
+  <h3 class="text-2xl font-bold">As Link</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-badge label="Clickable Badge" href="https://example.com"></ds-badge>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The text content displayed in the badge.
+            This is the primary visible text label for the badge.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the badge. Available options:
+            <code>'default'</code>, <code>'amber'</code>, <code>'blue'</code>,
+            <code>'green'</code>, <code>'violet'</code>, <code>'red'</code>,
+            <code>'orange'</code>. Each variant has a distinct background and
+            text color combination.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            size
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'md'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Size of the badge. Available options: <code>'sm'</code>,
+            <code>'md'</code>, <code>'lg'</code>. Controls padding and text
+            size.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed in the badge. Should match an
+            available icon in your icon library (e.g., 'check', 'close',
+            'message'). Position is controlled by <code>iconRight</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconRight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays the icon on the right side of the
+            label. When <code>false</code> (default), the icon appears on the
+            left side. Only applies when <code>icon</code> is provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            pill
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies fully rounded corners (pill shape)
+            to the badge. When <code>false</code>, uses slightly rounded
+            corners. Use for a more rounded, pill-like appearance.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            withDot
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a small colored dot before the
+            label. The dot color matches the badge variant. Use to add visual
+            emphasis or indicate status.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            href
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL or route path. When provided, the badge renders as an
+            anchor tag (<code>&lt;a&gt;</code>) instead of a span, making it
+            clickable and navigable. Use for badges that should link to other
+            pages or resources.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the badge container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;Event&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the badge is clicked. Only fires when
+            <code>href</code> is not provided (badge renders as a span, not an
+            anchor). Provides the click event object. Use for custom click
+            handling when the badge is not a link.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

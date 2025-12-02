@@ -1,5 +1,6 @@
 <div class="p-4 grid gap-6">
-  <h3>Default Variant</h3>
+  <h2 class="text-4xl font-bold mb-6">Radio</h2>
+  <h3 class="text-2xl font-bold">Default Variant</h3>
   <div class="flex items-center gap-4">
     <ds-radio
       name="group1"
@@ -25,5 +26,239 @@
       [(modelValue)]="selectedValue"
       variant="default"
     ></ds-radio>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            modelValue
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The currently selected value for the radio group. Supports two-way
+            data binding with <code>[(modelValue)]</code>. The radio button is
+            checked when <code>modelValue</code> equals <code>value</code>. All
+            radio buttons in the same group should share the same
+            <code>modelValue</code> binding and have the same <code>name</code>
+            attribute.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The unique value for this radio button.
+            When this radio is selected, <code>modelValue</code> is set to this
+            value. Each radio button in a group must have a unique
+            <code>value</code>. The radio button is checked when
+            <code>modelValue === value</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required for radio groups.</strong> The
+            <code>name</code> attribute for the radio button. All radio buttons
+            in the same group must have the same <code>name</code> value. This
+            ensures that only one radio button in the group can be selected at a
+            time. Also used for form submission and accessibility.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed next to the radio button. The label is
+            only rendered if provided (conditional rendering with
+            <code>*ngIf</code>). The label is clickable and will select the
+            radio button when clicked. The label styling changes based on the
+            radio's state (checked, disabled, error).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the radio button, preventing user
+            interaction. Disabled radio buttons have:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Reduced opacity (<code>opacity-50</code>)</li>
+              <li>Not-allowed cursor (<code>cursor-not-allowed</code>)</li>
+              <li>Gray background and border</li>
+              <li>Cannot be clicked or selected</li>
+            </ul>
+            Use for read-only states or when the option should be temporarily
+            unavailable.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            hasError
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the radio button has a
+            validation error. Error state styling includes:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Red border: <code>border-error-500</code></li>
+              <li>Error message displayed below (if provided)</li>
+              <li>Error label styling (red text)</li>
+            </ul>
+            Use in combination with <code>errorMessage</code> to display
+            validation feedback to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errorMessage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional error message text displayed below the radio button when
+            <code>hasError</code> is <code>true</code>. The error message is
+            styled in red (<code>text-error-500</code>) and appears below the
+            radio button. The message is only rendered if both
+            <code>hasError</code> and <code>errorMessage</code> are provided
+            (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof radio</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant for styling the radio button. Currently only
+            <code>'default'</code> is available. The variant determines the
+            visual styling, colors, and appearance of the radio button, label,
+            and error message. Future variants may be added for different color
+            schemes or styles.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the radio button
+            wrapper. Useful for custom styling, spacing, or layout adjustments.
+            The classes are merged with the default wrapper classes from the
+            theme.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            modelValueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the radio button is selected. The event payload is the
+            <code>value</code> of the selected radio button. This event is used
+            for two-way data binding with <code>[(modelValue)]</code>. The event
+            is only emitted if the radio button is not disabled. Use to handle
+            selection changes, perform validation, or update parent component
+            state.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

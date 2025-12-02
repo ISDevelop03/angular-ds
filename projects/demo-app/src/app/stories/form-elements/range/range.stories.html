@@ -1,6 +1,6 @@
-<div class="p-4 flex flex-col gap-6 bg-gradient-crame min-h-screen">
-  <h2 class="text-3xl font-bold">Default Range Input</h2>
-  <h3 class="text-base font-medium">Min/Max Range Input</h3>
+<div class="p-4 flex flex-col gap-6 bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Range</h2>
+  <h3 class="text-2xl font-bold">Min/Max Range Input</h3>
 
   <ds-range
     [rangeType]="'range'"
@@ -10,7 +10,7 @@
     [(values)]="myRange"
   ></ds-range>
 
-  <h3 class="text-base font-medium">Single Range Input</h3>
+  <h3 class="text-2xl font-bold">Single Range Input</h3>
   <ds-range
     [rangeType]="'single'"
     [min]="0"
@@ -18,4 +18,240 @@
     [step]="1"
     [(value)]="myValue"
   ></ds-range>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            rangeType
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'single' | 'range'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'single'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Determines the type of range slider:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'single'</code>: Single-thumb slider for selecting one
+                value. Uses <code>value</code> and <code>valueChange</code>.
+              </li>
+              <li>
+                <code>'range'</code>: Two-thumb slider for selecting a range
+                (min/max). Uses <code>values</code> and
+                <code>valuesChange</code>.
+              </li>
+            </ul>
+            The component renders different markup and handles different events
+            based on this property.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            min
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The minimum value of the range. Users cannot select a value below
+            this. For range type, this is the minimum for both thumbs. The value
+            is clamped to this minimum if it goes below.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            max
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">100</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The maximum value of the range. Users cannot select a value above
+            this. For range type, this is the maximum for both thumbs. The value
+            is clamped to this maximum if it goes above.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            step
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">1</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The step increment for the range slider. Values are snapped to the
+            nearest step when dragging or clicking. For example, if
+            <code>step</code> is 10, values will be 0, 10, 20, 30, etc. Use
+            decimal values (e.g., 0.1, 0.5) for finer control, or larger values
+            (e.g., 100, 1000) for coarser control.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            unit
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional unit text displayed after the value in the tooltip. For
+            example, if <code>unit</code> is "€", the tooltip will show "100 €".
+            Use for currency symbols, measurement units (e.g., "kg", "km"), or
+            other value qualifiers.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">min</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The current value for single-thumb mode (<code
+              >rangeType: 'single'</code
+            >). Supports two-way data binding with <code>[(value)]</code>. The
+            value is automatically clamped between <code>min</code> and
+            <code>max</code> and snapped to the nearest <code>step</code>. This
+            property is only used when <code>rangeType</code> is
+            <code>'single'</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            values
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[number, number]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[min, max]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The current range values for two-thumb mode (<code
+              >rangeType: 'range'</code
+            >). A tuple of two numbers: <code>[minValue, maxValue]</code>.
+            Supports two-way data binding with <code>[(values)]</code>. The
+            values are automatically clamped between <code>min</code> and
+            <code>max</code>, snapped to the nearest <code>step</code>, and
+            constrained so that <code>minValue &lt;= maxValue</code>. This
+            property is only used when <code>rangeType</code> is
+            <code>'range'</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">RangeVariant</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant for styling the range slider. Currently only
+            <code>'default'</code> is available. The variant determines the
+            visual styling, colors, and appearance of the track, range fill, and
+            thumb. Future variants may be added for different color schemes or
+            styles.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;number&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the value changes in single-thumb mode (<code
+              >rangeType: 'single'</code
+            >). The event payload is the new number value. This event is used
+            for two-way data binding with <code>[(value)]</code>. The event is
+            emitted continuously while dragging and when the value is set
+            programmatically. Use to handle value changes, perform validation,
+            or update parent component state.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valuesChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;[number, number]&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the range values change in two-thumb mode (<code
+              >rangeType: 'range'</code
+            >). The event payload is a tuple of two numbers:
+            <code>[minValue, maxValue]</code>. This event is used for two-way
+            data binding with <code>[(values)]</code>. The event is emitted
+            continuously while dragging either thumb and when values are set
+            programmatically. Use to handle range changes, perform validation,
+            or update parent component state.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

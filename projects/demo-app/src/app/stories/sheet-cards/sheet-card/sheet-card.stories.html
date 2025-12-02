@@ -1,7 +1,8 @@
 <div class="p-4 bg-crame-50 min-h-screen">
   <div class="max-w-[500px] flex flex-col gap-4">
+    <h2 class="text-4xl font-bold mb-6">Sheet Card</h2>
     <h3 class="text-2xl font-bold">Sheet Card</h3>
-    
+
     <ds-sheet-card
       [image]="story1.image"
       [icon]="story1.icon"
@@ -16,7 +17,7 @@
     </ds-sheet-card>
 
     <h2 class="text-xl font-bold">HTML Content:</h2>
-    
+
     <ds-sheet-card
       [label]="story5.label"
       [iconRight]="story5.iconRight"
@@ -110,5 +111,295 @@
         <ds-icon id="cookie" size="16px"></ds-icon>
       </div>
     </ng-template>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL path to an image displayed on the left side of the
+            card. The image is displayed in a 40px × 40px container with
+            object-fit cover. By default, the image is rounded (circular), but
+            this can be changed with <code>removeImageRounded</code>. If both
+            <code>image</code> and <code>icon</code> are provided, the image
+            takes precedence. The image uses the <code>label</code> as its alt
+            text for accessibility.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the left side of the card when
+            <code>image</code> is not provided. Should match an available icon
+            in your icon library (e.g., 'home', 'settings', 'user'). The icon is
+            displayed in a 40px × 40px circular container with a white
+            background, border, and red color. The icon size is 20px.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed at the top of the card content area.
+            The label styling depends on <code>removeImageRounded</code>: if
+            <code>true</code>, it's bold and dark; if <code>false</code>, it's
+            normal weight and gray. The label is also used as the alt text for
+            the image when provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isDraggable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When set to <code>'true'</code> (as a string), enables draggable
+            functionality. When enabled, a drag handle icon appears on hover at
+            the left side of the card. The card also gets hover effects with
+            padding adjustments (increased left padding, decreased right
+            padding) to accommodate the drag handle. The drag handle is
+            positioned absolutely and only visible on hover.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            leftContent
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional custom content to display on the left side of the card,
+            replacing the default image or icon. Can be either a string or an
+            Angular <code>TemplateRef</code>. When a <code>TemplateRef</code> is
+            provided, it's rendered using <code>ngTemplateOutlet</code>,
+            allowing for complex custom layouts (e.g., multiple icons, custom
+            graphics, or interactive elements). This takes precedence over both
+            <code>image</code> and <code>icon</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            data
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional data object passed to the <code>onClick</code> and
+            <code>startClick</code> callback functions. This allows you to
+            associate custom data with the card (e.g., an ID, object reference,
+            or metadata) that can be accessed when the card is clicked. The data
+            is included in the callback payload as
+            <code>&#123; event: MouseEvent, data: any &#125;</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconRight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the right side of the card.
+            Should match an available icon in your icon library. The icon is
+            displayed as a button (16px size) with red color. When clicked, it
+            triggers the <code>startClick</code> callback (if provided) and
+            stops event propagation to prevent triggering the card's
+            <code>onClick</code> handler. The icon's vertical position can be
+            controlled with <code>iconPosition</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconPosition
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'bottom' | 'center' | 'top'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'bottom'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Controls the vertical alignment of the right icon and the main
+            content area. Options:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li><code>'top'</code>: Aligns content to the top</li>
+              <li><code>'center'</code>: Centers content vertically</li>
+              <li>
+                <code>'bottom'</code>: Aligns content to the bottom (default)
+              </li>
+            </ul>
+            This affects the flex alignment of the content container.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the card container.
+            Useful for custom styling, borders, backgrounds, or layout
+            adjustments (e.g.,
+            <code>'border-l-2 border-red-500 rounded-none'</code>). The
+            component has default styling with padding, background, rounded
+            corners, and flex layout.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconPositionClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply specifically to the right
+            icon button. Useful for custom styling the icon (e.g., color, size,
+            positioning). Example: <code>'!text-amber-500'</code> to change the
+            icon color to amber. This allows fine-grained control over the right
+            icon's appearance without affecting other elements.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            removeImageRounded
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, removes the rounded (circular) styling from
+            the image, making it square with small rounded corners
+            (<code>rounded-sm</code>). When <code>false</code>, the image is
+            circular (<code>rounded-full</code>). This also affects the label
+            styling: when <code>true</code>, the label is bold and dark; when
+            <code>false</code>, it's normal weight and gray.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(item: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the card is clicked. The
+            function receives an object with <code>event</code> (the MouseEvent)
+            and <code>data</code> (the value of the <code>data</code> input):
+            <code>&#123; event: MouseEvent, data: any &#125;</code>. This is
+            triggered by clicking anywhere on the card except the right icon
+            button (which uses <code>startClick</code>). Use to handle card
+            navigation, selection, or other click actions.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            startClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(item: any) =&gt; void</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional callback function executed when the right icon button is
+            clicked. The function receives an object with
+            <code>event</code> (the MouseEvent) and <code>data</code> (the value
+            of the <code>data</code> input):
+            <code>&#123; event: MouseEvent, data: any &#125;</code>. The click
+            event propagation is stopped to prevent triggering the card's
+            <code>onClick</code> handler. Use to handle icon-specific actions
+            (e.g., start, play, edit) that are separate from the main card click
+            action.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

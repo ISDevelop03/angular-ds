@@ -8,7 +8,6 @@ import { DropdownItem } from 'projects/design-system/src/lib/components/dropdown
 export class AccountSelectedCardStoryComponent {
   account = {
     account_number: 'ACC-24681357',
-    balance: 15000,
     solde_comptable: 9823479234,
     solde_temps_reel: 20982348,
     currency: 'USD',
@@ -18,7 +17,6 @@ export class AccountSelectedCardStoryComponent {
   };
   account2 = {
     account_number: 'ACC-24681357',
-    balance: 15000,
     solde_comptable: -923479234,
     solde_temps_reel: 20982348,
     currency: 'USD',

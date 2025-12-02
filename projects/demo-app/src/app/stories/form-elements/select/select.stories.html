@@ -1,7 +1,8 @@
-<div class="p-4 flex flex-col gap-y-6 gap-4 bg-crame-50 min-h-screen">
+<div class="p-4 flex flex-col gap-y-6 gap-4 bg-crame-50">
+  <h2 class="text-4xl font-bold mb-6">Select</h2>
   <!-- Single Select -->
   <div class="flex flex-col gap-4 max-w-xl">
-    <h3><strong>Single Select</strong></h3>
+    <h3 class="text-2xl font-bold">Single Select</h3>
     <div class="flex gap-4 w-full">
       <ds-select
         [tooltip]="'tooltilkdmlk dmkd p'"
@@ -13,7 +14,8 @@
         buttonIcon="message"
         pill="true"
         [disabled]="true"
-        class="w-full">
+        class="w-full"
+      >
       </ds-select>
       <ds-select
         [items]="options"
@@ -23,7 +25,8 @@
         placeholder="Pick one..."
         buttonIcon="message"
         pill="true"
-        class="w-full">
+        class="w-full"
+      >
       </ds-select>
     </div>
     <button (click)="handleChangeClick()">change data</button>
@@ -31,7 +34,7 @@
 
   <!-- Auto Complete Select -->
   <div class="max-w-xl">
-    <h3 class="mb-4"><strong>Auto Complete Select</strong></h3>
+    <h3 class="text-2xl font-bold mb-4">Auto Complete Select</h3>
     <ds-select
       [items]="autoCompleteOptions"
       [value]="selectedValue"
@@ -39,55 +42,60 @@
       (onSearch)="onSearchValueChange($event)"
       label="Select Account"
       autoComplete="true"
-      placeholder="Pick one...">
+      placeholder="Pick one..."
+    >
     </ds-select>
   </div>
 
   <!-- Multi Select -->
   <div class="max-w-48">
-    <h3 class="mb-4"><strong>Multi Select</strong></h3>
+    <h3 class="text-2xl font-bold mb-4">Multi Select</h3>
     <ds-select
       [items]="options1"
       [value]="selectedValue"
       (valueChange)="valueChange($event)"
-      label="Select Account">
+      label="Select Account"
+    >
     </ds-select>
   </div>
 
   <!-- Multi Select with Multiple Property -->
   <div class="max-w-xl">
-    <h3 class="mb-4"><strong>Multi Select</strong></h3>
+    <h3 class="text-2xl font-bold mb-4">Multi Select</h3>
     <ds-select
       [items]="options"
       [value]="selectedValue"
       (valueChange)="valueChange($event)"
       [multiple]="true"
-      label="Select Multiple">
+      label="Select Multiple"
+    >
     </ds-select>
   </div>
 
   <!-- Loading State -->
   <div class="max-w-xl">
-    <h3 class="mb-4"><strong>Loading State</strong></h3>
+    <h3 class="text-2xl font-bold mb-4">Loading State</h3>
     <ds-select
       [items]="options"
       [value]="selectedValue"
       (valueChange)="valueChange($event)"
       [isLoading]="true"
-      label="Loading Select">
+      label="Loading Select"
+    >
     </ds-select>
   </div>
 
   <!-- Select With Error -->
   <div class="max-w-xl">
-    <h3 class="mb-4"><strong>Select With Error</strong></h3>
+    <h3 class="text-2xl font-bold mb-4">Select With Error</h3>
     <ds-select
       [items]="options"
       [value]="selectedValue"
       (valueChange)="valueChange($event)"
       [hasError]="true"
       errorMessage="You must select an option"
-      label="Select Error">
+      label="Select Error"
+    >
     </ds-select>
   </div>
 
@@ -115,4 +123,649 @@
     variant="currency">
   </ds-select>
   -->
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">SelectItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of selectable options. Each item
+            defines an option with its value, label, and optional properties.
+            The options are displayed in the dropdown menu. See the
+            <strong>SelectItem Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | string[] | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The currently selected value(s). For single select, this is a string
+            or null. For multiple select (<code>multiple: true</code>), this is
+            an array of strings. Supports two-way data binding with
+            <code>[(value)]</code>. The component automatically finds and
+            displays the corresponding item(s) from the
+            <code>items</code> array.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed above the select button. The label is
+            only rendered if provided (conditional rendering with
+            <code>*ngIf</code>). If <code>required</code> is <code>true</code>,
+            a red asterisk (*) is displayed next to the label. The label can
+            also include a tooltip icon if <code>tooltip</code> is provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Select an option'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Placeholder text displayed in the select button when no option is
+            selected. Provides a hint to the user about what to select. The
+            placeholder is styled differently from selected values (semibold,
+            neutral-900 color).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            multiple
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, enables multiple selection mode. Users can
+            select multiple options, and the <code>value</code> becomes an array
+            of strings. In multiple mode, the dropdown doesn't close after
+            selecting an option, and selected items are highlighted. The
+            selected label displays all selected item labels joined with commas.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            autoComplete
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, enables autocomplete/search functionality.
+            The select button displays an input field instead of the selected
+            label, allowing users to type and filter options. The options are
+            filtered based on the search term matching item labels
+            (case-insensitive). A clear button (close icon) appears when a value
+            is selected. The <code>onSearch</code> event is emitted when the
+            user types.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            debounceTime
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">300</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The debounce time in milliseconds for search input when
+            <code>autoComplete</code> is <code>true</code>. This delays the
+            <code>onSearch</code> event emission to reduce the number of events
+            fired while the user is typing. Higher values reduce event frequency
+            but increase perceived delay.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the select, preventing user
+            interaction. Disabled selects have:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Gray background: <code>bg-neutral-100</code></li>
+              <li>Gray text: <code>text-neutral-500</code></li>
+              <li>Not-allowed cursor: <code>cursor-not-allowed</code></li>
+              <li>No hover effects</li>
+              <li>Dropdown cannot be opened</li>
+            </ul>
+            Use for read-only states or when the field should be temporarily
+            unavailable.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            required
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the select is required. This
+            displays a red asterisk (*) next to the label. Use for form
+            validation and to indicate mandatory fields to users. Note: This is
+            a visual indicator only; actual validation should be handled in your
+            form logic.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            hasError
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, indicates that the select has a validation
+            error. Error state styling includes:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                Red border and ring:
+                <code>ring-error-400 border-error-400</code>
+              </li>
+              <li>Error message displayed below (if provided)</li>
+            </ul>
+            Use in combination with <code>errorMessage</code> to display
+            validation feedback to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errorMessage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional error message text displayed below the select when
+            <code>hasError</code> is <code>true</code>. The error message is
+            styled in red (<code>text-error-500</code>) and appears below the
+            select button. The message is only rendered if both
+            <code>hasError</code> and <code>errorMessage</code> are provided
+            (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional description text displayed below the select. Provides
+            additional context, hints, or instructions to users. The description
+            is styled in gray (<code>text-gray-500</code>) and appears below the
+            select button. The description is only rendered if provided
+            (conditional rendering with <code>*ngIf</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tooltip
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional tooltip content displayed when hovering over an info icon
+            next to the label. Can be either:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li><strong>String:</strong> Simple text tooltip</li>
+              <li>
+                <strong>TemplateRef:</strong> Complex HTML content tooltip
+              </li>
+            </ul>
+            The tooltip icon (info-circle) is only displayed if
+            <code>tooltip</code> is provided. The tooltip appears to the right
+            of the label using the <code>ds-tooltip</code> component.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isLoading
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a loading spinner icon instead of
+            the arrow icon. The spinner is animated (<code>animate-spin</code>)
+            and indicates that options are being loaded. The dropdown cannot be
+            opened while loading. Use for async data loading scenarios.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            emptyLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'No options'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Text displayed in the dropdown when there are no options available
+            (empty <code>items</code> array or all items filtered out). This
+            provides feedback to users when the select has no selectable
+            options.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            pill
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies rounded-full styling to the select
+            button, giving it a pill-shaped appearance. Use for a more modern or
+            compact look.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttonIcon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed on the left side of the select
+            button. Should match an available icon in your icon library (e.g.,
+            'message', 'user', 'settings'). The icon is displayed in red color
+            (<code>text-red-500</code>) when enabled, or gray when disabled. If
+            a selected item has an <code>icon</code> property, it takes
+            precedence over <code>buttonIcon</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof theme</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Theme variant for styling the select component. Available options:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'default'</code>: Standard select styling with border,
+                background, and standard positioning
+              </li>
+              <li>
+                <code>'currency'</code>: Currency-specific styling with
+                transparent background and different layout (options aligned to
+                the right)
+              </li>
+            </ul>
+            Each variant has different visual styling for the button, options
+            container, and layout.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            customOptionsStyles
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">&#123; [key: string]: any &#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional inline styles object to apply to the options dropdown
+            container. Each key-value pair is applied as a CSS property-value
+            pair. Useful for custom positioning, width, height, or other
+            specific styling that can't be achieved with CSS classes alone.
+            Styles are merged with default positioning styles.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the select container.
+            Useful for custom styling, spacing, or layout adjustments. The
+            component has default styling with relative positioning and full
+            width.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when an option is selected or deselected. The event payload
+            is an object with
+            <code>&#123; value: string | string[], event: Event &#125;</code>.
+            For single select, <code>value</code> is a string. For multiple
+            select, <code>value</code> is an array of strings. This event is
+            used for two-way data binding with <code>[(value)]</code>. Use to
+            handle selection changes, perform validation, or update parent
+            component state.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSearch
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the user types in the autocomplete input (only when
+            <code>autoComplete</code> is <code>true</code>). The event payload
+            is the search term string. The event is debounced based on
+            <code>debounceTime</code>. Use to perform remote searches, filter
+            options dynamically, or handle search input for custom filtering
+            logic.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SelectItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># SelectItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>SelectItem</code> interface defines the structure for option items
+    passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The unique value identifier for the
+            option. This is the value that will be stored in the
+            <code>value</code> input when the option is selected. Must be unique
+            within the <code>items</code> array.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display text for the option. This is
+            what users see in the dropdown menu and in the select button when
+            the option is selected. For account-type items (<code
+              >isAccount: true</code
+            >), this is displayed as a secondary label above the value.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            unavailable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, marks the option as unavailable. Unavailable
+            options:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Have reduced opacity (<code>opacity-50</code>)</li>
+              <li>Show not-allowed cursor (<code>cursor-not-allowed</code>)</li>
+              <li>Cannot be selected (click handler returns early)</li>
+              <li>Don't have hover effects</li>
+            </ul>
+            Use for options that are temporarily unavailable or disabled.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed next to the option label. Should
+            match an available icon in your icon library. For regular items, the
+            icon appears on the left side. For account-type items (<code
+              >isAccount: true</code
+            >), the icon is displayed in a circular container (40px × 40px) with
+            red color. If provided, the icon is also used in the select button
+            when the item is selected (unless <code>buttonIcon</code> is
+            provided).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL path to an image displayed next to the option label.
+            For regular items, the image is displayed as a circular 20px × 20px
+            image. For account-type items (<code>isAccount: true</code>), the
+            image is displayed as a circular 40px × 40px image. If provided, the
+            image is also used in the select button when the item is selected
+            (takes precedence over <code>icon</code>). Use for avatars, logos,
+            or thumbnails.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isAccount
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, renders the option in account-style layout:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Larger icon/image (40px × 40px instead of 20px × 20px)</li>
+              <li>
+                Two-line layout: <code>label</code> as secondary text (smaller,
+                gray) above, <code>value</code> as primary text (bold) below
+              </li>
+              <li>Left border indicator when selected (red bar)</li>
+            </ul>
+            Use for account selection or similar two-line option displays.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            iconClass
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the icon element. Useful for custom
+            icon styling, colors, or sizes. Applied directly to the
+            <code>ds-icon</code> component when the icon is rendered.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            imageClass
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes to apply to the image element. Useful for
+            custom image styling, borders, or effects. Applied directly to the
+            <code>&lt;img&gt;</code> element when the image is rendered.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

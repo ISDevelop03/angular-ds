@@ -1,5 +1,6 @@
 <section class="flex flex-col gap-4 p-4 bg-crame-50">
-  <h2 class="text-2xl font-bold">Accounts Select</h2>
+  <h2 class="text-4xl font-bold mb-6">Accounts Select</h2>
+  <h3 class="text-2xl font-bold">Default Accounts Select</h3>
   <div class="w-full gap-4">
     <ds-accounts-select
       [items]="options"
@@ -10,15 +11,498 @@
       buttonIcon="message"
     ></ds-accounts-select>
   </div>
+  <h3 class="text-2xl font-bold">Disabled Accounts Select</h3>
   <div class="w-full gap-4">
     <ds-accounts-select
       [items]="options"
       [(value)]="selectedValue"
-      [isLoading]="isLoading"
       label="Choose Option"
       placeholder="Pick one..."
       buttonIcon="message"
       disabled="true"
     ></ds-accounts-select>
+  </div>
+  <h3 class="text-2xl font-bold">Error Accounts Select</h3>
+  <div class="w-full gap-4">
+    <ds-accounts-select
+      [items]="options"
+      [(value)]="selectedValue"
+      label="Choose Option"
+      placeholder="Pick one..."
+      buttonIcon="message"
+      hasError="true"
+    ></ds-accounts-select>
+  </div>
+  <h3 class="text-2xl font-bold">Loading Accounts Select</h3>
+  <div class="w-full gap-4">
+    <ds-accounts-select
+      [items]="options"
+      [(value)]="selectedValue"
+      [isLoading]="true"
+      label="Choose Option"
+      placeholder="Pick one..."
+      buttonIcon="message"
+      isLoading="true"
+    ></ds-accounts-select>
+  </div>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">SelectItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of account items to display in the
+            dropdown. Each item represents an account option. See the
+            <strong>SelectItem Interface</strong> section below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            This is a single stringor null. Supports two-way binding with
+            <code>[(value)]</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed above the select component. Use to
+            provide context or instructions to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Select an option'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Placeholder text displayed when no option is selected. Shown in the
+            trigger button when <code>value</code> is <code>null</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">keyof typeof theme</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual style variant of the select component. Determines the
+            appearance and styling of the component.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            disabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, disables the select component, preventing
+            user interaction. The component appears grayed out and cannot be
+            opened.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            hasError
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies error styling to indicate a
+            validation error. Use in conjunction with <code>errorMessage</code>
+            to display validation feedback.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errorMessage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional error message displayed below the select component when
+            <code>hasError</code> is <code>true</code>. Use to provide specific
+            validation feedback to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            emptyLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'No options'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Text displayed in the dropdown when the <code>items</code> array is
+            empty. Use to inform users that no options are available.
+          </td>
+        </tr>
+
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isLoading
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a loading state, preventing user
+            interaction while data is being fetched. Use during async operations
+            to indicate that options are being loaded.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            buttonIcon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional icon identifier displayed in the trigger button. Should
+            match an available icon in your icon library (e.g., 'message',
+            'account', 'wallet').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            customOptionsStyles
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">&#123; [key: string]: any &#125;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional inline styles object to apply to the options dropdown
+            container. Keys are CSS property names. Use for custom positioning
+            or styling of the dropdown menu.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the select container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the selected value changes. Provides the selected value
+            as a string. Use with two-way binding <code>[(value)]</code> or
+            listen to this event to track selection changes.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SelectItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># SelectItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>SelectItem</code> interface defines the structure for account
+    items passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique identifier for the account item.
+            Used to match against the selected <code>value</code> and must be
+            unique within the <code>items</code> array.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Icon identifier or name displayed for the
+            account. Should match an available icon in your icon library.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            accountName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The display name of the account. Shown as
+            the primary text label for the account option.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            accountNumber
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The account number or identifier
+            displayed alongside the account name. Used to uniquely identify the
+            account.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            soldeComptable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Solde</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The accounting balance (book balance) for
+            the account. See the <strong>Solde Interface</strong> section below
+            for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            soldeTempsReel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Solde</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The real-time balance for the account.
+            Represents the current available balance including pending
+            transactions. See the <strong>Solde Interface</strong> section below
+            for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            unavailable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional flag indicating if the account is unavailable for
+            selection. When <code>true</code>, the option may be displayed but
+            disabled or styled differently to indicate it cannot be selected.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Solde Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># Solde Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>Solde</code> interface defines the structure for balance
+    information used in <code>SelectItem</code>.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The numeric balance amount. Represents
+            the balance value for the account.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currency
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The currency code (e.g., 'USD', 'EUR',
+            'GBP') for the balance. Used for formatting and display purposes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            currency_flag
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The currency flag identifier or emoji
+            code. Used to display a visual flag or symbol representing the
+            currency alongside the balance.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

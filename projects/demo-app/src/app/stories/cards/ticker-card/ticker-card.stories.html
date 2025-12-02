@@ -1,25 +1,29 @@
-<div class="p-4 flex flex-col gap-4 bg-gradient-crame min-h-screen">
-  <h3 class="text-xl">Ticker Card</h3>
+<div class="p-4 flex flex-col gap-4 bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Ticker Card</h2>
+  <h3 class="text-2xl font-bold">Ticker Card</h3>
   <div class="flex gap-4 bg-card-level-2 max-w-fit px-2 py-1 rounded">
     <ds-ticker-card
       [title]="item.title"
       [image]="item.image"
       [price]="item.price"
-      [className]="item.className">
+      [className]="item.className"
+    >
     </ds-ticker-card>
-    
+
     <ds-ticker-card
       [title]="item.title"
       [image]="item.image"
       [price]="item.price"
-      [className]="item.className">
+      [className]="item.className"
+    >
     </ds-ticker-card>
-    
+
     <ds-ticker-card
       [title]="item.title"
       [image]="item.image"
       [price]="item.price"
-      [className]="item.className">
+      [className]="item.className"
+    >
     </ds-ticker-card>
   </div>
 
@@ -41,5 +45,109 @@
       [price]="item.price"
       [className]="item.className"
     ></ds-ticker-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional title text displayed in the card. Shown in small text
+            (0.75rem / 12px) with bold font weight. This is typically a short
+            label or name for the item (e.g., "Bitcoin", "Ethereum", "Stock
+            Name"). The title is only rendered if provided (conditional
+            rendering with <code>*ngIf</code>). Also used as the alt text for
+            the image when provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            image
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional URL path to an image displayed on the left side of the
+            card. The image is displayed as a circular 24px × 24px
+            (<code>size-6</code>) image with object-cover to maintain aspect
+            ratio. The image is only rendered if provided (conditional rendering
+            with <code>*ngIf</code>). Use for logos, icons, or thumbnails (e.g.,
+            cryptocurrency logos, stock symbols, product images).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            price
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional numeric value displayed below the title. Shown in small
+            text (0.75rem / 12px) with neutral-700 color. This is typically a
+            price, value, or numeric metric (e.g., 50000, 1234.56, 99.99). The
+            price is only rendered if provided (conditional rendering with
+            <code>*ngIf</code>). You can format the price before passing it to
+            the component using Angular pipes (e.g., currency, number
+            formatting).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the ticker card
+            container. Useful for custom styling, spacing, or layout
+            adjustments. The component has default styling with flex layout,
+            centered items, and gap spacing (<code>gap-2</code>).
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
