@@ -151,6 +151,24 @@
               represents a row, and properties should match the
               <code>accessor</code> values in column definitions.
             </p>
+            <p class="mb-2">
+              <strong>Selection-related properties:</strong> When
+              <code>selectionEnabled</code> is <code>true</code>, each data
+              object can optionally include:
+            </p>
+            <ul class="list-disc list-inside mb-2 space-y-1">
+              <li>
+                <code>isSelectable</code> (boolean): When set to
+                <code>false</code>, the row's checkbox is disabled and cannot be
+                selected. Defaults to <code>true</code> if not specified.
+              </li>
+              <li>
+                <code>isSelected</code> (boolean): When set to
+                <code>true</code>, the row is pre-selected on initialization.
+                Only one row with <code>isSelected: true</code> will be selected
+                initially.
+              </li>
+            </ul>
             <p>
               <strong>Note:</strong> The data array is copied internally to
               ensure immutability. Any changes to the original array will not
@@ -224,10 +242,10 @@
               functionality. Use for bulk actions or multi-row operations.
             </p>
             <p>
-              <strong>Note:</strong> If you set
-              <code>isSelectable: false</code> inside a data object and
-              <code>selectionEnabled</code> is set to <code>true</code>, the
-              checkbox for that row will be disabled and cannot be selected.
+              <strong>Note:</strong> See the <code>data</code> property
+              documentation above for details on using
+              <code>isSelectable</code> and <code>isSelected</code> properties
+              in data objects.
             </p>
           </td>
         </tr>

@@ -67,6 +67,8 @@ export class TableComponent implements OnChanges, OnDestroy {
       ...col,
       truncate: col.expandable ? true : false,
     }));
+    this.selectedRows.clear();
+    this.selectedRows.add(this.data.find((row) => row.isSelected === true));
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -75,7 +77,6 @@ export class TableComponent implements OnChanges, OnDestroy {
       this.displayData = this.data.concat();
       this.sortColumn = null;
       this.selectedRows.clear();
-      this.emitSelection();
     }
   }
 
