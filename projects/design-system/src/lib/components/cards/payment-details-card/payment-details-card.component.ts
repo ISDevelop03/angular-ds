@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+} from '@angular/core';
 import { formatMoney } from '../../../utils';
 
 /**
@@ -20,7 +26,9 @@ export class PaymentDetailsCardComponent {
   @Input() isSelected?: boolean = false;
   @Input() useCheckbox?: boolean = false;
   @Input() className?: string = '';
-  @Input() disabled?: boolean = false
+  @Input() disabled?: boolean = false;
+  @Input() status?: TemplateRef<any>;
+  @Input() statusContext?: string = 'green';
 
   @Input() data?: any;
 

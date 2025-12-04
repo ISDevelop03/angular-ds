@@ -8,6 +8,8 @@
       [isSelected]="isSelected"
       (onSelect)="onSelect($event)"
       className="max-w-[650px]"
+      [status]="status"
+      [statusContext]="{ label: 'Status', variant: 'red' }"
     >
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, doloribus?
@@ -22,6 +24,7 @@
       [isSelected]="isSelected"
       (onSelect)="onSelect($event)"
       className="max-w-[650px]"
+      [status]="statusred"
     >
       <div class="space-y-2">
         <p>
@@ -308,3 +311,11 @@
     </table>
   </div>
 </section>
+
+<ng-template #status let-context>
+  <ds-badge
+    [label]="context.label"
+    [variant]="context.variant"
+    pill="true"
+  ></ds-badge>
+</ng-template>
