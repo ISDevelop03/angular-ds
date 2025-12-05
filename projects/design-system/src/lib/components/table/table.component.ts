@@ -48,12 +48,13 @@ export class TableComponent implements OnChanges, OnDestroy {
   isOnLeft = true;
   isOnRight = false;
 
-  @Output() selectionChange = new EventEmitter<any[]>();
+  @Output() selectionChange = new EventEmitter<any[] | any>();
 
   @ViewChild('tableContainer') tableContainer!: ElementRef<HTMLDivElement>;
   @ViewChild('tableElement') tableElement!: ElementRef<HTMLTableElement>;
 
   selectedRows = new Set<any>();
+  selectedRowId: string | null = null; // For single selection mode
 
   displayData: any[] = [];
   private originalData: any[] = [];
@@ -82,9 +83,8 @@ export class TableComponent implements OnChanges, OnDestroy {
   }
 
   onSelect(row: any) {
-    this.selectedRows.clear();
-    this.selectedRows.add(row);
-    this.emitSelection();
+    this.selectedRowId = row.id;
+    this.selectionChange.emit(row);
   }
 
   private resizeListener?: () => void;
