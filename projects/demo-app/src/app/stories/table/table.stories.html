@@ -36,6 +36,26 @@
   ]"
     variant="default"
   ></ds-table>
+  <h3 class="text-2xl font-bold">Selection Enabled Table</h3>
+  <ds-table
+    [data]="selectionData"
+    selectionEnabled="true"
+    (selectionChange)="onBulkSelection($event)"
+    [columns]="[
+      { header: 'Name', accessor: 'name',style: { width: '1%' }  },
+      { header: 'Age', accessor: 'age',style: { width: '1%' }  },
+      { header: 'Joined', accessor: 'joinedOn',style: { width: '1%' } },
+      { header: 'Bio', accessor: 'bio' },
+      {
+        header: 'Actions',
+        accessor: 'id',
+        cellTemplate: actionTpl,
+        style: { width: '1%' }
+      }
+    ]"
+    variant="default"
+    selectionMode="single"
+  ></ds-table>
   <!-- <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
   <ds-table
     [data]="users"

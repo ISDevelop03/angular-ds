@@ -37,6 +37,7 @@ export class TableComponent implements OnChanges, OnDestroy {
   @Input() variant: TableVariant = 'default';
   @Input() remoteSort = false;
   @Input() selectionEnabled = false;
+  @Input() selectionMode: 'single' | 'multi' = 'multi';
   @Input() className?: string;
   @Output() sortChange = new EventEmitter<{
     accessor: string | null;
@@ -78,6 +79,12 @@ export class TableComponent implements OnChanges, OnDestroy {
       this.sortColumn = null;
       this.selectedRows.clear();
     }
+  }
+
+  onSelect(row: any) {
+    this.selectedRows.clear();
+    this.selectedRows.add(row);
+    this.emitSelection();
   }
 
   private resizeListener?: () => void;

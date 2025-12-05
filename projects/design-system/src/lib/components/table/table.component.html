@@ -24,6 +24,7 @@
             ]"
           >
             <ds-checkbox
+              *ngIf="selectionMode === 'multi'"
               [checked]="isAllSelected || isSomeSelected"
               [isIndeterminate]="isSomeSelected && !isAllSelected"
               [disabled]="displayData.length === 0 || isAllUnselectable()"
@@ -121,12 +122,26 @@
           [ngClass]="theme[variant].row(i)"
         >
           <!-- ROW ds-checkbox -->
-          <td *ngIf="selectionEnabled" [ngClass]="theme[variant].cell">
+          <td
+            *ngIf="selectionEnabled && selectionMode === 'multi'"
+            [ngClass]="theme[variant].cell"
+          >
             <ds-checkbox
               [checked]="isSelected(row)"
               [change]="getRowCheckboxChange(row)"
               [disabled]="row.isSelectable === false"
             ></ds-checkbox>
+          </td>
+          <td
+            *ngIf="selectionEnabled && selectionMode === 'single'"
+            [ngClass]="theme[variant].cell"
+          >
+            <ds-radio
+              name="selection"
+              [value]="row.id"
+              [(modelValue)]="selectedRow"
+              (change)="onSelect(row)"
+            ></ds-radio>
           </td>
 
           <td
