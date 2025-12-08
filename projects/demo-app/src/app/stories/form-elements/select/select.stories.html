@@ -47,31 +47,6 @@
     </ds-select>
   </div>
 
-  <!-- Multi Select -->
-  <div class="max-w-48">
-    <h3 class="text-2xl font-bold mb-4">Multi Select</h3>
-    <ds-select
-      [items]="options1"
-      [value]="selectedValue"
-      (valueChange)="valueChange($event)"
-      label="Select Account"
-    >
-    </ds-select>
-  </div>
-
-  <!-- Multi Select with Multiple Property -->
-  <div class="max-w-xl">
-    <h3 class="text-2xl font-bold mb-4">Multi Select</h3>
-    <ds-select
-      [items]="options"
-      [value]="selectedValue"
-      (valueChange)="valueChange($event)"
-      [multiple]="true"
-      label="Select Multiple"
-    >
-    </ds-select>
-  </div>
-
   <!-- Loading State -->
   <div class="max-w-xl">
     <h3 class="text-2xl font-bold mb-4">Loading State</h3>
