@@ -6,7 +6,7 @@ export const checkbox = {
       enabled: {
         checked: 'border border-primary-500 bg-red-50 text-red-500',
         unchecked:
-          'bg-card-level-2 border border-red-500 hover:bg-red-50 hover:border-red-500 focus-within:border-red-500',
+          'bg-card-level-2 border border-neutral-300 hover:bg-red-50 hover:border-red-500 focus-within:border-red-500',
       },
       disabled: {
         checked:
