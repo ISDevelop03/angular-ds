@@ -278,6 +278,65 @@
             column layout.
           </td>
         </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            status
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <p class="mb-2">
+              Optional Angular template reference for rendering a custom status
+              indicator in the card header. The template receives the
+              <code>statusContext</code> as its implicit context.
+            </p>
+            <p>
+              Use for displaying payment status badges, labels, or any custom
+              status indicator.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            statusContext
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">any</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'green'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <p class="mb-2">
+              Context object passed to the <code>status</code> template. This
+              value is accessible in the template via the implicit
+              <code>let-context</code> variable.
+            </p>
+            <p class="mb-2">
+              The context can be any type of data structure needed by your
+              status template. Common patterns include:
+            </p>
+            <ul class="list-disc list-inside mb-2 space-y-1">
+              <li>
+                <code>&#123; label: string, variant: string &#125;</code> - For
+                badge components with label and color variant
+              </li>
+              <li><code>string</code> - Simple status text or color value</li>
+              <li>
+                <code>&#123; status: string, icon: string &#125;</code> - For
+                status with icon display
+              </li>
+            </ul>
+            <p>
+              <strong>Note:</strong> Only used when a <code>status</code>
+              template is provided.
+            </p>
+          </td>
+        </tr>
 
         <!-- Component Outputs -->
         <tr class="bg-green-50">
