@@ -567,8 +567,8 @@ video {
   /* #FFFFFF */
   --level-4: 255 255 255;
   /* #FFFFFF */
-  --level-5: 249 250 251;
-  /* #F9FAFB */
+  --level-5: 255 255 255;
+  /* #FFFFFF */
   --level-6: 240 242 244;
   /* #F0F2F4 */
   /* Light Mode — Card Backgrounds */
@@ -707,7 +707,8 @@ video {
   /* #D23A40 */
 }
 
-.dark, [data-theme="dark"] {
+.dark,
+  [data-theme="dark"] {
   /* Background Levels */
   --level-1: 23 23 23;
   /* #171717 */
@@ -1292,10 +1293,6 @@ video {
 
 .z-\[999\] {
   z-index: 999;
-}
-
-.z-\[200\] {
-  z-index: 200;
 }
 
 .col-span-3 {
