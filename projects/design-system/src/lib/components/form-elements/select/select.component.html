@@ -8,9 +8,8 @@
       <ds-tooltip *ngIf="tooltip" [content]="tooltip" position="right">
         <ds-icon id="info-circle" class="size-4"></ds-icon>
       </ds-tooltip>
-    </div> 
+    </div>
   </ng-container>
-
 
   <div
     #triggerButton
@@ -38,25 +37,34 @@
       />
       <ng-container *ngIf="!autoComplete">
         <span
-        [ngClass]="
-          [selected.label !== placeholder
-            ? theme[variant].element.button.label
-            : theme[variant].element.button.placeholder,
-          disabled ? '!text-neutral-500' : '']
-        "
-      >
-        {{ selected.label }}
-      </span>
+          [ngClass]="[
+            selected.label !== placeholder
+              ? theme[variant].element.button.label
+              : theme[variant].element.button.placeholder,
+            disabled ? '!text-neutral-500' : ''
+          ]"
+        >
+          {{ selected.label }}
+        </span>
       </ng-container>
       <ng-container *ngIf="autoComplete">
-        <input [(ngModel)]="searchTerm" type="text" class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2" [placeholder]="selected.label" (input)="onSearchInput($event.target.value)" />
+        <input
+          [(ngModel)]="searchTerm"
+          type="text"
+          class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2"
+          [placeholder]="selected.label"
+          (input)="onSearchInput($event.target.value)"
+        />
       </ng-container>
     </div>
 
     <ds-icon
       *ngIf="!autoComplete && !isLoading"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
-      [class]="theme[variant].element.icone.arrow"
+      [class]="[
+        theme[variant].element.icone.arrow,
+        disabled ? 'text-neutral-500' : ''
+      ]"
     ></ds-icon>
 
     <ds-icon
@@ -125,7 +133,7 @@
                 theme[variant].element.options.fontcolor,
                 isSelected(item)
                   ? theme[variant].element.options.selectedfont
-                  : '', 
+                  : '',
                 'whitespace-nowrap'
               ]"
             >
@@ -171,6 +179,8 @@
     <span [ngClass]="theme[variant].element.error">{{ errorMessage }}</span>
   </ng-container>
   <ng-container *ngIf="description">
-    <span [ngClass]="theme[variant].element.description">{{ description }}</span>
+    <span [ngClass]="theme[variant].element.description">{{
+      description
+    }}</span>
   </ng-container>
 </div>
