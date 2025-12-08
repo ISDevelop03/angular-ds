@@ -70,7 +70,10 @@ export class TableComponent implements OnChanges, OnDestroy {
       truncate: col.expandable ? true : false,
     }));
     this.selectedRows.clear();
-    this.selectedRows.add(this.data.find((row) => row.isSelected === true));
+    const preselectedData = this.data.filter((row) => row.isSelected === true);
+    if (preselectedData.length > 0) {
+      preselectedData.forEach((row) => this.selectedRows.add(row));
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {

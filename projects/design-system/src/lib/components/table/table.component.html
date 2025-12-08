@@ -37,7 +37,9 @@
             [ngClass]="[
               theme[variant].headerCell,
               !col.sortable ? 'pb-2.5 pt-1.5' : 'py-2.5',
-              idx === 0 && variant === 'default' ? 'rounded-l-md' : '',
+              idx === 0 && variant === 'default' && !selectionEnabled
+                ? 'rounded-l-md'
+                : '',
               columns.length - 1 === idx && variant === 'default'
                 ? 'rounded-r-md'
                 : ''
@@ -124,7 +126,12 @@
           <!-- ROW ds-checkbox -->
           <td
             *ngIf="selectionEnabled && selectionMode === 'multi'"
-            [ngClass]="theme[variant].cell"
+            [ngClass]="[
+              theme[variant].headerCell,
+              'w-[30px]',
+              variant === 'default' ? 'rounded-l-md' : '',
+              variant === 'secondary' ? 'rounded-tl-lg' : ''
+            ]"
           >
             <ds-checkbox
               [checked]="isSelected(row)"
@@ -134,7 +141,12 @@
           </td>
           <td
             *ngIf="selectionEnabled && selectionMode === 'single'"
-            [ngClass]="theme[variant].cell"
+            [ngClass]="[
+              theme[variant].headerCell,
+              'w-[30px]',
+              variant === 'default' ? 'rounded-l-md' : '',
+              variant === 'secondary' ? 'rounded-tl-lg' : ''
+            ]"
           >
             <ds-radio
               name="selection"
@@ -151,7 +163,9 @@
               col.expandable && col.truncate
                 ? 'whitespace-nowrap'
                 : 'whitespace-nowrap',
-              colIdx === 0 && variant === 'default' ? 'rounded-l-md' : '',
+              colIdx === 0 && variant === 'default' && !selectionEnabled
+                ? 'rounded-l-md'
+                : '',
               columns.length - 1 === colIdx && variant === 'default'
                 ? 'rounded-r-md'
                 : ''

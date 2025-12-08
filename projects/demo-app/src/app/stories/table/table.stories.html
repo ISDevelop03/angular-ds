@@ -271,6 +271,39 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selectionMode
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'single' | 'multi'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'multi'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <p class="mb-2">
+              Determines the selection behavior when
+              <code>selectionEnabled</code> is <code>true</code>.
+            </p>
+            <ul class="list-disc list-inside mb-2 space-y-1">
+              <li>
+                <code>'multi'</code>: Allows selecting multiple rows
+                simultaneously using checkboxes. The header checkbox enables
+                select-all functionality.
+              </li>
+              <li>
+                <code>'single'</code>: Only one row can be selected at a time.
+                Selecting a new row automatically deselects the previously
+                selected row.
+              </li>
+            </ul>
+            <p>
+              <strong>Note:</strong> This property is only effective when
+              <code>selectionEnabled</code> is set to <code>true</code>.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             className
           </td>
           <td class="border border-gray-300 px-4 py-2">
