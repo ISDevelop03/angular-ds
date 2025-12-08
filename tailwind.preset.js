@@ -407,10 +407,10 @@ module.exports = {
         portfolio: "3px 3px 17px 0px rgba(0, 0, 0, 0.14)",
         content: "6px 6px 34px 0px rgba(17, 38, 60, 0.10)",
         holdingcard: "0px 11.206px 19.21px 0px var(--color-neutral-50)",
-        accordion: "0px -10px 22px 0px var(--color-red-100)",
+        accordion: "0px -10px 22px 0px rgba(0, 0, 0, 0.24)",
         dropdown2:
           "0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)",
-        floated: "0px 0px 22px 0px",
+        floated: "0px 5px 12px 0px rgba(0, 0, 0, 0.20)",
       },
       keyframes: {
         fadeInScale: {

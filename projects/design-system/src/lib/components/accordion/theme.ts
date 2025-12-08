@@ -3,9 +3,9 @@ export const theme = {
     container: 'mx-auto w-full space-y-[10px]',
     disclosure: '',
     button: {
-      base: 'w-full space-y-2 bg-level-3 rounded-b-lg py-4 px-6 text-left focus:outline-none outline-none border-none shadow-accordion shadow-neutral-100 dark:shadow-none overflow-hidden',
+      base: 'w-full space-y-2 bg-level-3 rounded-b-lg py-4 px-6 text-left focus:outline-none outline-none border-none shadow-accordion overflow-hidden',
       title: 'text-[0.875rem]/[1.5rem] font-bold text-neutral-900',
-      active: '!rounded-none !shadow-none',
+      active: '',
       titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',
 
       icon: {
