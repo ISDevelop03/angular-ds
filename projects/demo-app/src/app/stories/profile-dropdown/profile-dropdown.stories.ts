@@ -15,7 +15,7 @@ export class PortfolioDropdownStoryComponent implements OnInit {
     {
       href: '/',
       label: 'Profil',
-      icon: 'profile',
+      icon: 'user',
     },
     {
       href: '/',
