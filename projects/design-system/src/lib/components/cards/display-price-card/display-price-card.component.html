@@ -1,45 +1,46 @@
-<div
-  id="ds-display-price-card"
-  [ngClass]="className"
-  class="py-3 px-4 bg-crame-100 border border-crame-300 rounded-[4px] flex flex-col gap-5"
->
-  <div *ngIf="items.length > 0" class="flex flex-col gap-2">
+<div id="ds-display-price-card" [ngClass]="className">
+  <div
+    class="py-3 px-4 bg-crame-100 border border-crame-300 rounded-[4px] flex flex-col gap-5"
+  >
+    <div *ngIf="items.length > 0" class="flex flex-col gap-2">
+      <div
+        *ngFor="let item of items"
+        class="w-full flex justify-between items-center gap-4 text-[0.875rem]/[1rem] text-neutral-900 [&_p]:font-bold"
+      >
+        <span class="inline-flex whitespace-nowrap">
+          {{ item.label }}
+        </span>
+        <span
+          *ngIf="item.showLine"
+          class="w-[85%] whitespace-nowrap inline-flex mx-auto border-t border-dashed border-neutral-500"
+        ></span>
+        <p class="whitespace-nowrap">{{ item.value }}</p>
+      </div>
+    </div>
+
     <div
-      *ngFor="let item of items"
-      class="w-full flex justify-between items-center gap-4 text-[0.875rem]/[1rem] text-neutral-900 [&_p]:font-bold"
+      class="flex w-full justify-between items-center"
+      [ngClass]="[
+        items.length > 0 ? 'border-t border-dashed border-neutral-500 pt-4' : ''
+      ]"
     >
-      <span class="inline-flex">
-        {{ item.label }}
-      </span>
       <span
-        *ngIf="item.showLine"
-        class="w-[85%] inline-flex mx-auto border-t border-dashed border-neutral-500"
-      ></span>
-      <p>{{ item.value }}</p>
+        class="inline-flex text-[1rem]/[1.125rem] font-bold text-neutral-900"
+      >
+        {{ text }}
+      </span>
+      <p
+        class="flex items-center gap-1.5 text-[1.375rem]/[2rem] font-bold text-neutral-900"
+      >
+        <span> {{ price }} </span>
+
+        <ds-icon [id]="icon" size="24px" class="text-crame-500"></ds-icon>
+      </p>
     </div>
   </div>
-
-  <div
-    class="flex w-full justify-between items-center"
-    [ngClass]="[
-      items.length > 0 ? 'border-t border-dashed border-neutral-500 pt-4' : ''
-    ]"
-  >
-    <span class="inline-flex text-[1rem]/[1.125rem] font-bold text-neutral-900">
-      {{ text }}
-    </span>
-    <p
-      class="flex items-center gap-1.5 text-[1.375rem]/[2rem] font-bold text-neutral-900"
-    >
-      <span> {{ price }} </span>
-
-      <ds-icon [id]="icon" size="24px" class="text-crame-500"></ds-icon>
-    </p>
-  </div>
-
   <div
     *ngIf="buttons.length > 0"
-    class="flex justify-end items-center gap-2 mt-2"
+    class="flex justify-end items-center gap-2 mt-4"
   >
     <ds-button
       *ngFor="let button of buttons"
