@@ -1,5 +1,5 @@
 export const theme = {
-  base: 'fixed',
+  base: 'fixed z-50',
   overlay: 'fixed inset-0 dark:bg-black/60 bg-black/40 transition-opacity',
   rounded: 'rounded',
   panel:

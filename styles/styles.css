@@ -1295,6 +1295,10 @@ video {
   z-index: 999;
 }
 
+.z-\[200\] {
+  z-index: 200;
+}
+
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
