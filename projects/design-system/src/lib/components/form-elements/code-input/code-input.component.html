@@ -18,5 +18,8 @@
   (paste)="onPaste.emit($event)"
   (select)="onSelect.emit($event)"
   class="rounded shrink-0 bg-red-100 placeholder:text-sm placeholder:text-red-500 placeholder:font-medium py-1.5 px-3 text-[1.25rem]/[1.688rem] font-bold appearance-none text-red-500 outline-none border-none focus:ring-0 w-full max-w-[105px] tracking-wider"
-  [ngClass]="[disabled ? 'cursor-not-allowed opacity-70' : '', className]"
+  [ngClass]="[
+    disabled ? 'cursor-not-allowed !bg-neutral-100 !text-neutral-500' : '',
+    className
+  ]"
 />
