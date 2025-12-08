@@ -209,7 +209,6 @@ export class TableComponent implements OnChanges, OnDestroy {
       });
     } else {
       this.selectedRows.clear();
-      console.log('clear');
     }
     this.emitSelection();
   }
@@ -232,7 +231,8 @@ export class TableComponent implements OnChanges, OnDestroy {
   }
 
   headerCheckboxChange = () => {
-    this.toggleSelectAll(!this.isSomeSelected);
+    const isChecked = this.isSomeSelected || this.isAllSelected;
+    this.toggleSelectAll(!isChecked);
   };
 
   getRowCheckboxChange(row: any): () => void {
