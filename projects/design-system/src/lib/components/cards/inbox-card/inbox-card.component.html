@@ -3,7 +3,9 @@
   (click)="handleClick($event)"
   [ngClass]="[
     'relative flex gap-2 border-l-2 p-3.5 cursor-pointer',
-    !isRead ? 'bg-neutral-50 border-l-red-500' : 'bg-level-4 border-l-transparent'
+    !isRead
+      ? 'bg-neutral-50 border-l-red-500'
+      : 'bg-level-4 border-l-transparent'
   ]"
 >
   <a *ngIf="link" [href]="link" class="absolute top-0 left-0 w-full h-full">
@@ -11,7 +13,7 @@
   </a>
 
   <div
-    class="size-[30px] border border-stroke-1 rounded-full flex items-center justify-center text-primary"
+    class="size-[30px] border border-stroke-1 bg-white rounded-full flex items-center justify-center text-primary"
   >
     <ds-icon id="Mail" [size]="16" style="width: 16px; height: 16px"></ds-icon>
   </div>
@@ -24,7 +26,10 @@
       {{ title }}
     </span>
 
-    <p *ngIf="content" class="text-neutral-700 text-[0.75rem]/[1rem] font-medium">
+    <p
+      *ngIf="content"
+      class="text-neutral-700 text-[0.75rem]/[1rem] font-medium"
+    >
       {{ content }}
     </p>
 
