@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './button.stories.html',
 })
 export class ButtonStoryComponent {
-  variants = ['primary', 'secondary', 'gray', 'outline'];
+  variants = ['primary', 'secondary', 'outline', 'text', 'link'];
   sizes = ['small', 'normal', 'medium', 'large'];
 
   handleClick(event: Event): void {
