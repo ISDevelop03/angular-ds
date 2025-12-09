@@ -59,16 +59,14 @@
     </div>
 
     <ds-icon
-      *ngIf="!autoComplete && !isLoading"
-      [id]="isOpen ? 'arrow-up' : 'arrow-down'"
-      [class]="[
-        theme[variant].element.icone.arrow,
-        disabled ? 'text-neutral-500' : ''
-      ]"
+      (click)="clearSelection()"
+      *ngIf="selected.value !== ''"
+      id="close"
+      [class]="[theme[variant].element.icone.arrow, 'cursor-pointer']"
     ></ds-icon>
 
     <ds-icon
-      *ngIf="autoComplete && !isLoading && selected.value === ''"
+      *ngIf="!isLoading"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
       [class]="theme[variant].element.icone.arrow"
     ></ds-icon>
@@ -77,12 +75,6 @@
       *ngIf="isLoading"
       id="Loader"
       [class]="theme[variant].element.icone.arrow + ' animate-spin'"
-    ></ds-icon>
-    <ds-icon
-      (click)="clearSelection()"
-      *ngIf="autoComplete && selected.value !== ''"
-      id="close"
-      [class]="[theme[variant].element.icone.arrow, 'cursor-pointer']"
     ></ds-icon>
   </div>
 
