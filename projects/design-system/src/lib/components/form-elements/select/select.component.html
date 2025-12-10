@@ -35,7 +35,9 @@
         [alt]="selected.label"
         class="rounded-full size-5"
       />
-      <ng-container *ngIf="!autoComplete">
+      <ng-container
+        *ngIf="!autoComplete || (autoComplete && selected.value !== '')"
+      >
         <span
           [ngClass]="[
             selected.label !== placeholder
@@ -47,7 +49,7 @@
           {{ selected.label }}
         </span>
       </ng-container>
-      <ng-container *ngIf="autoComplete">
+      <ng-container *ngIf="autoComplete && selected.value === ''">
         <input
           [(ngModel)]="searchTerm"
           type="text"
@@ -62,7 +64,8 @@
       (click)="clearSelection()"
       *ngIf="
         (selected.value !== '' && allowClear) ||
-        (selected.value !== '' && autoComplete)
+        (selected.value !== '' && autoComplete) ||
+        (autoComplete && searchTerm != '')
       "
       id="close"
       [class]="[

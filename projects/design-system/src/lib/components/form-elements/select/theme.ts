@@ -1,7 +1,8 @@
 export const theme = {
   default: {
     element: {
-      label: 'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
+      label:
+        'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
       button: {
         select:
           'flex cursor-default border text-[0.75rem]/[1.125rem] border-stroke-1 h-[40px] flex items-center justify-between w-full px-3 py-2 rounded bg-level-3 placeholder:text-[0.75rem]/[1.125rem] focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
@@ -11,8 +12,10 @@ export const theme = {
         iconeError: 'text-error-500',
         disabled:
           '!bg-neutral-100 !text-neutral-500 placeholder:!text-neutral-800 cursor-not-allowed hover:bg-transparent !border-neutral-100 hover:border-neutral-100',
-        label: 'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
-        placeholder: 'font-semibold dark:text-white text-[0.75rem]/normal text-neutral-900 mr-2',
+        label:
+          'inline-block text-neutral-900 font-semibold text-[0.75rem]/normal mb-0',
+        placeholder:
+          'font-semibold dark:text-white text-[0.75rem]/normal text-neutral-900 mr-2',
       },
       field: {
         activated: 'bg-gray-200 dark:bg-neutral-700',
@@ -38,7 +41,8 @@ export const theme = {
   },
   currency: {
     element: {
-      label: 'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
+      label:
+        'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
       button: {
         select:
           'cursor-default  text-[0.75rem]/normal flex items-center justify-end gap-2 w-full px-0 py-1.5 rounded bg-transparent placeholder:text-[1rem]/normal focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
@@ -48,8 +52,10 @@ export const theme = {
         iconeError: 'text-error-500',
         disabled:
           '!opacity-50 !bg-neutral-100 !text-neutral-500 placeholder:text-neutral-800 cursor-not-allowed hover:bg-transparent !border-neutral-100 hover:border-neutral-100',
-        label: 'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
-        placeholder: 'font-semibold dark:text-white text-[0.875rem]/normal mr-2',
+        label:
+          'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
+        placeholder:
+          'font-semibold dark:text-white text-[0.875rem]/normal mr-2',
       },
       field: {
         activated: 'bg-gray-200 dark:bg-neutral-700',

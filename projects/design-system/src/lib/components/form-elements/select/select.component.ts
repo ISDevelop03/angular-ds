@@ -77,7 +77,7 @@ export class DsSelectComponent
   searchTerm: string = '';
 
   clearSelection() {
-    if (!this.allowClear) return;
+    if (!this.allowClear && !this.autoComplete && this.searchTerm == '') return;
     this.value = '';
     this.searchTerm = '';
     this.filteredItems = [].concat(this.items);
@@ -91,12 +91,10 @@ export class DsSelectComponent
   ngOnChanges(changes: SimpleChanges) {
     if (changes['items'] && changes['items'].currentValue) {
       this.filteredItems = [].concat(this.items);
-      console.log('filteredItems updated', this.filteredItems);
     }
   }
 
   private static zIndexCounter = 10000;
-  private searchSubject = new Subject<string>();
   private destroy$ = new Subject<void>();
 
   isOpen: boolean = false;
@@ -110,7 +108,6 @@ export class DsSelectComponent
 
   theme = theme;
 
-  // hold the form’s callbacks
   private _onChange: (v: any) => void = () => {};
   private _onTouched: () => void = () => {};
 
@@ -119,7 +116,6 @@ export class DsSelectComponent
     this.destroy$.complete();
   }
 
-  // Method to handle search input with debouncing
   onSearchInput(searchTerm: string) {
     this.isOpen = true;
     this.filteredItems = this.items.filter((item) =>
@@ -127,9 +123,6 @@ export class DsSelectComponent
     );
   }
 
-  // ----------------------------------------
-  // ControlValueAccessor API
-  // ----------------------------------------
   writeValue(obj: any): void {
     this.value = obj;
   }
@@ -206,9 +199,8 @@ export class DsSelectComponent
       this.isOpen = false;
     }
 
-    // 1) notify Reactive Forms
     this._onChange(this.value);
-    // 2) mark “touched”
+
     this._onTouched();
     this.valueChange.emit({ value: this.value, event });
   }
@@ -220,7 +212,6 @@ export class DsSelectComponent
     return this.value === item.value;
   }
 
-  // tighten returned type to always be a SelectItem
   get selected(): SelectItem {
     if (this.multiple && Array.isArray(this.value)) {
       const labels = this.items
@@ -228,7 +219,7 @@ export class DsSelectComponent
         .map((i) => i.label)
         .join(', ');
       return {
-        value: '', // satisfy the required field
+        value: '',
         label: labels || this.placeholder,
       };
     }
@@ -246,10 +237,9 @@ export class DsSelectComponent
       this.optionsContainer &&
       this.optionsContainer.nativeElement.contains(target);
 
-    // if you clicked *neither* on the button nor inside the dropdown, close it
     if (!clickedTrigger && !clickedOptions) {
       if (this.isOpen) {
-        this._onTouched(); // <— mark “touched” here
+        this._onTouched();
       }
       this.isOpen = false;
     }
@@ -258,7 +248,7 @@ export class DsSelectComponent
   @HostListener('document:keydown.escape', ['$event'])
   onEscClose(event: KeyboardEvent) {
     if (this.isOpen) {
-      this._onTouched(); // <— and here too
+      this._onTouched();
     }
     this.isOpen = false;
   }
