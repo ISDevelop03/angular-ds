@@ -2086,6 +2086,10 @@ video {
   width: 1px;
 }
 
+.w-\[800px\] {
+  width: 800px;
+}
+
 .\!min-w-fit {
   min-width: -moz-fit-content !important;
   min-width: fit-content !important;
@@ -4744,6 +4748,11 @@ video {
 .text-zinc-900 {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgb(208 213 221 / var(--tw-text-opacity, 1));
 }
 
 .underline {

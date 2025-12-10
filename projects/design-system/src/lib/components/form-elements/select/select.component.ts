@@ -44,7 +44,9 @@ export interface SelectItem {
     },
   ],
 })
-export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnChanges {
+export class DsSelectComponent
+  implements ControlValueAccessor, OnDestroy, OnChanges
+{
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -65,16 +67,17 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
   @Input() description?: string;
   @Input() tooltip?: string | TemplateRef<any>;
   @Input() required: boolean = false;
-  
+  @Input() allowClear: boolean = false;
+
   @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
-
 
   filteredItems: SelectItem[] = [];
 
   searchTerm: string = '';
 
   clearSelection() {
+    if (!this.allowClear) return;
     this.value = '';
     this.searchTerm = '';
     this.filteredItems = [].concat(this.items);
@@ -82,13 +85,13 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
 
   ngOnInit() {
     this.filteredItems = [].concat(this.items);
-    console.log("filteredItems", this.filteredItems)
+    console.log('filteredItems', this.filteredItems);
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['items'] && changes['items'].currentValue) {
       this.filteredItems = [].concat(this.items);
-      console.log("filteredItems updated", this.filteredItems);
+      console.log('filteredItems updated', this.filteredItems);
     }
   }
 
@@ -111,7 +114,6 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
   private _onChange: (v: any) => void = () => {};
   private _onTouched: () => void = () => {};
 
-  
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
@@ -119,8 +121,10 @@ export class DsSelectComponent implements ControlValueAccessor, OnDestroy, OnCha
 
   // Method to handle search input with debouncing
   onSearchInput(searchTerm: string) {
-    this.isOpen = true
-    this.filteredItems = this.items.filter((item) => item.label.toLowerCase().includes(searchTerm.toLowerCase()));
+    this.isOpen = true;
+    this.filteredItems = this.items.filter((item) =>
+      item.label.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }
 
   // ----------------------------------------

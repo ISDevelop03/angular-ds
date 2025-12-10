@@ -60,15 +60,25 @@
 
     <ds-icon
       (click)="clearSelection()"
-      *ngIf="selected.value !== ''"
+      *ngIf="
+        (selected.value !== '' && allowClear) ||
+        (selected.value !== '' && autoComplete)
+      "
       id="close"
-      [class]="[theme[variant].element.icone.arrow, 'cursor-pointer']"
+      [class]="[
+        theme[variant].element.icone.arrow,
+        'cursor-pointer',
+        disabled ? 'text-neutral-500' : ''
+      ]"
     ></ds-icon>
 
     <ds-icon
       *ngIf="!isLoading"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
-      [class]="theme[variant].element.icone.arrow"
+      [class]="[
+        theme[variant].element.icone.arrow,
+        disabled ? 'text-neutral-500' : ''
+      ]"
     ></ds-icon>
 
     <ds-icon

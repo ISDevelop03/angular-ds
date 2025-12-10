@@ -1,53 +1,32 @@
 <div class="p-4 flex flex-col gap-y-6 gap-4 bg-crame-50">
-  <h2 class="text-4xl font-bold mb-6">Select</h2>
-  <!-- Single Select -->
-  <div class="flex flex-col gap-4 max-w-xl">
-    <h3 class="text-2xl font-bold">Single Select</h3>
-    <div class="flex gap-4 w-full">
-      <ds-select
-        [tooltip]="'tooltilkdmlk dmkd p'"
-        [items]="options"
-        [value]="selectedValue"
-        (valueChange)="valueChange($event)"
-        label="Choose Option"
-        placeholder="Pick one..."
-        buttonIcon="message"
-        pill="true"
-        [disabled]="true"
-        class="w-full"
-      >
-      </ds-select>
-      <ds-select
-        [items]="options"
-        [value]="selectedValue"
-        (valueChange)="valueChange($event)"
-        label="Choose Option"
-        placeholder="Pick one..."
-        buttonIcon="message"
-        pill="true"
-        class="w-full"
-      >
-      </ds-select>
-    </div>
-    <button (click)="handleChangeClick()">change data</button>
-  </div>
+  <h2 class="text-4xl font-bold mb-6">Select Component</h2>
 
-  <!-- Single Select -->
-  <div class="flex flex-col gap-4 max-w-xl">
-    <h3 class="text-2xl font-bold">Single Select</h3>
+  <!-- Basic Single Select -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Basic Single Select</h3>
+    <p class="text-gray-600 text-sm">
+      A simple single-selection dropdown with label and placeholder.
+    </p>
     <div class="flex gap-4 w-full">
       <ds-select
-        [tooltip]="'tooltilkdmlk dmkd p'"
         [items]="options"
         [value]="selectedValue"
         (valueChange)="valueChange($event)"
         label="Choose Option"
         placeholder="Pick one..."
-        buttonIcon="message"
-        [disabled]="true"
         class="w-full"
       >
       </ds-select>
+    </div>
+  </section>
+
+  <!-- Single Select with Icon -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Single Select with Icon</h3>
+    <p class="text-gray-600 text-sm">
+      Select with a button icon displayed on the left side.
+    </p>
+    <div class="flex gap-4 w-full">
       <ds-select
         [items]="options"
         [value]="selectedValue"
@@ -59,26 +38,133 @@
       >
       </ds-select>
     </div>
-  </div>
+  </section>
+
+  <!-- Pill Style Select -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Pill Style Select</h3>
+    <p class="text-gray-600 text-sm">
+      Select with rounded-full styling for a pill-shaped appearance.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Choose Option"
+        placeholder="Pick one..."
+        buttonIcon="message"
+        pill="true"
+        class="w-full"
+      >
+      </ds-select>
+    </div>
+  </section>
+
+  <!-- Disabled State -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Disabled State</h3>
+    <p class="text-gray-600 text-sm">
+      Select in disabled state - cannot be interacted with.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Disabled Select"
+        placeholder="Pick one..."
+        [disabled]="true"
+        class="w-full"
+      >
+      </ds-select>
+    </div>
+  </section>
+
+  <!-- Required Field -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Required Field</h3>
+    <p class="text-gray-600 text-sm">
+      Select with required indicator (red asterisk next to label).
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Required Field"
+        placeholder="Pick one..."
+        [required]="true"
+        class="w-full"
+      >
+      </ds-select>
+    </div>
+  </section>
+
+  <!-- With Tooltip -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">With Tooltip</h3>
+    <p class="text-gray-600 text-sm">
+      Select with an info tooltip icon next to the label.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [tooltip]="'This is helpful information about the field'"
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Select with Tooltip"
+        placeholder="Pick one..."
+        class="w-full"
+      >
+      </ds-select>
+    </div>
+  </section>
+
+  <!-- With Description -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">With Description</h3>
+    <p class="text-gray-600 text-sm">
+      Select with helper text displayed below.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Select with Description"
+        placeholder="Pick one..."
+        description="This is a helpful description to guide the user."
+        class="w-full"
+      >
+      </ds-select>
+    </div>
+  </section>
 
   <!-- Auto Complete Select -->
-  <div class="max-w-xl">
-    <h3 class="text-2xl font-bold mb-4">Auto Complete Select</h3>
+  <section class="max-w-xl">
+    <h3 class="text-2xl font-bold mb-2">Auto Complete Select</h3>
+    <p class="text-gray-600 text-sm mb-4">
+      Searchable select that filters options as you type.
+    </p>
     <ds-select
       [items]="autoCompleteOptions"
       [value]="selectedValue"
       (valueChange)="valueChange($event)"
       (onSearch)="onSearchValueChange($event)"
-      label="Select Account"
+      label="Search Account"
       autoComplete="true"
-      placeholder="Pick one..."
+      placeholder="Type to search..."
     >
     </ds-select>
-  </div>
+  </section>
 
   <!-- Loading State -->
-  <div class="max-w-xl">
-    <h3 class="text-2xl font-bold mb-4">Loading State</h3>
+  <section class="max-w-xl">
+    <h3 class="text-2xl font-bold mb-2">Loading State</h3>
+    <p class="text-gray-600 text-sm mb-4">
+      Select showing a loading spinner while data is being fetched.
+    </p>
     <ds-select
       [items]="options"
       [value]="selectedValue"
@@ -87,46 +173,42 @@
       label="Loading Select"
     >
     </ds-select>
-  </div>
+  </section>
 
-  <!-- Select With Error -->
-  <div class="max-w-xl">
-    <h3 class="text-2xl font-bold mb-4">Select With Error</h3>
+  <!-- Error State -->
+  <section class="max-w-xl">
+    <h3 class="text-2xl font-bold mb-2">Error State</h3>
+    <p class="text-gray-600 text-sm mb-4">
+      Select with validation error styling and error message.
+    </p>
     <ds-select
       [items]="options"
       [value]="selectedValue"
       (valueChange)="valueChange($event)"
       [hasError]="true"
       errorMessage="You must select an option"
-      label="Select Error"
+      label="Select with Error"
     >
     </ds-select>
-  </div>
+  </section>
 
-  <!-- Commented out Currency Variant examples -->
-  <!--
-  <h3>Currency Variant</h3>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    label="Choose Option"
-    placeholder="Pick one..."
-    buttonIcon="message"
-    variant="currency">
-  </ds-select>
-  
-  <h3>Currency Variant</h3>
-  <ds-select
-    [items]="options"
-    [value]="selectedValue"
-    (valueChange)="valueChange($event)"
-    label="Choose Option"
-    placeholder="Pick one..."
-    buttonIcon="message"
-    variant="currency">
-  </ds-select>
-  -->
+  <!-- Allow Clear Disabled -->
+  <section class="max-w-xl">
+    <h3 class="text-2xl font-bold mb-2">Allow Clear</h3>
+    <p class="text-gray-600 text-sm mb-4">
+      Select without the clear (X) button - selection cannot be cleared once
+      made.
+    </p>
+    <ds-select
+      [items]="options"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      [allowClear]="true"
+      label="Cannot Clear Selection"
+      placeholder="Pick one..."
+    >
+    </ds-select>
+  </section>
 
   <!-- API Documentation Table -->
   <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
@@ -330,6 +412,21 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            allowClear
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a clear (X) button when a value is
+            selected, allowing users to clear their selection.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             hasError
           </td>
           <td class="border border-gray-300 px-4 py-2">
@@ -487,7 +584,7 @@
             variant
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">keyof typeof theme</code>
+            <code class="text-sm">'default' | 'currency'</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">'default'</code>
@@ -501,8 +598,8 @@
               </li>
               <li>
                 <code>'currency'</code>: Currency-specific styling with
-                transparent background and different layout (options aligned to
-                the right)
+                transparent background, compact sizing, and right-aligned
+                options dropdown
               </li>
             </ul>
             Each variant has different visual styling for the button, options
@@ -514,7 +611,7 @@
             customOptionsStyles
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">&#123; [key: string]: any &#125;</code>
+            <code class="text-sm">{{ '{' }} [key: string]: any {{ '}' }}</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">undefined</code>
@@ -565,8 +662,9 @@
           <td class="border border-gray-300 px-4 py-2">
             Emitted when an option is selected or deselected. The event payload
             is an object with
-            <code>&#123; value: string | string[], event: Event &#125;</code>.
-            For single select, <code>value</code> is a string. For multiple
+            <code
+              >{{ '{' }} value: string | string[], event: Event {{ '}' }}</code
+            >. For single select, <code>value</code> is a string. For multiple
             select, <code>value</code> is an array of strings. This event is
             used for two-way data binding with <code>[(value)]</code>. Use to
             handle selection changes, perform validation, or update parent
@@ -612,7 +710,7 @@
             Type
           </th>
           <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
-            Default
+            Required
           </th>
           <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
             Description
@@ -627,12 +725,13 @@
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">string</code>
           </td>
-          <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> The unique value identifier for the
-            option. This is the value that will be stored in the
-            <code>value</code> input when the option is selected. Must be unique
-            within the <code>items</code> array.
+            <span class="text-green-600 font-semibold">Yes</span>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The unique value identifier for the option. This is the value that
+            will be stored in the <code>value</code> input when the option is
+            selected. Must be unique within the <code>items</code> array.
           </td>
         </tr>
         <tr>
@@ -642,13 +741,14 @@
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">string</code>
           </td>
-          <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> The display text for the option. This is
-            what users see in the dropdown menu and in the select button when
-            the option is selected. For account-type items (<code
-              >isAccount: true</code
-            >), this is displayed as a secondary label above the value.
+            <span class="text-green-600 font-semibold">Yes</span>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The display text for the option. This is what users see in the
+            dropdown menu and in the select button when the option is selected.
+            For account-type items (<code>isAccount: true</code>), this is
+            displayed as a secondary label above the value.
           </td>
         </tr>
         <tr>
@@ -659,7 +759,7 @@
             <code class="text-sm">boolean</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
+            <span class="text-gray-500">No</span>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             When <code>true</code>, marks the option as unavailable. Unavailable
@@ -681,7 +781,7 @@
             <code class="text-sm">string</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
+            <span class="text-gray-500">No</span>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             Optional icon identifier displayed next to the option label. Should
@@ -690,8 +790,7 @@
               >isAccount: true</code
             >), the icon is displayed in a circular container (40px × 40px) with
             red color. If provided, the icon is also used in the select button
-            when the item is selected (unless <code>buttonIcon</code> is
-            provided).
+            when the item is selected.
           </td>
         </tr>
         <tr>
@@ -702,7 +801,7 @@
             <code class="text-sm">string</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
+            <span class="text-gray-500">No</span>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             Optional URL path to an image displayed next to the option label.
@@ -722,7 +821,7 @@
             <code class="text-sm">boolean</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
+            <span class="text-gray-500">No</span>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             When <code>true</code>, renders the option in account-style layout:
@@ -745,7 +844,7 @@
             <code class="text-sm">string</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
+            <span class="text-gray-500">No</span>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             Optional CSS classes to apply to the icon element. Useful for custom
@@ -761,7 +860,7 @@
             <code class="text-sm">string</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">undefined</code>
+            <span class="text-gray-500">No</span>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             Optional CSS classes to apply to the image element. Useful for
