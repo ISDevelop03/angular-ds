@@ -1,9 +1,15 @@
 <nav id="ds-pagination" [ngClass]="[theme[variant].wrapper, className]">
-  <div class="flex items-center justify-center gap-3">
+  <div class="flex items-center justify-center gap-x-2">
     <span [ngClass]="[theme[variant].info]">
-      ({{ firstItem }}-{{ itemsPerPage }}/{{ totalItems }}) Par page:
+      <span>(</span>
+      <span>{{ firstItem }}</span>
+      <span>-</span>
+      <span>{{ itemsPerPage }}</span>
+      <span>/</span>
+      <span>{{ totalItems }}</span>
+      <span>)</span>
     </span>
-
+    <span *ngIf="showPerPage" [ngClass]="[theme[variant].info]">Par page:</span>
     <ul *ngIf="showPerPage" class="flex items-center justify-center gap-2">
       <li
         class="text-[1rem]/[1.25rem]"
@@ -26,7 +32,9 @@
       [ngClass]="[
         theme[variant].nextPrevButtons.base,
         theme[variant].nextPrevButtons.prev.base,
-        currentPage <= 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-neutral-50'
+        currentPage <= 1
+          ? 'opacity-40 cursor-not-allowed'
+          : 'hover:bg-neutral-50'
       ]"
     >
       <ds-icon
@@ -35,7 +43,7 @@
         [class]="theme[variant].nextPrevButtons.prev.base"
       >
       </ds-icon>
-      {{ minimized ? '' : prevLabel }}
+      {{ minimized ? "" : prevLabel }}
     </button>
 
     <!-- Page Buttons + Ellipsis -->
@@ -48,13 +56,17 @@
               theme[variant].buttons.button.base,
               pNum === currentPage
                 ? theme[variant].buttons.button.active
-                : theme[variant].buttons.button.inactive
+                : theme[variant].buttons.button.inactive,
+              pNum === 1 ? 'border-l' : ''
             ]"
           >
             {{ pNum }}
           </button>
         </ng-container>
-        <ng-container *ngIf="pNum === '...'" class="border-r border-neutral-100 h-full">
+        <ng-container
+          *ngIf="pNum === '...'"
+          class="border-r border-neutral-100 h-full"
+        >
           <span [ngClass]="[theme[variant].buttons.ellipsis]">…</span>
         </ng-container>
       </li>
@@ -67,10 +79,12 @@
       [ngClass]="[
         theme[variant].nextPrevButtons.base,
         theme[variant].nextPrevButtons.next.base,
-        currentPage >= pageCount ? 'opacity-40 cursor-not-allowed' : 'hover:bg-neutral-50'
+        currentPage >= pageCount
+          ? 'opacity-40 cursor-not-allowed'
+          : 'hover:bg-neutral-50'
       ]"
     >
-      {{ minimized ? '' : nextLabel }}
+      {{ minimized ? "" : nextLabel }}
       <ds-icon
         [id]="theme[variant].nextPrevButtons.next.id"
         [size]="theme[variant].nextPrevButtons.next.size"

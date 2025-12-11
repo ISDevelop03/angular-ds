@@ -12,7 +12,7 @@ export class PaginationStoryComponent {
   currentPage = 1;
   showPerPage = true;
 
-  perPageOptions = [10, 20, 25, 50, 75, 100];
+  perPageOptions = [10, 20, 50, 100];
 
   onPageChange(page: number) {
     this.currentPage = page;

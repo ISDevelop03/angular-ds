@@ -26,9 +26,9 @@ export class DsPaginationComponent implements OnChanges {
   @Input() totalItems = 0;
   @Input() itemsPerPage: number;
   @Input() currentPage = 1;
-  @Input() variant = 'compact';
+  @Input() variant = 'default';
   @Input() className = '';
-  @Input() showPerPage: boolean = false;
+  @Input() showPerPage: boolean = true;
   @Input() minimized: boolean = false;
 
   @Output() pageChange = new EventEmitter<number>();

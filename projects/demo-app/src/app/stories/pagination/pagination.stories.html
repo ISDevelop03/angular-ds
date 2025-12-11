@@ -1,393 +1,414 @@
 <div class="p-4 flex flex-col gap-y-10 min-h-screen dark:bg-black bg-[#F9FAFB]">
   <h2 class="text-4xl font-bold">Pagination</h2>
   <div>
-    <h3 class="text-2xl font-bold mb-3">Minimized</h3>
-    <ds-pagination
-      [minimized]="true"
-      [totalItems]="totalItems"
-      [currentPage]="currentPage"
-      [perPageOptions]="perPageOptions"
-      variant="default"
-      [(itemsPerPage)]="itemsPerPage"
-      (pageChange)="onPageChange($event)"
-      (perPageChange)="onPerPageChange($event)"
-    ></ds-pagination>
-  </div>
-  <div>
-    <h3 class="text-2xl font-bold mb-3">Default</h3>
-    <ds-pagination
-      [totalItems]="totalItems"
-      [currentPage]="currentPage"
-      [perPageOptions]="perPageOptions"
-      variant="default"
-      [(itemsPerPage)]="itemsPerPage"
-      (pageChange)="onPageChange($event)"
-      (perPageChange)="onPerPageChange($event)"
-    ></ds-pagination>
-  </div>
-  <div>
-    <h3 class="text-2xl font-bold mb-3">Full</h3>
-    <ds-pagination
-      [totalItems]="totalItems"
-      onPageChange
-      [currentPage]="currentPage"
-      [showPerPage]="showPerPage"
-      [perPageOptions]="perPageOptions"
-      variant="default"
-      [(itemsPerPage)]="itemsPerPage"
-      (pageChange)="onPageChange($event)"
-      (perPageChange)="onPerPageChange($event)"
-    ></ds-pagination>
-  </div>
+    <div class="flex flex-col gap-4">
+      <div>
+        <h3 class="text-2xl font-bold mb-3">Default</h3>
+        <ds-pagination
+          [totalItems]="totalItems"
+          [currentPage]="currentPage"
+          [perPageOptions]="perPageOptions"
+          variant="default"
+          [(itemsPerPage)]="itemsPerPage"
+          (pageChange)="onPageChange($event)"
+          (perPageChange)="onPerPageChange($event)"
+        ></ds-pagination>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-3">Minimized</h3>
+        <ds-pagination
+          [minimized]="true"
+          [totalItems]="totalItems"
+          [currentPage]="currentPage"
+          [perPageOptions]="perPageOptions"
+          variant="default"
+          [(itemsPerPage)]="itemsPerPage"
+          (pageChange)="onPageChange($event)"
+          (perPageChange)="onPerPageChange($event)"
+        ></ds-pagination>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-3">Default with showPerPage false</h3>
+        <ds-pagination
+          [totalItems]="totalItems"
+          [currentPage]="currentPage"
+          [showPerPage]="false"
+          variant="default"
+          [(itemsPerPage)]="itemsPerPage"
+        ></ds-pagination>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-3">
+          Minimized with showPerPage false
+        </h3>
+        <ds-pagination
+          [totalItems]="totalItems"
+          [currentPage]="currentPage"
+          [showPerPage]="false"
+          variant="default"
+        ></ds-pagination>
+      </div>
+    </div>
 
-  <!-- API Documentation Table -->
-  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+    <!-- API Documentation Table -->
+    <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
-  <div class="overflow-x-auto">
-    <table class="min-w-full border-collapse border border-gray-300 bg-white">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
-            Property
-          </th>
-          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
-            Type
-          </th>
-          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
-            Default
-          </th>
-          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Component Inputs -->
-        <tr class="bg-blue-50">
-          <td
-            colspan="4"
-            class="border border-gray-300 px-4 py-2 font-bold text-lg"
-          >
-            Component Inputs
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            totalItems
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">0</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> Total number of items to paginate. Used
-            to calculate the total number of pages based on
-            <code>itemsPerPage</code>. The component calculates
-            <code>pageCount = Math.ceil(totalItems / itemsPerPage)</code>.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            itemsPerPage
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">perPageOptions[0]</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Number of items displayed per page. Supports two-way binding with
-            <code>[(itemsPerPage)]</code>. Defaults to the first value in
-            <code>perPageOptions</code> array. When changed, automatically
-            resets to page 1 and triggers <code>perPageChange</code> event.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            currentPage
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">1</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            The currently active page number (1-based). Use to control which
-            page is displayed. When a page is selected, the component emits
-            <code>pageChange</code> with the new page number.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            variant
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'compact'</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Visual style variant for the pagination component. Determines the
-            theme configuration used for styling. Available variants include
-            <code>'default'</code> and <code>'compact'</code>. Each variant has
-            its own theme configuration for wrapper, container, buttons, and
-            other elements.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            minimized
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, displays a minimized version of the
-            pagination component with fewer visible elements. Use for compact
-            layouts or when space is limited.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            showPerPage
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, displays the "items per page" selector
-            dropdown. Allows users to change how many items are displayed per
-            page. The selector shows options from
-            <code>perPageOptions</code> with the label from
-            <code>perPageLabel</code>.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            perPageOptions
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number[]</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">[25, 50, 100]</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Array of numbers representing available items-per-page options.
-            Displayed in the per-page selector dropdown when
-            <code>showPerPage</code> is <code>true</code>. The first value is
-            used as the default <code>itemsPerPage</code> if not explicitly set.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            firstItem
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">1</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            The index of the first item displayed on the current page (1-based).
-            Used for displaying item range information (e.g., "1-25 of 100").
-            Calculated as
-            <code>(currentPage - 1) * itemsPerPage + 1</code>.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            boundaryStartCount
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">2</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Number of page buttons to always show at the start (beginning) of
-            the pagination. These buttons are always visible regardless of the
-            current page. Used to provide quick access to the first pages. The
-            actual count is limited to the total number of pages available.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            boundaryEndCount
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">2</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Number of page buttons to always show at the end of the pagination.
-            These buttons are always visible regardless of the current page.
-            Used to provide quick access to the last pages. The actual count is
-            limited to the total number of pages available.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            windowSize
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">1</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Number of page buttons to show on each side of the current page
-            (neighbors). Controls the size of the sliding window around the
-            current page. For example, with <code>windowSize = 1</code> and
-            <code>currentPage = 5</code>, pages 4 and 6 are shown. Ellipses
-            (<code>...</code>) are inserted when there are gaps between page
-            ranges.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            maxPageButtons
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">number</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">5</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Maximum number of page number buttons to display (excluding
-            prev/next buttons and ellipses). Used to limit the total number of
-            visible page buttons in the pagination component.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            prevLabel
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'Précédent'</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Label text for the "Previous" button. Displayed next to the previous
-            arrow icon. Use to customize the button text for localization or
-            branding.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            nextLabel
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'Suivant'</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Label text for the "Next" button. Displayed next to the next arrow
-            icon. Use to customize the button text for localization or branding.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            perPageLabel
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'Par page'</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Label text for the "items per page" selector. Displayed before the
-            dropdown when <code>showPerPage</code> is <code>true</code>. Use to
-            customize the label for localization or branding.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            className
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">''</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            Optional additional CSS classes to apply to the pagination component
-            wrapper. Useful for custom styling, layout adjustments, or
-            responsive sizing. The component has default styling with flex
-            layout, gap, and rounded corners.
-          </td>
-        </tr>
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-gray-300 bg-white">
+        <thead class="bg-gray-100">
+          <tr>
+            <th
+              class="border border-gray-300 px-4 py-3 text-left font-semibold"
+            >
+              Property
+            </th>
+            <th
+              class="border border-gray-300 px-4 py-3 text-left font-semibold"
+            >
+              Type
+            </th>
+            <th
+              class="border border-gray-300 px-4 py-3 text-left font-semibold"
+            >
+              Default
+            </th>
+            <th
+              class="border border-gray-300 px-4 py-3 text-left font-semibold"
+            >
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Component Inputs -->
+          <tr class="bg-blue-50">
+            <td
+              colspan="4"
+              class="border border-gray-300 px-4 py-2 font-bold text-lg"
+            >
+              Component Inputs
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              totalItems
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">0</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <strong>Required.</strong> Total number of items to paginate. Used
+              to calculate the total number of pages based on
+              <code>itemsPerPage</code>. The component calculates
+              <code>pageCount = Math.ceil(totalItems / itemsPerPage)</code>.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              itemsPerPage
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">perPageOptions[0]</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Number of items displayed per page. Supports two-way binding with
+              <code>[(itemsPerPage)]</code>. Defaults to the first value in
+              <code>perPageOptions</code> array. When changed, automatically
+              resets to page 1 and triggers <code>perPageChange</code> event.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              currentPage
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">1</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              The currently active page number (1-based). Use to control which
+              page is displayed. When a page is selected, the component emits
+              <code>pageChange</code> with the new page number.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              variant
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">string</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">'compact'</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Visual style variant for the pagination component. Determines the
+              theme configuration used for styling. Available variants include
+              <code>'default'</code> and <code>'compact'</code>. Each variant
+              has its own theme configuration for wrapper, container, buttons,
+              and other elements.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              minimized
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">boolean</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">false</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              When <code>true</code>, displays a minimized version of the
+              pagination component with fewer visible elements. Use for compact
+              layouts or when space is limited.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              showPerPage
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">boolean</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">false</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              When <code>true</code>, displays the "items per page" selector
+              dropdown. Allows users to change how many items are displayed per
+              page. The selector shows options from
+              <code>perPageOptions</code> with the label from
+              <code>perPageLabel</code>.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              perPageOptions
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number[]</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">[25, 50, 100]</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Array of numbers representing available items-per-page options.
+              Displayed in the per-page selector dropdown when
+              <code>showPerPage</code> is <code>true</code>. The first value is
+              used as the default <code>itemsPerPage</code> if not explicitly
+              set.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              firstItem
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">1</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              The index of the first item displayed on the current page
+              (1-based). Used for displaying item range information (e.g., "1-25
+              of 100"). Calculated as
+              <code>(currentPage - 1) * itemsPerPage + 1</code>.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              boundaryStartCount
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">2</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Number of page buttons to always show at the start (beginning) of
+              the pagination. These buttons are always visible regardless of the
+              current page. Used to provide quick access to the first pages. The
+              actual count is limited to the total number of pages available.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              boundaryEndCount
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">2</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Number of page buttons to always show at the end of the
+              pagination. These buttons are always visible regardless of the
+              current page. Used to provide quick access to the last pages. The
+              actual count is limited to the total number of pages available.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              windowSize
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">1</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Number of page buttons to show on each side of the current page
+              (neighbors). Controls the size of the sliding window around the
+              current page. For example, with <code>windowSize = 1</code> and
+              <code>currentPage = 5</code>, pages 4 and 6 are shown. Ellipses
+              (<code>...</code>) are inserted when there are gaps between page
+              ranges.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              maxPageButtons
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">number</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">5</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Maximum number of page number buttons to display (excluding
+              prev/next buttons and ellipses). Used to limit the total number of
+              visible page buttons in the pagination component.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              prevLabel
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">string</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">'Précédent'</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Label text for the "Previous" button. Displayed next to the
+              previous arrow icon. Use to customize the button text for
+              localization or branding.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              nextLabel
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">string</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">'Suivant'</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Label text for the "Next" button. Displayed next to the next arrow
+              icon. Use to customize the button text for localization or
+              branding.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              perPageLabel
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">string</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">'Par page'</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Label text for the "items per page" selector. Displayed before the
+              dropdown when <code>showPerPage</code> is <code>true</code>. Use
+              to customize the label for localization or branding.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              className
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">string</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">''</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Optional additional CSS classes to apply to the pagination
+              component wrapper. Useful for custom styling, layout adjustments,
+              or responsive sizing. The component has default styling with flex
+              layout, gap, and rounded corners.
+            </td>
+          </tr>
 
-        <!-- Component Outputs -->
-        <tr class="bg-green-50">
-          <td
-            colspan="4"
-            class="border border-gray-300 px-4 py-2 font-bold text-lg"
-          >
-            Component Outputs (Events)
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            pageChange
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">EventEmitter&lt;number&gt;</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">-</td>
-          <td class="border border-gray-300 px-4 py-2">
-            Emitted when the user navigates to a different page. Provides the
-            new page number (1-based). Triggered when:
-            <ul class="list-disc list-inside mt-2 space-y-1">
-              <li>A page number button is clicked</li>
-              <li>The "Previous" button is clicked (decrements page)</li>
-              <li>The "Next" button is clicked (increments page)</li>
-            </ul>
-            Use to update your data source, fetch new data, or sync the page
-            state with your application.
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            perPageChange
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">EventEmitter&lt;number&gt;</code>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">-</td>
-          <td class="border border-gray-300 px-4 py-2">
-            Emitted when the user changes the number of items per page via the
-            selector dropdown. Provides the new items-per-page value. When this
-            event is triggered, the component automatically resets to page 1 and
-            recalculates the total number of pages. Use to update your data
-            source, fetch new data with the new page size, or sync the
-            items-per-page state with your application.
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          <!-- Component Outputs -->
+          <tr class="bg-green-50">
+            <td
+              colspan="4"
+              class="border border-gray-300 px-4 py-2 font-bold text-lg"
+            >
+              Component Outputs (Events)
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              pageChange
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">EventEmitter&lt;number&gt;</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">-</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Emitted when the user navigates to a different page. Provides the
+              new page number (1-based). Triggered when:
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>A page number button is clicked</li>
+                <li>The "Previous" button is clicked (decrements page)</li>
+                <li>The "Next" button is clicked (increments page)</li>
+              </ul>
+              Use to update your data source, fetch new data, or sync the page
+              state with your application.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              perPageChange
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">EventEmitter&lt;number&gt;</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">-</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Emitted when the user changes the number of items per page via the
+              selector dropdown. Provides the new items-per-page value. When
+              this event is triggered, the component automatically resets to
+              page 1 and recalculates the total number of pages. Use to update
+              your data source, fetch new data with the new page size, or sync
+              the items-per-page state with your application.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
