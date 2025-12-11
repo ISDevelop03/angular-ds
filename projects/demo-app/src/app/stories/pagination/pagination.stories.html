@@ -181,14 +181,15 @@
               <code class="text-sm">boolean</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">false</code>
+              <code class="text-sm">true</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              When <code>true</code>, displays the "items per page" selector
-              dropdown. Allows users to change how many items are displayed per
-              page. The selector shows options from
-              <code>perPageOptions</code> with the label from
-              <code>perPageLabel</code>.
+              Controls the visibility of the "items per page" selector. When
+              <code>true</code>, displays a row of clickable page size options
+              (from <code>perPageOptions</code>) with the label defined by
+              <code>perPageLabel</code>. The currently selected option is
+              highlighted. Clicking an option triggers the
+              <code>perPageChange</code> event and resets to page 1.
             </td>
           </tr>
           <tr>
