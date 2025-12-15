@@ -7,12 +7,12 @@
     >
       <div class="flex items-center justify-start gap-4">
         <div
-          class="flex items-center justify-center w-8 h-8 bg-level-4 border border-stroke-1 rounded-full text-neutral-500"
+          class="flex items-center justify-center p-2 bg-level-4 border border-stroke-1 rounded text-neutral-500"
         >
           <ds-icon id="file-edit-02" size="16px" class="text-red-500"></ds-icon>
         </div>
-        <div class="flex flex-col gap-1 text-neutral-700">
-          <p class="text-[1rem]/[1.375rem] font-bold">
+        <div class="flex flex-col gap-1 text-neutral-900">
+          <p class="text-[1rem]/[1.375rem] font-medium">
             {{ file.file.name }}
           </p>
           <p class="text-[0.875rem]/[1.25rem] font-normal">
@@ -24,28 +24,32 @@
       <div *ngIf="isDownloadable">
         <button
           (click)="downloadFile(file?.file)"
-          class="p-2 hover:bg-neutral-50 rounded-full"
+          class="p-2 hover:bg-neutral-25 rounded"
         >
-          <ds-icon id="download" size="16px" class="shrink-0"></ds-icon>
+          <ds-icon
+            id="download"
+            size="20px"
+            class="shrink-0 text-red-500"
+          ></ds-icon>
         </button>
       </div>
     </div>
     <!-- Success status file -->
     <div
       *ngIf="file.status === 'success'"
-      class="relative border border-success bg-green-50 dark:bg-[#142E24] rounded-lg p-4 flex gap-4 items-center justify-between"
+      class="relative border border-success-500 rounded-lg p-4 flex gap-4 items-center justify-between"
     >
       <div class="flex items-center justify-start gap-4">
         <div
-          class="flex items-center justify-center rounded-full w-8 h-8 bg-[#E6F4EF] dark:bg-[#245140] p-1.5 text-color-success dark:text-green-500"
+          class="flex items-center justify-center rounded p-2 bg-[#FFFFFF] border border-success-200 text-success-500"
         >
           <ds-icon id="file-edit-02" size="16px"></ds-icon>
         </div>
-        <div class="flex flex-col gap-1 text-neutral-700">
-          <p class="text-[1rem]/[1.375rem] font-medium">
+        <div class="flex flex-col gap-1">
+          <p class="text-[1rem]/[1.375rem] font-medium text-success-500">
             {{ file.file.name }}
           </p>
-          <p class="text-[0.875rem]/[1.25rem] font-normal">
+          <p class="text-[0.875rem]/[1.25rem] font-normal text-neutral-700">
             {{ formatFileSize(file.file.size) }} - 100% Téléchargé
           </p>
         </div>
@@ -53,9 +57,13 @@
       <div *ngIf="!isDownloadable">
         <button
           (click)="removeFile(file?.file.id)"
-          class="rounded-full text-white bg-green-500 flex items-center justify-center w-6 h-6 p-2 hover:bg-green-600"
+          class="rounded hover:bg-neutral-25 flex items-center justify-center p-1"
         >
-          <ds-icon id="trash" size="16px" class="shrink-0"></ds-icon>
+          <ds-icon
+            id="trash"
+            size="20"
+            class="shrink-0 text-neutral-700"
+          ></ds-icon>
         </button>
       </div>
       <div *ngIf="isDownloadable">
@@ -79,40 +87,60 @@
       ></div>
       <div class="relative w-full z-[1] flex gap-4 items-center justify-start">
         <div
-          class="flex items-center justify-center rounded-full w-8 h-8 bg-red-100 text-red-500"
+          class="flex items-center justify-center rounded bg-white border border-red-100 p-2 text-red-500"
         >
           <ds-icon id="file-edit-02" size="16px"></ds-icon>
         </div>
 
         <div class="flex flex-col gap-1 text-neutral-700">
-          <p class="text-[1rem]/[1.375rem] font-bold">
+          <p class="text-[1rem]/[1.375rem] font-medium">
             {{ file.file.name }}
           </p>
           <p class="text-[0.875rem]/[1.25rem] font-normal">
             {{ formatFileSize(file.file.size) }}
           </p>
         </div>
-        <span
-          class="absolute right-0 top-1/2 -translate-y-1/2 font-medium text-[1rem]/[1.25rem]"
-        >
-          {{ file.progress }} %
-        </span>
+        <div class="absolute right-0 top-1/2 -translate-y-1/2">
+          <svg class="w-8 h-8 -rotate-90" viewBox="0 0 36 36">
+            <circle
+              class="text-red-100 dark:text-red-900"
+              stroke="currentColor"
+              stroke-width="3"
+              fill="none"
+              cx="18"
+              cy="18"
+              r="15"
+            />
+            <circle
+              class="text-red-500 transition-all duration-300 ease-in-out"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              fill="none"
+              cx="18"
+              cy="18"
+              r="15"
+              [attr.stroke-dasharray]="94.2"
+              [attr.stroke-dashoffset]="94.2 - (94.2 * file.progress) / 100"
+            />
+          </svg>
+        </div>
       </div>
     </div>
 
     <!-- Error status file -->
     <div *ngIf="file.status === 'error'">
       <div
-        class="relative border border-red-200 rounded-lg p-4 bg-error-25 dark:bg-[#290505]"
+        class="relative border border-error-300 rounded-lg p-4 bg-error-50 dark:bg-[#290505]"
       >
         <div class="flex items-center justify-between gap-4">
           <div class="flex items-center gap-4">
             <div
-              class="flex items-center justify-center rounded-full w-8 h-8 bg-red-100 dark:bg-red-50 text-red-500"
+              class="flex items-center justify-center rounded bg-white dark:bg-red-50 text-error-500 p-2 border border-error-100"
             >
               <ds-icon id="file-edit-02" size="16px"></ds-icon>
             </div>
-            <div class="flex flex-col gap-1 text-rose-700">
+            <div class="flex flex-col gap-1 text-error-500">
               <p class="text-[1rem]/[1.375rem] font-medium">
                 {{ file.file.name }}
               </p>

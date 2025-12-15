@@ -140,6 +140,32 @@
     --color-crame-900: 10 9 5; /* #0a0905 */
     --color-crame-950: 10 9 5; /* #0a0905 */
 
+    /* Success */
+    --color-success-50: 241 249 245; /* #F1F9F5 */
+    --color-success-100: 230 244 238; /* #E6F4EE */
+    --color-success-200: 195 237 215; /* #C3EDD7 */
+    --color-success-300: 159 220 192; /* #9FDCC0 */
+    --color-success-400: 124 197 169; /* #7CC5A9 */
+    --color-success-500: 89 182 146; /* #59B692 */
+    --color-success-600: 67 152 119; /* #439877 */
+    --color-success-700: 51 117 92; /* #33755C */
+    --color-success-800: 36 81 64; /* #245140 */
+    --color-success-900: 20 46 36; /* #142E24 */
+    --color-success-950: 16 35 28; /* #10231C */
+
+    /* Error */
+    --color-error-50: 249 230 231; /* #F9E6E7 */
+    --color-error-100: 243 206 207; /* #F3CECF */
+    --color-error-200: 235 173 175; /* #EBADAF */
+    --color-error-300: 229 143 146; /* #E58F92 */
+    --color-error-400: 220 86 90; /* #DC565A */
+    --color-error-500: 210 58 64; /* #D23A40 */
+    --color-error-600: 179 41 46; /* #B3292E */
+    --color-error-700: 137 31 35; /* #891F23 */
+    --color-error-800: 95 22 25; /* #5F1619 */
+    --color-error-900: 62 14 16; /* #3E0E10 */
+    --color-error-950: 42 9 11; /* #2A090B */
+
     /* Additional Brand / Custom Colors */
     --color-succes: 89 182 146; /* #59B692 */
     --color-erreur: 210 58 64; /* #D23A40 */
@@ -282,6 +308,32 @@
     --color-crame-700: 228 229 230; /* #E4E5E6 */
     --color-crame-800: 245 245 245; /* #F5F5F5 */
     --color-crame-900: 250 250 250; /* #FAFAFA */
+
+    /* Success (dark) */
+    --color-success-50: 16 35 28; /* #10231C */
+    --color-success-100: 20 46 36; /* #142E24 */
+    --color-success-200: 36 81 64; /* #245140 */
+    --color-success-300: 51 117 92; /* #33755C */
+    --color-success-400: 67 152 119; /* #439877 */
+    --color-success-500: 89 182 146; /* #59B692 */
+    --color-success-600: 124 197 169; /* #7CC5A9 */
+    --color-success-700: 159 220 192; /* #9FDCC0 */
+    --color-success-800: 195 237 215; /* #C3EDD7 */
+    --color-success-900: 230 244 238; /* #E6F4EE */
+    --color-success-950: 241 249 245; /* #F1F9F5 */
+
+    /* Error (dark) */
+    --color-error-50: 42 9 11; /* #2A090B */
+    --color-error-100: 62 14 16; /* #3E0E10 */
+    --color-error-200: 95 22 25; /* #5F1619 */
+    --color-error-300: 137 31 35; /* #891F23 */
+    --color-error-400: 179 41 46; /* #B3292E */
+    --color-error-500: 210 58 64; /* #D23A40 */
+    --color-error-600: 220 86 90; /* #DC565A */
+    --color-error-700: 229 143 146; /* #E58F92 */
+    --color-error-800: 235 173 175; /* #EBADAF */
+    --color-error-900: 243 206 207; /* #F3CECF */
+    --color-error-950: 249 230 231; /* #F9E6E7 */
 
     /* Additional Brand / Custom Colors */
     --color-succes: 89 182 146;
