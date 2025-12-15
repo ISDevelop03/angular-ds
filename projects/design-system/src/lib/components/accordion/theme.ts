@@ -40,4 +40,26 @@ export const theme = {
     },
     panel: { base: '' },
   },
+  shadowless: {
+    container: 'mx-auto w-full space-y-[10px]',
+    disclosure: '',
+    button: {
+      base: 'w-full space-y-2 bg-level-3 rounded py-4 px-6 text-left focus:outline-none outline-none border-none rounded overflow-hidden',
+      title: 'text-[0.875rem]/[1.5rem] font-bold text-neutral-900',
+      active: 'rounded-b-none',
+      titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',
+
+      icon: {
+        base: 'transition ease-in duration-300',
+        classActive: '',
+        classInactive: '',
+        inactiveId: 'arrow-down',
+        activeId: 'arrow-up',
+        size: '16px',
+      },
+    },
+    panel: {
+      base: 'p-5 overflow-hidden rounded-b-lg border-t border-stroke-1 bg-level-3',
+    },
+  },
 };

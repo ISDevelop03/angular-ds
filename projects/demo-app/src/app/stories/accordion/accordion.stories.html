@@ -17,6 +17,14 @@
     (openHandler)="onAccordionOpen($event)"
   ></ds-accordion>
 
+  <h3 class="text-2xl font-bold">Shadowless Accordion</h3>
+  <ds-accordion
+    [items]="items"
+    variant="shadowless"
+    [allowMultiple]="true"
+    (openHandler)="onAccordionOpen($event)"
+  ></ds-accordion>
+
   <!-- Template for content items -->
   <ng-template #contentTemplate>
     <p>Here where your template goes</p>
@@ -58,7 +66,7 @@
             variant
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'default' | 'borderless'</code>
+            <code class="text-sm">'default' | 'borderless' | 'shadowless'</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">'default'</code>
@@ -67,7 +75,9 @@
             Visual style variant of the accordion. <code>'default'</code> for
             standard styling with borders and background,
             <code>'borderless'</code>
-            for a cleaner look without borders.
+            for a cleaner look without borders,
+            <code>'shadowless'</code>
+            for a cleaner look without borders and shadow.
           </td>
         </tr>
         <tr>

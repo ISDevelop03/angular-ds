@@ -21,7 +21,7 @@ export class AccordionStoryComponent implements AfterViewInit {
   items: AccordionItem[] = [];
   itemsWithTemplate: AccordionItem[] = [];
   itemsBorderless: AccordionItem[] = [];
-
+  itemsShadowless: AccordionItem[] = [];
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
