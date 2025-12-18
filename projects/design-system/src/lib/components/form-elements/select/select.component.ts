@@ -78,9 +78,10 @@ export class DsSelectComponent
 
   clearSelection() {
     if (!this.allowClear && !this.autoComplete && this.searchTerm == '') return;
-    this.value = '';
+    this.value = null;
     this.searchTerm = '';
     this.filteredItems = [].concat(this.items);
+    this.valueChange.emit(null);
   }
 
   ngOnInit() {
