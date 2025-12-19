@@ -34,7 +34,9 @@
           </div>
           <div class="w-full flex items-center justify-between gap-5">
             <div class="flex-1 flex flex-col">
-              <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
+              <span
+                class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]"
+              >
                 {{ selectedValue.accountName }}
               </span>
               <span class="inline-flex font-bold text-[0.75rem] leading-[18px]">
@@ -42,54 +44,67 @@
               </span>
             </div>
             <div class="flex-1 flex flex-col gap-y-2">
-              <div class="flex-1 flex gap-x-2">
-                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  Solde réel
-                </span>
-                <div class="flex items-center justify-end gap-1.5 shrink-0">
-                  <ds-balance-formatter
-                    *ngIf="selectedValue.soldeComptable.value"
-                    [balance]="selectedValue.soldeComptable.value"
-                    className="!text-[0.75rem] !leading-[18px]"
-                  ></ds-balance-formatter>
-                  <div class="flex items-center gap-1.5 shrink-0">
-                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                      {{ selectedValue.soldeTempsReel.currency }}
-                    </span>
-                    <div class="relative rounded-full size-4">
-                      <img
-                        [src]="selectedValue.soldeComptable.currency_flag"
-                        alt="[selectedValue.title]"
-                        class="relative rounded-full size-4"
-                      />
+              <ng-container *ngIf="selectedValue.soldeComptable">
+                <div class="flex-1 flex gap-x-2">
+                  <span
+                    class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                  >
+                    Solde réel
+                  </span>
+                  <div class="flex items-center justify-end gap-1.5 shrink-0">
+                    <ds-balance-formatter
+                      *ngIf="selectedValue.soldeComptable.value"
+                      [balance]="selectedValue.soldeComptable.value"
+                      className="!text-[0.75rem] !leading-[18px]"
+                    ></ds-balance-formatter>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <span
+                        class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                      >
+                        {{ selectedValue.soldeTempsReel.currency }}
+                      </span>
+                      <div class="relative rounded-full size-4">
+                        <img
+                          [src]="selectedValue.soldeComptable.currency_flag"
+                          alt="[selectedValue.title]"
+                          class="relative rounded-full size-4"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="flex-1 flex gap-x-2">
-                <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                  Solde comptable
-                </span>
-                <div class="flex items-center justify-end gap-1.5 shrink-0">
-                  <ds-balance-formatter
-                    *ngIf="selectedValue.soldeTempsReel.value"
-                    [balance]="selectedValue.soldeTempsReel.value"
-                    className="!text-[0.75rem] !leading-[18px]"
-                  ></ds-balance-formatter>
-                  <div class="flex items-center gap-1.5 shrink-0">
-                    <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                      {{ selectedValue.soldeTempsReel.currency }}
-                    </span>
-                    <div class="relative rounded-full size-4">
-                      <img
-                        [src]="selectedValue.soldeTempsReel.currency_flag"
-                        alt="[selectedValue.title]"
-                        class="relative rounded-full size-4"
-                      />
+              </ng-container>
+
+              <ng-container *ngIf="selectedValue.soldeTempsReel">
+                <div class="flex-1 flex gap-x-2">
+                  <span
+                    class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                  >
+                    Solde comptable
+                  </span>
+                  <div class="flex items-center justify-end gap-1.5 shrink-0">
+                    <ds-balance-formatter
+                      *ngIf="selectedValue.soldeTempsReel.value"
+                      [balance]="selectedValue.soldeTempsReel.value"
+                      className="!text-[0.75rem] !leading-[18px]"
+                    ></ds-balance-formatter>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <span
+                        class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                      >
+                        {{ selectedValue.soldeTempsReel.currency }}
+                      </span>
+                      <div class="relative rounded-full size-4">
+                        <img
+                          [src]="selectedValue.soldeTempsReel.currency_flag"
+                          alt="[selectedValue.title]"
+                          class="relative rounded-full size-4"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ng-container>
             </div>
           </div>
         </div>
@@ -143,62 +158,78 @@
             </div>
             <div class="w-full flex items-center justify-between gap-5">
               <div class="flex-1 flex flex-col">
-                <span class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]">
+                <span
+                  class="inline-flex font-normal text-neutral-500 text-[0.75rem] leading-[18px]"
+                >
                   {{ item.accountName }}
                 </span>
-                <span class="inline-flex font-bold text-[0.75rem] leading-[18px]">
+                <span
+                  class="inline-flex font-bold text-[0.75rem] leading-[18px]"
+                >
                   {{ item.accountNumber }}
                 </span>
               </div>
               <div class="flex-1 flex flex-col gap-y-2">
-                <div class="flex-1 flex gap-x-2">
-                  <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                    Solde réel
-                  </span>
-                  <div class="flex items-center justify-end gap-1.5 shrink-0">
-                    <ds-balance-formatter
-                      *ngIf="item.soldeComptable.value"
-                      [balance]="item.soldeComptable.value"
-                      className="!text-[0.75rem] !leading-[18px]"
-                    ></ds-balance-formatter>
-                    <div class="flex items-center gap-1.5 shrink-0">
-                      <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                        {{ item.soldeTempsReel.currency }}
-                      </span>
-                      <div class="relative rounded-full size-4">
-                        <img
-                          [src]="item.soldeComptable.currency_flag"
-                          alt="[item.title]"
-                          class="relative rounded-full size-4"
-                        />
+                <ng-container *ngIf="item.soldeComptable">
+                  <div class="flex-1 flex gap-x-2">
+                    <span
+                      class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                    >
+                      Solde réel
+                    </span>
+                    <div class="flex items-center justify-end gap-1.5 shrink-0">
+                      <ds-balance-formatter
+                        *ngIf="item.soldeComptable.value"
+                        [balance]="item.soldeComptable.value"
+                        className="!text-[0.75rem] !leading-[18px]"
+                      ></ds-balance-formatter>
+                      <div class="flex items-center gap-1.5 shrink-0">
+                        <span
+                          class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                        >
+                          {{ item.soldeTempsReel.currency }}
+                        </span>
+                        <div class="relative rounded-full size-4">
+                          <img
+                            [src]="item.soldeComptable.currency_flag"
+                            alt="[item.title]"
+                            class="relative rounded-full size-4"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="flex-1 flex gap-x-2">
-                  <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                    Solde comptable
-                  </span>
-                  <div class="flex items-center justify-end gap-1.5 shrink-0">
-                    <ds-balance-formatter
-                      *ngIf="item.soldeTempsReel.value"
-                      [balance]="item.soldeTempsReel.value"
-                      className="!text-[0.75rem] !leading-[18px]"
-                    ></ds-balance-formatter>
-                    <div class="flex items-center gap-1.5 shrink-0">
-                      <span class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto">
-                        {{ item.soldeTempsReel.currency }}
-                      </span>
-                      <div class="relative rounded-full size-4">
-                        <img
-                          [src]="item.soldeTempsReel.currency_flag"
-                          alt="[item.title]"
-                          class="relative rounded-full size-4"
-                        />
+                </ng-container>
+                <ng-container *ngIf="item.soldeTempsReel">
+                  <div class="flex-1 flex gap-x-2">
+                    <span
+                      class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                    >
+                      Solde comptable
+                    </span>
+                    <div class="flex items-center justify-end gap-1.5 shrink-0">
+                      <ds-balance-formatter
+                        *ngIf="item.soldeTempsReel.value"
+                        [balance]="item.soldeTempsReel.value"
+                        className="!text-[0.75rem] !leading-[18px]"
+                      ></ds-balance-formatter>
+                      <div class="flex items-center gap-1.5 shrink-0">
+                        <span
+                          class="block text-end whitespace-nowrap font-normal text-neutral-500 text-[0.75rem] leading-[18px] ml-auto"
+                        >
+                          {{ item.soldeTempsReel.currency }}
+                        </span>
+                        <div class="relative rounded-full size-4">
+                          <img
+                            [src]="item.soldeTempsReel.currency_flag"
+                            alt="[item.title]"
+                            class="relative rounded-full size-4"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </ng-container>
               </div>
             </div>
           </div>

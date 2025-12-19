@@ -14,16 +14,6 @@ export class AccountsSelectStoryComponent {
       icon: 'Je-deviens-client',
       accountNumber: '123456789012345678',
       accountName: 'Account 1',
-      soldeComptable: {
-        value: 467949595,
-        currency: 'USD',
-        currency_flag: 'https://flagcdn.com/w40/us.png',
-      },
-      soldeTempsReel: {
-        value: 467949595,
-        currency: 'USD',
-        currency_flag: 'https://flagcdn.com/w40/us.png',
-      },
     },
     {
       value: 'option2',

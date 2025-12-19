@@ -24,8 +24,8 @@ export interface SelectItem {
   value: string;
   accountName: string;
   accountNumber: string;
-  soldeComptable: Solde;
-  soldeTempsReel: Solde;
+  soldeComptable?: Solde;
+  soldeTempsReel?: Solde;
 }
 export interface OmittedSelectItem {
   value: string;
