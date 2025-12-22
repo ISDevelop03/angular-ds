@@ -1363,10 +1363,6 @@ video {
   z-index: 1;
 }
 
-.z-\[200\] {
-  z-index: 200;
-}
-
 .z-\[2\] {
   z-index: 2;
 }
@@ -1389,6 +1385,10 @@ video {
 
 .z-\[999\] {
   z-index: 999;
+}
+
+.z-\[200\] {
+  z-index: 200;
 }
 
 .col-span-3 {
@@ -3240,6 +3240,16 @@ video {
   border-color: rgb(63 64 65 / var(--tw-border-opacity, 1));
 }
 
+.border-error-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-error-100) / var(--tw-border-opacity, 1));
+}
+
+.border-error-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-error-300) / var(--tw-border-opacity, 1));
+}
+
 .border-error-400 {
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-error-400) / var(--tw-border-opacity, 1));
@@ -3377,16 +3387,6 @@ video {
 .border-zinc-300 {
   --tw-border-opacity: 1;
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
-}
-
-.border-error-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-error-300) / var(--tw-border-opacity, 1));
-}
-
-.border-error-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-error-100) / var(--tw-border-opacity, 1));
 }
 
 .border-b-neutral-900 {
@@ -3586,6 +3586,16 @@ video {
   background-color: rgb(var(--color-crame-50) / var(--tw-bg-opacity, 1));
 }
 
+.bg-error-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-error-50) / var(--tw-bg-opacity, 1));
+}
+
+.bg-error-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-error-500) / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-crame {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--gradient-crame) / var(--tw-bg-opacity, 1));
@@ -3763,6 +3773,11 @@ video {
   background-color: rgb(var(--stroke-3) / var(--tw-bg-opacity, 1));
 }
 
+.bg-success-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-success-500) / var(--tw-bg-opacity, 1));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -3819,16 +3834,6 @@ video {
 .bg-zinc-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
-}
-
-.bg-error-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-error-300) / var(--tw-bg-opacity, 1));
-}
-
-.bg-error-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-error-50) / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-50 {
