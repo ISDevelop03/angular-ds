@@ -25,7 +25,7 @@ export class StepsStoryComponent {
 
   leftButtons = [
     {
-      variant: 'gray',
+      variant: 'secondary',
       content: 'Cancel',
       disableHandleStep: true,
       onClick: (btn) => {
@@ -46,7 +46,6 @@ export class StepsStoryComponent {
     {
       variant: 'primary',
       content: 'Next',
-      pill: true,
       onClick: (btn) => {
         console.log('this is next hahah', btn);
       },
@@ -54,7 +53,7 @@ export class StepsStoryComponent {
   ];
   leftButtons1 = [
     {
-      variant: 'gray',
+      variant: 'secondary',
       content: 'A Cancel',
       disableHandleStep: true,
       onClick: (btn) => {
@@ -75,7 +74,6 @@ export class StepsStoryComponent {
     {
       variant: 'primary',
       content: 'A Next',
-      pill: true,
       onClick: (btn) => {
         console.log('this is next hahah', btn);
       },
