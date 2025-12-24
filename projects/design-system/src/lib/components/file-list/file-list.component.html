@@ -60,7 +60,7 @@
           class="rounded hover:bg-neutral-25 flex items-center justify-center p-1"
         >
           <ds-icon
-            id="trash"
+            id="trash-02"
             size="20"
             class="shrink-0 text-neutral-700"
           ></ds-icon>
@@ -154,11 +154,7 @@
             (click)="reUploadFile(file.file.id)"
             class="rounded-full text-rose-700 flex items-center justify-center w-5 h-5"
           >
-            <ds-icon
-              id="arrow-refresh-03"
-              size="20px"
-              class="shrink-0"
-            ></ds-icon>
+            <ds-icon id="trash-02" size="20px" class="shrink-0"></ds-icon>
           </button>
         </div>
         <div *ngIf="file.errors && file.errors.length > 0" class="mt-3">
