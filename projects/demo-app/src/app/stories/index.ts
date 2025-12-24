@@ -153,3 +153,6 @@ export * from './tooltip/tooltip.stories';
 
 // Auto-export for box-checkbox stories
 export * from './box-checkbox/box-checkbox.stories';
+
+// Auto-export for layer stories
+export * from './layer/layer.stories';

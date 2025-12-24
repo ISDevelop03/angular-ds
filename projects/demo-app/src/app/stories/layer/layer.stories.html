@@ -1,0 +1,233 @@
+<section
+  class="p-4 grid gap-6 w-full grid-cols-1 place-content-start min-h-screen bg-crame-50"
+>
+  <h2 class="text-4xl font-bold mb-6">Layer</h2>
+
+  <h3 class="text-2xl font-bold">Default Layer</h3>
+  <p class="text-gray-600">
+    A layer is a floating panel that slides in with animation. It includes a
+    close button and supports content projection.
+  </p>
+
+  <ds-button (onClick)="handleClick()">Open Layer</ds-button>
+
+  <div class="relative">
+    <ds-layer [(isOpen)]="isLayerOpen">
+      <p class="h-[1000px] bg-red-100 p-4 rounded">
+        This is the layer content. Click the X button to close.
+      </p>
+    </ds-layer>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isOpen
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Controls the visibility of the layer. When <code>true</code>, the
+            layer is displayed with a slide-in animation. When
+            <code>false</code>, the layer is hidden with a slide-out animation.
+            Supports two-way binding with <code>[(isOpen)]</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the layer container.
+            Useful for custom styling, sizing, or positioning adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isOpenChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;boolean&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the layer's open state changes. Primarily used for
+            two-way binding with <code>[(isOpen)]</code>. Emits
+            <code>false</code> when the layer is closed via the close button.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Features Section -->
+  <h3 class="text-2xl font-bold mt-8"># Features</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Feature
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Animation
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The layer uses a smooth slide-in/slide-out animation with fade
+            effect. Enter animation: 200ms ease-out from top. Leave animation:
+            200ms ease-in to top.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Close Button
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Built-in close button (X icon) positioned at the top-right corner.
+            Clicking it emits <code>isOpenChange</code> with
+            <code>false</code> value.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Content Projection
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Supports <code>ng-content</code> for flexible content. Any content
+            placed between <code>&lt;ds-layer&gt;</code> tags will be projected
+            into the layer body.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Styling
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Default styling includes <code>bg-level-3</code> background,
+            <code>rounded-lg</code> corners, and <code>p-6</code> padding. Uses
+            relative positioning for proper close button placement.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Usage Examples Section -->
+  <h3 class="text-2xl font-bold mt-8"># Usage Examples</h3>
+  <p class="text-gray-600 mb-4">
+    Below are common usage patterns for the Layer component.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Pattern
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Example
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">
+            Basic Two-Way Binding
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm block bg-gray-50 p-2 rounded">
+              &lt;ds-layer [(isOpen)]="isLayerOpen"&gt;<br />
+              &nbsp;&nbsp;&lt;p&gt;Layer content here&lt;/p&gt;<br />
+              &lt;/ds-layer&gt;
+            </code>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">
+            With Custom Classes
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm block bg-gray-50 p-2 rounded">
+              &lt;ds-layer [(isOpen)]="isOpen" className="max-w-md
+              mx-auto"&gt;<br />
+              &nbsp;&nbsp;&lt;p&gt;Centered layer&lt;/p&gt;<br />
+              &lt;/ds-layer&gt;
+            </code>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">
+            With Event Handling
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm block bg-gray-50 p-2 rounded">
+              &lt;ds-layer [isOpen]="isOpen"
+              (isOpenChange)="onLayerClose($event)"&gt;<br />
+              &nbsp;&nbsp;&lt;p&gt;Layer content&lt;/p&gt;<br />
+              &lt;/ds-layer&gt;
+            </code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
