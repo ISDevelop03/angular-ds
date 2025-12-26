@@ -1,198 +1,199 @@
-<div class="relative h-full w-full" [ngClass]="className || ''">
-  <div #tableContainer [ngClass]="['overflow-auto h-full w-full']">
-    <div id="isOverflowing" *ngIf="isOverflowing" class="pointer-events-none">
-      <div
-        *ngIf="isOnRight"
-        class="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-[100]"
-      ></div>
-      <div
-        *ngIf="isOnLeft"
-        class="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-[100]"
-      ></div>
-    </div>
-    <table #tableElement id="ds-table" [ngClass]="theme[variant].table">
-      <thead [ngClass]="theme[variant].header">
-        <tr class="overflow-hidden">
-          <!-- 1) HEADER ds-checkbox -->
-          <th
-            *ngIf="selectionEnabled"
+<div
+  #tableContainer
+  [ngClass]="[className || 'h-full', 'overflow-auto w-full']"
+>
+  <div id="isOverflowing" *ngIf="isOverflowing" class="pointer-events-none">
+    <div
+      *ngIf="isOnRight"
+      class="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-[100]"
+    ></div>
+    <div
+      *ngIf="isOnLeft"
+      class="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-[100]"
+    ></div>
+  </div>
+  <table #tableElement id="ds-table" [ngClass]="theme[variant].table">
+    <thead [ngClass]="theme[variant].header">
+      <tr class="overflow-hidden">
+        <!-- 1) HEADER ds-checkbox -->
+        <th
+          *ngIf="selectionEnabled"
+          [ngClass]="[
+            theme[variant].headerCell,
+            'w-[30px]',
+            variant === 'default' ? 'rounded-l-md' : '',
+            variant === 'secondary' ? 'rounded-tl-lg' : ''
+          ]"
+        >
+          <ds-checkbox
+            *ngIf="selectionMode === 'multi'"
+            [checked]="isAllSelected || isSomeSelected"
+            [isIndeterminate]="isSomeSelected && !isAllSelected"
+            [disabled]="displayData.length === 0 || isAllUnselectable()"
+            [change]="headerCheckboxChange"
+          ></ds-checkbox>
+        </th>
+
+        <th
+          *ngFor="let col of columns; let idx = index"
+          [ngClass]="[
+            theme[variant].headerCell,
+            !col.sortable ? 'pb-2.5 pt-1.5' : 'py-2.5',
+            idx === 0 && variant === 'default' && !selectionEnabled
+              ? 'rounded-l-md'
+              : '',
+            columns.length - 1 === idx && variant === 'default'
+              ? 'rounded-r-md'
+              : ''
+          ]"
+          [ngStyle]="col.style"
+        >
+          <span
+            *ngIf="!col.sortable"
             [ngClass]="[
-              theme[variant].headerCell,
-              'w-[30px]',
-              variant === 'default' ? 'rounded-l-md' : '',
-              variant === 'secondary' ? 'rounded-tl-lg' : ''
+              theme[variant].headerTh,
+              col.expandable ? 'flex justify-between items-center w-full' : ''
             ]"
           >
-            <ds-checkbox
-              *ngIf="selectionMode === 'multi'"
-              [checked]="isAllSelected || isSomeSelected"
-              [isIndeterminate]="isSomeSelected && !isAllSelected"
-              [disabled]="displayData.length === 0 || isAllUnselectable()"
-              [change]="headerCheckboxChange"
-            ></ds-checkbox>
-          </th>
-
-          <th
-            *ngFor="let col of columns; let idx = index"
+            <span [ngClass]="[theme[variant].headerText]">
+              {{ col.header }}
+            </span>
+            <button
+              (click)="toggleTruncateData(col)"
+              [ngClass]="[col.truncate ? 'text-green-500' : 'text-red-500']"
+              *ngIf="col.expandable"
+            >
+              <ds-icon
+                [id]="col.truncate ? 'plus' : 'minus'"
+                size="16"
+              ></ds-icon>
+            </button>
+          </span>
+          <button
+            *ngIf="col.sortable"
             [ngClass]="[
-              theme[variant].headerCell,
-              !col.sortable ? 'pb-2.5 pt-1.5' : 'py-2.5',
-              idx === 0 && variant === 'default' && !selectionEnabled
-                ? 'rounded-l-md'
-                : '',
-              columns.length - 1 === idx && variant === 'default'
-                ? 'rounded-r-md'
-                : ''
+              theme[variant].headerCellButton,
+              col.expandable ? 'flex justify-between items-center w-full' : ''
             ]"
-            [ngStyle]="col.style"
           >
             <span
-              *ngIf="!col.sortable"
-              [ngClass]="[
-                theme[variant].headerTh,
-                col.expandable ? 'flex justify-between items-center w-full' : ''
-              ]"
+              (click)="col.sortable && onSort(col)"
+              [ngClass]="[theme[variant].headerTh]"
             >
+              <span [ngClass]="[theme[variant].headerIcons]">
+                <!-- default “no sort” icon -->
+                <ds-icon
+                  *ngIf="col.sortable && sortColumn !== col.accessor"
+                  id="filter-up-down"
+                  size="12"
+                ></ds-icon>
+
+                <!-- asc / desc icons -->
+                <ng-container *ngIf="sortColumn === col.accessor">
+                  <ds-icon
+                    *ngIf="sortDirection === 'asc'"
+                    id="filter-up"
+                    size="12"
+                  ></ds-icon>
+                  <ds-icon
+                    *ngIf="sortDirection === 'desc'"
+                    id="filter-down"
+                    size="12"
+                  ></ds-icon>
+                </ng-container>
+              </span>
               <span [ngClass]="[theme[variant].headerText]">
                 {{ col.header }}
               </span>
-              <button
-                (click)="toggleTruncateData(col)"
-                [ngClass]="[col.truncate ? 'text-green-500' : 'text-red-500']"
-                *ngIf="col.expandable"
-              >
-                <ds-icon
-                  [id]="col.truncate ? 'plus' : 'minus'"
-                  size="16"
-                ></ds-icon>
-              </button>
             </span>
             <button
-              *ngIf="col.sortable"
-              [ngClass]="[
-                theme[variant].headerCellButton,
-                col.expandable ? 'flex justify-between items-center w-full' : ''
-              ]"
+              (click)="toggleTruncateData(col)"
+              [ngClass]="[col.truncate ? 'text-green-500' : 'text-red-500']"
+              *ngIf="col.expandable"
             >
-              <span
-                (click)="col.sortable && onSort(col)"
-                [ngClass]="[theme[variant].headerTh]"
-              >
-                <span [ngClass]="[theme[variant].headerIcons]">
-                  <!-- default “no sort” icon -->
-                  <ds-icon
-                    *ngIf="col.sortable && sortColumn !== col.accessor"
-                    id="filter-up-down"
-                    size="12"
-                  ></ds-icon>
-
-                  <!-- asc / desc icons -->
-                  <ng-container *ngIf="sortColumn === col.accessor">
-                    <ds-icon
-                      *ngIf="sortDirection === 'asc'"
-                      id="filter-up"
-                      size="12"
-                    ></ds-icon>
-                    <ds-icon
-                      *ngIf="sortDirection === 'desc'"
-                      id="filter-down"
-                      size="12"
-                    ></ds-icon>
-                  </ng-container>
-                </span>
-                <span [ngClass]="[theme[variant].headerText]">
-                  {{ col.header }}
-                </span>
-              </span>
-              <button
-                (click)="toggleTruncateData(col)"
-                [ngClass]="[col.truncate ? 'text-green-500' : 'text-red-500']"
-                *ngIf="col.expandable"
-              >
-                <ds-icon
-                  [id]="col.truncate ? 'plus' : 'minus'"
-                  size="16"
-                ></ds-icon>
-              </button>
+              <ds-icon
+                [id]="col.truncate ? 'plus' : 'minus'"
+                size="16"
+              ></ds-icon>
             </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody [ngClass]="theme[variant].body">
-        <tr
-          *ngFor="let row of displayData; let i = index"
-          [ngClass]="theme[variant].row(i)"
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody [ngClass]="theme[variant].body">
+      <tr
+        *ngFor="let row of displayData; let i = index"
+        [ngClass]="theme[variant].row(i)"
+      >
+        <!-- ROW ds-checkbox -->
+        <td
+          *ngIf="selectionEnabled && selectionMode === 'multi'"
+          [ngClass]="[
+            theme[variant].headerCell,
+            'w-[30px]',
+            variant === 'default' ? 'rounded-l-md' : '',
+            variant === 'secondary' ? 'rounded-tl-lg' : ''
+          ]"
         >
-          <!-- ROW ds-checkbox -->
-          <td
-            *ngIf="selectionEnabled && selectionMode === 'multi'"
-            [ngClass]="[
-              theme[variant].headerCell,
-              'w-[30px]',
-              variant === 'default' ? 'rounded-l-md' : '',
-              variant === 'secondary' ? 'rounded-tl-lg' : ''
-            ]"
-          >
-            <ds-checkbox
-              [checked]="isSelected(row)"
-              [change]="getRowCheckboxChange(row)"
-              [disabled]="row.isSelectable === false"
-            ></ds-checkbox>
-          </td>
-          <td
-            *ngIf="selectionEnabled && selectionMode === 'single'"
-            [ngClass]="[
-              theme[variant].headerCell,
-              'w-[30px]',
-              variant === 'default' ? 'rounded-l-md' : '',
-              variant === 'secondary' ? 'rounded-tl-lg' : ''
-            ]"
-          >
-            <ds-radio
-              name="selection"
-              [value]="row.id"
-              [(modelValue)]="selectedRowId"
-              (change)="onSelect(row)"
-            ></ds-radio>
-          </td>
+          <ds-checkbox
+            [checked]="isSelected(row)"
+            [change]="getRowCheckboxChange(row)"
+            [disabled]="row.isSelectable === false"
+          ></ds-checkbox>
+        </td>
+        <td
+          *ngIf="selectionEnabled && selectionMode === 'single'"
+          [ngClass]="[
+            theme[variant].headerCell,
+            'w-[30px]',
+            variant === 'default' ? 'rounded-l-md' : '',
+            variant === 'secondary' ? 'rounded-tl-lg' : ''
+          ]"
+        >
+          <ds-radio
+            name="selection"
+            [value]="row.id"
+            [(modelValue)]="selectedRowId"
+            (change)="onSelect(row)"
+          ></ds-radio>
+        </td>
 
-          <td
-            *ngFor="let col of columns; let colIdx = index"
-            [ngClass]="[
-              theme[variant].cell,
-              col.expandable && col.truncate
-                ? 'whitespace-nowrap'
-                : 'whitespace-nowrap',
-              colIdx === 0 && variant === 'default' && !selectionEnabled
-                ? 'rounded-l-md'
-                : '',
-              columns.length - 1 === colIdx && variant === 'default'
-                ? 'rounded-r-md'
-                : ''
-            ]"
-            [style]="col.style"
-          >
-            <ng-container
-              *ngIf="col.cellTemplate; else defaultCell"
-              [ngTemplateOutlet]="col.cellTemplate"
-              [ngTemplateOutletContext]="{
-                $implicit: row[col.accessor],
-                row: row
-              }"
-            ></ng-container>
-            <ng-template #defaultCell>
-              <div class="flex flex-col">
-                <span
-                  *ngFor="let line of getAllLines(row[col.accessor], col)"
-                  class="whitespace-nowrap"
-                >
-                  {{ line }}
-                </span>
-              </div>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <td
+          *ngFor="let col of columns; let colIdx = index"
+          [ngClass]="[
+            theme[variant].cell,
+            col.expandable && col.truncate
+              ? 'whitespace-nowrap'
+              : 'whitespace-nowrap',
+            colIdx === 0 && variant === 'default' && !selectionEnabled
+              ? 'rounded-l-md'
+              : '',
+            columns.length - 1 === colIdx && variant === 'default'
+              ? 'rounded-r-md'
+              : ''
+          ]"
+          [style]="col.style"
+        >
+          <ng-container
+            *ngIf="col.cellTemplate; else defaultCell"
+            [ngTemplateOutlet]="col.cellTemplate"
+            [ngTemplateOutletContext]="{
+              $implicit: row[col.accessor],
+              row: row
+            }"
+          ></ng-container>
+          <ng-template #defaultCell>
+            <div class="flex flex-col">
+              <span
+                *ngFor="let line of getAllLines(row[col.accessor], col)"
+                class="whitespace-nowrap"
+              >
+                {{ line }}
+              </span>
+            </div>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

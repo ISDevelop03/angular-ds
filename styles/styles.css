@@ -1967,6 +1967,15 @@ video {
   height: 200px;
 }
 
+.h-\[calc\(100vh-48px\)\] {
+  height: calc(100vh - 48px);
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -2210,6 +2219,10 @@ video {
   width: calc(100vw - 300px);
 }
 
+.w-\[600px\] {
+  width: 600px;
+}
+
 .\!min-w-fit {
   min-width: -moz-fit-content !important;
   min-width: fit-content !important;
@@ -2262,6 +2275,11 @@ video {
 .min-w-max {
   min-width: -moz-max-content;
   min-width: max-content;
+}
+
+.min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .max-w-20 {
@@ -2890,6 +2908,11 @@ video {
 
 .gap-y-\[14px\] {
   row-gap: 14px;
+}
+
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -7942,4 +7965,8 @@ bs-daterangepicker-container {
 .\[\&_span\]\:text-red-500 span {
   --tw-text-opacity: 1;
   color: rgb(var(--color-red-500) / var(--tw-text-opacity, 1));
+}
+
+.\[\&_ul\]\:isolate ul {
+  isolation: isolate;
 }
