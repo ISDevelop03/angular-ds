@@ -12,7 +12,13 @@
   ></div>
 
   <!-- Transition Panel -->
-  <div class="absolute" [ngClass]="theme.variants[variant].base">
+  <div
+    class="absolute"
+    [ngClass]="[
+      theme.variants[variant].base,
+      isFullScreen ? 'h-screen' : 'max-h-fit'
+    ]"
+  >
     <div
       [ngClass]="[
         theme.panel,

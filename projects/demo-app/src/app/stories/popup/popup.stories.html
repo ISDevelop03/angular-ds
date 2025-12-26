@@ -9,6 +9,9 @@
     <ds-button (onClick)="openSlideRight()" class="btn btn-accent">
       Open Slide Right
     </ds-button>
+    <ds-button (onClick)="openModal()" class="btn btn-primary">
+      Open Modal
+    </ds-button>
   </div>
 
   <ds-popup
@@ -40,6 +43,7 @@
     [isShown]="isSlideRightOpen"
     [heading]="'Slide Right Popup'"
     variant="slideRight"
+    [isFullScreen]="true"
     [close]="closeSlideRight.bind(this)"
   >
     <div class="p-4">This is a slide right popup.</div>
@@ -179,6 +183,23 @@
             for custom styling, layout adjustments, or z-index control (e.g.,
             <code>z-50</code>, <code>z-40</code>). Applied to the panel element
             alongside variant-specific theme classes and animation classes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isFullScreen
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, the popup panel expands to full screen width
+            and height. Particularly useful for slide variants
+            (<code>slideLeft</code>, <code>slideRight</code>) when you want the
+            panel to cover the entire viewport instead of a fixed width.
           </td>
         </tr>
       </tbody>

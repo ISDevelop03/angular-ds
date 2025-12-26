@@ -23,6 +23,7 @@ export class DsPopupComponent implements OnDestroy {
   @Input() heading?: string;
   @Input() variant: keyof typeof theme.variants = 'modal';
   @Input() className?: string = '';
+  @Input() isFullScreen?: boolean = false;
   @Input() close: () => void = () => {};
 
   theme = theme;
