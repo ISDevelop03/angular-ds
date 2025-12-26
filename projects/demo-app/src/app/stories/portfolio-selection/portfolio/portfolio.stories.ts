@@ -5,12 +5,20 @@ import { Component, Input } from '@angular/core';
   templateUrl: './portfolio.stories.html',
 })
 export class PortfolioStoryComponent {
-  mockData: any = Array.from({ length: 16 }, (_, i) => ({
-    id: i + 1,
-    title: `Item #${i + 1}`,
-    reference: `ID: 00253456700009${i + 1}`,
-    image: `https://placehold.co/35x35?text=Logo${i + 1}`,
-  }));
+  mockData = [
+    {
+      id: 1,
+      title: 'Prayon',
+      reference: 'ID: 002534567000090',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+    {
+      id: 2,
+      title: 'OCP Africa OCP OCP Africa OCP',
+      reference: 'ID: 002534567000091',
+      image: 'https://placehold.co/35x35?text=Logo',
+    },
+  ];
 
   holding = this.mockData[10];
 

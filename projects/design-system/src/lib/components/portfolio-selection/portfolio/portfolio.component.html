@@ -8,7 +8,7 @@
     [reference]="selectedPortfolio.reference"
     [image]="selectedPortfolio.image"
     [isOpen]="displayPortfolio"
-    [className]="'min-w-[220px]'"
+    [className]="'max-w-fit'"
     (clicked)="togglePortfolio()"
   ></ds-portfolio-select-card>
   <div
@@ -20,7 +20,7 @@
   <div
     @dropdownAnim
     *ngIf="displayPortfolio"
-    class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[300px] shadow-dropdown"
+    class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[300px] max-w-fit shadow-dropdown"
   >
     <ng-container *ngIf="holding" class="flex flex-col gap-y-3">
       <ds-portfolio-vision-card
@@ -30,7 +30,6 @@
         [isSelected]="holding.id == selectedPortfolio.id"
       ></ds-portfolio-vision-card>
     </ng-container>
-    
 
     <div class="space-y-4">
       <div class="flex flex-col gap-y-3">
@@ -43,43 +42,48 @@
         ></ds-portfolio-item-card>
       </div>
 
-     <div class="flex justify-between items-center">
-      <div>
-        <p class="text-[0.875rem]/[1rem] font-medium text-neutral-500">
-          {{ getStartIndex() }}-{{ getEndIndex() }} of {{ portfolios.length }}
-        </p>
-      </div>
-      <div *ngIf="showDots && totalPages > 1" class="flex justify-center gap-1 items-center">
-        <button
-          (click)="onPrevPage($event)"
-          class="p-0.5"
-          [ngClass]="[
-            currentPage === 1 ? 'opacity-40 cursor-not-allowed' : 'opacity-100'
-          ]"
-          [disabled]="currentPage === 1 ? true : false"
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="text-[0.875rem]/[1rem] font-medium text-neutral-500">
+            {{ getStartIndex() }}-{{ getEndIndex() }} of {{ portfolios.length }}
+          </p>
+        </div>
+        <div
+          *ngIf="showDots && totalPages > 1"
+          class="flex justify-center gap-1 items-center"
         >
-          <ds-icon size="12px" id="arrow-left"></ds-icon>
-        </button>
-        <button
-          *ngFor="let page of pages"
-          class="rounded-full size-2 flex transition-all duration-300 ease-in-out justify-center items-center text-neutral-800 hover:bg-neutral-200"
-          [ngClass]="[page === currentPage ? 'bg-red-500' : 'bg-neutral-50']"
-          (click)="onGoToPage(page)"
-        ></button>
-        <button
-          [ngClass]="[
-            currentPage === totalPages
-              ? 'opacity-40 cursor-not-allowed'
-              : 'opacity-100'
-          ]"
-          [disabled]="currentPage === totalPages ? true : false"
-          (click)="onNextPage($event)"
-          class="p-0.5"
-        >
-          <ds-icon size="12px" id="arrow-right"></ds-icon>
-        </button>
+          <button
+            (click)="onPrevPage($event)"
+            class="p-0.5"
+            [ngClass]="[
+              currentPage === 1
+                ? 'opacity-40 cursor-not-allowed'
+                : 'opacity-100'
+            ]"
+            [disabled]="currentPage === 1 ? true : false"
+          >
+            <ds-icon size="12px" id="arrow-left"></ds-icon>
+          </button>
+          <button
+            *ngFor="let page of pages"
+            class="rounded-full size-2 flex transition-all duration-300 ease-in-out justify-center items-center text-neutral-800 hover:bg-neutral-200"
+            [ngClass]="[page === currentPage ? 'bg-red-500' : 'bg-neutral-50']"
+            (click)="onGoToPage(page)"
+          ></button>
+          <button
+            [ngClass]="[
+              currentPage === totalPages
+                ? 'opacity-40 cursor-not-allowed'
+                : 'opacity-100'
+            ]"
+            [disabled]="currentPage === totalPages ? true : false"
+            (click)="onNextPage($event)"
+            class="p-0.5"
+          >
+            <ds-icon size="12px" id="arrow-right"></ds-icon>
+          </button>
+        </div>
       </div>
-     </div>
     </div>
   </div>
 </div>
