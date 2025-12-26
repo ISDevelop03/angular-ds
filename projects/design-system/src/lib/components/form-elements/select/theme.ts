@@ -5,7 +5,7 @@ export const theme = {
         'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
       button: {
         select:
-          'flex cursor-default border text-[0.75rem]/[1.125rem] border-stroke-1 h-[40px] flex items-center justify-between w-full px-3 py-2 rounded bg-level-3 placeholder:text-[0.75rem]/[1.125rem] focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
+          'cursor-default border text-[0.75rem]/[1.125rem] border-stroke-1 h-[40px] flex items-center gap-x-1 justify-between w-full px-3 py-2 rounded bg-level-3 placeholder:text-[0.75rem]/[1.125rem] focus:ring-0 focus:outline-0 focus:border-primary hover:border-primary focus:outline-0 text-left placeholder:text-gray-700',
         selected: 'flex items-center gap-2 overflow-hidden w-full relative',
         error:
           'ring-1 ring-error-400 border-1 border-error-400 outline-1 border-1 border-error-400',
