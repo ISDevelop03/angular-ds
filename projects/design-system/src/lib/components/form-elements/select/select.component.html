@@ -76,7 +76,7 @@
     ></ds-icon>
 
     <ds-icon
-      *ngIf="!isLoading"
+      *ngIf="!isLoading && selected.value === '' && searchTerm === ''"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
       [class]="[
         theme[variant].element.icone.arrow,
