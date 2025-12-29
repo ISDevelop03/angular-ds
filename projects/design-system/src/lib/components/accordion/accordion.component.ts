@@ -22,7 +22,7 @@ export interface AccordionItem {
   open?: boolean;
 }
 
-type Variant = 'default' | 'borderless';
+type Variant = 'default' | 'borderless' | 'shadowless' | 'borderless-reversed';
 
 /**
  * AccordionComponent
