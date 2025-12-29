@@ -76,18 +76,34 @@
             variant
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'default' | 'borderless' | 'shadowless'</code>
+            <code class="text-sm"
+              >'default' | 'borderless' | 'borderless-reversed' |
+              'shadowless'</code
+            >
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">'default'</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Visual style variant of the accordion. <code>'default'</code> for
-            standard styling with borders and background,
-            <code>'borderless'</code>
-            for a cleaner look without borders,
-            <code>'shadowless'</code>
-            for a cleaner look without borders and shadow.
+            Visual style variant of the accordion:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'default'</code> - Standard styling with background,
+                shadow, and rounded corners
+              </li>
+              <li>
+                <code>'borderless'</code> - Clean look without background, icon
+                positioned on the right
+              </li>
+              <li>
+                <code>'borderless-reversed'</code> - Same as borderless but with
+                icon positioned on the left (reversed layout)
+              </li>
+              <li>
+                <code>'shadowless'</code> - Similar to default but without
+                shadow effect
+              </li>
+            </ul>
           </td>
         </tr>
         <tr>
