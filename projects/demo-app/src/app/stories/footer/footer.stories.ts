@@ -15,6 +15,10 @@ export class FooterStoryComponent {
   rightMenus = [
     { title: 'Terms of Service', href: '#' },
     { title: 'Help', href: '#' },
-    { title: 'Feedback', href: '#' },
+    {
+      title: 'Feedback',
+      href: '#',
+      image: 'assets/logo-saham-bank.png',
+    },
   ];
 }

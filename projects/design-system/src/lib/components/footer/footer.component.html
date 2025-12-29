@@ -7,41 +7,47 @@
     class="flex items-center justify-between gap-4 w-full @3xl:flex-row flex-col"
   >
     <ul
-      class="flex items-center @3xl:justify-start justify-center gap-2 flex-wrap"
+      class="flex items-center @3xl:justify-start justify-center gap-x-3.5 flex-wrap"
     >
       <ng-container *ngFor="let leftMenu of leftMenus; let last = last">
         <li
-          class="flex items-center justify-center text-neutral-800 text-[0.875rem]/[1rem] font-[400]"
+          class="flex items-center justify-center text-neutral-800 text-[0.875rem]/[1rem] font-[400] gap-x-2"
         >
-          <a [href]="leftMenu.href" class="inline-flex">
+          <a
+            [href]="leftMenu.href"
+            class="inline-flex text-[0.625rem]/[0.75rem] font-medium"
+          >
             {{ leftMenu.title }}
           </a>
+          <img
+            *ngIf="leftMenu.image"
+            [src]="leftMenu.image"
+            alt="leftMenu.title"
+            class="w-4 h-4"
+          />
         </li>
-
-        <span
-          class="inline-block w-px h-[12px] bg-neutral-800"
-          *ngIf="!last"
-          aria-hidden="true"
-        ></span>
       </ng-container>
     </ul>
     <ul
-      class="flex items-center gap-2 flex-wrap @3xl:justify-start justify-center"
+      class="flex items-center gap-x-3.5 flex-wrap @3xl:justify-start justify-center"
     >
       <ng-container *ngFor="let rightMenu of rightMenus; let last = last">
         <li
-          class="flex items-center justify-center text-neutral-800 text-[0.875rem]/[1rem] font-[400]"
+          class="flex items-center justify-center text-neutral-800 text-[0.875rem]/[1rem] font-[400] gap-x-2"
         >
-          <a [href]="rightMenu.href" class="inline-flex">
+          <a
+            [href]="rightMenu.href"
+            class="inline-flex text-[0.625rem]/[0.75rem] font-medium"
+          >
             {{ rightMenu.title }}
           </a>
+          <img
+            *ngIf="rightMenu.image"
+            [src]="rightMenu.image"
+            alt="rightMenu.title"
+            class="w-[81.5px]"
+          />
         </li>
-
-        <span
-          class="inline-block w-px h-[12px] bg-neutral-800"
-          *ngIf="!last"
-          aria-hidden="true"
-        ></span>
       </ng-container>
     </ul>
   </div>

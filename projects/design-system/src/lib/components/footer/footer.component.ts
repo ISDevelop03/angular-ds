@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 export interface FooterMenu {
   title: string;
   href: string;
+  image: string;
 }
 /**
  * FooterComponent
