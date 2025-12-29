@@ -84,6 +84,7 @@ import {
   TooltipStoryComponent,
   BoxCheckboxStoryComponent,
   LayerStoryComponent,
+  SignataireListStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -193,6 +194,7 @@ export const pages: Routes = [
   { path: 'tooltip', component: TooltipStoryComponent },
   { path: 'box-checkbox', component: BoxCheckboxStoryComponent },
   { path: 'layer', component: LayerStoryComponent },
+  { path: 'signataire-list', component: SignataireListStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -299,6 +301,7 @@ const router = RouterModule.forRoot(pages);
     TooltipStoryComponent,
     BoxCheckboxStoryComponent,
     LayerStoryComponent,
+    SignataireListStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

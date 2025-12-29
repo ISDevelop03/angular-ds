@@ -1,0 +1,173 @@
+<div class="p-4 flex flex-col gap-y-4 bg-gradient-crame min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Signataire List</h2>
+  <h3 class="text-2xl font-bold">Signataire List Card</h3>
+  <div class="max-w-[400px]">
+    <ds-signataire-list [items]="items"></ds-signataire-list>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">SignataireItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of signataire items to display in
+            the list. Each item represents a signer with their name and signing
+            date. Items are displayed vertically with a divider between each
+            entry. The left side shows the label and value (typically the
+            signer's name), while the right side shows the date label and date
+            value. See the <strong>SignataireItem Interface</strong> section
+            below for details.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the container element.
+            Useful for custom styling, layout adjustments, or responsive sizing
+            (e.g., <code>max-w-[400px]</code>). The component has default
+            styling with a neutral background, padding, rounded corners, and
+            vertical dividers between items.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SignataireItem Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># SignataireItem Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>SignataireItem</code> interface defines the structure for
+    signataire items passed to the <code>items</code> input property.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The label text displayed above the value
+            on the left side. Typically used for field names like "Nom" (Name),
+            "Signataire" (Signer), etc. Displayed in a smaller, medium-weight
+            font with neutral gray color (<code>text-neutral-500</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The main value displayed below the label
+            on the left side. Typically used for the signer's name or
+            identifier. Displayed in a bold font with dark color
+            (<code>text-neutral-900</code>) to emphasize the primary
+            information.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            dateLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The label text displayed above the date
+            value on the right side. Typically used for date field names like
+            "Date de signature" (Signing Date), "Date", etc. Displayed in a
+            smaller, medium-weight font with neutral gray color
+            (<code>text-neutral-500</code>), right-aligned.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            dateValue
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> The date value displayed below the date
+            label on the right side. Can be any date format string (e.g.,
+            "2025-01-01", "01/01/2025", "January 1, 2025"). Displayed in regular
+            weight with dark color (<code>text-neutral-900</code>),
+            right-aligned.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

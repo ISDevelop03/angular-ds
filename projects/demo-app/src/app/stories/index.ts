@@ -156,3 +156,6 @@ export * from './box-checkbox/box-checkbox.stories';
 
 // Auto-export for layer stories
 export * from './layer/layer.stories';
+
+// Auto-export for signataire-list stories
+export * from './signataire-list/signataire-list.stories';

@@ -1,0 +1,27 @@
+<div
+  id="ds-signataire-list"
+  [ngClass]="className"
+  class="flex flex-col gap-y-2 divide-y divide-neutral-50 bg-neutral-25 p-4 rounded"
+>
+  <div
+    *ngFor="let item of items"
+    class="flex justify-between gap-y-3 pt-2 first:pt-0"
+  >
+    <div class="flex flex-col gap-y-1">
+      <p class="text-neutral-500 font-medium text-[0.725rem]/[1rem]">
+        {{ item.label }}
+      </p>
+      <p class="text-neutral-900 font-bold text-[0.875rem]/[1.125rem]">
+        {{ item.value }}
+      </p>
+    </div>
+    <div class="flex flex-col items-end gap-y-1">
+      <p class="text-neutral-500 font-medium text-[0.725rem]/[1rem]">
+        {{ item.dateLabel }}
+      </p>
+      <p class="text-neutral-900 text-[0.875rem]/[1.125rem]">
+        {{ item.dateValue }}
+      </p>
+    </div>
+  </div>
+</div>
