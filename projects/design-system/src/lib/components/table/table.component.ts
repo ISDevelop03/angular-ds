@@ -275,6 +275,9 @@ export class TableComponent implements OnChanges, OnDestroy {
     } else if (Math.ceil(scrollLeft) >= maxScrollLeft) {
       this.isOnRight = true;
       this.isOnLeft = false;
+    } else {
+      this.isOnRight = true;
+      this.isOnLeft = true;
     }
   }
 }
