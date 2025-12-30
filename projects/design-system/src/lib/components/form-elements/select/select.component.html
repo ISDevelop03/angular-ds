@@ -76,7 +76,21 @@
     ></ds-icon>
 
     <ds-icon
-      *ngIf="!isLoading && selected.value === '' && searchTerm === ''"
+      *ngIf="!isLoading && !allowClear && !autoComplete"
+      [id]="isOpen ? 'arrow-up' : 'arrow-down'"
+      [class]="[
+        theme[variant].element.icone.arrow,
+        disabled ? 'text-neutral-500' : ''
+      ]"
+    ></ds-icon>
+
+    <ds-icon
+      *ngIf="
+        !isLoading &&
+        (allowClear || autoComplete) &&
+        selected.value === '' &&
+        searchTerm === ''
+      "
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
       [class]="[
         theme[variant].element.icone.arrow,
