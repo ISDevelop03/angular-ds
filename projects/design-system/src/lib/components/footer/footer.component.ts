@@ -4,6 +4,7 @@ export interface FooterMenu {
   title: string;
   href: string;
   image: string;
+  isDisabled?: boolean;
 }
 /**
  * FooterComponent

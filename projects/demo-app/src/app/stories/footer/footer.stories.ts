@@ -10,7 +10,7 @@ export class FooterStoryComponent {
   leftMenus = [
     { title: 'About Us', href: '#' },
     { title: 'Contact', href: '#' },
-    { title: 'Privacy Policy', href: '#' },
+    { title: 'Privacy Policy', href: '#', isDisabled: true },
   ];
   rightMenus = [
     { title: 'Terms of Service', href: '#' },

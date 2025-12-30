@@ -16,6 +16,10 @@
           <a
             [href]="leftMenu.href"
             class="inline-flex text-[0.625rem]/[0.75rem] font-medium"
+            [ngClass]="{
+              'opacity-50 !pointer-events-none !cursor-not-allowed':
+                leftMenu.isDisabled
+            }"
           >
             {{ leftMenu.title }}
           </a>
