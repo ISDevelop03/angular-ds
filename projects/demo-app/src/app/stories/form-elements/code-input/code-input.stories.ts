@@ -8,7 +8,7 @@ export class CodeInputStoryComponent {
   @Input() label: string = 'code-input';
   @Input() className?: string = '';
 
-  code = 624752;
+  code = 62475;
 
   handleInputChange(event: any) {
     this.code = event.target.value;

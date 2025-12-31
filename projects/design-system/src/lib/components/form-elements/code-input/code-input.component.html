@@ -1,25 +1,14 @@
-<input
-  #inner
-  type="number"
-  [id]="'ds-' + id ? id : 'code-input'"
-  [name]="name"
-  [placeholder]="placeholder || ''"
-  [disabled]="disabled"
-  [value]="value"
-  (click)="onClick.emit($event)"
-  (input)="onInput.emit($event)"
-  (change)="onChange.emit($event)"
-  (focus)="onFocus.emit($event)"
-  (blur)="onBlur.emit($event)"
-  (keydown)="onKeydown.emit($event)"
-  (keyup)="onKeyup.emit($event)"
-  (keydown.enter)="onEnter.emit($event)"
-  (keydown.escape)="onEscape.emit($event)"
-  (paste)="onPaste.emit($event)"
-  (select)="onSelect.emit($event)"
-  class="rounded shrink-0 bg-red-100 placeholder:text-sm placeholder:text-red-500 placeholder:font-medium py-1.5 px-3 text-[1.25rem]/[1.688rem] font-bold appearance-none text-red-500 outline-none border-none focus:ring-0 w-full max-w-[105px] tracking-wider"
+<div
+  class="flex items-center gap-2 rounded shrink-0 bg-red-100 placeholder:text-sm placeholder:text-red-500 placeholder:font-medium py-1.5 px-3 text-[1.25rem]/[1.688rem] font-bold appearance-none text-red-500 outline-none border-none focus:ring-0 w-fit tracking-wider select-none transition-all duration-200"
   [ngClass]="[
-    disabled ? 'cursor-not-allowed !bg-neutral-100 !text-neutral-500' : '',
+    disabled
+      ? 'cursor-not-allowed !bg-neutral-100 !text-neutral-500'
+      : 'cursor-pointer',
     className
   ]"
-/>
+  (click)="copyToClipboard()"
+>
+  {{ value }}
+  <ds-icon id="copy" class="size-4" *ngIf="!isCopied && !disabled"></ds-icon>
+  <ds-icon id="check" class="size-4" *ngIf="isCopied && !disabled"></ds-icon>
+</div>
