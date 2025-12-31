@@ -4,30 +4,32 @@
   (click)="onClickHandler($event)"
   id="ds-invoice-card"
   [ngClass]="className"
-  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row  gap-3 p-3"
+  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row gap-3 p-3"
 >
   <ng-container *ngTemplateOutlet="cardTemplate"></ng-container>
 </a>
-<div 
+<div
   *ngIf="!href"
   id="ds-invoice-card"
   [ngClass]="className"
-  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row  gap-3 p-3 cursor-pointer"
+  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row gap-3 p-3 cursor-pointer"
   (click)="onClickHandler($event)"
 >
   <ng-container *ngTemplateOutlet="cardTemplate"></ng-container>
 </div>
 
 <ng-template #cardTemplate>
-  <div class="relative shrink-0 w-[104px] h-[64px] object-contain py-2 px-4 border border-stroke-1 rounded">
+  <div
+    class="relative shrink-0 w-[104px] h-[64px] object-contain py-2 px-4 border border-stroke-1 rounded"
+  >
     <img
       [src]="image"
       [alt]="title"
       class="top-0 left-0 shrink-0 w-full h-full rounded object-contain"
     />
   </div>
-  <div class="w-full flex justify-center flex-col gap-2">
-    <h3 class="text-[0.75rem]/[1.25rem] font-bold">
+  <div class="w-full flex justify-between flex-col gap-x-2 gap-y-3">
+    <h3 class="text-[0.75rem]/[1.25rem] font-bold mr-4">
       {{ title }}
     </h3>
     <div
@@ -44,7 +46,7 @@
         *ngIf="actions && actions.length > 0"
         class="inline-block h-1/2 w-px bg-neutral-200"
       ></span>
-     
+
       <ds-icon
         *ngIf="!items || items.length <= 0"
         id="arrow-right"
