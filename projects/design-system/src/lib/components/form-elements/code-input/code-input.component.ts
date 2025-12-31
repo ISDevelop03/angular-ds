@@ -55,7 +55,7 @@ export class CodeInputComponent implements AfterViewInit {
   copyToClipboard() {
     if (this.disabled) return;
 
-    navigator.clipboard.writeText(String(this.value)).then(() => {
+    (navigator as any).clipboard.writeText(String(this.value)).then(() => {
       this.isCopied = true;
       this.copied.emit(this.value);
       setTimeout(() => {
