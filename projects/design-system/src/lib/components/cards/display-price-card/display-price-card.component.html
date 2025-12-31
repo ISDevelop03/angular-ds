@@ -12,7 +12,7 @@
         </span>
         <span
           *ngIf="item.showLine"
-          class="w-[85%] whitespace-nowrap inline-flex mx-auto border-t border-dashed border-neutral-500"
+          class="w-[85%] whitespace-nowrap inline-flex mx-auto border-t border-dashed border-black"
         ></span>
         <p class="whitespace-nowrap">{{ item.value }}</p>
       </div>
@@ -21,7 +21,7 @@
     <div
       class="flex w-full justify-between items-center"
       [ngClass]="[
-        items.length > 0 ? 'border-t border-dashed border-neutral-500 pt-4' : ''
+        items.length > 0 ? 'border-t border-dashed border-black pt-4' : ''
       ]"
     >
       <span
