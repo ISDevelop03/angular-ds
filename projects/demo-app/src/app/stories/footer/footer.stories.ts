@@ -14,7 +14,7 @@ export class FooterStoryComponent {
   ];
   rightMenus = [
     { title: 'Terms of Service', href: '#' },
-    { title: 'Help', href: '#' },
+    { title: 'Help', href: '#', isDisabled: true },
     {
       title: 'Feedback',
       href: '#',
