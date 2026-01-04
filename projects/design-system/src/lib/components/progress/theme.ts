@@ -6,9 +6,9 @@ export const theme = {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
       progress: 'absolute left-0 top-0 bottom-0 bg-gray-500 rounded-full',
     },
-    blue: {
+    violet: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-blue-500 rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-violet-500 rounded-full',
     },
     success: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
@@ -16,7 +16,7 @@ export const theme = {
     },
     warning: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
-      progress: 'absolute left-0 top-0 bottom-0 bg-yellow-500 rounded-full',
+      progress: 'absolute left-0 top-0 bottom-0 bg-amber-500 rounded-full',
     },
     error: {
       bar: 'bg-stroke-1 h-2 w-full rounded-full',
