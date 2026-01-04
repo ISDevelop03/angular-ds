@@ -122,6 +122,7 @@ export class DsSelectComponent
     this.filteredItems = this.items.filter((item) =>
       item.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    this.onSearch.emit(searchTerm);
   }
 
   writeValue(obj: any): void {

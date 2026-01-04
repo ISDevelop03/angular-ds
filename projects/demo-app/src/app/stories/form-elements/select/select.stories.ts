@@ -34,18 +34,43 @@ export class SelectStoryComponent {
     },
   ];
 
-  handleChangeClick(){
-    this.options=[]
+  handleChangeClick() {
+    this.options = [];
   }
 
   autoCompleteOptions: SelectItem[] = [
-    { label: 'auto complete option 1', value: 'auto 1', image: 'https://flagcdn.com/w40/pl.png', imageClass: 'rounded-full' },
-    { label: 'auto complete option 2', value: 'auto 2', image: 'https://flagcdn.com/w40/mr.png', imageClass: 'rounded-full'},
-    { label: 'auto complete option 3', value: 'auto 3', image: 'https://flagcdn.com/w40/mr.png', imageClass: 'rounded-full' },
-    { label: 'auto complete option 4', value: 'auto 4', image: 'https://flagcdn.com/w40/fr.png', imageClass: 'rounded-full' },
-    { label: 'auto complete option 5', value: 'auto 5', image: 'https://flagcdn.com/w40/us.png', imageClass: 'rounded-full' },
+    {
+      label: 'auto complete option 1',
+      value: 'auto 1',
+      image: 'https://flagcdn.com/w40/pl.png',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'auto complete option 2',
+      value: 'auto 2',
+      image: 'https://flagcdn.com/w40/mr.png',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'auto complete option 3',
+      value: 'auto 3',
+      image: 'https://flagcdn.com/w40/mr.png',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'auto complete option 4',
+      value: 'auto 4',
+      image: 'https://flagcdn.com/w40/fr.png',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'auto complete option 5',
+      value: 'auto 5',
+      image: 'https://flagcdn.com/w40/us.png',
+      imageClass: 'rounded-full',
+    },
   ];
-  
+
   options1: SelectItem[] = [
     {
       label: 'Lorem ipsum dolor sit amedk ud odui odu t',
@@ -61,20 +86,17 @@ export class SelectStoryComponent {
     },
   ];
 
-
-
-
-
   handleValueChange(value: string | string[]) {
     this.selectedValue = value;
   }
   valueChange(data: any) {
     console.log('data.valuedata.value', data);
-    this.selectedValue = data.value;
+    if (data !== null) {
+      this.selectedValue = data.value;
+    }
   }
 
   onSearchValueChange(value: string) {
     console.log('value', value);
   }
-
 }
