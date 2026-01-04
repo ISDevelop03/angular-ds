@@ -7,7 +7,7 @@ export const theme = {
   variants: {
     modal: {
       base: 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center max-w-fit',
-      panel: 'rounded p-6 pt-7 h-fit',
+      panel: 'rounded p-6 pt-7 h-fit flex flex-col items-start',
     },
     slideLeft: {
       base: 'top-0 right-0 bottom-0 fixed max-w-fit',

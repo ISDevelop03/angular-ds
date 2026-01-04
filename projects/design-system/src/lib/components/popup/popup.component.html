@@ -23,12 +23,19 @@
       [ngClass]="[
         theme.panel,
         theme.variants[variant].panel,
-        getAnimationClass()
+        getAnimationClass(),
+        panelClassName
       ]"
     >
-      <button (click)="onClose()" class="absolute top-1 right-1">
-        <ds-icon id="close" size="1.25rem"></ds-icon>
+      <button (click)="onClose()" class="absolute top-1.5 right-1.5">
+        <ds-icon id="close" size="24px"></ds-icon>
       </button>
+      <div
+        *ngIf="showModalIcon"
+        class="flex items-center justify-center p-2 bg-amber-100 rounded-full mb-3.5"
+      >
+        <ds-icon id="modal" size="1.25rem" class="text-amber-500"></ds-icon>
+      </div>
       <h2 *ngIf="heading" class="text-[1.25rem]/[1.5rem] font-bold">
         {{ heading }}
       </h2>

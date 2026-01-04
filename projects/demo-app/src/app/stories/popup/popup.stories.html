@@ -19,9 +19,13 @@
     [heading]="'Modal Popup'"
     variant="modal"
     [close]="closeModal.bind(this)"
-    class="z-50"
+    panelClassName="!max-w-[400px]"
+    [showModalIcon]="true"
   >
-    <div class="p-4">This is a centered modal popup.</div>
+    <div class="pt-3.5">
+      Votre demande est en cour d’analyse, veuillez patienter Votre demande est
+      en cour d’analyse, veuillez patienter
+    </div>
   </ds-popup>
 
   <ds-popup
@@ -179,10 +183,45 @@
             <code class="text-sm">''</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional additional CSS classes to apply to the popup panel. Useful
-            for custom styling, layout adjustments, or z-index control (e.g.,
-            <code>z-50</code>, <code>z-40</code>). Applied to the panel element
-            alongside variant-specific theme classes and animation classes.
+            Optional additional CSS classes to apply to the popup container.
+            Useful for custom styling, layout adjustments, or z-index control
+            (e.g., <code>z-[200]</code>). Applied to the outer fixed container
+            element.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            panelClassName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the inner popup panel.
+            Useful for controlling the panel dimensions, padding, or other
+            styles (e.g., <code>!max-w-[400px]</code>). Applied alongside
+            variant-specific theme classes and animation classes.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showModalIcon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a decorative icon above the heading
+            in the popup panel. The icon is rendered inside an amber-colored
+            circular background. Primarily intended for the
+            <code>'modal'</code> variant to add visual emphasis or indicate
+            status/warnings.
           </td>
         </tr>
         <tr>

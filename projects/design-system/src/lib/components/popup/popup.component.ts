@@ -20,9 +20,11 @@ import { theme } from './theme';
 })
 export class DsPopupComponent implements OnDestroy {
   @Input() isShown: boolean = false;
+  @Input() showModalIcon?: boolean = false;
   @Input() heading?: string;
   @Input() variant: keyof typeof theme.variants = 'modal';
   @Input() className?: string = '';
+  @Input() panelClassName?: string = '';
   @Input() isFullScreen?: boolean = false;
   @Input() close: () => void = () => {};
 
