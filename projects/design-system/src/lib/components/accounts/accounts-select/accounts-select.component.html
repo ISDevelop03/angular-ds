@@ -14,10 +14,21 @@
       disabled ? theme[variant].element.button.disabled : ''
     ]"
   >
-    <ng-container *ngIf="selectedValue === null">
+    <ng-container *ngIf="selectedValue === null && !autoComplete">
       <span class="text-neutral-500 text-[0.75rem] leading-[18px]">
         {{ placeholder }}
       </span>
+    </ng-container>
+    <ng-container *ngIf="autoComplete && selectedValue === null">
+      <input
+        #autoCompleteInput
+        type="text"
+        class="w-full outline-none"
+        [placeholder]="placeholder"
+        class="w-full outline-none text-heading dark:text-white text-[0.75rem]"
+        (input)="onAutoCompleteInput($event)"
+        [(ngModel)]="searchTerm"
+      />
     </ng-container>
     <ng-container *ngIf="selectedValue !== null">
       <div class="relative w-full flex justify-between items-center mr-2">
@@ -111,11 +122,16 @@
       </div>
     </ng-container>
     <ds-icon
-      *ngIf="!isLoading"
+      *ngIf="!isLoading && selectedValue === null && searchTerm === ''"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
       [class]="theme[variant].element.icone.arrow"
     ></ds-icon>
-
+    <ds-icon
+      *ngIf="!isLoading && (selectedValue !== null || searchTerm !== '')"
+      id="close"
+      [class]="theme[variant].element.icone.arrow"
+      (click)="clearSearch()"
+    ></ds-icon>
     <ds-icon
       *ngIf="isLoading"
       id="Loader"
@@ -129,9 +145,9 @@
     [ngStyle]="mergedStyles"
     [ngClass]="theme[variant].element.options.container"
   >
-    <ng-container *ngIf="items.length > 0; else emptyState">
+    <ng-container *ngIf="filteredItems.length > 0; else emptyState">
       <div
-        *ngFor="let item of items"
+        *ngFor="let item of filteredItems"
         (click)="item.unavailable ? null : selectOption(item)"
         class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r border-b border-stroke-1 last-of-type:border-b-0"
         [ngClass]="[

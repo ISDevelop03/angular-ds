@@ -58,12 +58,17 @@ export class AccountsSelectComponent implements OnChanges {
   @Input() buttonIcon?: string;
   @Input() value: string | null = null;
   @Input() customOptionsStyles?: { [key: string]: any };
+  @Input() autoComplete: boolean = false;
 
   @Output() valueChange = new EventEmitter<string | string[]>();
 
   private static zIndexCounter = 10000;
 
+  @ViewChild('autoCompleteInput') autoCompleteInput?: ElementRef;
+
   isOpen: boolean = false;
+  searchTerm: string = '';
+  filteredItems: SelectItem[] = [];
   selectedValue: SelectItem | null = null;
   containerPosition: { [key: string]: any } = {};
 
@@ -79,6 +84,9 @@ export class AccountsSelectComponent implements OnChanges {
     if (changes['value']) {
       this.selectedValue =
         this.items.find((option) => option.value === this.value) || null;
+    }
+    if (changes['items']) {
+      this.filteredItems = [].concat(this.items);
     }
   }
 
@@ -178,5 +186,26 @@ export class AccountsSelectComponent implements OnChanges {
   @HostListener('document:keydown.escape', ['$event'])
   onEscClose(event: KeyboardEvent) {
     this.isOpen = false;
+  }
+
+  onAutoCompleteInput(event: Event) {
+    this.isOpen = true;
+    const target = event.target as HTMLInputElement;
+    this.searchTerm = target.value;
+    console.log(this.searchTerm);
+    this.filteredItems = this.items.filter((item) =>
+      item.accountName.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    console.log(this.filteredItems);
+  }
+
+  clearSearch() {
+    this.searchTerm = '';
+    this.filteredItems = [].concat(this.items);
+    this.selectedValue = null;
+    this.value = null;
+    this.valueChange.emit(null);
+    this.isOpen = true;
+    setTimeout(() => this.autoCompleteInput.nativeElement.focus(), 0);
   }
 }
