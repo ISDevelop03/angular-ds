@@ -4,7 +4,6 @@ import {
   EventEmitter,
   Input,
   Output,
-  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { theme } from './theme';

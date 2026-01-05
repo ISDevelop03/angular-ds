@@ -7,8 +7,8 @@ export interface FileUploaderTheme {
 export const theme: { [key: string]: FileUploaderTheme } = {
   default: {
     wrapper:
-      'relative py-4 px-6 border border-dashed border-neutral-100 flex flex-col gap-3 text-neutral-500 rounded-lg text-center bg-neutral-25 transition cursor-pointer',
-    icon: 'mx-auto size-14 shrink-0 flex justify-center items-center bg-level-3 rounded-md text-gray-400 shadow',
+      'relative py-4 px-6 border !border-dashed border-neutral-100 flex flex-col gap-3 text-neutral-500 rounded-lg text-center bg-neutral-25 transition cursor-pointer',
+    icon: 'mx-auto size-14 shrink-0 flex justify-center items-center bg-level-3 rounded-md text-gray-400 border border-neutral-100',
     text: 'text-sm flex flex-col gap-1',
   },
 };
