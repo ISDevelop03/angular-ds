@@ -3227,6 +3227,10 @@ video {
   border-style: dashed;
 }
 
+.\!border-dashed {
+  border-style: dashed !important;
+}
+
 .border-none {
   border-style: none;
 }
@@ -3905,6 +3909,11 @@ video {
 .bg-error-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-error-600) / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 247 248 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-50 {

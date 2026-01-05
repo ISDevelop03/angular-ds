@@ -1,5 +1,8 @@
 <div
-  class="relative w-full h-full border border-neutral-50 rounded-lg overflow-hidden"
+  class="relative w-full h-full overflow-hidden"
+  [ngClass]="
+    variant === 'secondary' ? 'border border-neutral-50 rounded-lg' : ''
+  "
 >
   <div
     #tableContainer
