@@ -20,7 +20,7 @@ export class PortfolioStoryComponent {
     },
   ];
 
-  holding = this.mockData[10];
+  holding = this.mockData[1];
 
   selected = this.mockData[10];
 
