@@ -6719,6 +6719,11 @@ bs-daterangepicker-container {
   height: 1px;
 }
 
+.before\:h-0::before {
+  content: var(--tw-content);
+  height: 0px;
+}
+
 .before\:w-4::before {
   content: var(--tw-content);
   width: 1rem;
@@ -6776,6 +6781,21 @@ bs-daterangepicker-container {
   border-left-width: 1px;
 }
 
+.before\:border-t::before {
+  content: var(--tw-content);
+  border-top-width: 1px;
+}
+
+.before\:border-solid::before {
+  content: var(--tw-content);
+  border-style: solid;
+}
+
+.before\:border-dashed::before {
+  content: var(--tw-content);
+  border-style: dashed;
+}
+
 .before\:border-customgray-500::before {
   content: var(--tw-content);
   --tw-border-opacity: 1;
@@ -6786,6 +6806,30 @@ bs-daterangepicker-container {
   content: var(--tw-content);
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.before\:border-gray-300::before {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(246 247 248 / var(--tw-border-opacity, 1));
+}
+
+.before\:border-amber-500::before {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-amber-500) / var(--tw-border-opacity, 1));
+}
+
+.before\:border-neutral-200::before {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-neutral-200) / var(--tw-border-opacity, 1));
+}
+
+.before\:border-success-500::before {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-success-500) / var(--tw-border-opacity, 1));
 }
 
 .before\:border-r-transparent::before {
@@ -6825,6 +6869,18 @@ bs-daterangepicker-container {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.before\:bg-amber-500::before {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-amber-500) / var(--tw-bg-opacity, 1));
+}
+
+.before\:bg-success-500::before {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-success-500) / var(--tw-bg-opacity, 1));
 }
 
 .before\:transition-all::before {

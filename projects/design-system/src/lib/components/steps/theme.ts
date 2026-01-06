@@ -20,7 +20,7 @@ export const STEPS_THEME: { [variant: string]: StepsTheme } = {
   default: {
     wrapper: 'h-full flex flex-col gap-6',
     headerWrapper: 'relative flex justify-between items-center overflow-hidden',
-    step: 'relative flex-1 flex flex-col gap-y-2 before:transition-all before:duration-300 transition-all duration-300 items-center before:absolute before:top-4 before:-z-[1] before:-left-1/2 before:h-px',
+    step: 'relative flex-1 flex flex-col gap-y-2 before:transition-all before:duration-300 transition-all duration-300 items-center before:absolute before:top-4 before:-z-[1] before:-left-1/2 before:h-0 before:border-t',
     activeStep: 'font-semibold text-gray-900',
     contentWrapper: 'grow',
     navigationWrapper: 'flex justify-between items-center gap-x-3',
@@ -32,7 +32,7 @@ export const STEPS_THEME: { [variant: string]: StepsTheme } = {
     wrapper: 'grow flex items-start gap-x-8 mb-6',
     headerWrapper:
       'min-w-[250px] relative flex flex-col justify-between items-start overflow-hidden isolate',
-    step: 'relative pb-10 last:pb-0 flex-1 flex gap-x-2 before:transition-all before:duration-300 transition-all duration-300 items-center before:absolute before:left-4 before:top-8 before:-z-[1] before:h-full before:w-px ',
+    step: 'relative pb-10 last:pb-0 flex-1 flex gap-x-2 before:transition-all before:duration-300 transition-all duration-300 items-center before:absolute before:left-4 before:top-8 before:-z-[1] before:h-full before:border-l',
     activeStep: 'font-semibold text-gray-900',
     contentWrapper: 'grow h-full',
     navigationWrapper: 'flex justify-between items-center gap-x-3',
