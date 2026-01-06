@@ -24,18 +24,21 @@ export class FloatedButtonsStoryComponent {
     {
       content: 'Add Item',
       icon: 'file',
+
       onClick: () => console.log('Add clicked'),
     },
     {
       content: 'Loading',
       type: 'button',
-      isLoading: true,
+      disabled: true,
+
       icon: 'Je-deviens-client',
     },
     {
       content: 'Delete',
       isDelete: true,
       icon: 'trash',
+      disabled: true,
       onClick: (event) =>
         alert('This shouldn’t run—button is disabled' + JSON.stringify(event)),
     },

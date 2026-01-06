@@ -9,7 +9,7 @@
       [type]="item.type"
       [disabled]="item.disabled"
       (click)="item.onClick($event)"
-      class="inline-flex text-nowrap items-center gap-2 text-[0.875rem]/[1.2rem] font-medium disabled:cursor-not-allowed disabled:opacity-40"
+      class="inline-flex text-nowrap items-center gap-2 text-[0.75rem]/[1rem] font-medium disabled:cursor-not-allowed disabled:opacity-40"
       [ngClass]="[item.className || '', item.isDelete ? 'text-red-500' : '']"
     >
       <ng-container *ngIf="item.isLoading">
@@ -23,6 +23,10 @@
         <ds-icon [id]="item.icon" size="14px"></ds-icon>
       </ng-container>
     </button>
-    <span *ngIf="!last" class="inline-flex bg-neutral-700 h-3 w-px"></span>
+    <span
+      *ngIf="!last"
+      class="inline-flex h-3 w-px"
+      [ngClass]="isAllItemsDisabled() ? 'bg-neutral-200' : 'bg-neutral-700'"
+    ></span>
   </ng-container>
 </div>

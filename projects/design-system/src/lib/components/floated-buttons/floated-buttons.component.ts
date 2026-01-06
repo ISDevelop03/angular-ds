@@ -24,4 +24,8 @@ interface FloatedButton {
 export class FloatedButtonsComponent {
   @Input() items: FloatedButton[] = [];
   @Input() className?: string = '';
+
+  isAllItemsDisabled(): boolean {
+    return this.items.every((item) => item.disabled);
+  }
 }
