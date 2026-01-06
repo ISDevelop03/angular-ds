@@ -1,0 +1,11 @@
+<div id="ds-loader" [ngClass]="className">
+  <div
+    *ngIf="showLoader"
+    [ngClass]="
+      type === 'fill' ? 'loader-wrapper-fill' : 'loader-wrapper-contained'
+    "
+  >
+    <div *ngIf="showOverlay" class="loader-overlay"></div>
+    <div class="loader-spinner"></div>
+  </div>
+</div>

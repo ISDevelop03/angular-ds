@@ -85,6 +85,7 @@ import {
   BoxCheckboxStoryComponent,
   LayerStoryComponent,
   SignataireListStoryComponent,
+  LoaderStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -195,6 +196,7 @@ export const pages: Routes = [
   { path: 'box-checkbox', component: BoxCheckboxStoryComponent },
   { path: 'layer', component: LayerStoryComponent },
   { path: 'signataire-list', component: SignataireListStoryComponent },
+  { path: 'loader', component: LoaderStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -302,6 +304,7 @@ const router = RouterModule.forRoot(pages);
     BoxCheckboxStoryComponent,
     LayerStoryComponent,
     SignataireListStoryComponent,
+    LoaderStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

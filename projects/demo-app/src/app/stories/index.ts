@@ -159,3 +159,6 @@ export * from './layer/layer.stories';
 
 // Auto-export for signataire-list stories
 export * from './signataire-list/signataire-list.stories';
+
+// Auto-export for loader stories
+export * from './loader/loader.stories';

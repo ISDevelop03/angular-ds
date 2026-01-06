@@ -1,0 +1,142 @@
+<section class="flex flex-col gap-8 p-6">
+  <!-- Header -->
+  <div>
+    <h1 class="text-3xl font-bold mb-2">Loader Component</h1>
+  </div>
+
+  <!-- Type: Contained -->
+  <div>
+    <h2 class="text-2xl font-semibold mb-4">Type: Contained</h2>
+    <div
+      class="w-[300px] h-[200px] relative bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg"
+    >
+      <ds-loader type="contained"></ds-loader>
+      <div class="absolute bottom-4 left-4 text-sm text-gray-500">
+        Content behind loader
+      </div>
+    </div>
+  </div>
+
+  <!-- Type: Fill -->
+  <div>
+    <h2 class="text-2xl font-semibold mb-4">Type: Fill</h2>
+    <button
+      class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+      (click)="showFillLoader = true"
+    >
+      Show Full-Page Loader (click anywhere to dismiss)
+    </button>
+    <ds-loader
+      *ngIf="showFillLoader"
+      type="fill"
+      (click)="showFillLoader = false"
+    ></ds-loader>
+  </div>
+
+  <!-- Without Overlay -->
+  <div>
+    <h2 class="text-2xl font-semibold mb-4">Without Overlay</h2>
+
+    <div
+      class="w-[300px] h-[200px] relative bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-gray-200 dark:border-gray-700 rounded-lg"
+    >
+      <ds-loader type="contained" [showOverlay]="false"></ds-loader>
+      <div
+        class="absolute bottom-4 left-4 text-sm text-gray-600 dark:text-gray-400"
+      >
+        Visible content
+      </div>
+    </div>
+  </div>
+
+  <!-- API Reference -->
+  <div class="mt-4">
+    <h2 class="text-2xl font-semibold mb-4">API Reference</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-gray-100 dark:bg-gray-800">
+            <th
+              class="px-4 py-3 border border-gray-200 dark:border-gray-700 font-semibold"
+            >
+              Input
+            </th>
+            <th
+              class="px-4 py-3 border border-gray-200 dark:border-gray-700 font-semibold"
+            >
+              Type
+            </th>
+            <th
+              class="px-4 py-3 border border-gray-200 dark:border-gray-700 font-semibold"
+            >
+              Default
+            </th>
+            <th
+              class="px-4 py-3 border border-gray-200 dark:border-gray-700 font-semibold"
+            >
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>type</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>'fill' | 'contained'</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>'contained'</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              Display mode: contained (within parent) or fill (full viewport)
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>showLoader</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>boolean</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>true</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              Controls visibility of the entire loader
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>showOverlay</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>boolean</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>true</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              Shows/hides the semi-transparent dark overlay
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>className</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>string</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              <code>''</code>
+            </td>
+            <td class="px-4 py-3 border border-gray-200 dark:border-gray-700">
+              Additional CSS classes to apply to the wrapper
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

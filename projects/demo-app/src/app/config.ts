@@ -276,4 +276,5 @@ export const menus: Menu[] = [
   { key: 'box-checkbox', name: 'BoxCheckbox', path: '/box-checkbox' },
   { key: 'layer', name: 'Layer', path: '/layer' },
   { key: 'signataire-list', name: 'SignataireList', path: '/signataire-list' },
+  { key: 'loader', name: 'Loader', path: '/loader' },
 ];
