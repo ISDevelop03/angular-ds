@@ -20,7 +20,8 @@ import { theme } from './theme';
 })
 export class DsPopupComponent implements OnDestroy {
   @Input() isShown: boolean = false;
-  @Input() showModalIcon?: boolean = false;
+  @Input() icon?: string = '';
+  @Input() type?: 'success' | 'warning' | 'error' | 'info' = 'info';
   @Input() heading?: string;
   @Input() variant: keyof typeof theme.variants = 'modal';
   @Input() className?: string = '';

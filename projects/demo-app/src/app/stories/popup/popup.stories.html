@@ -18,9 +18,9 @@
     [isShown]="isModalOpen"
     [heading]="'Modal Popup'"
     variant="modal"
+    type="error"
     [close]="closeModal.bind(this)"
     panelClassName="!max-w-[400px]"
-    [showModalIcon]="true"
   >
     <div class="pt-3.5">
       Votre demande est en cour d’analyse, veuillez patienter Votre demande est
@@ -208,20 +208,50 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            showModalIcon
+            icon
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">boolean</code>
+            <code class="text-sm">string</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
+            <code class="text-sm">'close'</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, displays a decorative icon above the heading
-            in the popup panel. The icon is rendered inside an amber-colored
-            circular background. Primarily intended for the
-            <code>'modal'</code> variant to add visual emphasis or indicate
-            status/warnings.
+            The name of the icon to display when <code>showModalIcon</code> is
+            <code>true</code>. Uses the design system's icon set (e.g.,
+            <code>'info-circle'</code>, <code>'check-circle'</code>,
+            <code>'warning'</code>, <code>'close'</code>). The icon appears
+            inside the colored circular background above the heading.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >'success' | 'warning' | 'error' | 'info'</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'info'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The semantic type of the popup, which determines the color scheme of
+            the modal icon background when <code>showModalIcon</code> is
+            <code>true</code>:
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>
+                <code>'success'</code>: Green background for success messages
+              </li>
+              <li>
+                <code>'warning'</code>: Amber/yellow background for warnings
+              </li>
+              <li><code>'error'</code>: Red background for error messages</li>
+              <li>
+                <code>'info'</code>: Blue background for informational messages
+              </li>
+            </ul>
           </td>
         </tr>
         <tr>
