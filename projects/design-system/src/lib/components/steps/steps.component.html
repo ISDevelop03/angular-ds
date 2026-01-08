@@ -21,7 +21,10 @@
             isLast ? 'before:w-[150%]' : 'before:w-full'
           ]"
         >
-          <div class="bg-white rounded-full px-2">
+          <div
+            class="bg-white rounded-full"
+            [ngClass]="variant === 'vertical' ? 'py-2' : 'px-2'"
+          >
             <div
               [ngClass]="[
                 'shrink-0 w-8 h-8 flex items-center transition-all duration-300 justify-center rounded-full relative z-[1] border-[1.5px]',
