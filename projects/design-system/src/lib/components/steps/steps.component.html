@@ -13,45 +13,48 @@
           *ngFor="let step of steps.toArray(); let i = index; let isLast = last"
           class="{{ theme.step }}"
           [ngClass]="[
-            i <= currentStepIndex
-              ? 'before:border-amber-500 before:border-solid'
-              : 'before:border-neutral-200 before:border-dashed',
-            isLast ? 'before:w-[150%]' : 'before:w-full',
             i < currentStepIndex || (isLast && i === currentStepIndex)
               ? 'before:border-success-500 before:border-solid'
-              : ''
+              : i === currentStepIndex
+              ? 'before:border-amber-500 before:border-dashed'
+              : 'before:border-neutral-200 before:border-dashed',
+            isLast ? 'before:w-[150%]' : 'before:w-full'
           ]"
         >
-          <div
-            [ngClass]="[
-              'shrink-0 w-8 h-8 flex items-center transition-all duration-300 justify-center rounded-full relative z-[1] border-[1.5px]',
-              i < currentStepIndex || (isLast && i === currentStepIndex)
-                ? 'bg-success-500 border-success-500 text-white'
-                : i === currentStepIndex
-                ? 'bg-level-4 border-amber-500 text-amber-500'
-                : 'bg-level-4 border-neutral-200 text-neutral-400'
-            ]"
-          >
-            <!-- COMPLETED: all steps before current, + the very last when active -->
-            <ng-container
-              *ngIf="i < currentStepIndex || (isLast && i === currentStepIndex)"
+          <div class="bg-white rounded-full px-2">
+            <div
+              [ngClass]="[
+                'shrink-0 w-8 h-8 flex items-center transition-all duration-300 justify-center rounded-full relative z-[1] border-[1.5px]',
+                i < currentStepIndex || (isLast && i === currentStepIndex)
+                  ? 'bg-success-500 border-success-500 text-white'
+                  : i === currentStepIndex
+                  ? 'bg-level-4 border-amber-500 text-amber-500'
+                  : 'bg-level-4 border-neutral-200 text-neutral-400'
+              ]"
             >
-              <ds-icon id="check" class="text-white" size="24"></ds-icon>
-            </ng-container>
+              <!-- COMPLETED: all steps before current, + the very last when active -->
+              <ng-container
+                *ngIf="
+                  i < currentStepIndex || (isLast && i === currentStepIndex)
+                "
+              >
+                <ds-icon id="check" class="text-white" size="24"></ds-icon>
+              </ng-container>
 
-            <!-- ACTIVE (only if it's current AND not the last) -->
-            <ng-container *ngIf="i === currentStepIndex && !isLast">
-              <span
-                class="inline-flex w-2.5 h-2.5 rounded-full bg-amber-500"
-              ></span>
-            </ng-container>
+              <!-- ACTIVE (only if it's current AND not the last) -->
+              <ng-container *ngIf="i === currentStepIndex && !isLast">
+                <span
+                  class="inline-flex w-2.5 h-2.5 rounded-full bg-amber-500"
+                ></span>
+              </ng-container>
 
-            <!-- UPCOMING -->
-            <ng-container *ngIf="i > currentStepIndex">
-              <span
-                class="inline-flex w-2.5 h-2.5 rounded-full bg-neutral-200"
-              ></span>
-            </ng-container>
+              <!-- UPCOMING -->
+              <ng-container *ngIf="i > currentStepIndex">
+                <span
+                  class="inline-flex w-2.5 h-2.5 rounded-full bg-neutral-200"
+                ></span>
+              </ng-container>
+            </div>
           </div>
 
           <span
