@@ -1,6 +1,6 @@
 <div
   id="ds-portfolio"
-  class="relative z-[10000] isolate w-full flex flex-col gap-3 shrink-0"
+  class="relative z-[1000] isolate w-full flex flex-col gap-3 shrink-0"
   [ngClass]="className"
 >
   <ds-portfolio-select-card
@@ -14,13 +14,13 @@
   <div
     *ngIf="displayPortfolio"
     (click)="togglePortfolio()"
-    class="fixed z-[9999] bg-black/20 inset-0 w-full h-full"
+    class="fixed z-[999] bg-black/20 inset-0 w-full h-full"
   ></div>
 
   <div
     @dropdownAnim
     *ngIf="displayPortfolio"
-    class="absolute z-[10000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[300px] max-w-fit shadow-dropdown"
+    class="absolute z-[1000] left-0 top-14 rounded-lg p-[14px] flex flex-col gap-[14px] w-full bg-card-level-5 min-w-[300px] max-w-fit shadow-dropdown"
   >
     <ng-container *ngIf="holding" class="flex flex-col gap-y-3">
       <ds-portfolio-vision-card
