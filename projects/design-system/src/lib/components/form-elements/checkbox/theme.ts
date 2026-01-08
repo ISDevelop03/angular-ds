@@ -4,15 +4,15 @@ export const checkbox = {
     checkbox: {
       base: 'relative flex h-4 w-4 items-center justify-center rounded shrink-0',
       enabled: {
-        checked: 'border border-primary-500 bg-red-50 text-red-500',
+        checked: 'border !border-primary-500 bg-red-50 text-red-500',
         unchecked:
-          'bg-card-level-2 border border-neutral-300 hover:bg-red-50 hover:border-red-500 focus-within:border-red-500',
+          'bg-card-level-2 border !border-neutral-300 hover:bg-red-50 hover:border-red-500 focus-within:border-red-500',
       },
       disabled: {
         checked:
-          'bg-neutral-100 border border-neutral-200 text-gray-400 cursor-not-allowed',
+          'bg-neutral-100 border !border-neutral-200 text-gray-400 cursor-not-allowed',
         unchecked:
-          'bg-neutral-100 border border-neutral-200 text-neutral-400 cursor-not-allowed',
+          'bg-neutral-100 border !border-neutral-200 text-neutral-400 cursor-not-allowed',
       },
       error: 'border-error-500',
       label: {
