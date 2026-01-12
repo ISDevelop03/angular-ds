@@ -3,7 +3,7 @@ export const ToggleTheme = {
     switch: {
       className:
         'relative inline-flex items-center transition-all duration-300 ease-in h-[20px] rounded-full w-[36px]',
-      enabled: 'bg-success',
+      enabled: 'bg-success-500',
       disabled: 'bg-neutral-200',
       span: {
         enabled: 'translate-x-[17px] rtl:-translate-x-[17px]',
