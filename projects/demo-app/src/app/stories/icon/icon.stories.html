@@ -1,14 +1,86 @@
 <div class="p-4">
+  <!-- Selection toolbar -->
+  <div
+    class="mb-6 flex flex-wrap items-center gap-4 p-4 bg-white dark:bg-level-1 border dark:border-gray-800 rounded-lg"
+  >
+    <div class="flex items-center gap-2">
+      <span class="text-sm font-medium dark:text-gray-200 text-gray-700">
+        {{ selectedCount }} icon(s) selected
+      </span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        (click)="selectAll()"
+        class="px-3 py-1.5 text-xs font-medium rounded-md bg-gray-100 dark:bg-zinc-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-zinc-600 transition"
+      >
+        Select All
+      </button>
+      <button
+        type="button"
+        (click)="deselectAll()"
+        class="px-3 py-1.5 text-xs font-medium rounded-md bg-gray-100 dark:bg-zinc-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-zinc-600 transition"
+      >
+        Deselect All
+      </button>
+    </div>
+    <button
+      type="button"
+      (click)="downloadSelectedIcons()"
+      [disabled]="selectedCount === 0 || isDownloading"
+      class="ml-auto px-4 py-2 text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center gap-2"
+    >
+      <ds-icon *ngIf="!isDownloading" id="download" class="w-4 h-4"></ds-icon>
+      <svg
+        *ngIf="isDownloading"
+        class="animate-spin w-4 h-4"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      {{ isDownloading ? 'Creating ZIP...' : 'Download Selected' }}
+    </button>
+  </div>
+
+  <!-- Icons grid -->
   <ul
     class="grid grid-cols-[repeat(auto-fill,_minmax(132px,_1fr))] gap-6 text-center text-xs leading-4"
   >
     <li
       *ngFor="let icon of icons"
-      class="flex flex-col items-center justify-center gap-2"
+      class="flex flex-col items-center justify-center gap-2 relative"
     >
+      <!-- Checkbox -->
+      <label
+        class="absolute top-2 left-2 z-10 cursor-pointer"
+        (click)="$event.stopPropagation()"
+      >
+        <input
+          type="checkbox"
+          [checked]="isSelected(icon)"
+          (change)="toggleSelection(icon, $event)"
+          class="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-400 dark:bg-zinc-700 cursor-pointer"
+        />
+      </label>
       <button
         type="button"
         (click)="copyToClipboard(icon)"
+        [class.ring-2]="isSelected(icon)"
+        [class.ring-blue-500]="isSelected(icon)"
         class="h-24 w-full flex items-center bg-white dark:bg-level-1 justify-center border dark:border-gray-800 rounded-lg hover:bg-gray-300 dark:hover:bg-zinc-800 transition"
       >
         <ds-icon
@@ -16,7 +88,7 @@
           class="dark:text-gray-200 text-gray-800 w-8 h-8"
         ></ds-icon>
       </button>
-      <h3 class="truncate text-sm dark:text-gray-300 text-gray-700">
+      <h3 class="truncate text-sm dark:text-gray-300 text-gray-700 w-full">
         {{ icon }}
       </h3>
     </li>
