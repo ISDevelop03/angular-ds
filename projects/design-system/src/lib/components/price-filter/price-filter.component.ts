@@ -176,8 +176,43 @@ export class PriceFilterComponent {
       .replace(/\./g, ' ');
   }
 
+  onPriceKeydown(event: KeyboardEvent): void {
+    const allowedKeys = [
+      'Backspace',
+      'Delete',
+      'Tab',
+      'Escape',
+      'Enter',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowUp',
+      'ArrowDown',
+      'Home',
+      'End',
+    ];
+
+    // Allow navigation keys
+    if (allowedKeys.includes(event.key)) {
+      return;
+    }
+
+    // Allow Ctrl/Cmd combinations (copy, paste, select all, etc.)
+    if (event.ctrlKey || event.metaKey) {
+      return;
+    }
+
+    // Allow digits and comma (decimal separator)
+    if (/^[0-9,]$/.test(event.key)) {
+      return;
+    }
+
+    // Block everything else
+    event.preventDefault();
+  }
+
   onPriceInput(event: Event): void {
     const input = event.target as HTMLInputElement;
+    console.log(input.value);
     let rawValue = input.value.replace(/[^\d,]/g, '');
     const parts = rawValue.split(',');
     let integerPart = parts[0].replace(/^0+/, '') || '';

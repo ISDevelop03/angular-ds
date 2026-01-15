@@ -6836,6 +6836,12 @@ bs-daterangepicker-container {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
+.before\:border-red-500::before {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-red-500) / var(--tw-border-opacity, 1));
+}
+
 .before\:border-r-transparent::before {
   content: var(--tw-content);
   border-right-color: transparent;

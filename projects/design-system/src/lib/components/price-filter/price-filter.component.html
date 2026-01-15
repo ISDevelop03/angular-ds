@@ -40,7 +40,6 @@
       class="absolute mt-2 min-w-[350px] origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
       style="box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.14)"
       [ngStyle]="menuStyles"
-      [ngClass]="containerClassName"
     >
       <div *ngIf="showOptions" class="flex items-center gap-4 mb-4">
         <ds-radio
@@ -67,11 +66,12 @@
             className="w-full"
             [value]="displayPrice"
             (onInput)="onPriceInput($event)"
+            (onKeydown)="onPriceKeydown($event)"
           ></ds-input>
         </div>
         <ds-button
           variant="primary"
-          (click)="handleSelect($event)"
+          (click)="handleSelect()"
           [disabled]="!selectedPrice"
         >
           Valider
