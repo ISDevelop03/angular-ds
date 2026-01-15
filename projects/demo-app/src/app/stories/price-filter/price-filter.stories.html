@@ -1,0 +1,183 @@
+<section class="flex flex-col gap-6 p-4 min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">PriceFilter</h2>
+
+  <h3 class="text-2xl font-bold">Default (with Options)</h3>
+  <div class="flex flex-col gap-4">
+    <ds-price-filter
+      [showOptions]="true"
+      (onSelect)="onSelect($event)"
+    ></ds-price-filter>
+  </div>
+
+  <h3 class="text-2xl font-bold">Without Options (Price Only)</h3>
+  <div class="flex flex-col gap-4">
+    <ds-price-filter
+      [showOptions]="false"
+      (onSelect)="onSelect($event)"
+    ></ds-price-filter>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showOptions
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">true</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays debit/credit radio options in the
+            dropdown menu. When <code>false</code>, only the price input field
+            is shown. This also affects the output format of the
+            <code>onSelect</code> event.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the root container
+            element. Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;&#123; type: string, price: number &#125; |
+              number&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the user clicks the "Valider" button. When
+            <code>showOptions</code> is <code>true</code>, emits an object with
+            <code>&#123; type: 'debit' | 'credit', price: number &#125;</code>.
+            When <code>showOptions</code> is <code>false</code>, emits only the
+            price as a <code>number</code>.
+          </td>
+        </tr>
+
+        <!-- Internal State / Behavior -->
+        <tr class="bg-yellow-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Behavior & Features
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Price Formatting
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            The input automatically formats numbers with space as thousands
+            separator and comma as decimal separator (e.g.,
+            <code>1 234,56</code>). Maximum 2 decimal places allowed.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Dropdown Animation
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            The dropdown menu uses Angular animations with scale and opacity
+            transitions (120ms ease-out on enter, 100ms ease-in on leave).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Auto-positioning
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            The dropdown automatically adjusts its position to stay within the
+            viewport boundaries. It uses Angular CDK Portal to render at
+            document body level, preventing overflow issues.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Outside Click
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            The dropdown closes automatically when clicking outside the trigger
+            button or menu area.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            Clear Selection
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            After a price is selected, a close icon appears in the trigger
+            button allowing users to clear the current selection and reset to
+            the default placeholder.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

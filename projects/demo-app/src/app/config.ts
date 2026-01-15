@@ -277,4 +277,5 @@ export const menus: Menu[] = [
   { key: 'layer', name: 'Layer', path: '/layer' },
   { key: 'signataire-list', name: 'SignataireList', path: '/signataire-list' },
   { key: 'loader', name: 'Loader', path: '/loader' },
+  { key: 'price-filter', name: 'PriceFilter', path: '/price-filter' },
 ];

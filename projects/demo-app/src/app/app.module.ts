@@ -86,6 +86,7 @@ import {
   LayerStoryComponent,
   SignataireListStoryComponent,
   LoaderStoryComponent,
+  PriceFilterStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -197,6 +198,7 @@ export const pages: Routes = [
   { path: 'layer', component: LayerStoryComponent },
   { path: 'signataire-list', component: SignataireListStoryComponent },
   { path: 'loader', component: LoaderStoryComponent },
+  { path: 'price-filter', component: PriceFilterStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -305,6 +307,7 @@ const router = RouterModule.forRoot(pages);
     LayerStoryComponent,
     SignataireListStoryComponent,
     LoaderStoryComponent,
+    PriceFilterStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

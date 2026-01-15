@@ -1,0 +1,73 @@
+<div id="ds-price-filter" [ngClass]="className">
+  <button #trigger (click)="toggleMenu()">
+    <div
+      class="flex items-center gap-2 border border-neutral-100 bg-level-3 hover:border-primary rounded-md px-3 py-2"
+    >
+      <ds-icon id="coins copy" class="text-red-500" size="20px"></ds-icon>
+      <span class="text-neutral-900 font-semibold text-[0.75rem]/normal">
+        {{ placeholder ? placeholder : "Montant" }}
+      </span>
+      <ds-icon
+        *ngIf="placeholder === 'Montant'"
+        id="arrow-down"
+        [class]="[
+          'transition-all duration-500 ease-in-out',
+          isOpen ? '-rotate-180' : ''
+        ]"
+      ></ds-icon>
+      <ds-icon
+        *ngIf="placeholder !== 'Montant'"
+        id="close"
+        class="text-neutral-900 cursor-pointer"
+        (click)="clearSelection()"
+      ></ds-icon>
+    </div>
+  </button>
+
+  <ng-template #menuTpl>
+    <div
+      #menu
+      @dropdownAnim
+      class="absolute mt-2 min-w-[350px] origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
+      style="box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.14)"
+      [ngStyle]="menuStyles"
+      [ngClass]="containerClassName"
+    >
+      <div *ngIf="showOptions" class="flex items-center gap-4 mb-4">
+        <ds-radio
+          name="group1"
+          value="debit"
+          label="Debit"
+          [(modelValue)]="selectedType"
+          variant="default"
+        ></ds-radio>
+        <ds-radio
+          name="group1"
+          value="credit"
+          label="Credit"
+          [(modelValue)]="selectedType"
+          variant="default"
+        ></ds-radio>
+      </div>
+      <div class="flex items-end gap-2">
+        <div class="flex-1">
+          <ds-input
+            placeholder="Entrer un montant exact"
+            type="text"
+            label="Chercher un montant exact"
+            className="w-full"
+            [value]="displayPrice"
+            (onInput)="onPriceInput($event)"
+          ></ds-input>
+        </div>
+        <ds-button
+          variant="primary"
+          (click)="handleSelect($event)"
+          [disabled]="!selectedPrice"
+        >
+          Valider
+        </ds-button>
+      </div>
+    </div>
+  </ng-template>
+</div>

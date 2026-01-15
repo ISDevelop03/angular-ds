@@ -162,3 +162,6 @@ export * from './signataire-list/signataire-list.stories';
 
 // Auto-export for loader stories
 export * from './loader/loader.stories';
+
+// Auto-export for price-filter stories
+export * from './price-filter/price-filter.stories';
