@@ -8,7 +8,7 @@ export class StepsStoryComponent {
   @Input() label: string = 'steps';
   @Input() className?: string = '';
 
-  currentStepIndex = 0;
+  currentStepIndex = 4;
   step1Done = false;
   step2Done = false;
   step3Done = false;

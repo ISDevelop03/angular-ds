@@ -18,8 +18,10 @@
               ? 'before:border-success-500 before:border-solid'
               : i === currentStepIndex && variant === 'default'
               ? 'before:border-amber-500 before:border-dashed'
-              : (i < currentStepIndex - 1 ||
-                  (isLast && i === currentStepIndex)) &&
+              : i < currentStepIndex - 1 && variant === 'vertical'
+              ? 'before:border-success-500 before:border-solid'
+              : i < currentStepIndex &&
+                i === steps.toArray().length - 2 &&
                 variant === 'vertical'
               ? 'before:border-success-500 before:border-solid'
               : i === currentStepIndex - 1 && variant === 'vertical'
