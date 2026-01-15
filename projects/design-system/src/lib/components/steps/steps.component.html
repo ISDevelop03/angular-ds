@@ -13,12 +13,21 @@
           *ngFor="let step of steps.toArray(); let i = index; let isLast = last"
           class="{{ theme.step }}"
           [ngClass]="[
-            i < currentStepIndex || (isLast && i === currentStepIndex)
+            (i < currentStepIndex || (isLast && i === currentStepIndex)) &&
+            variant === 'default'
               ? 'before:border-success-500 before:border-solid'
-              : i === currentStepIndex
+              : i === currentStepIndex && variant === 'default'
+              ? 'before:border-amber-500 before:border-dashed'
+              : (i < currentStepIndex - 1 ||
+                  (isLast && i === currentStepIndex)) &&
+                variant === 'vertical'
+              ? 'before:border-success-500 before:border-solid'
+              : i === currentStepIndex - 1 && variant === 'vertical'
               ? 'before:border-amber-500 before:border-dashed'
               : 'before:border-neutral-200 before:border-dashed',
-            isLast ? 'before:w-[150%]' : 'before:w-full'
+            isLast && variant === 'default'
+              ? 'before:w-[150%]'
+              : 'before:w-full'
           ]"
         >
           <div
