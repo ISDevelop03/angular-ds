@@ -55,12 +55,7 @@ export class BadgeGroupStoryComponent {
       withDot: true,
       iconRight: false,
     },
-    {
-      label: 'Example 7',
-      variant: 'blue',
-      withDot: false,
-      iconRight: false,
-    },
+
     {
       label: 'Web Dev',
       variant: 'default',
