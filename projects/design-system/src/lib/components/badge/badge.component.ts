@@ -15,7 +15,7 @@ export class BadgeComponent {
   @Input() icon?: string;
   @Input() label!: string;
   @Input() href?: string;
-  @Input() pill: boolean = false;
+  @Input() pill: boolean = true;
   @Input() variant: string = 'default';
   @Input() size: string = 'md';
   @Input() withDot: boolean = false;

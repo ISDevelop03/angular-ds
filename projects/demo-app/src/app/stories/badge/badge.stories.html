@@ -21,26 +21,14 @@
     ></ds-badge>
   </div>
 
-  <h3 class="text-2xl font-bold">Pill Style</h3>
-  <div class="flex gap-2 flex-wrap">
-    <ds-badge
-      *ngFor="let variant of variants"
-      [label]="variant"
-      [variant]="variant"
-      withDot="true"
-      (onClick)="onBadgeClick($event)"
-      [pill]="true"
-    ></ds-badge>
-  </div>
-
   <h3 class="text-2xl font-bold">With Icons</h3>
   <div class="flex gap-2 flex-wrap">
-    <ds-badge label="With Icon" icon="check" variant="violet"></ds-badge>
+    <ds-badge label="With Icon" icon="check" variant="crame"></ds-badge>
     <ds-badge
       label="With Icon"
       [iconRight]="true"
       icon="check"
-      variant="red"
+      variant="neutral"
     ></ds-badge>
   </div>
 
@@ -167,7 +155,7 @@
             <code class="text-sm">boolean</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">false</code>
+            <code class="text-sm">true</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             When <code>true</code>, applies fully rounded corners (pill shape)

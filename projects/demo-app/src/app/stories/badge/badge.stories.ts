@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './badge.stories.html',
 })
 export class BadgeStoryComponent {
-  variants = ['default', 'amber', 'violet', 'blue', 'green', 'red', 'orange'];
+  variants = ['default', 'amber', 'green', 'red', 'orange', 'neutral', 'crame'];
 
   sizes = ['sm', 'md', 'lg'];
 
