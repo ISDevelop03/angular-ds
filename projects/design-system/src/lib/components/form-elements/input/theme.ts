@@ -11,7 +11,7 @@ export const input = {
     label:
       'inline-block text-neutral-900 font-normal text-[0.75rem]/[0.875rem] mb-0',
     input:
-      'text-xs font-semibold w-full text-gray-800 dark:text-white bg-transparent appearance-none dark:placeholder-gray-300 placeholder-gray-400 placeholder-text-sm outline-none border-none focus:ring-0 p-0',
+      'text-xs font-bold w-full text-gray-800 dark:text-white bg-transparent appearance-none dark:placeholder-gray-300 placeholder-gray-400 placeholder-text-sm placeholder:font-medium outline-none border-none focus:ring-0 p-0',
     prefix: 'mr-1 text-gray-500',
     sufix: 'ml-1 text-gray-500',
     errorMessage: 'text-error-500 text-xs mt-1',
@@ -30,7 +30,7 @@ export const input = {
     label:
       'inline-block text-sm leading-[16px] font-bold text-neutral-900 mb-2',
     input:
-      'text-sm font-bold w-full text-gray-800 dark:text-white bg-transparent appearance-none dark:placeholder-gray-300 placeholder-gray-400 placeholder-text-sm outline-none border-none focus:ring-0 p-0',
+      'text-sm font-bold w-full text-gray-800 dark:text-white bg-transparent appearance-none dark:placeholder-gray-300 placeholder-gray-400 placeholder-text-sm placeholder:font-medium outline-none border-none focus:ring-0 p-0',
     prefix: 'mr-1 text-gray-500',
     sufix: 'ml-1 text-gray-500',
     errorMessage: 'text-error-500 text-xs mt-1',

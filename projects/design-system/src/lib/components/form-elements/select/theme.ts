@@ -13,9 +13,9 @@ export const theme = {
         disabled:
           '!bg-neutral-100 !text-neutral-500 placeholder:!text-neutral-800 cursor-not-allowed hover:bg-transparent !border-neutral-100 hover:border-neutral-100',
         label:
-          'inline-block text-neutral-900 font-semibold text-[0.75rem]/normal mb-0',
+          'inline-block text-neutral-900 font-bold text-[0.75rem]/normal mb-0',
         placeholder:
-          'font-semibold dark:text-white text-[0.75rem]/normal text-neutral-900 mr-2',
+          'font-medium dark:text-white text-[0.75rem]/normal text-neutral-900 mr-2',
       },
       field: {
         activated: 'bg-gray-200 dark:bg-neutral-700',

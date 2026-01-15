@@ -60,7 +60,7 @@ export class PriceFilterComponent {
   selectedType: 'debit' | 'credit' = 'credit';
   selectedPrice: number = null;
   displayPrice: string = '';
-  placeholder: string = 'Montant';
+  placeholder: string = null;
 
   constructor(
     private cd: ChangeDetectorRef,
