@@ -12,4 +12,10 @@ export const theme = {
     icon: 'rounded-full bg-green-400 p-3',
     content: 'text-[1rem] font-bold text-green-600',
   },
+  error: {
+    wrapper:
+      'rounded-md border border-red-200 w-full flex items-center gap-4 py-3 px-4 bg-red-50',
+    icon: 'rounded-full bg-error-400 p-3',
+    content: 'text-[1rem] font-bold text-red-600',
+  },
 };

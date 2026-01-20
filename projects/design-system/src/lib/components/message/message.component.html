@@ -2,7 +2,7 @@
   <div [ngClass]="theme[variant].icon">
     <ds-icon *ngIf="variant === 'warning'" id="danger" class="text-white w-5 h-5"></ds-icon>
     <ds-icon *ngIf="variant === 'success'" id="check" class="text-white w-5 h-5"></ds-icon>
-    <ds-icon *ngIf="variant === 'info'" id="info-circle" class="text-white w-5 h-5"></ds-icon>
+    <ds-icon *ngIf="variant === 'error'" id="close" class="text-white w-5 h-5"></ds-icon>
   </div>
   <div>
       <p [ngClass]="theme[variant].content">{{ content }}</p>
