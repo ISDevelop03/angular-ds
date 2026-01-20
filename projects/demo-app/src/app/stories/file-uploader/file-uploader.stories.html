@@ -16,6 +16,8 @@
   <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader
       (onChange)="onFileErrorChange($event)"
+      (onReUpload)="onFileErrorReUpload($event)"
+      (onRemove)="onFileErrorRemove($event)"
       [isMultiple]="false"
       [files]="errorFiles"
     >

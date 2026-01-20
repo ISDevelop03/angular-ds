@@ -41,9 +41,9 @@ export class FileListComponent {
     this.onDelete.emit(fileId)
   }
 
-  reUploadFile(fileId:string) {
-    this.onReUpload.emit(fileId)
-  }
+  // reUploadFile(fileId:string) {
+  //   this.onReUpload.emit(fileId)
+  // }
 
   downloadFile(file: File) {
     if(this.onDownload.observers.length > 0) {

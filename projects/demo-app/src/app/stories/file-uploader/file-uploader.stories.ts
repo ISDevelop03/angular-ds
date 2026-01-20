@@ -59,6 +59,10 @@ export class FileUploaderStoryComponent {
     this.simulateErrorUpload(this.errorFiles[0]);
   }
 
+  onFileErrorRemove(id: string) {
+    this.errorFiles = this.errorFiles.filter((file) => file.file.id !== id);
+  }
+
   onFileMultipleChange(event: (File & { id: string })[]) {
     event.forEach((file, index) => {
       const fileItem: UploadedFiles = {

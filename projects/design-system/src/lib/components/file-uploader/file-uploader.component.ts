@@ -119,11 +119,12 @@ export class FileUploaderComponent {
     this.fileInput.nativeElement.value = '';
   }
 
-  reUploadFile(id: string) {
-    if (!this.disabled) {
-      this.fileInput.nativeElement.click();
-    }
-    this.onReUpload.emit(id);
-    this.fileInput.nativeElement.value = '';
-  }
+  // reUploadFile(id: string) {
+  //   this.fileInput.nativeElement.value = '';
+  //   if (!this.disabled) {
+  //     this.fileInput.nativeElement.click();
+  //   }
+  //   this.onReUpload.emit(id);
+  //   this.files = [];
+  // }
 }
