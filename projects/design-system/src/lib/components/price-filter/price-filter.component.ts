@@ -212,12 +212,11 @@ export class PriceFilterComponent {
 
   onPriceInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    console.log(input.value);
     let rawValue = input.value.replace(/[^\d,]/g, '');
     const parts = rawValue.split(',');
     let integerPart = parts[0].replace(/^0+/, '') || '';
     let decimalPart = parts[1] ? parts[1].slice(0, 2) : '';
-    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    integerPart = Number(integerPart).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
     this.displayPrice =
       decimalPart !== undefined && parts.length > 1
         ? `${integerPart},${decimalPart}`
@@ -230,7 +229,7 @@ export class PriceFilterComponent {
   clearSelection() {
     this.selectedPrice = null;
     this.displayPrice = '';
-    this.placeholder = 'Montant';
+    this.placeholder = '';
   }
 
   handleSelect() {

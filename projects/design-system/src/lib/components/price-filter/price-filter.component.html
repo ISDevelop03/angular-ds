@@ -5,13 +5,13 @@
     >
       <ds-icon id="coins" class="text-red-500" size="20px"></ds-icon>
       <span
-        *ngIf="displayPrice"
+        *ngIf="placeholder"
         class="text-neutral-900 font-bold text-[0.75rem]/normal"
       >
         {{ placeholder }}
       </span>
       <span
-        *ngIf="!displayPrice"
+        *ngIf="!placeholder"
         class="text-neutral-900 font-medium text-[0.75rem]/normal"
       >
         Montant
