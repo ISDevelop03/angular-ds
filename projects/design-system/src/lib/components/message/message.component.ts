@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { theme } from './theme';
 
-type TVariant = "success" | "info" | "warning"
+type TVariant = "success" | "error" | "warning"
 /**
  * MessageComponent
  *
