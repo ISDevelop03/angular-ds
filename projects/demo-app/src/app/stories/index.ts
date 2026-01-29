@@ -165,3 +165,6 @@ export * from './loader/loader.stories';
 
 // Auto-export for price-filter stories
 export * from './price-filter/price-filter.stories';
+
+// Auto-export for illustration stories
+export * from './illustration/illustration.stories';

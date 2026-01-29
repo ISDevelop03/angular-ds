@@ -87,6 +87,8 @@ import {
   SignataireListStoryComponent,
   LoaderStoryComponent,
   PriceFilterStoryComponent,
+  IllustrationStoryComponent,
+  
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -199,6 +201,7 @@ export const pages: Routes = [
   { path: 'signataire-list', component: SignataireListStoryComponent },
   { path: 'loader', component: LoaderStoryComponent },
   { path: 'price-filter', component: PriceFilterStoryComponent },
+  { path: 'illustration', component: IllustrationStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -308,6 +311,7 @@ const router = RouterModule.forRoot(pages);
     SignataireListStoryComponent,
     LoaderStoryComponent,
     PriceFilterStoryComponent,
+    IllustrationStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

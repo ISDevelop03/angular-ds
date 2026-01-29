@@ -1,0 +1,94 @@
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Illustration</h2>
+  <div class="flex items-center gap-4">
+    <ds-illustration size="lg" src="../../../assets/illustration.png"></ds-illustration>
+    <ds-illustration size="md" src="../../../assets/illustration.png"></ds-illustration>
+    <ds-illustration size="sm" src="../../../assets/illustration.png"></ds-illustration>
+    <ds-illustration size="xs" src="../../../assets/illustration.png"></ds-illustration>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td colspan="4" class="border border-gray-300 px-4 py-2 font-bold text-lg">
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            src
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The source URL or path to the illustration image. This is the
+            primary content displayed by the component. Supports relative paths
+            (e.g., '../assets/illustration.png') or absolute URLs.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            size
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'lg' | 'md' | 'sm' | 'xs'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'lg'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Controls the dimensions of the illustration. Available sizes and
+            their dimensions:
+            <ul class="list-disc ml-4 mt-2">
+              <li><strong>lg</strong>: 300×224 px</li>
+              <li><strong>md</strong>: 200×126 px</li>
+              <li><strong>sm</strong>: 170×127 px</li>
+              <li><strong>xs</strong>: 120×90 px</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the illustration
+            container. Useful for custom styling, positioning, or layout
+            adjustments.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
