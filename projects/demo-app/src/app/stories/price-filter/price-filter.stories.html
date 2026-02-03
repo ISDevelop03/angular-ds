@@ -3,18 +3,17 @@
 
   <h3 class="text-2xl font-bold">Default (with Options)</h3>
   <div class="flex flex-col gap-4">
-    <ds-price-filter
-      [showOptions]="true"
-      (onSelect)="onSelect($event)"
-    ></ds-price-filter>
+    <ds-price-filter [showOptions]="true" (onSelect)="onSelect($event)"></ds-price-filter>
   </div>
 
   <h3 class="text-2xl font-bold">Without Options (Price Only)</h3>
   <div class="flex flex-col gap-4">
-    <ds-price-filter
-      [showOptions]="false"
-      (onSelect)="onSelect($event)"
-    ></ds-price-filter>
+    <ds-price-filter [showOptions]="false" (onSelect)="onSelect($event)"></ds-price-filter>
+  </div>
+
+  <h3 class="text-2xl font-bold">With Value</h3>
+  <div class="flex flex-col gap-4">
+    <ds-price-filter [value]="value" (onSelect)="onSelect($event)"></ds-price-filter>
   </div>
 
   <!-- API Documentation Table -->
@@ -41,10 +40,7 @@
       <tbody>
         <!-- Component Inputs -->
         <tr class="bg-blue-50">
-          <td
-            colspan="4"
-            class="border border-gray-300 px-4 py-2 font-bold text-lg"
-          >
+          <td colspan="4" class="border border-gray-300 px-4 py-2 font-bold text-lg">
             Component Inputs
           </td>
         </tr>
@@ -83,10 +79,7 @@
 
         <!-- Component Outputs -->
         <tr class="bg-green-50">
-          <td
-            colspan="4"
-            class="border border-gray-300 px-4 py-2 font-bold text-lg"
-          >
+          <td colspan="4" class="border border-gray-300 px-4 py-2 font-bold text-lg">
             Component Outputs (Events)
           </td>
         </tr>
@@ -95,10 +88,8 @@
             onSelect
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm"
-              >EventEmitter&lt;&#123; type: string, price: number &#125; |
-              number&gt;</code
-            >
+            <code class="text-sm">EventEmitter&lt;&#123; type: string, price: number &#125; |
+              number&gt;</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
@@ -112,10 +103,7 @@
 
         <!-- Internal State / Behavior -->
         <tr class="bg-yellow-50">
-          <td
-            colspan="4"
-            class="border border-gray-300 px-4 py-2 font-bold text-lg"
-          >
+          <td colspan="4" class="border border-gray-300 px-4 py-2 font-bold text-lg">
             Behavior & Features
           </td>
         </tr>

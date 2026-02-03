@@ -1,64 +1,55 @@
-<a
-  *ngIf="href"
-  [href]="href"
-  (click)="onClickHandler($event)"
-  id="ds-invoice-card"
-  [ngClass]="className"
-  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row gap-3 p-3"
->
+<a *ngIf="href" [href]="href" (click)="onClickHandler($event)" id="ds-invoice-card" [ngClass]="className"
+  class="bg-level-4 rounded-lg text-neutral-900 flex flex-row gap-3 p-3">
   <ng-container *ngTemplateOutlet="cardTemplate"></ng-container>
 </a>
-<div
-  *ngIf="!href"
-  id="ds-invoice-card"
-  [ngClass]="className"
+<div *ngIf="!href" id="ds-invoice-card" [ngClass]="className"
   class="bg-level-4 rounded-lg text-neutral-900 flex flex-row gap-3 p-3 cursor-pointer"
-  (click)="onClickHandler($event)"
->
+  (click)="onClickHandler($event)">
   <ng-container *ngTemplateOutlet="cardTemplate"></ng-container>
 </div>
 
 <ng-template #cardTemplate>
-  <div
-    class="relative shrink-0 w-[104px] h-[64px] object-contain py-2 px-4 border border-stroke-1 rounded"
-  >
-    <img
-      [src]="image"
-      [alt]="title"
-      class="top-0 left-0 shrink-0 w-full h-full rounded object-contain"
-    />
+  <div class="relative shrink-0 w-[104px] h-[64px] object-contain py-2 px-4 border border-stroke-1 rounded">
+    <img [src]="image" [alt]="title" class="top-0 left-0 shrink-0 w-full h-full rounded object-contain" />
   </div>
   <div class="w-full flex justify-between flex-col gap-x-2 gap-y-3">
     <h3 class="text-[0.75rem]/[1.25rem] font-bold mr-4">
       {{ title }}
     </h3>
-    <div
-      *ngIf="(items && items.length <= 0) || (actions && actions.length <= 0)"
-      class="flex gap-x-2 items-center w-fit ml-auto"
-    >
-      <ds-call-to-action-icons
-        *ngIf="actions && actions.length > 0"
-        [actions]="actions"
-        className="w-fit"
-        variant="borderless"
-      ></ds-call-to-action-icons>
-      <span
-        *ngIf="actions && actions.length > 0"
-        class="inline-block h-1/2 w-px bg-neutral-200"
-      ></span>
+    <div *ngIf="(items && items.length <= 0) || (actions && actions.length <= 0)"
+      class="flex gap-x-2 items-center w-fit ml-auto">
+      <ds-call-to-action-icons *ngIf="actions && actions.length > 0" [actions]="actions" className="w-fit"
+        variant="borderless"></ds-call-to-action-icons>
+      <span *ngIf="actions && actions.length > 0" class="inline-block h-1/2 w-px bg-neutral-200"></span>
 
-      <ds-icon
-        *ngIf="!items || items.length <= 0"
-        id="arrow-right-1"
-        class="self-end justify-self-end text-red-500"
-      ></ds-icon>
-      <div
-        *ngIf="!href && items.length > 0"
-        class="self-end justify-self-end size-[16px]"
-      >
-        <ds-dropdown *ngIf="items" [items]="items">
+      <ds-icon *ngIf="!items || items.length <= 0" id="arrow-right-1"
+        class="self-end justify-self-end text-red-500"></ds-icon>
+      <div *ngIf="!href && items && items.length > 0" class="self-end justify-self-end relative"
+        (click)="$event.stopPropagation()">
+        <button #dropdownTrigger type="button" (click)="toggleDropdown($event)"
+          class="flex items-center justify-center size-[16px] focus:outline-none focus:border-none text-red-500"
+          [attr.aria-expanded]="isDropdownOpen" [attr.aria-haspopup]="true">
           <ds-icon id="arrow-down" class="text-red-500"></ds-icon>
-        </ds-dropdown>
+        </button>
+        <div #dropdownMenu *ngIf="isDropdownOpen"
+          class="absolute right-0 min-w-[250px] p-1 rounded-md border border-neutral-100 bg-level-4 text-neutral-900 shadow-dropdown focus:outline-none z-[10000]"
+          [ngClass]="dropdownOpenUp ? 'bottom-full mb-1' : 'top-full mt-1'" role="menu">
+          <ds-input [placeholder]="'Rechercher'" [(ngModel)]="searchInput" autoComplete="off">
+            <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
+          </ds-input>
+          <div class="mt-2">
+            <button *ngFor="let item of getFiltredValues()" type="button" role="menuitem"
+              (click)="onDropdownItemClick($event, item)"
+              class="group whitespace-nowrap flex justify-between gap-2 w-full items-center rounded-md p-3 hover:bg-neutral-50 text-[0.875rem]/normal font-[400]">
+              <div class="flex items-center gap-2">
+                <ds-icon *ngIf="item.icon" [id]="item.icon"
+                  class="text-heading shrink-0 h-5 w-5 font-semibold"></ds-icon>
+                <span class="font-semibold">{{ item.label }}</span>
+              </div>
+              <ds-icon id="arrow-right-1" class="hidden group-hover:block ml-auto text-red-500"></ds-icon>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -49,8 +49,9 @@ export class DsInputComponent implements AfterViewInit, ControlValueAccessor {
   @Input() className?: string = '';
   @Input() inputClassName?: string = '';
   @Input() tooltip?: string | TemplateRef<any>;
-  @Input() password : boolean = false;
-  passwordVisible : boolean = false;
+  @Input() password: boolean = false;
+  @Input() autoComplete: 'on' | 'off' = 'on';
+  passwordVisible: boolean = false;
 
   @Output() onClick = new EventEmitter<Event>();
   @Output() onInput = new EventEmitter<Event>();
@@ -71,11 +72,11 @@ export class DsInputComponent implements AfterViewInit, ControlValueAccessor {
   hasProjectedPrefix = false;
   hasProjectedSuffix = false;
 
-  constructor(private host: ElementRef, private renderer: Renderer2) {}
+  constructor(private host: ElementRef, private renderer: Renderer2) { }
 
   // these will be filled in by Angular
-  private _onChange: (value: any) => void = () => {};
-  private _onTouched: () => void = () => {};
+  private _onChange: (value: any) => void = () => { };
+  private _onTouched: () => void = () => { };
 
   // -----------------------------------------------------
   // ControlValueAccessor methods

@@ -1,79 +1,38 @@
 <div id="ds-price-filter" [ngClass]="className">
   <button #trigger (click)="toggleMenu()">
-    <div
-      class="flex items-center gap-2 border border-neutral-100 bg-level-3 hover:border-primary rounded-md px-3 py-2"
-    >
+    <div class="flex items-center gap-2 border border-neutral-100 bg-level-3 hover:border-primary rounded-md px-3 py-2">
       <ds-icon id="coins" class="text-red-500" size="20px"></ds-icon>
-      <span
-        *ngIf="placeholder"
-        class="text-neutral-900 font-bold text-[0.75rem]/normal"
-      >
+      <span *ngIf="placeholder" class="text-neutral-900 font-bold text-[0.75rem]/normal">
         {{ placeholder }}
       </span>
-      <span
-        *ngIf="!placeholder"
-        class="text-neutral-900 font-medium text-[0.75rem]/normal"
-      >
+      <span *ngIf="!placeholder" class="text-neutral-900 font-medium text-[0.75rem]/normal">
         Montant
       </span>
-      <ds-icon
-        *ngIf="!displayPrice"
-        id="arrow-down"
-        [class]="[
+      <ds-icon *ngIf="!displayPrice" id="arrow-down" [class]="[
           'transition-all duration-500 ease-in-out',
           isOpen ? '-rotate-180' : ''
-        ]"
-      ></ds-icon>
-      <ds-icon
-        *ngIf="displayPrice"
-        id="close"
-        class="text-neutral-900 cursor-pointer"
-        (click)="clearSelection()"
-      ></ds-icon>
+        ]"></ds-icon>
+      <ds-icon *ngIf="displayPrice" id="close" class="text-neutral-900 cursor-pointer"
+        (click)="clearSelection()"></ds-icon>
     </div>
   </button>
 
   <ng-template #menuTpl>
-    <div
-      #menu
-      @dropdownAnim
+    <div #menu @dropdownAnim
       class="absolute mt-2 min-w-[350px] origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
-      style="box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.14)"
-      [ngStyle]="menuStyles"
-    >
+      style="box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.14)" [ngStyle]="menuStyles">
       <div *ngIf="showOptions" class="flex items-center gap-4 mb-4">
-        <ds-radio
-          name="group1"
-          value="debit"
-          label="Debit"
-          [(modelValue)]="selectedType"
-          variant="default"
-        ></ds-radio>
-        <ds-radio
-          name="group1"
-          value="credit"
-          label="Credit"
-          [(modelValue)]="selectedType"
-          variant="default"
-        ></ds-radio>
+        <ds-radio name="group1" value="debit" label="Debit" [(modelValue)]="selectedType" variant="default"></ds-radio>
+        <ds-radio name="group1" value="credit" label="Credit" [(modelValue)]="selectedType"
+          variant="default"></ds-radio>
       </div>
       <div class="flex items-end gap-2">
         <div class="flex-1">
-          <ds-input
-            placeholder="Entrer un montant exact"
-            type="text"
-            label="Chercher un montant exact"
-            className="w-full"
-            [value]="displayPrice"
-            (onInput)="onPriceInput($event)"
-            (onKeydown)="onPriceKeydown($event)"
-          ></ds-input>
+          <ds-input placeholder="Entrer un montant exact" type="text" label="Chercher un montant exact"
+            className="w-full" [value]="displayPrice" (onInput)="onPriceInput($event)"
+            (onKeydown)="onPriceKeydown($event)"></ds-input>
         </div>
-        <ds-button
-          variant="primary"
-          (click)="handleSelect()"
-          [disabled]="!selectedPrice"
-        >
+        <ds-button variant="primary" (click)="handleSelect()" [disabled]="!selectedPrice">
           Valider
         </ds-button>
       </div>

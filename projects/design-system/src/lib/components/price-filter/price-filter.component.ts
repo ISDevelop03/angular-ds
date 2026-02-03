@@ -12,7 +12,9 @@ import {
   Inject,
   Injector,
   Input,
+  OnChanges,
   Output,
+  SimpleChanges,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
@@ -43,9 +45,10 @@ import {
     ]),
   ],
 })
-export class PriceFilterComponent {
+export class PriceFilterComponent implements OnChanges {
   @Input() className?: string = '';
   @Input() showOptions: boolean = true;
+  @Input() value: number | null = null;
   @Output() onSelect = new EventEmitter<Record<string, any> | number>();
 
   @ViewChild('trigger') trigger: ElementRef;
@@ -58,9 +61,16 @@ export class PriceFilterComponent {
   private menuPortal: TemplatePortal<any>;
 
   selectedType: 'debit' | 'credit' = 'credit';
-  selectedPrice: number = null;
+  selectedPrice: number | null = null;
   displayPrice: string = '';
-  placeholder: string = null;
+  placeholder: string = '';
+
+  logDisplayPrice() {
+    console.log('displayPrice:', this.displayPrice);
+  }
+
+
+
 
   constructor(
     private cd: ChangeDetectorRef,
@@ -69,7 +79,15 @@ export class PriceFilterComponent {
     private appRef: ApplicationRef,
     private injector: Injector,
     @Inject(DOCUMENT) private document: any
-  ) {}
+  ) { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['value']) {
+      this.selectedPrice = this.value != null ? this.value : null;
+      this.displayPrice = this.value != null ? this.formatPrice(this.value) : '';
+      this.placeholder = this.value != null ? this.formatPrice(this.value) : '';
+    }
+  }
 
   ngOnInit() {
     this.portalHost = new DomPortalHost(
@@ -79,6 +97,7 @@ export class PriceFilterComponent {
       this.injector
     );
     document.addEventListener('click', this.handleOutsideClick, true);
+    this.logDisplayPrice();
   }
 
   ngOnDestroy() {
@@ -230,6 +249,7 @@ export class PriceFilterComponent {
     this.selectedPrice = null;
     this.displayPrice = '';
     this.placeholder = '';
+    this.onSelect.emit(null);
   }
 
   handleSelect() {
