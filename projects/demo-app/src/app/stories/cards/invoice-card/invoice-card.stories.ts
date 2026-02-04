@@ -13,24 +13,54 @@ export class InvoiceCardStoryComponent {
     href?: string;
     onClick?: (data: any) => void;
   }[] = [
-    {
-      label: 'View',
-      value: 'View',
-      href: '/view',
-      onClick: (data) => console.log('View clicked', data),
-    },
-    {
-      label: 'Download',
-      value: 'Download',
-      href: '/download',
-      onClick: (data) => console.log('Download clicked', data),
-    },
-    {
-      label: 'Share',
-      value: 'Share',
-      onClick: (data) => console.log('Share clicked', data),
-    },
-  ];
+      {
+        label: 'View',
+        value: 'View',
+        href: '/view',
+        onClick: (data) => console.log('View clicked', data),
+      },
+      {
+        label: 'Download',
+        value: 'Download',
+        href: '/download',
+        onClick: (data) => console.log('Download clicked', data),
+      },
+      {
+        label: 'Download',
+        value: 'Download',
+        href: '/download',
+        onClick: (data) => console.log('Download clicked', data),
+      },
+      {
+        label: 'Download',
+        value: 'Download',
+        href: '/download',
+        onClick: (data) => console.log('Download clicked', data),
+      },
+      {
+        label: 'Download',
+        value: 'Download',
+        href: '/download',
+        onClick: (data) => console.log('Download clicked', data),
+      },
+      {
+        label: 'Download',
+        value: 'Download',
+        href: '/download',
+        onClick: (data) => console.log('Download clicked', data),
+      },
+      {
+        label: 'Download',
+        value: 'Download',
+        href: '/download',
+        onClick: (data) => console.log('Download clicked', data),
+      },
+      {
+        label: 'Share',
+        value: 'Share',
+        onClick: (data) => console.log('Share clicked', data),
+      },
+    ];
   href?: string = '/invoice-card';
   title: string = 'Ministère de l’Equipement et du Transport';
   image: string = 'https://placehold.co/100';
