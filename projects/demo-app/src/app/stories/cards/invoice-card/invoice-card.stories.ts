@@ -16,7 +16,7 @@ export class InvoiceCardStoryComponent {
       {
         label: 'View',
         value: 'View',
-        href: '/view',
+        href: '/invoice-card',
         onClick: (data) => console.log('View clicked', data),
       },
       {

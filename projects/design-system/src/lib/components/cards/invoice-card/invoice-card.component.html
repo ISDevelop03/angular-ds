@@ -36,11 +36,11 @@
           [ngClass]="dropdownOpenUp ? 'bottom-full mb-1' : 'top-full mt-1'" role="menu"
           [style.visibility]="isDropdownOpen ? 'visible' : 'hidden'">
           <ds-input [placeholder]="'Rechercher'" [(ngModel)]="searchInput" autoComplete="off" class="shrink-0">
-            <ds-icon prefix id="Search" class="text-neutral-500"></ds-icon>
+            <ds-icon prefix id="search1" class="text-black"></ds-icon>
           </ds-input>
           <div class="mt-2 flex-1 min-h-0 overflow-y-auto">
-            <a [href]="item.href" *ngFor="let item of getFiltredValues()" role="menuitem"
-              (click)="onDropdownItemClick($event, item)"
+            <button *ngFor="let item of getFiltredValues()" role="menuitem"
+            (click)="onDropdownItemClick($event, item)"
               class="group whitespace-nowrap flex justify-between gap-2 w-full items-center rounded-md p-3 hover:bg-neutral-50 text-[0.875rem]/normal font-[400]">
               <div class="flex items-center gap-2">
                 <ds-icon *ngIf="item.icon" [id]="item.icon"
@@ -48,7 +48,7 @@
                 <span class="font-semibold">{{ item.label }}</span>
               </div>
               <ds-icon id="arrow-right-1" class="hidden group-hover:block ml-auto text-red-500"></ds-icon>
-            </a>
+            </button>
           </div>
         </div>
       </div>
