@@ -17,7 +17,7 @@
     "watch:css": "tailwindcss -i ./projects/design-system/src/styles/styles.css -o ./styles/styles.css --watch",
     "docs": "compodoc -p projects/design-system/tsconfig.lib.json -s --watch  --theme laravel",
     "icons:build": "npx --yes @vactorynext/svg-spreact-cli ./icons --optimize true --tidy true > ./projects/demo-app/src/assets/icons.svg",
-    "pack:ds": "npm run build:ds && cd dist/mybusiness-design-system && npm pack && mv mybusiness-design-system-*.tgz ../../ && cd ../../ && npm install mybusiness-design-system-0.1.24.tgz"
+    "pack:ds": "npm run build:ds && cd dist/mybusiness-design-system && npm pack && mv mybusiness-design-system-*.tgz ../../ && cd ../../ && npm install mybusiness-design-system-0.1.25.tgz"
   },
   "files": [
     "dist"
@@ -41,7 +41,7 @@
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "moment": "^2.22.2",
-    "mybusiness-design-system": "file:mybusiness-design-system-0.1.24.tgz",
+    "mybusiness-design-system": "file:mybusiness-design-system-0.1.25.tgz",
     "ngx-bootstrap": "^5.6.2",
     "ngx-daterangepicker-material": "^2.4.2",
     "ngx-owl-carousel-o": "^1.2.1",
