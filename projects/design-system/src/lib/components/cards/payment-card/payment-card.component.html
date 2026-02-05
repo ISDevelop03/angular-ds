@@ -8,11 +8,13 @@
       [checked]="isSelected"
       (change)="onSelectChange($event)"
     ></ds-checkbox>
-    <img
-      [src]="image"
-      [alt]="title"
-      class="shrink-0 w-[50px] aspect-square rounded-[2px] object-cover"
-    />
+    <div class="py-1 px-2 border border-neutral-100 rounded-[1px] w-[60px]">
+      <img
+        [src]="image"
+        [alt]="title"
+        class="shrink-0 w-full h-full rounded-[2px] object-contain"
+      />
+    </div>
 
     <h3
       *ngIf="title"

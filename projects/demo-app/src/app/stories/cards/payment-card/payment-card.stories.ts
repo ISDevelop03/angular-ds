@@ -8,7 +8,7 @@ export class PaymentCardStoryComponent {
   isSelected: boolean = false;
   data = {
     title: 'Inwi : Paiement de factures',
-    image: 'https://placehold.co/100',
+    image: 'https://placehold.co/800',
     price: 123454,
     currency: 'MAD',
   };
