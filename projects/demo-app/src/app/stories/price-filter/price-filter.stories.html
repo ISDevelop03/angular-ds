@@ -76,6 +76,24 @@
             element. Useful for custom styling or layout adjustments.
           </td>
         </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The current price value to display (controlled/bound value). When set,
+            the trigger shows the formatted price and the input is pre-filled.
+            Use <code>null</code> to show the placeholder and allow the user to
+            enter a new value. Updates to <code>value</code> are reflected in the
+            displayed price and placeholder.
+          </td>
+        </tr>
 
         <!-- Component Outputs -->
         <tr class="bg-green-50">
