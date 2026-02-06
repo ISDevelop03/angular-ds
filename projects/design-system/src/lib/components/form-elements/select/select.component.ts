@@ -45,8 +45,7 @@ export interface SelectItem {
   ],
 })
 export class DsSelectComponent
-  implements ControlValueAccessor, OnDestroy, OnChanges
-{
+  implements ControlValueAccessor, OnDestroy, OnChanges {
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
@@ -68,9 +67,9 @@ export class DsSelectComponent
   @Input() tooltip?: string | TemplateRef<any>;
   @Input() required: boolean = false;
   @Input() allowClear: boolean = false;
-
   @Output() onSearch = new EventEmitter<string>();
   @Output() valueChange = new EventEmitter<any>();
+  @Input() searchable = false
 
   filteredItems: SelectItem[] = [];
 
@@ -109,8 +108,8 @@ export class DsSelectComponent
 
   theme = theme;
 
-  private _onChange: (v: any) => void = () => {};
-  private _onTouched: () => void = () => {};
+  private _onChange: (v: any) => void = () => { };
+  private _onTouched: () => void = () => { };
 
   ngOnDestroy() {
     this.destroy$.next();

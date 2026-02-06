@@ -111,83 +111,98 @@
     [ngStyle]="mergedStyles"
     [ngClass]="theme[variant].element.options.container"
   >
-    <ng-container *ngIf="filteredItems.length > 0; else emptyState">
-      <div
-        *ngFor="let item of filteredItems"
-        (click)="selectOption($event, item)"
-        class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r"
-        [ngClass]="[
-          theme[variant].element.options.element,
-          item.unavailable
-            ? theme[variant].element.options.unavailable
-            : theme[variant].element.options.available,
-          isSelected(item) ? 'bg-neutral-50 ' : 'bg-transparent',
-          item.isAccount
-            ? isSelected(item)
-              ? 'after:bg-red-500'
-              : 'after:bg-transparent'
-            : ''
-        ]"
-        [class.cursor-not-allowed]="item.unavailable"
+    <div *ngIf="searchable" class="mb-2">
+      <ds-input
+        [placeholder]="placeholder"
+        [value]="searchTerm"
+        (input)="onSearchInput($event.target.value)"
       >
-        <div class="flex justify-between items-center">
-          <div
-            *ngIf="!item.isAccount; else account"
-            class="flex justify-between items-center gap-2"
-          >
-            <ds-icon
-              *ngIf="item.icon"
-              [id]="item.icon"
-              [class]="item.iconClass"
-            ></ds-icon>
-            <img
-              *ngIf="item.image"
-              [src]="item.image"
-              [alt]="item.label"
-              class="shrink-0 rounded-full size-5"
-              [ngClass]="[item.imageClass || '']"
-            />
-            <span
-              [ngClass]="[
-                theme[variant].element.options.fontcolor,
-                isSelected(item)
-                  ? theme[variant].element.options.selectedfont
-                  : '',
-                'whitespace-nowrap'
-              ]"
+        <ds-icon
+          id="search1"
+          prefix
+          (click)="onSearchInput($event.target.value)"
+        ></ds-icon>
+      </ds-input>
+    </div>
+    <div class="grow overflow-y-auto">
+      <ng-container *ngIf="filteredItems.length > 0; else emptyState">
+        <div
+          *ngFor="let item of filteredItems"
+          (click)="selectOption($event, item)"
+          class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r"
+          [ngClass]="[
+            theme[variant].element.options.element,
+            item.unavailable
+              ? theme[variant].element.options.unavailable
+              : theme[variant].element.options.available,
+            isSelected(item) ? 'bg-neutral-50 ' : 'bg-transparent',
+            item.isAccount
+              ? isSelected(item)
+                ? 'after:bg-red-500'
+                : 'after:bg-transparent'
+              : ''
+          ]"
+          [class.cursor-not-allowed]="item.unavailable"
+        >
+          <div class="flex justify-between items-center">
+            <div
+              *ngIf="!item.isAccount; else account"
+              class="flex justify-between items-center gap-2"
             >
-              {{ item.label }}
-            </span>
-          </div>
-          <ng-template #account>
-            <div class="flex justify-start items-center gap-3">
-              <div
+              <ds-icon
                 *ngIf="item.icon"
-                class="size-10 flex justify-center items-center rounded-full"
-              >
-                <ds-icon [id]="item.icon" class="text-red-500"></ds-icon>
-              </div>
-
+                [id]="item.icon"
+                [class]="item.iconClass"
+              ></ds-icon>
               <img
                 *ngIf="item.image"
                 [src]="item.image"
-                alt="[item.label]"
-                class="rounded-full size-10"
+                [alt]="item.label"
+                class="shrink-0 rounded-full size-5"
+                [ngClass]="[item.imageClass || '']"
               />
-              <div class="flex flex-col gap-1">
-                <span
-                  class="inline-flex text-neutral-500 font-light text-[0.75rem]/[1rem]"
-                  >{{ item.label }}</span
-                >
-                <span class="inline-flex font-semibold text-[0.75rem]/[1rem]">
-                  {{ item.value }}
-                </span>
-              </div>
+              <span
+                [ngClass]="[
+                  theme[variant].element.options.fontcolor,
+                  isSelected(item)
+                    ? theme[variant].element.options.selectedfont
+                    : '',
+                  'whitespace-nowrap'
+                ]"
+              >
+                {{ item.label }}
+              </span>
             </div>
-          </ng-template>
+            <ng-template #account>
+              <div class="flex justify-start items-center gap-3">
+                <div
+                  *ngIf="item.icon"
+                  class="size-10 flex justify-center items-center rounded-full"
+                >
+                  <ds-icon [id]="item.icon" class="text-red-500"></ds-icon>
+                </div>
+
+                <img
+                  *ngIf="item.image"
+                  [src]="item.image"
+                  [alt]="item.label"
+                  class="rounded-full size-10"
+                />
+                <div class="flex flex-col gap-1">
+                  <span
+                    class="inline-flex text-neutral-500 font-light text-[0.75rem]/[1rem]"
+                    >{{ item.label }}</span
+                  >
+                  <span class="inline-flex font-semibold text-[0.75rem]/[1rem]">
+                    {{ item.value }}
+                  </span>
+                </div>
+              </div>
+            </ng-template>
+          </div>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
+    </div>
 
     <ng-template #emptyState>
       <div class="p-2 px-4 text-gray-600">{{ emptyLabel }}</div>

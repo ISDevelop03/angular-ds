@@ -28,7 +28,7 @@ export const theme = {
         selectedfont:
           'flex text-heading dark:text-white items-center justify-between w-full',
         container:
-          'absolute left-0 top-0 border border-neutral-100 bottom-0 p-1 mb-1 mt-1 min-w-32 max-h-60 overflow-y-auto w-fit min-w-full rounded-lg bg-level-3 py-1 text-[0.75rem]/[1rem] focus:outline-none border shadow-dropdown2',
+          'absolute left-0 top-0 border border-neutral-100 bottom-0 p-1 mb-1 mt-1 min-w-32 max-h-60 w-fit min-w-full rounded-lg bg-level-3 py-1 text-[0.75rem]/[1rem] focus:outline-none border shadow-dropdown2 flex flex-col',
         element:
           'w-full hover:bg-neutral-50 rounded cursor-default text-neutral-900 font-semibold select-none py-3 px-4',
         fontcolor: 'white',

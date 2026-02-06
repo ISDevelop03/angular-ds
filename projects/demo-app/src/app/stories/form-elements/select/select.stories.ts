@@ -10,25 +10,55 @@ export class SelectStoryComponent {
   isLoading: boolean = false;
 
   options: SelectItem[] = [
-    { label: 'Option 1', value: 'option1' },
-    { label: 'Option 2', value: 'option2', icon: 'vide' },
+    { label: 'The first option', value: 'option1' },
+    { label: 'The second option', value: 'option2', icon: 'vide' },
     {
-      label: 'Option 3',
+      label: 'The third option',
       value: 'option3',
       unavailable: true,
       icon: 'vide',
       iconClass: 'text-amber-400',
     },
     {
-      label: 'This is a long label Option 4',
+      label: 'The fourth option',
       value: 'option4',
       unavailable: true,
       image: 'https://placehold.co/20',
       imageClass: 'rounded-full',
     },
     {
-      label: 'Option 5',
+      label: 'The fifth option',
       value: 'option5',
+      image: 'https://placehold.co/20',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'The sixth option',
+      value: 'option6',
+      image: 'https://placehold.co/20',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'The seventh option',
+      value: 'option7',
+      image: 'https://placehold.co/20',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'The eighth option',
+      value: 'option8',
+      image: 'https://placehold.co/20',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'The ninth option',
+      value: 'option9',
+      image: 'https://placehold.co/20',
+      imageClass: 'rounded-full',
+    },
+    {
+      label: 'The tenth option',
+      value: 'option10',
       image: 'https://placehold.co/20',
       imageClass: 'rounded-full',
     },

@@ -20,6 +20,26 @@
     </div>
   </section>
 
+  <!-- Basic Single Select with Search -->
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Basic Single Select with Search</h3>
+    <p class="text-gray-600 text-sm">
+      A simple single-selection dropdown with label and placeholder.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-select
+        [items]="options"
+        [value]="selectedValue"
+        (valueChange)="valueChange($event)"
+        label="Choose Option"
+        placeholder="Pick one..."
+        class="w-full"
+        searchable="true"
+      >
+      </ds-select>
+    </div>
+  </section>
+
   <!-- Single Select with Icon -->
   <section class="flex flex-col gap-4 max-w-xl">
     <h3 class="text-2xl font-bold">Single Select with Icon</h3>
@@ -328,6 +348,24 @@
             of strings. In multiple mode, the dropdown doesn't close after
             selecting an option, and selected items are highlighted. The
             selected label displays all selected item labels joined with commas.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            searchable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, shows a search/filter input inside the
+            dropdown. Users can type to filter options by label (case-insensitive).
+            Useful when the options list is long. Unlike <code>autoComplete</code>,
+            the select button still shows the selected label (or placeholder);
+            only the dropdown content includes the search field.
           </td>
         </tr>
         <tr>
