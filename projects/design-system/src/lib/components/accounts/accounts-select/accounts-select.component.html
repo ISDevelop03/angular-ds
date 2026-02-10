@@ -74,7 +74,10 @@
                       >
                         {{ selectedValue.soldeTempsReel.currency }}
                       </span>
-                      <div class="relative rounded-full size-4">
+                      <div
+                        *ngIf="showCurrencyFlag"
+                        class="relative rounded-full size-4"
+                      >
                         <img
                           [src]="selectedValue.soldeComptable.currency_flag"
                           alt="[selectedValue.title]"
@@ -105,7 +108,10 @@
                       >
                         {{ selectedValue.soldeTempsReel.currency }}
                       </span>
-                      <div class="relative rounded-full size-4">
+                      <div
+                        *ngIf="showCurrencyFlag"
+                        class="relative rounded-full size-4"
+                      >
                         <img
                           [src]="selectedValue.soldeTempsReel.currency_flag"
                           alt="[selectedValue.title]"
@@ -205,7 +211,10 @@
                         >
                           {{ item.soldeTempsReel.currency }}
                         </span>
-                        <div class="relative rounded-full size-4">
+                        <div
+                          *ngIf="showCurrencyFlag"
+                          class="relative rounded-full size-4"
+                        >
                           <img
                             [src]="item.soldeComptable.currency_flag"
                             alt="[item.title]"
@@ -235,7 +244,10 @@
                         >
                           {{ item.soldeTempsReel.currency }}
                         </span>
-                        <div class="relative rounded-full size-4">
+                        <div
+                          *ngIf="showCurrencyFlag"
+                          class="relative rounded-full size-4"
+                        >
                           <img
                             [src]="item.soldeTempsReel.currency_flag"
                             alt="[item.title]"

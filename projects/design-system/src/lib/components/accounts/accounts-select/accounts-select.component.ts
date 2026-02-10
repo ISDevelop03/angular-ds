@@ -59,6 +59,7 @@ export class AccountsSelectComponent implements OnChanges {
   @Input() value: string | null = null;
   @Input() customOptionsStyles?: { [key: string]: any };
   @Input() autoComplete: boolean = false;
+  @Input() showCurrencyFlag: boolean = false;
 
   @Output() valueChange = new EventEmitter<string | string[]>();
 
