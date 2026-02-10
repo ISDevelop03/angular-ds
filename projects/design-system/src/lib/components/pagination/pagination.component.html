@@ -1,4 +1,8 @@
-<nav id="ds-pagination" [ngClass]="[theme[variant].wrapper, className]">
+<nav
+  *ngIf="pageCount > 1"
+  id="ds-pagination"
+  [ngClass]="[theme[variant].wrapper, className]"
+>
   <div class="flex items-center justify-center gap-x-2">
     <span [ngClass]="[theme[variant].info]">
       <span>(</span>
