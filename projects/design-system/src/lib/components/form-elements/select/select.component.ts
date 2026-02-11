@@ -92,6 +92,10 @@ export class DsSelectComponent
     if (changes['items'] && changes['items'].currentValue) {
       this.filteredItems = [].concat(this.items);
     }
+    if (changes['value'] && changes['value'].currentValue) {
+      this.searchTerm = '';
+      this.filteredItems = [].concat(this.items);
+    }
   }
 
   private static zIndexCounter = 10000;
