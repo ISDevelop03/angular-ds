@@ -15,17 +15,20 @@
     ]"
   >
     <ng-container *ngIf="selectedValue === null && !autoComplete">
-      <span class="text-neutral-500 text-[0.75rem] leading-[18px]">
+      <span class="text-neutral-900 text-[0.75rem] leading-[18px]">
         {{ placeholder }}
       </span>
     </ng-container>
     <ng-container *ngIf="autoComplete && selectedValue === null">
+      <div class="relative mr-2">
+        <ds-icon id="search1" size="16" class="text-neutral-900"></ds-icon>
+      </div>
       <input
         #autoCompleteInput
         type="text"
         class="w-full outline-none"
         [placeholder]="placeholder"
-        class="w-full outline-none text-heading dark:text-white text-[0.75rem]"
+        class="w-full outline-none text-neutral-900 placeholder:text-neutral-900 text-[0.75rem]"
         (input)="onAutoCompleteInput($event)"
         [(ngModel)]="searchTerm"
       />
