@@ -31,7 +31,6 @@ export class DsToggleComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.checked) {
       this.enabled = this.checked;
-      this.onChange.emit(this.enabled);
     }
   }
 
