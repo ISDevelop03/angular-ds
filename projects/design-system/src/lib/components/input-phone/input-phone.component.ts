@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { theme } from './theme';
 /**
  * InputPhoneComponent
@@ -21,11 +21,19 @@ export class InputPhoneComponent {
   @Input() countriesPrefixes: Record<string, string>[] = [];
   @Input() placeholder: string = 'Enter your phone number';
   @Input() selectedCountryPrefix: string = "+212";
+  @Input() value: string | null = null;
+  @Output() onChange = new EventEmitter<string | null>();
+
 
   theme = theme.default;
 
   phoneNumber: string | null = null;
   onCountryChange(event: string) {
     this.selectedCountryPrefix = event;
+  }
+
+  onPhoneNumberChange(event: Event) {
+    this.phoneNumber = (event.target as HTMLInputElement).value;
+    this.onChange.emit(this.selectedCountryPrefix.concat(this.phoneNumber));
   }
 }

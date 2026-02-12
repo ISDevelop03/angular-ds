@@ -19,4 +19,8 @@ export class InputPhoneStoryComponent {
   hasError: boolean = true;
   errorMessage: string = 'error message';
   description: string = 'Please enter your mobile phone number to receive important notifications and account updates.';
+
+  onPhoneNumberChange(event: string | null) {
+    console.log(event);
+  }
 }
