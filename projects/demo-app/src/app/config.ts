@@ -26,11 +26,11 @@ export const menus: Menu[] = [
     path: '/accordion',
     key: 'accordion',
   },
-  // {
-  //   name: 'Avatar',
-  //   path: '/avatar',
-  //   key: 'avatar',
-  // },
+  {
+    name: 'Avatar',
+    path: '/avatar',
+    key: 'avatar',
+  },
   {
     name: 'Tabs',
     path: '/tabs',

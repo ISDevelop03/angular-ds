@@ -1,5 +1,7 @@
-<div class="p-4 grid gap-6">
-  <h3>Default (Image Avatar)</h3>
+<section class="flex flex-col gap-4 p-4 bg-crame-50">
+  <h2 class="text-4xl font-bold mb-6">Avatar</h2>
+
+  <h3 class="text-2xl font-bold">Default (Image Avatar)</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-avatar
       *ngFor="let size of sizes"
@@ -8,7 +10,7 @@
     ></ds-avatar>
   </div>
 
-  <h3>Placeholder (SVG Avatar)</h3>
+  <h3 class="text-2xl font-bold">Placeholder (SVG Avatar)</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-avatar
       *ngFor="let size of sizes"
@@ -17,7 +19,7 @@
     ></ds-avatar>
   </div>
 
-  <h3>Initials</h3>
+  <h3 class="text-2xl font-bold">Initials</h3>
   <div class="flex gap-2 flex-wrap">
     <ds-avatar
       *ngFor="let size of sizes"
@@ -27,20 +29,133 @@
     ></ds-avatar>
   </div>
 
-  <h3>Combined Example</h3>
-  <div class="flex gap-2 flex-wrap">
-    <ds-avatar
-      variant="initials"
-      size="large"
-      [children]="'XY'"
-      className="ring-2 ring-primary-500"
-    ></ds-avatar>
-    <ds-avatar variant="placeholder" size="xlarge"></ds-avatar>
-    <ds-avatar
-      variant="default"
-      size="xxlarge"
-      alt="Custom Image"
-      src="https://randomuser.me/api/portraits/men/32.jpg"
-    ></ds-avatar>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default' | 'placeholder' | 'initials'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual variant of the avatar. <code>default</code> shows an image
+            from <code>src</code>; <code>placeholder</code> shows a generic SVG
+            placeholder; <code>initials</code> shows text from
+            <code>children</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            size
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'small' | 'normal' | 'large' | 'xlarge' | 'xxlarge'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'normal'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Size of the avatar. Maps to fixed width/height classes (e.g.
+            <code>small</code> = 24px, <code>normal</code> = 32px,
+            <code>large</code> = 40px, <code>xlarge</code> = 48px,
+            <code>xxlarge</code> = 56px).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            alt
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Alt text for the avatar image. Used for accessibility when
+            <code>variant</code> is <code>default</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            src
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">(default image URL)</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Image URL for the avatar. Only used when <code>variant</code> is
+            <code>default</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the avatar container.
+            Useful for custom styling or layout adjustments.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            children
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Text displayed inside the avatar when <code>variant</code> is
+            <code>initials</code>. Typically one or two letters (e.g. user
+            initials like "AB").
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
+</section>
