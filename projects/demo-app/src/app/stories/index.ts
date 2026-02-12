@@ -168,3 +168,6 @@ export * from './price-filter/price-filter.stories';
 
 // Auto-export for illustration stories
 export * from './illustration/illustration.stories';
+
+// Auto-export for input-phone stories
+export * from './input-phone/input-phone.stories';

@@ -1,0 +1,34 @@
+<div id="ds-input-phone" [ngClass]="className">
+  <div class="flex items-center gap-2 mb-2">
+    <label [ngClass]="['shrink-0', theme.label || '']">
+      {{ label }}
+      <span *ngIf="required" class="text-red-500">*</span>
+    </label>
+    <ds-tooltip *ngIf="tooltip" [content]="tooltip" position="right">
+      <ds-icon id="info-circle" class="size-4"></ds-icon>
+    </ds-tooltip>
+  </div>
+  <div class="flex gap-x-2 w-full">
+    <ds-select
+      [items]="countriesPrefixes"
+      [value]="selectedCountryPrefix"
+      (valueChange)="onCountryChange($event)"
+      [hasError]="hasError"
+    >
+    </ds-select>
+    <ds-input
+      [placeholder]="placeholder"
+      [value]="phoneNumber"
+      (input)="onPhoneNumberChange($event)"
+      class="w-full"
+      [hasError]="hasError"
+    ></ds-input>
+  </div>
+  <div *ngIf="description" [ngClass]="theme.description">
+    {{ description }}
+  </div>
+
+  <div *ngIf="hasError && errorMessage" [ngClass]="theme.errorMessage">
+    {{ errorMessage }}
+  </div>
+</div>

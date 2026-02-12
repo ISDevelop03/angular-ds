@@ -279,4 +279,5 @@ export const menus: Menu[] = [
   { key: 'loader', name: 'Loader', path: '/loader' },
   { key: 'price-filter', name: 'PriceFilter', path: '/price-filter' },
   { key: 'illustration', name: 'Illustration', path: '/illustration' },
+  { key: 'input-phone', name: 'InputPhone', path: '/input-phone' },
 ];

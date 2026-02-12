@@ -1,0 +1,228 @@
+<section class="flex flex-col gap-4 p-4 bg-crame-50">
+  <h2 class="text-4xl font-bold mb-6">Input Phone</h2>
+  <h3 class="text-2xl font-bold">Default Input Phone</h3>
+  <div class="w-full gap-4">
+    <ds-input-phone
+      [label]="label"
+      [tooltip]="tooltip"
+      [required]="false"
+      [description]="description"
+      [countriesPrefixes]="countriesPrefixes"
+      [selectedCountryPrefix]="selectedCountryPrefix"
+    ></ds-input-phone>
+  </div>
+  <h3 class="text-2xl font-bold">Required Input Phone</h3>
+  <div class="w-full gap-4">
+    <ds-input-phone
+      [label]="label"
+      [tooltip]="tooltip"
+      [required]="true"
+      [description]="description"
+      [countriesPrefixes]="countriesPrefixes"
+      [selectedCountryPrefix]="selectedCountryPrefix"
+    ></ds-input-phone>
+  </div>
+  <h3 class="text-2xl font-bold">Error Input Phone</h3>
+  <div class="w-full gap-4">
+    <ds-input-phone
+      [label]="label"
+      [tooltip]="tooltip"
+      [required]="false"
+      [hasError]="true"
+      [errorMessage]="errorMessage"
+      [description]="description"
+      [countriesPrefixes]="countriesPrefixes"
+      [selectedCountryPrefix]="selectedCountryPrefix"
+    ></ds-input-phone>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label text displayed above the input. Use to provide
+            context or instructions to users.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tooltip
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional tooltip content. When set, an info icon is shown next to
+            the label; hovering displays the tooltip.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            required
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, a red asterisk is displayed next to the
+            label to indicate the field is required.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            hasError
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies error styling to the country select
+            and phone input. Use with <code>errorMessage</code> to show
+            validation feedback.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            errorMessage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Error message displayed below the input when
+            <code>hasError</code> is <code>true</code>. Use to provide specific
+            validation feedback.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional helper text displayed below the input. Use for instructions
+            or additional context (e.g., "Please enter your mobile phone
+            number...").
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            countriesPrefixes
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">Record&lt;string, string&gt;[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Array of country prefix options for the
+            select. Each item should have <code>value</code> and
+            <code>label</code> (e.g.,
+            <code>&#123; value: '+212', label: '+212' &#125;</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selectedCountryPrefix
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'+212'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The currently selected country calling code (e.g., '+212', '+33').
+            Must match one of the <code>value</code> entries in
+            <code>countriesPrefixes</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Enter your phone number'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Placeholder text displayed in the phone number input when empty.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes applied to the component root. Use for custom
+            styling or layout.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
