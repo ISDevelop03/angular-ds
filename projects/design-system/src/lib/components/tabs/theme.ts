@@ -31,12 +31,12 @@ export const theme = {
     panels: {
       container: '',
       panel: {
-        base: 'rounded-md -mx-3 focus:outline-none',
+        base: 'rounded-md !-mx-3 focus:outline-none',
       },
     },
   },
   withBorder: {
-    wrapper: 'w-full px-3',
+    wrapper: 'w-full ',
     list: {
       container: 'flex space-x-2 rounded bg-crame-100 p-1 w-fit',
       tab: {
