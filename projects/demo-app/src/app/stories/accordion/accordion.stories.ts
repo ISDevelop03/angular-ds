@@ -22,7 +22,63 @@ export class AccordionStoryComponent implements AfterViewInit {
   itemsWithTemplate: AccordionItem[] = [];
   itemsBorderless: AccordionItem[] = [];
   itemsShadowless: AccordionItem[] = [];
-  constructor(private cdr: ChangeDetectorRef) {}
+
+  /** Code snippets for docs (used by app-story-demo-code-block) */
+  snippetDefaultHtml = `<ds-accordion
+  [items]="items"
+  variant="default"
+  (openHandler)="onAccordionOpen($event)"
+></ds-accordion>`;
+
+  snippetDefaultTs = `items: AccordionItem[] = [
+  { id: '1', title: 'Section 1', content: '<p>Content 1</p>', open: true },
+  { id: '2', title: 'Section 2', content: '<p>Content 2</p>' },
+];
+
+onAccordionOpen(item: AccordionItem) {
+  console.log('Opened:', item);
+}`;
+
+  snippetBorderlessHtml = `<ds-accordion
+  [items]="items"
+  variant="borderless"
+  [allowMultiple]="true"
+  (openHandler)="onAccordionOpen($event)"
+></ds-accordion>`;
+
+  snippetBorderlessTs = `items: AccordionItem[] = [ /* ... */ ];
+
+onAccordionOpen(item: AccordionItem) {
+  console.log('Opened:', item);
+}`;
+
+  snippetBorderlessReversedHtml = `<ds-accordion
+  [items]="items"
+  variant="borderless-reversed"
+  [allowMultiple]="true"
+  (openHandler)="onAccordionOpen($event)"
+></ds-accordion>`;
+
+  snippetBorderlessReversedTs = `items: AccordionItem[] = [ /* ... */ ];
+
+onAccordionOpen(item: AccordionItem) {
+  console.log('Opened:', item);
+}`;
+
+  snippetShadowlessHtml = `<ds-accordion
+  [items]="items"
+  variant="shadowless"
+  [allowMultiple]="true"
+  (openHandler)="onAccordionOpen($event)"
+></ds-accordion>`;
+
+  snippetShadowlessTs = `items: AccordionItem[] = [ /* ... */ ];
+
+onAccordionOpen(item: AccordionItem) {
+  console.log('Opened:', item);
+}`;
+
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     this.items = [
@@ -33,6 +89,7 @@ export class AccordionStoryComponent implements AfterViewInit {
         count: 5,
         countColor: 'bg-yellow-500',
         open: true,
+        buttonTemplate: this.buttonTemplate,
       },
       {
         id: 'default-2',

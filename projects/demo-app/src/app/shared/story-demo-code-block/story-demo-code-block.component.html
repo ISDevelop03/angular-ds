@@ -1,0 +1,85 @@
+<header *ngIf="title" class="">
+  <h3 class="text-2xl font-bold mb-2">{{ title }}</h3>
+</header>
+<section
+  class="rounded border border-gray-200 bg-white shadow-sm overflow-hidden"
+>
+  <div class="flex bg-gray-50">
+    <button
+      type="button"
+      (click)="setMainTab('preview')"
+      class="px-4 py-3 text-sm font-medium transition-colors"
+      [class.bg-white]="mainTab === 'preview'"
+      [class.text-gray-900]="mainTab === 'preview'"
+      [class.border-b-2]="mainTab === 'preview'"
+      [class.border-gray-900]="mainTab === 'preview'"
+      [class.text-gray-600]="mainTab !== 'preview'"
+      [class.hover:text-gray-900]="mainTab !== 'preview'"
+    >
+      Preview
+    </button>
+    <button
+      *ngIf="hasCode"
+      type="button"
+      (click)="setMainTab('code')"
+      class="px-4 py-3 text-sm font-medium transition-colors"
+      [class.bg-white]="mainTab === 'code'"
+      [class.text-gray-900]="mainTab === 'code'"
+      [class.border-b-2]="mainTab === 'code'"
+      [class.border-gray-900]="mainTab === 'code'"
+      [class.text-gray-600]="mainTab !== 'code'"
+      [class.hover:text-gray-900]="mainTab !== 'code'"
+    >
+      Code
+    </button>
+  </div>
+
+  <div *ngIf="mainTab === 'preview'" class="p-4">
+    <ng-content></ng-content>
+  </div>
+
+  <div *ngIf="mainTab === 'code' && hasCode" class="bg-gray-50 p-4">
+    <div class="bg-gray-800">
+      <div
+        *ngIf="htmlSnippet && tsSnippet"
+        class="flex border-b border-gray-700"
+      >
+        <button
+          type="button"
+          (click)="setCodeTab('html')"
+          class="px-4 py-2 text-sm font-medium transition-colors"
+          [class.bg-gray-800]="codeTab === 'html'"
+          [class.text-amber-400]="codeTab === 'html'"
+          [class.text-gray-400]="codeTab !== 'html'"
+          [class.hover:text-gray-300]="codeTab !== 'html'"
+        >
+          HTML
+        </button>
+        <button
+          type="button"
+          (click)="setCodeTab('ts')"
+          class="px-4 py-2 text-sm font-medium transition-colors"
+          [class.bg-gray-800]="codeTab === 'ts'"
+          [class.text-amber-400]="codeTab === 'ts'"
+          [class.text-gray-400]="codeTab !== 'ts'"
+          [class.hover:text-gray-300]="codeTab !== 'ts'"
+        >
+          TypeScript
+        </button>
+      </div>
+
+      <div class="p-4 overflow-x-auto">
+        <pre
+          *ngIf="
+            (codeTab === 'html' && htmlSnippet) || (htmlSnippet && !tsSnippet)
+          "
+          class="m-0 text-sm text-gray-300 font-mono whitespace-pre"
+        ><code>{{ htmlSnippet }}</code></pre>
+        <pre
+          *ngIf="(codeTab === 'ts' && tsSnippet) || (tsSnippet && !htmlSnippet)"
+          class="m-0 text-sm text-gray-300 font-mono whitespace-pre"
+        ><code>{{ tsSnippet }}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>

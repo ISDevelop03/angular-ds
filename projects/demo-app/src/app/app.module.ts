@@ -99,6 +99,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoComponent } from './logo/logo.component';
+import { StoryDemoCodeBlockComponent } from './shared/story-demo-code-block';
 
 export const pages: Routes = [
   { path: '', component: HomeComponent },
@@ -229,6 +230,7 @@ const router = RouterModule.forRoot(pages);
     // Blocks
     LogoComponent,
     SidebarComponent,
+    StoryDemoCodeBlockComponent,
 
     // Stories
     ButtonStoryComponent,

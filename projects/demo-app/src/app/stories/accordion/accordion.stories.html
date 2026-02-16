@@ -2,38 +2,59 @@
   class="p-4 grid gap-6 w-full grid-cols-1 place-content-start min-h-screen bg-crame-50"
 >
   <h2 class="text-4xl font-bold mb-6">Accordion</h2>
-  <h3 class="text-2xl font-bold">Default Accordion</h3>
-  <ds-accordion
-    [items]="items"
-    variant="default"
-    (openHandler)="onAccordionOpen($event)"
-  ></ds-accordion>
 
-  <h3 class="text-2xl font-bold">Borderless Accordion</h3>
-  <ds-accordion
-    [items]="items"
-    variant="borderless"
-    [allowMultiple]="true"
-    (openHandler)="onAccordionOpen($event)"
-  ></ds-accordion>
-
-  <div class="bg-level-3 rounded-2xl p-4">
-    <h3 class="text-2xl font-bold mb-6">Borderless Reversed Accordion</h3>
+  <app-story-demo-code-block
+    title="Default Accordion"
+    [htmlSnippet]="snippetDefaultHtml"
+    [tsSnippet]="snippetDefaultTs"
+  >
     <ds-accordion
       [items]="items"
-      variant="borderless-reversed"
+      variant="default"
+      (openHandler)="onAccordionOpen($event)"
+    ></ds-accordion>
+  </app-story-demo-code-block>
+
+  <app-story-demo-code-block
+    title="Borderless Accordion"
+    [htmlSnippet]="snippetBorderlessHtml"
+    [tsSnippet]="snippetBorderlessTs"
+  >
+    <ds-accordion
+      [items]="items"
+      variant="borderless"
       [allowMultiple]="true"
       (openHandler)="onAccordionOpen($event)"
     ></ds-accordion>
-  </div>
+  </app-story-demo-code-block>
 
-  <h3 class="text-2xl font-bold">Shadowless Accordion</h3>
-  <ds-accordion
-    [items]="items"
-    variant="shadowless"
-    [allowMultiple]="true"
-    (openHandler)="onAccordionOpen($event)"
-  ></ds-accordion>
+  <app-story-demo-code-block
+    title="Borderless Reversed Accordion"
+    [htmlSnippet]="snippetBorderlessReversedHtml"
+    [tsSnippet]="snippetBorderlessReversedTs"
+  >
+    <div class="bg-level-3 rounded-2xl p-4">
+      <ds-accordion
+        [items]="items"
+        variant="borderless-reversed"
+        [allowMultiple]="true"
+        (openHandler)="onAccordionOpen($event)"
+      ></ds-accordion>
+    </div>
+  </app-story-demo-code-block>
+
+  <app-story-demo-code-block
+    title="Shadowless Accordion"
+    [htmlSnippet]="snippetShadowlessHtml"
+    [tsSnippet]="snippetShadowlessTs"
+  >
+    <ds-accordion
+      [items]="items"
+      variant="shadowless"
+      [allowMultiple]="true"
+      (openHandler)="onAccordionOpen($event)"
+    ></ds-accordion>
+  </app-story-demo-code-block>
 
   <!-- Template for content items -->
   <ng-template #contentTemplate>
