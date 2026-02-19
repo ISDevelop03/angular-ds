@@ -20,19 +20,19 @@ export class InvoiceCardStoryComponent {
         onClick: (data) => console.log('View clicked', data),
       },
       {
-        label: 'Download',
+        label: 'Download Download Download',
         value: 'Download',
         href: '/download',
         onClick: (data) => console.log('Download clicked', data),
       },
       {
-        label: 'Download',
+        label: 'Download Download ',
         value: 'Download',
         href: '/download',
         onClick: (data) => console.log('Download clicked', data),
       },
       {
-        label: 'Download',
+        label: 'Download Download Download',
         value: 'Download',
         href: '/download',
         onClick: (data) => console.log('Download clicked', data),
