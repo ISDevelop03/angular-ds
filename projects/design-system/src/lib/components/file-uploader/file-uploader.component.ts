@@ -29,6 +29,11 @@ export class FileUploaderComponent {
   @Output() onChange = new EventEmitter<File | File[]>();
   @Output() onRemove = new EventEmitter<string>();
   @Output() onReUpload = new EventEmitter<string>();
+  @Output() onDownloadErrors = new EventEmitter<string>();
+
+  downloadErrors(fileId: string) {
+    this.onDownloadErrors.emit(fileId);
+  }
 
   @ViewChild('fileInput') fileInput: ElementRef<HTMLInputElement>;
 

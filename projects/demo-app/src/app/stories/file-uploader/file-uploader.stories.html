@@ -18,6 +18,7 @@
       (onChange)="onFileErrorChange($event)"
       (onReUpload)="onFileErrorReUpload($event)"
       (onRemove)="onFileErrorRemove($event)"
+      (onDownloadErrors)="onFileErrorDownloadErrors($event)"
       [isMultiple]="false"
       [files]="errorFiles"
     >
@@ -29,6 +30,7 @@
     <ds-file-uploader
       (onRemove)="onFileMultipleRemove($event)"
       (onChange)="onFileMultipleChange($event)"
+      (onDownloadErrors)="onFileMultipleDownloadErrors($event)"
       [isMultiple]="true"
       [files]="multipleFiles"
       [allowedExtensions]="['png','jpg','jpeg']"
@@ -41,6 +43,7 @@
     <ds-file-uploader
       (onReUpload)="onFileMultipleReUpload($event)"
       (onChange)="onFileMultipleErrorChange($event)"
+      (onDownloadErrors)="onFileMultipleErrorDownloadErrors($event)"
       [isMultiple]="true"
       [files]="multipleErrorFiles"
     >
@@ -56,6 +59,7 @@
   <h3 class="text-2xl font-bold">Default upload</h3>
   <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader
+      (onDownloadErrors)="onFileDefaultDownloadErrors($event)"
       [isMultiple]="true"
       [files]="defaultFiles"
       (onRemove)="onFileDefaultRemove($event)"
@@ -67,6 +71,7 @@
   <h3 class="text-2xl font-bold">Disabled upload</h3>
   <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader
+      (onDownloadErrors)="onFileDisabledDownloadErrors($event)"
       [isMultiple]="false"
       [files]="defaultFiles"
       [disabled]="true"

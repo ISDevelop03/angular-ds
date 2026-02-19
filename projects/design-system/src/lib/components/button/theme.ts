@@ -34,7 +34,7 @@ export const defaultTheme = {
     primary:
       'font-[700] border-2 border-red-500 bg-red-500 text-white hover:bg-red-600 hover:border-red-600',
     secondary:
-      'font-[700] border-2 border-neutral-100 bg-neutral-100 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
+      'font-[700] border-2 border-neutral-50 bg-neutral-50 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
     // gray: 'font-[700] border-2 border-neutral-100 bg-neutral-100 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
     outline:
       'font-[700] border-2 border-neutral-100 bg-transparent text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',

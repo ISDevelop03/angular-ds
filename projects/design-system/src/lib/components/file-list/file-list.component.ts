@@ -21,9 +21,10 @@ export class FileListComponent {
   @Input() files: UploadedFiles[] = [];
   @Input() isMultiple: boolean = false;
   @Input() isDownloadable: boolean = false;
-  @Output() onDelete = new EventEmitter(); 
+  @Output() onDelete = new EventEmitter();
   @Output() onReUpload = new EventEmitter();
   @Output() onDownload = new EventEmitter();
+  @Output() onDownloadErrors = new EventEmitter();
 
 
   private errorVisibilityMap = new Map<string, boolean>();
@@ -37,7 +38,7 @@ export class FileListComponent {
     this.errorVisibilityMap.set(fileId, !currentState);
   }
 
-  removeFile(fileId:string) {
+  removeFile(fileId: string) {
     this.onDelete.emit(fileId)
   }
 
@@ -46,7 +47,7 @@ export class FileListComponent {
   // }
 
   downloadFile(file: File) {
-    if(this.onDownload.observers.length > 0) {
+    if (this.onDownload.observers.length > 0) {
       this.onDownload.emit(file);
     } else {
       const blob = new Blob([file], { type: file.type });

@@ -186,4 +186,19 @@ export class FileUploaderStoryComponent {
       }
     }, progressInterval);
   }
+  onFileErrorDownloadErrors(fileId: string) {
+    console.log('onFileErrorDownloadErrors', fileId);
+  }
+  onFileMultipleDownloadErrors(fileId: string) {
+    console.log('onFileMultipleDownloadErrors', fileId);
+  }
+  onFileMultipleErrorDownloadErrors(fileId: string) {
+    console.log('onFileMultipleErrorDownloadErrors', fileId);
+  }
+  onFileDefaultDownloadErrors(fileId: string) {
+    console.log('onFileDefaultDownloadErrors', fileId);
+  }
+  onFileDisabledDownloadErrors(fileId: string) {
+    console.log('onFileDisabledDownloadErrors', fileId);
+  }
 }

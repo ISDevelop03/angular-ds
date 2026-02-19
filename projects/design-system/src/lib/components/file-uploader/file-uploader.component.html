@@ -30,6 +30,7 @@
       [files]="files"
       [isMultiple]="isMultiple"
       (onDelete)="removeFile($event)"
+      (onDownloadErrors)="downloadErrors($event)"
     ></ds-file-list>
   </div>
 </div>
