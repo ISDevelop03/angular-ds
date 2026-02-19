@@ -158,6 +158,9 @@ export class DsSelectComponent
       };
 
       this.isOpen = !this.isOpen;
+      if (this.isOpen) {
+        this.filteredItems = [].concat(this.items);
+      }
       setTimeout(() => this.calculatePosition(), 0);
     }
   }
@@ -246,6 +249,7 @@ export class DsSelectComponent
       }
       this.isOpen = false;
     }
+    this.filteredItems = [].concat(this.items);
   }
 
   @HostListener('document:keydown.escape', ['$event'])
@@ -254,5 +258,6 @@ export class DsSelectComponent
       this._onTouched();
     }
     this.isOpen = false;
+    this.filteredItems = [].concat(this.items);
   }
 }
