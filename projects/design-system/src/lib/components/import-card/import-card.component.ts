@@ -22,4 +22,10 @@ export class ImportCardComponent {
   @Input() description: string = '';
   @Input() actions: ImportCardAction[] = [];
   @Input() icon?: string;
+  @Output() onClick = new EventEmitter<any>()
+
+  handleCardClick() {
+    this.onClick.emit()
+  }
+
 }

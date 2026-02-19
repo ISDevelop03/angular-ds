@@ -11,6 +11,7 @@
       [title]="'Virement SIMT'"
       [description]="'Domestique'"
       [actions]="actionsList"
+      (onClick)="onImportButtonClick()"
     ></ds-import-card>
     <ds-import-card
       [title]="'Virement SIMT'"
@@ -134,6 +135,30 @@
             container. Useful for custom styling or layout adjustments. The card
             has default styling with background, padding, border radius, and
             relative positioning.
+          </td>
+        </tr>
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;void&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the card is clicked. Bind with
+            <code>(onClick)="handler()"</code>. When this output is bound, the
+            card automatically shows a pointer cursor to indicate it is
+            clickable.
           </td>
         </tr>
       </tbody>
