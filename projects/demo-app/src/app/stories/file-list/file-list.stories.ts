@@ -31,18 +31,9 @@ export class FileListStoryComponent {
         { id: 'file-1' }
       ),
       status: 'error',
+      errors: ['Le champ année sur la ligne 34 doit être numérique', 'Le champ année sur la ligne 34 doit être numérique', 'Le champ puissance fiscale sur la ligne 87 ne doit pas dépasser 4 caractères', 'Format de fichier non supporté', 'Taille de fichier trop importante', 'Fichier corrompu ou endommagé', 'Erreur de validation des données', "Problème d'encodage détecté", 'Format de date invalide'],
     },
-    {
-      file: Object.assign(
-        new File([''], 'Fichier des paiements en masse.txt', {
-          type: 'text/plain',
-        }),
-        {
-          id: 'file-2',
-        }
-      ),
-      status: 'success',
-    },
+
     {
       file: Object.assign(
         new File([''], 'Fichier des paiements en masse.txt', {

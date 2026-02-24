@@ -181,26 +181,32 @@
 
             <div
               *ngIf="isErrorVisible(file.file.id)"
-              class="mt-2"
+              class="mt-2 relative"
               [ngClass]="{
                 'max-h-0 overflow-hidden': !isErrorVisible(file.file.id),
-                'max-h-96 overflow-y-auto': isErrorVisible(file.file.id)
+                'max-h-[108px] overflow-hidden': isErrorVisible(file.file.id)
               }"
               style="transition: max-height 0.3s ease-in-out"
             >
-              <ul class="space-y-1">
-                <li
-                  *ngFor="let error of file.errors"
-                  class="flex items-start gap-2 text-rose-700"
-                >
-                  <ds-icon
-                    id="dash"
-                    size="16px"
-                    class="text-error-500 mt-0.5 flex-shrink-0"
-                  ></ds-icon>
-                  <span class="text-sm">{{ error }}</span>
-                </li>
-              </ul>
+              <div class="max-h-[108px] overflow-y-auto">
+                <ul class="space-y-1">
+                  <li
+                    *ngFor="let error of file.errors"
+                    class="flex items-start gap-2 text-rose-700"
+                  >
+                    <ds-icon
+                      id="dash"
+                      size="16px"
+                      class="text-error-500 mt-0.5 flex-shrink-0"
+                    ></ds-icon>
+                    <span class="text-sm">{{ error }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F9E6E7] to-transparent"
+                aria-hidden="true"
+              ></div>
             </div>
           </div>
         </div>
@@ -208,6 +214,7 @@
           variant="primary"
           className="mt-3"
           (click)="onDownloadErrors.emit(file.file.id)"
+          *ngIf="file.errors && file.errors.length > 0"
         >
           Télécharger le rapport des erreurs
           <ds-icon id="download-cloud" size="16px"></ds-icon
