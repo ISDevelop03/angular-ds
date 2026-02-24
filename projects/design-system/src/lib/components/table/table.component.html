@@ -127,79 +127,121 @@
         </tr>
       </thead>
       <tbody [ngClass]="theme[variant].body">
-        <tr
-          *ngFor="let row of displayData; let i = index"
-          [ngClass]="theme[variant].row(i)"
-        >
-          <!-- ROW ds-checkbox -->
-          <td
-            *ngIf="selectionEnabled && selectionMode === 'multi'"
-            [ngClass]="[
-              theme[variant].headerCell,
-              'w-[30px]',
-              variant === 'default' ? 'rounded-l-md' : '',
-              variant === 'secondary' ? 'rounded-tl-lg' : ''
-            ]"
-          >
-            <ds-checkbox
-              [checked]="isSelected(row)"
-              [change]="getRowCheckboxChange(row)"
-              [disabled]="row.isSelectable === false"
-            ></ds-checkbox>
-          </td>
-          <td
-            *ngIf="selectionEnabled && selectionMode === 'single'"
-            [ngClass]="[
-              theme[variant].headerCell,
-              'w-[30px]',
-              variant === 'default' ? 'rounded-l-md' : '',
-              variant === 'secondary' ? 'rounded-tl-lg' : ''
-            ]"
-          >
-            <ds-radio
-              name="selection"
-              [value]="row.id"
-              [(modelValue)]="selectedRowId"
-              (change)="onSelect(row)"
-            ></ds-radio>
-          </td>
-
-          <td
-            *ngFor="let col of columns; let colIdx = index"
-            [ngClass]="[
-              theme[variant].cell,
-              col.expandable && col.truncate
-                ? 'whitespace-nowrap'
-                : 'whitespace-nowrap',
-              colIdx === 0 && variant === 'default' && !selectionEnabled
-                ? 'rounded-l-md'
-                : '',
-              columns.length - 1 === colIdx && variant === 'default'
-                ? 'rounded-r-md'
-                : ''
-            ]"
-            [style]="col.style"
-          >
-            <ng-container
-              *ngIf="col.cellTemplate; else defaultCell"
-              [ngTemplateOutlet]="col.cellTemplate"
-              [ngTemplateOutletContext]="{
-                $implicit: row[col.accessor],
-                row: row
-              }"
-            ></ng-container>
-            <ng-template #defaultCell>
-              <div class="flex flex-col">
-                <span
-                  *ngFor="let line of getAllLines(row[col.accessor], col)"
-                  class="whitespace-nowrap"
+        <ng-container *ngFor="let row of displayData; let i = index">
+          <tr [ngClass]="theme[variant].row(i)">
+            <!-- ROW ds-checkbox -->
+            <td
+              *ngIf="selectionEnabled && selectionMode === 'multi'"
+              [ngClass]="[
+                theme[variant].headerCell,
+                'w-[30px]',
+                variant === 'default' ? 'rounded-l-md' : '',
+                variant === 'secondary' ? 'rounded-tl-lg' : ''
+              ]"
+            >
+              <ds-checkbox
+                [checked]="isSelected(row)"
+                [change]="getRowCheckboxChange(row)"
+                [disabled]="row.isSelectable === false"
+              ></ds-checkbox>
+            </td>
+            <td
+              *ngIf="selectionEnabled && selectionMode === 'single'"
+              [ngClass]="[
+                theme[variant].headerCell,
+                'w-[30px]',
+                variant === 'default' ? 'rounded-l-md' : '',
+                variant === 'secondary' ? 'rounded-tl-lg' : ''
+              ]"
+            >
+              <ds-radio
+                name="selection"
+                [value]="row.id"
+                [(modelValue)]="selectedRowId"
+                (change)="onSelect(row)"
+              ></ds-radio>
+            </td>
+            <td
+              *ngFor="let col of columns; let colIdx = index"
+              [ngClass]="[
+                theme[variant].cell,
+                col.expandable && col.truncate
+                  ? 'whitespace-nowrap'
+                  : 'whitespace-nowrap',
+                colIdx === 0 && variant === 'default' && !selectionEnabled
+                  ? 'rounded-l-md'
+                  : '',
+                columns.length - 1 === colIdx && variant === 'default'
+                  ? 'rounded-r-md'
+                  : ''
+              ]"
+              [style]="col.style"
+            >
+              <div
+                [ngClass]="[
+                  colIdx === columns.length - 1 && expandableRows
+                    ? 'flex items-center justify-end'
+                    : ''
+                ]"
+              >
+                <ng-container
+                  *ngIf="col.cellTemplate; else defaultCell"
+                  [ngTemplateOutlet]="col.cellTemplate"
+                  [ngTemplateOutletContext]="{
+                    $implicit: row[col.accessor],
+                    row: row
+                  }"
+                ></ng-container>
+                <ng-template #defaultCell>
+                  <div class="flex flex-col">
+                    <span
+                      *ngFor="let line of getAllLines(row[col.accessor], col)"
+                      class="whitespace-nowrap"
+                    >
+                      {{ line }}
+                    </span>
+                  </div>
+                </ng-template>
+                <button
+                  *ngIf="colIdx === columns.length - 1 && expandableRows"
+                  type="button"
+                  (click)="toggleRowExpand(row)"
+                  class="ml-3.5 p-0.5 inline-flex items-center justify-center"
+                  [attr.aria-expanded]="isRowExpanded(row)"
                 >
-                  {{ line }}
-                </span>
+                  <ds-icon
+                    [id]="isRowExpanded(row) ? 'arrow-up' : 'arrow-down'"
+                    size="16"
+                  ></ds-icon>
+                </button>
               </div>
-            </ng-template>
-          </td>
-        </tr>
+            </td>
+          </tr>
+          <!-- Expanded row detail -->
+          <tr
+            *ngIf="expandableRows && isRowExpanded(row)"
+            [ngClass]=""
+            class="bg-[#F9FAFB]"
+          >
+            <td
+              [attr.colspan]="expandableColspan"
+              [ngClass]="[theme[variant].cell, 'align-top']"
+              class="!py-3"
+            >
+              <ng-container
+                *ngIf="expandedRowTemplate"
+                [ngTemplateOutlet]="expandedRowTemplate"
+                [ngTemplateOutletContext]="{ $implicit: row, row: row }"
+              ></ng-container>
+              <ng-container *ngIf="!expandedRowTemplate">
+                <pre
+                  class="text-sm text-neutral-70 m-0 p-2 bg-level-5 rounded-md overflow-auto"
+                  >{{ row | json }}</pre
+                >
+              </ng-container>
+            </td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>

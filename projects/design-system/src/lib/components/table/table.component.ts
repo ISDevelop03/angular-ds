@@ -38,6 +38,8 @@ export class TableComponent implements OnChanges, OnDestroy {
   @Input() remoteSort = false;
   @Input() selectionEnabled = false;
   @Input() selectionMode: 'single' | 'multi' = 'multi';
+  @Input() expandableRows = false;
+  @Input() expandedRowTemplate?: TemplateRef<{ $implicit: any; row: any }>;
   @Input() className?: string;
   @Output() sortChange = new EventEmitter<{
     accessor: string | null;
@@ -55,6 +57,7 @@ export class TableComponent implements OnChanges, OnDestroy {
 
   selectedRows = new Set<any>();
   selectedRowId: string | null = null; // For single selection mode
+  expandedRows = new Set<any>();
 
   displayData: any[] = [];
   private originalData: any[] = [];
@@ -237,6 +240,24 @@ export class TableComponent implements OnChanges, OnDestroy {
 
   getRowCheckboxChange(row: any): () => void {
     return () => this.toggleRow(row, !this.isSelected(row));
+  }
+
+  toggleRowExpand(row: any): void {
+    if (!this.expandableRows) return;
+    if (this.expandedRows.has(row)) {
+      this.expandedRows.delete(row);
+    } else {
+      this.expandedRows.add(row);
+    }
+    this.expandedRows = new Set(this.expandedRows);
+  }
+
+  isRowExpanded(row: any): boolean {
+    return this.expandedRows.has(row);
+  }
+
+  get expandableColspan(): number {
+    return (this.expandableRows ? 1 : 0) + (this.selectionEnabled ? 1 : 0) + this.columns.length;
   }
 
   getAllLines(text: any, col: ColumnDef): string[] {

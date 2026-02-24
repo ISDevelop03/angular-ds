@@ -6,6 +6,7 @@ import {
   TemplateRef,
   AfterViewInit,
 } from '@angular/core';
+import { ICallToActionIcon } from 'projects/design-system/src/lib/components/call-to-action-icons/types';
 
 @Component({
   selector: 'app-table',
@@ -22,6 +23,7 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
 
   @ViewChild('statusTpl') statusTpl!: TemplateRef<any>;
   @ViewChild('actionTpl') actionTpl!: TemplateRef<any>;
+  @ViewChild('expandDetailTpl') expandDetailTpl!: TemplateRef<any>;
 
   defaultData = [
     {
@@ -150,6 +152,21 @@ export class TableStoryComponent implements OnInit, AfterViewInit {
       // bio_2: 'A Lorem ipsum dolor',
       joinedOn: '2023-04-01',
       // selected: false,
+    },
+  ];
+
+  actionsBasic: ICallToActionIcon[] = [
+    {
+      icon: 'eye',
+      onClick: () => console.log('Eye clicked'),
+    },
+    {
+      icon: 'pen',
+      onClick: () => console.log('Edit clicked'),
+    },
+    {
+      icon: 'trash',
+      onClick: () => console.log('Trash clicked'),
     },
   ];
 

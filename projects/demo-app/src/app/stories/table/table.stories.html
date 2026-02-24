@@ -1,23 +1,29 @@
 <div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
   <h2 class="text-4xl font-bold mb-6">Tables</h2>
+  <p class="text-neutral-70 mb-4 max-w-3xl">
+    The table component displays tabular data with support for sorting, row selection (single or multi),
+    expandable rows, custom cell templates, and optional expandable/truncatable column content.
+    Use the <code>variant</code> input for different visual styles (default, secondary).
+  </p>
   <h3 class="text-2xl font-bold">Default Table</h3>
+  <p class="text-neutral-70 mb-2">Basic table with <code>data</code> and <code>columns</code>. No selection or sorting.</p>
   <ds-table
     [data]="defaultData"
     [columns]="[
-    { header: 'Name', accessor: 'name',style: { width: '1%' } },
-    { header: 'Age', accessor: 'age',style: { width: '1%' }  },
-    { header: 'Joined', accessor: 'joinedOn',style: { width: '1%' } },
+    { header: 'Name', accessor: 'name' },
+    { header: 'Age', accessor: 'age'  },
+    { header: 'Joined', accessor: 'joinedOn' },
     { header: 'Bio', accessor: 'bio' },
     {
-      header: 'Actions',
+      header: '',
       accessor: 'id',
-      cellTemplate: actionTpl,
-      style: { width: '1%' }
+      cellTemplate: actionTpl
     }
   ]"
     variant="default"
   ></ds-table>
-  <h3 class="text-2xl font-bold">Selection Enabled Table</h3>
+  <h3 class="text-2xl font-bold">Selection Enabled Table (Multi)</h3>
+  <p class="text-neutral-70 mb-2">Row selection with checkboxes; <code>selectionMode="multi"</code>. Use header checkbox to select all. Listen to <code>selectionChange</code> for selected rows.</p>
   <ds-table
     [data]="selectionData"
     selectionEnabled="true"
@@ -36,7 +42,8 @@
   ]"
     variant="default"
   ></ds-table>
-  <h3 class="text-2xl font-bold">Selection Enabled Table</h3>
+  <h3 class="text-2xl font-bold">Selection Enabled Table (Single)</h3>
+  <p class="text-neutral-70 mb-2">Only one row can be selected at a time; <code>selectionMode="single"</code>. <code>selectionChange</code> emits the selected row object.</p>
   <ds-table
     [data]="selectionData"
     selectionEnabled="true"
@@ -57,6 +64,7 @@
     selectionMode="single"
   ></ds-table>
   <h3 class="text-2xl font-bold">Secondary Variant Table</h3>
+  <p class="text-neutral-70 mb-2">Use <code>variant="secondary"</code> for rounded borders and neutral background. Optionally set <code>className</code> for container height (e.g. <code>h-[300px]</code>).</p>
   <div class="w-full flex gap-x-2 bg-white rounded-lg p-4">
     <div class="w-1/2 bg-red-100"></div>
     <div class="w-1/2">
@@ -79,6 +87,33 @@
       ></ds-table>
     </div>
   </div>
+
+  <h3 class="text-2xl font-bold">Expandable Rows Table</h3>
+  <p class="text-neutral-70 mb-2">
+    Click the + / − in each row to expand or collapse the row details.
+  </p>
+  <ds-table
+    [data]="defaultData"
+    [columns]="[
+      { header: 'Name', accessor: 'name' },
+      { header: 'Age', accessor: 'age' },
+      { header: 'Joined', accessor: 'joinedOn' },
+      { header: 'Bio', accessor: 'bio' },
+      { header: '', accessor: 'id', cellTemplate: actionTpl }
+    ]"
+    variant="default"
+    [expandableRows]="true"
+    [expandedRowTemplate]="expandDetailTpl"
+  ></ds-table>
+  <ng-template #expandDetailTpl let-row>
+    <div class="flex flex-col gap-2 text-sm">
+      <p><strong>Name:</strong> {{ row.name }}</p>
+      <p><strong>Age:</strong> {{ row.age }}</p>
+      <p><strong>Status:</strong> {{ row.status }}</p>
+      <p><strong>Joined:</strong> {{ row.joinedOn }}</p>
+      <p><strong>Bio:</strong> {{ row.bio }}</p>
+    </div>
+  </ng-template>
   <!-- <h3 class="text-2xl font-bold">Bulk Actions Table</h3>
   <ds-table
     [data]="users"
@@ -98,6 +133,7 @@
   ></ds-table>
 
   <h2 class="text-2xl font-bold">Sortable Table (Static Columns)</h2>
+  <p class="text-neutral-70 mb-2">Set <code>sortable: true</code> on column definitions. Use <code>sortChange</code> for server-side sorting or set <code>remoteSort="true"</code>. Custom cells use <code>cellTemplate</code> (e.g. status badge).</p>
   <ds-table
     [data]="users"
     [columns]="[
@@ -110,6 +146,8 @@
     (sortChange)="onServerSort($event)"
   ></ds-table>
 
+  <h3 class="text-2xl font-bold">Expandable Column Content</h3>
+  <p class="text-neutral-70 mb-2">Set <code>expandable: true</code> on a column to allow toggling truncation of long content (e.g. description). Header shows +/- to expand/collapse.</p>
   <ds-table 
     class="block h-[300px] overflow-hidden"
     [data]="products"
@@ -149,6 +187,9 @@
 
   <!-- API Documentation Table -->
   <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+  <p class="text-gray-600 mb-4">
+    Inputs, outputs, and column options for the <code>ds-table</code> component.
+  </p>
 
   <div class="overflow-x-auto">
     <table class="min-w-full border-collapse border border-gray-300 bg-white">
@@ -340,6 +381,38 @@
             Useful for custom styling or layout adjustments.
           </td>
         </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expandableRows
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, each row shows an expand/collapse control (arrow) in the last column.
+            Clicking it toggles a detail row below. Use with <code>expandedRowTemplate</code> to customize
+            the expanded content.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expandedRowTemplate
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TemplateRef&lt;&#123; $implicit: any; row: any &#125;&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional template for the expanded row content when <code>expandableRows</code> is <code>true</code>.
+            The template receives <code>row</code> (the row data). If not provided, expanded content shows
+            the row object as JSON.
+          </td>
+        </tr>
 
         <!-- Component Outputs -->
         <tr class="bg-green-50">
@@ -493,7 +566,7 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            styles
+            style
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">&#123; [key: string]: string &#125;</code>
@@ -502,10 +575,9 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional inline styles object to apply to the column cells. Keys are
-            CSS property names (e.g., 'width', 'textAlign'). Use for
-            column-specific styling like fixed widths (e.g.,
-            <code>&#123; width: '1%' &#125;</code> for auto-sizing).
+            Optional inline styles object applied to the column header and cells. Keys are
+            CSS property names (e.g. <code>width</code>, <code>textAlign</code>). Use for
+            column-specific styling (e.g. <code>&#123; width: '1%' &#125;</code> for auto-sizing).
           </td>
         </tr>
         <tr>
@@ -545,11 +617,12 @@
 
   <!-- Actions button template -->
   <ng-template #actionTpl let-id>
-    <button
-      class="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
-      (click)="editUser(id)"
-    >
-      Edit
-    </button>
+    <div class="flex justify-end">
+      <ds-call-to-action-icons
+        [actions]="actionsBasic"
+        className="w-fit"
+        variant="borderless"
+      ></ds-call-to-action-icons>
+    </div>
   </ng-template>
 </div>

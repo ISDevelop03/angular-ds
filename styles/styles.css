@@ -1532,6 +1532,10 @@ video {
   margin-left: 0.5rem;
 }
 
+.ml-3\.5 {
+  margin-left: 0.875rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -3043,6 +3047,10 @@ video {
   justify-self: end;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -3576,6 +3584,11 @@ video {
 .\!bg-gray-100 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(208 213 221 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.\!bg-level-3 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(var(--level-3) / var(--tw-bg-opacity, 1)) !important;
 }
 
 .\!bg-neutral-100 {
@@ -4131,6 +4144,11 @@ video {
   padding-right: 0.5rem !important;
 }
 
+.\!py-3 {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -4367,6 +4385,10 @@ video {
 
 .text-end {
   text-align: end;
+}
+
+.align-top {
+  vertical-align: top;
 }
 
 .align-text-top {
@@ -7438,6 +7460,10 @@ bs-daterangepicker-container {
   background-color: transparent !important;
 }
 
+.hover\:bg-black\/5:hover {
+  background-color: rgb(0 0 0 / 0.05);
+}
+
 .hover\:bg-black\/80:hover {
   background-color: rgb(0 0 0 / 0.8);
 }
@@ -7759,10 +7785,6 @@ bs-daterangepicker-container {
 
 .group:hover .group-hover\:visible {
   visibility: visible;
-}
-
-.group:hover .group-hover\:block {
-  display: block;
 }
 
 .group:hover .group-hover\:-translate-x-0 {
