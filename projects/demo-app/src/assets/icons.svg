@@ -329,6 +329,9 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="close-circle">
     <path fill="transparent" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.92" stroke="currentColor" d="M16.62 29.074c7.04 0 12.8-5.76 12.8-12.8s-5.76-12.8-12.8-12.8-12.8 5.76-12.8 12.8c0 7.04 5.76 12.8 12.8 12.8zM13 19.896l7.245-7.245m0 7.245L13 12.651"></path>
   </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="close-square">
+    <path fill="transparent" stroke-linecap="round" stroke-width="2.286" stroke="currentColor" d="M20.943 10.599l-5.172 5.172m0 0l-5.172 5.172m5.172-5.172l5.172 5.172m-5.172-5.172l-5.172-5.172M30.4 6.629v18.286a5.486 5.486 0 01-5.486 5.486H6.628a5.486 5.486 0 01-5.486-5.486V6.629a5.486 5.486 0 015.486-5.486h18.286A5.486 5.486 0 0130.4 6.629z"></path>
+  </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="close">
     <path d="M8.841 8.841a1.189 1.189 0 011.681 0l13.451 13.451a1.189 1.189 0 01-1.681 1.681L8.841 10.522a1.189 1.189 0 010-1.681z"></path>
     <path d="M23.973 8.841a1.189 1.189 0 010 1.681L10.522 23.973a1.189 1.189 0 01-1.681-1.681L22.292 8.841a1.189 1.189 0 011.681 0z"></path>

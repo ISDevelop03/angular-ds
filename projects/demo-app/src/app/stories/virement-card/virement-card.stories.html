@@ -1,0 +1,13 @@
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
+  <h2 class="text-2xl font-bold">VirementCard</h2>
+  <div class="flex flex-col gap-4">
+    <ds-virement-card
+      [beneficiaryName]="'John Doe'"
+      [beneficiaryAccountNumber]="'1234567890'"
+      [motif]="'Virement'"
+      [amount]="{ amount: 1000, currency: 'EUR' }"
+      (onSave)="onSave($event)"
+      (onDelete)="onDelete()"
+    ></ds-virement-card>
+  </div>
+</section>

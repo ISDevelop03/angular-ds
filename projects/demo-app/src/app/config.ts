@@ -281,4 +281,5 @@ export const menus: Menu[] = [
   { key: 'illustration', name: 'Illustration', path: '/illustration' },
   { key: 'input-phone', name: 'InputPhone', path: '/input-phone' },
   { key: 'modal', name: 'Modal', path: '/modal' },
+  { key: 'virement-card', name: 'VirementCard', path: '/virement-card' },
 ];

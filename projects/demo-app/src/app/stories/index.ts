@@ -174,3 +174,6 @@ export * from './input-phone/input-phone.stories';
 
 // Auto-export for modal stories
 export * from './modal/modal.stories';
+
+// Auto-export for virement-card stories
+export * from './virement-card/virement-card.stories';
