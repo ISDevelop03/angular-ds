@@ -1,0 +1,30 @@
+<section class="flex flex-col gap-6 p-4">
+  <h2 class="text-2xl font-bold">Modal</h2>
+
+  <div class="flex flex-wrap gap-2">
+    <ds-button (onClick)="openModal()" class="btn btn-primary">
+      Open basic modal
+    </ds-button>
+    <ds-button (onClick)="openInfoModal()" class="btn btn-secondary">
+      Open with icon (info)
+    </ds-button>
+    <ds-button (onClick)="openSuccessModal()" class="btn btn-accent">
+      Open with icon (success)
+    </ds-button>
+  </div>
+
+  <!-- Basic modal -->
+  <ds-modal
+    [isShown]="isModalOpen"
+    [title]="'This project has been unpublished'"
+    [description]="'Removing all users has unpublished this project. Add users to lorem.'"
+    type="error"
+    icon="info-circle"
+    (close)="onCloseModal()"
+    (mainActionOnClick)="onCloseModal()"
+    (secondaryActionOnClick)="onSecondaryActionOnClick()"
+    [mainAction]="'Confirm'"
+    [secondaryAction]="'Cancel'"
+  >
+  </ds-modal>
+</section>

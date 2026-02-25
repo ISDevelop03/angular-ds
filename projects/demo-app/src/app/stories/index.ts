@@ -171,3 +171,6 @@ export * from './illustration/illustration.stories';
 
 // Auto-export for input-phone stories
 export * from './input-phone/input-phone.stories';
+
+// Auto-export for modal stories
+export * from './modal/modal.stories';

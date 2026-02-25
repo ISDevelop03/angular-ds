@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalComponent } from './components/modal/modal.component';
 import { InputPhoneComponent } from './components/input-phone/input-phone.component';
 import { IllustrationComponent } from './components/illustration/illustration.component';
 import { PriceFilterComponent } from './components/price-filter/price-filter.component';
@@ -218,6 +219,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PriceFilterComponent,
     IllustrationComponent,
     InputPhoneComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
@@ -324,6 +326,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PriceFilterComponent,
     IllustrationComponent,
     InputPhoneComponent,
+    ModalComponent,
   ],
 })
 export class DesignSystemModule {}

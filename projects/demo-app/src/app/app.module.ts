@@ -91,6 +91,8 @@ import {
 
   InputPhoneStoryComponent,
 
+  ModalStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -206,6 +208,7 @@ export const pages: Routes = [
   { path: 'price-filter', component: PriceFilterStoryComponent },
   { path: 'illustration', component: IllustrationStoryComponent },
   { path: 'input-phone', component: InputPhoneStoryComponent },
+  { path: 'modal', component: ModalStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -317,7 +320,8 @@ const router = RouterModule.forRoot(pages);
     LoaderStoryComponent,
     PriceFilterStoryComponent,
     IllustrationStoryComponent,
-    InputPhoneStoryComponent
+    InputPhoneStoryComponent,
+    ModalStoryComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
