@@ -33,18 +33,6 @@ export class ModalComponent {
     }
   }
 
-  ngOnInit() {
-    console.log('ModalComponent ngOnInit');
-    console.log('isShown:', this.isShown);
-    console.log('title:', this.title);
-    console.log('description:', this.description);
-    console.log('mainAction:', this.mainAction);
-    console.log('secondaryAction:', this.secondaryAction);
-    console.log('className:', this.className);
-    console.log('icon:', this.icon);
-    console.log('type:', this.type);
-  }
-
   onClose() {
     this.isShown = false;
     this.close.emit();
@@ -54,5 +42,13 @@ export class ModalComponent {
     if ((event.target as HTMLElement).classList.contains('popup-overlay')) {
       this.close.emit();
     }
+  }
+
+  onSecondaryActionOnClick() {
+    this.secondaryActionOnClick.emit();
+  }
+
+  onMainActionOnClick() {
+    this.mainActionOnClick.emit();
   }
 }

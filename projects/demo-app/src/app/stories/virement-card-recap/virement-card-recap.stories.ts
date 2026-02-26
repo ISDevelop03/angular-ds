@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TRecapItems } from 'projects/design-system/src/lib/components/virement-card-recap/virement-card-recap.component';
 
 @Component({
   selector: 'app-virement-card-recap',
@@ -8,7 +9,7 @@ export class VirementCardRecapStoryComponent {
   @Input() label: string = 'virement-card-recap';
   @Input() className?: string = '';
 
-  items = [
+  items: TRecapItems[] = [
     {
       beneficiaryName: 'Tadlaoui Imane',
       beneficiaryAccountNumber: '12345678901234567890',

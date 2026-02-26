@@ -2,29 +2,264 @@
   <h2 class="text-2xl font-bold">Modal</h2>
 
   <div class="flex flex-wrap gap-2">
-    <ds-button (onClick)="openModal()" class="btn btn-primary">
-      Open basic modal
+    <ds-button (onClick)="openInfoModal()" class="btn btn-primary">
+      Open info modal
     </ds-button>
-    <ds-button (onClick)="openInfoModal()" class="btn btn-secondary">
-      Open with icon (info)
+    <ds-button (onClick)="openWarningModal()" class="btn btn-secondary">
+      Open warning modal
+    </ds-button>
+    <ds-button (onClick)="openErrorModal()" class="btn btn-accent">
+      Open error modal
     </ds-button>
     <ds-button (onClick)="openSuccessModal()" class="btn btn-accent">
-      Open with icon (success)
+      Open success modal
     </ds-button>
   </div>
 
-  <!-- Basic modal -->
+  <!-- Info modal -->
   <ds-modal
-    [isShown]="isModalOpen"
+    [isShown]="isInfoModalOpen"
     [title]="'This project has been unpublished'"
     [description]="'Removing all users has unpublished this project. Add users to lorem.'"
-    type="error"
+    type="info"
     icon="info-circle"
     (close)="onCloseModal()"
-    (mainActionOnClick)="onCloseModal()"
+    (mainActionOnClick)="onMainActionOnClick()"
     (secondaryActionOnClick)="onSecondaryActionOnClick()"
     [mainAction]="'Confirm'"
     [secondaryAction]="'Cancel'"
   >
   </ds-modal>
+  <!-- Warning modal -->
+  <ds-modal
+    [isShown]="isWarningModalOpen"
+    [title]="'This project has been unpublished'"
+    [description]="'Removing all users has unpublished this project. Add users to lorem.'"
+    type="warning"
+    icon="danger"
+    (close)="onCloseModal()"
+    (mainActionOnClick)="onMainActionOnClick()"
+    (secondaryActionOnClick)="onSecondaryActionOnClick()"
+    [mainAction]="'Confirm'"
+    [secondaryAction]="'Cancel'"
+  >
+  </ds-modal>
+  <!-- Error modal -->
+  <ds-modal
+    [isShown]="isErrorModalOpen"
+    [title]="'This project has been unpublished'"
+    [description]="'Removing all users has unpublished this project. Add users to lorem.'"
+    type="error"
+    icon="danger"
+    (close)="onCloseModal()"
+    (mainActionOnClick)="onMainActionOnClick()"
+    (secondaryActionOnClick)="onSecondaryActionOnClick()"
+    [mainAction]="'Confirm'"
+    [secondaryAction]="'Cancel'"
+  >
+  </ds-modal>
+  <!-- Success modal -->
+  <ds-modal
+    [isShown]="isSuccessModalOpen"
+    [title]="'This project has been unpublished'"
+    [description]="'Removing all users has unpublished this project. Add users to lorem.'"
+    type="success"
+    icon="check"
+    (close)="onCloseModal()"
+    (mainActionOnClick)="onMainActionOnClick()"
+    (secondaryActionOnClick)="onSecondaryActionOnClick()"
+    [mainAction]="'Confirm'"
+    [secondaryAction]="'Cancel'"
+  >
+  </ds-modal>
+
+  <!-- API Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isShown
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Controls visibility. Set to <code>true</code> to open the modal,
+            <code>false</code> to close it.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'success' | 'warning' | 'error' | 'info'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'info'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Semantic type; affects icon background and color. Use with
+            <code>icon</code> for consistent styling (e.g. info + info-circle,
+            warning/error + danger, success + check).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            icon
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Icon id for <code>ds-icon</code> (e.g. <code>info-circle</code>,
+            <code>danger</code>, <code>check</code>). Omit or leave empty to hide
+            the icon.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Modal heading text.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Body text below the title.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            mainAction
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Label for the primary button. Button is hidden if not set.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            secondaryAction
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Label for the secondary button. Button is hidden if not set.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes applied to the modal root element.
+          </td>
+        </tr>
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            close
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;void&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the modal is closed (close button, backdrop click, or
+            Escape key). Bind to set <code>isShown</code> to <code>false</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            mainActionOnClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;void&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the primary action button is clicked.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            secondaryActionOnClick
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;void&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the secondary action button is clicked.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>

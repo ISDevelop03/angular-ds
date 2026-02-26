@@ -5,13 +5,37 @@ import { Component } from '@angular/core';
   templateUrl: './modal.stories.html',
 })
 export class ModalStoryComponent {
-  isModalOpen = false
+  isInfoModalOpen = false
+  isWarningModalOpen = false
+  isErrorModalOpen = false
+  isSuccessModalOpen = false
 
-  openModal() {
-    this.isModalOpen = true;
+
+  openInfoModal() {
+    this.isInfoModalOpen = true;
+  }
+
+  openWarningModal() {
+    this.isWarningModalOpen = true;
+  }
+
+  openErrorModal() {
+    this.isErrorModalOpen = true;
+  }
+
+  openSuccessModal() {
+    this.isSuccessModalOpen = true;
   }
 
   onCloseModal() {
-    this.isModalOpen = false;
+    this.isInfoModalOpen = false;
+  }
+
+  onSecondaryActionOnClick() {
+    console.log('Secondary action clicked');
+  }
+
+  onMainActionOnClick() {
+    console.log('Main action clicked');
   }
 }
