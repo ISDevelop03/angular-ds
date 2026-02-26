@@ -1,0 +1,32 @@
+<div
+  id="ds-virement-card-recap"
+  [ngClass]="[className, 'flex flex-col bg-level-5 rounded p-4']"
+>
+  <div
+    *ngFor="let item of items"
+    class="border-b border-neutral-50 pb-3.5 pt-3.5 first:pt-0 last:pb-0 last:border-b-0"
+  >
+    <div class="flex justify-between items-start mb-2">
+      <p class="text-xs font-medium text-neutral-900">
+        {{ item.beneficiaryName }}
+      </p>
+      <p class="text-xs font-bold text-neutral-900">
+        {{ item.beneficiaryAccountNumber }}
+      </p>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="flex flex-col gap-y-0.5">
+        <p class="text-xs text-neutral-500">Motif</p>
+        <p class="text-xs font-bold text-neutral-900">{{ item.motif }}</p>
+      </div>
+      <div class="flex flex-col items-end gap-y-0.5">
+        <p class="text-xs text-neutral-500">Montant</p>
+        <ds-balance-formatter
+          [balance]="item.amount.amount"
+          [currency]="item.amount.currency"
+          [noIcon]="true"
+        ></ds-balance-formatter>
+      </div>
+    </div>
+  </div>
+</div>

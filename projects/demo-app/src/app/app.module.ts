@@ -95,6 +95,8 @@ import {
 
   VirementCardStoryComponent,
 
+  VirementCardRecapStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -212,6 +214,7 @@ export const pages: Routes = [
   { path: 'input-phone', component: InputPhoneStoryComponent },
   { path: 'modal', component: ModalStoryComponent },
   { path: 'virement-card', component: VirementCardStoryComponent },
+  { path: 'virement-card-recap', component: VirementCardRecapStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -326,6 +329,7 @@ const router = RouterModule.forRoot(pages);
     InputPhoneStoryComponent,
     ModalStoryComponent,
     VirementCardStoryComponent,
+    VirementCardRecapStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

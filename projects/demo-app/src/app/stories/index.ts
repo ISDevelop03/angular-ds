@@ -177,3 +177,6 @@ export * from './modal/modal.stories';
 
 // Auto-export for virement-card stories
 export * from './virement-card/virement-card.stories';
+
+// Auto-export for virement-card-recap stories
+export * from './virement-card-recap/virement-card-recap.stories';

@@ -3070,9 +3070,26 @@ video {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+}
+
+.divide-y-\[1px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
 .divide-neutral-50 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(var(--color-neutral-50) / var(--tw-divide-opacity, 1));
+}
+
+.divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(var(--color-neutral-200) / var(--tw-divide-opacity, 1));
 }
 
 .self-start {
@@ -4421,6 +4438,14 @@ video {
 
 .pt-\[9px\] {
   padding-top: 9px;
+}
+
+.pb-64 {
+  padding-bottom: 16rem;
+}
+
+.pb-3\.5 {
+  padding-bottom: 0.875rem;
 }
 
 .text-left {
@@ -7366,6 +7391,10 @@ bs-daterangepicker-container {
 
 .first\:pt-0:first-child {
   padding-top: 0px;
+}
+
+.last\:border-b-0:last-child {
+  border-bottom-width: 0px;
 }
 
 .last\:pb-0:last-child {
