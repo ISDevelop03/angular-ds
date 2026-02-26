@@ -21,6 +21,7 @@ export class FileListComponent {
   @Input() files: UploadedFiles[] = [];
   @Input() isMultiple: boolean = false;
   @Input() isDownloadable: boolean = false;
+  @Input() maxHeight: number | undefined = undefined;
   @Output() onDelete = new EventEmitter();
   @Output() onReUpload = new EventEmitter();
   @Output() onDownload = new EventEmitter();

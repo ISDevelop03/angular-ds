@@ -1,4 +1,9 @@
-<div id="ds-file-list" [ngClass]="className">
+<div
+  id="ds-file-list"
+  [ngClass]="className"
+  [style.maxHeight]="maxHeight + 'px'"
+  [style.overflowY]="maxHeight ? 'auto' : 'hidden'"
+>
   <div *ngFor="let file of files" class="flex flex-col gap-1 mt-1">
     <!-- Neutral status file -->
     <div

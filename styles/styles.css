@@ -2042,6 +2042,10 @@ video {
   max-height: 108px;
 }
 
+.max-h-\[200px\] {
+  max-height: 200px;
+}
+
 .min-h-0 {
   min-height: 0px;
 }
