@@ -27,6 +27,7 @@ export class FileUploaderComponent {
   @Input() files: UploadedFiles[] = [];
   @Input() disabled: boolean = false;
   @Input() maxHeight: number | undefined = undefined;
+  @Input() showErrorButtonUpload?: boolean = false;
   @Output() onChange = new EventEmitter<File | File[]>();
   @Output() onRemove = new EventEmitter<string>();
   @Output() onReUpload = new EventEmitter<string>();

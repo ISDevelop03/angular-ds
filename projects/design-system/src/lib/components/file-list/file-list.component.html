@@ -209,6 +209,7 @@
                 </ul>
               </div>
               <div
+                *ngIf="file.errors!.length > 4"
                 class="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F9E6E7] to-transparent"
                 aria-hidden="true"
               ></div>
@@ -219,7 +220,7 @@
           variant="primary"
           className="mt-3"
           (click)="onDownloadErrors.emit(file.file.id)"
-          *ngIf="file.errors && file.errors.length > 0"
+          *ngIf="showErrorButtonUpload && file.errors && file.errors.length > 0"
         >
           Télécharger le rapport des erreurs
           <ds-icon id="download-cloud" size="16px"></ds-icon

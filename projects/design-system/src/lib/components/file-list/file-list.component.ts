@@ -22,6 +22,7 @@ export class FileListComponent {
   @Input() isMultiple: boolean = false;
   @Input() isDownloadable: boolean = false;
   @Input() maxHeight: number | undefined = undefined;
+  @Input() showErrorButtonUpload: boolean = false;
   @Output() onDelete = new EventEmitter();
   @Output() onReUpload = new EventEmitter();
   @Output() onDownload = new EventEmitter();
