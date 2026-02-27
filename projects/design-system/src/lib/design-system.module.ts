@@ -335,4 +335,4 @@ registerLocaleData(localeFr, 'fr-FR');
     VirementCardRecapComponent,
   ],
 })
-export class DesignSystemModule {}
+export class DesignSystemModule { }
