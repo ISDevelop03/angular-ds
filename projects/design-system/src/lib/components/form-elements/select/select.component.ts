@@ -231,10 +231,16 @@ export class DsSelectComponent
     return found || { value: '', label: this.placeholder };
   }
 
-  /** Selected items as an array for *ngFor when multiple is true. */
   get selectedAsArray(): SelectItem[] {
     const s = this.selected;
     return Array.isArray(s) ? s : [];
+  }
+
+  get selectedItem(): SelectItem {
+    const s = this.selected;
+    return Array.isArray(s)
+      ? { value: '', label: this.placeholder }
+      : s;
   }
 
   @HostListener('document:click', ['$event'])

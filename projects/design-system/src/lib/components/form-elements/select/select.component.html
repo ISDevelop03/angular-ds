@@ -24,30 +24,30 @@
   >
     <div [ngClass]="[theme[variant].element.button.selected]">
       <ds-icon
-        *ngIf="buttonIcon && !selected.image"
-        [id]="selected.icon || buttonIcon"
+        *ngIf="buttonIcon && !selectedItem.image"
+        [id]="selectedItem.icon || buttonIcon"
         [ngClass]="[disabled ? 'text-neutral-500' : 'text-red-500']"
       ></ds-icon>
 
       <img
-        *ngIf="selected.image"
-        [src]="selected.image"
-        [alt]="selected.label"
+        *ngIf="selectedItem.image"
+        [src]="selectedItem.image"
+        [alt]="selectedItem.label"
         class="rounded-full size-5"
       />
       <ng-container
-        *ngIf="!autoComplete || (autoComplete && selected.value !== '')"
+        *ngIf="!autoComplete || (autoComplete && selectedItem.value !== '')"
       >
         <span
           *ngIf="!multiple"
           [ngClass]="[
-            selected.label !== placeholder
+            selectedItem.label !== placeholder
               ? theme[variant].element.button.label
               : theme[variant].element.button.placeholder,
             disabled ? '!text-neutral-500' : ''
           ]"
         >
-          {{ selected.label }}
+          {{ selectedItem.label }}
         </span>
         <div
           *ngIf="multiple"
@@ -80,12 +80,12 @@
           </div>
         </div>
       </ng-container>
-      <ng-container *ngIf="autoComplete && selected.value === ''">
+      <ng-container *ngIf="autoComplete && selectedItem.value === ''">
         <input
           [(ngModel)]="searchTerm"
           type="text"
           class="w-full outline-none placeholder:font-semibold placeholder:text-neutral-900 placeholder:text-xs bg-level-3 mr-2"
-          [placeholder]="selected.label"
+          [placeholder]="selectedItem.label"
           (input)="onSearchInput($event.target.value)"
         />
       </ng-container>
@@ -94,8 +94,8 @@
     <ds-icon
       (click)="clearSelection()"
       *ngIf="
-        (selected.value !== '' && allowClear) ||
-        (selected.value !== '' && autoComplete) ||
+        (selectedItem.value !== '' && allowClear) ||
+        (selectedItem.value !== '' && autoComplete) ||
         (autoComplete && searchTerm != '')
       "
       id="close"
@@ -119,7 +119,7 @@
       *ngIf="
         !isLoading &&
         (allowClear || autoComplete) &&
-        selected.value === '' &&
+        selectedItem.value === '' &&
         searchTerm === ''
       "
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
