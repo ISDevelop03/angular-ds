@@ -120,7 +120,7 @@ export class SelectStoryComponent {
     this.selectedValue = value;
   }
   valueChange(data: any) {
-    console.log('data.valuedata.value', data);
+    console.log('selectedValue', this.selectedValue);
     if (data !== null) {
       this.selectedValue = data.value;
     }

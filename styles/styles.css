@@ -1327,6 +1327,10 @@ video {
   top: 100%;
 }
 
+.bottom-\[11px\] {
+  bottom: 11px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -1997,6 +2001,10 @@ video {
   max-height: 24rem;
 }
 
+.max-h-\[108px\] {
+  max-height: 108px;
+}
+
 .max-h-\[280px\] {
   max-height: 280px;
 }
@@ -2004,46 +2012,6 @@ video {
 .max-h-fit {
   max-height: -moz-fit-content;
   max-height: fit-content;
-}
-
-.max-h-10 {
-  max-height: 2.5rem;
-}
-
-.max-h-16 {
-  max-height: 4rem;
-}
-
-.max-h-28 {
-  max-height: 7rem;
-}
-
-.max-h-24 {
-  max-height: 6rem;
-}
-
-.max-h-\[98px\] {
-  max-height: 98px;
-}
-
-.max-h-\[100px\] {
-  max-height: 100px;
-}
-
-.max-h-\[106px\] {
-  max-height: 106px;
-}
-
-.max-h-\[110px\] {
-  max-height: 110px;
-}
-
-.max-h-\[108px\] {
-  max-height: 108px;
-}
-
-.max-h-\[200px\] {
-  max-height: 200px;
 }
 
 .min-h-0 {
@@ -2458,10 +2426,6 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.\!max-w-\[320px\] {
-  max-width: 320px !important;
 }
 
 .flex-1 {
@@ -3074,26 +3038,9 @@ video {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
-.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-y-reverse: 0;
-  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
-}
-
-.divide-y-\[1px\] > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-y-reverse: 0;
-  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
-}
-
 .divide-neutral-50 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(var(--color-neutral-50) / var(--tw-divide-opacity, 1));
-}
-
-.divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(var(--color-neutral-200) / var(--tw-divide-opacity, 1));
 }
 
 .self-start {
@@ -3647,11 +3594,6 @@ video {
   background-color: rgb(208 213 221 / var(--tw-bg-opacity, 1)) !important;
 }
 
-.\!bg-level-3 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(var(--level-3) / var(--tw-bg-opacity, 1)) !important;
-}
-
 .\!bg-neutral-100 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1)) !important;
@@ -4100,6 +4042,12 @@ video {
   background-image: linear-gradient( 120deg, rgb(var(--color-neutral-25)) 75%, rgb(var(--color-red-500)) 100%);
 }
 
+.from-\[\#F9E6E7\] {
+  --tw-gradient-from: #F9E6E7 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(249 230 231 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-blue-50 {
   --tw-gradient-from: rgb(var(--color-blue-50) / 1) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(var(--color-blue-50) / 0) var(--tw-gradient-to-position);
@@ -4115,18 +4063,6 @@ video {
 .from-zinc-100 {
   --tw-gradient-from: #f4f4f5 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(244 244 245 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-\[rgb\(var\(--level-3\)\)\] {
-  --tw-gradient-from: rgb(var(--level-3)) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(var(--level-3) / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-\[\#F9E6E7\] {
-  --tw-gradient-from: #F9E6E7 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(249 230 231 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -4372,6 +4308,10 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.pb-3\.5 {
+  padding-bottom: 0.875rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -4442,14 +4382,6 @@ video {
 
 .pt-\[9px\] {
   padding-top: 9px;
-}
-
-.pb-64 {
-  padding-bottom: 16rem;
-}
-
-.pb-3\.5 {
-  padding-bottom: 0.875rem;
 }
 
 .text-left {
@@ -7543,10 +7475,6 @@ bs-daterangepicker-container {
 
 .hover\:\!bg-transparent:hover {
   background-color: transparent !important;
-}
-
-.hover\:bg-black\/5:hover {
-  background-color: rgb(0 0 0 / 0.05);
 }
 
 .hover\:bg-black\/80:hover {

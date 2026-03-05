@@ -1,6 +1,7 @@
 <div id="ds-accounts-select" class="relative w-full" [ngClass]="className">
   <ng-container *ngIf="label">
     <label [class]="theme[variant].element.label">{{ label }}</label>
+    <span *ngIf="required" class="text-red-500">*</span>
   </ng-container>
 
   <button

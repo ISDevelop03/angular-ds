@@ -85,7 +85,6 @@ export class DsSelectComponent
 
   ngOnInit() {
     this.filteredItems = [].concat(this.items);
-    console.log('filteredItems', this.filteredItems);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -218,20 +217,24 @@ export class DsSelectComponent
     return this.value === item.value;
   }
 
-  get selected(): SelectItem {
-    if (this.multiple && Array.isArray(this.value)) {
-      const labels = this.items
-        .filter((i) => this.value!.includes(i.value))
-        .map((i) => i.label)
-        .join(', ');
-      return {
-        value: '',
-        label: labels || this.placeholder,
-      };
+  get selected(): SelectItem | SelectItem[] {
+    if (this.multiple) {
+      if (Array.isArray(this.value)) {
+        return this.items
+          .filter((i) => this.value!.includes(i.value))
+          .map((i) => ({ label: i.label, value: i.value }));
+      }
+      return [];
     }
 
     const found = this.items.find((i) => i.value === this.value);
     return found || { value: '', label: this.placeholder };
+  }
+
+  /** Selected items as an array for *ngFor when multiple is true. */
+  get selectedAsArray(): SelectItem[] {
+    const s = this.selected;
+    return Array.isArray(s) ? s : [];
   }
 
   @HostListener('document:click', ['$event'])
@@ -259,5 +262,14 @@ export class DsSelectComponent
     }
     this.isOpen = false;
     this.filteredItems = [].concat(this.items);
+  }
+
+  removeItem(item: SelectItem) {
+    if (this.multiple) {
+      const current = Array.isArray(this.value) ? this.value : [];
+      this.value = current.filter((val) => val !== item.value);
+    } else {
+      this.value = null;
+    }
   }
 }

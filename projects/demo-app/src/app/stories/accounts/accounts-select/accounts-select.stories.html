@@ -11,6 +11,17 @@
       buttonIcon="message"
     ></ds-accounts-select>
   </div>
+  <h3 class="text-2xl font-bold">Required Accounts Select</h3>
+  <div class="w-full gap-4">
+    <ds-accounts-select
+      [items]="options"
+      [(value)]="selectedValue"
+      label="Choose Option"
+      placeholder="Pick one..."
+      buttonIcon="message"
+      required="true"
+    ></ds-accounts-select>
+  </div>
   <h3 class="text-2xl font-bold">Disabled Accounts Select</h3>
   <div class="w-full gap-4">
     <ds-accounts-select
@@ -108,14 +119,15 @@
             value
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">string | null</code>
+            <code class="text-sm">string | string[] | null</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">null</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            This is a single stringor null. Supports two-way binding with
-            <code>[(value)]</code>.
+            The selected value: a single string, an array of strings (when
+            <code>multiple</code> is true), or null. Supports two-way binding
+            with <code>[(value)]</code>.
           </td>
         </tr>
         <tr>
@@ -213,6 +225,22 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            required
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, shows a required indicator (e.g. asterisk)
+            next to the label. Use for form validation to indicate the field
+            must be filled.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             emptyLabel
           </td>
           <td class="border border-gray-300 px-4 py-2">
@@ -226,7 +254,22 @@
             empty. Use to inform users that no options are available.
           </td>
         </tr>
-
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            multiple
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, allows selecting multiple accounts. The
+            <code>value</code> becomes an array of strings and
+            <code>valueChange</code> emits <code>string[]</code>.
+          </td>
+        </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             isLoading
@@ -307,6 +350,22 @@
             types.
           </td>
         </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showCurrencyFlag
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays the currency flag (from
+            <code>Solde.currency_flag</code>) alongside balance values in the
+            selected account and option list.
+          </td>
+        </tr>
 
         <!-- Component Outputs -->
         <tr class="bg-green-50">
@@ -322,13 +381,14 @@
             valueChange
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+            <code class="text-sm">EventEmitter&lt;string | string[]&gt;</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            Emitted when the selected value changes. Provides the selected value
-            as a string. Use with two-way binding <code>[(value)]</code> or
-            listen to this event to track selection changes.
+            Emitted when the selected value changes. Emits a string for single
+            selection or <code>string[]</code> when <code>multiple</code> is
+            true. Use with two-way binding <code>[(value)]</code> or listen to
+            this event to track selection changes.
           </td>
         </tr>
       </tbody>
@@ -422,11 +482,12 @@
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">Solde</code>
           </td>
-          <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> The accounting balance (book balance) for
-            the account. See the <strong>Solde Interface</strong> section below
-            for details.
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional. The accounting balance (book balance) for the account. See
+            the <strong>Solde Interface</strong> section below for details.
           </td>
         </tr>
         <tr>
@@ -436,12 +497,13 @@
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">Solde</code>
           </td>
-          <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> The real-time balance for the account.
-            Represents the current available balance including pending
-            transactions. See the <strong>Solde Interface</strong> section below
-            for details.
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional. The real-time balance for the account. Represents the
+            current available balance including pending transactions. See the
+            <strong>Solde Interface</strong> section below for details.
           </td>
         </tr>
         <tr>

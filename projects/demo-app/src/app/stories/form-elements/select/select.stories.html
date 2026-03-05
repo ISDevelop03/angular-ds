@@ -230,6 +230,23 @@
     </ds-select>
   </section>
 
+  <section class="max-w-xl">
+    <h3 class="text-2xl font-bold mb-2">Multi Select</h3>
+    <p class="text-gray-600 text-sm mb-4">
+      Select with multiple selection enabled.
+    </p>
+    <ds-select
+      [items]="options"
+      [value]="selectedValue"
+      (valueChange)="valueChange($event)"
+      label="Choose Option"
+      placeholder="Pick one..."
+      class="w-full"
+      multiple="true"
+    >
+    </ds-select>
+  </section>
+
   <!-- API Documentation Table -->
   <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
@@ -362,10 +379,11 @@
           </td>
           <td class="border border-gray-300 px-4 py-2">
             When <code>true</code>, shows a search/filter input inside the
-            dropdown. Users can type to filter options by label (case-insensitive).
-            Useful when the options list is long. Unlike <code>autoComplete</code>,
-            the select button still shows the selected label (or placeholder);
-            only the dropdown content includes the search field.
+            dropdown. Users can type to filter options by label
+            (case-insensitive). Useful when the options list is long. Unlike
+            <code>autoComplete</code>, the select button still shows the
+            selected label (or placeholder); only the dropdown content includes
+            the search field.
           </td>
         </tr>
         <tr>

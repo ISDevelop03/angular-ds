@@ -103,10 +103,13 @@ export class FileUploaderComponent {
   private generateUniqueId(): string {
     const chars =
       '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const randomValues = new Uint32Array(16);
+    crypto.getRandomValues(randomValues);
     let id = '';
     for (let group = 0; group < 4; group++) {
       for (let i = 0; i < 4; i++) {
-        id += chars[Math.floor(Math.random() * chars.length)];
+        const idx = group * 4 + i;
+        id += chars[randomValues[idx] % chars.length];
       }
       if (group < 3) {
         id += '-';

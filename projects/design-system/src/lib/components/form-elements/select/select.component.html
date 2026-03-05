@@ -39,6 +39,7 @@
         *ngIf="!autoComplete || (autoComplete && selected.value !== '')"
       >
         <span
+          *ngIf="!multiple"
           [ngClass]="[
             selected.label !== placeholder
               ? theme[variant].element.button.label
@@ -48,6 +49,36 @@
         >
           {{ selected.label }}
         </span>
+        <div
+          *ngIf="multiple"
+          [ngClass]="[
+            selectedAsArray.length
+              ? theme[variant].element.button.label
+              : theme[variant].element.button.placeholder,
+            disabled ? '!text-neutral-500' : '',
+            'flex items-center gap-2'
+          ]"
+        >
+          <span *ngIf="!selectedAsArray.length">{{ placeholder }}</span>
+          <div
+            *ngIf="selectedAsArray.length"
+            class="flex items-center gap-2 flex-wrap"
+          >
+            <div
+              class="flex items-center gap-2 bg-neutral-50 rounded-full px-2 py-0.5"
+              *ngFor="let item of selectedAsArray"
+            >
+              <span class="text-xs font-semibold">
+                {{ item.label }}
+              </span>
+              <ds-icon
+                id="close"
+                class="size-4"
+                (click)="removeItem(item)"
+              ></ds-icon>
+            </div>
+          </div>
+        </div>
       </ng-container>
       <ng-container *ngIf="autoComplete && selected.value === ''">
         <input

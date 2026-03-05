@@ -86,10 +86,10 @@
       *ngIf="file.status === 'uploading'"
       class="relative border overflow-hidden border-red-200 bg-transparent rounded-lg p-4"
     >
-      <div
+      <!-- <div
         class="absolute inset-0 h-full bg-red-50 dark:bg-[#290505] w-1/4 transition-all duration-300 ease-in-out"
         [style.width]="file.progress + '%'"
-      ></div>
+      ></div> -->
       <div class="relative w-full z-[1] flex gap-4 items-center justify-start">
         <div
           class="flex items-center justify-center rounded bg-white border border-red-100 p-2 text-red-500"
@@ -106,29 +106,7 @@
           </p>
         </div>
         <div class="absolute right-0 top-1/2 -translate-y-1/2">
-          <svg class="w-8 h-8 -rotate-90" viewBox="0 0 36 36">
-            <circle
-              class="text-red-100 dark:text-red-900"
-              stroke="currentColor"
-              stroke-width="3"
-              fill="none"
-              cx="18"
-              cy="18"
-              r="15"
-            />
-            <circle
-              class="text-red-500 transition-all duration-300 ease-in-out"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              fill="none"
-              cx="18"
-              cy="18"
-              r="15"
-              [attr.stroke-dasharray]="94.2"
-              [attr.stroke-dashoffset]="94.2 - (94.2 * file.progress) / 100"
-            />
-          </svg>
+          <ds-icon id="Loader" size="32px" class="animate-spin text-red-500"></ds-icon>
         </div>
       </div>
     </div>
