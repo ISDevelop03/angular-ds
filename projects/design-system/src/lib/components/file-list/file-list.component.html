@@ -106,7 +106,11 @@
           </p>
         </div>
         <div class="absolute right-0 top-1/2 -translate-y-1/2">
-          <ds-icon id="Loader" size="32px" class="animate-spin text-red-500"></ds-icon>
+          <ds-icon
+            id="Loader"
+            size="32px"
+            class="animate-spin text-red-500"
+          ></ds-icon>
         </div>
       </div>
     </div>
@@ -128,8 +132,7 @@
                 {{ file.file.name }}
               </p>
               <p class="text-neutral-700 text-[0.875rem]/[1.25rem] font-normal">
-                {{ (file.file.size / 1024 / 1024).toFixed(2) }} Mo - 100%
-                Téléchargé
+                {{ formatFileSize(file.file.size) }} - 100% Téléchargé
               </p>
               <!-- <button (click)="reUploadFile(file.file.id)" class="max-w-fit inline-block font-medium text-error-500 hover:text-error-700">
                 Réessayer
