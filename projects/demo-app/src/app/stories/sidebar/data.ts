@@ -42,23 +42,47 @@ export const mainMenusMOCKDATA: IMainMenu[] =
             items: [
   
                   {
-  
+
                     title: 'Consultation des comptes',
-  
+
                     href: '/360sheet/account/list',
-  
+
                     icon: 'receipt-lines',
-  
+
+                    items: [
+
+                      {
+
+                        title: 'Par type de compte',
+
+                        href: '/360sheet/account/list?filter=type',
+
+                        icon: 'receipt-lines',
+
+                      },
+
+                      {
+
+                        title: 'Par période',
+
+                        href: '/360sheet/account/list?filter=period',
+
+                        icon: 'receipt-lines',
+
+                      },
+
+                    ],
+
                   },
-  
+
                   {
-  
+
                     title: 'Historique des opérations',
-  
+
                     href: '/360sheet/account/movements?state=movements',
-  
+
                     icon: 'receipt-lines',
-  
+
                   },
   
                 ],
