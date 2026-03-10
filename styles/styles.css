@@ -1191,6 +1191,10 @@ video {
   bottom: 2rem;
 }
 
+.bottom-\[11px\] {
+  bottom: 11px;
+}
+
 .bottom-full {
   bottom: 100%;
 }
@@ -1325,10 +1329,6 @@ video {
 
 .top-full {
   top: 100%;
-}
-
-.bottom-\[11px\] {
-  bottom: 11px;
 }
 
 .isolate {
@@ -2552,11 +2552,6 @@ video {
 
 .-rotate-180 {
   --tw-rotate: -180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-rotate-90 {
-  --tw-rotate: -90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -5027,11 +5022,6 @@ video {
 .text-primary-600 {
   --tw-text-opacity: 1;
   color: rgb(220 46 46 / var(--tw-text-opacity, 1));
-}
-
-.text-red-100 {
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-red-100) / var(--tw-text-opacity, 1));
 }
 
 .text-red-400 {
@@ -8096,11 +8086,6 @@ bs-daterangepicker-container {
 
 .dark\:text-primary\/90:is(.dark *) {
   color: rgb(220 38 38 / 0.9);
-}
-
-.dark\:text-red-900:is(.dark *) {
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-red-900) / var(--tw-text-opacity, 1));
 }
 
 .dark\:text-white:is(.dark *) {
