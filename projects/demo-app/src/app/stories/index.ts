@@ -180,3 +180,6 @@ export * from './virement-card/virement-card.stories';
 
 // Auto-export for virement-card-recap stories
 export * from './virement-card-recap/virement-card-recap.stories';
+
+// Auto-export for input-search stories
+export * from './input-search/input-search.stories';

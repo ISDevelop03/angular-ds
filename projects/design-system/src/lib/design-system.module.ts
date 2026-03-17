@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InputSearchComponent } from './components/input-search/input-search.component';
 import { VirementCardRecapComponent } from './components/virement-card-recap/virement-card-recap.component';
 import { VirementCardComponent } from './components/virement-card/virement-card.component';
 import { ModalComponent } from './components/modal/modal.component';
@@ -224,6 +225,7 @@ registerLocaleData(localeFr, 'fr-FR');
     ModalComponent,
     VirementCardComponent,
     VirementCardRecapComponent,
+    InputSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -333,6 +335,7 @@ registerLocaleData(localeFr, 'fr-FR');
     ModalComponent,
     VirementCardComponent,
     VirementCardRecapComponent,
+    InputSearchComponent,
   ],
 })
 export class DesignSystemModule { }

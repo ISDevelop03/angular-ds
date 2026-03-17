@@ -1,0 +1,37 @@
+<div id="ds-input-search" [ngClass]="className">
+  <div
+    class="flex items-center border border-stroke-1 rounded-md p-2 pr-[9px] max-w-fit"
+  >
+    <button
+      (click)="openSearch()"
+      type="button"
+      class="shrink-0 outline-none border-none bg-transparent focus:outline-none focus:ring-0 cursor-pointer text-neutral-900"
+    >
+      <ds-icon id="search1" size="16"></ds-icon>
+    </button>
+    <div
+      class="flex flex-1 min-w-0 overflow-hidden transition-[max-width] duration-300 ease-out"
+      [class.max-w-0]="!isExpanded"
+      [class.max-w-full]="isExpanded"
+      [class.ml-2]="isExpanded"
+    >
+      <div class="flex items-center gap-2 flex-1 min-w-0 w-full">
+        <input
+          [(ngModel)]="value"
+          type="text"
+          placeholder="Search"
+          class="flex-1 min-w-0 w-full outline-none focus:outline-none text-xs font-bold text-neutral-900 placeholder:text-neutral-500 placeholder:font-medium bg-transparent"
+        />
+        <button
+          (click)="clearSearch()"
+          type="button"
+          class="shrink-0 outline-none border-none bg-transparent focus:outline-none focus:ring-0 cursor-pointer"
+          [class.visible]="value.length > 0"
+          [class.invisible]="value.length === 0"
+        >
+          <ds-icon id="close" class="text-neutral-500" size="16"></ds-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
