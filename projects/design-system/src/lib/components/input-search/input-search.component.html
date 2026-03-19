@@ -1,6 +1,6 @@
 <div id="ds-input-search" [ngClass]="className">
   <div
-    class="flex items-center border border-stroke-1 rounded-md p-2 pr-[9px] max-w-fit"
+    class="flex items-center border border-stroke-1 rounded-md p-2 pr-[9px] bg-white"
   >
     <button
       (click)="openSearch()"
@@ -10,9 +10,8 @@
       <ds-icon id="search1" size="16"></ds-icon>
     </button>
     <div
-      class="flex flex-1 min-w-0 overflow-hidden transition-[max-width] duration-300 ease-out"
-      [class.max-w-0]="!isExpanded"
-      [class.max-w-full]="isExpanded"
+      class="flex w-full min-w-0 overflow-hidden transition-[width] duration-300 ease-out"
+      [style.width]="isExpanded ? maxWidth : '0px'"
       [class.ml-2]="isExpanded"
     >
       <div class="flex items-center gap-2 flex-1 min-w-0 w-full">
@@ -20,6 +19,7 @@
           [(ngModel)]="value"
           type="text"
           placeholder="Search"
+          [style.opacity]="isExpanded ? '1' : '0'"
           class="flex-1 min-w-0 w-full outline-none focus:outline-none text-xs font-bold text-neutral-900 placeholder:text-neutral-500 placeholder:font-medium bg-transparent"
         />
         <button

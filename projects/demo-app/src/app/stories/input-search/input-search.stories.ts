@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 export class InputSearchStoryComponent {
   @Input() label: string = 'input-search';
   @Input() className?: string = '';
+  searchValue = '';
 }

@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+} from '@angular/core';
 /**
  * InputSearchComponent
  *
@@ -12,10 +17,22 @@ import { Component, Input } from '@angular/core';
 export class InputSearchComponent {
   @Input() className?: string = '';
   @Input() placeholder: string = 'Search';
+  @Input() maxWidth: string = '280px';
 
   @Input() value: string = '';
 
   isExpanded = false;
+
+  constructor(private elementRef: ElementRef<HTMLElement>) { }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as Node;
+    const clickedInside = this.elementRef.nativeElement.contains(target);
+    if (!clickedInside && this.isExpanded && !this.value.trim()) {
+      this.isExpanded = false;
+    }
+  }
 
   openSearch() {
     this.isExpanded = true;
@@ -23,6 +40,5 @@ export class InputSearchComponent {
 
   clearSearch() {
     this.value = '';
-
   }
 }

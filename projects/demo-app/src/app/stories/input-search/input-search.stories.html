@@ -1,7 +1,166 @@
-<section class="flex flex-col gap-4 p-4">
-  <h2 class="text-2xl font-bold">InputSearch</h2>
-  <div class="flex gap-4">
-    <ds-input-search></ds-input-search>
-    <ds-button icon="arrow-right" size="small"></ds-button>
+<div class="p-4 flex flex-col gap-y-6 gap-4 bg-crame-50">
+  <h2 class="text-4xl font-bold mb-6">InputSearch Component</h2>
+
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Basic Input Search</h3>
+    <p class="text-gray-600 text-sm">
+      A compact search input that expands when the search icon is clicked. Shows
+      a clear button when the field has text.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-input-search></ds-input-search>
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">With Custom Max Width</h3>
+    <p class="text-gray-600 text-sm">
+      Control the maximum width of the expanded input. Useful for fitting
+      different layouts.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-input-search [maxWidth]="'500px'"></ds-input-search>
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">With Custom Placeholder</h3>
+    <p class="text-gray-600 text-sm">
+      Override the default "Search" placeholder with custom text.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-input-search placeholder="Search accounts..."></ds-input-search>
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">With Initial Value</h3>
+    <p class="text-gray-600 text-sm">
+      Pre-populate the search field with an initial value using the
+      <code>value</code> input.
+    </p>
+    <div class="flex gap-4 w-full">
+      <ds-input-search
+        [value]="searchValue"
+        [maxWidth]="'400px'"
+      ></ds-input-search>
+    </div>
+  </section>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            The current search text. Supports two-way data binding with
+            <code>[(value)]</code>. When the user types or clears the field,
+            this value updates. If the field is cleared and the user clicks
+            outside, the input collapses (when empty).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            placeholder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Search'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Placeholder text displayed in the input when it is empty. Shown when
+            the search is expanded.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            maxWidth
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'280px'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Maximum width of the expanded input area. Accepts any valid CSS
+            width value (e.g. <code>'280px'</code>, <code>'50%'</code>,
+            <code>'100%'</code>). The input animates to this width when
+            expanded.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes applied to the component root wrapper. Use for
+            layout (e.g. <code>w-full</code>, <code>max-w-md</code>) or custom
+            styling.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</section>
+
+  <!-- Behavior -->
+  <h3 class="text-2xl font-bold mt-8"># Behavior</h3>
+  <ul class="list-disc list-inside text-gray-600 space-y-2">
+    <li>
+      <strong>Expand:</strong> Click the search icon to expand the input. The
+      input animates to <code>maxWidth</code>.
+    </li>
+    <li>
+      <strong>Collapse:</strong> When the input is empty and the user clicks
+      outside the component, the input collapses back to icon-only.
+    </li>
+    <li>
+      <strong>Clear:</strong> A clear (X) button appears when there is text;
+      clicking it clears the value.
+    </li>
+  </ul>
+</div>
