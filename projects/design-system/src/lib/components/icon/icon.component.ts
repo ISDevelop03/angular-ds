@@ -15,6 +15,7 @@ import { Component, Input } from '@angular/core';
       [attr.height]="size"
       [ngClass]="class"
       [style]="style"
+      [style.opacity]="disabled ? 0.5 : 1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <use [attr.href]="'/assets/icons.svg#' + id" class="fill-current"></use>
@@ -26,4 +27,5 @@ export class IconComponent {
   @Input() size: string = '1rem';
   @Input() class: string = '';
   @Input() style: string = '';
+  @Input() disabled: boolean = false;
 }
