@@ -58,7 +58,7 @@ export class TabsStoryComponent {
         { title: 'Activity', panel: this.tabThree, disabled: true },
       ];
       this.tabsNoBackground = [
-        { title: 'Nouveau paiement', panel: this.noBgTabOne },
+        { title: 'Nouveau paiement', panel: null },
         { title: 'Favoris', panel: this.noBgTabTwo, disabled: true },
         { title: 'Paiement en masse', panel: this.noBgTabThree },
       ];

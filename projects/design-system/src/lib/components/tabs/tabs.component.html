@@ -56,6 +56,9 @@
       <ng-template #showHtml>
         <div [innerHTML]="tab.panel"></div>
       </ng-template>
+      <ng-container *ngIf="!tab.panel">
+        <div class="w-full h-px bg-white"></div>
+      </ng-container>
     </div>
   </div>
 </div>
