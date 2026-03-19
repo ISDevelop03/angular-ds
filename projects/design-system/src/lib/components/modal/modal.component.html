@@ -13,13 +13,21 @@
 
   <!-- Modal panel -->
   <div class="absolute" [ngClass]="[theme.base]">
-    <div [ngClass]="[theme.panel, 'animate-fadeInScale']">
+    <div
+      [ngClass]="[
+        theme.panel,
+        'animate-fadeInScale',
+        !description && !(secondaryAction || mainAction)
+          ? 'items-center'
+          : 'items-start'
+      ]"
+    >
       <button (click)="onClose()" class="absolute top-2 right-2">
         <ds-icon id="close" size="24px"></ds-icon>
       </button>
       <div
         *ngIf="icon"
-        class="flex items-center justify-center p-2 rounded-full mb-3.5"
+        class="flex items-center justify-center p-2 rounded-full"
         [ngClass]="
           type === 'success'
             ? 'bg-green-100'
@@ -44,14 +52,17 @@
           "
         ></ds-icon>
       </div>
-      <div>
-        <h2 *ngIf="title" class="text-[1.25rem]/[1.5rem] font-bold mb-1">
+      <div class="mr-3">
+        <h2 *ngIf="title" class="text-[1.25rem]/[1.5rem] font-bold">
           {{ title }}
         </h2>
-        <p *ngIf="description" class="text-neutral-500 text-sm">
+        <p *ngIf="description" class="text-neutral-500 text-sm mt-1">
           {{ description }}
         </p>
-        <div class="flex items-center justify-start gap-2 mt-4">
+        <div
+          *ngIf="secondaryAction || mainAction"
+          class="flex items-center justify-start gap-2 mt-4"
+        >
           <ds-button
             *ngIf="secondaryAction"
             variant="secondary"

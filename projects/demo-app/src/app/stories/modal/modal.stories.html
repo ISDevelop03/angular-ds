@@ -20,14 +20,10 @@
   <ds-modal
     [isShown]="isInfoModalOpen"
     [title]="'This project has been unpublished'"
-    [description]="'Removing all users has unpublished this project. Add users to lorem.'"
+    [description]=""
     type="info"
     icon="info-circle"
     (close)="onCloseModal()"
-    (mainActionOnClick)="onMainActionOnClick()"
-    (secondaryActionOnClick)="onSecondaryActionOnClick()"
-    [mainAction]="'Confirm'"
-    [secondaryAction]="'Cancel'"
   >
   </ds-modal>
   <!-- Warning modal -->
@@ -124,7 +120,9 @@
             type
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">'success' | 'warning' | 'error' | 'info'</code>
+            <code class="text-sm"
+              >'success' | 'warning' | 'error' | 'info'</code
+            >
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">'info'</code>
@@ -147,8 +145,8 @@
           </td>
           <td class="border border-gray-300 px-4 py-2">
             Icon id for <code>ds-icon</code> (e.g. <code>info-circle</code>,
-            <code>danger</code>, <code>check</code>). Omit or leave empty to hide
-            the icon.
+            <code>danger</code>, <code>check</code>). Omit or leave empty to
+            hide the icon.
           </td>
         </tr>
         <tr>
@@ -159,9 +157,7 @@
             <code class="text-sm">string</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">—</td>
-          <td class="border border-gray-300 px-4 py-2">
-            Modal heading text.
-          </td>
+          <td class="border border-gray-300 px-4 py-2">Modal heading text.</td>
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
