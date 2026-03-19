@@ -1,6 +1,6 @@
 <div
   id="ds-actions-layout"
-  class="px-4 py-[11px] rounded bg-card-level-2 border border-stroke-1 flex flex-row gap-3.5 text-neutral-900"
+  class="px-4 py-[11px] rounded bg-card-level-2 flex flex-row gap-3.5 text-neutral-900"
   [ngClass]="className"
 >
   <button
@@ -8,7 +8,6 @@
     *ngFor="let item of items; let i = index"
     (click)="onClick(item, i)"
     class="relative"
-
     [ngClass]="[
       isSelected(i) ? 'text-red-500' : '',
       item.badge && item.iconId.includes('bell')
