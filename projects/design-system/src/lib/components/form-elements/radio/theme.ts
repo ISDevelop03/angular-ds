@@ -3,16 +3,16 @@ export const radio = {
     wrapper: 'flex gap-x-2 items-center',
     base: 'text-neutral-900 relative flex h-4 w-4 items-center justify-center rounded-full border cursor-pointer',
     enabled: {
-      checked: 'border-red-500 bg-red-50',
+      checked: '!border-red-500 !bg-red-50',
       unchecked: 'border-neutral-300 bg-transparent dark:border-neutral-500',
     },
     disabled: {
       checked: 'cursor-not-allowed border-red-500 opacity-50 bg-red-500',
       unchecked:
-        'cursor-not-allowed border-neutral-300 opacity-50 bg-neutral-300',
+        'cursor-not-allowed border-neutral-100 opacity-50 bg-neutral-300',
     },
     icon: {
-      base: 'h-1.5 w-1.5 rounded-full',
+      base: 'h-[6px] w-[6px] rounded-full',
       enabled: 'bg-red-500',
       disabled: 'opacity-50 cursor-not-allowed',
     },
