@@ -65,15 +65,15 @@
             class="flex items-center gap-2 flex-wrap"
           >
             <div
-              class="flex items-center gap-2 bg-neutral-50 rounded-full px-2 py-0.5"
+              class="flex items-center gap-2 bg-neutral-50 rounded-full px-2.5 py-0.5"
               *ngFor="let item of selectedAsArray"
             >
-              <span class="text-xs font-semibold">
+              <span class="text-xs font-semibold text-neutral-700">
                 {{ item.label }}
               </span>
               <ds-icon
                 id="close"
-                class="size-4"
+                class="size-4 text-neutral-700"
                 (click)="removeItem(item)"
               ></ds-icon>
             </div>
