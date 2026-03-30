@@ -1936,6 +1936,10 @@ video {
   height: 64px;
 }
 
+.h-\[6px\] {
+  height: 6px;
+}
+
 .h-\[calc\(100\%-14px\)\] {
   height: calc(100% - 14px);
 }
@@ -1987,10 +1991,6 @@ video {
 
 .h-sidebar {
   height: calc(100vh - 28px - 16px - 48px - 32px - 43px);
-}
-
-.h-\[6px\] {
-  height: 6px;
 }
 
 .max-h-0 {
@@ -2194,6 +2194,10 @@ video {
   width: 60px;
 }
 
+.w-\[6px\] {
+  width: 6px;
+}
+
 .w-\[72px\] {
   width: 72px;
 }
@@ -2246,10 +2250,6 @@ video {
 
 .w-px {
   width: 1px;
-}
-
-.w-\[6px\] {
-  width: 6px;
 }
 
 .\!min-w-fit {
@@ -2321,10 +2321,6 @@ video {
 
 .\!max-w-\[400px\] {
   max-width: 400px !important;
-}
-
-.max-w-0 {
-  max-width: 0px;
 }
 
 .max-w-20 {
@@ -2442,6 +2438,26 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-\[100px\] {
+  max-width: 100px;
+}
+
+.max-w-\[120px\] {
+  max-width: 120px;
+}
+
+.max-w-\[110px\] {
+  max-width: 110px;
+}
+
+.max-w-\[103px\] {
+  max-width: 103px;
+}
+
+.max-w-\[140px\] {
+  max-width: 140px;
 }
 
 .flex-1 {
@@ -2750,14 +2766,6 @@ video {
 
 .grid-cols-\[repeat\(auto-fill\2c _minmax\(132px\2c _1fr\)\)\] {
   grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
-}
-
-.grid-cols-\[auto_0fr\] {
-  grid-template-columns: auto 0fr;
-}
-
-.grid-cols-\[auto_1fr\] {
-  grid-template-columns: auto 1fr;
 }
 
 .flex-row {
@@ -3303,6 +3311,11 @@ video {
   border-style: none;
 }
 
+.\!border-crame-300 {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(var(--color-crame-300) / var(--tw-border-opacity, 1)) !important;
+}
+
 .\!border-gray-100 {
   --tw-border-opacity: 1 !important;
   border-color: rgb(208 213 221 / var(--tw-border-opacity, 1)) !important;
@@ -3557,19 +3570,9 @@ video {
   border-color: rgb(var(--color-violet-500) / var(--tw-border-opacity, 1));
 }
 
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-}
-
 .border-zinc-300 {
   --tw-border-opacity: 1;
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
-}
-
-.\!border-crame-300 {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(var(--color-crame-300) / var(--tw-border-opacity, 1)) !important;
 }
 
 .border-b-neutral-900 {
@@ -3641,6 +3644,11 @@ video {
 .\!bg-red-200 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(var(--color-red-200) / var(--tw-bg-opacity, 1)) !important;
+}
+
+.\!bg-red-50 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(var(--color-red-50) / var(--tw-bg-opacity, 1)) !important;
 }
 
 .bg-\[\#252627\] {
@@ -4039,11 +4047,6 @@ video {
   background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
 }
 
-.\!bg-red-50 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(var(--color-red-50) / var(--tw-bg-opacity, 1)) !important;
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -4320,6 +4323,11 @@ video {
 .py-\[22px\] {
   padding-top: 22px;
   padding-bottom: 22px;
+}
+
+.py-\[3px\] {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .pb-0 {
@@ -5347,14 +5355,14 @@ video {
   transition-duration: 150ms;
 }
 
-.transition-\[max-width\] {
-  transition-property: max-width;
+.transition-\[shadow_background\] {
+  transition-property: shadow background;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.transition-\[shadow_background\] {
-  transition-property: shadow background;
+.transition-\[width\] {
+  transition-property: width;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -5379,30 +5387,6 @@ video {
 
 .transition-transform {
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-\[max-width\2c opacity\2c margin\] {
-  transition-property: max-width,opacity,margin;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-\[grid-template-columns\] {
-  transition-property: grid-template-columns;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-\[opacity\] {
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-\[opacity\2c margin\] {
-  transition-property: opacity,margin;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

@@ -183,3 +183,6 @@ export * from './virement-card-recap/virement-card-recap.stories';
 
 // Auto-export for input-search stories
 export * from './input-search/input-search.stories';
+
+// Auto-export for entreprise-recap stories
+export * from './entreprise-recap/entreprise-recap.stories';

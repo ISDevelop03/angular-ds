@@ -284,4 +284,5 @@ export const menus: Menu[] = [
   { key: 'virement-card', name: 'VirementCard', path: '/virement-card' },
   { key: 'virement-card-recap', name: 'VirementCardRecap', path: '/virement-card-recap' },
   { key: 'input-search', name: 'InputSearch', path: '/input-search' },
+  { key: 'entreprise-recap', name: 'EntrepriseRecap', path: '/entreprise-recap' },
 ];
