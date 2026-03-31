@@ -1,6 +1,6 @@
 // theme definitions for TooltipComponent
 export const defaultTheme = {
-  base: 'w-max max-w-[300px] absolute z-[9999] px-3 py-2 text-sm font-medium text-white bg-neutral-900 dark:bg-[#000000] dark:bg-neutral-800 rounded-lg shadow-tooltip pointer-events-none',
+  base: 'w-max max-w-[300px] absolute z-[9999] px-3 py-2 text-sm font-medium text-white bg-neutral-900 dark:bg-[#000000] dark:bg-neutral-800 rounded-lg shadow-tooltip',
   positions: {
     top: 'bottom-full left-1/2 !-translate-x-1/2 mb-2',
     topRight: 'bottom-full right-0 mb-2',

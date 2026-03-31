@@ -2,18 +2,33 @@
   <ng-content></ng-content>
   <div
     id="ds-tooltip"
-    *ngIf="content"
+    *ngIf="content && shouldRenderTooltip"
     [@tooltipAnim]="animationState"
+    (@tooltipAnim.done)="onTooltipAnimationDone($event)"
     [ngClass]="computedClass"
     [attr.aria-hidden]="!isVisible"
     role="tooltip"
+    (mouseenter)="onTooltipMouseEnter($event)"
   >
     <div class="block">
       <ng-container *ngIf="isStringContent; else templateRef">
-        {{ content }}
+        <div>
+          {{ displayedContent }}
+          <span
+            *ngIf="isTruncated"
+            type="button"
+            class="text-primary-500 hover:text-primary-600 underline underline-offset-2"
+            (click)="toggleExpanded($event)"
+          >
+            {{ isExpanded ? "Voir plus" : "Voir moins" }}
+          </span>
+        </div>
       </ng-container>
       <ng-template #templateRef>
-        <ng-container *ngTemplateOutlet="content" class="flex items-center justify-center"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="content"
+          class="flex items-center justify-center"
+        ></ng-container>
       </ng-template>
     </div>
     <div [ngClass]="arrowClass"></div>
