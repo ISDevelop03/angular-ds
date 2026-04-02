@@ -1,6 +1,201 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">EntrepriseRecap</h2>
-  <div class="flex flex-col gap-4">
+  <h2 class="text-4xl font-bold mb-6">Entreprise Recap</h2>
+  <h3 class="text-2xl font-bold">Default</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
     <ds-entreprise-recap [items]="items"></ds-entreprise-recap>
+  </div>
+  <h3 class="text-2xl font-bold">With custom class</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <ds-entreprise-recap
+      [items]="items"
+      className="ring-1 ring-neutral-200"
+    ></ds-entreprise-recap>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TEntrepriseRecapItems[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Rows to display. Each element follows
+            <code>TEntrepriseRecapItems</code>. Scalar values render on one
+            line; account-shaped values use the layout described in
+            <strong>Account value object</strong> below. See the
+            <strong>TEntrepriseRecapItems Interface</strong> section for the
+            full shape.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional extra CSS classes merged onto the recap container (default
+            layout includes background, flex column, gap, rounded corners, and
+            padding).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TEntrepriseRecapItems Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8">TEntrepriseRecapItems Interface</h3>
+  <p class="text-gray-600 mb-4">
+    Each object in the <code>items</code> array matches
+    <code>TEntrepriseRecapItems</code>: a row label plus a
+    <code>value</code> that is either a scalar or an account object (see
+    <strong>Account value object</strong>).
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Left-aligned caption for the row (e.g.
+            'Entreprise', 'Compte émetteur').
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | number | TAccount</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Shown on the right. Strings and numbers
+            render as a single bold line. Objects with
+            <code>account_type</code> and <code>account_number</code> render as
+            two lines (type bold, number muted). See
+            <strong>TAccount</strong> below.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Account value object -->
+  <h3 class="text-2xl font-bold mt-8">#TAccount</h3>
+  <p class="text-gray-600 mb-4">
+    When <code>value</code> is not a <code>string</code> or <code>number</code>,
+    use this shape so the component can show account type and number on separate
+    lines.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            account_type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Account category label (e.g. 'Compte
+            courant'), shown bold and right-aligned.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            account_number
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Full account number, shown below the type
+            in muted text.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

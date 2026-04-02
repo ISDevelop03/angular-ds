@@ -2499,6 +2499,10 @@ video {
   max-width: 140px;
 }
 
+.max-w-lg {
+  max-width: 32rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -5389,6 +5393,11 @@ video {
 .ring-primary-500 {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(220 38 38 / var(--tw-ring-opacity, 1));
+}
+
+.ring-neutral-200 {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-neutral-200) / var(--tw-ring-opacity, 1));
 }
 
 .blur {

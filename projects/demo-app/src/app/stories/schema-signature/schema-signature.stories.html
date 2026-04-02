@@ -1,11 +1,262 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-2xl font-bold">SchemaSignature</h2>
-  <div class="flex flex-col gap-4">
+  <h2 class="text-4xl font-bold mb-6">Schema Signature</h2>
+  <h3 class="text-2xl font-bold">Default</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
     <ds-schema-signature
       className="max-w-[300px]"
       [title]="title"
       [initiation]="initiation"
       [actions]="actions"
     ></ds-schema-signature>
+  </div>
+  <h3 class="text-2xl font-bold">Without title</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <ds-schema-signature
+      className="max-w-[300px]"
+      [initiation]="initiation"
+      [actions]="actions"
+    ></ds-schema-signature>
+  </div>
+  <h3 class="text-2xl font-bold">No follow-up actions</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <ds-schema-signature
+      className="max-w-[300px]"
+      [title]="title"
+      [initiation]="initiation"
+      [actions]="[]"
+    ></ds-schema-signature>
+  </div>
+  <h3 class="text-2xl font-bold">With custom class</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <ds-schema-signature
+      className="max-w-[300px] ring-1 ring-neutral-200"
+      [title]="title"
+      [initiation]="initiation"
+      [actions]="actions"
+    ></ds-schema-signature>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional heading shown above the signature block. When omitted or
+            empty, the title row is not rendered.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            initiation
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TAction | undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            First row: agent on the left, label and date on the right. Uses the
+            same <code>TAction</code> shape as <code>actions</code>. See the
+            <strong>TAction Interface</strong> section below.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actions
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TAction[] | undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Additional rows listed under the initiation row, separated by a
+            divider and vertical connectors. Use an empty array to show only the
+            initiation block. Each entry follows <code>TAction</code>; see the
+            <strong>TAction Interface</strong> section below.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional extra CSS classes merged onto the root container (default
+            includes background, rounded corners, and padding).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TAgent Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># TAgent Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>actionAgent</code> field on <code>TAction</code> uses
+    <code>TAgent</code>: the person's display name and role label.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Signatory or agent name, shown bold on
+            the left.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            role
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Role or title (e.g. 'Initiator'), shown
+            below the name in muted text.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TAction Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># TAction Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>initiation</code> input and each element of
+    <code>actions</code> share the <code>TAction</code> shape: one label/date
+    pair on the right and an <code>actionAgent</code> on the left (see
+    <strong>TAgent Interface</strong> above).
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actionDate
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Date string shown bold on the right,
+            below <code>actionLabel</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actionLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Step label (e.g. 'Initiation'), muted,
+            above the date.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actionAgent
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">TAgent</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Name and role block on the left. See
+            <strong>TAgent Interface</strong> above.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
