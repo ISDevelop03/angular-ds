@@ -101,6 +101,8 @@ import {
 
   EntrepriseRecapStoryComponent,
 
+  SchemaSignatureStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -221,6 +223,7 @@ export const pages: Routes = [
   { path: 'virement-card-recap', component: VirementCardRecapStoryComponent },
   { path: 'input-search', component: InputSearchStoryComponent },
   { path: 'entreprise-recap', component: EntrepriseRecapStoryComponent },
+  { path: 'schema-signature', component: SchemaSignatureStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -338,6 +341,7 @@ const router = RouterModule.forRoot(pages);
     VirementCardRecapStoryComponent,
     InputSearchStoryComponent,
     EntrepriseRecapStoryComponent,
+    SchemaSignatureStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

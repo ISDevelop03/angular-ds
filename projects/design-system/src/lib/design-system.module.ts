@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SchemaSignatureComponent } from './components/schema-signature/schema-signature.component';
 import { EntrepriseRecapComponent } from './components/entreprise-recap/entreprise-recap.component';
 import { InputSearchComponent } from './components/input-search/input-search.component';
 import { VirementCardRecapComponent } from './components/virement-card-recap/virement-card-recap.component';
@@ -228,6 +229,7 @@ registerLocaleData(localeFr, 'fr-FR');
     VirementCardRecapComponent,
     InputSearchComponent,
     EntrepriseRecapComponent,
+    SchemaSignatureComponent,
   ],
   imports: [
     CommonModule,
@@ -339,6 +341,7 @@ registerLocaleData(localeFr, 'fr-FR');
     VirementCardRecapComponent,
     InputSearchComponent,
     EntrepriseRecapComponent,
+    SchemaSignatureComponent,
   ],
 })
 export class DesignSystemModule { }

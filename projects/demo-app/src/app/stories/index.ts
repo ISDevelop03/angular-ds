@@ -186,3 +186,6 @@ export * from './input-search/input-search.stories';
 
 // Auto-export for entreprise-recap stories
 export * from './entreprise-recap/entreprise-recap.stories';
+
+// Auto-export for schema-signature stories
+export * from './schema-signature/schema-signature.stories';
