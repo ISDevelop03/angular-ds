@@ -53,7 +53,7 @@ export class TooltipComponent implements OnInit, OnDestroy, AfterViewChecked, On
   @Input() theme: any;
   @Input() style: Record<string, string> = {};
 
-  readonly wordLimit = 10;
+  readonly wordLimit = 30;
   isExpanded = false;
 
 

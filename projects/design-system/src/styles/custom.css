@@ -10,7 +10,7 @@ body {
 
 .light {
   @apply text-black;
-  background: white
+  background: white;
 }
 .dark #main-content {
   @apply text-white;
@@ -20,7 +20,7 @@ body {
 
 .light #main-content {
   @apply text-black;
-  background: white
+  background: white;
 }
 
 input[type="range"].defaultInputRangeThumb::-webkit-slider-thumb {
@@ -30,7 +30,8 @@ input[type="range"].defaultInputRangeThumb::-webkit-slider-thumb {
   border-radius: 50%;
   background: #ffffff;
   cursor: pointer;
-  box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.12),
+  box-shadow:
+    0px 0.5px 4px rgba(0, 0, 0, 0.12),
     0px 6px 13px rgba(0, 0, 0, 0.12);
   transition: background 0.3s ease-in-out;
 }
@@ -42,7 +43,8 @@ input[type="range"].defaultInputRangeThumb::-moz-range-thumb {
   background: #ffffff;
   border: none;
   cursor: pointer;
-  box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.12),
+  box-shadow:
+    0px 0.5px 4px rgba(0, 0, 0, 0.12),
     0px 6px 13px rgba(0, 0, 0, 0.12);
   transition: background 0.3s ease-in-out;
 }
