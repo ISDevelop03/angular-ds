@@ -49,6 +49,7 @@ export class PriceFilterComponent implements OnChanges {
   @Input() className?: string = '';
   @Input() showOptions: boolean = true;
   @Input() value: number | null = null;
+  @Input() isRange: boolean = true;
   @Output() onSelect = new EventEmitter<Record<string, any> | number>();
 
   @ViewChild('trigger') trigger: ElementRef;
@@ -64,6 +65,11 @@ export class PriceFilterComponent implements OnChanges {
   selectedPrice: number | null = null;
   displayPrice: string = '';
   placeholder: string = '';
+
+  selectedRange: { min: number, max: number } = { min: null, max: null };
+  displayPriceMin: string = '';
+  displayPriceMax: string = '';
+
 
   logDisplayPrice() {
     console.log('displayPrice:', this.displayPrice);
@@ -165,12 +171,6 @@ export class PriceFilterComponent implements OnChanges {
     this.menuStyles = {};
   }
 
-  onItemClick(event: any, cb?: (event: any) => void) {
-    if (cb) {
-      cb(event);
-    }
-    this.closeMenu();
-  }
 
   handleOutsideClick = (e: MouseEvent) => {
     const tgt = e.target as Node;
@@ -242,7 +242,35 @@ export class PriceFilterComponent implements OnChanges {
         : integerPart;
     const numericValue = parseFloat(`${parts[0]}.${decimalPart || ''}`);
     this.selectedPrice = isNaN(numericValue) ? null : numericValue;
-    input.value = this.displayPrice;
+  }
+
+  onPriceInputMin(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    let rawValue = input.value.replace(/[^\d,]/g, '');
+    const parts = rawValue.split(',');
+    let integerPart = parts[0].replace(/^0+/, '') || '';
+    let decimalPart = parts[1] ? parts[1].slice(0, 2) : '';
+    integerPart = Number(integerPart).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
+    this.displayPriceMin =
+      decimalPart !== undefined && parts.length > 1
+        ? `${integerPart},${decimalPart}`
+        : integerPart;
+    const numericValue = parseFloat(`${parts[0]}.${decimalPart || ''}`);
+    this.selectedRange.min = isNaN(numericValue) ? null : numericValue;
+  }
+  onPriceInputMax(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    let rawValue = input.value.replace(/[^\d,]/g, '');
+    const parts = rawValue.split(',');
+    let integerPart = parts[0].replace(/^0+/, '') || '';
+    let decimalPart = parts[1] ? parts[1].slice(0, 2) : '';
+    integerPart = Number(integerPart).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
+    this.displayPriceMax =
+      decimalPart !== undefined && parts.length > 1
+        ? `${integerPart},${decimalPart}`
+        : integerPart;
+    const numericValue = parseFloat(`${parts[0]}.${decimalPart || ''}`);
+    this.selectedRange.max = isNaN(numericValue) ? null : numericValue;
   }
 
   clearSelection() {
@@ -253,16 +281,21 @@ export class PriceFilterComponent implements OnChanges {
   }
 
   handleSelect() {
+    //place holder for the selected price or range
     if (this.selectedPrice) {
       this.placeholder = this.formatPrice(this.selectedPrice);
+    } else if (this.selectedRange.min && this.selectedRange.max) {
+      this.placeholder = `${this.formatPrice(this.selectedRange.min)} - ${this.formatPrice(this.selectedRange.max)}`;
     }
+
+    //emit the selected price or range
     if (this.showOptions) {
       this.onSelect.emit({
         type: this.selectedType,
-        price: this.selectedPrice,
+        price: this.isRange ? this.selectedRange : this.selectedPrice,
       });
     } else {
-      this.onSelect.emit(this.selectedPrice);
+      this.onSelect.emit(this.isRange ? this.selectedRange : this.selectedPrice);
     }
     this.closeMenu();
   }
