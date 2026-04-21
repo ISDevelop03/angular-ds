@@ -49,7 +49,9 @@ export class PriceFilterComponent implements OnChanges {
   @Input() className?: string = '';
   @Input() showOptions: boolean = true;
   @Input() value: number | null = null;
-  @Input() isRange: boolean = true;
+  /** When `isRange` is true, initial min/max for the trigger and inputs. */
+  @Input() rangeValue: { min: number | null; max: number | null } | null = null;
+  @Input() isRange: boolean = false;
   @Output() onSelect = new EventEmitter<Record<string, any> | number>();
 
   @ViewChild('trigger') trigger: ElementRef;
@@ -88,10 +90,35 @@ export class PriceFilterComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['value']) {
+    if (
+      (changes['value'] || changes['isRange']) &&
+      !this.isRange
+    ) {
       this.selectedPrice = this.value != null ? this.value : null;
       this.displayPrice = this.value != null ? this.formatPrice(this.value) : '';
       this.placeholder = this.value != null ? this.formatPrice(this.value) : '';
+    }
+    if (changes['rangeValue'] || changes['isRange']) {
+      if (this.isRange) {
+        if (
+          this.rangeValue != null &&
+          this.rangeValue.min != null &&
+          this.rangeValue.max != null
+        ) {
+          this.selectedRange = {
+            min: this.rangeValue.min,
+            max: this.rangeValue.max,
+          };
+          this.displayPriceMin = this.formatPrice(this.rangeValue.min);
+          this.displayPriceMax = this.formatPrice(this.rangeValue.max);
+          this.placeholder = `${this.formatPrice(this.rangeValue.min)} - ${this.formatPrice(this.rangeValue.max)}`;
+        } else {
+          this.selectedRange = { min: null, max: null };
+          this.displayPriceMin = '';
+          this.displayPriceMax = '';
+          this.placeholder = '';
+        }
+      }
     }
   }
 
@@ -277,6 +304,11 @@ export class PriceFilterComponent implements OnChanges {
     this.selectedPrice = null;
     this.displayPrice = '';
     this.placeholder = '';
+    if (this.isRange) {
+      this.selectedRange = { min: null, max: null };
+      this.displayPriceMin = '';
+      this.displayPriceMax = '';
+    }
     this.onSelect.emit(null);
   }
 

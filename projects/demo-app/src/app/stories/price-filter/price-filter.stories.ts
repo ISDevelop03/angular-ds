@@ -9,6 +9,7 @@ export class PriceFilterStoryComponent {
   @Input() className?: string = '';
 
   value: number | null = 1000;
+  rangeValue: { min: number; max: number } = { min: 100, max: 5000 };
   onSelect(event: any) {
     console.log('onSelect', event);
   }
