@@ -16,18 +16,18 @@ export const defaultTheme = {
     positions: {
       top: 'top-full left-1/2 !-translate-x-1/2 -translate-y-[1px] border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white dark:border-t-neutral-100',
       topRight:
-        'top-full right-3 -translate-y-[1px] border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-neutral-900 dark:border-t-[#000000]',
+        'top-full right-3 -translate-y-[1px] border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white dark:border-t-neutral-100',
       topLeft:
-        'top-full left-3 -translate-y-[1px] border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-neutral-900 dark:border-t-[#000000]',
+        'top-full left-3 -translate-y-[1px] border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white dark:border-t-neutral-100',
       bottom:
-        'bottom-full left-1/2 !-translate-x-1/2 translate-y-[1px] border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-neutral-900 dark:border-b-[#000000]',
+        'bottom-full left-1/2 !-translate-x-1/2 translate-y-[1px] border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-white dark:border-b-neutral-100',
       bottomRight:
-        'bottom-full right-3 translate-y-[1px] border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-neutral-900 dark:border-b-[#000000]',
+        'bottom-full right-3 translate-y-[1px] border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-white dark:border-b-neutral-100',
       bottomLeft:
-        'bottom-full left-3 translate-y-[1px] border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-neutral-900 dark:border-b-[#000000]',
-      left: 'left-full top-1/2 !-translate-y-1/2 -translate-x-[1px] border-t-[6px] border-b-[6px] border-l-[6px] border-t-transparent border-b-transparent border-l-neutral-900 dark:border-l-[#000000]',
+        'bottom-full left-3 translate-y-[1px] border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-white dark:border-b-neutral-100',
+      left: 'left-full top-1/2 !-translate-y-1/2 -translate-x-[1px] border-t-[6px] border-b-[6px] border-l-[6px] border-t-transparent border-b-transparent border-l-white dark:border-l-neutral-100',
       right:
-        'right-full top-1/2 !-translate-y-1/2 translate-x-[1px] border-t-[6px] border-b-[6px] border-r-[6px] border-t-transparent border-b-transparent border-r-neutral-900 dark:border-r-[#000000]',
+        'right-full top-1/2 !-translate-y-1/2 translate-x-[1px] border-t-[6px] border-b-[6px] border-r-[6px] border-t-transparent border-b-transparent border-r-white dark:border-r-neutral-100',
     },
   },
 };

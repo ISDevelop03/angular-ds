@@ -17,7 +17,7 @@
         Montant
       </span>
       <ds-icon
-        *ngIf="!displayPrice"
+        *ngIf="!displayPrice && !displayPriceMin && !displayPriceMax"
         id="arrow-down"
         [class]="[
           'transition-all duration-500 ease-in-out',
@@ -25,7 +25,7 @@
         ]"
       ></ds-icon>
       <ds-icon
-        *ngIf="displayPrice"
+        *ngIf="displayPrice || (displayPriceMin && displayPriceMax)"
         id="close"
         class="text-neutral-900 cursor-pointer"
         (click)="clearSelection()"

@@ -24,8 +24,12 @@
     type="info"
     icon="info-circle"
     (close)="onCloseModal()"
+    (mainActionOnClick)="onMainActionOnClick()"
+    [mainAction]="'Confirm'"
   >
+    <ds-select [items]="options" [placeholder]="'Select an option'"></ds-select>
   </ds-modal>
+
   <!-- Warning modal -->
   <ds-modal
     [isShown]="isWarningModalOpen"

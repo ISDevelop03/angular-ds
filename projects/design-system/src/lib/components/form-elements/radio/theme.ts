@@ -1,7 +1,7 @@
 export const radio = {
   default: {
     wrapper: 'flex gap-x-2 items-center',
-    base: 'text-neutral-900 relative flex h-4 w-4 items-center justify-center rounded-full border cursor-pointer',
+    base: 'text-neutral-900 relative flex h-4 w-4 items-center justify-center rounded-full border cursor-pointer bg-white',
     enabled: {
       checked: '!border-red-500 !bg-red-50',
       unchecked: 'border-neutral-300 bg-transparent dark:border-neutral-500',
@@ -21,7 +21,7 @@ export const radio = {
       base: 'text-[0.875rem]/[1rem] font-normal',
       disabled: 'text-neutral-900 cursor-not-allowed opacity-50',
       unchecked: 'text-black dark:text-white cursor-pointer',
-      checked: 'font-semibold cursor-pointer',
+      checked: 'font-semibold cursor-pointer text-primary',
       error: 'text-error-500',
     },
   },

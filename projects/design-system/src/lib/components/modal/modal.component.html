@@ -60,6 +60,13 @@
           {{ description }}
         </p>
         <div
+          #contentContainer
+          class="mt-4"
+          [class.hidden]="!hasProjectedContent"
+        >
+          <ng-content></ng-content>
+        </div>
+        <div
           *ngIf="secondaryAction || mainAction"
           class="flex items-center justify-start gap-2 mt-4"
         >
