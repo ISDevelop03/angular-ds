@@ -1,39 +1,39 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
-  <h2 class="text-4xl font-bold mb-6">Schema Signature</h2>
+  <h2 class="text-4xl font-bold mb-6">Historique signataire</h2>
   <h3 class="text-2xl font-bold">Default</h3>
   <div class="flex flex-col gap-4 max-w-lg">
-    <ds-schema-signature
+    <ds-historique-signataire
       className="max-w-[300px]"
       [title]="title"
       [initiation]="initiation"
       [actions]="actions"
-    ></ds-schema-signature>
+    ></ds-historique-signataire>
   </div>
   <h3 class="text-2xl font-bold">Without title</h3>
   <div class="flex flex-col gap-4 max-w-lg">
-    <ds-schema-signature
+    <ds-historique-signataire
       className="max-w-[300px]"
       [initiation]="initiation"
       [actions]="actions"
-    ></ds-schema-signature>
+    ></ds-historique-signataire>
   </div>
   <h3 class="text-2xl font-bold">No follow-up actions</h3>
   <div class="flex flex-col gap-4 max-w-lg">
-    <ds-schema-signature
+    <ds-historique-signataire
       className="max-w-[300px]"
       [title]="title"
       [initiation]="initiation"
       [actions]="[]"
-    ></ds-schema-signature>
+    ></ds-historique-signataire>
   </div>
   <h3 class="text-2xl font-bold">With custom class</h3>
   <div class="flex flex-col gap-4 max-w-lg">
-    <ds-schema-signature
+    <ds-historique-signataire
       className="max-w-[300px] ring-1 ring-neutral-200"
       [title]="title"
       [initiation]="initiation"
       [actions]="actions"
-    ></ds-schema-signature>
+    ></ds-historique-signataire>
   </div>
 
   <!-- API Documentation Table -->

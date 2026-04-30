@@ -11,16 +11,16 @@ export type TAgent = {
   role: string;
 }
 /**
- * SchemaSignatureComponent
+ * HistoriqueSignataireComponent
  *
  * Live demo:
- * <example-url>/demo/ds-schema-signature.component.html</example-url>
+ * <example-url>/demo/ds-historique-signataire.component.html</example-url>
  */
 @Component({
-  selector: 'ds-schema-signature',
-  templateUrl: './schema-signature.component.html',
+  selector: 'ds-historique-signataire',
+  templateUrl: './historique-signataire.component.html',
 })
-export class SchemaSignatureComponent {
+export class HistoriqueSignataireComponent {
   @Input() className?: string = '';
   @Input() title?: string;
   @Input() initiation?: TAction;

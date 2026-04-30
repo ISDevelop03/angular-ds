@@ -285,5 +285,5 @@ export const menus: Menu[] = [
   { key: 'virement-card-recap', name: 'VirementCardRecap', path: '/virement-card-recap' },
   { key: 'input-search', name: 'InputSearch', path: '/input-search' },
   { key: 'entreprise-recap', name: 'EntrepriseRecap', path: '/entreprise-recap' },
-  { key: 'schema-signature', name: 'SchemaSignature', path: '/schema-signature' },
+  { key: 'historique-signataire', name: 'HistoriqueSignataire', path: '/historique-signataire' },
 ];

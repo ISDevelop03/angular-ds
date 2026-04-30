@@ -3573,18 +3573,13 @@ video {
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
 }
 
-.border-b-neutral-900 {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(var(--color-neutral-900) / var(--tw-border-opacity, 1));
-}
-
 .border-b-transparent {
   border-bottom-color: transparent;
 }
 
-.border-l-neutral-900 {
+.border-b-white {
   --tw-border-opacity: 1;
-  border-left-color: rgb(var(--color-neutral-900) / var(--tw-border-opacity, 1));
+  border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .border-l-red-500 {
@@ -3596,23 +3591,23 @@ video {
   border-left-color: transparent;
 }
 
-.border-r-neutral-900 {
+.border-l-white {
   --tw-border-opacity: 1;
-  border-right-color: rgb(var(--color-neutral-900) / var(--tw-border-opacity, 1));
+  border-left-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .border-r-transparent {
   border-right-color: transparent;
 }
 
+.border-r-white {
+  --tw-border-opacity: 1;
+  border-right-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
 .border-t-neutral-100 {
   --tw-border-opacity: 1;
   border-top-color: rgb(var(--color-neutral-100) / var(--tw-border-opacity, 1));
-}
-
-.border-t-neutral-900 {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(var(--color-neutral-900) / var(--tw-border-opacity, 1));
 }
 
 .border-t-transparent {
@@ -3922,11 +3917,6 @@ video {
 .bg-neutral-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral-800) / var(--tw-bg-opacity, 1));
-}
-
-.bg-neutral-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-neutral-900) / var(--tw-bg-opacity, 1));
 }
 
 .bg-primary {
@@ -7972,34 +7962,24 @@ bs-daterangepicker-container {
   border-color: rgb(63 63 70 / var(--tw-border-opacity, 1));
 }
 
-.dark\:border-b-\[\#000000\]:is(.dark *) {
+.dark\:border-b-neutral-100:is(.dark *) {
   --tw-border-opacity: 1;
-  border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+  border-bottom-color: rgb(var(--color-neutral-100) / var(--tw-border-opacity, 1));
 }
 
-.dark\:border-l-\[\#000000\]:is(.dark *) {
+.dark\:border-l-neutral-100:is(.dark *) {
   --tw-border-opacity: 1;
-  border-left-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+  border-left-color: rgb(var(--color-neutral-100) / var(--tw-border-opacity, 1));
 }
 
-.dark\:border-r-\[\#000000\]:is(.dark *) {
+.dark\:border-r-neutral-100:is(.dark *) {
   --tw-border-opacity: 1;
-  border-right-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
-}
-
-.dark\:border-t-\[\#000000\]:is(.dark *) {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+  border-right-color: rgb(var(--color-neutral-100) / var(--tw-border-opacity, 1));
 }
 
 .dark\:border-t-neutral-100:is(.dark *) {
   --tw-border-opacity: 1;
   border-top-color: rgb(var(--color-neutral-100) / var(--tw-border-opacity, 1));
-}
-
-.dark\:bg-\[\#000000\]:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
 .dark\:bg-\[\#171717\]:is(.dark *) {
@@ -8070,6 +8050,11 @@ bs-daterangepicker-container {
   background-color: rgb(var(--level-1) / var(--tw-bg-opacity, 1));
 }
 
+.dark\:bg-neutral-100:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
+}
+
 .dark\:bg-neutral-300:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral-300) / var(--tw-bg-opacity, 1));
@@ -8083,11 +8068,6 @@ bs-daterangepicker-container {
 .dark\:bg-neutral-700:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral-700) / var(--tw-bg-opacity, 1));
-}
-
-.dark\:bg-neutral-800:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-neutral-800) / var(--tw-bg-opacity, 1));
 }
 
 .dark\:bg-primary-600:is(.dark *) {
@@ -8113,21 +8093,6 @@ bs-daterangepicker-container {
 .dark\:bg-zinc-800:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
-}
-
-.dark\:bg-neutral-900:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-neutral-900) / var(--tw-bg-opacity, 1));
-}
-
-.dark\:bg-neutral-100:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
-}
-
-.dark\:bg-neutral-200:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-neutral-200) / var(--tw-bg-opacity, 1));
 }
 
 .dark\:from-blue-900\/20:is(.dark *) {

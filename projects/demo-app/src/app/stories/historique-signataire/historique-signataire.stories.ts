@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { TAction } from 'projects/design-system/src/lib/components/schema-signature/schema-signature.component';
+import { TAction } from 'projects/design-system/src/lib/components/historique-signataire/historique-signataire.component';
 
 @Component({
-  selector: 'app-schema-signature',
-  templateUrl: './schema-signature.stories.html',
+  selector: 'app-historique-signataire',
+  templateUrl: './historique-signataire.stories.html',
 })
-export class SchemaSignatureStoryComponent {
+export class HistoriqueSignataireStoryComponent {
   @Input() title: string = 'Signataires';
   @Input() className?: string = '';
 
