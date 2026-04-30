@@ -189,3 +189,6 @@ export * from './entreprise-recap/entreprise-recap.stories';
 
 // Auto-export for historique-signataire stories
 export * from './historique-signataire/historique-signataire.stories';
+
+// Auto-export for schema-signature-group-card stories
+export * from './schema-signature-group-card/schema-signature-group-card.stories';

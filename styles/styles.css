@@ -1630,6 +1630,10 @@ video {
   margin-top: 1px;
 }
 
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -7616,6 +7620,11 @@ bs-daterangepicker-container {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
+}
+
+.hover\:bg-neutral-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
 }
 
 .hover\:pl-10:hover {

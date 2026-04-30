@@ -286,4 +286,5 @@ export const menus: Menu[] = [
   { key: 'input-search', name: 'InputSearch', path: '/input-search' },
   { key: 'entreprise-recap', name: 'EntrepriseRecap', path: '/entreprise-recap' },
   { key: 'historique-signataire', name: 'HistoriqueSignataire', path: '/historique-signataire' },
+  { key: 'schema-signature-group-card', name: 'SchemaSignatureGroupCard', path: '/schema-signature-group-card' },
 ];

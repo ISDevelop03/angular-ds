@@ -1,0 +1,20 @@
+<div
+  id="ds-schema-signature-group-card"
+  [ngClass]="['bg-level-3 rounded p-4', className]"
+>
+  <p class="text-sm font-bold text-neutral-900 mb-3">{{ groupName }}</p>
+  <p class="text-xs text-neutral-500 mb-0.5">Nombre d'utilisateurs</p>
+  <p class="text-sm font-bold text-neutral-900">{{ numberOfUsers }}</p>
+  <div class="flex justify-end gap-1">
+    <button class="p-1 hover:bg-neutral-50 rounded-md" (click)="handleEdit()">
+      <ds-icon
+        id="edit-contained-1"
+        size="16"
+        class="text-neutral-900"
+      ></ds-icon>
+    </button>
+    <button class="p-1 hover:bg-neutral-50 rounded-md" (click)="handleDelete()">
+      <ds-icon id="trash-02" size="16" class="text-neutral-900"></ds-icon>
+    </button>
+  </div>
+</div>
