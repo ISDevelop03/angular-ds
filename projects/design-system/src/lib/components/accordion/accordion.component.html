@@ -10,7 +10,12 @@
       (click)="handleChange(item)"
       [ngClass]="getButtonClasses(item.isOpen)"
     >
-      <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 w-full">
+        <ng-container *ngIf="item.prefixTemplate">
+          <ng-container
+            *ngTemplateOutlet="item.prefixTemplate; context: item"
+          ></ng-container>
+        </ng-container>
         <div [class]="theme[variant].button.titleWrapper">
           <div
             *ngIf="item.count"

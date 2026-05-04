@@ -396,3 +396,11 @@
     dkdlkjkldj
   </button>
 </ng-template>
+
+<ng-template #checkboxTemplate let-item="item">
+  <ds-checkbox
+    [checked]="isCheckboxChecked"
+    (change)="handleCheckboxChange($event, item)"
+  >
+  </ds-checkbox>
+</ng-template>

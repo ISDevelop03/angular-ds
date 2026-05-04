@@ -6,7 +6,7 @@ export const theme = {
       base: 'w-full space-y-2 bg-level-3 rounded-b-lg py-4 px-6 text-left focus:outline-none outline-none border-none shadow-accordion overflow-hidden',
       title: 'text-[0.875rem]/[1.5rem] font-bold text-neutral-900',
       active: '',
-      titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',
+      titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px] grow',
 
       icon: {
         base: 'transition ease-in duration-300',
@@ -28,7 +28,7 @@ export const theme = {
       base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 text-left text-sm font-medium focus:outline-none',
       active: '',
       title: 'text-[0.875rem]/[1.125rem] font-bold',
-      titleWrapper: 'w-full flex items-center justify-between justify-between',
+      titleWrapper: 'w-full flex items-center justify-between justify-between grow',
       icon: {
         base: 'transition ease-in duration-300',
         classActive: '',
@@ -48,7 +48,7 @@ export const theme = {
       active: '',
       title: 'text-[0.875rem]/[1.125rem] font-bold',
       titleWrapper:
-        'w-full flex flex-row-reverse items-center gap-2 justify-end',
+        'w-full flex flex-row-reverse items-center gap-2 justify-end grow',
       icon: {
         base: 'transition ease-in duration-300',
         classActive: '',
@@ -67,7 +67,7 @@ export const theme = {
       base: 'w-full space-y-2 bg-level-3 rounded py-4 px-4 text-left focus:outline-none outline-none border-none rounded overflow-hidden',
       title: 'text-[0.875rem]/[1.5rem] font-bold text-neutral-900',
       active: 'rounded-b-none',
-      titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px]',
+      titleWrapper: 'flex items-center justify-end flex-row-reverse gap-[11px] grow',
 
       icon: {
         base: 'transition ease-in duration-300',

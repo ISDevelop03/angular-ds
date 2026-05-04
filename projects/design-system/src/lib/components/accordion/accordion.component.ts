@@ -20,6 +20,7 @@ export type AccordionItem<T = any> = {
   count?: string | number;
   countColor?: string;
   open?: boolean;
+  prefixTemplate?: string | TemplateRef<any>;
 }
 
 type Variant = 'default' | 'borderless' | 'shadowless' | 'borderless-reversed';

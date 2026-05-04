@@ -17,11 +17,14 @@ export class AccordionStoryComponent implements AfterViewInit {
   @ViewChild('templateThree') templateThree!: TemplateRef<any>;
   @ViewChild('contentTemplate') contentTemplate!: TemplateRef<any>;
   @ViewChild('buttonTemplate') buttonTemplate!: TemplateRef<any>;
+  @ViewChild('checkboxTemplate') checkboxTemplate!: TemplateRef<any>;
 
   items: AccordionItem[] = [];
   itemsWithTemplate: AccordionItem[] = [];
   itemsBorderless: AccordionItem[] = [];
   itemsShadowless: AccordionItem[] = [];
+
+  isCheckboxChecked = false;
 
   /** Code snippets for docs (used by app-story-demo-code-block) */
   snippetDefaultHtml = `<ds-accordion
@@ -90,6 +93,7 @@ onAccordionOpen(item: AccordionItem) {
         countColor: 'bg-yellow-500',
         open: true,
         buttonTemplate: this.buttonTemplate,
+        prefixTemplate: this.checkboxTemplate,
       },
       {
         id: 'default-2',
@@ -106,6 +110,12 @@ onAccordionOpen(item: AccordionItem) {
   handleClick(event: Event) {
     event.stopPropagation();
     console.log('Button clicked:', event);
+  }
+
+  handleCheckboxChange(event: Event) {
+    event.stopPropagation();
+    console.log('Checkbox clicked:', event);
+    this.isCheckboxChecked = !this.isCheckboxChecked;
   }
 
   onAccordionOpen(item: AccordionItem) {
