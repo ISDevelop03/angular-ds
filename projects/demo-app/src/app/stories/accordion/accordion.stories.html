@@ -58,7 +58,7 @@
 
   <!-- Template for content items -->
   <ng-template #contentTemplate>
-    <p>Here where your template goes</p>
+    <p>Panel body content (string HTML or a template like this).</p>
   </ng-template>
 
   <!-- API Documentation Table -->
@@ -204,14 +204,18 @@
             openHandler
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">EventEmitter&lt;AccordionItem&gt;</code>
+            <code class="text-sm"
+              >EventEmitter&lt;AccordionItem &amp; {{ '{' }} isOpen: boolean
+              {{ '}' }}&gt;</code
+            >
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            Emitted when an accordion panel is opened or closed. Provides the
-            <code>AccordionItem</code> that was toggled, including its current
-            state. Use to track which panels are open or to perform actions when
-            panels are toggled.
+            Emitted whenever a panel is toggled (open or close). The payload is
+            the row object for that panel: all
+            <code>AccordionItem</code> fields plus <code>isOpen</code> for the
+            new state. Use this to sync external state or react to expand and
+            collapse.
           </td>
         </tr>
       </tbody>
@@ -277,10 +281,12 @@
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            <strong>Required.</strong> The content displayed when the panel is
-            open. Can be a string (HTML) for simple content or an Angular
-            <code>TemplateRef</code> for complex, reusable content with custom
-            components.
+            <strong>Required.</strong> Body shown when the panel is open. Use a
+            string for HTML (bound with <code>innerHTML</code>) or a
+            <code>TemplateRef</code> for structured markup. For a
+            <code>TemplateRef</code>, the outlet context is the item’s
+            <code>context</code> property (pass an object your template can
+            read with <code>let-*</code> bindings).
           </td>
         </tr>
         <tr>
@@ -309,9 +315,31 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional template for custom button content in the accordion header.
-            Allows adding action buttons, icons, or other interactive elements
-            alongside the title. The template receives the item as context.
+            Optional extra controls in the header row, after the title and
+            chevron (for example an action button). String or
+            <code>TemplateRef</code>. For a template, the outlet context exposes
+            the row as the template variable <code>item</code> (all
+            <code>AccordionItem</code> fields plus <code>isOpen</code>). Use
+            <code>$event.stopPropagation()</code> on inner controls if they
+            should not toggle the panel.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            prefixTemplate
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | TemplateRef&lt;any&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional block rendered before the title area (for example a
+            checkbox or icon). Same template context as
+            <code>buttonTemplate</code>: same <code>item</code> template variable
+            as the row. Prefer <code>stopPropagation</code> on interactive
+            elements so the header button does not receive the click.
           </td>
         </tr>
         <tr>
@@ -325,10 +353,11 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional context object passed to template references. Use when
-            <code>content</code> or <code>buttonTemplate</code> is a
-            <code>TemplateRef</code> to provide data that the template can
-            access.
+            Data passed only to the <strong>content</strong>
+            <code>TemplateRef</code> outlet (not to
+            <code>buttonTemplate</code> or <code>prefixTemplate</code>). Set this
+            when <code>content</code> is a template so the panel body can read
+            your model.
           </td>
         </tr>
         <tr>
@@ -390,10 +419,11 @@
 
 <ng-template #buttonTemplate let-item="item">
   <button
+    type="button"
     (click)="handleClick($event, item)"
     class="bg-primary-500 text-white px-4 py-2 rounded-md"
   >
-    dkdlkjkldj
+    Example action
   </button>
 </ng-template>
 

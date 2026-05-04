@@ -107,7 +107,7 @@ onAccordionOpen(item: AccordionItem) {
     this.cdr.detectChanges();
   }
 
-  handleClick(event: Event) {
+  handleClick(event: Event, _item?: AccordionItem) {
     event.stopPropagation();
     console.log('Button clicked:', event);
   }
