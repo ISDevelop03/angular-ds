@@ -9,14 +9,14 @@ import {
 } from '@angular/core';
 import { theme } from './theme';
 
-export interface AccordionItem {
+export type AccordionItem<T = any> = {
   id: string;
   title: string;
   caption?: string;
   /** Either a string (HTML) or an Angular `<ng-template>` */
   content: string | TemplateRef<any>;
   buttonTemplate?: string | TemplateRef<any>;
-  context?: any;
+  context?: T;
   count?: string | number;
   countColor?: string;
   open?: boolean;

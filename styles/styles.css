@@ -1498,6 +1498,10 @@ video {
   margin-bottom: 0px;
 }
 
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1628,10 +1632,6 @@ video {
 
 .mt-px {
   margin-top: 1px;
-}
-
-.mb-0\.5 {
-  margin-bottom: 0.125rem;
 }
 
 .box-border {
@@ -2904,6 +2904,11 @@ video {
 
 .gap-px {
   gap: 1px;
+}
+
+.gap-x-1\.5 {
+  -moz-column-gap: 0.375rem;
+       column-gap: 0.375rem;
 }
 
 .gap-x-2 {
@@ -7620,11 +7625,6 @@ bs-daterangepicker-container {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
-}
-
-.hover\:bg-neutral-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
 }
 
 .hover\:pl-10:hover {

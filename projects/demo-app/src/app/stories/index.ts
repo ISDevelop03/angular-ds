@@ -192,3 +192,6 @@ export * from './historique-signataire/historique-signataire.stories';
 
 // Auto-export for schema-signature-group-card stories
 export * from './schema-signature-group-card/schema-signature-group-card.stories';
+
+// Auto-export for matrice-signature-card stories
+export * from './matrice-signature-card/matrice-signature-card.stories';

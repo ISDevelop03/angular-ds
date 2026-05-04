@@ -23,9 +23,9 @@ export const theme = {
   },
   borderless: {
     container: 'mx-auto w-full space-y-[17px] rounded-2xl',
-    disclosure: 'space-y-1 rounded-lg',
+    disclosure: 'rounded-lg',
     button: {
-      base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 pb-3 text-left text-sm font-medium focus:outline-none',
+      base: 'w-full hover:text-red-500 text-neutral-700 space-y-2 text-left text-sm font-medium focus:outline-none',
       active: '',
       title: 'text-[0.875rem]/[1.125rem] font-bold',
       titleWrapper: 'w-full flex items-center justify-between justify-between',
@@ -38,7 +38,7 @@ export const theme = {
         size: '16px',
       },
     },
-    panel: { base: '' },
+    panel: { base: 'pt-3' },
   },
   'borderless-reversed': {
     container: 'mx-auto w-full space-y-[17px] rounded-2xl',

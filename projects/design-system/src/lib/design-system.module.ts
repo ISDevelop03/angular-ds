@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatriceSignatureCardComponent } from './components/matrice-signature-card/matrice-signature-card.component';
 import { SchemaSignatureGroupCardComponent } from './components/schema-signature-group-card/schema-signature-group-card.component';
 import { HistoriqueSignataireComponent } from './components/historique-signataire/historique-signataire.component';
 import { EntrepriseRecapComponent } from './components/entreprise-recap/entreprise-recap.component';
@@ -232,6 +233,7 @@ registerLocaleData(localeFr, 'fr-FR');
     EntrepriseRecapComponent,
     HistoriqueSignataireComponent,
     SchemaSignatureGroupCardComponent,
+    MatriceSignatureCardComponent,
   ],
   imports: [
     CommonModule,
@@ -345,6 +347,7 @@ registerLocaleData(localeFr, 'fr-FR');
     EntrepriseRecapComponent,
     HistoriqueSignataireComponent,
     SchemaSignatureGroupCardComponent,
+    MatriceSignatureCardComponent,
   ],
 })
 export class DesignSystemModule { }

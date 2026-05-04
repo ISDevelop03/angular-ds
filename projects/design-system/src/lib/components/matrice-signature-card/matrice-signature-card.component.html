@@ -1,0 +1,56 @@
+<div
+  id="ds-matrice-signature-card"
+  [ngClass]="[className, 'p-4 rounded bg-white flex flex-col gap-4']"
+>
+  <ds-accordion [items]="accordionItems" variant="borderless"></ds-accordion>
+</div>
+
+<ng-template
+  #matriceSignatureCardContent
+  let-groupList="groupList"
+  let-userList="userList"
+  let-validatorNumber="validatorNumber"
+  let-order="order"
+>
+  <div class="pt-3 border-t border-stroke-1">
+    <div class="flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-neutral-900 text-[0.75rem]/[0.875rem]"
+          >Liste des groupes</span
+        >
+        <span class="text-neutral-900 font-bold text-[0.75rem]/[0.875rem]">{{
+          groupList.join(", ")
+        }}</span>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="text-neutral-900 text-[0.75rem]/[0.875rem]"
+          >Liste des groupes</span
+        >
+        <div class="flex items-center gap-x-1.5 overflow-x-auto">
+          <ds-badge
+            *ngFor="let user of userList"
+            [label]="user"
+            size="sm"
+            variant="default"
+          ></ds-badge>
+        </div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="text-neutral-900 text-[0.75rem]/[0.875rem]"
+          >Nombre de validateurs</span
+        >
+        <span class="text-neutral-900 font-bold text-[0.75rem]/[0.875rem]">{{
+          validatorNumber
+        }}</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="text-neutral-900 text-[0.75rem]/[0.875rem]"
+          >Ordre de signature</span
+        >
+        <span class="text-neutral-900 font-bold text-[0.75rem]/[0.875rem]">{{
+          order
+        }}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>

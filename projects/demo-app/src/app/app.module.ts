@@ -105,6 +105,8 @@ import {
 
   SchemaSignatureGroupCardStoryComponent,
 
+  MatriceSignatureCardStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -227,6 +229,7 @@ export const pages: Routes = [
   { path: 'entreprise-recap', component: EntrepriseRecapStoryComponent },
   { path: 'historique-signataire', component: HistoriqueSignataireStoryComponent },
   { path: 'schema-signature-group-card', component: SchemaSignatureGroupCardStoryComponent },
+  { path: 'matrice-signature-card', component: MatriceSignatureCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -346,6 +349,7 @@ const router = RouterModule.forRoot(pages);
     EntrepriseRecapStoryComponent,
     HistoriqueSignataireStoryComponent,
     SchemaSignatureGroupCardStoryComponent,
+    MatriceSignatureCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
