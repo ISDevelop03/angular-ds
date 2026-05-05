@@ -288,4 +288,5 @@ export const menus: Menu[] = [
   { key: 'historique-signataire', name: 'HistoriqueSignataire', path: '/historique-signataire' },
   { key: 'schema-signature-group-card', name: 'SchemaSignatureGroupCard', path: '/schema-signature-group-card' },
   { key: 'matrice-signature-card', name: 'MatriceSignatureCard', path: '/matrice-signature-card' },
+  { key: 'group-signataire-checkbox', name: 'GroupSignataireCheckbox', path: '/group-signataire-checkbox' },
 ];

@@ -1,0 +1,75 @@
+<div
+  id="ds-group-signataire-checkbox"
+  [ngClass]="[
+    'relative border border-stroke-1 rounded p-4 flex flex-col gap-y-4',
+    className
+  ]"
+>
+  <ds-checkbox
+    [checked]="isChecked"
+    (change)="handleCheckboxChange()"
+    class="absolute top-3 right-3"
+  ></ds-checkbox>
+  <div class="flex flex-col gap-y-2">
+    <span class="text-neutral-900 text-[0.75rem]/[0.875rem]"
+      >Nom de groupe</span
+    >
+    <span class="text-neutral-900 font-bold text-[0.75rem]/[0.875rem]"
+      >Groupe 1</span
+    >
+  </div>
+  <div class="flex flex-col gap-y-2">
+    <span class="text-neutral-900 text-[0.75rem]/[0.875rem]"
+      >Nombre des utilisateurs</span
+    >
+    <div class="flex items-center overflow-x-auto -space-x-2">
+      <ds-avatar
+        *ngFor="let user of users"
+        variant="initials"
+        [children]="getFirstTwoLetters(user)"
+        className="h-8 w-8 border-2 border-white bg-neutral-100"
+      ></ds-avatar>
+      <ds-dropdown-holder
+        (toggle)="toggleDropdown($event)"
+        [buttonContent]="usersDropdownContent"
+        containerClassName="max-w-[240px] px-0 py-1.5 rounded-md border border-neutral-100 bg-level-3"
+      >
+        <div class="w-full">
+          <div class="flex items-center justify-between py-2 px-4">
+            <span class="text-[0.75rem]/[1.125rem] text-neutral-900"
+              >Nombre des utilisateurs</span
+            >
+            <span
+              class="text-[0.75rem]/[1.125rem] font-medium text-neutral-900"
+              >{{ users.length }}</span
+            >
+          </div>
+          <div class="max-h-72 overflow-y-auto">
+            <div
+              *ngFor="let user of users"
+              class="flex items-center gap-x-3 py-2 px-4 hover:bg-neutral-25 cursor-pointer"
+            >
+              <ds-avatar
+                variant="initials"
+                [children]="getFirstTwoLetters(user)"
+                className="h-6 w-6 shrink-0 rounded-full bg-neutral-100"
+              ></ds-avatar>
+              <span
+                class="text-[0.75rem]/[1.125rem] font-bold text-neutral-900"
+                >{{ user }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </ds-dropdown-holder>
+    </div>
+  </div>
+</div>
+
+<ng-template #usersDropdownContent>
+  <span
+    class="inline-flex h-8 items-center border-2 border-white rounded-full bg-neutral-100 px-3 text-sm font-semibold text-neutral-900"
+  >
+    {{ users.length }}
+  </span>
+</ng-template>

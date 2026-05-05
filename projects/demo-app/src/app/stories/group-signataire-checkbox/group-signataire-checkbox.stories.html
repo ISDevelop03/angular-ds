@@ -1,0 +1,11 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">GroupSignataireCheckbox</h2>
+  <div class="flex flex-col gap-4">
+    <ds-group-signataire-checkbox
+      [users]="users"
+      (toggle)="handleToggle($event)"
+      (change)="handleChange($event)"
+      [checked]="checked"
+    ></ds-group-signataire-checkbox>
+  </div>
+</section>

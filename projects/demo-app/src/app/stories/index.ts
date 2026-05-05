@@ -195,3 +195,6 @@ export * from './schema-signature-group-card/schema-signature-group-card.stories
 
 // Auto-export for matrice-signature-card stories
 export * from './matrice-signature-card/matrice-signature-card.stories';
+
+// Auto-export for group-signataire-checkbox stories
+export * from './group-signataire-checkbox/group-signataire-checkbox.stories';
