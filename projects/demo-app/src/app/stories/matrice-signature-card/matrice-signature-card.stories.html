@@ -1,6 +1,170 @@
-<section class="flex flex-col gap-4 p-4 bg-gradient-crame">
-  <h2 class="text-2xl font-bold">MatriceSignatureCard</h2>
+<div
+  class="p-4 grid gap-6 w-full grid-cols-1 place-content-start min-h-screen bg-crame-50"
+>
+  <h2 class="text-4xl font-bold mb-6">MatriceSignatureCard</h2>
+
   <div class="flex flex-col gap-4">
     <ds-matrice-signature-card [items]="items"></ds-matrice-signature-card>
   </div>
-</section>
+
+  <!-- API Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional CSS classes merged onto the root container.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">AccordionItem&lt;MatriceSignatureCardContext&gt;[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Accordion sections for the signature matrix. Pass items
+            <strong>without</strong>
+            <code class="text-sm">content</code>: the component assigns an
+            internal
+            <code class="text-sm">ng-template</code>
+            that renders group list, users, validator count, and order from
+            <code class="text-sm">context</code>. See
+            <strong>MatriceSignatureCardContext</strong> below.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-gray-600 -mt-2">
+    This component has no outputs; interaction is handled by the nested
+    <code class="text-sm">ds-accordion</code>.
+  </p>
+
+  <!-- MatriceSignatureCardContext -->
+  <h3 class="text-2xl font-bold mt-8"># MatriceSignatureCardContext</h3>
+  <p class="text-gray-600 mb-4">
+    Each accordion item’s
+    <code class="text-sm">context</code>
+    must match this shape. Template variables
+    <code class="text-sm">groupList</code>,
+    <code class="text-sm">userList</code>,
+    <code class="text-sm">validatorNumber</code>, and
+    <code class="text-sm">order</code>
+    are bound from it.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            groupList
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Group names shown in the “Liste des groupes” summary (comma-separated
+            in the UI).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            userList
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            User labels rendered as small badges in the second group list block.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            validatorNumber
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Value shown for “Nombre de validateurs”.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            order
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Text shown for “Ordre de signature” (e.g.
+            <code class="text-sm">'1er'</code>).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
