@@ -174,8 +174,8 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="bank">
     <path fill="transparent" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.133" stroke="currentColor" d="M29.013 24.605c0-.589-.478-1.067-1.067-1.067H4.053c-.589 0-1.067.478-1.067 1.067v3.982c0 .589.478 1.067 1.067 1.067h23.893c.589 0 1.067-.478 1.067-1.067v-3.982zM3.605 9.036a1.066 1.066 0 00-.618.968v2.655c0 .589.478 1.067 1.067 1.067h23.893c.589 0 1.067-.478 1.067-1.067v-2.655c0-.427-.255-.813-.648-.981l-12.438-5.31a1.065 1.065 0 00-.867.013L3.605 9.036z"></path>
   </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="bank2">
-    <path fill="transparent" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.667" stroke="currentColor" d="M5.333 20v-3.558M12.444 20v-3.558M19.556 20v-3.558M26.667 20v-3.558M3.2 24.533h25.6V28.8H3.2v-4.267zm0-12.8V8.889L15.474 3.2 28.8 8.889v2.844H3.2z"></path>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="bank2">
+    <path d="M2.666 10V8.22M6.222 10V8.22M9.777 10V8.22M13.333 10V8.22M1.6 12.267h12.8V14.4H1.6v-2.134zm0-6.4V4.444L7.737 1.6 14.4 4.444v1.422H1.6z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="transparent"></path>
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32" id="barcode">
     <path fill="transparent" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="currentColor" d="M23.808 27.333H10.475c-4 0-6.667-2-6.667-6.667v-9.333c0-4.667 2.667-6.667 6.667-6.667h13.333c4 0 6.667 2 6.667 6.667v9.333c0 4.667-2.667 6.667-6.667 6.667zM9.143 10.666v10.667m4-10.667v5.333m0 4.001v1.333m8-10.667v1.333m-4-1.333v10.667m4-5.333v5.333m4-10.667v10.667"></path>
