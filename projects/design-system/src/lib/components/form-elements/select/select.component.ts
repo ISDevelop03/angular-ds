@@ -273,7 +273,9 @@ export class DsSelectComponent
   removeItem(item: SelectItem) {
     if (this.multiple) {
       const current = Array.isArray(this.value) ? this.value : [];
-      this.value = current.filter((val) => val !== item.value);
+      const newValues = current.filter((val) => val !== item.value);
+      this.value = newValues;
+      this.valueChange.emit({ value: newValues, event: null });
     } else {
       this.value = null;
     }
