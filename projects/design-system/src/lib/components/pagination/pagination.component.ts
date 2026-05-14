@@ -30,6 +30,7 @@ export class DsPaginationComponent implements OnChanges {
   @Input() className = '';
   @Input() showPerPage: boolean = false;
   @Input() minimized: boolean = false;
+  @Input() display: "horizontal" | "vertical" = "horizontal";
 
   @Output() pageChange = new EventEmitter<number>();
   @Output() perPageChange = new EventEmitter<number>();

@@ -50,6 +50,16 @@
       </div>
     </div>
 
+    <div>
+      <h3 class="text-2xl font-bold mb-3">Vertical</h3>
+      <ds-pagination
+        [totalItems]="totalItems"
+        [currentPage]="currentPage"
+        variant="default"
+        display="vertical"
+      ></ds-pagination>
+    </div>
+
     <!-- API Documentation Table -->
     <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 
@@ -100,10 +110,11 @@
               <code class="text-sm">0</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              <strong>Required.</strong> Total number of items to paginate. Used
-              to calculate the total number of pages based on
-              <code>itemsPerPage</code>. The component calculates
-              <code>pageCount = Math.ceil(totalItems / itemsPerPage)</code>.
+              Total number of items to paginate. Together with
+              <code>itemsPerPage</code> it drives
+              <code>pageCount = max(1, ceil(totalItems / itemsPerPage))</code>.
+              When <code>pageCount</code> is <code>1</code>, the component does
+              not render (single-page and empty lists are hidden).
             </td>
           </tr>
           <tr>
@@ -117,10 +128,16 @@
               <code class="text-sm">perPageOptions[0]</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Number of items displayed per page. Supports two-way binding with
-              <code>[(itemsPerPage)]</code>. Defaults to the first value in
-              <code>perPageOptions</code> array. When changed, automatically
-              resets to page 1 and triggers <code>perPageChange</code> event.
+              Number of items per page. Defaults to
+              <code>perPageOptions[0]</code> in the component constructor. Bind
+              with <code>[itemsPerPage]</code> from the parent and keep it in
+              sync when the user picks a new size by handling
+              <code>(perPageChange)</code> (there is no
+              <code>itemsPerPageChange</code> output for banana-in-the-box
+              syntax). Changing the size via the per-page control emits
+              <code>perPageChange</code> and then attempts to select page 1; if
+              the active page was already 1, <code>pageChange</code> is not
+              emitted again.
             </td>
           </tr>
           <tr>
@@ -134,9 +151,9 @@
               <code class="text-sm">1</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              The currently active page number (1-based). Use to control which
-              page is displayed. When a page is selected, the component emits
-              <code>pageChange</code> with the new page number.
+              Active page index (1-based). User actions update the internal page
+              and emit <code>pageChange</code> with the new value. For fully
+              controlled usage, keep the parent model in sync with that event.
             </td>
           </tr>
           <tr>
@@ -147,14 +164,13 @@
               <code class="text-sm">string</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">'compact'</code>
+              <code class="text-sm">'default'</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Visual style variant for the pagination component. Determines the
-              theme configuration used for styling. Available variants include
-              <code>'default'</code> and <code>'compact'</code>. Each variant
-              has its own theme configuration for wrapper, container, buttons,
-              and other elements.
+              Theme key for layout and classes (<code>theme[variant]</code> in
+              the design-system theme map). The built-in theme currently defines
+              <code>'default'</code> only; other keys must be added to the theme
+              object to be valid at runtime.
             </td>
           </tr>
           <tr>
@@ -181,15 +197,17 @@
               <code class="text-sm">boolean</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              <code class="text-sm">true</code>
+              <code class="text-sm">false</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Controls the visibility of the "items per page" selector. When
-              <code>true</code>, displays a row of clickable page size options
-              (from <code>perPageOptions</code>) with the label defined by
-              <code>perPageLabel</code>. The currently selected option is
-              highlighted. Clicking an option triggers the
-              <code>perPageChange</code> event and resets to page 1.
+              When <code>true</code>, shows a fixed &quot;Par page:&quot; label
+              and a row of buttons for each value in
+              <code>perPageOptions</code>. The active size is emphasized in the
+              template.               Choosing a value updates <code>itemsPerPage</code>,
+              emits <code>perPageChange</code>, and selects page 1 (emitting
+              <code>pageChange</code> only when the previous page was not
+              already 1). The <code>perPageLabel</code> input is not wired in the
+              default template.
             </td>
           </tr>
           <tr>
@@ -203,11 +221,25 @@
               <code class="text-sm">[25, 50, 100]</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Array of numbers representing available items-per-page options.
-              Displayed in the per-page selector dropdown when
-              <code>showPerPage</code> is <code>true</code>. The first value is
-              used as the default <code>itemsPerPage</code> if not explicitly
-              set.
+              Available page sizes. Shown as buttons when
+              <code>showPerPage</code> is <code>true</code>. The first entry
+              seeds <code>itemsPerPage</code> when the component is created.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+              display
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">'horizontal' | 'vertical'</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <code class="text-sm">'horizontal'</code>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              Layout direction for the wrapper: horizontal row vs vertical stack
+              (extra Tailwind classes are applied when
+              <code>vertical</code>).
             </td>
           </tr>
           <tr>
@@ -221,10 +253,11 @@
               <code class="text-sm">1</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              The index of the first item displayed on the current page
-              (1-based). Used for displaying item range information (e.g., "1-25
-              of 100"). Calculated as
-              <code>(currentPage - 1) * itemsPerPage + 1</code>.
+              First value in the compact info segment beside the controls
+              (parent should set it, e.g.
+              <code>(currentPage - 1) * itemsPerPage + 1</code>, if you want it
+              to match the current slice). It is not derived automatically from
+              <code>currentPage</code> inside the component.
             </td>
           </tr>
           <tr>
@@ -272,12 +305,10 @@
               <code class="text-sm">1</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Number of page buttons to show on each side of the current page
-              (neighbors). Controls the size of the sliding window around the
-              current page. For example, with <code>windowSize = 1</code> and
-              <code>currentPage = 5</code>, pages 4 and 6 are shown. Ellipses
-              (<code>...</code>) are inserted when there are gaps between page
-              ranges.
+              Neighbor radius around <code>currentPage</code> for the middle
+              window (clamped so it does not overlap the fixed start/end
+              blocks). Gaps between merged segments are rendered as an ellipsis
+              character (<code>…</code>).
             </td>
           </tr>
           <tr>
@@ -291,9 +322,11 @@
               <code class="text-sm">5</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Maximum number of page number buttons to display (excluding
-              prev/next buttons and ellipses). Used to limit the total number of
-              visible page buttons in the pagination component.
+              Declared for API compatibility; the visible page list is built
+              from <code>boundaryStartCount</code>,
+              <code>boundaryEndCount</code>, and <code>windowSize</code> only,
+              so this input does not change behavior in the current
+              implementation.
             </td>
           </tr>
           <tr>
@@ -339,9 +372,9 @@
               <code class="text-sm">'Par page'</code>
             </td>
             <td class="border border-gray-300 px-4 py-2">
-              Label text for the "items per page" selector. Displayed before the
-              dropdown when <code>showPerPage</code> is <code>true</code>. Use
-              to customize the label for localization or branding.
+              Intended label for the per-page area; the stock template uses a
+              hard-coded &quot;Par page:&quot; prefix instead of binding this
+              property.
             </td>
           </tr>
           <tr>
@@ -400,12 +433,12 @@
             </td>
             <td class="border border-gray-300 px-4 py-2">-</td>
             <td class="border border-gray-300 px-4 py-2">
-              Emitted when the user changes the number of items per page via the
-              selector dropdown. Provides the new items-per-page value. When
-              this event is triggered, the component automatically resets to
-              page 1 and recalculates the total number of pages. Use to update
-              your data source, fetch new data with the new page size, or sync
-              the items-per-page state with your application.
+              Emitted when the user picks a new page size from the per-page
+              buttons. Payload is the new <code>itemsPerPage</code>. The
+              component then selects page 1, emitting
+              <code>pageChange</code> only if the page actually changes. Use it
+              to refetch data and update bound <code>itemsPerPage</code> in the
+              parent.
             </td>
           </tr>
         </tbody>
