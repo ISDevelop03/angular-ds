@@ -27,7 +27,7 @@
         panelClassName
       ]"
     >
-      <button (click)="onClose()" class="absolute top-1.5 right-1.5">
+      <button (click)="onClose()" class="absolute top-2 right-2">
         <ds-icon id="close" size="24px"></ds-icon>
       </button>
       <div
@@ -37,10 +37,10 @@
           type === 'success'
             ? 'bg-green-100'
             : type === 'warning'
-            ? 'bg-amber-100'
-            : type === 'error'
-            ? 'bg-red-100'
-            : 'bg-blue-100'
+              ? 'bg-amber-100'
+              : type === 'error'
+                ? 'bg-red-100'
+                : 'bg-blue-100'
         "
       >
         <ds-icon
@@ -50,10 +50,10 @@
             type === 'success'
               ? 'text-green-500'
               : type === 'warning'
-              ? 'text-amber-500'
-              : type === 'error'
-              ? 'text-red-500'
-              : 'text-blue-500'
+                ? 'text-amber-500'
+                : type === 'error'
+                  ? 'text-red-500'
+                  : 'text-blue-500'
           "
         ></ds-icon>
       </div>
