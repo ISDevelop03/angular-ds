@@ -3,7 +3,7 @@ import { PaginationVariants } from './types';
 export const paginationVariants: PaginationVariants = {
   default: {
     wrapper:
-      'ds-pagination flex flex-wrap items-center justify-between gap-4 rounded',
+      'ds-pagination flex flex-wrap gap-4 rounded',
     container:
       'bg-level-3 border flex flex-wrap items-stretch justify-center border-neutral-100 rounded-md overflow-hidden',
     nextPrevButtons: {
