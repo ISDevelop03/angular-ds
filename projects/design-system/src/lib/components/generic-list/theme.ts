@@ -1,0 +1,6 @@
+// theme definitions for GenericListComponent
+export const theme = {
+  default: {
+    /* add your theme tokens here */
+  }
+};

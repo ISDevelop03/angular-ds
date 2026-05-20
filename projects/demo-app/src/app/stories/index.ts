@@ -198,3 +198,6 @@ export * from './matrice-signature-card/matrice-signature-card.stories';
 
 // Auto-export for group-signataire-checkbox stories
 export * from './group-signataire-checkbox/group-signataire-checkbox.stories';
+
+// Auto-export for generic-list stories
+export * from './generic-list/generic-list.stories';

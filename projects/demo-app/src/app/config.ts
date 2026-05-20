@@ -289,4 +289,5 @@ export const menus: Menu[] = [
   { key: 'schema-signature-group-card', name: 'SchemaSignatureGroupCard', path: '/schema-signature-group-card' },
   { key: 'matrice-signature-card', name: 'MatriceSignatureCard', path: '/matrice-signature-card' },
   { key: 'group-signataire-checkbox', name: 'GroupSignataireCheckbox', path: '/group-signataire-checkbox' },
+  { key: 'generic-list', name: 'GenericList', path: '/generic-list' },
 ];

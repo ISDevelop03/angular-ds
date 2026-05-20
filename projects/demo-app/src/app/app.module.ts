@@ -109,6 +109,8 @@ import {
 
   GroupSignataireCheckboxStoryComponent,
 
+  GenericListStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -233,6 +235,7 @@ export const pages: Routes = [
   { path: 'schema-signature-group-card', component: SchemaSignatureGroupCardStoryComponent },
   { path: 'matrice-signature-card', component: MatriceSignatureCardStoryComponent },
   { path: 'group-signataire-checkbox', component: GroupSignataireCheckboxStoryComponent },
+  { path: 'generic-list', component: GenericListStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -354,6 +357,7 @@ const router = RouterModule.forRoot(pages);
     SchemaSignatureGroupCardStoryComponent,
     MatriceSignatureCardStoryComponent,
     GroupSignataireCheckboxStoryComponent,
+    GenericListStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
