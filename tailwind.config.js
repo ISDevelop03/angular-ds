@@ -3,7 +3,6 @@ const preset = require("./tailwind.preset");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [preset], // ⬅️ inherit everything
-  // important: true,
   content: [
     "./src/**/*.{html,ts}",
     "./projects/**/*.{html,ts}",
