@@ -2116,6 +2116,10 @@ video {
   width: 60%;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -6854,6 +6858,26 @@ bs-daterangepicker-container {
   top: 2rem;
 }
 
+.before\:-top-\[20px\]::before {
+  content: var(--tw-content);
+  top: -20px;
+}
+
+.before\:-top-\[26px\]::before {
+  content: var(--tw-content);
+  top: -26px;
+}
+
+.before\:-top-\[30px\]::before {
+  content: var(--tw-content);
+  top: -30px;
+}
+
+.before\:-left-\[21px\]::before {
+  content: var(--tw-content);
+  left: -21px;
+}
+
 .before\:-z-\[1\]::before {
   content: var(--tw-content);
   z-index: -1;
@@ -6893,6 +6917,21 @@ bs-daterangepicker-container {
 .before\:h-px::before {
   content: var(--tw-content);
   height: 1px;
+}
+
+.before\:h-\[35px\]::before {
+  content: var(--tw-content);
+  height: 35px;
+}
+
+.before\:h-\[40px\]::before {
+  content: var(--tw-content);
+  height: 40px;
+}
+
+.before\:h-\[20px\]::before {
+  content: var(--tw-content);
+  height: 20px;
 }
 
 .before\:w-4::before {
@@ -7135,6 +7174,31 @@ bs-daterangepicker-container {
   top: 100%;
 }
 
+.after\:left-0::after {
+  content: var(--tw-content);
+  left: 0px;
+}
+
+.after\:left-\[-10px\]::after {
+  content: var(--tw-content);
+  left: -10px;
+}
+
+.after\:left-\[-20px\]::after {
+  content: var(--tw-content);
+  left: -20px;
+}
+
+.after\:left-\[-22px\]::after {
+  content: var(--tw-content);
+  left: -22px;
+}
+
+.after\:left-\[-21px\]::after {
+  content: var(--tw-content);
+  left: -21px;
+}
+
 .after\:-z-\[1\]::after {
   content: var(--tw-content);
   z-index: -1;
@@ -7174,6 +7238,16 @@ bs-daterangepicker-container {
 .after\:h-\[calc\(100\%-50px\)\]::after {
   content: var(--tw-content);
   height: calc(100% - 50px);
+}
+
+.after\:h-\[100\]::after {
+  content: var(--tw-content);
+  height: 100;
+}
+
+.after\:h-full::after {
+  content: var(--tw-content);
+  height: 100%;
 }
 
 .after\:w-0::after {
@@ -7406,12 +7480,27 @@ bs-daterangepicker-container {
   padding-top: 0px;
 }
 
+.first\:before\:-top-\[10px\]:first-child::before {
+  content: var(--tw-content);
+  top: -10px;
+}
+
+.first\:before\:h-\[20px\]:first-child::before {
+  content: var(--tw-content);
+  height: 20px;
+}
+
 .last\:border-b-0:last-child {
   border-bottom-width: 0px;
 }
 
 .last\:pb-0:last-child {
   padding-bottom: 0px;
+}
+
+.after\:last\:h-0:last-child::after {
+  content: var(--tw-content);
+  height: 0px;
 }
 
 .last-of-type\:border-b-0:last-of-type {
