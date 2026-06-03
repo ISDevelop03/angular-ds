@@ -51,12 +51,12 @@ export class ButtonComponent implements OnInit {
     }
     if (this.outline) {
       classes.push(theme.outlineVariants[this.variant]);
+    } else if (this.disabled) {
+      classes.push(theme.disabled[this.variant]);
     } else {
       classes.push(theme.variants[this.variant]);
     }
-    if (this.disabled) {
-      classes.push(theme.disabled[this.variant]);
-    }
+
 
     if (this.className) {
       classes.push(this.className);

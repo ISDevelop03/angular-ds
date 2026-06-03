@@ -16,9 +16,12 @@
     type="button"
     (click)="toggleDropdown()"
     [ngClass]="[
-      theme[variant].element.button.select,
-      hasError ? theme[variant].element.button.error : '',
-      disabled ? theme[variant].element.button.disabled : '',
+      theme[variant].element.button.base,
+      disabled
+        ? theme[variant].element.button.disabled
+        : hasError
+          ? theme[variant].element.button.error
+          : theme[variant].element.button.select,
       pill ? 'rounded-full' : ''
     ]"
   >

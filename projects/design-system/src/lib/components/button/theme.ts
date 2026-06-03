@@ -3,14 +3,14 @@ export const defaultTheme = {
   contentWrapper: 'flex items-center justify-center gap-3',
   disabled: {
     primary:
-      'cursor-not-allowed !bg-red-200 border !border-red-200 hover:bg-red-200 hover:border-red-200 !text-white',
+      'font-[700] cursor-not-allowed !bg-red-200 border !border-red-200 hover:bg-red-200 hover:border-red-200 !text-white',
     secondary:
-      'cursor-not-allowed !bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
+      'font-[700] cursor-not-allowed !bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
     // gray: 'cursor-not-allowed !bg-neutral-50 border !border-neutral-50 hover:bg-neutral-50 hover:border-neutral-50 !text-neutral-300',
     outline:
-      'cursor-not-allowed border !border-neutral-50 hover:border-neutral-50 !text-neutral-300',
-    text: 'cursor-not-allowed !text-neutral-300 hover:bg-transparent',
-    link: 'cursor-not-allowed !text-neutral-300 hover:bg-transparent',
+      'font-[700] cursor-not-allowed border !border-neutral-50 hover:border-neutral-50 !text-neutral-300',
+    text: 'font-[700] cursor-not-allowed !text-neutral-300 hover:bg-transparent',
+    link: 'font-[700] cursor-not-allowed !text-neutral-300 hover:bg-transparent',
   },
   size: {
     small: {
