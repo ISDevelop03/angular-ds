@@ -1,112 +1,129 @@
 import { IMainMenu } from 'projects/design-system/src/lib/components/sidebar/types';
 
-export const mainMenusMOCKDATA: IMainMenu[] = 
+export const mainMenusMOCKDATA: IMainMenu[] =
   [
 
     {
-  
+
       title: 'Overview',
-  
+
       icon: 'home',
-  
+
       color: 'bg-white-bg dark:bg-clr-white-bg-dark text-black',
-  
+
       href: '/360sheet',
-  
+
     },
-  
+
     {
-  
+
       title: 'Cash Management',
-  
+
       icon: 'frame1',
-  
+
       color: 'bg-primary dark:bg-primary-600',
-  
+
       href: '/',
-  
+
       menus: {
-  
+
         title: 'Cash Management',
-  
+
         items: [
-  
+
           {
-  
+
             title: 'Consultation de comptes',
-  
+
             icon: 'coins-rotate',
-  
+
             href: '/360sheet/account/list',
-  
+
             items: [
-  
+
+              {
+
+                title: 'Consultation des comptes',
+
+                href: '/360sheet/account/list',
+
+                icon: 'receipt-lines',
+
+                items: [
+
                   {
 
-                    title: 'Consultation des comptes',
+                    title: 'Par type de compte',
 
-                    href: '/360sheet/account/list',
+                    href: '/360sheet/account/list?filter=type',
 
                     icon: 'receipt-lines',
-
-                    items: [
-
-                      {
-
-                        title: 'Par type de compte',
-
-                        href: '/360sheet/account/list?filter=type',
-
-                        icon: 'receipt-lines',
-
-                      },
-
-                      {
-
-                        title: 'Par période',
-
-                        href: '/360sheet/account/list?filter=period',
-
-                        icon: 'receipt-lines',
-
-                      },
-
-                    ],
 
                   },
 
                   {
 
-                    title: 'Historique des opérations',
+                    title: 'Par période',
 
-                    href: '/360sheet/account/movements?state=movements',
+                    href: '/360sheet/account/list?filter=period',
 
                     icon: 'receipt-lines',
 
                   },
-  
+
                 ],
-  
+
+              },
+
+              {
+
+                title: 'Historique des opérations',
+
+                href: '/360sheet/account/movements?state=movements',
+
+                icon: 'receipt-lines',
+
+
+              },
+              {
+
+                title: 'Historique des opérations',
+
+                href: '/360sheet/account/movements?state=movements',
+
+                icon: 'receipt-lines',
+                items: [
+                  {
+                    title: 'Par période',
+                    href: '/360sheet/account/list?filter=period',
+                    icon: 'receipt-lines',
+                  },
+                ],
+
+              },
+
+            ],
+
           },
-  
+
           {
-  
+
             title: 'Factures',
-  
+
             icon: 'receipt-lines',
-  
+
             href: '/360sheet/bills-payment',
-  
+
             items: [],
-  
+
           },
-  
+
         ],
-  
+
       },
-  
+
     },
-  
+
   ];
 
 export const LIST_MOCKDATA = [
