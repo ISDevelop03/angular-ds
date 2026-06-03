@@ -116,7 +116,11 @@ export class DsSelectComponent
   }
 
   onSearchInput(searchTerm: string) {
+    const wasOpen = this.isOpen;
     this.isOpen = true;
+    if (!wasOpen) {
+      this.schedulePositionCalculation();
+    }
     this.filteredItems = this.items.filter((item) =>
       item.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -159,9 +163,19 @@ export class DsSelectComponent
       this.isOpen = !this.isOpen;
       if (this.isOpen) {
         this.filteredItems = [].concat(this.items);
+        this.schedulePositionCalculation();
+      } else {
+        this.containerPosition = {};
       }
-      setTimeout(() => this.calculatePosition(), 0);
     }
+  }
+
+  private schedulePositionCalculation() {
+    this.containerPosition = {
+      visibility: 'hidden',
+      position: 'absolute',
+    };
+    setTimeout(() => this.calculatePosition(), 0);
   }
 
   calculatePosition() {
@@ -176,11 +190,14 @@ export class DsSelectComponent
         this.triggerButton.nativeElement.getBoundingClientRect();
       const spaceBelow = window.innerHeight - rect.bottom;
       const spaceAbove = rect.top;
+      const spaceRight = window.innerWidth - rect.left;
+      const spaceLeft = rect.right;
 
       this.containerPosition = {
         top: spaceBelow > spaceAbove ? '100%' : 'auto',
         bottom: spaceBelow > spaceAbove ? 'auto' : '100%',
-        right: '0px',
+        left: spaceRight > spaceLeft ? 0 : 'auto',
+        right: spaceRight > spaceLeft ? 'auto' : 0,
         visibility: 'visible',
         position: 'absolute',
       };
