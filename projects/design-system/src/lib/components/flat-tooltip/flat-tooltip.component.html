@@ -1,0 +1,10 @@
+<div
+  id="ds-flat-tooltip"
+  [ngClass]="['flex items-start p-2 rounded gap-2 bg-neutral-50', className]"
+>
+  <ds-icon id="info-circle" class="mt-[1px] text-neutral-500 size-4"></ds-icon>
+  <div class="flex flex-col gap-0.5">
+    <p class="text-2xs font-bold text-neutral-900">{{ title }}</p>
+    <p class="text-2xs font-medium text-neutral-500">{{ content }}</p>
+  </div>
+</div>

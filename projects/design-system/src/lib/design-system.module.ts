@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlatTooltipComponent } from './components/flat-tooltip/flat-tooltip.component';
 import { GenericListComponent } from './components/generic-list/generic-list.component';
 import { GroupSignataireCheckboxComponent } from './components/group-signataire-checkbox/group-signataire-checkbox.component';
 import { MatriceSignatureCardComponent } from './components/matrice-signature-card/matrice-signature-card.component';
@@ -238,6 +239,7 @@ registerLocaleData(localeFr, 'fr-FR');
     MatriceSignatureCardComponent,
     GroupSignataireCheckboxComponent,
     GenericListComponent,
+    FlatTooltipComponent,
   ],
   imports: [
     CommonModule,
@@ -354,6 +356,7 @@ registerLocaleData(localeFr, 'fr-FR');
     MatriceSignatureCardComponent,
     GroupSignataireCheckboxComponent,
     GenericListComponent,
+    FlatTooltipComponent,
   ],
 })
 export class DesignSystemModule { }

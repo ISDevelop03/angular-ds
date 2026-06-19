@@ -201,3 +201,6 @@ export * from './group-signataire-checkbox/group-signataire-checkbox.stories';
 
 // Auto-export for generic-list stories
 export * from './generic-list/generic-list.stories';
+
+// Auto-export for flat-tooltip stories
+export * from './flat-tooltip/flat-tooltip.stories';

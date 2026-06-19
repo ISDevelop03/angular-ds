@@ -111,6 +111,8 @@ import {
 
   GenericListStoryComponent,
 
+  FlatTooltipStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -236,6 +238,7 @@ export const pages: Routes = [
   { path: 'matrice-signature-card', component: MatriceSignatureCardStoryComponent },
   { path: 'group-signataire-checkbox', component: GroupSignataireCheckboxStoryComponent },
   { path: 'generic-list', component: GenericListStoryComponent },
+  { path: 'flat-tooltip', component: FlatTooltipStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -358,6 +361,7 @@ const router = RouterModule.forRoot(pages);
     MatriceSignatureCardStoryComponent,
     GroupSignataireCheckboxStoryComponent,
     GenericListStoryComponent,
+    FlatTooltipStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
