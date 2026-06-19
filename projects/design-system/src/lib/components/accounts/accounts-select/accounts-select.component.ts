@@ -89,6 +89,10 @@ export class AccountsSelectComponent implements OnChanges {
     }
     if (changes['items']) {
       this.filteredItems = [].concat(this.items);
+      if (this.value) {
+        this.selectedValue =
+          this.items.find((option) => option.value === this.value) || null;
+      }
     }
   }
 

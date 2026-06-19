@@ -10,13 +10,16 @@
     (click)="toggleDropdown()"
     [disabled]="disabled || isLoading"
     [ngClass]="[
-      theme[variant].element.button.select,
-      hasError ? theme[variant].element.button.error : '',
-      disabled ? theme[variant].element.button.disabled : ''
+      theme[variant].element.button.base,
+      hasError
+        ? theme[variant].element.button.error
+        : disabled
+          ? theme[variant].element.button.disabled
+          : theme[variant].element.button.neutral
     ]"
   >
     <ng-container *ngIf="selectedValue === null && !autoComplete">
-      <span class="text-neutral-900 text-[0.75rem] leading-[18px]">
+      <span class="text-[0.75rem] leading-[18px]">
         {{ placeholder }}
       </span>
     </ng-container>
@@ -39,13 +42,16 @@
         <div class="w-full flex justify-between items-center gap-3">
           <div
             *ngIf="selectedValue.icon"
-            class="size-10 shrink-0 flex items-center justify-center border border-stroke-1 bg-white rounded-full"
+            [ngClass]="[
+              theme[variant].element.accountPicto.base,
+              hasError
+                ? theme[variant].element.accountPicto.error
+                : disabled
+                  ? theme[variant].element.accountPicto.disabled
+                  : theme[variant].element.accountPicto.enabled
+            ]"
           >
-            <ds-icon
-              [id]="selectedValue.icon"
-              size="20"
-              class="text-red-500"
-            ></ds-icon>
+            <ds-icon [id]="selectedValue.icon" size="20"></ds-icon>
           </div>
           <div class="w-full flex items-center justify-between gap-5">
             <div class="flex-1 flex flex-col">
@@ -134,13 +140,13 @@
     <ds-icon
       *ngIf="!isLoading && selectedValue === null && searchTerm === ''"
       [id]="isOpen ? 'arrow-up' : 'arrow-down'"
-      [class]="theme[variant].element.icone.arrow"
+      [class]="[disabled ? 'pointer-events-none' : '']"
     ></ds-icon>
     <ds-icon
       *ngIf="!isLoading && (selectedValue !== null || searchTerm !== '')"
       id="close"
-      [class]="theme[variant].element.icone.arrow"
-      (click)="clearSearch()"
+      [class]="[disabled ? 'pointer-events-none' : '']"
+      (click)="!disabled ? clearSearch() : null"
     ></ds-icon>
     <ds-icon
       *ngIf="isLoading"
