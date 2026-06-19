@@ -20,7 +20,7 @@ export class DsSidebarComponent {
   @Input() disableMainMenus: boolean = false;
   @Input() disableBottomMenus: boolean = false;
   @Input() sizes: Cap[] = [];
-  @Input() defaultCap: Cap = {name: 'L', size: 18};
+  @Input() defaultCap: Cap = { name: 'L', size: 18 };
   @Input() logo: string = '/assets/logo-mybusiness.svg';
   @Input() miniLogo: string = '/assets/mini-logo.svg';
   @Input() language: ILanguage = {

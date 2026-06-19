@@ -4,21 +4,25 @@
   class="sticky left-0 top-0 text-white h-screen shrink-0 z-[9999]"
   [ngClass]="className"
 >
-  <div class="px-4 py-6 flex justify-between items-center">
+  <div
+    *ngIf="!subSidebarIsOpen"
+    class="px-2 py-6 flex justify-between items-center"
+  >
     <img
-      *ngIf="!subSidebarIsOpen"
       [src]="miniLogo"
       alt="mini logo svg"
-      class="w-5 h-auto object-cover"
+      class="w-full h-[30px] object-contain"
     />
-
+  </div>
+  <div
+    *ngIf="subSidebarIsOpen"
+    class="px-4 py-6 flex justify-between items-center"
+  >
     <img
-      *ngIf="subSidebarIsOpen"
       [src]="logo"
       alt="mybusiness logo svg"
-      class="w-[140px] h-auto"
+      class="w-[140px] h-[30px] object-contain"
     />
-
     <button *ngIf="subSidebarIsOpen" (click)="closeSubSidebar()">
       <ds-icon id="sidebar-right" class="size-5"></ds-icon>
     </button>
@@ -47,20 +51,18 @@
 
       <div class="w-full">
         <ds-bottom-menus
-        [disableBottomMenus]="disableBottomMenus"
-        (onThemeChange)="_onThemeChange($event)"
-        [sizes]="sizes"
-        [defaultCap]="defaultCap"
-        [language]="language"
-        (callingOnClick)="callingOnClick.emit($event)"
-        (reclamationOnClick)="reclamationOnClick.emit($event)"
-        (languageOnClick)="languageOnClick.emit($event)"
-        (settingsOnClick)="settingsOnClick.emit($event)"
-        [profileMenus]="profileMenus"
-      ></ds-bottom-menus>
+          [disableBottomMenus]="disableBottomMenus"
+          (onThemeChange)="_onThemeChange($event)"
+          [sizes]="sizes"
+          [defaultCap]="defaultCap"
+          [language]="language"
+          (callingOnClick)="callingOnClick.emit($event)"
+          (reclamationOnClick)="reclamationOnClick.emit($event)"
+          (languageOnClick)="languageOnClick.emit($event)"
+          (settingsOnClick)="settingsOnClick.emit($event)"
+          [profileMenus]="profileMenus"
+        ></ds-bottom-menus>
       </div>
- 
-      
     </div>
 
     <div

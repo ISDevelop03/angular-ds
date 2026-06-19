@@ -27,13 +27,13 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
   mainMenus: IMainMenu[] = mainMenusMOCKDATA;
   hideWrapperBackground = false;
 
-  logo = '/assets/mybusiness.svg';
-  miniLogo = '/assets/mini-logo.svg';
+  logo = '/assets/big-logo.png';
+  miniLogo = '/assets/mini-logo.png';
   subSidebarIsOpen = false;
 
   subMenuData = mainMenusMOCKDATA[1].menus;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private document: Document) { }
 
   sizes: Cap[] = [
     { name: 'S', size: 14 },
@@ -214,8 +214,8 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
             this.currentCapSize.name === 'M'
               ? 4
               : this.currentCapSize.name === 'L'
-              ? 3
-              : 1,
+                ? 3
+                : 1,
         };
       }
     });
