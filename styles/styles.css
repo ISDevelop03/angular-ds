@@ -1999,6 +1999,14 @@ video {
   height: calc(100vh - 28px - 16px - 48px - 32px - 43px) !important;
 }
 
+.h-\[calc\(100\%-17px\)\] {
+  height: calc(100% - 17px) !important;
+}
+
+.h-\[calc\(100\%-24px\)\] {
+  height: calc(100% - 24px) !important;
+}
+
 .max-h-0 {
   max-height: 0px !important;
 }
