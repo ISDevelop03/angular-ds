@@ -2286,6 +2286,10 @@ video {
   width: 400px !important;
 }
 
+.w-\[350px\] {
+  width: 350px !important;
+}
+
 .\!min-w-fit {
   min-width: -moz-fit-content !important;
   min-width: fit-content !important;
