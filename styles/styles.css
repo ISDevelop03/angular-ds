@@ -2116,6 +2116,10 @@ video {
   width: 60% !important;
 }
 
+.w-32 {
+  width: 8rem !important;
+}
+
 .w-4 {
   width: 1rem !important;
 }
@@ -2262,8 +2266,16 @@ video {
   width: 1px !important;
 }
 
-.w-32 {
-  width: 8rem !important;
+.w-48 {
+  width: 12rem !important;
+}
+
+.w-\[500px\] {
+  width: 500px !important;
+}
+
+.w-\[400px\] {
+  width: 400px !important;
 }
 
 .\!min-w-fit {
