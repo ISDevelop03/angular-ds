@@ -42,6 +42,8 @@ export class FileUploaderComponent {
   currentTheme = theme[this.variant];
 
   selectedFiles: (File & { id: string })[] = [];
+  isErrorModalShown = false;
+  errorMessages: string[] = [];
 
   handleFile(files: File[]) {
     const errors = [];
@@ -62,7 +64,7 @@ export class FileUploaderComponent {
         file.size > this.maxFileSizeMB * 1024 * 1024 &&
         this.maxFileSizeMB > 0
       ) {
-        errors.push(`Max file size is ${this.maxFileSizeMB} MB`);
+        errors.push(`La taille du fichier ne doit pas dépasser ${this.maxFileSizeMB} MB`);
       }
     });
 
@@ -71,7 +73,8 @@ export class FileUploaderComponent {
     }
 
     if (errors.length > 0) {
-      alert(errors.join('\n'));
+      this.errorMessages = errors;
+      this.isErrorModalShown = true;
       return;
     }
 
@@ -122,6 +125,11 @@ export class FileUploaderComponent {
     event.preventDefault();
     const input = event.target as HTMLInputElement;
     this.handleFile(Array.from(input.files) as File[]);
+  }
+
+  closeErrorModal() {
+    this.isErrorModalShown = false;
+    this.errorMessages = [];
   }
 
   removeFile(id: string) {

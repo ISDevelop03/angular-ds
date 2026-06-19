@@ -1,12 +1,15 @@
 import {
   AfterContentChecked,
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
   HostListener,
   Input,
+  OnChanges,
   Output,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { theme } from './theme';
@@ -20,7 +23,9 @@ import { theme } from './theme';
   selector: 'ds-modal',
   templateUrl: './modal.component.html',
 })
-export class ModalComponent implements AfterViewInit, AfterContentChecked {
+export class ModalComponent
+  implements AfterViewInit, AfterContentChecked, OnChanges
+{
   @Input() isShown: boolean = false;
   @Input() icon?: string = '';
   @Input() type?: 'success' | 'warning' | 'error' | 'info' = 'info';
@@ -39,12 +44,29 @@ export class ModalComponent implements AfterViewInit, AfterContentChecked {
   hasProjectedContent: boolean = false;
   theme = theme;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['isShown']) {
+      if (changes['isShown'].currentValue) {
+        setTimeout(() => {
+          this.updateProjectedContentPresence();
+          this.cdr.markForCheck();
+        });
+      } else {
+        this.hasProjectedContent = false;
+      }
+    }
+  }
+
   ngAfterViewInit() {
     this.updateProjectedContentPresence();
   }
 
   ngAfterContentChecked() {
-    this.updateProjectedContentPresence();
+    if (this.isShown) {
+      this.updateProjectedContentPresence();
+    }
   }
 
   @HostListener('document:keydown.escape', ['$event'])

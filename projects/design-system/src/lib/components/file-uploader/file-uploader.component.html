@@ -35,4 +35,18 @@
       [showErrorButtonUpload]="showErrorButtonUpload"
     ></ds-file-list>
   </div>
+
+  <ds-modal
+    [isShown]="isErrorModalShown"
+    title="Upload error"
+    type="error"
+    icon="danger"
+    mainAction="OK"
+    (close)="closeErrorModal()"
+    (mainActionOnClick)="closeErrorModal()"
+  >
+    <ul class="list-disc pl-4 text-neutral-500 text-sm">
+      <li *ngFor="let error of errorMessages">{{ error }}</li>
+    </ul>
+  </ds-modal>
 </div>

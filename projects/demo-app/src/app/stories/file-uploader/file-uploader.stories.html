@@ -7,6 +7,7 @@
       (onChange)="onFileSuccessfullChange($event)"
       [isMultiple]="false"
       [files]="successfullFiles"
+      [maxFileSizeMB]="1"
       [allowedExtensions]="['png','jpg','jpeg','pdf']"
     >
       <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
