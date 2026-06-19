@@ -30,6 +30,7 @@ export class DsTabsComponent {
   @Input() className: string = '';
   @Input() variant: keyof typeof theme = 'default';
   @Input() rightContent?: TemplateRef<any>;
+  @Input() showTabsSeparator: boolean = false;
 
   @Output() onSelect = new EventEmitter<any>();
 

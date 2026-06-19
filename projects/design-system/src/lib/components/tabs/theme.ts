@@ -7,7 +7,7 @@ export const theme = {
         base: 'w-fit text-[0.75rem]/[1.125rem] rounded p-3 !outline-none focus:!outline-none focus:!border-none focus:!ring-0 text-nowrap transition-all duration-300 ease-in-out',
         selected: 'font-bold bg-red-50 text-red-500',
         unselected:
-          'bg-transparent text-neutral-600 hover:bg-red-50 hover:text-red-500  disabled:hover:bg-transparent disabled:hover:text-neutral-600',
+          'bg-transparent text-neutral-600 hover:bg-red-50 hover:text-red-500 disabled:hover:bg-transparent disabled:hover:text-neutral-600',
       },
     },
     panels: {
