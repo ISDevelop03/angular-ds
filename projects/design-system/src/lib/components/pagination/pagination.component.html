@@ -6,34 +6,9 @@
     className,
     display === 'vertical'
       ? 'flex-col items-end'
-      : 'flex-row items-center justify-between'
+      : 'flex-row items-center justify-end'
   ]"
 >
-  <div class="flex items-center justify-center gap-x-2">
-    <span [ngClass]="[theme[variant].info]">
-      <span>(</span>
-      <span>{{ firstItem }}</span>
-      <span>-</span>
-      <span>{{ itemsPerPage }}</span>
-      <span>/</span>
-      <span>{{ totalItems }}</span>
-      <span>)</span>
-    </span>
-    <span *ngIf="showPerPage" [ngClass]="[theme[variant].info]">Par page:</span>
-    <ul *ngIf="showPerPage" class="flex items-center justify-center gap-2">
-      <li
-        class="text-[1rem]/[1.25rem]"
-        [ngClass]="[
-          itemsPerPage === item ? 'text-red-500 font-bold' : 'text-neutral-700'
-        ]"
-        *ngFor="let item of perPageOptions"
-      >
-        <button (click)="changePerPage(item)">
-          {{ item }}
-        </button>
-      </li>
-    </ul>
-  </div>
   <div [ngClass]="[theme[variant].container]">
     <!-- Prev Button -->
     <button
