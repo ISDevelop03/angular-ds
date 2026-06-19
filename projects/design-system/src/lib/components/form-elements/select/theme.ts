@@ -6,17 +6,17 @@ export const theme = {
       button: {
         base:
           'relative cursor-default border text-[0.75rem]/[1.125rem] min-h-[40px] flex items-center justify-between w-full px-3 py-2 rounded text-left placeholder:text-[0.75rem]/[1.125rem] placeholder:text-gray-700 focus:ring-0 focus:outline-0',
-        select: 'border-stroke-1 hover:border-primary focus:border-primary bg-level-3',
+        select: 'text-neutral-900 border-stroke-1 hover:border-primary focus:border-primary bg-level-3',
         selected: 'flex gap-x-2 items-center overflow-hidden w-full relative mr-5',
         error:
-          'ring-1 ring-error-400 border-1 border-error-400 outline-1 border-1 border-error-400',
+          'bg-level-3 border-1 border-error-400 outline-1 border-1 border-error-400 text-error-500',
         iconeError: 'text-error-500',
         disabled:
           '!bg-neutral-100 !text-neutral-500 placeholder:!text-neutral-800 cursor-not-allowed !border-neutral-100 hover:border-neutral-100',
         label:
-          'inline-block text-neutral-900 font-bold text-[0.75rem]/normal mb-0',
+          'inline-block font-bold text-[0.75rem]/normal mb-0',
         placeholder:
-          'font-medium dark:text-white text-[0.75rem]/normal text-neutral-900 mr-5',
+          'font-medium text-[0.75rem]/normal mr-5',
       },
       field: {
         activated: 'bg-gray-200 dark:bg-neutral-700',
