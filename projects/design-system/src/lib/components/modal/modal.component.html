@@ -1,9 +1,4 @@
-<div
-  id="ds-modal"
-  *ngIf="isShown"
-  class="fixed inset-0 z-[1001]"
-  [ngClass]="[className]"
->
+<div id="ds-modal" *ngIf="isShown" class="fixed inset-0 z-[1001]">
   <!-- Backdrop -->
   <div
     class="popup-overlay"
@@ -12,7 +7,7 @@
   ></div>
 
   <!-- Modal panel -->
-  <div class="absolute" [ngClass]="[theme.base]">
+  <div class="absolute" [ngClass]="[theme.base, className]">
     <div
       [ngClass]="[
         theme.panel,
@@ -35,7 +30,7 @@
               ? 'bg-amber-100'
               : type === 'error'
                 ? 'bg-red-100'
-                : 'bg-blue-100'
+                : 'bg-neutral-100'
         "
       >
         <ds-icon
@@ -48,7 +43,7 @@
                 ? 'text-amber-500'
                 : type === 'error'
                   ? 'text-red-500'
-                  : 'text-blue-500'
+                  : 'text-neutral-500'
           "
         ></ds-icon>
       </div>
