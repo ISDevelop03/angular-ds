@@ -101,6 +101,30 @@ export class SelectStoryComponent {
     },
   ];
 
+  currencyOptions: SelectItem[] = [
+    {
+      value: 'EUR',
+      label: 'Euro',
+      image: 'https://flagcdn.com/w40/eu.png',
+      imageClass: 'rounded-full',
+    },
+    {
+      value: 'MAD',
+      label: 'Dirham',
+      image: 'https://flagcdn.com/w40/ma.png',
+      imageClass: 'rounded-full',
+    },
+    {
+      value: 'USD',
+      label: 'Dollar',
+      image: 'https://flagcdn.com/w40/us.png',
+      imageClass: 'rounded-full',
+    },
+  ];
+
+  selectedCurrency = 'EUR';
+  currencyAmount = 100;
+
   options1: SelectItem[] = [
     {
       label: 'Lorem ipsum dolor sit amedk ud odui odu t',
@@ -128,5 +152,15 @@ export class SelectStoryComponent {
 
   onSearchValueChange(value: string) {
     console.log('value', value);
+  }
+
+  currencyValueChange(data: any) {
+    if (data !== null) {
+      this.selectedCurrency = data.value;
+    }
+  }
+
+  onCurrencyAmountInput(event: Event) {
+    this.currencyAmount = +(event.target as HTMLInputElement).value;
   }
 }

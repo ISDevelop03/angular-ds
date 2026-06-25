@@ -7,7 +7,7 @@
     <p class="text-gray-600 text-sm">
       A simple single-selection dropdown with label and placeholder.
     </p>
-    <div class="flex gap-4 w-full">
+    <div class="flex gap-4 w-full h-16 relative bg-black overflow-hidden">
       <ds-select
         [items]="options"
         [value]="selectedValue"
@@ -229,6 +229,31 @@
       placeholder="Pick one..."
     >
     </ds-select>
+  </section>
+
+  <section class="max-w-xl">
+    <h3 class="text-2xl font-bold mb-2">Currency Variant</h3>
+    <p class="text-gray-600 text-sm mb-4">
+      Select styled with the <code>currency</code> variant for compact currency
+      pickers, typically paired with an amount input.
+    </p>
+    <div
+      class="w-full flex items-center justify-between bg-stroke-1 py-1.5 rounded-md pl-3.5 pr-2 max-w-[250px]"
+    >
+      <input
+        type="number"
+        [value]="currencyAmount"
+        (input)="onCurrencyAmountInput($event)"
+        class="text-[0.875rem]/[1rem] w-3/5 appearance-none font-bold bg-transparent border-none outline-none"
+      />
+      <ds-select
+        variant="currency"
+        [items]="currencyOptions"
+        [value]="selectedCurrency"
+        (valueChange)="currencyValueChange($event)"
+        [className]="'w-2/5 !min-w-fit'"
+      ></ds-select>
+    </div>
   </section>
 
   <section class="max-w-xl">
