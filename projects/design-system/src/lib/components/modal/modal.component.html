@@ -71,6 +71,7 @@
             size="small"
             (click)="onSecondaryActionOnClick()"
             class="text-neutral-500 text-sm"
+            [disabled]="isSecondaryActionDisabled"
           >
             {{ secondaryAction }}
           </ds-button>
@@ -80,6 +81,7 @@
             size="small"
             (click)="onMainActionOnClick()"
             class="text-primary-500 text-sm"
+            [disabled]="isMainActionDisabled"
           >
             {{ mainAction }}
           </ds-button>

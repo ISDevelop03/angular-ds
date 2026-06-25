@@ -24,15 +24,16 @@ import { theme } from './theme';
   templateUrl: './modal.component.html',
 })
 export class ModalComponent
-  implements AfterViewInit, AfterContentChecked, OnChanges
-{
+  implements AfterViewInit, AfterContentChecked, OnChanges {
   @Input() isShown: boolean = false;
   @Input() icon?: string = '';
   @Input() type?: 'success' | 'warning' | 'error' | 'info' = 'info';
   @Input() title?: string;
   @Input() description?: string;
   @Input() mainAction?: string;
+  @Input() isMainActionDisabled?: boolean
   @Input() secondaryAction?: string;
+  @Input() isSecondaryActionDisabled?: boolean
   @Input() className?: string = '';
 
   @Output() close = new EventEmitter<void>();
@@ -44,7 +45,7 @@ export class ModalComponent
   hasProjectedContent: boolean = false;
   theme = theme;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['isShown']) {
