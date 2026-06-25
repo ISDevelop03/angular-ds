@@ -1,6 +1,17 @@
 <label id="ds-radio" class="cursor-pointer inline-block">
   <div [ngClass]="wrapperClass">
-    <div [ngClass]="radioClass">
+    <div
+      [ngClass]="[
+        radio[variant].base,
+        disabled
+          ? checked
+            ? radio[variant].disabled.checked
+            : radio[variant].disabled.unchecked
+          : checked
+            ? radio[variant].enabled.checked
+            : radio[variant].enabled.unchecked
+      ]"
+    >
       <input
         type="radio"
         class="absolute size-0 opacity-0"
@@ -12,11 +23,14 @@
       />
       <div
         [ngClass]="[
-          checked ? 'opacity-100' : 'opacity-0',
-          radio[variant]?.icon?.base,
+          radio[variant].icon.base,
           disabled
-            ? radio[variant]?.icon?.disabled
-            : radio[variant]?.icon?.enabled
+            ? checked
+              ? radio[variant].icon.disabled.checked
+              : radio[variant].icon.disabled.unchecked
+            : checked
+              ? radio[variant].icon.enabled.checked
+              : radio[variant].icon.enabled.unchecked
         ]"
       ></div>
     </div>
@@ -27,6 +41,8 @@
   </div>
 
   <ng-container *ngIf="hasError && errorMessage">
-    <span class="text-error-500 text-[0.875rem]/normal">{{ errorMessage }}</span>
+    <span class="text-error-500 text-[0.875rem]/normal">{{
+      errorMessage
+    }}</span>
   </ng-container>
 </label>

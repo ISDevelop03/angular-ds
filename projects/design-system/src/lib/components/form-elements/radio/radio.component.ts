@@ -36,19 +36,8 @@ export class DsRadioComponent {
 
   get radioClass() {
     const variantStyles = radio[this.variant];
-    if (this.disabled) {
-      return `${variantStyles.base} ${
-        this.checked
-          ? variantStyles.disabled.checked
-          : variantStyles.disabled.unchecked
-      } ${this.hasError ? variantStyles.error : ''}`;
-    } else {
-      return `${variantStyles.base} ${
-        this.checked
-          ? variantStyles.enabled.checked
-          : variantStyles.enabled.unchecked
-      } ${this.hasError ? variantStyles.error : ''}`;
-    }
+    const state = this.disabled ? variantStyles.disabled : variantStyles.enabled;
+    return `${variantStyles.base} ${this.checked ? state.checked : state.unchecked} ${this.hasError ? variantStyles.error : ''}`;
   }
 
   get labelClass() {
