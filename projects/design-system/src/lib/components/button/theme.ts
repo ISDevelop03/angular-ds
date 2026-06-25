@@ -37,7 +37,7 @@ export const defaultTheme = {
       'font-[700] border-2 border-neutral-50 bg-neutral-50 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
     // gray: 'font-[700] border-2 border-neutral-100 bg-neutral-100 text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
     outline:
-      'font-[700] border-2 border-neutral-100 bg-transparent text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
+      'font-[700] border-2 border-neutral-100 bg-white text-neutral-700 hover:bg-neutral-50 hover:!border-neutral-100/10',
     text: 'font-[700] bg-transparent text-red-500 hover:bg-neutral-25 hover:!border-neutral-100/10',
     link: 'font-[700] bg-transparent text-neutral-700 hover:bg-neutral-25 hover:!border-neutral-100/10',
   },
