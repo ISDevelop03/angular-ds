@@ -34,6 +34,18 @@
   </section>
 
   <section class="flex flex-col gap-4 max-w-xl">
+    <h3 class="text-2xl font-bold">Open by Default</h3>
+    <p class="text-gray-600 text-sm">
+      Use <code>defaultOpen</code> to show the input expanded on load and keep
+      it open when clicking outside.
+    </p>
+    <div class="flex flex-col gap-4 w-full">
+      <ds-input-search [defaultOpen]="true" maxWidth="400px"></ds-input-search>
+      <ds-input-search [defaultOpen]="true" maxWidth="500px"></ds-input-search>
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-4 max-w-xl">
     <h3 class="text-2xl font-bold">With Initial Value</h3>
     <p class="text-gray-600 text-sm">
       Pre-populate the search field with an initial value using the
@@ -129,6 +141,21 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            defaultOpen
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, the input starts expanded and stays open
+            even when the user clicks outside the component.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             className
           </td>
           <td class="border border-gray-300 px-4 py-2">
@@ -156,7 +183,8 @@
     </li>
     <li>
       <strong>Collapse:</strong> When the input is empty and the user clicks
-      outside the component, the input collapses back to icon-only.
+      outside the component, the input collapses back to icon-only (unless
+      <code>defaultOpen</code> is <code>true</code>).
     </li>
     <li>
       <strong>Clear:</strong> A clear (X) button appears when there is text;
