@@ -15,6 +15,18 @@
         ></ds-pagination>
       </div>
       <div>
+        <h3 class="text-2xl font-bold mb-3">Default with showPerPage true</h3>
+        <ds-pagination
+          [totalItems]="totalItems"
+          [currentPage]="currentPage"
+          [showPerPage]="true"
+          variant="default"
+          [(itemsPerPage)]="itemsPerPage"
+          (pageChange)="onPageChange($event)"
+          (perPageChange)="onPerPageChange($event)"
+        ></ds-pagination>
+      </div>
+      <div>
         <h3 class="text-2xl font-bold mb-3">Minimized</h3>
         <ds-pagination
           [minimized]="true"
@@ -27,27 +39,6 @@
           (perPageChange)="onPerPageChange($event)"
         ></ds-pagination>
       </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-3">Default with showPerPage false</h3>
-        <ds-pagination
-          [totalItems]="totalItems"
-          [currentPage]="currentPage"
-          [showPerPage]="false"
-          variant="default"
-          [(itemsPerPage)]="itemsPerPage"
-        ></ds-pagination>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-3">
-          Minimized with showPerPage false
-        </h3>
-        <ds-pagination
-          [totalItems]="totalItems"
-          [currentPage]="currentPage"
-          [showPerPage]="false"
-          variant="default"
-        ></ds-pagination>
-      </div>
     </div>
 
     <div>
@@ -57,6 +48,7 @@
         [currentPage]="currentPage"
         variant="default"
         display="vertical"
+        [showPerPage]="true"
       ></ds-pagination>
     </div>
 
@@ -203,11 +195,11 @@
               When <code>true</code>, shows a fixed &quot;Par page:&quot; label
               and a row of buttons for each value in
               <code>perPageOptions</code>. The active size is emphasized in the
-              template.               Choosing a value updates <code>itemsPerPage</code>,
+              template. Choosing a value updates <code>itemsPerPage</code>,
               emits <code>perPageChange</code>, and selects page 1 (emitting
               <code>pageChange</code> only when the previous page was not
-              already 1). The <code>perPageLabel</code> input is not wired in the
-              default template.
+              already 1). The <code>perPageLabel</code> input is not wired in
+              the default template.
             </td>
           </tr>
           <tr>

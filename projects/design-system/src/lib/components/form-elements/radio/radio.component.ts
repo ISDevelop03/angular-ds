@@ -34,11 +34,7 @@ export class DsRadioComponent {
     return `${radio[this.variant].wrapper} ${this.className || ''}`;
   }
 
-  get radioClass() {
-    const variantStyles = radio[this.variant];
-    const state = this.disabled ? variantStyles.disabled : variantStyles.enabled;
-    return `${variantStyles.base} ${this.checked ? state.checked : state.unchecked} ${this.hasError ? variantStyles.error : ''}`;
-  }
+  
 
   get labelClass() {
     const labelStyles = radio[this.variant].label;

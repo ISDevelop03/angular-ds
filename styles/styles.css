@@ -2478,14 +2478,6 @@ video {
   max-width: 36rem !important;
 }
 
-.max-w-2xl {
-  max-width: 42rem !important;
-}
-
-.max-w-5xl {
-  max-width: 64rem !important;
-}
-
 .flex-1 {
   flex: 1 1 0% !important;
 }
@@ -2804,6 +2796,10 @@ video {
 
 .flex-col {
   flex-direction: column !important;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse !important;
 }
 
 .flex-wrap {
@@ -5441,10 +5437,6 @@ video {
 
 .duration-500 {
   transition-duration: 500ms !important;
-}
-
-.duration-700 {
-  transition-duration: 700ms !important;
 }
 
 .ease-in {
