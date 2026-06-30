@@ -2349,6 +2349,10 @@ video {
   min-width: max-content !important;
 }
 
+.min-w-\[32px\] {
+  min-width: 32px !important;
+}
+
 .\!max-w-\[400px\] {
   max-width: 400px !important;
 }

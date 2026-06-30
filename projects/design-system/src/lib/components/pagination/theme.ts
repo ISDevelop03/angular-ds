@@ -22,7 +22,7 @@ export const paginationVariants: PaginationVariants = {
     buttons: {
       base: 'flex items-stretch',
       button: {
-        base: ' text-[0.875rem]/[1.125rem] border-r border-neutral-100 text-neutral-500 w-[32px] h-full flex items-center justify-center',
+        base: ' text-[0.875rem]/[1.125rem] border-r border-neutral-100 text-neutral-500 min-w-[32px] px-1.5 h-full flex items-center justify-center',
         active: 'bg-neutral-100  text-neutral-500 font-bold',
         inactive: 'bg-level-4 font-medium',
       },
