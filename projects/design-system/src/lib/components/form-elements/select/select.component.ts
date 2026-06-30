@@ -49,7 +49,7 @@ export class DsSelectComponent
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
-  @Input() placeholder: string = 'Select an option';
+  @Input() placeholder: string = 'Sélectionner une option';
   @Input() variant: keyof typeof theme = 'default';
   @Input() disabled: boolean = false;
   @Input() hasError: boolean = false;
@@ -288,13 +288,17 @@ export class DsSelectComponent
   }
 
   removeItem(item: SelectItem) {
+    const event = { type: 'click' };
+
     if (this.multiple) {
       const current = Array.isArray(this.value) ? this.value : [];
-      const newValues = current.filter((val) => val !== item.value);
-      this.value = newValues;
-      this.valueChange.emit({ value: newValues, event: null });
+      this.value = current.filter((val) => val !== item.value);
     } else {
       this.value = null;
     }
+
+    this._onChange(this.value);
+    this._onTouched();
+    this.valueChange.emit({ value: this.value, event });
   }
 }

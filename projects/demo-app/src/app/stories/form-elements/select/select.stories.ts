@@ -1,12 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { SelectItem } from 'projects/design-system/src/lib/components/form-elements/select/select.component';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.stories.html',
 })
-export class SelectStoryComponent {
-  selectedValue: string | string[] = '';
+export class SelectStoryComponent implements OnInit {
+  multiSelectForm = new FormGroup({
+    selection: new FormControl([]),
+  });
+
+  ngOnInit() {
+    this.multiSelectForm.get('selection')!.valueChanges.subscribe((value) => {
+      console.log('multiSelectForm selection value:', value);
+    });
+  }
+  private _selectedValue: string | string[] = '';
+
+  get selectedValue(): string | string[] {
+    return this._selectedValue;
+  }
+
+  set selectedValue(value: string | string[]) {
+    this._selectedValue = value;
+    console.log('selectedValue', value);
+  }
   isLoading: boolean = false;
 
   options: SelectItem[] = [
@@ -144,7 +163,6 @@ export class SelectStoryComponent {
     this.selectedValue = value;
   }
   valueChange(data: any) {
-    console.log('selectedValue', this.selectedValue);
     if (data !== null) {
       this.selectedValue = data.value;
     }
