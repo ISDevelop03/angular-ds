@@ -54,7 +54,7 @@ export class DsSelectComponent
   @Input() disabled: boolean = false;
   @Input() hasError: boolean = false;
   @Input() pill: boolean = false;
-  @Input() emptyLabel: string = 'No options';
+  @Input() emptyLabel: string = 'Aucune option';
   @Input() multiple: boolean = false;
   @Input() isLoading: boolean = false;
   @Input() className?: string;
