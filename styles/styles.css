@@ -1846,10 +1846,6 @@ video {
   height: 3.5rem !important;
 }
 
-.h-16 {
-  height: 4rem !important;
-}
-
 .h-2 {
   height: 0.5rem !important;
 }
@@ -2301,6 +2297,10 @@ video {
 
 .min-w-\[150px\] {
   min-width: 150px !important;
+}
+
+.min-w-\[20px\] {
+  min-width: 20px !important;
 }
 
 .min-w-\[220px\] {

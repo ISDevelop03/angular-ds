@@ -89,7 +89,7 @@ onAccordionOpen(item: AccordionItem) {
         id: 'default-1',
         title: 'Default Accordion 1',
         content: this.contentTemplate,
-        count: 5,
+        count: 555,
         countColor: 'bg-yellow-500',
         open: true,
         buttonTemplate: this.buttonTemplate,
