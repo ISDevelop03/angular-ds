@@ -47,11 +47,11 @@ export class AccountsSelectComponent implements OnChanges {
   @Input() items: SelectItem[] = [];
   @Input() label?: string;
   @Input() errorMessage?: string;
-  @Input() placeholder: string = 'Select an option';
+  @Input() placeholder: string = 'Sélectionner une option';
   @Input() variant: keyof typeof theme = 'default';
   @Input() disabled: boolean = false;
   @Input() hasError: boolean = false;
-  @Input() emptyLabel: string = 'No options';
+  @Input() emptyLabel: string = 'Aucune option';
   @Input() multiple: boolean = false;
   @Input() isLoading: boolean = false;
   @Input() className?: string;
