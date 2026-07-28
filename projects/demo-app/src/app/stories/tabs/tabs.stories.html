@@ -7,8 +7,25 @@
     [items]="tabsNoBackground"
   ></ds-tabs>
   <h3 class="text-2xl font-bold">With Border Tabs</h3>
-  <ds-tabs variant="withBorder" [items]="tabsWithBorder"></ds-tabs>
-
+  <ds-tabs
+    variant="withBorder"
+    [items]="tabsWithBorder"
+    (onSelect)="handleSelect($event)"
+  ></ds-tabs>
+  <h3 class="text-2xl font-bold">Vertical Tabs</h3>
+  <ds-tabs
+    variant="vertical"
+    [items]="tabsVertical"
+    (onSelect)="handleSelect($event)"
+  ></ds-tabs>
+  <h3 class="text-2xl font-bold">Vertical Tabs</h3>
+  <ds-tabs
+    variant="vertical"
+    [items]="tabsVertical"
+    [selectedIndex]="selectedIndex"
+    [selectedSubIndex]="selectedSubIndex"
+    (onSelect)="handleSelect($event)"
+  ></ds-tabs>
   <!-- API Documentation Table -->
   <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
 

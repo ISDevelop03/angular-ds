@@ -1,11 +1,70 @@
 <div id="ds-tabs" [ngClass]="[theme[variant].wrapper, className]">
-  <div class="flex items-center justify-between">
+  <div [ngClass]="[theme[variant].list.base]">
     <div [ngClass]="[theme[variant].list.container]">
       <ng-container *ngFor="let tab of items; let idx = index">
+        <!-- Accordion parent: panel is an array of sub-items -->
+        <div
+          *ngIf="!tab.href && isArray(tab.panel)"
+          [ngClass]="[
+            'relative',
+            theme[variant].list.tab.base,
+            isParentSelected(idx)
+              ? theme[variant].list.tab.selected
+              : theme[variant].list.tab.unselected,
+            tab.disabled ? 'cursor-not-allowed opacity-40' : ''
+          ]"
+        >
+          <button
+            type="button"
+            (click)="selectTab($event, tab, idx)"
+            class="w-full text-left"
+            [ngClass]="getTabButtonClass(isParentSelected(idx))"
+            [attr.aria-expanded]="isAccordionOpen(idx) ? 'true' : 'false'"
+            [attr.aria-disabled]="tab.disabled ? 'true' : null"
+            [attr.disabled]="tab.disabled ? true : null"
+            [style.box-shadow]="'none !important'"
+            [style.outline]="'none !important'"
+          >
+            <span class="flex items-center justify-between gap-2 w-full">
+              {{ tab.title }}
+              <ds-icon
+                [id]="getAccordionIconId(idx)"
+                size="1rem"
+              ></ds-icon>
+            </span>
+          </button>
+
+          <div
+            *ngIf="isAccordionOpen(idx)"
+            class="flex flex-col items-stretch gap-1 mt-1 pl-3"
+          >
+            <button
+              *ngFor="let subTab of tab.panel; let subIdx = index"
+              type="button"
+              (click)="selectSubTab($event, tab, idx, subTab, subIdx)"
+              [ngClass]="[
+                'w-full text-left py-2 px-3 rounded text-[0.8125rem] transition-all duration-200',
+                isSubSelected(idx, subIdx)
+                  ? 'font-bold text-red-500'
+                  : 'text-neutral-600 hover:font-bold hover:text-red-500',
+                subTab.disabled ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'
+              ]"
+              [attr.aria-selected]="isSubSelected(idx, subIdx) ? 'true' : 'false'"
+              [attr.aria-disabled]="subTab.disabled ? 'true' : null"
+              [attr.disabled]="subTab.disabled ? true : null"
+            >
+              {{ subTab.title }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Regular clickable tab: has a panel (string / TemplateRef) -->
         <button
-          *ngIf="!tab.href; else linkTab"
+          *ngIf="!tab.href && !isArray(tab.panel)"
+          type="button"
           (click)="selectTab($event, tab, idx)"
           [ngClass]="[
+            'relative',
             theme[variant].list.tab.base,
             isSelected(idx)
               ? theme[variant].list.tab.selected
@@ -18,25 +77,26 @@
           [style.box-shadow]="'none !important'"
           [style.outline]="'none !important'"
         >
-          {{ tab.title }}
+          <div [ngClass]="getTabButtonClass(isSelected(idx))">
+            {{ tab.title }}
+          </div>
         </button>
 
-        <ng-template #linkTab>
-          <a
-            [href]="tab.href"
-            [routerLink]="tab.link"
-            [ngClass]="[
-              theme[variant].list.tab.base || '',
-              isSelected(idx)
-                ? theme[variant].list.tab.selected || ''
-                : theme[variant].list.tab.unselected || ''
-            ]"
-            [attr.aria-disabled]="tab.disabled ? 'true' : null"
-            [attr.disabled]="tab.disabled ? true : null"
-          >
-            {{ tab.title }}
-          </a>
-        </ng-template>
+        <!-- Link tab -->
+        <a
+          *ngIf="tab.href"
+          [href]="tab.href"
+          [routerLink]="tab.link"
+          [ngClass]="[
+            theme[variant].list.tab.base || '',
+            isSelected(idx)
+              ? theme[variant].list.tab.selected || ''
+              : theme[variant].list.tab.unselected || ''
+          ]"
+          [attr.aria-disabled]="tab.disabled ? 'true' : null"
+        >
+          {{ tab.title }}
+        </a>
       </ng-container>
     </div>
     <ng-container *ngIf="rightContent">
@@ -45,20 +105,22 @@
   </div>
 
   <div [ngClass]="[theme[variant].panels.container]">
-    <div
-      *ngFor="let tab of items; let idx = index"
-      [hidden]="!isSelected(idx)"
-      [ngClass]="theme[variant].panels.panel.base || ''"
-    >
-      <ng-container *ngIf="!tab.panel || showTabsSeparator">
-        <div class="w-full h-px bg-white"></div>
+    <ng-container *ngFor="let tab of items; let idx = index">
+      <ng-container *ngIf="getActivePanel(tab, idx) as activePanel">
+        <div [ngClass]="theme[variant].panels.panel.base || ''">
+          <ng-container
+            *ngIf="(!tab.panel || showTabsSeparator) && variant === 'noBackground'"
+          >
+            <div class="w-full h-px bg-white"></div>
+          </ng-container>
+          <ng-container *ngIf="isTemplate(activePanel); else showHtml">
+            <ng-container *ngTemplateOutlet="activePanel"></ng-container>
+          </ng-container>
+          <ng-template #showHtml>
+            <div [innerHTML]="activePanel"></div>
+          </ng-template>
+        </div>
       </ng-container>
-      <ng-container *ngIf="isTemplate(tab.panel); else showHtml">
-        <ng-container *ngTemplateOutlet="tab.panel"></ng-container>
-      </ng-container>
-      <ng-template #showHtml>
-        <div [innerHTML]="tab.panel"></div>
-      </ng-template>
-    </div>
+    </ng-container>
   </div>
 </div>

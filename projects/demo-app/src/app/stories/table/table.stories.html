@@ -1,13 +1,18 @@
 <div class="p-4 flex flex-col gap-4 bg-crame-50 min-h-screen">
   <h2 class="text-4xl font-bold mb-6">Tables</h2>
   <p class="text-neutral-70 mb-4 max-w-3xl">
-    The table component displays tabular data with support for sorting, row selection (single or multi),
-    expandable rows, custom cell templates, and optional expandable/truncatable column content.
-    Use the <code>variant</code> input for different visual styles (default, secondary).
+    The table component displays tabular data with support for sorting, row
+    selection (single or multi), expandable rows, custom cell templates, and
+    optional expandable/truncatable column content. Use the
+    <code>variant</code> input for different visual styles (default, secondary).
   </p>
   <h3 class="text-2xl font-bold">Default Table</h3>
-  <p class="text-neutral-70 mb-2">Basic table with <code>data</code> and <code>columns</code>. No selection or sorting.</p>
+  <p class="text-neutral-70 mb-2">
+    Basic table with <code>data</code> and <code>columns</code>. No selection or
+    sorting.
+  </p>
   <ds-table
+    expandableRows="true"
     [data]="defaultData"
     [columns]="[
     { header: 'Name', accessor: 'name' },
@@ -23,7 +28,11 @@
     variant="default"
   ></ds-table>
   <h3 class="text-2xl font-bold">Selection Enabled Table (Multi)</h3>
-  <p class="text-neutral-70 mb-2">Row selection with checkboxes; <code>selectionMode="multi"</code>. Use header checkbox to select all. Listen to <code>selectionChange</code> for selected rows.</p>
+  <p class="text-neutral-70 mb-2">
+    Row selection with checkboxes; <code>selectionMode="multi"</code>. Use
+    header checkbox to select all. Listen to <code>selectionChange</code> for
+    selected rows.
+  </p>
   <ds-table
     [data]="selectionData"
     selectionEnabled="true"
@@ -43,7 +52,10 @@
     variant="default"
   ></ds-table>
   <h3 class="text-2xl font-bold">Selection Enabled Table (Single)</h3>
-  <p class="text-neutral-70 mb-2">Only one row can be selected at a time; <code>selectionMode="single"</code>. <code>selectionChange</code> emits the selected row object.</p>
+  <p class="text-neutral-70 mb-2">
+    Only one row can be selected at a time; <code>selectionMode="single"</code>.
+    <code>selectionChange</code> emits the selected row object.
+  </p>
   <ds-table
     [data]="selectionData"
     selectionEnabled="true"
@@ -64,7 +76,11 @@
     selectionMode="single"
   ></ds-table>
   <h3 class="text-2xl font-bold">Secondary Variant Table</h3>
-  <p class="text-neutral-70 mb-2">Use <code>variant="secondary"</code> for rounded borders and neutral background. Optionally set <code>className</code> for container height (e.g. <code>h-[300px]</code>).</p>
+  <p class="text-neutral-70 mb-2">
+    Use <code>variant="secondary"</code> for rounded borders and neutral
+    background. Optionally set <code>className</code> for container height (e.g.
+    <code>h-[300px]</code>).
+  </p>
   <div class="w-full flex gap-x-2 bg-white rounded-lg p-4">
     <div class="w-1/2 bg-red-100"></div>
     <div class="w-1/2">
@@ -392,9 +408,10 @@
             <code class="text-sm">false</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            When <code>true</code>, each row shows an expand/collapse control (arrow) in the last column.
-            Clicking it toggles a detail row below. Use with <code>expandedRowTemplate</code> to customize
-            the expanded content.
+            When <code>true</code>, each row shows an expand/collapse control
+            (arrow) in the last column. Clicking it toggles a detail row below.
+            Use with <code>expandedRowTemplate</code> to customize the expanded
+            content.
           </td>
         </tr>
         <tr>
@@ -402,15 +419,18 @@
             expandedRowTemplate
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">TemplateRef&lt;&#123; $implicit: any; row: any &#125;&gt;</code>
+            <code class="text-sm"
+              >TemplateRef&lt;&#123; $implicit: any; row: any &#125;&gt;</code
+            >
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional template for the expanded row content when <code>expandableRows</code> is <code>true</code>.
-            The template receives <code>row</code> (the row data). If not provided, expanded content shows
-            the row object as JSON.
+            Optional template for the expanded row content when
+            <code>expandableRows</code> is <code>true</code>. The template
+            receives <code>row</code> (the row data). If not provided, expanded
+            content shows the row object as JSON.
           </td>
         </tr>
 
@@ -575,9 +595,10 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional inline styles object applied to the column header and cells. Keys are
-            CSS property names (e.g. <code>width</code>, <code>textAlign</code>). Use for
-            column-specific styling (e.g. <code>&#123; width: '1%' &#125;</code> for auto-sizing).
+            Optional inline styles object applied to the column header and
+            cells. Keys are CSS property names (e.g. <code>width</code>,
+            <code>textAlign</code>). Use for column-specific styling (e.g.
+            <code>&#123; width: '1%' &#125;</code> for auto-sizing).
           </td>
         </tr>
         <tr>

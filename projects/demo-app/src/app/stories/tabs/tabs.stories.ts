@@ -15,11 +15,14 @@ export class TabsStoryComponent {
   @ViewChild('withBorderTabTwo') withBorderTabTwo!: TemplateRef<any>;
   @ViewChild('withBorderTabThree') withBorderTabThree!: TemplateRef<any>;
 
-  selectedIndex = 1;
+  selectedIndex = 0;
+  selectedSubIndex: number | null = null;
 
-  onSelect(payload: any) {
+  handleSelect(payload: any) {
     this.selectedIndex = payload.index;
-    console.log('Selected tab index:', payload);
+    this.selectedSubIndex =
+      payload.subIndex !== undefined ? payload.subIndex : null;
+    console.log('Selected tab:', payload);
   }
 
   tabsDefault = [
@@ -50,6 +53,8 @@ export class TabsStoryComponent {
   tabsNoBackground = [];
   tabsWithBorder = [];
 
+  tabsVertical = []
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.tabsCustom = [
@@ -69,6 +74,16 @@ export class TabsStoryComponent {
           title: 'Paiement en masse',
           panel: this.withBorderTabThree,
           disabled: true,
+        },
+      ];
+      this.tabsVertical = [
+        { title: 'Overview', panel: this.tabOne },
+        {
+          title: 'Settings',
+          panel: [
+            { title: 'subsetting1', panel: this.tabTwo },
+            { title: 'subsetting2', panel: this.tabOne },
+          ],
         },
       ];
     });
