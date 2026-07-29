@@ -48,11 +48,12 @@
                     <a
                       class="flex relative items-center gap-2 before:absolute before:content-[''] before:-left-4 before:top-1/2 before:-translate-y-1/2 before:size-1.5 before:rounded-full hover:before:bg-white before:transition-colors before:duration-300 before:ease-in-out"
                       [ngClass]="[
-                        currentURL === subSub.href
+                        isActif === subSub.href
                           ? 'before:bg-white'
                           : 'before:bg-transparent'
                       ]"
-                      [href]="subSub.href"
+                      [routerLink]="subSub.href"
+                      (click)="handleLinkClick(subSub.href)"
                     >
                       <span class="text-sm">{{ subSub.title }} </span>
                       <span
@@ -67,9 +68,10 @@
               <ng-template #linkLevel2>
                 <a
                   class="pl-0.5 pr-2 relative flex items-center gap-2 after:rounded-md after:z-[1] before:z-[3] after:absolute after:p-2 after:-inset-1 after:w-full after:content-[''] before:absolute before:content-[''] before:-left-1 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-3/4 before:rounded-r-full hover:before:bg-primary-500 hover:after:bg-green-700 before:transition-colors before:duration-300 before:ease-in-out after:transition-colors after:duration-300 after:ease-in-out"
-                  [href]="subItem.href"
+                  [routerLink]="subItem.href"
+                  (click)="handleLinkClick(subItem.href)"
                   [ngClass]="[
-                    currentURL === subItem.href
+                    isActif === subItem.href
                       ? 'before:bg-primary-500 after:bg-[#323334]'
                       : 'before:bg-transparent after:bg-transparent'
                   ]"
@@ -94,7 +96,11 @@
         </ul>
       </ng-container>
       <ng-template #linkLevel1>
-        <a class="relative flex items-center gap-2" [href]="item.href">
+        <a
+          class="relative flex items-center gap-2"
+          [routerLink]="item.href"
+          (click)="handleLinkClick(item.href)"
+        >
           <ds-icon [id]="item.icon" class="size-4"></ds-icon>
           <span class="text-sm">{{ item.title }}</span>
           <span

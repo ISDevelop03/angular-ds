@@ -1,5 +1,6 @@
 // ds-sidebar.component.ts
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMenus, IMainMenu, ILanguage, Cap } from '../types';
 import { ISelectItem } from '../../profile-dropdown/types';
 
@@ -13,7 +14,7 @@ import { ISelectItem } from '../../profile-dropdown/types';
   selector: 'ds-sidebar',
   templateUrl: './sidebar.component.html',
 })
-export class DsSidebarComponent {
+export class DsSidebarComponent implements OnInit {
   @Input() className: string = '';
   @Input() profileMenus: ISelectItem[] = [];
   @Input() mainMenus: IMainMenu[] = [];
@@ -38,6 +39,17 @@ export class DsSidebarComponent {
   @Output() onOpenSidebar = new EventEmitter();
 
   openMainMenuIndex: number = -1;
+  isActif: string = '/';
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.isActif = this.router.url;
+  }
+
+  setActif(url: string): void {
+    this.isActif = url;
+  }
 
   _onThemeChange(theme: any): void {
     console.log('theme sidebar', theme);

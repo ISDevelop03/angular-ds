@@ -44,7 +44,9 @@
             [color]="item.color"
             [menus]="item.menus"
             [href]="item.href"
+            [isActif]="isActif"
             (onClick)="openSubSidebar(item.menus, i)"
+            (onLinkClick)="setActif($event)"
           ></ds-menu-item>
         </ul>
       </div>
@@ -81,7 +83,8 @@
         >
           <a
             *ngIf="!item.menus"
-            [href]="item.href"
+            [routerLink]="item.href"
+            (click)="setActif(item.href)"
             class="flex justify-between items-center w-full"
           >
             <h4 class="text-[0.875rem] leading-[16px] font-bold">
@@ -102,6 +105,8 @@
           <ds-menu-list
             *ngIf="item.menus && openMainMenuIndex === idx"
             [data]="item.menus.items"
+            [isActif]="isActif"
+            (onLinkClick)="setActif($event)"
           ></ds-menu-list>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IMenus, IMenuListItem } from '../types';
 
 /**
  * @ignore
@@ -13,18 +14,32 @@ export class DsMenuItemComponent {
   @Input() title!: string;
   @Input() icon?: string;
   @Input() color?: string;
-  @Input() menus?: any;
+  @Input() menus?: IMenus;
   @Input() isFirst: boolean = false;
   @Input() disableMainMenus: boolean = false;
   @Input() href: string = '#';
+  @Input() isActif: string = '/';
 
   @Output() onClick = new EventEmitter<void>();
+  @Output() onLinkClick = new EventEmitter<string>();
 
   get isActive(): boolean {
-    return (
-      (this.subMenuData && this.subMenuData.title) ===
-      (this.menus && this.menus.title)
-    );
+    if (!this.menus || !this.menus.items || !this.menus.items.length) {
+      return this.isActif === this.href;
+    }
+    return this.containsHref(this.menus.items, this.isActif);
+  }
+
+  private containsHref(items: IMenuListItem[], url: string): boolean {
+    for (const item of items) {
+      if (item.href === url) {
+        return true;
+      }
+      if (item.items && item.items.length && this.containsHref(item.items, url)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   get wrapperClass(): string {
@@ -49,6 +64,12 @@ export class DsMenuItemComponent {
   handleClick() {
     if (!this.disableMainMenus) {
       this.onClick.emit();
+    }
+  }
+
+  handleLinkClick(): void {
+    if (!this.disableMainMenus) {
+      this.onLinkClick.emit(this.href);
     }
   }
 }

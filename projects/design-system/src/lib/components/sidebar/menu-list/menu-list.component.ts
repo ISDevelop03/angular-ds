@@ -1,7 +1,6 @@
 // ds-menu-list.component.ts
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IMenuListItem } from '../types';
-import { Router } from '@angular/router';
 
 /**
  * @ignore
@@ -10,10 +9,10 @@ import { Router } from '@angular/router';
   selector: 'ds-menu-list',
   templateUrl: './menu-list.component.html',
 })
-export class DsMenuListComponent implements OnInit {
+export class DsMenuListComponent {
   @Input() data: IMenuListItem[] = [];
-  currentURL = '/';
-  constructor(private router: Router) {}
+  @Input() isActif: string = '/';
+  @Output() onLinkClick = new EventEmitter<string>();
 
   private openMap = new WeakMap<IMenuListItem, boolean>();
 
@@ -30,8 +29,7 @@ export class DsMenuListComponent implements OnInit {
     return Array.isArray(item.items) && item.items.length > 0;
   }
 
-  ngOnInit(): void {
-    this.currentURL = this.router.url;
-    console.log('datadatadata', this.data);
+  handleLinkClick(url: string): void {
+    this.onLinkClick.emit(url);
   }
 }

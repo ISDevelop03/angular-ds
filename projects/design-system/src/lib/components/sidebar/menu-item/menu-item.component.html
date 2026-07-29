@@ -27,7 +27,8 @@
 
 <ng-template #linkTemplate>
   <a
-    [href]="disableMainMenus ? '#' : href"
+    [routerLink]="disableMainMenus ? null : href"
+    (click)="handleLinkClick()"
     [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
   >
     <li [ngClass]="wrapperClass">
