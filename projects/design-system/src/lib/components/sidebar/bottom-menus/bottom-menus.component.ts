@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { ISelectItem } from '../../profile-dropdown/types';
-import { Cap, ILanguage } from '../types';
+import { Cap, IDisableBottomMenus, ILanguage } from '../types';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 /**
@@ -56,7 +56,7 @@ export class DsBottomMenusComponent {
     src: '/assets/france-flag.svg',
     alt: 'Français',
   };
-  @Input() disableBottomMenus: boolean = false;
+  @Input() disableBottomMenus: IDisableBottomMenus = {};
 
   @Output() callingOnClick = new EventEmitter();
   @Output() reclamationOnClick = new EventEmitter();

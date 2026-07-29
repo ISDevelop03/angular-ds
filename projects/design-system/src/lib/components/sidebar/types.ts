@@ -43,6 +43,22 @@ export interface IBottomMenus {
   profileMenus: Array<ISelectItem>;
 }
 
+export interface IDisableProfileMenus {
+  profile?: boolean;
+  settings?: boolean;
+  logout?: boolean;
+}
+
+export interface IDisableBottomMenus {
+  calling?: boolean;
+  reclamation?: boolean;
+  accessibility?: boolean;
+  language?: boolean;
+  theme?: boolean;
+  settings?: boolean;
+  profile?: IDisableProfileMenus;
+}
+
 export interface IMenuItem {
   subSidebarIsOpen: boolean;
   subMenuData: IMenus;

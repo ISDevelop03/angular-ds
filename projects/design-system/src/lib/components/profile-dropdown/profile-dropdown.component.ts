@@ -20,11 +20,20 @@ export class ProfileDropdownComponent {
   @Input() position?: keyof typeof positions;
   @Input() suffix?: string;
   @Input() prefix?: string;
+  @Input() disabledItems: { [key: string]: boolean } = {};
 
   isOpen: boolean = false;
 
   handleOpen = () => (this.isOpen = true);
   handleClose = () => (this.isOpen = false);
+
+  isItemDisabled(item: ISelectItem): boolean {
+    if (!item || !item.icon) {
+      return false;
+    }
+    const key = item.icon === 'logoutcurve' ? 'logout' : item.icon;
+    return this.disabledItems[key];
+  }
 
   //Positions
   positions = positions;

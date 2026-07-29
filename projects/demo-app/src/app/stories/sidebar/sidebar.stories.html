@@ -11,7 +11,7 @@
       [profileMenus]="profileMenus"
       className="bg-level-1"
       (callingOnClick)="callingOnClick($event)"
-      disableBottomMenus="true"
+      [disableBottomMenus]="disableBottomMenus"
     ></ds-sidebar>
 
     <div
@@ -155,15 +155,17 @@
                     disableBottomMenus
                   </td>
                   <td class="border border-gray-300 px-4 py-2">
-                    <code class="text-sm">boolean</code>
+                    <code class="text-sm">IDisableBottomMenus</code>
                   </td>
                   <td class="border border-gray-300 px-4 py-2">
-                    <code class="text-sm">false</code>
+                    <code class="text-sm">{{ '{' }}{{ '}' }}</code>
                   </td>
                   <td class="border border-gray-300 px-4 py-2">
-                    When <code>true</code>, disables the bottom menus section
-                    (profile menus, theme toggle, language selector, etc.). This
-                    hides or disables the entire bottom section of the sidebar.
+                    Object to disable individual bottom menu items (calling,
+                    reclamation, accessibility, language, theme, settings) and
+                    profile dropdown items. See the
+                    <strong>IDisableBottomMenus Interface</strong> section below
+                    for details.
                   </td>
                 </tr>
                 <tr>
@@ -838,6 +840,265 @@
                   <td class="border border-gray-300 px-4 py-2">
                     Optional additional CSS classes to apply to the language
                     flag image. Useful for custom styling or sizing.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- IDisableBottomMenus Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8"># IDisableBottomMenus Interface</h3>
+          <p class="text-gray-600 mb-4">
+            The <code>IDisableBottomMenus</code> interface defines which bottom
+            menu items are disabled. Passed to the
+            <code>disableBottomMenus</code> input property. Set a key to
+            <code>true</code> to disable that item.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    calling
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the calling/phone icon in
+                    the bottom menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    reclamation
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the reclamation/complaint
+                    icon in the bottom menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    accessibility
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the accessibility/font size
+                    control in the bottom menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    language
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the language selector in
+                    the bottom menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    theme
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the theme toggle in the
+                    bottom menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    settings
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the settings icon in the
+                    bottom menus.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    profile
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">IDisableProfileMenus</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    Object to disable individual items inside the profile
+                    dropdown. See the
+                    <strong>IDisableProfileMenus Interface</strong> section
+                    below for details.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- IDisableProfileMenus Interface Documentation -->
+          <h3 class="text-2xl font-bold mt-8">
+            # IDisableProfileMenus Interface
+          </h3>
+          <p class="text-gray-600 mb-4">
+            The <code>IDisableProfileMenus</code> interface defines which items
+            inside the profile dropdown are disabled. Used as the
+            <code>profile</code> property of
+            <code>IDisableBottomMenus</code>. Set a key to
+            <code>true</code> to disable that dropdown item.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table
+              class="min-w-full border-collapse border border-gray-300 bg-white"
+            >
+              <thead class="bg-gray-100">
+                <tr>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Property
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="border border-gray-300 px-4 py-3 text-left font-semibold"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    profile
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the profile item in the
+                    profile dropdown.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    settings
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the settings item in the
+                    profile dropdown.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="border border-gray-300 px-4 py-2 font-mono text-sm"
+                  >
+                    logout
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">boolean</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    <code class="text-sm">undefined</code>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                    When <code>true</code>, disables the logout item in the
+                    profile dropdown.
                   </td>
                 </tr>
               </tbody>

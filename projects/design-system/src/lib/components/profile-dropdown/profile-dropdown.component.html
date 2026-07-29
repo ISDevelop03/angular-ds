@@ -27,8 +27,11 @@
         *ngIf="!item?.href"
         tabIndex="{0}"
         role="button"
-        (click)="item?.onClick()"
+        (click)="!isItemDisabled(item) && item?.onClick()"
         class="rounded hover:bg-neutral-50 transition-all duration-300 ease-in-out"
+        [ngClass]="{
+          'cursor-not-allowed opacity-50 pointer-events-none': isItemDisabled(item)
+        }"
       >
         <li
           [ngClass]="[
@@ -49,8 +52,12 @@
 
       <a
         *ngIf="item?.href"
-        [href]="item?.href"
+        [href]="isItemDisabled(item) ? null : item?.href"
         class="rounded hover:bg-neutral-50 transition-all duration-300 ease-in-out"
+        [ngClass]="{
+          'cursor-not-allowed opacity-50 pointer-events-none': isItemDisabled(item)
+        }"
+        (click)="isItemDisabled(item) && $event.preventDefault()"
       >
         <li
           [ngClass]="[

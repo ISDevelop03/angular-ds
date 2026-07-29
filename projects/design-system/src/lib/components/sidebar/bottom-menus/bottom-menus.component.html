@@ -7,16 +7,16 @@
     (click)="callingOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus
+      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.calling
     }"
   >
     <ds-icon
       id="calling"
       class="size-4"
-      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"
+      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.calling }"
     ></ds-icon>
     <span
-      *ngIf="!disableBottomMenus"
+      *ngIf="!disableBottomMenus.calling"
       class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]"
     >
       Besoin d'assistance
@@ -26,16 +26,16 @@
     (click)="reclamationOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus
+      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.reclamation
     }"
   >
     <ds-icon
       id="reclamation"
       class="size-4"
-      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"
+      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.reclamation }"
     ></ds-icon>
     <span
-      *ngIf="!disableBottomMenus"
+      *ngIf="!disableBottomMenus.reclamation"
       class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded-lg left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]"
     >
       Avez-vous une réclamation ?
@@ -44,19 +44,22 @@
   <li
     *ngIf="sizes.length > 0"
     class="flex items-center justify-center group relative"
+    [ngClass]="{
+      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.accessibility
+    }"
   >
-    <button (click)="capsClick($event)">
+    <button (click)="capsClick($event)" [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.accessibility }">
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
     <span
-      *ngIf="!disableBottomMenus"
+      *ngIf="!disableBottomMenus.accessibility"
       class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]"
     >
       Accessibilité
     </span>
     <ul
       @dropdown
-      *ngIf="showCaps"
+      *ngIf="showCaps && !disableBottomMenus.accessibility"
       class="absolute bg-white flex text-neutral-900 text-center justify-start items-center shadow-lg border border-neutral-100 left-[calc(100%+20px)] py-2 px-4 top-1/2 rounded-md gap-2 -translate-y-1/2 z-[9999]"
     >
       <li
@@ -74,7 +77,7 @@
     (click)="languageOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus
+      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.language
     }"
   >
     <img
@@ -83,11 +86,11 @@
       class="size-4"
       [ngClass]="[
         language.className,
-        { 'cursor-not-allowed': disableBottomMenus }
+        { 'cursor-not-allowed': disableBottomMenus.language }
       ]"
     />
     <span
-      *ngIf="!disableBottomMenus"
+      *ngIf="!disableBottomMenus.language"
       class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]"
     >
       Choix de langue
@@ -97,15 +100,15 @@
   <li
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus
+      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.theme
     }"
   >
     <ds-theme-toggle
       (onThemeChange)="_onThemeChange($event)"
-      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"
+      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.theme }"
     ></ds-theme-toggle>
     <span
-      *ngIf="!disableBottomMenus"
+      *ngIf="!disableBottomMenus.theme"
       class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]"
     >
       Mode Sombre
@@ -116,16 +119,16 @@
     (click)="settingsOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus
+      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.settings
     }"
   >
     <ds-icon
       id="settings"
       class="size-4"
-      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"
+      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.settings }"
     ></ds-icon>
     <span
-      *ngIf="!disableBottomMenus"
+      *ngIf="!disableBottomMenus.settings"
       class="absolute bg-white py-2.5 px-3 text-[0.875rem] leading-[14px] font-bold rounded left-[calc(100%+20px)] top-1/2 w-max text-black -translate-y-1/2 inline-block shadow-tooltip opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 z-[9998]"
     >
       Paramètres
@@ -134,13 +137,10 @@
 
   <hr class="w-1/2 border-[#355A57] mx-auto" />
 
-  <li
-    [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus
-    }"
-  >
+  <li>
     <ds-profile-dropdown
       [list]="profileMenus"
+      [disabledItems]="disableBottomMenus.profile || {}"
       position="bottomLeft"
       class="z-[1100]"
     >
@@ -148,7 +148,6 @@
         src="https://placehold.co/60"
         class="size-6 rounded-full"
         alt="current user logo"
-        [ngClass]="{ 'cursor-not-allowed': disableBottomMenus }"
       />
 
       <ng-template #suffix>

@@ -1,4 +1,4 @@
-import { IMainMenu } from 'projects/design-system/src/lib/components/sidebar/types';
+import { IDisableBottomMenus, IMainMenu } from 'projects/design-system/src/lib/components/sidebar/types';
 import {
   mainMenusMOCKDATA,
   LIST_MOCKDATA,
@@ -26,6 +26,19 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
   profileMenus = LIST_MOCKDATA;
   mainMenus: IMainMenu[] = mainMenusMOCKDATA;
   hideWrapperBackground = false;
+  disableBottomMenus: IDisableBottomMenus = {
+    calling: true,
+    reclamation: true,
+    accessibility: true,
+    language: true,
+    theme: true,
+    settings: true,
+    profile: {
+      profile: true,
+      settings: true,
+      logout: false,
+    },
+  };
 
   logo = '/assets/big-logo.png';
   miniLogo = '/assets/mini-logo.png';

@@ -1,7 +1,7 @@
 // ds-sidebar.component.ts
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { IMenus, IMainMenu, ILanguage, Cap } from '../types';
+import { IMenus, IMainMenu, ILanguage, Cap, IDisableBottomMenus } from '../types';
 import { ISelectItem } from '../../profile-dropdown/types';
 
 /**
@@ -19,7 +19,7 @@ export class DsSidebarComponent implements OnInit {
   @Input() profileMenus: ISelectItem[] = [];
   @Input() mainMenus: IMainMenu[] = [];
   @Input() disableMainMenus: boolean = false;
-  @Input() disableBottomMenus: boolean = false;
+  @Input() disableBottomMenus: IDisableBottomMenus = {};
   @Input() sizes: Cap[] = [];
   @Input() defaultCap: Cap = { name: 'L', size: 18 };
   @Input() logo: string = '/assets/logo-mybusiness.svg';
