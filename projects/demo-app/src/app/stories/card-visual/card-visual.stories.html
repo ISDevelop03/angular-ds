@@ -1,0 +1,28 @@
+<section class="flex flex-col gap-6 p-6 bg-gradient-crame min-h-screen">
+  <h2 class="text-2xl font-bold">Card Visual</h2>
+  <p class="text-neutral-600 max-w-2xl">
+    Vignette carte. Sans <code>imageSrc</code>, un fallback CSS par variante est
+    affiché. Avec <code>imageSrc</code>, l’image produit est utilisée.
+  </p>
+
+  <div>
+    <h3 class="font-bold mb-3">CSS fallbacks</h3>
+    <div class="flex gap-4 items-center">
+      <ds-card-visual
+        *ngFor="let v of variants"
+        [variant]="v"
+      ></ds-card-visual>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="font-bold mb-3">With images</h3>
+    <div class="flex gap-4 items-center">
+      <ds-card-visual
+        *ngFor="let v of variants"
+        [variant]="v"
+        [imageSrc]="images[v]"
+      ></ds-card-visual>
+    </div>
+  </div>
+</section>

@@ -204,3 +204,7 @@ export * from './generic-list/generic-list.stories';
 
 // Auto-export for flat-tooltip stories
 export * from './flat-tooltip/flat-tooltip.stories';
+
+export * from './plafond-card/plafond-card.stories';
+export * from './card-visual/card-visual.stories';
+export * from './credit-card/credit-card.stories';

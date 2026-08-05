@@ -112,7 +112,18 @@ import {
   GenericListStoryComponent,
 
   FlatTooltipStoryComponent,
+  PlafondCardStoryComponent,
+  CardVisualStoryComponent,
+  CreditCardStoryComponent,
 
+  
+  
+  
+  
+  
+  
+  
+  
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -239,6 +250,9 @@ export const pages: Routes = [
   { path: 'group-signataire-checkbox', component: GroupSignataireCheckboxStoryComponent },
   { path: 'generic-list', component: GenericListStoryComponent },
   { path: 'flat-tooltip', component: FlatTooltipStoryComponent },
+  { path: 'plafond-card', component: PlafondCardStoryComponent },
+  { path: 'card-visual', component: CardVisualStoryComponent },
+  { path: 'credit-card', component: CreditCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -362,6 +376,9 @@ const router = RouterModule.forRoot(pages);
     GroupSignataireCheckboxStoryComponent,
     GenericListStoryComponent,
     FlatTooltipStoryComponent,
+  PlafondCardStoryComponent,
+  CardVisualStoryComponent,
+  CreditCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

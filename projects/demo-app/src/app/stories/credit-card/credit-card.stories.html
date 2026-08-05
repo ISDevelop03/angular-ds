@@ -1,0 +1,188 @@
+<div class="p-4 flex flex-col gap-6 min-h-screen bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Credit Card</h2>
+  <p class="text-neutral-70 mb-2 max-w-3xl">
+    Expandable credit card. Tab panels use the same
+    <code>ITab[]</code> shape as <code>ds-tabs</code> (<code>title</code> +
+    <code>panel</code> as string or <code>TemplateRef</code>).
+  </p>
+
+  <h3 class="text-2xl font-bold">Expanded</h3>
+  <p class="text-neutral-70 mb-2">
+    Click the header to collapse. Tabs render panel content from
+    <code>items</code>.
+  </p>
+  <ds-credit-card
+    [card]="card"
+    [expanded]="expanded"
+    [items]="items"
+    [selectedIndex]="selectedIndex"
+    (onToggle)="onToggle($event)"
+    (onTabChange)="onTabChange($event)"
+  ></ds-credit-card>
+
+  <h3 class="text-2xl font-bold">Collapsed</h3>
+  <p class="text-neutral-70 mb-2">
+    Header-only state when <code>expanded</code> is <code>false</code>.
+  </p>
+  <ds-credit-card
+    [card]="cardCollapsed"
+    [expanded]="false"
+    [items]="items"
+  ></ds-credit-card>
+
+  <ng-template #historiqueTpl>
+    <div class="p-4">This is the content for Historique</div>
+  </ng-template>
+
+  <ng-template #plafondsTpl>
+    <div class="p-4">This is the content for Plafonds</div>
+  </ng-template>
+
+  <ng-template #parametresTpl>
+    <div class="p-4">This is the content for Paramètres</div>
+  </ng-template>
+
+  <ng-template #oppositionTpl>
+    <div class="p-4">This is the content for Opposition</div>
+  </ng-template>
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            card
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">CardItem</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Card data shown in the row header (name,
+            holder, numTail, expiry, plafonds, solde, variant).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expanded
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, shows the tabs panel below the header.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ITab[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Same as <code>ds-tabs</code>. Each item has <code>title</code> and
+            <code>panel</code> (string or <code>TemplateRef</code>). Panels are
+            managed by <code>ds-tabs</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selectedIndex
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">0</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Initially selected tab index, forwarded to
+            <code>ds-tabs</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes on the root wrapper.
+          </td>
+        </tr>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onToggle
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;CardItem&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the row header is clicked.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onTabChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;{{ '{' }} index: number; tab: ITab {{ '}'
+              }}&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when a tab is selected inside the expanded panel.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -3,24 +3,39 @@ import { IMainMenu } from 'projects/design-system/src/lib/components/sidebar/typ
 export const mainMenusMOCKDATA: IMainMenu[] = [
   {
     title: 'Overview',
-    icon: 'home-02',
-    color: 'bg-white-bg dark:bg-clr-white-bg-dark',
-    href: '/',
+    icon: 'home',
+    color: 'bg-white-bg dark:bg-clr-white-bg-dark text-black',
+    href: '/360sheet',
   },
   {
     title: 'Cash Management',
-    icon: 'arrow-switch-horizontal2',
+    icon: 'frame1',
     color: 'bg-primary dark:bg-primary-600',
     href: '/',
     menus: {
-      title: 'Cash Management',
+      title: 'Consultation',
       items: [
         {
           title: 'Consultation',
           icon: 'folder-search-02',
-          href: '#',
-          items: [],
-          isNew: true,
+          href: '/360sheet/account/list',
+          items: [
+            {
+              title: 'Mes comptes',
+              href: '/360sheet/account/list',
+              icon: 'card-edit',
+            },
+            {
+              title: 'Mes cartes',
+              href: '/consult-cards',
+              icon: 'card-edit',
+            },
+            {
+              title: 'Mes valeurs',
+              href: '/soge-valeur',
+              icon: 'clock-forward',
+            },
+          ],
         },
         {
           title: 'Transactions',
@@ -28,213 +43,68 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
           href: '#',
           items: [
             {
-              title: 'Gestion des comptes',
-              icon: 'card-edit',
+              title: 'Virements',
+              icon: 'arrow-switch-horizontal-1',
               href: '#',
               items: [
                 {
-                  title: 'Consultation des comptes',
-                  href: '#',
+                  title: 'Virement unitaire',
+                  icon: 'coins-rotate',
+                  href: '/360sheet/transfer/domestic/simple',
+                  items: [],
                 },
                 {
-                  title: 'Historique des opérations',
-                  href: '#',
-                  isNew: true,
+                  title: 'Virement multiple',
+                  icon: 'coins-rotate',
+                  href: '/360sheet/transfer/domestic/multi',
+                  items: [],
                 },
                 {
-                  title: 'Documents à télécharger',
-                  href: '#',
+                  title: 'Virement de masse',
+                  icon: 'coins-rotate',
+                  href: '/360sheet/transfer/domestic/masse',
+                  items: [],
                 },
                 {
-                  title: 'Groupes d’utilisateurs',
-                  href: '#',
+                  title: 'Virement Offshore',
+                  icon: 'coins-rotate',
+                  href: '/360sheet/transfer/domestic/offshore',
+                  items: [],
                 },
               ],
-            },
-            {
-              title: 'Moyens de paiement',
-              icon: 'file',
-              href: '#',
-              items: [],
-              isNew: true,
-            },
-            {
-              title: 'Positions & Trésorerie',
-              icon: 'line-chart-up-02',
-              href: '#',
-              items: [],
-            },
-          ],
-        },
-        {
-          title: 'Factures',
-          icon: 'receipt-lines',
-          href: '#',
-          items: [],
-        },
-        {
-          title: 'Services',
-          icon: 'folder-search-02',
-          href: '#',
-          items: [
-            {
-              title: 'Gestion des comptes',
-              icon: 'card-edit',
-              href: '#',
-              items: [
-                {
-                  title: 'Consultation des comptes',
-                  href: '#',
-                },
-              ],
-            },
-            {
-              title: 'Positions & Trésorerie',
-              icon: 'line-chart-up-02',
-              href: '#',
-              items: [],
-            },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    title: 'Operations Internationals',
-    icon: 'globe-05',
-    href: '/',
-    color: 'bg-clr-purple dark:bg-clr-purple-dark',
 
-    menus: {
-      title: 'Operations & Internationals',
-      items: [
-        {
-          title: 'Consultation',
-          icon: 'folder-search-02',
-          href: '#',
-          items: [],
-        },
-        {
-          title: 'Transactions',
-          icon: 'coins-rotate',
-          href: '#',
-          items: [
-            {
-              title: 'Gestion des comptes',
-              icon: 'card-edit',
-              href: '#',
-              items: [
-                {
-                  title: 'Consultation des comptes',
-                  href: '/sidebar',
-                },
-                {
-                  title: 'Historique des opérations',
-                  href: '#',
-                },
-                {
-                  title: 'Documents à télécharger',
-                  href: '#',
-                },
-                {
-                  title: 'Groupes d’utilisateurs',
-                  href: '#',
-                },
-              ],
+
+
             },
             {
-              title: 'Moyens de paiement',
-              icon: 'file',
-              href: '/sidebar',
+              title: 'Gestion des bénéficiaires',
+              icon: 'users-profiles-02',
+              href: '/360sheet/beneficiary',
               items: [],
             },
             {
-              title: 'Positions & Trésorerie',
-              icon: 'line-chart-up-02',
-              href: '#',
-              items: [],
-            },
-          ],
-        },
-        {
-          title: 'Factures',
-          icon: 'receipt-lines',
-          href: '#',
-          items: [],
-        },
-      ],
-    },
-  },
-  {
-    title: 'Reporting and E-doc',
-    href: '/',
-    icon: 'file-up-02',
-    color: 'bg-clr-green dark:bg-clr-green-dark',
-    menus: {
-      title: 'Reporting',
-      items: [
-        {
-          title: 'Consultation',
-          icon: 'folder-search-02',
-          href: '#',
-          items: [
-            {
-              title: 'Gestion des comptes',
-              icon: 'card-edit',
-              href: '#',
-              items: [
-                {
-                  title: 'Consultation des comptes',
-                  href: '#',
-                },
-                {
-                  title: 'Historique des opérations',
-                  href: '#',
-                },
-                {
-                  title: 'Documents à télécharger',
-                  href: '#',
-                },
-                {
-                  title: 'Groupes d’utilisateurs',
-                  href: '#',
-                },
-              ],
-            },
-            {
-              title: 'Moyens de paiement',
-              icon: 'file',
-              href: '#',
+              title: 'Paiement de factures',
+              icon: 'arrow-switch-horizontal-1',
+              href: '/360sheet/bills-payment',
               items: [],
             },
             {
-              title: 'Positions & Trésorerie',
-              icon: 'line-chart-up-02',
-              href: '#',
+              title: 'Paiement de factures en masse',
+              icon: 'arrow-switch-horizontal-1',
+              href: '/360sheet/bills-payment',
+              items: [],
+
+            },
+            {
+              title: 'Recharge carte Escale Pro',
+              icon: 'arrow-switch-horizontal-1',
+              href: '/escale-pro',
               items: [],
             },
-          ],
-        },
-        {
-          title: 'Services',
-          icon: 'folder-search-02',
-          href: '#',
-          items: [
             {
-              title: 'Gestion des comptes',
-              icon: 'card-edit',
-              href: '#',
-              items: [
-                {
-                  title: 'Consultation des comptes',
-                  href: '#',
-                },
-              ],
-            },
-            {
-              title: 'Positions & Trésorerie',
-              icon: 'line-chart-up-02',
-              href: '#',
+              title: 'Prélèvements',
+              icon: 'arrow-switch-horizontal-1',
+              href: '/direct-debit',
               items: [],
             },
           ],
@@ -256,10 +126,13 @@ export const LIST_MOCKDATA = [
     icon: 'settings',
   },
   {
-    href: '/',
+
     label: 'Déconnexion',
     icon: 'logoutcurve',
     className: 'text-primary dark:text-primary-600',
+    onClick: () => {
+      console.log('Déconnexion');
+    },
   },
 ];
 

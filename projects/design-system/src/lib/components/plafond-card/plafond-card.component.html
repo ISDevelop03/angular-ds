@@ -1,0 +1,82 @@
+<div id="ds-plafond-card" [ngClass]="className">
+  <div class="flex items-center justify-between mb-2">
+    <div
+      class="font-manrope text-xs font-bold text-neutral-900 tracking-[0.4px]"
+    >
+      {{ upperTitle }}
+    </div>
+    <button
+      *ngIf="editable"
+      type="button"
+      class="bg-transparent border-0 p-0 cursor-pointer"
+      [attr.aria-label]="'Modifier ' + title"
+      (click)="requestEdit()"
+    >
+      <ds-icon id="edit-2" size="0.875rem" class="text-red-500"></ds-icon>
+    </button>
+  </div>
+
+  <div class="flex justify-center">
+    <div class="flex flex-col items-center">
+      <svg width="185" height="110" viewBox="0 0 185 110" aria-hidden="true">
+        <path
+          [attr.d]="bgPath"
+          stroke="rgb(var(--color-neutral-50))"
+          stroke-width="10"
+          fill="none"
+          stroke-linecap="round"
+        ></path>
+        <path
+          [attr.d]="fgPath"
+          [attr.stroke]="stroke"
+          stroke-width="10"
+          fill="none"
+          stroke-linecap="round"
+        ></path>
+        <text
+          x="92.5"
+          y="78"
+          text-anchor="middle"
+          class="fill-neutral-500 font-manrope text-xs"
+        >
+          {{ label }}
+        </text>
+        <text
+          x="92.5"
+          y="96"
+          text-anchor="middle"
+          class="fill-neutral-900 font-manrope text-sm font-bold"
+        >
+          {{ consumed }}
+        </text>
+      </svg>
+      <div
+        class="flex justify-between w-full mt-1 font-manrope text-xs text-neutral-500"
+      >
+        <span class="text-center">{{ minLabel }}</span>
+        <span class="text-center">{{ max }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="mt-4 space-y-1 rounded-[4px] bg-neutral-50 p-[14px] font-manrope text-sm"
+  >
+    <div class="flex justify-between">
+      <span class="text-neutral-500 text-2xs tracking-[0.3px]"
+        >PLAFOND CONTRACTUEL :</span
+      >
+      <span class="font-bold text-xs text-neutral-900">{{ contractuel }}</span>
+    </div>
+    <div class="flex justify-between">
+      <span class="text-neutral-500 text-2xs tracking-[0.3px]"
+        >PLAFOND COMMERCIAL :</span
+      >
+      <span class="font-bold text-xs text-neutral-900">{{ commercial }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="note" class="mt-4 font-manrope text-xs text-neutral-500">
+    {{ note }}
+  </div>
+</div>

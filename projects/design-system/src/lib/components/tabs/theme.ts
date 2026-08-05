@@ -14,7 +14,7 @@ export const theme = {
     panels: {
       container: '',
       panel: {
-        base: 'rounded-md text-heading dark:text-white py-3 focus:outline-none',
+        base: 'text-heading dark:text-white py-3 focus:outline-none',
       },
     },
   },
@@ -38,7 +38,7 @@ export const theme = {
     panels: {
       container: '',
       panel: {
-        base: 'rounded-md !-mx-3 focus:outline-none',
+        base: '!-mx-3 focus:outline-none',
       },
     },
   },
@@ -62,7 +62,7 @@ export const theme = {
     panels: {
       container: '',
       panel: {
-        base: 'rounded-md text-heading dark:text-white py-3 focus:outline-none',
+        base: 'text-heading dark:text-white py-3 focus:outline-none',
       },
     },
   },
@@ -86,7 +86,7 @@ export const theme = {
     panels: {
       container: '',
       panel: {
-        base: 'rounded-md text-heading dark:text-white py-3 focus:outline-none',
+        base: 'text-heading dark:text-white py-3 focus:outline-none',
       },
     },
   },

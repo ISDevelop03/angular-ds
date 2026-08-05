@@ -1,0 +1,86 @@
+<div
+  id="ds-credit-card"
+  class="rounded-[8px] bg-card-level-2 overflow-hidden border border-neutral-100"
+  [ngClass]="className"
+  *ngIf="card"
+>
+  <button
+    type="button"
+    class="w-full flex items-center gap-4 px-5 py-4 text-start hover:bg-neutral-50 transition-colors bg-transparent border-0 cursor-pointer"
+    (click)="toggle()"
+  >
+    <ds-card-visual
+      [variant]="card.variant"
+      [imageSrc]="card.imageSrc || null"
+    ></ds-card-visual>
+
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2">
+        <div class="font-manrope text-md font-bold text-neutral-900 text-start">
+          {{ card.name }}
+        </div>
+        <ds-badge
+          *ngIf="showStatusBadge()"
+          [label]="card.status"
+          variant="green"
+          size="sm"
+          [withDot]="true"
+        ></ds-badge>
+      </div>
+      <div class="font-manrope text-sm text-neutral-500 mt-0.5 text-start">
+        {{ card.holder }} • {{ card.numTail }}
+      </div>
+      <div class="font-manrope text-sm text-neutral-500 mt-0.5 text-start">
+        Date d'expiration
+        <span class="text-neutral-900 font-semibold">{{ card.expiry }}</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="text-start">
+        <div class="font-manrope text-sm text-neutral-500 mb-1">
+          Plafond achat
+        </div>
+        <div class="font-manrope text-base font-bold text-neutral-900">
+          {{ card.plafondAchat }}
+        </div>
+      </div>
+      <span class="w-px h-8 bg-neutral-200" aria-hidden="true"></span>
+      <div class="text-start">
+        <div class="font-manrope text-sm text-neutral-500 mb-1">
+          Plafond retrait
+        </div>
+        <div class="font-manrope text-base font-bold text-neutral-900">
+          {{ card.plafondRetrait }}
+        </div>
+      </div>
+      <span class="w-px h-8 bg-neutral-200" aria-hidden="true"></span>
+      <div class="text-start">
+        <div class="font-manrope text-sm text-neutral-500 mb-1">Solde</div>
+        <div class="font-manrope text-base font-bold text-success-600">
+          {{ card.solde }}
+        </div>
+      </div>
+
+      <span
+        class="ms-2 flex items-center justify-center w-4 h-4 text-neutral-500"
+        aria-hidden="true"
+      >
+        <ds-icon
+          [id]="expanded ? 'arrow-up' : 'arrow-down'"
+          size="1rem"
+        ></ds-icon>
+      </span>
+    </div>
+  </button>
+
+  <div *ngIf="expanded" class="border-t border-neutral-100">
+    <ds-tabs
+      variant="noBackground"
+      [items]="items"
+      [selectedIndex]="selectedIndex"
+      (onSelect)="onTabSelect($event)"
+      containerClassName="bg-blue-50"
+    ></ds-tabs>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div id="ds-card-visual" class="shrink-0" [ngClass]="className">
+  <img
+    *ngIf="imageSrc"
+    [src]="imageSrc"
+    [alt]="resolvedAlt"
+    [attr.width]="width"
+    [attr.height]="height"
+    loading="lazy"
+    class="h-[65.703px] w-[104px] rounded-[2px] object-cover"
+  />
+
+  <div
+    *ngIf="!imageSrc"
+    class="relative h-[65.703px] w-[104px] overflow-hidden rounded-[2px] text-custom-white"
+    [ngClass]="style.gradient"
+    role="img"
+    [attr.aria-label]="resolvedAlt"
+  >
+    <span
+      class="absolute inset-y-0 start-0 w-1.5"
+      [ngClass]="style.accent"
+      aria-hidden="true"
+    ></span>
+    <div class="absolute inset-0 flex flex-col justify-end p-2 ps-3">
+      <span class="font-manrope text-[10px] font-bold leading-tight">{{
+        style.label
+      }}</span>
+      <span class="font-manrope text-[8px] opacity-80">{{ style.sub }}</span>
+    </div>
+  </div>
+</div>

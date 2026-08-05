@@ -32,6 +32,7 @@ export interface IMenuListItem {
   icon?: string;
   href: string;
   isNew?: boolean;
+  isPending?: boolean;
   items?: Array<IMenuListItem>;
 }
 export interface IMenuList {

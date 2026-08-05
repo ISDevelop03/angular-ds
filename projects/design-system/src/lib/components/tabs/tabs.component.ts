@@ -28,6 +28,7 @@ export interface ITab {
 export class DsTabsComponent {
   @Input() items: ITab[] = [];
   @Input() className: string = '';
+  @Input() containerClassName: string = '';
   @Input() variant: keyof typeof theme = 'default';
   @Input() rightContent?: TemplateRef<any>;
   @Input() showTabsSeparator: boolean = false;

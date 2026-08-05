@@ -11,19 +11,41 @@ import { HomeComponent } from './home/home.component';
 import { FilialsComponent } from './filials/filials.component';
 import { LayoutFilialComponent } from './layout-filial/layout-filial.component';
 import { MarqueeComponent } from './marquee/marquee.component';
+import { OverviewComponent } from './pages/overview/overview.component';
+import { MesComptesComponent } from './pages/mes-comptes/mes-comptes.component';
+import { MesCartesComponent } from './pages/mes-cartes/mes-cartes.component';
+import { MesValeursComponent } from './pages/mes-valeurs/mes-valeurs.component';
 
 export const pages: Routes = [
   { path: '', component: FilialsComponent },
   {
     path: 'dashboard',
     component: LayoutFilialComponent,
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        component: HomeComponent,
-      },
-    ],
+  },
+  {
+    path: 'dashboard/home',
+    pathMatch: 'full',
+    component: HomeComponent,
+  },
+  {
+    path: '360sheet',
+    pathMatch: 'full',
+    component: OverviewComponent,
+  },
+  {
+    path: '360sheet/account/list',
+    pathMatch: 'full',
+    component: MesComptesComponent,
+  },
+  {
+    path: 'consult-cards',
+    pathMatch: 'full',
+    component: MesCartesComponent,
+  },
+  {
+    path: 'soge-valeur',
+    pathMatch: 'full',
+    component: MesValeursComponent,
   },
   // { path: '**', component: NotFoundComponent },
 ];
@@ -35,6 +57,10 @@ export const pages: Routes = [
     FilialsComponent,
     LayoutFilialComponent,
     MarqueeComponent,
+    OverviewComponent,
+    MesComptesComponent,
+    MesCartesComponent,
+    MesValeursComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,4 +72,4 @@ export const pages: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

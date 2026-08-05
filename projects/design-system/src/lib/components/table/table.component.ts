@@ -17,6 +17,7 @@ export interface ColumnDef {
   expandable?: boolean;
   truncate?: boolean;
   styles?: { [key: string]: string };
+  style?: { [key: string]: string };
   accessor: string;
   sortable?: boolean;
   cellTemplate?: TemplateRef<any>;

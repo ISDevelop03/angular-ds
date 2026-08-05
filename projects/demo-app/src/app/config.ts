@@ -291,4 +291,7 @@ export const menus: Menu[] = [
   { key: 'group-signataire-checkbox', name: 'GroupSignataireCheckbox', path: '/group-signataire-checkbox' },
   { key: 'generic-list', name: 'GenericList', path: '/generic-list' },
   { key: 'flat-tooltip', name: 'FlatTooltip', path: '/flat-tooltip' },
+  { key: 'plafond-card', name: 'PlafondCard', path: '/plafond-card' },
+  { key: 'card-visual', name: 'CardVisual', path: '/card-visual' },
+  { key: 'credit-card', name: 'CreditCard', path: '/credit-card' },
 ];

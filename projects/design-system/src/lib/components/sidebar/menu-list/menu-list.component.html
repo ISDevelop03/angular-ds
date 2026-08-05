@@ -46,7 +46,7 @@
                 <ul *ngIf="isOpen(subItem)" class="pl-4">
                   <li *ngFor="let subSub of subItem.items">
                     <a
-                      class="flex relative items-center gap-2 before:absolute before:content-[''] before:-left-4 before:top-1/2 before:-translate-y-1/2 before:size-1.5 before:rounded-full hover:before:bg-white before:transition-colors before:duration-300 before:ease-in-out"
+                      class="w-full flex relative justify-between items-center gap-2 before:absolute before:content-[''] before:-left-4 before:top-1/2 before:-translate-y-1/2 before:size-1.5 before:rounded-full hover:before:bg-white before:transition-colors before:duration-300 before:ease-in-out"
                       [ngClass]="[
                         isActif === subSub.href
                           ? 'before:bg-white'
@@ -58,9 +58,15 @@
                       <span class="text-sm">{{ subSub.title }} </span>
                       <span
                         *ngIf="subSub.isNew"
-                        class="absolute top-1/2 -translate-y-1/2 -left-10 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]"
-                        >New</span
+                        class="text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]"
+                        >Nouveau</span
                       >
+                      <span
+                        *ngIf="subSub.isPending"
+                        class="inline-flex items-center justify-center size-5 rounded-full bg-amber-400 text-white z-[10]"
+                      >
+                        <ds-icon id="clock-forward" class="size-3"></ds-icon>
+                      </span>
                     </a>
                   </li>
                 </ul>
@@ -86,9 +92,15 @@
 
                   <span
                     *ngIf="subItem.isNew"
-                    class="absolute top-1/2 -translate-y-1/2 right-1.5 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]"
-                    >New</span
+                    class="text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]"
+                    >Nouveau</span
                   >
+                  <span
+                    *ngIf="subItem.isPending"
+                    class="inline-flex items-center justify-center size-5 rounded-full bg-amber-400 text-white z-[10]"
+                  >
+                    <ds-icon id="clock-forward" class="size-3"></ds-icon>
+                  </span>
                 </a>
               </ng-template>
             </li>
@@ -106,8 +118,14 @@
           <span
             *ngIf="item.isNew"
             class="absolute top-1/2 -translate-y-1/2 right-0 text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400"
-            >New</span
+            >Nouveau</span
           >
+          <span
+            *ngIf="item.isPending"
+            class="absolute top-1/2 -translate-y-1/2 right-0 inline-flex items-center justify-center size-5 rounded-full bg-amber-400 text-white"
+          >
+            <ds-icon id="clock-forward" class="size-3"></ds-icon>
+          </span>
         </a>
       </ng-template>
     </li>

@@ -1,0 +1,42 @@
+import { CardItem } from 'projects/design-system/src/lib/components/credit-card/credit-card.component';
+
+export const MOCK_CARDS: CardItem[] = [
+  {
+    id: 'c1',
+    name: 'Global Deposit',
+    holder: 'Imane Tadlaoui',
+    numTail: '43•••• 3456',
+    expiry: '09/02/2025',
+    variant: 'deposit',
+    imageSrc: 'assets/cards/card-deposit.png',
+    plafondAchat: '15 000 MAD',
+    plafondRetrait: '4 350 MAD',
+    solde: '4 350 MAD',
+  },
+  {
+    id: 'c2',
+    name: 'Business',
+    holder: 'Imane Tadlaoui',
+    numTail: '43•••• 3456',
+    expiry: '09/02/2025',
+    variant: 'business',
+    status: 'Actif',
+    imageSrc: 'assets/cards/card-business.png',
+    plafondAchat: '15 000 MAD',
+    plafondRetrait: '4 350 MAD',
+    solde: '4 350 MAD',
+  },
+  {
+    id: 'c3',
+    name: 'Escale PRO',
+    holder: 'Imane Tadlaoui',
+    numTail: '43•••• 3456',
+    expiry: '09/02/2025',
+    variant: 'escale',
+    status: 'Actif',
+    imageSrc: 'assets/cards/card-escale.png',
+    plafondAchat: '15 000 MAD',
+    plafondRetrait: '4 350 MAD',
+    solde: '4 350 MAD',
+  },
+];

@@ -27,10 +27,7 @@
           >
             <span class="flex items-center justify-between gap-2 w-full">
               {{ tab.title }}
-              <ds-icon
-                [id]="getAccordionIconId(idx)"
-                size="1rem"
-              ></ds-icon>
+              <ds-icon [id]="getAccordionIconId(idx)" size="1rem"></ds-icon>
             </span>
           </button>
 
@@ -47,9 +44,13 @@
                 isSubSelected(idx, subIdx)
                   ? 'font-bold text-red-500'
                   : 'text-neutral-600 hover:font-bold hover:text-red-500',
-                subTab.disabled ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'
+                subTab.disabled
+                  ? 'cursor-not-allowed opacity-40'
+                  : 'cursor-pointer'
               ]"
-              [attr.aria-selected]="isSubSelected(idx, subIdx) ? 'true' : 'false'"
+              [attr.aria-selected]="
+                isSubSelected(idx, subIdx) ? 'true' : 'false'
+              "
               [attr.aria-disabled]="subTab.disabled ? 'true' : null"
               [attr.disabled]="subTab.disabled ? true : null"
             >
@@ -107,9 +108,16 @@
   <div [ngClass]="[theme[variant].panels.container]">
     <ng-container *ngFor="let tab of items; let idx = index">
       <ng-container *ngIf="getActivePanel(tab, idx) as activePanel">
-        <div [ngClass]="theme[variant].panels.panel.base || ''">
+        <div
+          [ngClass]="[
+            theme[variant].panels.panel.base || '',
+            containerClassName || ''
+          ]"
+        >
           <ng-container
-            *ngIf="(!tab.panel || showTabsSeparator) && variant === 'noBackground'"
+            *ngIf="
+              (!tab.panel || showTabsSeparator) && variant === 'noBackground'
+            "
           >
             <div class="w-full h-px bg-white"></div>
           </ng-container>

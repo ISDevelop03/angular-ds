@@ -1,6 +1,11 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlatTooltipComponent } from './components/flat-tooltip/flat-tooltip.component';
+// Mes Cartes feature
+import { PlafondCardComponent } from './components/plafond-card/plafond-card.component';
+import { CardVisualComponent } from './components/card-visual/card-visual.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
+
 import { GenericListComponent } from './components/generic-list/generic-list.component';
 import { GroupSignataireCheckboxComponent } from './components/group-signataire-checkbox/group-signataire-checkbox.component';
 import { MatriceSignatureCardComponent } from './components/matrice-signature-card/matrice-signature-card.component';
@@ -240,6 +245,9 @@ registerLocaleData(localeFr, 'fr-FR');
     GroupSignataireCheckboxComponent,
     GenericListComponent,
     FlatTooltipComponent,
+    PlafondCardComponent,
+    CardVisualComponent,
+    CreditCardComponent,
   ],
   imports: [
     CommonModule,
@@ -357,6 +365,9 @@ registerLocaleData(localeFr, 'fr-FR');
     GroupSignataireCheckboxComponent,
     GenericListComponent,
     FlatTooltipComponent,
+    PlafondCardComponent,
+    CardVisualComponent,
+    CreditCardComponent,
   ],
 })
 export class DesignSystemModule { }

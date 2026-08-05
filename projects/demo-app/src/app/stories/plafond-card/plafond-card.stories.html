@@ -1,0 +1,247 @@
+<div class="p-4 flex flex-col gap-6 min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Plafond Card</h2>
+
+  <h3 class="text-2xl font-bold">Editable (national style)</h3>
+  <div class="flex gap-0 flex-wrap items-stretch bg-white rounded border border-neutral-100 overflow-hidden">
+    <div
+      *ngFor="let color of colors"
+      class="flex-1 min-w-[200px] px-5 py-5 border-e border-neutral-100 last:border-e-0"
+    >
+      <ds-plafond-card
+        [title]="'Plafond ' + color"
+        [editable]="true"
+        [color]="color"
+        consumed="4 239,44 MAD"
+        max="30 000 MAD"
+        contractuel="30 000 MAD"
+        commercial="60 000 MAD"
+        (onEdit)="onEdit(color)"
+      ></ds-plafond-card>
+    </div>
+  </div>
+
+  <h3 class="text-2xl font-bold">Read-only with note (international style)</h3>
+  <div class="flex gap-0 flex-wrap items-stretch bg-white rounded border border-neutral-100 overflow-hidden max-w-3xl">
+    <div class="flex-1 min-w-[200px] px-5 py-5 border-e border-neutral-100">
+      <ds-plafond-card
+        title="Retrait à l'étranger"
+        color="green"
+        consumed="4 239,44 MAD"
+        max="30 000 MAD"
+        contractuel="30 000 MAD"
+        commercial="60 000 MAD"
+        note="Pour toute modification de plafonds, veuillez contacter votre gestionnaire en agence."
+      ></ds-plafond-card>
+    </div>
+    <div class="flex-1 min-w-[200px] px-5 py-5">
+      <ds-plafond-card
+        title="Paiement TPE à l'étranger"
+        color="orange"
+        [percent]="0.75"
+        consumed="22 500 MAD"
+        max="30 000 MAD"
+        contractuel="30 000 MAD"
+        commercial="60 000 MAD"
+        note="Pour toute modification de plafonds, veuillez contacter votre gestionnaire en agence."
+      ></ds-plafond-card>
+    </div>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Card title displayed in uppercase (e.g.
+            <code>'Retrait GAB Saham Bank'</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            editable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, shows the red edit icon that emits
+            <code>onEdit</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            color
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'green' | 'orange' | 'red' | 'olive'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'green'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual color of the filled arc. When
+            <code>percent</code> is omitted, also drives a default fill ratio.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            percent
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Fill ratio from <code>0</code> to <code>1</code>. When omitted, a
+            ratio derived from <code>color</code> is used.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            consumed
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Main value displayed under the label inside the gauge.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            max
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Right-side footer label for the maximum value.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            contractuel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Value shown next to <code>PLAFOND CONTRACTUEL</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            commercial
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Value shown next to <code>PLAFOND COMMERCIAL</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            note
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional helper text shown below the gray box.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes applied to the root wrapper.
+          </td>
+        </tr>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onEdit
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;void&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the edit icon is clicked.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
