@@ -8,22 +8,22 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
     href: '/360sheet',
   },
   {
-    title: 'Cash Management',
-    icon: 'frame1',
-    color: 'bg-primary dark:bg-primary-600',
-    href: '/',
+    title: 'Documents bancaires',
+    icon: 'home',
+    color: 'bg-white-bg dark:bg-clr-white-bg-dark text-black',
+    href: '/360sheet/account/list',
     menus: {
-      title: 'Consultation',
+      title: 'Cash Management',
       items: [
         {
           title: 'Consultation',
           icon: 'folder-search-02',
+          href: '/360sheet/account/list',
           items: [
             {
               title: 'Mes comptes',
               href: '/360sheet/account/list',
               icon: 'card-edit',
-              isPending: true,
             },
             {
               title: 'Mes cartes',
@@ -34,127 +34,6 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
               title: 'Mes valeurs',
               href: '/soge-valeur',
               icon: 'clock-forward',
-            },
-          ],
-        },
-        {
-          title: 'Transactions',
-          icon: 'coins-rotate',
-          href: '#',
-          items: [
-            {
-              title: 'Virements',
-              icon: 'arrow-switch-horizontal-1',
-              href: '#',
-              items: [
-                {
-                  title: 'Virement unitaire',
-                  icon: 'coins-rotate',
-                  href: '/360sheet/transfer/domestic/simple',
-                  items: [],
-                },
-                {
-                  title: 'Virement multiple',
-                  icon: 'coins-rotate',
-                  href: '/360sheet/transfer/domestic/multi',
-                  items: [],
-                },
-                {
-                  title: 'Virement de masse',
-                  icon: 'coins-rotate',
-                  href: '/360sheet/transfer/domestic/masse',
-                  items: [],
-                },
-                {
-                  title: 'Virement Offshore',
-                  icon: 'coins-rotate',
-                  href: '/360sheet/transfer/domestic/offshore',
-                  items: [],
-                },
-              ],
-            },
-            {
-              title: 'Gestion des bénéficiaires',
-              icon: 'users-profiles-02',
-              href: '/360sheet/beneficiary',
-              items: [],
-            },
-            {
-              title: 'Paiement de factures',
-              icon: 'arrow-switch-horizontal-1',
-              href: '/360sheet/bills-payment',
-              items: [],
-            },
-            {
-              title: 'Paiement de factures en masse',
-              icon: 'arrow-switch-horizontal-1',
-              href: '/360sheet/bills-payment',
-              items: [],
-            },
-            {
-              title: 'Recharge carte Escale Pro',
-              icon: 'arrow-switch-horizontal-1',
-              href: '/escale-pro',
-              items: [],
-            },
-            {
-              title: 'Prélèvements',
-              icon: 'clipboard-check',
-              href: '/direct-debit',
-              items: [],
-            },
-          ],
-        },
-        {
-          title: 'Transactions autres canaux',
-          icon: 'coins-rotate',
-          items: [
-            {
-              title: 'Transactions MyConnect',
-              icon: 'arrow-switch-horizontal-1',
-              href: '#',
-              items: [
-                {
-                  title: 'Virements',
-                  href: '/myconnect',
-                },
-                {
-                  title: 'Prélèvements',
-                  href: '#',
-                },
-              ],
-            },
-            {
-              title: 'Virements CFT',
-              icon: 'arrow-switch-horizontal-1',
-              href: '/external-transfer',
-            },
-          ],
-        },
-        {
-          title: 'Placements',
-          icon: 'coins-rotate',
-          items: [
-            {
-              title: 'OPCVM',
-              icon: 'clipboard-check',
-              href: '/opcvm',
-            },
-          ],
-        },
-        {
-          title: 'Services',
-          icon: 'card-02',
-          items: [
-            {
-              title: 'Commande de cartes',
-              icon: 'card-add',
-              href: '/sell-card',
-            },
-            {
-              title: 'My-docs',
-              icon: 'card-add',
-              href: '/my-docs',
             },
           ],
         },
