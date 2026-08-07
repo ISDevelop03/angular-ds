@@ -1,0 +1,60 @@
+<button
+  id="ds-bank-card"
+  type="button"
+  class="rounded-[4px] bg-white p-3 text-left relative transition-colors border flex flex-col gap-2 w-full cursor-pointer"
+  [ngClass]="[
+    selected
+      ? 'border-red-500'
+      : 'border-neutral-200 hover:border-neutral-300',
+    className
+  ]"
+  (click)="select()"
+>
+  <div class="relative w-full overflow-hidden rounded-[4px]" style="aspect-ratio: 16 / 10">
+    <img
+      *ngIf="imageSrc"
+      [src]="imageSrc"
+      [alt]="resolvedAlt"
+      loading="lazy"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+
+    <div
+      *ngIf="!imageSrc"
+      class="absolute inset-0 overflow-hidden text-custom-white"
+      [ngClass]="fallback.gradient"
+      role="img"
+      [attr.aria-label]="resolvedAlt"
+    >
+      <span
+        class="absolute inset-y-0 start-0 w-1.5"
+        [ngClass]="fallback.accent"
+        aria-hidden="true"
+      ></span>
+      <div class="absolute inset-0 flex flex-col justify-end p-3 ps-4">
+        <span class="font-manrope text-sm font-bold leading-tight">{{
+          fallback.label
+        }}</span>
+        <span class="font-manrope text-xs opacity-80">{{ fallback.sub }}</span>
+      </div>
+    </div>
+
+    <span
+      aria-hidden="true"
+      class="absolute right-2 top-2 z-10 aspect-square h-[18px] w-[18px] rounded-full border bg-white flex items-center justify-center transition-colors"
+      [ngClass]="selected ? 'border-red-500' : 'border-neutral-300'"
+    >
+      <span
+        *ngIf="selected"
+        class="h-2.5 w-2.5 rounded-full bg-red-500"
+      ></span>
+    </span>
+  </div>
+
+  <div class="text-sm font-bold text-neutral-900">
+    {{ label }}
+  </div>
+  <p class="text-xs text-neutral-500 leading-relaxed m-0">
+    {{ description }}
+  </p>
+</button>

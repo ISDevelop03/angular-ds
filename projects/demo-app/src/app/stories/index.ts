@@ -208,3 +208,4 @@ export * from './flat-tooltip/flat-tooltip.stories';
 export * from './plafond-card/plafond-card.stories';
 export * from './card-visual/card-visual.stories';
 export * from './credit-card/credit-card.stories';
+export * from './bank-card/bank-card.stories';

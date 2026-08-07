@@ -1,0 +1,209 @@
+<div class="p-4 flex flex-col gap-6 min-h-screen bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Bank Card</h2>
+  <p class="text-neutral-70 mb-2 max-w-3xl">
+    Selectable bank card option used in the commande de cartes configuration
+    step. Shows a large card visual, title, description and a radio indicator.
+  </p>
+
+  <h3 class="text-2xl font-bold">With images (selection grid)</h3>
+  <p class="text-neutral-70 mb-2">
+    Click a card to select it. The parent owns
+    <code>selected</code> and listens to <code>onSelect</code>.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl">
+    <ds-bank-card
+      *ngFor="let card of cards"
+      [variant]="card.variant"
+      [label]="card.label"
+      [imageSrc]="card.imageSrc"
+      [selected]="selected === card.variant"
+      (onSelect)="onSelect($event)"
+    ></ds-bank-card>
+  </div>
+
+  <h3 class="text-2xl font-bold">CSS fallback (no image)</h3>
+  <p class="text-neutral-70 mb-2">
+    When <code>imageSrc</code> is omitted, a gradient fallback by
+    <code>variant</code> is shown.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl">
+    <ds-bank-card
+      *ngFor="let card of cards"
+      [variant]="card.variant"
+      [label]="card.label"
+      [selected]="selected === card.variant"
+      (onSelect)="onSelect($event)"
+    ></ds-bank-card>
+  </div>
+
+  <h3 class="text-2xl font-bold">Single card</h3>
+  <p class="text-neutral-70 mb-2">
+    Isolated selected state.
+  </p>
+  <div class="max-w-xs">
+    <ds-bank-card
+      variant="business"
+      label="VISA BUSINESS"
+      imageSrc="assets/cards/card-business.png"
+      [selected]="true"
+    ></ds-bank-card>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'business' | 'deposit' | 'escale'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'business'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Card product variant. Emitted by <code>onSelect</code> and drives
+            the CSS fallback when no image is provided.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Title shown under the visual (e.g.
+            <code>'VISA BUSINESS'</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Default Visa Business marketing copy
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Supporting text under the title.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            selected
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, applies the red active border and fills the
+            radio indicator.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            imageSrc
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional product image (16:10). When omitted, a CSS gradient
+            fallback for <code>variant</code> is shown.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            alt
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string | null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">null</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Image / fallback accessible label. Defaults to a label derived from
+            <code>variant</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes on the root button.
+          </td>
+        </tr>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onSelect
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;CardVariant&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the card is clicked. Payload is the
+            <code>variant</code> input.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

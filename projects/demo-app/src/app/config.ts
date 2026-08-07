@@ -294,4 +294,5 @@ export const menus: Menu[] = [
   { key: 'plafond-card', name: 'PlafondCard', path: '/plafond-card' },
   { key: 'card-visual', name: 'CardVisual', path: '/card-visual' },
   { key: 'credit-card', name: 'CreditCard', path: '/credit-card' },
+  { key: 'bank-card', name: 'BankCard', path: '/bank-card' },
 ];

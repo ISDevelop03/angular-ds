@@ -115,6 +115,7 @@ import {
   PlafondCardStoryComponent,
   CardVisualStoryComponent,
   CreditCardStoryComponent,
+  BankCardStoryComponent,
 
   
   
@@ -253,6 +254,7 @@ export const pages: Routes = [
   { path: 'plafond-card', component: PlafondCardStoryComponent },
   { path: 'card-visual', component: CardVisualStoryComponent },
   { path: 'credit-card', component: CreditCardStoryComponent },
+  { path: 'bank-card', component: BankCardStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -379,6 +381,7 @@ const router = RouterModule.forRoot(pages);
   PlafondCardStoryComponent,
   CardVisualStoryComponent,
   CreditCardStoryComponent,
+  BankCardStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

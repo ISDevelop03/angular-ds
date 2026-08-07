@@ -5,6 +5,7 @@ import { FlatTooltipComponent } from './components/flat-tooltip/flat-tooltip.com
 import { PlafondCardComponent } from './components/plafond-card/plafond-card.component';
 import { CardVisualComponent } from './components/card-visual/card-visual.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
+import { BankCardComponent } from './components/bank-card/bank-card.component';
 
 import { GenericListComponent } from './components/generic-list/generic-list.component';
 import { GroupSignataireCheckboxComponent } from './components/group-signataire-checkbox/group-signataire-checkbox.component';
@@ -248,6 +249,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PlafondCardComponent,
     CardVisualComponent,
     CreditCardComponent,
+    BankCardComponent,
   ],
   imports: [
     CommonModule,
@@ -368,6 +370,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PlafondCardComponent,
     CardVisualComponent,
     CreditCardComponent,
+    BankCardComponent,
   ],
 })
 export class DesignSystemModule { }
