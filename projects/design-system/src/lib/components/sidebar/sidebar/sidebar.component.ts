@@ -1,6 +1,8 @@
 // ds-sidebar.component.ts
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { IMenus, IMainMenu, ILanguage, Cap, IDisableBottomMenus } from '../types';
 import { ISelectItem } from '../../profile-dropdown/types';
 
@@ -14,7 +16,7 @@ import { ISelectItem } from '../../profile-dropdown/types';
   selector: 'ds-sidebar',
   templateUrl: './sidebar.component.html',
 })
-export class DsSidebarComponent implements OnInit {
+export class DsSidebarComponent implements OnInit, OnDestroy {
   @Input() className: string = '';
   @Input() profileMenus: ISelectItem[] = [];
   @Input() mainMenus: IMainMenu[] = [];
@@ -41,15 +43,30 @@ export class DsSidebarComponent implements OnInit {
   openMainMenuIndex: number = -1;
   isActif: string = '/';
 
-  constructor(private router: Router) {}
+  private routerSub: Subscription;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.isActif = this.router.url;
+    // On refresh, router.url is often still "/" in ngOnInit because the
+    // initial navigation has not finished yet — wait for NavigationEnd.
+    this.setActif(this.router.url);
+    this.routerSub = this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        this.setActif(event.urlAfterRedirects);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.routerSub.unsubscribe();
   }
 
   setActif(url: string): void {
     this.isActif = url;
   }
+
+
 
   _onThemeChange(theme: any): void {
     console.log('theme sidebar', theme);

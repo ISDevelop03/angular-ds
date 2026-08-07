@@ -30,7 +30,7 @@ export interface IMenuItemSection {
 export interface IMenuListItem {
   title: string;
   icon?: string;
-  href: string;
+  href?: string;
   isNew?: boolean;
   isPending?: boolean;
   items?: Array<IMenuListItem>;
