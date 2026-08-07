@@ -1643,6 +1643,10 @@ video {
   margin-top: 1px !important;
 }
 
+.mb-1\.5 {
+  margin-bottom: 0.375rem !important;
+}
+
 .box-border {
   box-sizing: border-box !important;
 }
@@ -3199,6 +3203,10 @@ video {
 
 .overflow-x-hidden {
   overflow-x: hidden !important;
+}
+
+.overscroll-x-contain {
+  overscroll-behavior-x: contain !important;
 }
 
 .scroll-smooth {
@@ -5021,6 +5029,10 @@ video {
 
 .capitalize {
   text-transform: capitalize !important;
+}
+
+.italic {
+  font-style: italic !important;
 }
 
 .\!leading-\[18px\] {

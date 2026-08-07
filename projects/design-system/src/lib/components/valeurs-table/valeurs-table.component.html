@@ -1,0 +1,30 @@
+<div
+  *ngIf="hasRows"
+  id="ds-valeurs-table"
+  class="vt-scroll custom-scrollbar"
+  [ngClass]="className"
+>
+  <div class="vt-tracker" [ngStyle]="trackerStyle">
+    <div class="vt-list">
+      <div
+        *ngFor="let row of displayRows; let i = index"
+        class="vt-card"
+        [class.vt-card--selected]="isHighlighted(i)"
+        [attr.data-state]="isHighlighted(i) ? 'selected' : 'default'"
+      >
+        <div class="vt-grid" [ngStyle]="gridStyle">
+          <div
+            *ngFor="let col of row; let j = index"
+            class="vt-column"
+            [class.vt-column--divider]="j > 0"
+          >
+            <div *ngFor="let field of col" class="vt-field">
+              <div class="vt-label">{{ field.label }}</div>
+              <div class="vt-value">{{ field.value }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

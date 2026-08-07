@@ -1,0 +1,100 @@
+<div class="p-4 flex flex-col gap-6 min-h-screen bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-2">Valeurs Table</h2>
+  <p class="text-neutral-70 max-w-3xl">
+    Card rows with label-above-value fields and vertical column dividers.
+  </p>
+
+  <h3 class="text-2xl font-bold">Single field per column</h3>
+  <ds-valeurs-table [rows]="singleFieldRows"></ds-valeurs-table>
+
+  <h3 class="text-2xl font-bold">Multi fields per column</h3>
+  <ds-valeurs-table [rows]="multiFieldRows"></ds-valeurs-table>
+
+  <h3 class="text-2xl font-bold">Highlight first</h3>
+  <ds-valeurs-table
+    [rows]="multiFieldRows"
+    [highlightFirst]="true"
+  ></ds-valeurs-table>
+
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            rows
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ValeursColumn[][]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Rows of columns. Each column is
+            <code>ValeursField[]</code> (1+ stacked
+            <code>{{ '{' }} label, value {{ '}' }}</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            highlightFirst
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Selected style on the first row.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            minColWidth
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">170</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Min column width in px.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Extra classes on the scroll container.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

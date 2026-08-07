@@ -88,7 +88,8 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     this.filteredMenus = this.menus.filter((menu) =>
-      menu.name.toLowerCase().includes(term)
+      menu.name.toLowerCase().includes(term) ||
+      menu.key.toLowerCase().includes(term)
     );
   }
 

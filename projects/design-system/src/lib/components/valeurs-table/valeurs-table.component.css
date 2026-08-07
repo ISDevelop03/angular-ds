@@ -1,0 +1,93 @@
+/* Mes valeurs card list — columns can stack multiple label/value pairs */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.vt-scroll {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.vt-tracker {
+  width: 100%;
+  min-width: 100%;
+}
+
+.vt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vt-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.25rem 0;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  border: 1px solid transparent;
+}
+
+.vt-card--selected,
+.vt-card[data-state='selected'] {
+  background-color: rgb(var(--color-red-50));
+  border-color: rgb(var(--color-red-500));
+  box-shadow: none;
+}
+
+.vt-grid {
+  display: grid;
+  align-items: stretch;
+  width: 100%;
+}
+
+.vt-column {
+  position: relative;
+  min-width: 0;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem; /* space between stacked fields in a column */
+  text-align: start;
+}
+
+/* Vertical divider between columns — inset from card edges */
+.vt-column--divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 1px;
+  background-color: rgb(var(--color-neutral-200, 209 213 219));
+}
+
+.vt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.vt-label {
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: rgb(var(--color-neutral-500));
+}
+
+.vt-value {
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: rgb(var(--color-neutral-900));
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

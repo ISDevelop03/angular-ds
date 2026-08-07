@@ -295,4 +295,5 @@ export const menus: Menu[] = [
   { key: 'card-visual', name: 'CardVisual', path: '/card-visual' },
   { key: 'credit-card', name: 'CreditCard', path: '/credit-card' },
   { key: 'bank-card', name: 'BankCard', path: '/bank-card' },
+  { key: 'valeurs-table', name: 'Valeurs Table', path: '/valeurs-table' },
 ];

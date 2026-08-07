@@ -209,3 +209,4 @@ export * from './plafond-card/plafond-card.stories';
 export * from './card-visual/card-visual.stories';
 export * from './credit-card/credit-card.stories';
 export * from './bank-card/bank-card.stories';
+export * from './valeurs-table/valeurs-table.stories';
