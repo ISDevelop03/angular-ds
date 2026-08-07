@@ -18,12 +18,12 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
         {
           title: 'Consultation',
           icon: 'folder-search-02',
-          href: '/360sheet/account/list',
           items: [
             {
               title: 'Mes comptes',
               href: '/360sheet/account/list',
               icon: 'card-edit',
+              isPending: true,
             },
             {
               title: 'Mes cartes',
@@ -72,9 +72,6 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
                   items: [],
                 },
               ],
-
-
-
             },
             {
               title: 'Gestion des bénéficiaires',
@@ -93,7 +90,6 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
               icon: 'arrow-switch-horizontal-1',
               href: '/360sheet/bills-payment',
               items: [],
-
             },
             {
               title: 'Recharge carte Escale Pro',
@@ -103,9 +99,62 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
             },
             {
               title: 'Prélèvements',
-              icon: 'arrow-switch-horizontal-1',
+              icon: 'clipboard-check',
               href: '/direct-debit',
               items: [],
+            },
+          ],
+        },
+        {
+          title: 'Transactions autres canaux',
+          icon: 'coins-rotate',
+          items: [
+            {
+              title: 'Transactions MyConnect',
+              icon: 'arrow-switch-horizontal-1',
+              href: '#',
+              items: [
+                {
+                  title: 'Virements',
+                  href: '/myconnect',
+                },
+                {
+                  title: 'Prélèvements',
+                  href: '#',
+                },
+              ],
+            },
+            {
+              title: 'Virements CFT',
+              icon: 'arrow-switch-horizontal-1',
+              href: '/external-transfer',
+            },
+          ],
+        },
+        {
+          title: 'Placements',
+          icon: 'coins-rotate',
+          items: [
+            {
+              title: 'OPCVM',
+              icon: 'clipboard-check',
+              href: '/opcvm',
+            },
+          ],
+        },
+        {
+          title: 'Services',
+          icon: 'card-02',
+          items: [
+            {
+              title: 'Commande de cartes',
+              icon: 'card-add',
+              href: '/sell-card',
+            },
+            {
+              title: 'My-docs',
+              icon: 'card-add',
+              href: '/my-docs',
             },
           ],
         },
@@ -126,7 +175,6 @@ export const LIST_MOCKDATA = [
     icon: 'settings',
   },
   {
-
     label: 'Déconnexion',
     icon: 'logoutcurve',
     className: 'text-primary dark:text-primary-600',

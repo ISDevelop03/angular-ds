@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DesignSystemModule } from 'mybusiness-design-system';
-// import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,10 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { FilialsComponent } from './filials/filials.component';
 import { LayoutFilialComponent } from './layout-filial/layout-filial.component';
 import { MarqueeComponent } from './marquee/marquee.component';
-import { OverviewComponent } from './pages/overview/overview.component';
-import { MesComptesComponent } from './pages/mes-comptes/mes-comptes.component';
-import { MesCartesComponent } from './pages/mes-cartes/mes-cartes.component';
-import { MesValeursComponent } from './pages/mes-valeurs/mes-valeurs.component';
+import { PageComponent } from './pages/page.component';
 
 export const pages: Routes = [
   { path: '', component: FilialsComponent },
@@ -30,24 +26,105 @@ export const pages: Routes = [
   {
     path: '360sheet',
     pathMatch: 'full',
-    component: OverviewComponent,
+    component: PageComponent,
+    data: { title: 'Overview' },
   },
   {
     path: '360sheet/account/list',
     pathMatch: 'full',
-    component: MesComptesComponent,
+    component: PageComponent,
+    data: { title: 'Mes comptes' },
   },
   {
     path: 'consult-cards',
     pathMatch: 'full',
-    component: MesCartesComponent,
+    component: PageComponent,
+    data: { title: 'Mes cartes' },
   },
   {
     path: 'soge-valeur',
     pathMatch: 'full',
-    component: MesValeursComponent,
+    component: PageComponent,
+    data: { title: 'Mes valeurs' },
   },
-  // { path: '**', component: NotFoundComponent },
+  {
+    path: '360sheet/transfer/domestic/simple',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Virement unitaire' },
+  },
+  {
+    path: '360sheet/transfer/domestic/multi',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Virement multiple' },
+  },
+  {
+    path: '360sheet/transfer/domestic/masse',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Virement de masse' },
+  },
+  {
+    path: '360sheet/transfer/domestic/offshore',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Virement Offshore' },
+  },
+  {
+    path: '360sheet/beneficiary',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Gestion des bénéficiaires' },
+  },
+  {
+    path: '360sheet/bills-payment',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Paiement de factures' },
+  },
+  {
+    path: 'escale-pro',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Recharge carte Escale Pro' },
+  },
+  {
+    path: 'direct-debit',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Prélèvements' },
+  },
+  {
+    path: 'myconnect',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Transactions MyConnect - Virements' },
+  },
+  {
+    path: 'external-transfer',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Virements CFT' },
+  },
+  {
+    path: 'opcvm',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'OPCVM' },
+  },
+  {
+    path: 'sell-card',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'Commande de cartes' },
+  },
+  {
+    path: 'my-docs',
+    pathMatch: 'full',
+    component: PageComponent,
+    data: { title: 'My-docs' },
+  },
 ];
 
 @NgModule({
@@ -57,10 +134,7 @@ export const pages: Routes = [
     FilialsComponent,
     LayoutFilialComponent,
     MarqueeComponent,
-    OverviewComponent,
-    MesComptesComponent,
-    MesCartesComponent,
-    MesValeursComponent,
+    PageComponent,
   ],
   imports: [
     BrowserModule,
