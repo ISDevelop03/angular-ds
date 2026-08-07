@@ -1,6 +1,396 @@
-<section class="flex flex-col gap-4 p-4 bg-gradient-crame">
-  <h2 class="text-2xl font-bold">GenericList</h2>
-  <div class="flex flex-col gap-4">
-    <ds-generic-list [items]="items" [className]="className"></ds-generic-list>
+<section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
+  <h2 class="text-4xl font-bold mb-6">Generic List</h2>
+
+  <h3 class="text-2xl font-bold">White · Inline</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <ds-generic-list
+      variant="white"
+      [sections]="inlineSections"
+      [className]="className"
+    ></ds-generic-list>
+  </div>
+
+  <h3 class="text-2xl font-bold">White · Stacked</h3>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <ds-generic-list
+      variant="white"
+      [sections]="stackedSections"
+      [className]="className"
+    ></ds-generic-list>
+  </div>
+
+  <h3 class="text-2xl font-bold">Gray · Inline</h3>
+  <div class="flex flex-col gap-4 max-w-lg bg-white p-4 rounded">
+    <ds-generic-list
+      variant="gray"
+      [sections]="inlineSections"
+      [className]="className"
+    ></ds-generic-list>
+  </div>
+
+  <h3 class="text-2xl font-bold">Gray · Stacked</h3>
+  <div class="flex flex-col gap-4 max-w-lg bg-white p-4 rounded">
+    <ds-generic-list
+      variant="gray"
+      [sections]="stackedSections"
+      [className]="className"
+    ></ds-generic-list>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            sections
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">GenericListSection[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Array of titled sections. Each section groups a set of list items
+            under a title. See the
+            <strong>GenericListSection Interface</strong> section below.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'white' | 'gray'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'white'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Visual variant.
+            <code>white</code> uses <code>bg-level-3</code> with
+            <code>neutral-900</code> labels.
+            <code>gray</code> uses <code>bg-neutral-25</code> with
+            <code>neutral-500</code> labels.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes applied to the root container.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GenericListSection Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># GenericListSection Interface</h3>
+  <p class="text-gray-600 mb-4">
+    Each object in the <code>sections</code> array matches
+    <code>GenericListSection</code>: a title, optional display mode, and a list
+    of items.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Section title displayed above its items.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            display
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'inline' | 'stacked'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'inline'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Layout for items in the section.
+            <code>inline</code> places label and value on the same line.
+            <code>stacked</code> places them on separate lines with a
+            <code>10px</code> gap.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            items
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">GenericListItem[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> List items belonging to this section.
+            See the <strong>GenericListItem</strong> sections below.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GenericListItem text -->
+  <h3 class="text-2xl font-bold mt-8"># GenericListItem — text</h3>
+  <p class="text-gray-600 mb-4">
+    Simple label / string value row.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'text'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Discriminator for text items.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Label text for the row.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Text value displayed next to (or below)
+            the label.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GenericListItem list-badges -->
+  <h3 class="text-2xl font-bold mt-8"># GenericListItem — list-badges</h3>
+  <p class="text-gray-600 mb-4">
+    Label with a row of <code>ds-badge</code> chips.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'list-badges'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Discriminator for badge list items.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Label text for the row.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Badge labels rendered as small badges.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GenericListItem account -->
+  <h3 class="text-2xl font-bold mt-8"># GenericListItem — account</h3>
+  <p class="text-gray-600 mb-4">
+    Label with account name and account number.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            type
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'account'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Discriminator for account items.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Label text for the row.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >{{ '{' }} accountName: string; accountNumber: string {{ '}'
+              }}</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Account details.
+            <code>accountName</code> is bold;
+            <code>accountNumber</code> is shown below in
+            <code>neutral-500</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

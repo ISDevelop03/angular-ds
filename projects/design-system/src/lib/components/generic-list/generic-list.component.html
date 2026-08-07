@@ -1,46 +1,97 @@
 <div
   id="ds-generic-list"
-  [ngClass]="['bg-level-3 flex flex-col gap-4 p-4 rounded', className]"
+  [ngClass]="[
+    theme[variant].container,
+    'flex flex-col gap-6 p-4 rounded',
+    className
+  ]"
 >
-  <div *ngFor="let item of items" class="flex flex-col gap-y-4">
-    <ng-container *ngIf="item.type === 'text'">
-      <div class="flex items-center justify-between">
-        <p class="text-neutral-900 font-medium text-[0.725rem]/[1rem]">
-          {{ item.label }}
-        </p>
-        <p class="text-neutral-900 font-bold text-[0.875rem]/[1.125rem]">
-          {{ item.value }}
-        </p>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="item.type === 'list-badges'">
-      <div class="flex items-center justify-between">
-        <p class="text-neutral-900 font-medium text-[0.725rem]/[1rem]">
-          {{ item.label }}
-        </p>
-        <div class="flex flex-wrap gap-1 items-center">
-          <ds-badge
-            size="sm"
-            *ngFor="let value of item.value"
-            [label]="value"
-          ></ds-badge>
-        </div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="item.type === 'account'">
-      <div class="flex items-center justify-between">
-        <p class="text-neutral-900 font-medium text-[0.725rem]/[1rem]">
-          {{ item.label }}
-        </p>
-        <div class="flex flex-col items-end gap-y-0.5">
+  <div *ngFor="let section of sections" class="flex flex-col gap-4">
+    <p
+      *ngIf="section.title"
+      class="text-neutral-900 font-bold text-[0.875rem]/[1.125rem]"
+    >
+      {{ section.title }}
+    </p>
+    <div *ngFor="let item of section.items" class="flex flex-col gap-y-4">
+      <ng-container *ngIf="item.type === 'text'">
+        <div
+          [class]="
+            getDisplay(section) === 'inline'
+              ? 'flex items-center justify-between'
+              : 'flex flex-col gap-[10px]'
+          "
+        >
+          <p
+            [ngClass]="[
+              theme[variant].label,
+              'font-medium text-[0.725rem]/[1rem]'
+            ]"
+          >
+            {{ item.label }}
+          </p>
           <p class="text-neutral-900 font-bold text-[0.875rem]/[1.125rem]">
-            {{ item.value.accountName }}
-          </p>
-          <p class="text-neutral-500 text-[0.875rem]/[1.125rem]">
-            {{ item.value.accountNumber }}
+            {{ item.value }}
           </p>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
+      <ng-container *ngIf="item.type === 'list-badges'">
+        <div
+          [class]="
+            getDisplay(section) === 'inline'
+              ? 'flex items-center justify-between'
+              : 'flex flex-col gap-[10px]'
+          "
+        >
+          <p
+            [ngClass]="[
+              theme[variant].label,
+              'font-medium text-[0.725rem]/[1rem]'
+            ]"
+          >
+            {{ item.label }}
+          </p>
+          <div class="flex flex-wrap gap-1 items-center">
+            <ds-badge
+              size="sm"
+              *ngFor="let value of item.value"
+              [label]="value"
+            ></ds-badge>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="item.type === 'account'">
+        <div
+          [class]="
+            getDisplay(section) === 'inline'
+              ? 'flex items-center justify-between'
+              : 'flex flex-col gap-[10px]'
+          "
+        >
+          <p
+            [ngClass]="[
+              theme[variant].label,
+              'font-medium text-[0.725rem]/[1rem]'
+            ]"
+          >
+            {{ item.label }}
+          </p>
+          <div
+            [class]="
+              getDisplay(section) === 'inline'
+                ? 'flex flex-col items-end gap-y-0.5'
+                : 'flex flex-col gap-y-0.5'
+            "
+          >
+            <p class="text-neutral-900 font-bold text-[0.875rem]/[1.125rem]">
+              {{ item.value.accountName }}
+            </p>
+            <p class="text-neutral-500 text-[0.875rem]/[1.125rem]">
+              {{ item.value.accountNumber }}
+            </p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>

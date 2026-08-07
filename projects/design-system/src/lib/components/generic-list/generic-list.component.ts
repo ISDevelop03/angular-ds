@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { theme } from './theme';
 
 export type GenericListTextItem = {
   label: string;
@@ -22,6 +23,17 @@ export type GenericListItem =
   | GenericListTextItem
   | GenericListListItem
   | GenericListAccountItem;
+
+export type GenericListDisplay = 'inline' | 'stacked';
+
+export type GenericListVariant = keyof typeof theme;
+
+export type GenericListSection = {
+  title: string;
+  display?: GenericListDisplay;
+  items: GenericListItem[];
+};
+
 /**
  * GenericListComponent
  *
@@ -34,5 +46,12 @@ export type GenericListItem =
 })
 export class GenericListComponent {
   @Input() className?: string = '';
-  @Input() items: GenericListItem[] = [];
+  @Input() variant: GenericListVariant = 'white';
+  @Input() sections: GenericListSection[] = [];
+
+  theme = theme;
+
+  getDisplay(section: GenericListSection): GenericListDisplay {
+    return section.display || 'inline';
+  }
 }
