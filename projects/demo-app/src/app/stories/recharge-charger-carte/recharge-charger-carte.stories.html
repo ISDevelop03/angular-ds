@@ -1,0 +1,426 @@
+<div class="p-4 flex flex-col gap-6 min-h-screen bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Recharge Charger Carte</h2>
+  <p class="text-neutral-70 mb-2 max-w-3xl">
+    Expandable card summary for the recharge flow: visual, holder info, amount
+    tiles, and address details behind
+    <code>Voir plus</code> / <code>Voir moins</code>.
+  </p>
+
+  <h3 class="text-2xl font-bold">Expanded</h3>
+  <p class="text-neutral-70 mb-2">
+    Click the footer to collapse. Tiles and details come from
+    <code>card.tiles</code> and <code>card.details</code>.
+  </p>
+  <div class="max-w-xl">
+    <ds-recharge-charger-carte
+      [card]="card"
+      [expanded]="expanded"
+      (onToggle)="onToggle($event)"
+    ></ds-recharge-charger-carte>
+  </div>
+
+  <h3 class="text-2xl font-bold">Collapsed</h3>
+  <p class="text-neutral-70 mb-2">
+    Header + toggle only when <code>expanded</code> is <code>false</code>.
+  </p>
+  <div class="max-w-xl">
+    <ds-recharge-charger-carte
+      [card]="card"
+      [expanded]="collapsed"
+      (onToggle)="onToggleCollapsed($event)"
+    ></ds-recharge-charger-carte>
+  </div>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            card
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">RechargeChargerCarteData</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Card data passed to the component. See the
+            <strong>RechargeChargerCarteData Interface</strong> section below.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expanded
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, shows tiles and detail rows below the
+            toggle.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expandLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Voir plus'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Label shown when collapsed.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            collapseLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Voir moins'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Label shown when expanded.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes on the root wrapper.
+          </td>
+        </tr>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onToggle
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;RechargeChargerCarteData&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the Voir plus / Voir moins button is clicked.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RechargeChargerCarteData Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># RechargeChargerCarteData Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>RechargeChargerCarteData</code> interface defines the structure
+    for the <code>card</code> input property and the payload emitted by
+    <code>onToggle</code>.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            name
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Card title shown in the header (e.g.
+            <code>VISA - Escale PRO</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            holder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Cardholder name.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            numTail
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Masked card number tail (e.g.
+            <code>43•••• 3456</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expiry
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Expiration date displayed after
+            <code>Date d'expiration</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'deposit' | 'business' | 'escale'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Card visual variant forwarded to
+            <code>ds-card-visual</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            imageSrc
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional product image override for the card thumbnail.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tiles
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">RechargeChargerCarteTile[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional summary tiles shown in the expanded panel (e.g. Solde
+            chargé, Plafond retrait, Plafond achat). See
+            <strong>RechargeChargerCarteTile Interface</strong> below.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            details
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">RechargeChargerCarteDetail[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional label/value rows shown below the tiles (e.g. Nom, Pays,
+            Ville, Adresse). See
+            <strong>RechargeChargerCarteDetail Interface</strong> below.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RechargeChargerCarteTile Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># RechargeChargerCarteTile Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>RechargeChargerCarteTile</code> interface defines each summary
+    tile in the expanded panel grid.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Tile label (e.g.
+            <code>Solde chargé</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Formatted amount or value (e.g.
+            <code>4 350 MAD</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            tint
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'green'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When set to <code>'green'</code>, renders the tile with a success
+            background and green label/value text (used for Solde chargé).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RechargeChargerCarteDetail Interface Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># RechargeChargerCarteDetail Interface</h3>
+  <p class="text-gray-600 mb-4">
+    The <code>RechargeChargerCarteDetail</code> interface defines each
+    label/value row in the expanded details section.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            label
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Row label (e.g. <code>Nom</code>,
+            <code>Pays</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            value
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Row value, right-aligned in bold.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

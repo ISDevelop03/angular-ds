@@ -1,0 +1,88 @@
+<div
+  id="ds-recharge-charger-carte"
+  class="rounded-[8px] bg-white border border-neutral-100 overflow-hidden"
+  [ngClass]="className"
+  *ngIf="card"
+>
+  <div class="p-4 flex items-start gap-4">
+    <div class="w-[110px] h-[70px] rounded-[6px] overflow-hidden shrink-0">
+      <ds-card-visual
+        [variant]="card.variant"
+        [imageSrc]="card.imageSrc || null"
+        [width]="110"
+        [height]="70"
+        className="w-full h-full [&_img]:!w-full [&_img]:!h-full [&_img]:!rounded-[6px] [&_img]:object-cover"
+      ></ds-card-visual>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="font-manrope text-[15px] font-bold text-neutral-900">
+        {{ card.name }}
+      </div>
+      <div class="font-manrope text-[12px] text-neutral-500 mt-0.5">
+        {{ card.holder }}
+      </div>
+      <div class="font-manrope text-[12px] text-neutral-500 mt-0.5">
+        {{ card.numTail }}
+      </div>
+      <div class="font-manrope text-[12px] text-neutral-500 mt-0.5">
+        Date d'expiration
+        <span class="text-neutral-900 ml-1">{{ card.expiry }}</span>
+      </div>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="w-full px-4 py-3 border-t border-neutral-100 flex items-center justify-between font-manrope text-[13px] font-bold text-neutral-900 bg-transparent cursor-pointer"
+    (click)="toggle()"
+  >
+    <span>{{ expanded ? collapseLabel : expandLabel }}</span>
+    <ds-icon
+      [id]="expanded ? 'arrow-up' : 'arrow-down'"
+      size="1rem"
+      class="text-neutral-500"
+    ></ds-icon>
+  </button>
+
+  <div *ngIf="expanded" class="px-4 pb-4 space-y-4">
+    <div *ngIf="tiles.length" class="grid grid-cols-3 gap-2">
+      <div
+        *ngFor="let tile of tiles"
+        class="rounded-[8px] px-3 py-2.5"
+        [ngClass]="tile.tint === 'green' ? '' : 'bg-neutral-50'"
+        [ngStyle]="
+          tile.tint === 'green'
+            ? { 'background-color': 'rgb(var(--color-success-50))' }
+            : null
+        "
+      >
+        <div
+          class="font-manrope text-[11px]"
+          [ngClass]="
+            tile.tint === 'green' ? 'text-success-500' : 'text-neutral-900'
+          "
+        >
+          {{ tile.label }}
+        </div>
+        <div
+          class="font-manrope text-[13px] font-bold mt-0.5 whitespace-nowrap"
+          [ngClass]="
+            tile.tint === 'green' ? 'text-success-500' : 'text-neutral-900'
+          "
+        >
+          {{ tile.value }}
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="details.length" class="space-y-2">
+      <div
+        *ngFor="let row of details"
+        class="flex items-center justify-between font-manrope text-[13px]"
+      >
+        <span class="text-neutral-900">{{ row.label }}</span>
+        <span class="font-bold text-neutral-900 text-end">{{ row.value }}</span>
+      </div>
+    </div>
+  </div>
+</div>
