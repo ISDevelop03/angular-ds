@@ -7,6 +7,9 @@ import { CardVisualComponent } from './components/card-visual/card-visual.compon
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { BankCardComponent } from './components/bank-card/bank-card.component';
 import { ValeursTableComponent } from './components/valeurs-table/valeurs-table.component';
+import { RechargeChargerCarteComponent } from './components/recharge-charger-carte/recharge-charger-carte.component';
+import { RechargeCardRowComponent } from './components/recharge-card-row/recharge-card-row.component';
+import { RechargeInitiationCardListComponent } from './components/recharge-initiation-card-list/recharge-initiation-card-list.component';
 
 import { GenericListComponent } from './components/generic-list/generic-list.component';
 import { GroupSignataireCheckboxComponent } from './components/group-signataire-checkbox/group-signataire-checkbox.component';
@@ -252,6 +255,9 @@ registerLocaleData(localeFr, 'fr-FR');
     CreditCardComponent,
     BankCardComponent,
     ValeursTableComponent,
+    RechargeChargerCarteComponent,
+    RechargeCardRowComponent,
+    RechargeInitiationCardListComponent,
   ],
   imports: [
     CommonModule,
@@ -374,6 +380,9 @@ registerLocaleData(localeFr, 'fr-FR');
     CreditCardComponent,
     BankCardComponent,
     ValeursTableComponent,
+    RechargeChargerCarteComponent,
+    RechargeCardRowComponent,
+    RechargeInitiationCardListComponent,
   ],
 })
 export class DesignSystemModule { }

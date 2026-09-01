@@ -117,6 +117,8 @@ import {
   CreditCardStoryComponent,
   BankCardStoryComponent,
   ValeursTableStoryComponent,
+  RechargeChargerCarteStoryComponent,
+  RechargeInitiationCardListStoryComponent,
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -248,6 +250,8 @@ export const pages: Routes = [
   { path: 'credit-card', component: CreditCardStoryComponent },
   { path: 'bank-card', component: BankCardStoryComponent },
   { path: 'valeurs-table', component: ValeursTableStoryComponent },
+  { path: 'recharge-charger-carte', component: RechargeChargerCarteStoryComponent },
+  { path: 'recharge-initiation-card-list', component: RechargeInitiationCardListStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -376,6 +380,8 @@ const router = RouterModule.forRoot(pages);
   CreditCardStoryComponent,
   BankCardStoryComponent,
   ValeursTableStoryComponent,
+  RechargeChargerCarteStoryComponent,
+  RechargeInitiationCardListStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

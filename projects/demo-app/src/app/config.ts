@@ -296,4 +296,6 @@ export const menus: Menu[] = [
   { key: 'credit-card', name: 'CreditCard', path: '/credit-card' },
   { key: 'bank-card', name: 'BankCard', path: '/bank-card' },
   { key: 'valeurs-table', name: 'Valeurs Table', path: '/valeurs-table' },
+  { key: 'recharge-charger-carte', name: 'Recharge Charger Carte', path: '/recharge-charger-carte' },
+  { key: 'recharge-initiation-card-list', name: 'Recharge Initiation Card List', path: '/recharge-initiation-card-list' },
 ];
