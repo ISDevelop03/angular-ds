@@ -1,0 +1,55 @@
+<div
+  id="ds-recharge-card-row"
+  class="rounded-[8px] bg-white px-5 py-4 border border-neutral-100 w-max min-w-full"
+  [ngClass]="className"
+  *ngIf="card"
+>
+  <div
+    class="grid gap-4 items-center"
+    [ngStyle]="{
+      gridTemplateColumns:
+        '110px minmax(120px,1fr) minmax(140px,1fr) minmax(140px,1fr) minmax(160px,1fr) minmax(140px,1fr) 40px'
+    }"
+  >
+    <ds-card-visual [variant]="variant"></ds-card-visual>
+    <span class="font-manrope text-[14px] font-bold text-neutral-900">{{
+      resolvedProductName
+    }}</span>
+    <span class="font-manrope text-[13px] text-neutral-500">{{
+      card.holder
+    }}</span>
+    <span class="font-manrope text-[13px] text-neutral-500">{{
+      card.numTail
+    }}</span>
+    <div>
+      <div class="font-manrope text-[11px] text-neutral-500">
+        Date d'expiration
+      </div>
+      <div class="font-manrope text-[13px] text-neutral-900">
+        {{ card.expiry }}
+      </div>
+    </div>
+    <div>
+      <div class="font-manrope text-[11px] text-neutral-500">Solde</div>
+      <div
+        class="font-manrope text-[13px] font-bold"
+        [ngStyle]="{
+          color: positive
+            ? 'rgb(var(--color-success-500))'
+            : 'rgb(var(--color-red-500))'
+        }"
+      >
+        {{ formatMad(card.solde) }}
+      </div>
+    </div>
+    <button
+      type="button"
+      (click)="handleOpen()"
+      [attr.aria-label]="actionLabel"
+      [title]="actionLabel"
+      class="inline-flex items-center justify-center text-neutral-500 hover:text-red-500 transition-colors bg-transparent border-0 cursor-pointer p-0"
+    >
+      <ds-icon id="eye" size="1.125rem" class="text-current"></ds-icon>
+    </button>
+  </div>
+</div>

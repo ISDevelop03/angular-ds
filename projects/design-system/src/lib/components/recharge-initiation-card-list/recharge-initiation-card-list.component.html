@@ -1,0 +1,15 @@
+<div
+  id="ds-recharge-initiation-card-list"
+  class="overflow-x-auto"
+  [ngClass]="className"
+>
+  <div class="flex flex-col gap-y-2">
+    <ds-recharge-card-row
+      *ngFor="let card of cards"
+      [card]="card"
+      [productName]="productName"
+      [actionLabel]="actionLabel"
+      (onOpen)="open($event)"
+    ></ds-recharge-card-row>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+<div class="p-4 flex flex-col gap-6 min-h-screen bg-gradient-crame">
+  <h2 class="text-4xl font-bold mb-6">Recharge Initiation Card List</h2>
+  <p class="text-neutral-70 mb-2 max-w-3xl">
+    Scrollable list of card rows for the recharge initiation tab. Each row shows
+    card visual, holder, masked number, expiry, balance, and a recharge action.
+  </p>
+
+  <h3 class="text-2xl font-bold">List</h3>
+  <p class="text-neutral-70 mb-2">
+    Pass <code>cards</code> and listen to <code>onOpen</code> when the eye
+    button is clicked.
+  </p>
+  <ds-recharge-initiation-card-list
+    [cards]="cards"
+    (onOpen)="onOpen($event)"
+  ></ds-recharge-initiation-card-list>
+
+  <h3 class="text-2xl font-bold">Single row</h3>
+  <p class="text-neutral-70 mb-2">
+    Use <code>ds-recharge-card-row</code> directly when you only need one row.
+  </p>
+  <ds-recharge-card-row
+    [card]="singleCard"
+    (onOpen)="onOpen($event)"
+  ></ds-recharge-card-row>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference — ds-recharge-initiation-card-list</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            cards
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">RechargeCardRowData[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Cards to render as rows.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            productName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Escale PRO'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Product label shown in each row.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            actionLabel
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Recharger'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Accessible label and tooltip for the action button.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes on the root wrapper.
+          </td>
+        </tr>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onOpen
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;RechargeCardRowData&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the recharge action is clicked on a row.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="text-2xl font-bold mt-8"># RechargeCardRowData Interface</h3>
+  <p class="text-gray-600 mb-4">
+    Shared by <code>ds-recharge-initiation-card-list</code> and
+    <code>ds-recharge-card-row</code>.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">id</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Unique row identifier.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            holder
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Cardholder name.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            numTail
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Masked card number (e.g.
+            <code>43•••• 3456</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            expiry
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Expiration date.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            solde
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">—</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Balance in MAD (can be negative).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'deposit' | 'business' | 'escale'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'escale'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Card visual variant forwarded to <code>ds-card-visual</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            productName
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional per-row product label override.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
