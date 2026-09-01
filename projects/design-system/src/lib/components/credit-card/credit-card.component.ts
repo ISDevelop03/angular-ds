@@ -14,7 +14,7 @@ export interface CardItem {
   numTail: string;
   expiry: string;
   variant: CardVariant;
-  status?: 'Actif';
+  isActive?: boolean;
   plafondAchat: string;
   plafondRetrait: string;
   solde: string;
@@ -56,10 +56,9 @@ export class CreditCardComponent {
   }
 
   showStatusBadge(): boolean {
-    if (!this.expanded || !this.card || !this.card.status) {
-      return false;
+    if (this.card.isActive) {
+      return true;
     }
-    const tab = this.items[this.selectedIndex];
-    return !!(tab && /opposition/i.test(tab.title || ''));
+    return false;
   }
 }
