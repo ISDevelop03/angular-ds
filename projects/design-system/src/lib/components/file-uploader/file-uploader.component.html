@@ -33,15 +33,16 @@
       (onDownloadErrors)="downloadErrors($event)"
       [maxHeight]="maxHeight"
       [showErrorButtonUpload]="showErrorButtonUpload"
+      [isPreviewable]="isPreviewable"
     ></ds-file-list>
   </div>
 
   <ds-modal
     [isShown]="isErrorModalShown"
-    title="Upload error"
+    title="Erreur de téléchargement"
     type="error"
     icon="danger"
-    mainAction="OK"
+    mainAction="Fermer"
     (close)="closeErrorModal()"
     (mainActionOnClick)="closeErrorModal()"
   >

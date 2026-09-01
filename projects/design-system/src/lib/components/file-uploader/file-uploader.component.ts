@@ -28,6 +28,7 @@ export class FileUploaderComponent {
   @Input() disabled: boolean = false;
   @Input() maxHeight: number | undefined = undefined;
   @Input() showErrorButtonUpload?: boolean = false;
+  @Input() isPreviewable: boolean = false;
   @Output() onChange = new EventEmitter<File | File[]>();
   @Output() onRemove = new EventEmitter<string>();
   @Output() onReUpload = new EventEmitter<string>();
@@ -69,7 +70,7 @@ export class FileUploaderComponent {
     });
 
     if (!this.isMultiple && this.files.length >= 1) {
-      errors.push('Multiple files are not allowed');
+      errors.push('Plusieurs fichiers ne sont pas autorisés');
     }
 
     if (errors.length > 0) {

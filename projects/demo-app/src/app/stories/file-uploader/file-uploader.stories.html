@@ -1,6 +1,13 @@
 <section class="flex flex-col gap-4 p-4 bg-gradient-crame min-h-screen">
   <h2 class="text-4xl font-bold mb-6">File Uploader</h2>
-  <h3 class="text-2xl font-bold">Successfull upload</h3>
+  <p class="text-neutral-70 mb-2 max-w-3xl">
+    Drag-and-drop upload area with built-in validation (type, size, single vs
+    multiple). Selected files are displayed below via
+    <code>ds-file-list</code>. The parent owns the <code>files</code> array and
+    handles <code>onChange</code>, <code>onRemove</code>, and
+    <code>onDownloadErrors</code>.
+  </p>
+  <h3 class="text-2xl font-bold">Successful upload</h3>
   <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader
       (onRemove)="onFileRemove($event)"
@@ -8,6 +15,7 @@
       [isMultiple]="false"
       [files]="successfullFiles"
       [maxFileSizeMB]="1"
+      [isPreviewable]="false"
       [allowedExtensions]="['png','jpg','jpeg','pdf']"
     >
       <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
@@ -17,11 +25,11 @@
   <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader
       (onChange)="onFileErrorChange($event)"
-      (onReUpload)="onFileErrorReUpload($event)"
       (onRemove)="onFileErrorRemove($event)"
       (onDownloadErrors)="onFileErrorDownloadErrors($event)"
       [isMultiple]="false"
       [files]="errorFiles"
+      [showErrorButtonUpload]="true"
     >
       <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
     </ds-file-uploader>
@@ -35,6 +43,7 @@
       [isMultiple]="true"
       [files]="multipleFiles"
       [allowedExtensions]="['png','jpg','jpeg']"
+      [showErrorButtonUpload]="true"
     >
       <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
     </ds-file-uploader>
@@ -42,11 +51,11 @@
   <h3 class="text-2xl font-bold">Multiple upload with errors</h3>
   <div class="flex flex-col gap-4 bg-level-4 p-4 rounded-lg">
     <ds-file-uploader
-      (onReUpload)="onFileMultipleReUpload($event)"
       (onChange)="onFileMultipleErrorChange($event)"
       (onDownloadErrors)="onFileMultipleErrorDownloadErrors($event)"
       [isMultiple]="true"
       [files]="multipleErrorFiles"
+      [showErrorButtonUpload]="true"
     >
       <div>
         <p><strong>Sélectionnez votre fichier</strong> ou déposez-le</p>
@@ -222,6 +231,57 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            maxHeight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number | undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional maximum height in pixels for the embedded file list. When
+            set, the list scrolls vertically once content exceeds this height.
+            Forwarded to the underlying <code>ds-file-list</code> component.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showErrorButtonUpload
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a
+            <em>Télécharger le rapport des erreurs</em> button on files with
+            <code>status === 'error'</code> and a non-empty
+            <code>errors</code> array. Forwarded to
+            <code>ds-file-list</code>; handle the click via
+            <code>onDownloadErrors</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isPreviewable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, enables file preview (TXT and PDF) on
+            successfully uploaded files via an eye icon. Forwarded to
+            <code>ds-file-list</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             className
           </td>
           <td class="border border-gray-300 px-4 py-2">
@@ -269,18 +329,19 @@
             onChange
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            <code class="text-sm">EventEmitter&lt;File | File[]&gt;</code>
+            <code class="text-sm"
+              >EventEmitter&lt;(File &amp; &#123; id: string &#125;)[]&gt;</code
+            >
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
             Emitted when files are selected (via file input or drag-and-drop)
-            and pass validation. Provides a single <code>File</code> object when
-            <code>isMultiple</code> is <code>false</code>, or an array of
-            <code>File</code> objects when <code>isMultiple</code> is
-            <code>true</code>. Files are automatically assigned unique IDs. Use
-            to handle file selection and process uploaded files. Validation
-            errors (invalid extension, size exceeded, multiple files when not
-            allowed) are shown via alerts and prevent this event from firing.
+            and pass validation. Always provides an array of
+            <code>File</code> objects, each with a generated unique
+            <code>id</code>. Use to handle file selection and process uploaded
+            files. Validation errors (invalid extension, size exceeded, multiple
+            files when not allowed) are shown in an error modal and prevent
+            this event from firing.
           </td>
         </tr>
         <tr>
@@ -295,26 +356,26 @@
             Emitted when a file's delete button is clicked in the file list.
             Provides the file ID (string) as the event value. Use to handle file
             deletion and remove the file from your <code>files</code>
-            array. This event is forwarded from the underlying
+            array. Shown for files with <code>status === 'success'</code> or
+            <code>status === 'error'</code>. Forwarded from the underlying
             <code>ds-file-list</code> component.
           </td>
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            onReUpload
+            onDownloadErrors
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">EventEmitter&lt;string&gt;</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            Emitted when a file's re-upload button is clicked (for files with
-            <code>status === 'error'</code>). Provides the file ID (string) as
-            the event value. The component automatically opens the file input
-            dialog when this event is triggered (if not disabled). Use to handle
-            file re-upload attempts and retry failed uploads. This event is
-            forwarded from the underlying <code>ds-file-list</code>
-            component.
+            Emitted when the error report download button is clicked on a file
+            with <code>status === 'error'</code> (only when
+            <code>showErrorButtonUpload</code> is <code>true</code>). Provides
+            the file ID (string). Use to generate or download a validation
+            error report. Forwarded from the underlying
+            <code>ds-file-list</code> component.
           </td>
         </tr>
       </tbody>
@@ -378,11 +439,12 @@
           <td class="border border-gray-300 px-4 py-2">
             Optional upload status that determines the visual state and
             available actions. Available options:
-            <code>'uploading'</code> (shows progress bar),
-            <code>'success'</code> (shows success styling with delete button),
-            <code>'error'</code> (shows error styling with re-upload button and
-            expandable error messages). When not provided, displays a neutral
-            state with file information.
+            <code>'uploading'</code> (shows a loading spinner),
+            <code>'success'</code> (shows success styling with optional
+            preview and delete buttons),
+            <code>'error'</code> (shows error styling with delete button,
+            expandable error messages, and optional error report download).
+            When not provided, displays a neutral state with file information.
           </td>
         </tr>
         <tr>
@@ -396,10 +458,10 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional upload progress percentage (0-100). Only used when
-            <code>status === 'uploading'</code>. Displays a progress bar with
-            the percentage value. The progress bar width is animated based on
-            this value. Use to show real-time upload progress to users.
+            Optional upload progress percentage (0-100). Typically updated by
+            the parent while <code>status === 'uploading'</code>. The UI
+            currently shows a loading spinner during upload; this value is
+            available for parent-side logic or future UI enhancements.
           </td>
         </tr>
         <tr>

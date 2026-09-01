@@ -1,7 +1,18 @@
 <section class="flex flex-col gap-4 p-4">
   <h2 class="text-4xl font-bold mb-6">File List</h2>
+  <p class="text-neutral-70 mb-2 max-w-3xl">
+    Displays uploaded files with visual states for uploading, success, error,
+    and neutral. Supports preview (TXT/PDF), download mode, expandable error
+    messages, and optional error report download.
+  </p>
+  <h3 class="text-2xl font-bold">All states with preview and error report</h3>
   <div class="flex flex-col gap-4">
-    <ds-file-list [files]="files" showErrorButtonUpload="true"></ds-file-list>
+    <ds-file-list
+      [files]="files"
+      [showErrorButtonUpload]="true"
+      [isPreviewable]="true"
+      (onDownloadErrors)="onDownloadErrors($event)"
+    ></ds-file-list>
   </div>
   <h3 class="text-2xl font-bold">Downloadable FileList with callback</h3>
   <div class="flex flex-col gap-4">
@@ -82,6 +93,57 @@
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            isPreviewable
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, shows an eye icon next to the delete button
+            for successfully uploaded files and opens a popup to preview the
+            file (TXT and PDF only). When <code>false</code>, preview is
+            disabled.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showErrorButtonUpload
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays a
+            <em>Télécharger le rapport des erreurs</em> button on files with
+            <code>status === 'error'</code> and a non-empty
+            <code>errors</code> array. Handle the click via
+            <code>onDownloadErrors</code>.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            maxHeight
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">number | undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">undefined</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional maximum height in pixels for the file list container.
+            When set, the list scrolls vertically once content exceeds this
+            height.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
             isMultiple
           </td>
           <td class="border border-gray-300 px-4 py-2">
@@ -133,24 +195,25 @@
           <td class="border border-gray-300 px-4 py-2">
             Emitted when a file's delete button is clicked. Provides the file ID
             (string) as the event value. Use to handle file deletion and remove
-            the file from your data source. Only shown for files with
+            the file from your data source. Shown for files with
             <code>status === 'success'</code> when
-            <code>isDownloadable</code> is <code>false</code>.
+            <code>isDownloadable</code> is <code>false</code>, and for files
+            with <code>status === 'error'</code>.
           </td>
         </tr>
         <tr>
           <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
-            onReUpload
+            onDownloadErrors
           </td>
           <td class="border border-gray-300 px-4 py-2">
             <code class="text-sm">EventEmitter&lt;string&gt;</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
-            Emitted when a file's re-upload button is clicked (for files with
-            <code>status === 'error'</code>). Provides the file ID (string) as
-            the event value. Use to handle file re-upload attempts and retry
-            failed uploads.
+            Emitted when the error report download button is clicked (only when
+            <code>showErrorButtonUpload</code> is <code>true</code> and the
+            file has errors). Provides the file ID (string). Use to generate or
+            download a validation error report.
           </td>
         </tr>
         <tr>
@@ -168,6 +231,25 @@
             component automatically triggers a browser download. Use to handle
             custom download logic (e.g., server-side downloads, custom file
             handling).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onPreview
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm"
+              >EventEmitter&lt;File &amp; &#123; id: string &#125;&gt;</code
+            >
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the eye (preview) button is clicked on a successfully
+            uploaded file (only when <code>isPreviewable</code> is
+            <code>true</code> and <code>isDownloadable</code> is
+            <code>false</code>). The component also opens a built-in popup that
+            previews TXT and PDF files. Unsupported types show a
+            fallback message with a download action.
           </td>
         </tr>
       </tbody>
@@ -230,11 +312,12 @@
           <td class="border border-gray-300 px-4 py-2">
             Optional upload status that determines the visual state and
             available actions. Available options:
-            <code>'uploading'</code> (shows progress bar),
-            <code>'success'</code> (shows success styling with delete/download
-            button), <code>'error'</code> (shows error styling with re-upload
-            button and expandable error messages). When not provided, displays a
-            neutral state with file information.
+            <code>'uploading'</code> (shows a loading spinner),
+            <code>'success'</code> (shows success styling with optional
+            preview eye icon and delete/download button),
+            <code>'error'</code> (shows error styling with delete button,
+            expandable error messages, and optional error report download).
+            When not provided, displays a neutral state with file information.
           </td>
         </tr>
         <tr>
@@ -248,10 +331,10 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional upload progress percentage (0-100). Only used when
-            <code>status === 'uploading'</code>. Displays a progress bar with
-            the percentage value. The progress bar width is animated based on
-            this value. Use to show real-time upload progress to users.
+            Optional upload progress percentage (0-100). Typically updated by
+            the parent while <code>status === 'uploading'</code>. The UI
+            currently shows a loading spinner during upload; this value is
+            available for parent-side logic or future UI enhancements.
           </td>
         </tr>
         <tr>

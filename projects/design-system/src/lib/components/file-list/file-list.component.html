@@ -59,10 +59,27 @@
           </p>
         </div>
       </div>
-      <div *ngIf="!isDownloadable">
+      <div *ngIf="!isDownloadable" class="flex items-center gap-1">
         <button
+          *ngIf="isPreviewable && canPreview(file?.file)"
+          type="button"
+          (click)="openPreview(file?.file)"
+          class="rounded hover:bg-neutral-25 flex items-center justify-center p-1"
+          aria-label="Prévisualiser le fichier"
+          title="Prévisualiser"
+        >
+          <ds-icon
+            id="eye"
+            size="20"
+            class="shrink-0 text-neutral-700"
+          ></ds-icon>
+        </button>
+        <button
+          type="button"
           (click)="removeFile(file?.file.id)"
           class="rounded hover:bg-neutral-25 flex items-center justify-center p-1"
+          aria-label="Supprimer le fichier"
+          title="Supprimer"
         >
           <ds-icon
             id="trash-02"
@@ -209,4 +226,50 @@
       </div>
     </div>
   </div>
+
+  <ds-popup
+    *ngIf="isPreviewable"
+    [isShown]="isPreviewShown"
+    [heading]="previewFile?.name || 'Aperçu du fichier'"
+    variant="modal"
+    [close]="closePreview"
+    panelClassName="!max-w-[720px] w-[90vw]"
+    className="z-[1100]"
+  >
+    <div class="pt-3.5 w-full max-h-[70vh] overflow-auto">
+      <embed
+        *ngIf="previewKind === 'pdf' && safePreviewUrl"
+        [src]="safePreviewUrl"
+        type="application/pdf"
+        class="w-full h-[60vh] border-0 rounded block"
+        title="Aperçu PDF"
+      />
+
+      <pre
+        *ngIf="previewKind === 'text'"
+        class="whitespace-pre-wrap break-words text-sm text-neutral-700 bg-level-3 border border-stroke-1 rounded p-3 max-h-[60vh] overflow-auto"
+      >{{ previewText }}</pre>
+
+      <div
+        *ngIf="previewKind === 'unsupported'"
+        class="flex flex-col gap-3 text-neutral-700"
+      >
+        <p class="text-sm">
+          L'aperçu n'est disponible que pour les fichiers TXT et PDF.
+        </p>
+        <p *ngIf="previewFile" class="text-sm text-neutral-500">
+          {{ previewFile.name }} — {{ formatFileSize(previewFile.size) }}
+        </p>
+        <ds-button
+          *ngIf="previewFile"
+          variant="secondary"
+          size="small"
+          (click)="downloadFile(previewFile)"
+        >
+          Télécharger
+          <ds-icon id="download" size="16px"></ds-icon>
+        </ds-button>
+      </div>
+    </div>
+  </ds-popup>
 </div>

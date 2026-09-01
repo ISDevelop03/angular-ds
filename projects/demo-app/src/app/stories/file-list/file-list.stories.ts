@@ -25,6 +25,21 @@ export class FileListStoryComponent {
   files: UploadedFiles[] = [
     {
       file: Object.assign(
+        new File(
+          [
+            'Référence;Montant;Bénéficiaire\nPAY-001;1500.00;Société Alpha\nPAY-002;230.50;Société Beta\nPAY-003;980.00;Société Gamma',
+          ],
+          'Fichier des paiements en masse.txt',
+          {
+            type: 'text/plain',
+          }
+        ),
+        { id: 'file-success-1' }
+      ),
+      status: 'success',
+    },
+    {
+      file: Object.assign(
         new File([this.blob], 'Fichier des paiements en masse.txt', {
           type: 'text/plain',
         }),
@@ -74,5 +89,9 @@ export class FileListStoryComponent {
 
   onDownload(file: File) {
     console.log('onDownload', file);
+  }
+
+  onDownloadErrors(fileId: string) {
+    console.log('onDownloadErrors', fileId);
   }
 }
