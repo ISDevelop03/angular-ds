@@ -16,7 +16,8 @@
     >
       <div class="flex items-center gap-2 flex-1 min-w-0 w-full">
         <input
-          [(ngModel)]="value"
+          [ngModel]="value"
+          (ngModelChange)="onValueChange($event)"
           type="text"
           placeholder="Search"
           [style.opacity]="isExpanded ? '1' : '0'"

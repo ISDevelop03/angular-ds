@@ -1,9 +1,11 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   HostListener,
   Input,
   OnInit,
+  Output,
 } from '@angular/core';
 /**
  * InputSearchComponent
@@ -22,6 +24,7 @@ export class InputSearchComponent implements OnInit {
   @Input() defaultOpen = false;
 
   @Input() value: string = '';
+  @Output() valueChange = new EventEmitter<string>();
 
   isExpanded = false;
 
@@ -50,7 +53,12 @@ export class InputSearchComponent implements OnInit {
     this.isExpanded = true;
   }
 
+  onValueChange(value: string) {
+    this.value = value;
+    this.valueChange.emit(value);
+  }
+
   clearSearch() {
-    this.value = '';
+    this.onValueChange('');
   }
 }

@@ -8,4 +8,9 @@ export class InputSearchStoryComponent {
   @Input() label: string = 'input-search';
   @Input() className?: string = '';
   searchValue = '';
+
+  onSearchValueChange(value: string) {
+    this.searchValue = value;
+    console.log('searchValue', this.searchValue);
+  }
 }

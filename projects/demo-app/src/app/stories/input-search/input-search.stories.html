@@ -5,10 +5,11 @@
     <h3 class="text-2xl font-bold">Basic Input Search</h3>
     <p class="text-gray-600 text-sm">
       A compact search input that expands when the search icon is clicked. Shows
-      a clear button when the field has text.
+      a clear button when the field has text. Listen to
+      <code>(valueChange)</code> to track the search text.
     </p>
     <div class="flex gap-4 w-full">
-      <ds-input-search></ds-input-search>
+      <ds-input-search (valueChange)="onSearchValueChange($event)"></ds-input-search>
     </div>
   </section>
 
@@ -103,8 +104,9 @@
           <td class="border border-gray-300 px-4 py-2">
             The current search text. Supports two-way data binding with
             <code>[(value)]</code>. When the user types or clears the field,
-            this value updates. If the field is cleared and the user clicks
-            outside, the input collapses (when empty).
+            this value updates and <code>valueChange</code> is emitted. If the
+            field is cleared and the user clicks outside, the input collapses
+            (when empty).
           </td>
         </tr>
         <tr>
@@ -170,6 +172,31 @@
             styling.
           </td>
         </tr>
+
+        <!-- Component Outputs -->
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            valueChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;string&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the search text changes (on every keystroke or when
+            cleared). Provides the new string value. Use with two-way binding
+            <code>[(value)]</code> or listen with
+            <code>(valueChange)="onSearchValueChange($event)"</code>.
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -188,7 +215,12 @@
     </li>
     <li>
       <strong>Clear:</strong> A clear (X) button appears when there is text;
-      clicking it clears the value.
+      clicking it clears the value and emits <code>valueChange</code> with an
+      empty string.
+    </li>
+    <li>
+      <strong>Value change:</strong> Typing or clearing emits
+      <code>valueChange</code> with the updated search text.
     </li>
   </ul>
 </div>
