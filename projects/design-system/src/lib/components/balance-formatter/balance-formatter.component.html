@@ -8,11 +8,12 @@
       <span> ******* </span>
     </span>
     <ng-template #formattedBalance>
-      {{ num | number : "1.2-2" : "fr-FR" }}
+      {{ num | number: "1.2-2" : "fr-FR" }}
     </ng-template>
 
     <ng-container *ngIf="currency">
       <span
+        translate="no"
         [ngClass]="theme[variant]?.currency + ' ' + (currencyClassName || '')"
       >
         {{ currency }}
