@@ -105,7 +105,7 @@
     </ng-container>
   </div>
 
-  <div [ngClass]="[theme[variant].panels.container]">
+  <div id="lkj" [ngClass]="[theme[variant].panels.container]">
     <ng-container *ngFor="let tab of items; let idx = index">
       <ng-container *ngIf="getActivePanel(tab, idx) as activePanel">
         <div

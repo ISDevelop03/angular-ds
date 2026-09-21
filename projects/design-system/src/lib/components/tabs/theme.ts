@@ -60,9 +60,9 @@ export const theme = {
       },
     },
     panels: {
-      container: '',
+      container: 'grow',
       panel: {
-        base: 'text-heading dark:text-white py-3 focus:outline-none',
+        base: 'text-heading dark:text-white focus:outline-none',
       },
     },
   },
