@@ -33,6 +33,7 @@ export interface IMenuListItem {
   href?: string;
   isNew?: boolean;
   isPending?: boolean;
+  openInNewTab?: boolean; // default value is false
   items?: Array<IMenuListItem>;
 }
 export interface IMenuList {

@@ -30,6 +30,7 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
                   href: '/360sheet/account/list?filter=type',
                   icon: 'receipt-lines',
                   isPending: true,
+                  openInNewTab: true,
                 },
                 {
                   title: 'Par période',
@@ -44,6 +45,7 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
               href: '/360sheet/account/movements?state=movements',
               icon: 'receipt-lines',
               isNew: true,
+              openInNewTab: true,
             },
             {
               title: 'Historique des opérations',
@@ -66,6 +68,7 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
           href: '/360sheet/bills-payment',
           items: [],
           isNew: true,
+          openInNewTab: true,
         },
         {
           title: 'Virements',
