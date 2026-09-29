@@ -212,3 +212,6 @@ export * from './bank-card/bank-card.stories';
 export * from './valeurs-table/valeurs-table.stories';
 export * from './recharge-charger-carte/recharge-charger-carte.stories';
 export * from './recharge-initiation-card-list/recharge-initiation-card-list.stories';
+
+// Auto-export for unhabilitated-widget stories
+export * from './unhabilitated-widget/unhabilitated-widget.stories';
