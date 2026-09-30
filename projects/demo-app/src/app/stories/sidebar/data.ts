@@ -27,10 +27,11 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
               items: [
                 {
                   title: 'Par type de compte',
-                  href: '/360sheet/account/list?filter=type',
+                  href: 'https://www.google.com',
                   icon: 'receipt-lines',
                   isPending: true,
                   openInNewTab: true,
+                  isExternal: true,
                 },
                 {
                   title: 'Par période',

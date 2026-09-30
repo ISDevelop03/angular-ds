@@ -46,17 +46,40 @@
                 <ul *ngIf="isOpen(subItem)" class="pl-4">
                   <li *ngFor="let subSub of subItem.items">
                     <a
+                      *ngIf="subSub.isExternal; else internalSubSub"
                       class="w-full flex relative justify-between items-center gap-2 before:absolute before:content-[''] before:-left-4 before:top-1/2 before:-translate-y-1/2 before:size-1.5 before:rounded-full hover:before:bg-white before:transition-colors before:duration-300 before:ease-in-out"
                       [ngClass]="[
                         isActif === subSub.href
                           ? 'before:bg-white'
                           : 'before:bg-transparent'
                       ]"
-                      [routerLink]="subSub.href"
+                      [href]="subSub.href"
                       (click)="handleLinkClick(subSub.href)"
                       [target]="subSub.openInNewTab ? '_blank' : '_self'"
                     >
-                      <span class="text-sm">{{ subSub.title }} </span>
+                      <ng-container
+                        *ngTemplateOutlet="subSubLinkContent"
+                      ></ng-container>
+                    </a>
+                    <ng-template #internalSubSub>
+                      <a
+                        class="w-full flex relative justify-between items-center gap-2 before:absolute before:content-[''] before:-left-4 before:top-1/2 before:-translate-y-1/2 before:size-1.5 before:rounded-full hover:before:bg-white before:transition-colors before:duration-300 before:ease-in-out"
+                        [ngClass]="[
+                          isActif === subSub.href
+                            ? 'before:bg-white'
+                            : 'before:bg-transparent'
+                        ]"
+                        [routerLink]="subSub.href"
+                        (click)="handleLinkClick(subSub.href)"
+                        [target]="subSub.openInNewTab ? '_blank' : '_self'"
+                      >
+                        <ng-container
+                          *ngTemplateOutlet="subSubLinkContent"
+                        ></ng-container>
+                      </a>
+                    </ng-template>
+                    <ng-template #subSubLinkContent>
+                      <span class="text-sm">{{ subSub.title }}</span>
                       <span
                         *ngIf="subSub.isNew"
                         class="text-neutral-900 inline-flex py-0.5 px-1.5 rounded-full text-[0.625rem] leading-[12px] font-bold bg-amber-400 z-[10]"
@@ -68,14 +91,15 @@
                       >
                         <ds-icon id="clock-forward" class="size-3"></ds-icon>
                       </span>
-                    </a>
+                    </ng-template>
                   </li>
                 </ul>
               </ng-container>
               <ng-template #linkLevel2>
                 <a
+                  *ngIf="subItem.isExternal; else internalLevel2"
                   class="pl-0.5 pr-2 relative flex items-center gap-2 after:rounded-md after:z-[1] before:z-[3] after:absolute after:p-2 after:-inset-1 after:w-full after:content-[''] before:absolute before:content-[''] before:-left-1 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-3/4 before:rounded-r-full hover:before:bg-primary-500 hover:after:bg-green-700 before:transition-colors before:duration-300 before:ease-in-out after:transition-colors after:duration-300 after:ease-in-out"
-                  [routerLink]="subItem.href"
+                  [href]="subItem.href"
                   (click)="handleLinkClick(subItem.href)"
                   [target]="subItem.openInNewTab ? '_blank' : '_self'"
                   [ngClass]="[
@@ -84,6 +108,28 @@
                       : 'before:bg-transparent after:bg-transparent'
                   ]"
                 >
+                  <ng-container
+                    *ngTemplateOutlet="level2LinkContent"
+                  ></ng-container>
+                </a>
+                <ng-template #internalLevel2>
+                  <a
+                    class="pl-0.5 pr-2 relative flex items-center gap-2 after:rounded-md after:z-[1] before:z-[3] after:absolute after:p-2 after:-inset-1 after:w-full after:content-[''] before:absolute before:content-[''] before:-left-1 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-3/4 before:rounded-r-full hover:before:bg-primary-500 hover:after:bg-green-700 before:transition-colors before:duration-300 before:ease-in-out after:transition-colors after:duration-300 after:ease-in-out"
+                    [routerLink]="subItem.href"
+                    (click)="handleLinkClick(subItem.href)"
+                    [target]="subItem.openInNewTab ? '_blank' : '_self'"
+                    [ngClass]="[
+                      isActif === subItem.href
+                        ? 'before:bg-primary-500 after:bg-[#323334]'
+                        : 'before:bg-transparent after:bg-transparent'
+                    ]"
+                  >
+                    <ng-container
+                      *ngTemplateOutlet="level2LinkContent"
+                    ></ng-container>
+                  </a>
+                </ng-template>
+                <ng-template #level2LinkContent>
                   <ds-icon
                     [id]="subItem.icon"
                     class="size-4 relative z-[2]"
@@ -103,7 +149,7 @@
                   >
                     <ds-icon id="clock-forward" class="size-3"></ds-icon>
                   </span>
-                </a>
+                </ng-template>
               </ng-template>
             </li>
           </ng-container>
@@ -111,11 +157,25 @@
       </ng-container>
       <ng-template #linkLevel1>
         <a
+          *ngIf="item.isExternal; else internalLevel1"
           class="relative flex items-center gap-2"
-          [routerLink]="item.href"
+          [href]="item.href"
           (click)="handleLinkClick(item.href)"
           [target]="item.openInNewTab ? '_blank' : '_self'"
         >
+          <ng-container *ngTemplateOutlet="level1LinkContent"></ng-container>
+        </a>
+        <ng-template #internalLevel1>
+          <a
+            class="relative flex items-center gap-2"
+            [routerLink]="item.href"
+            (click)="handleLinkClick(item.href)"
+            [target]="item.openInNewTab ? '_blank' : '_self'"
+          >
+            <ng-container *ngTemplateOutlet="level1LinkContent"></ng-container>
+          </a>
+        </ng-template>
+        <ng-template #level1LinkContent>
           <ds-icon [id]="item.icon" class="size-4"></ds-icon>
           <span class="text-sm">{{ item.title }}</span>
           <span
@@ -129,7 +189,7 @@
           >
             <ds-icon id="clock-forward" class="size-3"></ds-icon>
           </span>
-        </a>
+        </ng-template>
       </ng-template>
     </li>
   </ng-container>

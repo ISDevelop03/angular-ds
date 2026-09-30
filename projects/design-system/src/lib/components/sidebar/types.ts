@@ -17,6 +17,7 @@ export interface IMainMenu {
   icon?: string;
   color: string;
   href: string;
+  isExternal?: boolean;
   menus?: IMenus;
 }
 
@@ -34,6 +35,7 @@ export interface IMenuListItem {
   isNew?: boolean;
   isPending?: boolean;
   openInNewTab?: boolean; // default value is false
+  isExternal?: boolean;
   items?: Array<IMenuListItem>;
 }
 export interface IMenuList {

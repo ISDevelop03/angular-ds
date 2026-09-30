@@ -44,6 +44,7 @@
             [color]="item.color"
             [menus]="item.menus"
             [href]="item.href"
+            [isExternal]="item.isExternal"
             [isActif]="isActif"
             (onClick)="openSubSidebar(item.menus, i)"
             (onLinkClick)="setActif($event)"
@@ -81,16 +82,30 @@
           *ngFor="let item of mainMenus; let idx = index"
           class="pt-[9px] pb-4 w-full"
         >
-          <a
-            *ngIf="!item.menus"
-            [routerLink]="item.href"
-            (click)="setActif(item.href)"
-            class="flex justify-between items-center w-full"
-          >
-            <h4 class="text-[0.875rem] leading-[16px] font-bold">
-              {{ item?.title }}
-            </h4>
-          </a>
+          <ng-container *ngIf="!item.menus">
+            <a
+              *ngIf="item.isExternal; else internalMainTitle"
+              [href]="item.href"
+              (click)="setActif(item.href)"
+              class="flex justify-between items-center w-full"
+            >
+              <ng-container *ngTemplateOutlet="mainMenuTitle"></ng-container>
+            </a>
+            <ng-template #internalMainTitle>
+              <a
+                [routerLink]="item.href"
+                (click)="setActif(item.href)"
+                class="flex justify-between items-center w-full"
+              >
+                <ng-container *ngTemplateOutlet="mainMenuTitle"></ng-container>
+              </a>
+            </ng-template>
+            <ng-template #mainMenuTitle>
+              <h4 class="text-[0.875rem] leading-[16px] font-bold">
+                {{ item?.title }}
+              </h4>
+            </ng-template>
+          </ng-container>
           <button
             *ngIf="item.menus"
             class="flex justify-between items-center w-full"

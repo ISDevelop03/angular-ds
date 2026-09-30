@@ -18,6 +18,7 @@ export class DsMenuItemComponent {
   @Input() isFirst: boolean = false;
   @Input() disableMainMenus: boolean = false;
   @Input() href: string = '#';
+  @Input() isExternal: boolean = false;
   @Input() isActif: string = '/';
 
   @Output() onClick = new EventEmitter<void>();

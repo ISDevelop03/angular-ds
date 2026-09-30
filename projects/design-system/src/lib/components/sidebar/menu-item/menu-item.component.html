@@ -27,10 +27,23 @@
 
 <ng-template #linkTemplate>
   <a
-    [routerLink]="disableMainMenus ? null : href"
+    *ngIf="isExternal; else internalLink"
+    [href]="disableMainMenus ? null : href"
     (click)="handleLinkClick()"
     [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
   >
+    <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+  </a>
+  <ng-template #internalLink>
+    <a
+      [routerLink]="disableMainMenus ? null : href"
+      (click)="handleLinkClick()"
+      [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
+    >
+      <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+    </a>
+  </ng-template>
+  <ng-template #linkContent>
     <li [ngClass]="wrapperClass">
       <span
         *ngIf="!subSidebarIsOpen && title"
@@ -50,5 +63,5 @@
         <ds-icon *ngIf="icon" [id]="icon" class="shrink-0 size-4"></ds-icon>
       </span>
     </li>
-  </a>
+  </ng-template>
 </ng-template>
