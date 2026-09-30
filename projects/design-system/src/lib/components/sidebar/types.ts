@@ -17,6 +17,7 @@ export interface IMainMenu {
   icon?: string;
   color: string;
   href: string;
+  openInNewTab?: boolean;
   isExternal?: boolean;
   menus?: IMenus;
 }

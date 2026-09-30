@@ -20,6 +20,7 @@ export class DsMenuItemComponent {
   @Input() href: string = '#';
   @Input() isExternal: boolean = false;
   @Input() isActif: string = '/';
+  @Input() openInNewTab: boolean = false;
 
   @Output() onClick = new EventEmitter<void>();
   @Output() onLinkClick = new EventEmitter<string>();

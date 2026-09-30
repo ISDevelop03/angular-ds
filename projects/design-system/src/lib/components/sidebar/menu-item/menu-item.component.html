@@ -29,6 +29,7 @@
   <a
     *ngIf="isExternal; else internalLink"
     [href]="disableMainMenus ? null : href"
+    target="_blank"
     (click)="handleLinkClick()"
     [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
   >
@@ -37,6 +38,7 @@
   <ng-template #internalLink>
     <a
       [routerLink]="disableMainMenus ? null : href"
+      [target]="openInNewTab ? '_blank' : '_self'"
       (click)="handleLinkClick()"
       [ngClass]="['group', isFirst ? 'text-black' : 'text-white']"
     >

@@ -45,6 +45,7 @@
             [menus]="item.menus"
             [href]="item.href"
             [isExternal]="item.isExternal"
+            [openInNewTab]="item.openInNewTab"
             [isActif]="isActif"
             (onClick)="openSubSidebar(item.menus, i)"
             (onLinkClick)="setActif($event)"

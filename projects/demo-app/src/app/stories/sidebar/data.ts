@@ -81,6 +81,14 @@ export const mainMenusMOCKDATA: IMainMenu[] = [
       ],
     },
   },
+  {
+    title: 'Cash',
+    icon: 'frame1',
+    color: 'bg-yellow-500 dark:bg-yellow-500',
+    href: 'https://www.linkedin.com/feed/',
+    openInNewTab: true,
+    isExternal: true,
+  },
 ];
 
 export const LIST_MOCKDATA = [
