@@ -8,4 +8,112 @@
       [description]="description"
     ></ds-unhabilitated-widget>
   </div>
+
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            backgroundImage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            URL of the image that fills the widget behind the overlay. It is
+            rendered full size and covered by a dark scrim so the modal stays
+            readable.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            modalImage
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            URL of the illustration shown inside the centered modal, above the
+            title. Displayed at a fixed width of 176px.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Heading displayed inside the modal, under the illustration.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Supporting text shown under the title. Use it to explain why access
+            is unavailable and where the user can continue.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes applied to the root container.
+            Useful for custom spacing or layout adjustments.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
