@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NotificationSettingsComponent } from './components/notification-settings/notification-settings.component';
 import { UnhabilitatedWidgetComponent } from './components/unhabilitated-widget/unhabilitated-widget.component';
 import { FlatTooltipComponent } from './components/flat-tooltip/flat-tooltip.component';
 // Mes Cartes feature
@@ -260,6 +261,7 @@ registerLocaleData(localeFr, 'fr-FR');
     RechargeCardRowComponent,
     RechargeInitiationCardListComponent,
     UnhabilitatedWidgetComponent,
+    NotificationSettingsComponent,
   ],
   imports: [
     CommonModule,
@@ -386,6 +388,7 @@ registerLocaleData(localeFr, 'fr-FR');
     RechargeCardRowComponent,
     RechargeInitiationCardListComponent,
     UnhabilitatedWidgetComponent,
+    NotificationSettingsComponent,
   ],
 })
 export class DesignSystemModule { }

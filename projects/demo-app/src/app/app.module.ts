@@ -121,6 +121,8 @@ import {
   RechargeInitiationCardListStoryComponent,
   UnhabilitatedWidgetStoryComponent,
 
+  NotificationSettingsStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -255,6 +257,7 @@ export const pages: Routes = [
   { path: 'recharge-charger-carte', component: RechargeChargerCarteStoryComponent },
   { path: 'recharge-initiation-card-list', component: RechargeInitiationCardListStoryComponent },
   { path: 'unhabilitated-widget', component: UnhabilitatedWidgetStoryComponent },
+  { path: 'notification-settings', component: NotificationSettingsStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -386,6 +389,7 @@ const router = RouterModule.forRoot(pages);
     RechargeChargerCarteStoryComponent,
     RechargeInitiationCardListStoryComponent,
     UnhabilitatedWidgetStoryComponent,
+    NotificationSettingsStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

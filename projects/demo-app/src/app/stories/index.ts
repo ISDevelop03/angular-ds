@@ -215,3 +215,6 @@ export * from './recharge-initiation-card-list/recharge-initiation-card-list.sto
 
 // Auto-export for unhabilitated-widget stories
 export * from './unhabilitated-widget/unhabilitated-widget.stories';
+
+// Auto-export for notification-settings stories
+export * from './notification-settings/notification-settings.stories';

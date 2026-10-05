@@ -1,0 +1,147 @@
+<section class="flex flex-col gap-4 p-4 bg-crame-50">
+  <h2 class="text-2xl font-bold">NotificationSettings</h2>
+  <div class="flex flex-col gap-4">
+    <ds-notification-settings
+      [title]="'Paramétrer les notifications'"
+      [description]="'Un seul réglage, valable pour l\'ensemble des opérations concernées.'"
+      [notificationsEnabled]="true"
+      [notifications]="['Virement simple', 'Virement entre comptes', 'Virement entre comptes']"
+      (notificationsChange)="onNotificationsChange($event)"
+    ></ds-notification-settings>
+  </div>
+
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            title
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Heading displayed next to the settings icon at the top of the card.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            description
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Supporting text shown under the title. Use it to explain the scope
+            of the setting, for example that one toggle applies to every listed
+            operation.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            notificationsEnabled
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Whether notifications are currently enabled. Controls the toggle
+            state and the status label: <code>'Activées'</code> when
+            <code>true</code>, <code>'Désactivées'</code> when
+            <code>false</code>. Updated internally when the user flips the
+            toggle.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            notifications
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">[]</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Labels of the operations the user is notified about. Each item is
+            rendered as a bullet under <code>'Vous êtes notifié pour :'</code>.
+            An empty array renders the section with no bullets.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes applied to the root container.
+            Useful for custom spacing or layout adjustments.
+          </td>
+        </tr>
+
+        <tr class="bg-green-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Outputs (Events)
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            notificationsChange
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;boolean&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the user toggles notifications. The payload is the new
+            enabled state: <code>true</code> when notifications are turned on,
+            <code>false</code> when they are turned off.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
