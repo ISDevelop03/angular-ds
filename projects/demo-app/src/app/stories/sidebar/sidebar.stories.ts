@@ -29,7 +29,7 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
   disableBottomMenus: IDisableBottomMenus = {
     calling: true,
     reclamation: true,
-    accessibility: true,
+    accessibility: false,
     language: true,
     theme: true,
     settings: true,

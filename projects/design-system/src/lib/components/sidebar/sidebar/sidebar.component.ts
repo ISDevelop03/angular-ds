@@ -56,6 +56,11 @@ export class DsSidebarComponent implements OnInit, OnDestroy {
       .subscribe((event) => {
         this.setActif(event.urlAfterRedirects);
       });
+
+    const initialMenuIndex = this.mainMenus.findIndex((menu) => !!menu.menus);
+    if (initialMenuIndex !== -1) {
+      this.openSubSidebar(this.mainMenus[initialMenuIndex].menus, initialMenuIndex);
+    }
   }
 
   ngOnDestroy(): void {
