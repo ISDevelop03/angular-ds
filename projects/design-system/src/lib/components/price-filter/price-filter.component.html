@@ -37,7 +37,7 @@
     <div
       #menu
       @dropdownAnim
-      class="absolute mt-2 min-w-[350px] origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
+      class="absolute mt-2 origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
       style="box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.14)"
       [ngStyle]="menuStyles"
     >
@@ -45,14 +45,14 @@
         <ds-radio
           name="group1"
           value="debit"
-          label="Debit"
+          label="Débit"
           [(modelValue)]="selectedType"
           variant="default"
         ></ds-radio>
         <ds-radio
           name="group1"
           value="credit"
-          label="Credit"
+          label="Crédit"
           [(modelValue)]="selectedType"
           variant="default"
         ></ds-radio>
@@ -67,6 +67,7 @@
             [value]="displayPrice"
             (onInput)="onPriceInput($event)"
             (onKeydown)="onPriceKeydown($event)"
+            className="w-[200px]"
           ></ds-input>
         </div>
         <div *ngIf="isRange" class="flex items-center gap-2">
@@ -77,6 +78,7 @@
             [value]="displayPriceMin"
             (onInput)="onPriceInputMin($event)"
             (onKeydown)="onPriceKeydown($event)"
+            className="w-[130px]"
           ></ds-input>
           <ds-input
             placeholder="Max"
@@ -88,6 +90,7 @@
             [hasError]="
               selectedRange.max && selectedRange.max < selectedRange.min
             "
+            className="w-[130px]"
           ></ds-input>
         </div>
         <ds-button
