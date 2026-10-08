@@ -87,6 +87,7 @@
             <a
               *ngIf="item.isExternal; else internalMainTitle"
               [href]="item.href"
+              [target]="item.openInNewTab ? '_blank' : '_self'"
               (click)="setActif(item.href)"
               class="flex justify-between items-center w-full"
             >

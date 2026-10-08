@@ -57,9 +57,18 @@ export class DsSidebarComponent implements OnInit, OnDestroy {
         this.setActif(event.urlAfterRedirects);
       });
 
-    const initialMenuIndex = this.mainMenus.findIndex((menu) => !!menu.menus);
-    if (initialMenuIndex !== -1) {
-      this.openSubSidebar(this.mainMenus[initialMenuIndex].menus, initialMenuIndex);
+    const initialMenu = this.mainMenus.find((menu) => !!menu.menus);
+    if (initialMenu && initialMenu.menus) {
+      this.subSidebarIsOpen = true;
+      document.body.classList.add('main-menu-open');
+      this.subMenuData = initialMenu.menus;
+      this.openMainMenuIndex = -1;
+
+      this.onOpenSidebar.emit({
+        subMenuData: initialMenu.menus,
+        open: true,
+        openMainMenuIndex: -1,
+      });
     }
   }
 
