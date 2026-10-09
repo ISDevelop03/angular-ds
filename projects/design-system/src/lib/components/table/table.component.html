@@ -44,6 +44,7 @@
             *ngFor="let col of columns; let idx = index"
             [ngClass]="[
               theme[variant].headerCell,
+              'whitespace-nowrap',
               !col.sortable ? 'pb-2.5 pt-1.5' : 'py-2.5',
               idx === 0 && variant === 'default' && !selectionEnabled
                 ? 'rounded-l-md'

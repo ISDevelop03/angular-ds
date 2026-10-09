@@ -42,9 +42,6 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
 
   logo = '/assets/big-logo.png';
   miniLogo = '/assets/mini-logo.png';
-  subSidebarIsOpen = false;
-
-  subMenuData = mainMenusMOCKDATA[1].menus;
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
@@ -156,12 +153,6 @@ export class SidebarStoryComponent implements OnInit, OnDestroy {
       onClick: (item: any) => alert('Remove clicked' + JSON.stringify(item)),
     },
   ];
-
-  onOpenSidebar(payload: any) {
-    console.log('onOpenSidebar payload: ', payload);
-    this.subSidebarIsOpen = payload.open;
-    this.subMenuData = payload.subMenuData;
-  }
 
   currentCapSize: Cap = {
     name: 'M',

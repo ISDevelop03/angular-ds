@@ -73,9 +73,8 @@
       class="space-y-5 bg-level-2 rounded-l-lg transition-all duration-300 ease-in-out overflow-y-auto"
       [ngClass]="{
         'min-w-[260px] w-auto py-5 px-3.5 opacity-100 h-[calc(100%-24px)]':
-          subSidebarIsOpen && subMenuData?.items?.length > 0,
-        'w-0 p-0 opacity-0 h-[calc(100%-64px-14px)]':
-          !subSidebarIsOpen || !subMenuData?.items?.length
+          subSidebarIsOpen,
+        'w-0 p-0 opacity-0 h-[calc(100%-64px-14px)]': !subSidebarIsOpen
       }"
     >
       <div class="flex flex-col">

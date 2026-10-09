@@ -32,7 +32,7 @@ export class DsSidebarComponent implements OnInit, OnDestroy {
   };
   @Output() onThemeChange = new EventEmitter();
 
-  @Input() subSidebarIsOpen: boolean = false;
+  @Input() subSidebarIsOpen: boolean = true;
 
   @Output() callingOnClick = new EventEmitter();
   @Output() reclamationOnClick = new EventEmitter();
@@ -56,20 +56,6 @@ export class DsSidebarComponent implements OnInit, OnDestroy {
       .subscribe((event) => {
         this.setActif(event.urlAfterRedirects);
       });
-
-    const initialMenu = this.mainMenus.find((menu) => !!menu.menus);
-    if (initialMenu && initialMenu.menus) {
-      this.subSidebarIsOpen = true;
-      document.body.classList.add('main-menu-open');
-      this.subMenuData = initialMenu.menus;
-      this.openMainMenuIndex = -1;
-
-      this.onOpenSidebar.emit({
-        subMenuData: initialMenu.menus,
-        open: true,
-        openMainMenuIndex: -1,
-      });
-    }
   }
 
   ngOnDestroy(): void {
@@ -92,8 +78,6 @@ export class DsSidebarComponent implements OnInit, OnDestroy {
   openSubSidebar(menus: IMenus | undefined, idx: number): void {
     if (menus) {
       this.subSidebarIsOpen = true;
-      document.body.classList.add('main-menu-open');
-
       this.subMenuData = menus;
       this.openMainMenuIndex = this.openMainMenuIndex === idx ? -1 : idx;
 
