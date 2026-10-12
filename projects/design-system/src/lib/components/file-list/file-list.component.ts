@@ -34,6 +34,7 @@ export class FileListComponent implements OnDestroy {
   @Input() isPreviewable: boolean = false;
   @Input() maxHeight: number | undefined = undefined;
   @Input() showErrorButtonUpload: boolean = false;
+  @Input() showFileSize: boolean = true;
   @Output() onDelete = new EventEmitter();
   @Output() onReUpload = new EventEmitter();
   @Output() onDownload = new EventEmitter();

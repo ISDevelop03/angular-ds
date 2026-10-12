@@ -15,11 +15,17 @@
     ></ds-file-list>
   </div>
   <h3 class="text-2xl font-bold">Downloadable FileList with callback</h3>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-1">
     <ds-file-list
       [files]="downloadableFiles"
       [isDownloadable]="true"
       (onDownload)="onDownload($event)"
+    ></ds-file-list>
+    <ds-file-list
+      [files]="downloadableFiles"
+      [isDownloadable]="true"
+      (onDownload)="onDownload($event)"
+      [showFileSize]="false"
     ></ds-file-list>
   </div>
 
@@ -137,9 +143,8 @@
             <code class="text-sm">undefined</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Optional maximum height in pixels for the file list container.
-            When set, the list scrolls vertically once content exceeds this
-            height.
+            Optional maximum height in pixels for the file list container. When
+            set, the list scrolls vertically once content exceeds this height.
           </td>
         </tr>
         <tr>
@@ -211,8 +216,8 @@
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
             Emitted when the error report download button is clicked (only when
-            <code>showErrorButtonUpload</code> is <code>true</code> and the
-            file has errors). Provides the file ID (string). Use to generate or
+            <code>showErrorButtonUpload</code> is <code>true</code> and the file
+            has errors). Provides the file ID (string). Use to generate or
             download a validation error report.
           </td>
         </tr>
@@ -248,8 +253,8 @@
             uploaded file (only when <code>isPreviewable</code> is
             <code>true</code> and <code>isDownloadable</code> is
             <code>false</code>). The component also opens a built-in popup that
-            previews TXT and PDF files. Unsupported types show a
-            fallback message with a download action.
+            previews TXT and PDF files. Unsupported types show a fallback
+            message with a download action.
           </td>
         </tr>
       </tbody>
@@ -313,11 +318,11 @@
             Optional upload status that determines the visual state and
             available actions. Available options:
             <code>'uploading'</code> (shows a loading spinner),
-            <code>'success'</code> (shows success styling with optional
-            preview eye icon and delete/download button),
-            <code>'error'</code> (shows error styling with delete button,
-            expandable error messages, and optional error report download).
-            When not provided, displays a neutral state with file information.
+            <code>'success'</code> (shows success styling with optional preview
+            eye icon and delete/download button), <code>'error'</code> (shows
+            error styling with delete button, expandable error messages, and
+            optional error report download). When not provided, displays a
+            neutral state with file information.
           </td>
         </tr>
         <tr>
