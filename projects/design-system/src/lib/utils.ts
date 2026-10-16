@@ -46,7 +46,7 @@ export const formatMoney = (
 export const checkItemsMenu = <T>(items?: T[]) => items && items.length > 0;
 
 export const getFirstTwoLetters = (title: string): string => {
-  const titleWords = title.split(' ');
+  const titleWords = title.split(' ').filter(word => word !== "");
   if (titleWords.length === 1) {
     return `${titleWords[0][0]}`.toUpperCase();
   }
