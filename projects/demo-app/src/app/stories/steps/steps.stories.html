@@ -126,7 +126,6 @@
         [rightButtons]="rightButtons"
         title="Step 1"
         [data]="{test:'1'}"
-        [shouldGoNext]="step1Done"
       >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
@@ -146,8 +145,6 @@
         [leftButtons]="leftButtons1"
         [rightButtons]="rightButtons1"
         title="Step 2"
-        [shouldGoPrev]="true"
-        [shouldGoNext]="step2Done"
       >
         <ng-template>
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
@@ -216,6 +213,99 @@
           <div class="p-6 bg-level-4 border border-neutral-200 rounded">
             <p class="mb-4">Finish line.</p>
             <p class="text-green-600 font-semibold">All done! 🎉</p>
+          </div>
+        </ng-template>
+      </ds-step>
+    </ds-steps>
+  </div>
+  <h3 class="text-2xl font-bold mt-8">Default variant with sub-steps</h3>
+  <div class="grow flex flex-col gap-4">
+    <ds-steps
+      variant="default"
+      [currentStepIndex]="subStepStoryIndex"
+      title="Account setup"
+      class="h-[500px]"
+    >
+      <ds-step
+        (nextStep)="subStepStoryNext($event)"
+        (prevStep)="subStepStoryPrev($event)"
+        title="Profile"
+      >
+        <ds-sub-step
+          [data]="{ section: 'identity' }"
+          [shouldGoNext]="identityDone"
+          [leftButtons]="identityLeftButtons"
+          [rightButtons]="identityRightButtons"
+        >
+          <ng-template>
+            <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+              <p class="mb-4">Enter the account holder's identity.</p>
+              <button
+                class="px-3 py-1 bg-blue-500 text-white rounded"
+                (click)="identityDone = !identityDone"
+              >
+                {{ identityDone ? 'Identity done' : 'Mark identity done' }}
+              </button>
+            </div>
+          </ng-template>
+        </ds-sub-step>
+        <ds-sub-step
+          [data]="{ section: 'contact' }"
+          [shouldGoNext]="contactDone"
+          [leftButtons]="contactLeftButtons"
+          [rightButtons]="contactRightButtons"
+        >
+          <ng-template>
+            <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+              <p class="mb-4">Add a phone number and email.</p>
+              <button
+                class="px-3 py-1 bg-blue-500 text-white rounded"
+                (click)="contactDone = !contactDone"
+              >
+                {{ contactDone ? 'Contact done' : 'Mark contact done' }}
+              </button>
+            </div>
+          </ng-template>
+        </ds-sub-step>
+      </ds-step>
+      <ds-step
+        (nextStep)="subStepStoryNext($event)"
+        (prevStep)="subStepStoryPrev($event)"
+        title="Preferences"
+        [shouldGoNext]="preferencesDone"
+      >
+        <ds-sub-step
+          title="Notifications"
+          [shouldGoNext]="preferencesDone"
+          [leftButtons]="notificationsLeftButtons"
+          [rightButtons]="notificationsRightButtons"
+        >
+          <ng-template>
+            <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+              <p class="mb-4">Choose how this account should be notified.</p>
+              <button
+                class="px-3 py-1 bg-blue-500 text-white rounded"
+                (click)="preferencesDone = !preferencesDone"
+              >
+                {{ preferencesDone ? 'Notifications done' : 'Mark notifications
+                done' }}
+              </button>
+            </div>
+          </ng-template>
+        </ds-sub-step>
+      </ds-step>
+      <ds-step
+        (nextStep)="subStepStoryNext($event)"
+        (prevStep)="subStepStoryPrev($event)"
+        [leftButtons]="finishLeftButtons"
+        [rightButtons]="finishRightButtons"
+        title="Finish"
+        [shouldGoPrev]="true"
+      >
+        <ng-template>
+          <div class="p-6 bg-level-4 border border-neutral-200 rounded">
+            <p class="mb-4">Review is complete.</p>
+            <p class="text-green-600 font-semibold">Account setup finished.</p>
           </div>
         </ng-template>
       </ds-step>
