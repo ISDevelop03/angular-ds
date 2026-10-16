@@ -19,4 +19,5 @@ export interface SignataireItem {
 export class SignataireListComponent {
   @Input() items: any[] = [];
   @Input() className?: string = '';
+  @Input() variant?: 'gray' | 'white' = 'gray';
 }
