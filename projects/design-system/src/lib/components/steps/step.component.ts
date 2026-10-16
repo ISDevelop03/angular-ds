@@ -3,11 +3,14 @@ import {
   Component,
   Input,
   ContentChild,
+  ContentChildren,
   TemplateRef,
   EventEmitter,
   Output,
+  QueryList,
 } from '@angular/core';
 import { StepButton } from './steps.component';
+import { SubStepComponent } from './subStep.component';
 
 /**
  * @ignore
@@ -22,26 +25,9 @@ export class StepComponent {
   @Input() shouldGoPrev: boolean = true;
   @Input() data: any;
 
-  @Input() leftButtons: StepButton[] = [
-    {
-      variant: 'gray',
-      content: 'Prev',
-      onClick: (btn) => {
-        console.log('this is prev ', btn);
-      },
-    },
-  ];
+  @Input() leftButtons: StepButton[] = [];
 
-  @Input() rightButtons: StepButton[] = [
-    {
-      variant: 'primary',
-      content: 'Next',
-      pill: true,
-      onClick: (btn) => {
-        console.log('this is next ', btn);
-      },
-    },
-  ];
+  @Input() rightButtons: StepButton[] = [];
 
   /** Emitted when advancing to a new step */
   @Output() nextStep = new EventEmitter<{
@@ -60,4 +46,7 @@ export class StepComponent {
   }>();
 
   @ContentChild(TemplateRef) contentTemplate!: TemplateRef<any>;
+
+  /** Nested <ds-sub-step> children projected into this step */
+  @ContentChildren(SubStepComponent) subSteps!: QueryList<SubStepComponent>;
 }

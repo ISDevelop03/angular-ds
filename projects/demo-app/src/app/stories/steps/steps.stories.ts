@@ -8,11 +8,16 @@ export class StepsStoryComponent {
   @Input() label: string = 'steps';
   @Input() className?: string = '';
 
-  currentStepIndex = 4;
+  currentStepIndex = 0;
   step1Done = false;
   step2Done = false;
   step3Done = false;
   step4Done = false;
+
+  subStepStoryIndex = 0;
+  identityDone = false;
+  contactDone = false;
+  preferencesDone = false;
 
   cancel = () => {
     this.step1Done = false;
@@ -79,6 +84,93 @@ export class StepsStoryComponent {
       },
     },
   ];
+
+  resetSubSteps = () => {
+    this.subStepStoryIndex = 0;
+    this.identityDone = false;
+    this.contactDone = false;
+    this.preferencesDone = false;
+  };
+
+  identityLeftButtons = [
+    {
+      variant: 'secondary',
+      content: 'Cancel',
+      disableHandleStep: true,
+      onClick: () => this.resetSubSteps(),
+    },
+  ];
+
+  identityRightButtons = [
+    {
+      variant: 'primary',
+      content: 'Continue',
+      onClick: () => {},
+    },
+  ];
+
+  contactLeftButtons = [
+    {
+      variant: 'secondary',
+      content: 'Cancel',
+      disableHandleStep: true,
+      onClick: () => this.resetSubSteps(),
+    },
+    {
+      variant: 'secondary',
+      content: 'Back',
+      onClick: () => {},
+    },
+  ];
+
+  contactRightButtons = [
+    {
+      variant: 'primary',
+      content: 'Save contact',
+      onClick: () => {},
+    },
+  ];
+
+  notificationsLeftButtons = [
+    {
+      variant: 'secondary',
+      content: 'Back',
+      onClick: () => {},
+    },
+  ];
+
+  notificationsRightButtons = [
+    {
+      variant: 'primary',
+      content: 'Finish',
+      onClick: () => {},
+    },
+  ];
+
+  finishLeftButtons = [
+    {
+      variant: 'secondary',
+      content: 'Review',
+      onClick: () => {},
+    },
+  ];
+
+  finishRightButtons = [
+    {
+      variant: 'primary',
+      content: 'Done',
+      disableHandleStep: true,
+      onClick: () => this.resetSubSteps(),
+    },
+  ];
+
+  subStepStoryNext(event: any) {
+    this.subStepStoryIndex = event.currentIndex;
+  }
+
+  subStepStoryPrev(event: any) {
+    this.subStepStoryIndex = event.currentIndex;
+  }
 
   prevStepHandler(event: any) {
     this.currentStepIndex = event.currentIndex;

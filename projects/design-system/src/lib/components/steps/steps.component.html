@@ -17,16 +17,16 @@
             variant === 'default'
               ? 'before:border-success-500 before:border-solid'
               : i === currentStepIndex && variant === 'default'
-              ? 'before:border-amber-500 before:border-dashed'
-              : i < currentStepIndex - 1 && variant === 'vertical'
-              ? 'before:border-success-500 before:border-solid'
-              : i < currentStepIndex &&
-                i === steps.toArray().length - 2 &&
-                variant === 'vertical'
-              ? 'before:border-success-500 before:border-solid'
-              : i === currentStepIndex - 1 && variant === 'vertical'
-              ? 'before:border-amber-500 before:border-dashed'
-              : 'before:border-neutral-200 before:border-dashed',
+                ? 'before:border-amber-500 before:border-dashed'
+                : i < currentStepIndex - 1 && variant === 'vertical'
+                  ? 'before:border-success-500 before:border-solid'
+                  : i < currentStepIndex &&
+                      i === steps.toArray().length - 2 &&
+                      variant === 'vertical'
+                    ? 'before:border-success-500 before:border-solid'
+                    : i === currentStepIndex - 1 && variant === 'vertical'
+                      ? 'before:border-amber-500 before:border-dashed'
+                      : 'before:border-neutral-200 before:border-dashed',
             isLast && variant === 'default'
               ? 'before:w-[150%]'
               : 'before:w-full'
@@ -42,8 +42,8 @@
                 i < currentStepIndex || (isLast && i === currentStepIndex)
                   ? 'bg-success-500 border-success-500 text-white'
                   : i === currentStepIndex
-                  ? 'bg-level-4 border-amber-500 text-amber-500'
-                  : 'bg-level-4 border-neutral-200 text-neutral-400'
+                    ? 'bg-level-4 border-amber-500 text-amber-500'
+                    : 'bg-level-4 border-neutral-200 text-neutral-400'
               ]"
             >
               <!-- COMPLETED: all steps before current, + the very last when active -->
@@ -77,8 +77,8 @@
               i < currentStepIndex || (isLast && i === currentStepIndex)
                 ? 'font-normal text-neutral-700'
                 : i === currentStepIndex
-                ? 'font-bold text-amber-500'
-                : 'font-normal text-neutral-700'
+                  ? 'font-bold text-amber-500'
+                  : 'font-normal text-neutral-700'
             "
           >
             {{ step.title }}
@@ -87,17 +87,17 @@
       </ul>
     </div>
     <div class="{{ theme.contentWrapper }}">
-      <!-- Step content -->
-      <ng-container
-        *ngTemplateOutlet="steps.toArray()[currentStepIndex].contentTemplate"
-      ></ng-container>
+      <!-- Step content, or the active sub-step when the step has children -->
+      <ng-container *ngIf="displayedTemplate">
+        <ng-container *ngTemplateOutlet="displayedTemplate"></ng-container>
+      </ng-container>
     </div>
   </div>
   <div *ngIf="showNavigation" class="{{ theme.navigationWrapper }}">
     <!-- Navigation buttons -->
     <div class="flex justify-end gap-2">
       <ds-button
-        *ngFor="let button of steps.toArray()[currentStepIndex].leftButtons"
+        *ngFor="let button of activeLeftButtons"
         [variant]="button.variant"
         [icon]="button.icon"
         [iconRight]="button.iconRight"
@@ -109,9 +109,7 @@
         [size]="button.size || 'normal'"
         (onClick)="goPrev($event, button)"
         [disabled]="
-          button.disabled === undefined
-            ? !steps.toArray()[currentStepIndex].shouldGoPrev
-            : button.disabled
+          button.disabled === undefined ? !activeShouldGoPrev : button.disabled
         "
       >
         {{ button.content }}
@@ -119,7 +117,7 @@
     </div>
     <div class="flex justify-end gap-2">
       <ds-button
-        *ngFor="let button of steps.toArray()[currentStepIndex].rightButtons"
+        *ngFor="let button of activeRightButtons"
         [variant]="button.variant"
         [icon]="button.icon"
         [iconRight]="button.iconRight"
@@ -131,9 +129,7 @@
         [size]="button.size || 'normal'"
         (onClick)="goNext($event, button)"
         [disabled]="
-          button.disabled === undefined
-            ? !steps.toArray()[currentStepIndex].shouldGoNext
-            : button.disabled
+          button.disabled === undefined ? !activeShouldGoNext : button.disabled
         "
       >
         {{ button.content }}
