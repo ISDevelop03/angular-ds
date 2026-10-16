@@ -1,0 +1,76 @@
+<button
+  type="button"
+  id="ds-onbording-video"
+  [ngClass]="[theme.trigger, className]"
+  [style.borderRadius]="'12px'"
+  [style.backgroundColor]="'#1b3a32'"
+  [attr.aria-label]="imageAlt"
+  (click)="open()"
+>
+  <img
+    *ngIf="imageSrc"
+    [src]="imageSrc"
+    [alt]="imageAlt"
+    [ngClass]="theme.image"
+  />
+  <span *ngIf="!imageSrc" class="absolute inset-0 block"></span>
+  <span [ngClass]="theme.play" aria-hidden="true">
+    <svg
+      width="76"
+      height="54"
+      viewBox="0 0 68 48"
+      xmlns="http://www.w3.org/2000/svg"
+      style="filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35))"
+    >
+      <path
+        fill="#FF0000"
+        d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"
+      />
+      <path fill="#FFFFFF" d="M45 24 27 14v20z" />
+    </svg>
+  </span>
+</button>
+
+<ng-template #playerTpl>
+  <div [ngClass]="theme.backdrop" role="presentation">
+    <div [ngClass]="theme.overlay" (click)="close()"></div>
+
+    <div
+      [ngClass]="theme.dialog"
+      style="width: min(90vw, 56rem, calc((100vh - 96px) * 16 / 9))"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Video"
+    >
+      <button
+        type="button"
+        [ngClass]="theme.close"
+        style="top: -44px; right: 0"
+        (click)="close()"
+        aria-label="Close video"
+      >
+        <ds-icon id="close" size="20px" class="text-white"></ds-icon>
+      </button>
+
+      <div [ngClass]="theme.frame">
+        <iframe
+          *ngIf="safeEmbedUrl"
+          [src]="safeEmbedUrl"
+          [ngClass]="theme.player"
+          title="Video"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowfullscreen
+        ></iframe>
+        <video
+          *ngIf="useNativePlayer"
+          [src]="videoUrl"
+          [ngClass]="theme.player"
+          controls
+          autoplay
+          playsinline
+          (canplay)="playNative($event)"
+        ></video>
+      </div>
+    </div>
+  </div>
+</ng-template>

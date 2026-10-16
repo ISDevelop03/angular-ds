@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OnbordingVideoComponent } from './components/onbording-video/onbording-video.component';
 import { OnbordingSliderComponent } from './components/onbording-slider/onbording-slider.component';
 import { OnbordingSlideComponent } from './components/onbording-slider/onbording-slide.component';
 import { NotificationSettingsComponent } from './components/notification-settings/notification-settings.component';
@@ -268,6 +269,7 @@ registerLocaleData(localeFr, 'fr-FR');
     NotificationSettingsComponent,
     OnbordingSliderComponent,
     OnbordingSlideComponent,
+    OnbordingVideoComponent,
   ],
   imports: [
     CommonModule,
@@ -398,6 +400,7 @@ registerLocaleData(localeFr, 'fr-FR');
     NotificationSettingsComponent,
     OnbordingSliderComponent,
     OnbordingSlideComponent,
+    OnbordingVideoComponent,
   ],
 })
 export class DesignSystemModule { }

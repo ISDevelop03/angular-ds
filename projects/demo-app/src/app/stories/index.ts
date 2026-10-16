@@ -221,3 +221,6 @@ export * from './notification-settings/notification-settings.stories';
 
 // Auto-export for onbording-slider stories
 export * from './onbording-slider/onbording-slider.stories';
+
+// Auto-export for onbording-video stories
+export * from './onbording-video/onbording-video.stories';

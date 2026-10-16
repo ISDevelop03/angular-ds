@@ -1,0 +1,123 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">OnbordingVideo</h2>
+  <p class="text-gray-600">
+    Pass a thumbnail with <code>imageSrc</code> and a video with
+    <code>videoUrl</code>. Clicking the YouTube icon opens a 16:9 popup and
+    plays the video. YouTube and Vimeo links open as embeds. A file URL plays
+    in a video player.
+  </p>
+
+  <div class="flex flex-col gap-8">
+    <div class="w-full max-w-[400px]">
+      <p class="mb-2 text-sm font-semibold text-neutral-600">YouTube</p>
+      <ds-onbording-video
+        [imageSrc]="imageSrc"
+        [videoUrl]="youtubeUrl"
+        imageAlt="Play the YouTube video"
+      ></ds-onbording-video>
+    </div>
+
+    <div class="w-full max-w-[400px]">
+      <p class="mb-2 text-sm font-semibold text-neutral-600">Video file</p>
+      <ds-onbording-video
+        [imageSrc]="imageSrc"
+        [videoUrl]="fileUrl"
+        imageAlt="Play the video file"
+      ></ds-onbording-video>
+    </div>
+  </div>
+
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            videoUrl
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Video to play when the thumbnail is clicked. A YouTube
+            (<code>watch</code>, <code>youtu.be</code>, <code>embed</code>,
+            <code>shorts</code>) or Vimeo link opens in an embed. Any other URL
+            plays in a native video element.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            imageSrc
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Thumbnail image shown behind the YouTube play icon.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            imageAlt
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'Play video'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Accessible name for the thumbnail button and alt text for the
+            image.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional classes added to the thumbnail button, for width or extra
+            layout.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

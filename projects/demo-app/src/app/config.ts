@@ -301,4 +301,5 @@ export const menus: Menu[] = [
   { key: 'unhabilitated-widget', name: 'UnhabilitatedWidget', path: '/unhabilitated-widget' },
   { key: 'notification-settings', name: 'NotificationSettings', path: '/notification-settings' },
   { key: 'onbording-slider', name: 'OnbordingSlider', path: '/onbording-slider' },
+  { key: 'onbording-video', name: 'OnbordingVideo', path: '/onbording-video' },
 ];
