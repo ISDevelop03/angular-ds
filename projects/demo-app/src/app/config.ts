@@ -300,4 +300,5 @@ export const menus: Menu[] = [
   { key: 'recharge-initiation-card-list', name: 'Recharge Initiation Card List', path: '/recharge-initiation-card-list' },
   { key: 'unhabilitated-widget', name: 'UnhabilitatedWidget', path: '/unhabilitated-widget' },
   { key: 'notification-settings', name: 'NotificationSettings', path: '/notification-settings' },
+  { key: 'onbording-slider', name: 'OnbordingSlider', path: '/onbording-slider' },
 ];

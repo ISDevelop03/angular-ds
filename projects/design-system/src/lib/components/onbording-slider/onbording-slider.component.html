@@ -1,0 +1,57 @@
+<section id="ds-onbording-slider" [ngClass]="[theme.wrapper, className]">
+  <div [ngClass]="theme.viewport">
+    <div
+      [ngClass]="theme.track"
+      [style.transform]="'translateX(-' + activeIndex * 100 + '%)'"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <div *ngIf="showDots && dotIndexes.length > 1" [ngClass]="theme.dots">
+    <button
+      type="button"
+      (click)="prev()"
+      [disabled]="activeIndex === 0"
+      [ngClass]="activeIndex === 0 ? theme.arrowDisabled : theme.arrow"
+      aria-label="Previous slide"
+    >
+      <ds-icon
+        id="arrow-left"
+        size="12px"
+        [class]="activeIndex === 0 ? theme.arrowIconDisabled : theme.arrowIcon"
+      ></ds-icon>
+    </button>
+
+    <button
+      *ngFor="let dotIndex of dotIndexes"
+      type="button"
+      (click)="goTo(dotIndex)"
+      [attr.aria-label]="'Go to slide ' + (dotIndex + 1)"
+      [attr.aria-current]="dotIndex === activeIndex ? 'true' : null"
+      [ngClass]="dotIndex === activeIndex ? theme.dotActive : theme.dot"
+    ></button>
+
+    <button
+      type="button"
+      (click)="next()"
+      [disabled]="activeIndex === dotIndexes.length - 1"
+      [ngClass]="
+        activeIndex === dotIndexes.length - 1
+          ? theme.arrowDisabled
+          : theme.arrow
+      "
+      aria-label="Next slide"
+    >
+      <ds-icon
+        id="arrow-right"
+        size="12px"
+        [class]="
+          activeIndex === dotIndexes.length - 1
+            ? theme.arrowIconDisabled
+            : theme.arrowIcon
+        "
+      ></ds-icon>
+    </button>
+  </div>
+</section>

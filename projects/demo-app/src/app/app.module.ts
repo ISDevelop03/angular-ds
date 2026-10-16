@@ -123,6 +123,8 @@ import {
 
   NotificationSettingsStoryComponent,
 
+  OnbordingSliderStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -258,6 +260,7 @@ export const pages: Routes = [
   { path: 'recharge-initiation-card-list', component: RechargeInitiationCardListStoryComponent },
   { path: 'unhabilitated-widget', component: UnhabilitatedWidgetStoryComponent },
   { path: 'notification-settings', component: NotificationSettingsStoryComponent },
+  { path: 'onbording-slider', component: OnbordingSliderStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -390,6 +393,7 @@ const router = RouterModule.forRoot(pages);
     RechargeInitiationCardListStoryComponent,
     UnhabilitatedWidgetStoryComponent,
     NotificationSettingsStoryComponent,
+    OnbordingSliderStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

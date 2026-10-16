@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OnbordingSliderComponent } from './components/onbording-slider/onbording-slider.component';
+import { OnbordingSlideComponent } from './components/onbording-slider/onbording-slide.component';
 import { NotificationSettingsComponent } from './components/notification-settings/notification-settings.component';
 import { UnhabilitatedWidgetComponent } from './components/unhabilitated-widget/unhabilitated-widget.component';
 import { FlatTooltipComponent } from './components/flat-tooltip/flat-tooltip.component';
@@ -135,6 +137,7 @@ import { PaymentCardComponent } from './components/cards/payment-card/payment-ca
 // Auto-import for steps component
 import { StepsComponent } from './components/steps/steps.component';
 import { StepComponent } from './components/steps/step.component';
+import { SubStepComponent } from './components/steps/subStep.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -206,6 +209,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PaymentCardComponent,
     StepsComponent,
     StepComponent,
+    SubStepComponent,
     PaymentDetailsCardComponent,
     AccountsSelectComponent,
     UploadFileComponent,
@@ -262,6 +266,8 @@ registerLocaleData(localeFr, 'fr-FR');
     RechargeInitiationCardListComponent,
     UnhabilitatedWidgetComponent,
     NotificationSettingsComponent,
+    OnbordingSliderComponent,
+    OnbordingSlideComponent,
   ],
   imports: [
     CommonModule,
@@ -331,6 +337,7 @@ registerLocaleData(localeFr, 'fr-FR');
     PaymentCardComponent,
     StepsComponent,
     StepComponent,
+    SubStepComponent,
     PaymentDetailsCardComponent,
     AccountsSelectComponent,
     UploadFileComponent,
@@ -389,6 +396,8 @@ registerLocaleData(localeFr, 'fr-FR');
     RechargeInitiationCardListComponent,
     UnhabilitatedWidgetComponent,
     NotificationSettingsComponent,
+    OnbordingSliderComponent,
+    OnbordingSlideComponent,
   ],
 })
 export class DesignSystemModule { }

@@ -218,3 +218,6 @@ export * from './unhabilitated-widget/unhabilitated-widget.stories';
 
 // Auto-export for notification-settings stories
 export * from './notification-settings/notification-settings.stories';
+
+// Auto-export for onbording-slider stories
+export * from './onbording-slider/onbording-slider.stories';

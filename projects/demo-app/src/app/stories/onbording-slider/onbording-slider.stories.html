@@ -1,0 +1,178 @@
+<section class="flex flex-col gap-4 p-4">
+  <h2 class="text-2xl font-bold">OnbordingSlider</h2>
+
+  <ds-onbording-slider className="w-full max-w-[400px] bg-level-2 p-4">
+    <ds-onbording-slide>
+      <p class="text-base font-semibold text-white">Slide 1</p>
+    </ds-onbording-slide>
+
+    <ds-onbording-slide active="true">
+      <p class="text-base font-semibold text-white">Slide 2</p>
+    </ds-onbording-slide>
+
+    <ds-onbording-slide>
+      <p class="text-base font-semibold text-white">Slide 3</p>
+    </ds-onbording-slide>
+  </ds-onbording-slider>
+
+  <!-- API Documentation Table -->
+  <h3 class="text-2xl font-bold mt-8"># API Reference</h3>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Component Inputs -->
+        <tr class="bg-blue-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Component Inputs
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            className
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">string</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">''</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Optional additional CSS classes to apply to the slider container.
+            Useful for custom styling or layout adjustments (e.g., setting max
+            width and padding:
+            <code>w-full max-w-[400px] bg-level-2 p-4</code>).
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            showDots
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">true</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            When <code>true</code>, displays pagination dots and previous/next
+            arrows when more than one <code>ds-onbording-slide</code> is
+            projected. When <code>false</code>, the navigation row is hidden.
+            Dots jump to a slide; arrows move one slide at a time and are
+            disabled on the first and last slides.
+          </td>
+        </tr>
+        <tr class="bg-yellow-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Content Projection
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            ds-onbording-slide
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">ng-content</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <strong>Required.</strong> Project one or more
+            <code>ds-onbording-slide</code> elements. The slider shows one slide
+            at a time. Each slide can host any HTML or component. See the
+            <strong>OnbordingSlide</strong> section below for details.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- OnbordingSlide Documentation -->
+  <h3 class="text-2xl font-bold mt-8"># OnbordingSlide</h3>
+  <p class="text-gray-600 mb-4">
+    <code>ds-onbording-slide</code> is one screen projected into
+    <code>ds-onbording-slider</code>. The slider handles layout, the active
+    slide, and the dots.
+  </p>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300 bg-white">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Property
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Type
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Default
+          </th>
+          <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            active
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">boolean</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">false</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            Selects this slide when the slider loads. Set
+            <code>active</code> or <code>[active]="true"</code> on the slide
+            that should be visible first. The slider then keeps this in sync as
+            the user moves between slides. When no slide is marked active, the
+            first slide is shown.
+          </td>
+        </tr>
+        <tr class="bg-yellow-50">
+          <td
+            colspan="4"
+            class="border border-gray-300 px-4 py-2 font-bold text-lg"
+          >
+            Content Projection
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            ng-content
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Any content projected inside the slide (HTML, text, or components).
+            That content is the body of the slide.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
