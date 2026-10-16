@@ -11,7 +11,7 @@ export const badge = {
   variants: {
     default: 'bg-neutral-50 dark:bg-neutral-50 text-neutral-500',
     amber: 'bg-amber-50 text-amber-500',
-    blue: 'bg-blue-50 text-blue-500',
+    blue: 'bg-[#E6F4EF] dark:bg-[#245140] text-success-500',
     green: 'bg-[#E6F4EF] dark:bg-[#245140] text-success-500',
     red: 'bg-red-50 dark:bg-[#460809] text-red-500',
     orange: 'bg-amber-500 text-black',

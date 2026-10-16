@@ -57,6 +57,31 @@
     </ds-onbording-stepper>
   </div>
 
+  <h3 class="mt-8 text-2xl font-bold">Open variant</h3>
+  <p class="max-w-3xl text-gray-600">
+    <code>variant="open"</code> shows every step. Markers stay numbered, and no
+    step is marked completed.
+  </p>
+
+  <div class="w-full max-w-[440px] rounded-2xl bg-level-1 p-6">
+    <ds-onbording-stepper variant="open">
+      <ds-onbording-step title="Confirmation du numéro">
+        <p>
+          Nous vous envoyons un code à 6 chiffres par SMS sur le numéro associé
+          à votre compte.
+        </p>
+      </ds-onbording-step>
+
+      <ds-onbording-step title="Téléchargement de l'application">
+        <p>Installez MYBUSINESS PASS sur votre téléphone.</p>
+      </ds-onbording-step>
+
+      <ds-onbording-step title="Activation du soft token">
+        <p>Saisissez le code reçu pour activer votre soft token.</p>
+      </ds-onbording-step>
+    </ds-onbording-stepper>
+  </div>
+
   <h3 class="mt-8 text-2xl font-bold"># API Reference</h3>
 
   <div class="overflow-x-auto">
@@ -98,6 +123,22 @@
           </td>
           <td class="border border-gray-300 px-4 py-2">
             Optional CSS classes on the stepper container.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            variant
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default' | 'open'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">'default'</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code>default</code> shows one active step, marks earlier steps
+            completed, and mutes the rest. <code>open</code> shows every step's
+            content and keeps every marker numbered.
           </td>
         </tr>
         <tr>
@@ -201,7 +242,9 @@
           <td class="border border-gray-300 px-4 py-2">
             <strong>Required.</strong> Project one
             <code>ds-onbording-step</code> per step. Each step can host any HTML
-            or component. That content is shown only while the step is active.
+            or component. In the default variant that content is shown only
+            while the step is active. In the <code>open</code> variant every
+            step shows its content.
           </td>
         </tr>
       </tbody>
@@ -264,8 +307,9 @@
           <td class="border border-gray-300 px-4 py-2">-</td>
           <td class="border border-gray-300 px-4 py-2">
             Any content projected inside the step (HTML, text, or components).
-            It is the body of that step and appears only when the step is
-            active.
+            It is the body of that step. The default variant shows it only
+            while the step is active. The <code>open</code> variant shows it
+            for every step.
           </td>
         </tr>
       </tbody>

@@ -17,8 +17,8 @@ import { ONBORDING_STEPPER_THEME } from './theme';
  * OnbordingStepperComponent
  *
  * Vertical stepper. Each `ds-onbording-step` can host any component.
- * The active step shows its content. Earlier steps show a check.
- * Later steps show a muted title.
+ * The default variant shows the active step, checks earlier steps, and mutes later ones.
+ * The `open` variant shows every step and keeps the numbered markers.
  *
  * Live demo:
  * <example-url>/demo/ds-onbording-stepper.component.html</example-url>
@@ -39,6 +39,7 @@ export class OnbordingStepperComponent
   theme = ONBORDING_STEPPER_THEME.default;
 
   private _activeIndex = 0;
+  private _variant: 'default' | 'open' = 'default';
   private stepsReady = false;
   private stepsSub: Subscription;
 
@@ -61,6 +62,23 @@ export class OnbordingStepperComponent
 
   get activeIndex(): number {
     return this._activeIndex;
+  }
+
+  /** `default` tracks progress. `open` shows every step and never marks one complete. */
+  @Input()
+  set variant(value: string) {
+    var next: 'default' | 'open' = value === 'open' ? 'open' : 'default';
+    if (next === this._variant && this.stepsReady) {
+      return;
+    }
+    this._variant = next;
+    if (this.stepsReady) {
+      this.syncSteps();
+    }
+  }
+
+  get variant(): string {
+    return this._variant;
   }
 
   ngAfterContentInit(): void {
@@ -117,7 +135,9 @@ export class OnbordingStepperComponent
       var step = list[stepIndex];
       step.index = stepIndex;
       step.isLast = stepIndex === list.length - 1;
-      if (stepIndex < index) {
+      if (this._variant === 'open') {
+        step.status = 'open';
+      } else if (stepIndex < index) {
         step.status = 'done';
       } else if (stepIndex === index) {
         step.status = 'active';

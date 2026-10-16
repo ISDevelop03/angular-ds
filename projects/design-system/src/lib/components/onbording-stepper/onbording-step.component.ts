@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ONBORDING_STEPPER_THEME } from './theme';
 
-export type OnbordingStepStatus = 'active' | 'done' | 'upcoming';
+export type OnbordingStepStatus = 'active' | 'done' | 'upcoming' | 'open';
 
 /**
  * One step projected into `ds-onbording-stepper`.
- * Any component can be placed inside. Only the active step shows its content.
+ * Any component can be placed inside. The default variant shows that content
+ * on the active step. The open variant shows it on every step.
  * @ignore
  */
 @Component({
@@ -35,7 +36,7 @@ export class OnbordingStepComponent {
     var state = this.theme.markerUpcoming;
     if (this.status === 'done') {
       state = this.theme.markerDone;
-    } else if (this.status === 'active') {
+    } else if (this.status === 'active' || this.status === 'open') {
       state = this.theme.markerActive;
     }
     return this.theme.marker + ' ' + state;
@@ -45,7 +46,7 @@ export class OnbordingStepComponent {
     var state = this.theme.titleUpcoming;
     if (this.status === 'done') {
       state = this.theme.titleDone;
-    } else if (this.status === 'active') {
+    } else if (this.status === 'active' || this.status === 'open') {
       state = this.theme.titleActive;
     }
     return this.theme.title + ' ' + state;
@@ -56,7 +57,7 @@ export class OnbordingStepComponent {
   }
 
   get contentClass(): string {
-    return this.status === 'active'
+    return this.status === 'active' || this.status === 'open'
       ? this.theme.content
       : this.theme.contentHidden;
   }
