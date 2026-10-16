@@ -46,8 +46,9 @@ export class OnbordingStepperComponent
   constructor(private cd: ChangeDetectorRef) {}
 
   @Input()
-  set activeIndex(value: number | string) {
-    var parsed = typeof value === 'number' ? value : parseInt(value, 10);
+  set activeIndex(value: number) {
+    var raw = value as number | string;
+    var parsed = typeof raw === 'number' ? raw : parseInt(raw, 10);
     if (isNaN(parsed)) {
       parsed = 0;
     }

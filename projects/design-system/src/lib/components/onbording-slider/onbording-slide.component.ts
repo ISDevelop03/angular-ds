@@ -24,8 +24,9 @@ export class OnbordingSlideComponent {
   theme = ONBORDING_SLIDER_THEME.default;
 
   @Input()
-  set active(value: boolean | string) {
-    const next = value === true || value === 'true';
+  set active(value: boolean) {
+    const raw = value as boolean | string;
+    const next = raw === true || raw === 'true';
     const changed = next !== this._active;
     this._active = next;
     if (changed && next && !this.activeFromParent && this.onActivated) {
