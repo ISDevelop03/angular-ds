@@ -3,8 +3,8 @@
   <p class="text-gray-600">
     Pass a thumbnail with <code>imageSrc</code> and a video with
     <code>videoUrl</code>. Clicking the YouTube icon opens a 16:9 popup and
-    plays the video. YouTube and Vimeo links open as embeds. A file URL plays
-    in a video player.
+    plays the video. YouTube and Vimeo links open as embeds. A file URL plays in
+    a video player.
   </p>
 
   <div class="flex flex-col gap-8">
@@ -14,15 +14,6 @@
         [imageSrc]="imageSrc"
         [videoUrl]="youtubeUrl"
         imageAlt="Play the YouTube video"
-      ></ds-onbording-video>
-    </div>
-
-    <div class="w-full max-w-[400px]">
-      <p class="mb-2 text-sm font-semibold text-neutral-600">Video file</p>
-      <ds-onbording-video
-        [imageSrc]="imageSrc"
-        [videoUrl]="fileUrl"
-        imageAlt="Play the video file"
       ></ds-onbording-video>
     </div>
   </div>
@@ -98,8 +89,7 @@
             <code class="text-sm">'Play video'</code>
           </td>
           <td class="border border-gray-300 px-4 py-2">
-            Accessible name for the thumbnail button and alt text for the
-            image.
+            Accessible name for the thumbnail button and alt text for the image.
           </td>
         </tr>
         <tr>
