@@ -127,6 +127,8 @@ import {
 
   OnbordingVideoStoryComponent,
 
+  OnbordingStepperStoryComponent,
+
 } from './stories';
 // import { DesignSystemModule } from 'mybusiness-design-system';
 import { DesignSystemModule } from 'projects/design-system/src/lib/design-system.module';
@@ -264,6 +266,7 @@ export const pages: Routes = [
   { path: 'notification-settings', component: NotificationSettingsStoryComponent },
   { path: 'onbording-slider', component: OnbordingSliderStoryComponent },
   { path: 'onbording-video', component: OnbordingVideoStoryComponent },
+  { path: 'onbording-stepper', component: OnbordingStepperStoryComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -398,6 +401,7 @@ const router = RouterModule.forRoot(pages);
     NotificationSettingsStoryComponent,
     OnbordingSliderStoryComponent,
     OnbordingVideoStoryComponent,
+    OnbordingStepperStoryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

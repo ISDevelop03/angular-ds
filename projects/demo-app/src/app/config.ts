@@ -302,4 +302,5 @@ export const menus: Menu[] = [
   { key: 'notification-settings', name: 'NotificationSettings', path: '/notification-settings' },
   { key: 'onbording-slider', name: 'OnbordingSlider', path: '/onbording-slider' },
   { key: 'onbording-video', name: 'OnbordingVideo', path: '/onbording-video' },
+  { key: 'onbording-stepper', name: 'OnbordingStepper', path: '/onbording-stepper' },
 ];

@@ -1,5 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OnbordingStepperComponent } from './components/onbording-stepper/onbording-stepper.component';
+import { OnbordingStepComponent } from './components/onbording-stepper/onbording-step.component';
 import { OnbordingVideoComponent } from './components/onbording-video/onbording-video.component';
 import { OnbordingSliderComponent } from './components/onbording-slider/onbording-slider.component';
 import { OnbordingSlideComponent } from './components/onbording-slider/onbording-slide.component';
@@ -270,6 +272,8 @@ registerLocaleData(localeFr, 'fr-FR');
     OnbordingSliderComponent,
     OnbordingSlideComponent,
     OnbordingVideoComponent,
+    OnbordingStepperComponent,
+    OnbordingStepComponent,
   ],
   imports: [
     CommonModule,
@@ -401,6 +405,8 @@ registerLocaleData(localeFr, 'fr-FR');
     OnbordingSliderComponent,
     OnbordingSlideComponent,
     OnbordingVideoComponent,
+    OnbordingStepperComponent,
+    OnbordingStepComponent,
   ],
 })
 export class DesignSystemModule { }

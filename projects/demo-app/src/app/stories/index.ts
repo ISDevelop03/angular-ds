@@ -224,3 +224,6 @@ export * from './onbording-slider/onbording-slider.stories';
 
 // Auto-export for onbording-video stories
 export * from './onbording-video/onbording-video.stories';
+
+// Auto-export for onbording-stepper stories
+export * from './onbording-stepper/onbording-stepper.stories';

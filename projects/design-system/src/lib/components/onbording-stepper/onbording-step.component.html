@@ -1,0 +1,19 @@
+<div [ngClass]="theme.rail">
+  <span [ngClass]="markerClass">
+    <ds-icon
+      *ngIf="status === 'done'"
+      id="check"
+      size="18px"
+      class="text-white"
+    ></ds-icon>
+    <span *ngIf="status !== 'done'">{{ index + 1 }}</span>
+  </span>
+  <span *ngIf="!isLast" [ngClass]="theme.line" aria-hidden="true"></span>
+</div>
+
+<div [ngClass]="bodyClass">
+  <p [ngClass]="titleClass">{{ title }}</p>
+  <div [ngClass]="contentClass">
+    <ng-content></ng-content>
+  </div>
+</div>
