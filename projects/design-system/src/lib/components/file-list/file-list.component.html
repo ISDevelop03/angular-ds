@@ -185,35 +185,87 @@
               >
             </button>
 
-            <div
-              *ngIf="isErrorVisible(file.file.id)"
-              class="mt-2 relative"
-              [ngClass]="{
-                'max-h-0 overflow-hidden': !isErrorVisible(file.file.id),
-                'max-h-[108px] overflow-hidden': isErrorVisible(file.file.id)
-              }"
-              style="transition: max-height 0.3s ease-in-out"
-            >
-              <div class="max-h-[108px] overflow-y-auto">
-                <ul class="space-y-1">
-                  <li
-                    *ngFor="let error of file.errors"
-                    class="flex items-start gap-2 text-rose-700"
-                  >
-                    <ds-icon
-                      id="dash"
-                      size="16px"
-                      class="text-error-500 mt-0.5 flex-shrink-0"
-                    ></ds-icon>
-                    <span class="text-sm">{{ error }}</span>
-                  </li>
-                </ul>
-              </div>
+            <div *ngIf="isErrorVisible(file.file.id)" class="mt-2">
+              <ul class="space-y-1">
+                <li
+                  *ngFor="
+                    let error of getPagedErrors(file.file.id, file.errors)
+                  "
+                  class="flex items-start gap-2 text-rose-700"
+                >
+                  <ds-icon
+                    id="dash"
+                    size="16px"
+                    class="text-error-500 mt-0.5 flex-shrink-0"
+                  ></ds-icon>
+                  <span class="text-sm">{{ error }}</span>
+                </li>
+              </ul>
               <div
-                *ngIf="file.errors!.length > 4"
-                class="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F9E6E7] to-transparent"
-                aria-hidden="true"
-              ></div>
+                *ngIf="getTotalErrorPages(file.errors) > 1"
+                class="mt-2 flex items-center gap-x-1 text-sm select-none"
+              >
+                <button
+                  type="button"
+                  class="pr-1.5 text-gray-500 hover:text-black disabled:opacity-30 disabled:cursor-default"
+                  aria-label="Page précédente"
+                  [disabled]="getErrorPage(file.file.id, file.errors) === 1"
+                  (click)="
+                    setErrorPage(
+                      file.file.id,
+                      getErrorPage(file.file.id, file.errors) - 1,
+                      file.errors
+                    )
+                  "
+                >
+                  <ds-icon id="arrow-left" size="12px"></ds-icon>
+                </button>
+                <ng-container
+                  *ngFor="
+                    let item of getErrorPageItems(file.file.id, file.errors)
+                  "
+                >
+                  <span *ngIf="item === null" class="px-1 text-gray-400"
+                    >…</span
+                  >
+                  <button
+                    *ngIf="item !== null"
+                    type="button"
+                    class="px-1.5"
+                    [ngClass]="
+                      item === getErrorPage(file.file.id, file.errors)
+                        ? 'font-semibold text-primary-500'
+                        : 'text-gray-500 hover:text-black'
+                    "
+                    [attr.aria-current]="
+                      item === getErrorPage(file.file.id, file.errors)
+                        ? 'page'
+                        : null
+                    "
+                    (click)="setErrorPage(file.file.id, item, file.errors)"
+                  >
+                    {{ item }}
+                  </button>
+                </ng-container>
+                <button
+                  type="button"
+                  class="pl-1.5 text-gray-500 hover:text-black disabled:opacity-30 disabled:cursor-default"
+                  aria-label="Page suivante"
+                  [disabled]="
+                    getErrorPage(file.file.id, file.errors) ===
+                    getTotalErrorPages(file.errors)
+                  "
+                  (click)="
+                    setErrorPage(
+                      file.file.id,
+                      getErrorPage(file.file.id, file.errors) + 1,
+                      file.errors
+                    )
+                  "
+                >
+                  <ds-icon id="arrow-right" size="12px"></ds-icon>
+                </button>
+              </div>
             </div>
           </div>
         </div>

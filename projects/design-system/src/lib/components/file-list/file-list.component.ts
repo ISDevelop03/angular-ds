@@ -49,6 +49,8 @@ export class FileListComponent implements OnDestroy {
   safePreviewUrl: SafeResourceUrl | null = null;
 
   private errorVisibilityMap = new Map<string, boolean>();
+  private errorPageMap = new Map<string, number>();
+  readonly errorsPageSize = 10;
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -57,12 +59,54 @@ export class FileListComponent implements OnDestroy {
   }
 
   isErrorVisible(fileId: string): boolean {
-    return this.errorVisibilityMap.get(fileId) || false;
+    const state = this.errorVisibilityMap.get(fileId);
+    return state === undefined ? true : state;
   }
 
   toggleErrors(fileId: string) {
-    const currentState = this.errorVisibilityMap.get(fileId) || false;
+    const currentState = this.isErrorVisible(fileId);
     this.errorVisibilityMap.set(fileId, !currentState);
+  }
+
+  getTotalErrorPages(errors: string[] | null | undefined): number {
+    const total = errors ? errors.length : 0;
+    return Math.max(1, Math.ceil(total / this.errorsPageSize));
+  }
+
+  getErrorPage(fileId: string, errors: string[] | null | undefined): number {
+    const page = this.errorPageMap.get(fileId) || 1;
+    return Math.min(page, this.getTotalErrorPages(errors));
+  }
+
+  getPagedErrors(fileId: string, errors: string[] | null | undefined): string[] {
+    if (!errors) {
+      return [];
+    }
+    const start = (this.getErrorPage(fileId, errors) - 1) * this.errorsPageSize;
+    return errors.slice(start, start + this.errorsPageSize);
+  }
+
+  setErrorPage(fileId: string, page: number, errors: string[] | null | undefined) {
+    const totalPages = this.getTotalErrorPages(errors);
+    this.errorPageMap.set(fileId, Math.min(Math.max(1, page), totalPages));
+  }
+
+  /** Page numbers to display; `null` stands for an ellipsis. */
+  getErrorPageItems(fileId: string, errors: string[] | null | undefined): (number | null)[] {
+    const total = this.getTotalErrorPages(errors);
+    const current = this.getErrorPage(fileId, errors);
+    const items: (number | null)[] = [];
+    let last = 0;
+    for (let p = 1; p <= total; p++) {
+      if (p === 1 || p === total || Math.abs(p - current) <= 1) {
+        if (last && p - last > 1) {
+          items.push(null);
+        }
+        items.push(p);
+        last = p;
+      }
+    }
+    return items;
   }
 
   removeFile(fileId: string) {

@@ -22,6 +22,13 @@ export class FileListStoryComponent {
     );
   }
 
+  // 1000 generated errors, used to test rendering of very long error lists.
+  // Must be declared before `files` since property initializers run in order.
+  manyErrors: string[] = Array.from(
+    { length: 1000 },
+    (_, i) => `Le champ année sur la ligne ${i + 1} doit être numérique`
+  );
+
   files: UploadedFiles[] = [
     {
       file: Object.assign(
@@ -46,7 +53,7 @@ export class FileListStoryComponent {
         { id: 'file-1' }
       ),
       status: 'error',
-      errors: ['Le champ année sur la ligne 34 doit être numérique', 'Le champ année sur la ligne 34 doit être numérique', 'Le champ puissance fiscale sur la ligne 87 ne doit pas dépasser 4 caractères', 'Format de fichier non supporté', 'Taille de fichier trop importante', 'Fichier corrompu ou endommagé', 'Erreur de validation des données', "Problème d'encodage détecté", 'Format de date invalide'],
+      errors: this.manyErrors,
       //errors: ['Le champ année sur la ligne 34 doit être numérique', 'Le champ année sur la ligne 34 doit être numérique', 'Le champ puissance fiscale sur la ligne 87 ne doit pas dépasser 4 caractères'],
     },
 
