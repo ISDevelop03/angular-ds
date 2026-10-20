@@ -1,13 +1,14 @@
 <ul
   class="w-full space-y-3.5 [&_li]:cursor-pointer text-white flex justify-center items-center flex-col pb-6"
 >
-  <hr class="w-1/2 border-[#355A57] mx-auto" />
+  <!-- <hr class="w-1/2 border-[#355A57] mx-auto" /> -->
 
-  <li
+  <!-- <li
     (click)="callingOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.calling
+      'cursor-not-allowed opacity-50 pointer-events-none':
+        disableBottomMenus.calling
     }"
   >
     <ds-icon
@@ -21,12 +22,13 @@
     >
       Besoin d'assistance
     </span>
-  </li>
-  <li
+  </li> -->
+  <!-- <li
     (click)="reclamationOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.reclamation
+      'cursor-not-allowed opacity-50 pointer-events-none':
+        disableBottomMenus.reclamation
     }"
   >
     <ds-icon
@@ -40,15 +42,19 @@
     >
       Avez-vous une réclamation ?
     </span>
-  </li>
+  </li> -->
   <li
     *ngIf="sizes.length > 0"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.accessibility
+      'cursor-not-allowed opacity-50 pointer-events-none':
+        disableBottomMenus.accessibility
     }"
   >
-    <button (click)="capsClick($event)" [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.accessibility }">
+    <button
+      (click)="capsClick($event)"
+      [ngClass]="{ 'cursor-not-allowed': disableBottomMenus.accessibility }"
+    >
       <ds-icon id="smallcaps" class="size-4"></ds-icon>
     </button>
     <span
@@ -73,11 +79,12 @@
     </ul>
   </li>
 
-  <li
+  <!-- <li
     (click)="languageOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.language
+      'cursor-not-allowed opacity-50 pointer-events-none':
+        disableBottomMenus.language
     }"
   >
     <img
@@ -95,12 +102,13 @@
     >
       Choix de langue
     </span>
-  </li>
+  </li> -->
 
-  <li
+  <!-- <li
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.theme
+      'cursor-not-allowed opacity-50 pointer-events-none':
+        disableBottomMenus.theme
     }"
   >
     <ds-theme-toggle
@@ -113,13 +121,14 @@
     >
       Mode Sombre
     </span>
-  </li>
+  </li> -->
 
-  <li
+  <!-- <li
     (click)="settingsOnClick.emit($event)"
     class="flex items-center justify-center group relative"
     [ngClass]="{
-      'cursor-not-allowed opacity-50 pointer-events-none': disableBottomMenus.settings
+      'cursor-not-allowed opacity-50 pointer-events-none':
+        disableBottomMenus.settings
     }"
   >
     <ds-icon
@@ -133,7 +142,7 @@
     >
       Paramètres
     </span>
-  </li>
+  </li> -->
 
   <hr class="w-1/2 border-[#355A57] mx-auto" />
 

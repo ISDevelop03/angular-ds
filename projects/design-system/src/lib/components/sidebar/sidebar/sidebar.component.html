@@ -86,8 +86,8 @@
             <a
               *ngIf="item.isExternal; else internalMainTitle"
               [href]="item.href"
-              [target]="item.openInNewTab ? '_blank' : '_self'"
               (click)="setActif(item.href)"
+              [target]="item.openInNewTab ? '_blank' : '_self'"
               class="flex justify-between items-center w-full"
             >
               <ng-container *ngTemplateOutlet="mainMenuTitle"></ng-container>
@@ -96,6 +96,7 @@
               <a
                 [routerLink]="item.href"
                 (click)="setActif(item.href)"
+                [target]="item.openInNewTab ? '_blank' : '_self'"
                 class="flex justify-between items-center w-full"
               >
                 <ng-container *ngTemplateOutlet="mainMenuTitle"></ng-container>
