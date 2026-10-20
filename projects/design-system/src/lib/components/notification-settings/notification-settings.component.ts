@@ -18,6 +18,12 @@ export class NotificationSettingsComponent {
 
   @Output() notificationsChange = new EventEmitter<boolean>();
 
+  @Output() onClose = new EventEmitter<void>();
+
+  handleClose() {
+    this.onClose.emit();
+  }
+
   onNotificationsChange(enabled: boolean) {
     this.notificationsEnabled = enabled;
     this.notificationsChange.emit(this.notificationsEnabled);

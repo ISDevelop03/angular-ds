@@ -8,6 +8,10 @@ export class NotificationSettingsStoryComponent {
   @Input() label: string = 'notification-settings';
   @Input() className?: string = '';
 
+  onClose() {
+    console.log('close');
+  }
+
   onNotificationsChange(enabled: boolean) {
     console.log(enabled);
   }

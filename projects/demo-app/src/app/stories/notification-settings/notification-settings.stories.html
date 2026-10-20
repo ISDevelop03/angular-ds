@@ -7,6 +7,7 @@
       [notificationsEnabled]="true"
       [notifications]="['Virement simple', 'Virement entre comptes', 'Virement entre comptes']"
       (notificationsChange)="onNotificationsChange($event)"
+      (onClose)="onClose()"
     ></ds-notification-settings>
   </div>
 
@@ -83,8 +84,12 @@
             Whether notifications are currently enabled. Controls the toggle
             state and the status label: <code>'Activées'</code> when
             <code>true</code>, <code>'Désactivées'</code> when
-            <code>false</code>. Updated internally when the user flips the
-            toggle.
+            <code>false</code>. It also drives the list card: when enabled the
+            heading reads <code>'Vous êtes notifié pour :'</code> with green
+            bullets; when disabled it reads
+            <code>'Vous ne serez pas notifié pour :'</code> and the items are
+            shown in gray with a strikethrough. Updated internally when the
+            user flips the toggle.
           </td>
         </tr>
         <tr>
@@ -139,6 +144,20 @@
             Emitted when the user toggles notifications. The payload is the new
             enabled state: <code>true</code> when notifications are turned on,
             <code>false</code> when they are turned off.
+          </td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-mono text-sm">
+            onClose
+          </td>
+          <td class="border border-gray-300 px-4 py-2">
+            <code class="text-sm">EventEmitter&lt;void&gt;</code>
+          </td>
+          <td class="border border-gray-300 px-4 py-2">-</td>
+          <td class="border border-gray-300 px-4 py-2">
+            Emitted when the user clicks the close button in the top-right
+            corner of the card. It carries no payload; use it to hide or
+            dismiss the component.
           </td>
         </tr>
       </tbody>
