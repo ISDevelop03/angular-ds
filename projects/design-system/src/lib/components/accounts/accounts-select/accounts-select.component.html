@@ -177,12 +177,45 @@
     #optionsContainer
     [ngStyle]="mergedStyles"
     [ngClass]="theme[variant].element.options.container"
+    (scroll)="onOptionsScroll()"
   >
     <ng-container *ngIf="filteredItems.length > 0; else emptyState">
+      <!-- Small lists: render every option -->
+      <ng-container *ngIf="!isVirtual; else virtualList">
+        <ng-container
+          *ngFor="let item of filteredItems; trackBy: trackByValue"
+        >
+          <ng-container
+            *ngTemplateOutlet="
+              optionRow;
+              context: { $implicit: item, virtual: false }
+            "
+          ></ng-container>
+        </ng-container>
+      </ng-container>
+
+      <!-- Long lists: only render the options inside the viewport (+ buffer) -->
+      <ng-template #virtualList>
+        <div [style.height.px]="topPadding" aria-hidden="true"></div>
+        <ng-container *ngFor="let item of visibleItems; trackBy: trackByValue">
+          <ng-container
+            *ngTemplateOutlet="
+              optionRow;
+              context: { $implicit: item, virtual: true }
+            "
+          ></ng-container>
+        </ng-container>
+        <div [style.height.px]="bottomPadding" aria-hidden="true"></div>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #optionRow let-item let-virtual="virtual">
       <div
-        *ngFor="let item of filteredItems"
         (click)="item.unavailable ? null : selectOption(item)"
         class="relative after:absolute after:-left-1 after:w-0.5 after:h-1/2 after:top-1/2 after:-translate-y-1/2 after:rounded-r border-b border-stroke-1 last-of-type:border-b-0"
+        [style.height.px]="virtual ? rowHeight : null"
+        [class.box-border]="virtual"
+        [class.overflow-hidden]="virtual"
         [ngClass]="[
           theme[variant].element.options.element,
           item.unavailable
@@ -301,7 +334,7 @@
           </div>
         </div>
       </div>
-    </ng-container>
+    </ng-template>
 
     <ng-template #emptyState>
       <div class="p-2 px-4 text-gray-600">{{ emptyLabel }}</div>
