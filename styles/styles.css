@@ -3809,6 +3809,11 @@ video {
   background-color: rgb(var(--color-red-200) / var(--tw-bg-opacity, 1)) !important;
 }
 
+.bg-\[\#00BC7D\] {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(0 188 125 / var(--tw-bg-opacity, 1)) !important;
+}
+
 .bg-\[\#252627\] {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(37 38 39 / var(--tw-bg-opacity, 1)) !important;
@@ -3983,6 +3988,11 @@ video {
 .bg-gray-200 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(235 237 239 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(79 89 105 / var(--tw-bg-opacity, 1)) !important;
 }
 
 .bg-gray-50 {
@@ -4223,16 +4233,6 @@ video {
 .bg-zinc-200 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1)) !important;
-}
-
-.bg-\[\#00BC7D\] {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(0 188 125 / var(--tw-bg-opacity, 1)) !important;
-}
-
-.bg-gray-400 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(79 89 105 / var(--tw-bg-opacity, 1)) !important;
 }
 
 .bg-opacity-50 {
@@ -6998,22 +6998,6 @@ bs-daterangepicker-container {
   color: #fff;
   opacity: 0.5;
   transition: 0s;
-}
-
-.marker\:text-\[\#00BC7D\] *::marker {
-  color: rgb(0 188 125 ) !important;
-}
-
-.marker\:text-gray-400 *::marker {
-  color: rgb(79 89 105 ) !important;
-}
-
-.marker\:text-\[\#00BC7D\]::marker {
-  color: rgb(0 188 125 ) !important;
-}
-
-.marker\:text-gray-400::marker {
-  color: rgb(79 89 105 ) !important;
 }
 
 .placeholder\:text-\[0\.75rem\]\/\[1\.125rem\]::-moz-placeholder {
