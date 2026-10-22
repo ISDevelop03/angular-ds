@@ -68,7 +68,7 @@ export class PriceFilterComponent implements OnChanges {
   displayPrice: string = '';
   placeholder: string = '';
 
-  selectedRange: { min: number, max: number } = { min: null, max: null };
+  selectedRange: { min: number | null, max: number | null } = { min: null, max: null };
   displayPriceMin: string = '';
   displayPriceMax: string = '';
 
@@ -173,6 +173,7 @@ export class PriceFilterComponent implements OnChanges {
       vh = window.innerHeight;
 
     let top = t.bottom;
+    console.log('t.bottom:', t.bottom);
     if (t.bottom + mH > vh) {
       top = t.top - mH;
     }
@@ -256,13 +257,27 @@ export class PriceFilterComponent implements OnChanges {
     event.preventDefault();
   }
 
+  /** Formats the integer part; keeps "0" as a valid value but returns '' for empty input. */
+  private formatInteger(
+    rawInteger: string,
+    strippedInteger: string,
+    hasDecimalSeparator: boolean
+  ): string {
+    if (rawInteger === '' && !hasDecimalSeparator) {
+      return '';
+    }
+    return Number(strippedInteger || 0)
+      .toLocaleString('fr-FR')
+      .replace(/\u202f/g, ' ');
+  }
+
   onPriceInput(event: Event): void {
     const input = event.target as HTMLInputElement;
     let rawValue = input.value.replace(/[^\d,]/g, '');
     const parts = rawValue.split(',');
     let integerPart = parts[0].replace(/^0+/, '') || '';
     let decimalPart = parts[1] ? parts[1].slice(0, 2) : '';
-    integerPart = Number(integerPart).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
+    integerPart = this.formatInteger(parts[0], integerPart, parts.length > 1);
     this.displayPrice =
       decimalPart !== undefined && parts.length > 1
         ? `${integerPart},${decimalPart}`
@@ -277,7 +292,7 @@ export class PriceFilterComponent implements OnChanges {
     const parts = rawValue.split(',');
     let integerPart = parts[0].replace(/^0+/, '') || '';
     let decimalPart = parts[1] ? parts[1].slice(0, 2) : '';
-    integerPart = Number(integerPart).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
+    integerPart = this.formatInteger(parts[0], integerPart, parts.length > 1);
     this.displayPriceMin =
       decimalPart !== undefined && parts.length > 1
         ? `${integerPart},${decimalPart}`
@@ -291,7 +306,7 @@ export class PriceFilterComponent implements OnChanges {
     const parts = rawValue.split(',');
     let integerPart = parts[0].replace(/^0+/, '') || '';
     let decimalPart = parts[1] ? parts[1].slice(0, 2) : '';
-    integerPart = Number(integerPart).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
+    integerPart = this.formatInteger(parts[0], integerPart, parts.length > 1);
     this.displayPriceMax =
       decimalPart !== undefined && parts.length > 1
         ? `${integerPart},${decimalPart}`
@@ -312,11 +327,31 @@ export class PriceFilterComponent implements OnChanges {
     this.onSelect.emit(null);
   }
 
+  private isFilled(value: number | null | undefined): value is number {
+    return value !== null && value !== undefined;
+  }
+
+  get canSubmit(): boolean {
+    return (
+      this.isFilled(this.selectedPrice) ||
+      (this.isFilled(this.selectedRange.min) &&
+        this.isFilled(this.selectedRange.max))
+    );
+  }
+
+  get hasRangeError(): boolean {
+    return (
+      this.isFilled(this.selectedRange.min) &&
+      this.isFilled(this.selectedRange.max) &&
+      this.selectedRange.max < this.selectedRange.min
+    );
+  }
+
   handleSelect() {
     //place holder for the selected price or range
-    if (this.selectedPrice) {
+    if (this.isFilled(this.selectedPrice)) {
       this.placeholder = this.formatPrice(this.selectedPrice);
-    } else if (this.selectedRange.min && this.selectedRange.max) {
+    } else if (this.isFilled(this.selectedRange.min) && this.isFilled(this.selectedRange.max)) {
       this.placeholder = `${this.formatPrice(this.selectedRange.min)} - ${this.formatPrice(this.selectedRange.max)}`;
     }
 

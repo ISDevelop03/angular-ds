@@ -37,7 +37,7 @@
     <div
       #menu
       @dropdownAnim
-      class="absolute mt-2 origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
+      class="fixed mt-2 origin-top-right focus:outline-none rounded-lg p-4 border border-stroke-1 bg-level-3"
       style="box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.14)"
       [ngStyle]="menuStyles"
     >
@@ -87,24 +87,20 @@
             [value]="displayPriceMax"
             (onInput)="onPriceInputMax($event)"
             (onKeydown)="onPriceKeydown($event)"
-            [hasError]="
-              selectedRange.max && selectedRange.max < selectedRange.min
-            "
+            [hasError]="hasRangeError"
             className="w-[130px]"
           ></ds-input>
         </div>
         <ds-button
           variant="primary"
           (click)="handleSelect()"
-          [disabled]="
-            !(selectedPrice || (selectedRange.min && selectedRange.max))
-          "
+          [disabled]="!canSubmit"
         >
           Valider
         </ds-button>
       </div>
       <div
-        *ngIf="selectedRange.max && selectedRange.max < selectedRange.min"
+        *ngIf="hasRangeError"
         class="text-red-500 text-xs mt-1"
       >
         Le montant max doit être supérieur au montant min
